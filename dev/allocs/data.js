@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775474287854,
+  "lastUpdate": 1775486701272,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -7161,6 +7161,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15885,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 535949,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5826,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f0eabbe1001a8bae4619bf0872c68539003bc8ca",
+          "message": "feat: coverage gap improvements and MCP integration\n\n- Add suppress-file action to coverage gap JSON output for incremental adoption\n- Filter CSS/SCSS/LESS/SASS files from coverage gap analysis (not testable)\n- Group barrel file re-exports in human output (collapse >10 exports per file)\n- Add coverage_gaps param to MCP health tool with description update",
+          "timestamp": "2026-04-06T16:43:37+02:00",
+          "tree_id": "cc7a7021c6e739fa32f2b7d6b784ed09f762b3f0",
+          "url": "https://github.com/fallow-rs/fallow/commit/f0eabbe1001a8bae4619bf0872c68539003bc8ca"
+        },
+        "date": 1775486699972,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3584951,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15869,
             "unit": "allocations"
           },
           {
