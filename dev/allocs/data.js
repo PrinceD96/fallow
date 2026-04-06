@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775474065299,
+  "lastUpdate": 1775474199819,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -7073,6 +7073,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15863,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 535949,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5826,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "fede7734a7708f05d79bd3ff863091c7c5b1381f",
+          "message": "docs: add coverage-gaps to schema, docs, and stable flags list",
+          "timestamp": "2026-04-06T13:13:42+02:00",
+          "tree_id": "d19ab1281cf238c2052eb3511b67f7ef806c5b90",
+          "url": "https://github.com/fallow-rs/fallow/commit/fede7734a7708f05d79bd3ff863091c7c5b1381f"
+        },
+        "date": 1775474199020,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3589007,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15875,
             "unit": "allocations"
           },
           {
