@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775487143303,
+  "lastUpdate": 1775488751557,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -7293,6 +7293,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15895,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 535949,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5826,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ee2a012538ca83af772fa0bd87a7d3ef9a28bb93",
+          "message": "test: add integration test for coverage-gaps inline suppression\n\nVerifies that `// fallow-ignore-file coverage-gaps` excludes a file\nand its exports from coverage gap analysis end-to-end.",
+          "timestamp": "2026-04-06T17:17:48+02:00",
+          "tree_id": "b35275bb72554cc68c5bacac3d5100d0ec05c02e",
+          "url": "https://github.com/fallow-rs/fallow/commit/ee2a012538ca83af772fa0bd87a7d3ef9a28bb93"
+        },
+        "date": 1775488750866,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3582255,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15867,
             "unit": "allocations"
           },
           {
