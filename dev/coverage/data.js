@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775499712409,
+  "lastUpdate": 1775499976042,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -6432,6 +6432,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4bdb26a6ae0c90b99945a56f95f70f88def04245"
         },
         "date": 1775499711732,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "kamilthedev@gmail.com",
+            "name": "Kamil",
+            "username": "KamilDev"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "949316dd543825d8ad1ec0992415039aa821fecf",
+          "message": "fix: use dunce::canonicalize to avoid \\?\\ path prefix on Windows (#55)",
+          "timestamp": "2026-04-06T20:25:00+02:00",
+          "tree_id": "4e1a65ae2d493c70c97a1392752a0638b41c589e",
+          "url": "https://github.com/fallow-rs/fallow/commit/949316dd543825d8ad1ec0992415039aa821fecf"
+        },
+        "date": 1775499974601,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
