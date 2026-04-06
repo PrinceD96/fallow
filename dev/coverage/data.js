@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775499976042,
+  "lastUpdate": 1775500138435,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -6461,6 +6461,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/949316dd543825d8ad1ec0992415039aa821fecf"
         },
         "date": 1775499974601,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b3c5a2e5e8ddfd16887045224b44513d8b4bfccf",
+          "message": "docs: update rules for SFC template tracking and detection improvements",
+          "timestamp": "2026-04-06T20:27:43+02:00",
+          "tree_id": "2623a4006757b903615c33007bd75f0f243e4eb6",
+          "url": "https://github.com/fallow-rs/fallow/commit/b3c5a2e5e8ddfd16887045224b44513d8b4bfccf"
+        },
+        "date": 1775500137846,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
