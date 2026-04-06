@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775511624967,
+  "lastUpdate": 1775512225768,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -7865,6 +7865,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 16144,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 537549,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5826,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "21e62ef76d6815b6b77a992c05a0119530f34094",
+          "message": "fix: normalize Windows path separators in health coverage-gaps tests\n\nBackslash paths on Windows caused 3 coverage-gaps test assertions to\nfail. Normalize at the collection point with .replace('\\\\', \"/\") so\nends_with/contains checks work cross-platform.",
+          "timestamp": "2026-04-06T23:48:58+02:00",
+          "tree_id": "6271baf285760342c4d5d42ea1aa730ecbc47f9f",
+          "url": "https://github.com/fallow-rs/fallow/commit/21e62ef76d6815b6b77a992c05a0119530f34094"
+        },
+        "date": 1775512224515,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3609700,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 16108,
             "unit": "allocations"
           },
           {
