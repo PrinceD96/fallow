@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775459901529,
+  "lastUpdate": 1775474045703,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -6084,6 +6084,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c78e241a27479311715dedcc0d8984bed19a4ec1"
         },
         "date": 1775459900865,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "80669b3be214442eecf11be73a2beecdc7eeff0a",
+          "message": "feat: add static coverage gaps to health (#53)\n\nfeat: add static coverage gaps to health",
+          "timestamp": "2026-04-06T13:12:58+02:00",
+          "tree_id": "1af722df2d997da5666ed7be4df0bd686e6896d9",
+          "url": "https://github.com/fallow-rs/fallow/commit/80669b3be214442eecf11be73a2beecdc7eeff0a"
+        },
+        "date": 1775474045078,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
