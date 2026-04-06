@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775499539498,
+  "lastUpdate": 1775499848835,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
@@ -4112,6 +4112,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/da2dc07b4718a9331880bea23705c3b593eea056"
         },
         "date": 1775499538189,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 145425744,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4bdb26a6ae0c90b99945a56f95f70f88def04245",
+          "message": "fix: bump CACHE_VERSION to 20 for SFC template extraction changes",
+          "timestamp": "2026-04-06T20:20:41+02:00",
+          "tree_id": "1470ce28f39fc28ed720ba0d3bb594643e63d462",
+          "url": "https://github.com/fallow-rs/fallow/commit/4bdb26a6ae0c90b99945a56f95f70f88def04245"
+        },
+        "date": 1775499847973,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
