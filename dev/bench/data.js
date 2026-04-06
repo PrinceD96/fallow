@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775457073299,
+  "lastUpdate": 1775459975052,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
@@ -17183,6 +17183,102 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2519369,
             "range": "± 10580",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "648d91f5881a848de6189cb5de659e2f1bb78243",
+          "message": "fix: prevent false positive unused exports from namespace exports (#52)\n\nTypeScript namespace inner exports (e.g., `export namespace Foo { export function bar() {} }`)\nwere incorrectly extracted as independent top-level module exports, causing them to be reported\nas unused even when accessed via `Foo.bar()`.\n\nThree interacting bugs:\n- TSModuleDeclaration always used push_type_export (type-only), even for runtime namespaces\n- AST walker descended into namespace body, extracting inner exports as flat top-level exports\n- Member accesses like Foo.bar() were never matched back to the leaked inner exports\n\nFix: track namespace nesting depth during extraction. Inner exports are now collected as\nMemberInfo entries (NamespaceMember kind) on the namespace's ExportInfo, not as separate\ntop-level exports. Runtime namespaces (no `declare`) are correctly marked as non-type-only.",
+          "timestamp": "2026-04-06T09:15:24+02:00",
+          "tree_id": "ef33fb35393add8b81c93fe291c4e068e6b7cc82",
+          "url": "https://github.com/fallow-rs/fallow/commit/648d91f5881a848de6189cb5de659e2f1bb78243"
+        },
+        "date": 1775459973814,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 44249,
+            "range": "± 1220",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 1666528,
+            "range": "± 35658",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 3016776,
+            "range": "± 46786",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 16692619,
+            "range": "± 554693",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 105027,
+            "range": "± 1585",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2000,
+            "range": "± 9",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 212685,
+            "range": "± 4178",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 913195,
+            "range": "± 17430",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1713266,
+            "range": "± 46714",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 532369,
+            "range": "± 12369",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4265269,
+            "range": "± 52378",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2509502,
+            "range": "± 6957",
             "unit": "ns/iter"
           }
         ]
