@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775486858568,
+  "lastUpdate": 1775487143303,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -7249,6 +7249,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15847,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 535949,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5826,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f1aee24dc81bf57ac0940a59ac790e6ae2e2230f",
+          "message": "feat: wire coverage-gaps into inline suppression system\n\nAdd IssueKind::CoverageGaps variant (discriminant 16) so\n`// fallow-ignore-file coverage-gaps` comments are parsed and\nhonored. Coverage gap analysis now checks file suppressions\nbefore counting runtime files or reporting untested exports.",
+          "timestamp": "2026-04-06T16:51:00+02:00",
+          "tree_id": "d1de27ff0e3c8ceead662d4676096233f82c4dc5",
+          "url": "https://github.com/fallow-rs/fallow/commit/f1aee24dc81bf57ac0940a59ac790e6ae2e2230f"
+        },
+        "date": 1775487142476,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3598975,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15895,
             "unit": "allocations"
           },
           {
