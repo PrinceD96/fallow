@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775498957810,
+  "lastUpdate": 1775499427707,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -7469,6 +7469,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 16138,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 537549,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5826,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "da2dc07b4718a9331880bea23705c3b593eea056",
+          "message": "Merge pull request #58 from M-Hassan-Raza/feat/sfc-template-usage\n\nfeat: track template-visible import usage in SFCs",
+          "timestamp": "2026-04-06T20:15:42+02:00",
+          "tree_id": "bc7e6477f60ffabd9b94c0c528b4f7cc1687a41f",
+          "url": "https://github.com/fallow-rs/fallow/commit/da2dc07b4718a9331880bea23705c3b593eea056"
+        },
+        "date": 1775499426420,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3614540,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 16118,
             "unit": "allocations"
           },
           {
