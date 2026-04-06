@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775499884859,
+  "lastUpdate": 1775500139657,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
@@ -18431,6 +18431,102 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2568245,
             "range": "± 10191",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "kamilthedev@gmail.com",
+            "name": "Kamil",
+            "username": "KamilDev"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "949316dd543825d8ad1ec0992415039aa821fecf",
+          "message": "fix: use dunce::canonicalize to avoid \\?\\ path prefix on Windows (#55)",
+          "timestamp": "2026-04-06T20:25:00+02:00",
+          "tree_id": "4e1a65ae2d493c70c97a1392752a0638b41c589e",
+          "url": "https://github.com/fallow-rs/fallow/commit/949316dd543825d8ad1ec0992415039aa821fecf"
+        },
+        "date": 1775500137544,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 46008,
+            "range": "± 1102",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 1678279,
+            "range": "± 29788",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 3074336,
+            "range": "± 117117",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 15747867,
+            "range": "± 69558",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 105365,
+            "range": "± 1601",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 1965,
+            "range": "± 75",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 204406,
+            "range": "± 2369",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 908087,
+            "range": "± 31370",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1701215,
+            "range": "± 21568",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 515825,
+            "range": "± 28229",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4183775,
+            "range": "± 28845",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2520438,
+            "range": "± 4120",
             "unit": "ns/iter"
           }
         ]
