@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775499719387,
+  "lastUpdate": 1775499985614,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -7557,6 +7557,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 16140,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 537549,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5826,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "kamilthedev@gmail.com",
+            "name": "Kamil",
+            "username": "KamilDev"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "949316dd543825d8ad1ec0992415039aa821fecf",
+          "message": "fix: use dunce::canonicalize to avoid \\?\\ path prefix on Windows (#55)",
+          "timestamp": "2026-04-06T20:25:00+02:00",
+          "tree_id": "4e1a65ae2d493c70c97a1392752a0638b41c589e",
+          "url": "https://github.com/fallow-rs/fallow/commit/949316dd543825d8ad1ec0992415039aa821fecf"
+        },
+        "date": 1775499984117,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3617916,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 16122,
             "unit": "allocations"
           },
           {
