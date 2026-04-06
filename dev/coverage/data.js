@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775474045703,
+  "lastUpdate": 1775474179638,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -6113,6 +6113,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/80669b3be214442eecf11be73a2beecdc7eeff0a"
         },
         "date": 1775474045078,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "fede7734a7708f05d79bd3ff863091c7c5b1381f",
+          "message": "docs: add coverage-gaps to schema, docs, and stable flags list",
+          "timestamp": "2026-04-06T13:13:42+02:00",
+          "tree_id": "d19ab1281cf238c2052eb3511b67f7ef806c5b90",
+          "url": "https://github.com/fallow-rs/fallow/commit/fede7734a7708f05d79bd3ff863091c7c5b1381f"
+        },
+        "date": 1775474179021,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
