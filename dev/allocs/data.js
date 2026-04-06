@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775499427707,
+  "lastUpdate": 1775499719387,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -7513,6 +7513,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 16118,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 537549,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5826,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4bdb26a6ae0c90b99945a56f95f70f88def04245",
+          "message": "fix: bump CACHE_VERSION to 20 for SFC template extraction changes",
+          "timestamp": "2026-04-06T20:20:41+02:00",
+          "tree_id": "1470ce28f39fc28ed720ba0d3bb594643e63d462",
+          "url": "https://github.com/fallow-rs/fallow/commit/4bdb26a6ae0c90b99945a56f95f70f88def04245"
+        },
+        "date": 1775499718778,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3628356,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 16140,
             "unit": "allocations"
           },
           {
