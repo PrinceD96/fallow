@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775499848835,
+  "lastUpdate": 1775500091013,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
@@ -4146,6 +4146,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 145425744,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "kamilthedev@gmail.com",
+            "name": "Kamil",
+            "username": "KamilDev"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "949316dd543825d8ad1ec0992415039aa821fecf",
+          "message": "fix: use dunce::canonicalize to avoid \\?\\ path prefix on Windows (#55)",
+          "timestamp": "2026-04-06T20:25:00+02:00",
+          "tree_id": "4e1a65ae2d493c70c97a1392752a0638b41c589e",
+          "url": "https://github.com/fallow-rs/fallow/commit/949316dd543825d8ad1ec0992415039aa821fecf"
+        },
+        "date": 1775500089599,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 145419984,
             "unit": "bytes"
           }
         ]
