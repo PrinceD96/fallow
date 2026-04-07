@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775564845591,
+  "lastUpdate": 1775565109564,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7418,6 +7418,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4b4547138dfdc410212d4b4d566ce1c518b21300"
         },
         "date": 1775564844159,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f28ec13eb4927274e7b044ba9796c82e06396c8f",
+          "message": "fix: regenerate lockfile for pinned versions, fix scorecard SHA and zizmor config\n\n- Lockfile specifiers now match pinned versions (no carets)\n- Use correct codeql-action/upload-sarif SHA (v3.35.1)\n- Add zizmor ignores for dependabot-auto-merge (pull_request_target)\n  and ci-ok (safe toJSON template)",
+          "timestamp": "2026-04-07T14:30:33+02:00",
+          "tree_id": "93418fd90cefe94b1666f21b8f4537eee927dc26",
+          "url": "https://github.com/fallow-rs/fallow/commit/f28ec13eb4927274e7b044ba9796c82e06396c8f"
+        },
+        "date": 1775565108824,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
