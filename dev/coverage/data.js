@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775515390178,
+  "lastUpdate": 1775539277974,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -6751,6 +6751,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ce34a911c04101597021ab985cb8b64233e7769e"
         },
         "date": 1775515388896,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "5b6a212c12a6f717a69df248eb71329b626483d6",
+          "message": "fix(ci): skip PR comment test on fork PRs\n\nFork PRs receive a restricted github.token that cannot write PR\ncomments (HTTP 403), causing the test-comment job to always fail on\ncontributor PRs.  Skip the job when the PR originates from a fork.",
+          "timestamp": "2026-04-07T07:20:04+02:00",
+          "tree_id": "a370c263647c13a28a10363929fafadc3abd3fd6",
+          "url": "https://github.com/fallow-rs/fallow/commit/5b6a212c12a6f717a69df248eb71329b626483d6"
+        },
+        "date": 1775539276678,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
