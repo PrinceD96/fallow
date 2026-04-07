@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775543382342,
+  "lastUpdate": 1775547825132,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
@@ -4407,6 +4407,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 146071376,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "raihassanraza10@gmail.com",
+            "name": "Muhammad Hassan Raza",
+            "username": "M-Hassan-Raza"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8dc91a2b81a0e696a765f0e164835210e1101435",
+          "message": "feat: harden Vue and Nuxt framework edge cases (#60)",
+          "timestamp": "2026-04-07T09:40:31+02:00",
+          "tree_id": "aa7bbc8e3bb49614c5b6b9c2a8af35ed2f511ac3",
+          "url": "https://github.com/fallow-rs/fallow/commit/8dc91a2b81a0e696a765f0e164835210e1101435"
+        },
+        "date": 1775547824469,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 146253656,
             "unit": "bytes"
           }
         ]
