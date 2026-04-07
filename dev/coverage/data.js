@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775564624187,
+  "lastUpdate": 1775564845591,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7389,6 +7389,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f9dc5cb5f97d59491baa1808d0c5591dd9ac336f"
         },
         "date": 1775564622465,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4b4547138dfdc410212d4b4d566ce1c518b21300",
+          "message": "fix: address review findings in supply chain hardening\n\n- Scope dependabot auto-merge to main branch only\n- Use minimal permissions in scorecard workflow (was read-all)\n- Add crates/config/** to miri path filter (transitive dep)\n- Add unit comments to .npmrc (pnpm=minutes, npm=days)",
+          "timestamp": "2026-04-07T14:25:38+02:00",
+          "tree_id": "651675f1c413fd9faf4685bdf9697bd2f3e7303d",
+          "url": "https://github.com/fallow-rs/fallow/commit/4b4547138dfdc410212d4b4d566ce1c518b21300"
+        },
+        "date": 1775564844159,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
