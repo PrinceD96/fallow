@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775576608131,
+  "lastUpdate": 1775581989362,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7766,6 +7766,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4d530b570a3be4f496d4f98fde3af8cf87631a58"
         },
         "date": 1775576607025,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e5a6e71b16e8ec37c822513169768781a2c132c0",
+          "message": "chore(deps): bump dependabot/fetch-metadata from 2.4.0 to 3.0.0 (#78)\n\nBumps [dependabot/fetch-metadata](https://github.com/dependabot/fetch-metadata) from 2.4.0 to 3.0.0.\n- [Release notes](https://github.com/dependabot/fetch-metadata/releases)\n- [Commits](https://github.com/dependabot/fetch-metadata/compare/08eff52bf64351f401fb50d4972fa95b9f2c2d1b...ffa630c65fa7e0ecfa0625b5ceda64399aea1b36)\n\n---\nupdated-dependencies:\n- dependency-name: dependabot/fetch-metadata\n  dependency-version: 3.0.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-04-07T19:11:56+02:00",
+          "tree_id": "ad6616f3b4bf0375ffc4225cb7863fcdd45d6981",
+          "url": "https://github.com/fallow-rs/fallow/commit/e5a6e71b16e8ec37c822513169768781a2c132c0"
+        },
+        "date": 1775581988429,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
