@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775550012132,
+  "lastUpdate": 1775551687351,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -6983,6 +6983,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b434ec77dddff007406ec3267cfa42840e57dfd4"
         },
         "date": 1775550010600,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "5c411bddfd272664aa338694562ea7d0dfbf0d4e",
+          "message": "fix(action): use HTML anchor for duplication link in summary details\n\nMarkdown links inside <summary> tags are not rendered by GitHub.\nUse <a href> instead for the Duplication header link.",
+          "timestamp": "2026-04-07T10:46:48+02:00",
+          "tree_id": "2b4c7e5513573d27eaf24d4aef271c488cbb8d58",
+          "url": "https://github.com/fallow-rs/fallow/commit/5c411bddfd272664aa338694562ea7d0dfbf0d4e"
+        },
+        "date": 1775551686397,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
