@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775546134914,
+  "lastUpdate": 1775547717089,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -6867,6 +6867,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d6e8fbb7c88d7ee30aab205dca8c14cf8edb8c26"
         },
         "date": 1775546133838,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "raihassanraza10@gmail.com",
+            "name": "Muhammad Hassan Raza",
+            "username": "M-Hassan-Raza"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8dc91a2b81a0e696a765f0e164835210e1101435",
+          "message": "feat: harden Vue and Nuxt framework edge cases (#60)",
+          "timestamp": "2026-04-07T09:40:31+02:00",
+          "tree_id": "aa7bbc8e3bb49614c5b6b9c2a8af35ed2f511ac3",
+          "url": "https://github.com/fallow-rs/fallow/commit/8dc91a2b81a0e696a765f0e164835210e1101435"
+        },
+        "date": 1775547716174,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
