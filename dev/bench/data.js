@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775563988395,
+  "lastUpdate": 1775564901999,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
@@ -20639,6 +20639,102 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2517813,
             "range": "± 7727",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "kamilthedev@gmail.com",
+            "name": "Kamil",
+            "username": "KamilDev"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "774f13a35ce83470fa7ca26d73c74aeef546601f",
+          "message": "fix(extract): resolve chained member access through class field assignments (#63)\n\nWhen a class stores an instance in a field (this.service = new MyService())\nand later calls a method through it (this.service.doWork()), the analysis\nnow correctly recognizes doWork as a used member of MyService.",
+          "timestamp": "2026-04-07T14:24:10+02:00",
+          "tree_id": "c53f2c5c711ec5d7329920cd0f0958f9a7ab2d1c",
+          "url": "https://github.com/fallow-rs/fallow/commit/774f13a35ce83470fa7ca26d73c74aeef546601f"
+        },
+        "date": 1775564900627,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 40381,
+            "range": "± 538",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 1675306,
+            "range": "± 26693",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 3052752,
+            "range": "± 30588",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 16269996,
+            "range": "± 282187",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 102271,
+            "range": "± 2428",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 1995,
+            "range": "± 29",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 206993,
+            "range": "± 5523",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 921698,
+            "range": "± 127063",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1721204,
+            "range": "± 37400",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 519563,
+            "range": "± 31611",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4262024,
+            "range": "± 84730",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2541825,
+            "range": "± 80639",
             "unit": "ns/iter"
           }
         ]
