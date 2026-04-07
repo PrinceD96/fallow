@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775552397691,
+  "lastUpdate": 1775555960108,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -8173,6 +8173,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15504,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519141,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5526,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "96be261b4fa3cc4daf6a50ea76c1715b6ba355fb",
+          "message": "fix(action): use metric labels, add first-run hint, improve CI docs\n\n- Use trend metric .label field (e.g., \"avg complexity\") instead of\n  hardcoded names in delta header for robustness and clarity\n- Add progressive disclosure footnote on first run (score present but\n  no trend): suggests enabling save-snapshot for trend tracking\n- Fix action.yml descriptions to mention bare command support and\n  snapshot location (.fallow/snapshots/)\n- Add inline comments to GitLab CI env vars for discoverability",
+          "timestamp": "2026-04-07T11:53:42+02:00",
+          "tree_id": "abadf24e78d4f2540485b79b1112c5ad02f8d63b",
+          "url": "https://github.com/fallow-rs/fallow/commit/96be261b4fa3cc4daf6a50ea76c1715b6ba355fb"
+        },
+        "date": 1775555959361,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3583352,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15524,
             "unit": "allocations"
           },
           {
