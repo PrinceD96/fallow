@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775543276535,
+  "lastUpdate": 1775547724822,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -8041,6 +8041,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15500,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519141,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5526,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "raihassanraza10@gmail.com",
+            "name": "Muhammad Hassan Raza",
+            "username": "M-Hassan-Raza"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8dc91a2b81a0e696a765f0e164835210e1101435",
+          "message": "feat: harden Vue and Nuxt framework edge cases (#60)",
+          "timestamp": "2026-04-07T09:40:31+02:00",
+          "tree_id": "aa7bbc8e3bb49614c5b6b9c2a8af35ed2f511ac3",
+          "url": "https://github.com/fallow-rs/fallow/commit/8dc91a2b81a0e696a765f0e164835210e1101435"
+        },
+        "date": 1775547724068,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3586624,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15526,
             "unit": "allocations"
           },
           {
