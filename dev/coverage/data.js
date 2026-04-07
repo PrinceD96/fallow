@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775571622862,
+  "lastUpdate": 1775572756764,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7679,6 +7679,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/618337cb6880ce422a212f6aa50c7773332a6c78"
         },
         "date": 1775571622069,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "07bada33acc11ba99e6737631a572a6823267b5c",
+          "message": "fix(ci): restore two-step npm bootstrap for OIDC publishing",
+          "timestamp": "2026-04-07T16:37:56+02:00",
+          "tree_id": "ced6c9f05a694d7701c6c84bd08b9f9eed1732ae",
+          "url": "https://github.com/fallow-rs/fallow/commit/07bada33acc11ba99e6737631a572a6823267b5c"
+        },
+        "date": 1775572755969,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
