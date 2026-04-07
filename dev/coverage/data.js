@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775543265363,
+  "lastUpdate": 1775546134914,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -6838,6 +6838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/da3f00fda8a08e6c63388f2329d8df3afee5be71"
         },
         "date": 1775543264739,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "d6e8fbb7c88d7ee30aab205dca8c14cf8edb8c26",
+          "message": "docs: add HTML root-relative path resolution to detection.md",
+          "timestamp": "2026-04-07T09:14:05+02:00",
+          "tree_id": "9f61509fccac41b452a8b9c804408e3c1762db0f",
+          "url": "https://github.com/fallow-rs/fallow/commit/d6e8fbb7c88d7ee30aab205dca8c14cf8edb8c26"
+        },
+        "date": 1775546133838,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
