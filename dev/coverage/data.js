@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775581989362,
+  "lastUpdate": 1775582675981,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7795,6 +7795,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e5a6e71b16e8ec37c822513169768781a2c132c0"
         },
         "date": 1775581988429,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ce7fcee0ce048655b9dc4c9df604b8edd17cc3e2",
+          "message": "fix(ci): disable auto-changed-since in clean project test\n\nThe clean project at /tmp is not a git repo, so auto-scoping to\nPR changed files causes fallow to error. Disabling auto-changed-since\nfor this test since it validates zero-issue behavior, not PR scoping.",
+          "timestamp": "2026-04-07T19:23:17+02:00",
+          "tree_id": "61a44c1b5e444ca7b64b3d89f8de86fd206bceea",
+          "url": "https://github.com/fallow-rs/fallow/commit/ce7fcee0ce048655b9dc4c9df604b8edd17cc3e2"
+        },
+        "date": 1775582674617,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
