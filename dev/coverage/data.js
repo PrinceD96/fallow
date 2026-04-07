@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775564334588,
+  "lastUpdate": 1775564458854,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7331,6 +7331,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0971f0561454e366fd2635cc6fa81346db6674f4"
         },
         "date": 1775564333897,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "2ef236de42f39ccddfcaba96e188167739b97acf",
+          "message": "fix: use pull_request_target for Dependabot auto-merge, add tests/ to CI path filter\n\n- pull_request gives Dependabot read-only GITHUB_TOKEN, blocking merges\n- tests/fixtures/ was not triggering Rust CI on changes",
+          "timestamp": "2026-04-07T14:19:41+02:00",
+          "tree_id": "d93f1111b4dfd2a01dfcb4610d768b2613dfc1b5",
+          "url": "https://github.com/fallow-rs/fallow/commit/2ef236de42f39ccddfcaba96e188167739b97acf"
+        },
+        "date": 1775564458153,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
