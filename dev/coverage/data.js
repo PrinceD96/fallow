@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775583152697,
+  "lastUpdate": 1775584025447,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7853,6 +7853,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a67f9c5c617e9bc477da106c242bc7aea88de1d6"
         },
         "date": 1775583151913,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "d3a0be3398c2ceb042c67e0b7fd555b32d47d0df",
+          "message": "fix(vscode): re-download binaries when version mismatches extension\n\nThe auto-downloaded fallow-lsp binary in global storage was never\nrefreshed after initial download. When a user updated the extension\n(or installed a newer CLI globally), the stale binary continued to\nserve LSP diagnostics, causing version skew between VS Code and CLI.\n\nNow checks the installed binary's version on activation and removes\nstale binaries to trigger a fresh download from the matching release.\n\nFixes #80",
+          "timestamp": "2026-04-07T19:45:55+02:00",
+          "tree_id": "5ec576c8be1ac8708802c2f4218a42604fa6d363",
+          "url": "https://github.com/fallow-rs/fallow/commit/d3a0be3398c2ceb042c67e0b7fd555b32d47d0df"
+        },
+        "date": 1775584024709,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
