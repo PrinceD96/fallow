@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775564079163,
+  "lastUpdate": 1775564197294,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7273,6 +7273,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e5673660325ac1dbcd00d033d1ee9e6ff2c51669"
         },
         "date": 1775564078496,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "17e6cc28a37e262c6cab73a8659f7f1fac64d420",
+          "message": "chore: supply chain hardening\n\n- Pin npm dependency versions (remove carets)\n- Add .npmrc with ignore-scripts and min-release-age (7 days)\n- Add pnpm audit step to vscode CI job\n- Add path-based CI job filtering (skip Rust checks on npm-only PRs)\n- Add CI summary job for branch protection\n- Add OpenSSF Scorecard workflow",
+          "timestamp": "2026-04-07T14:15:11+02:00",
+          "tree_id": "c836925772192f22279b4909104be6b532566b6c",
+          "url": "https://github.com/fallow-rs/fallow/commit/17e6cc28a37e262c6cab73a8659f7f1fac64d420"
+        },
+        "date": 1775564195874,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
