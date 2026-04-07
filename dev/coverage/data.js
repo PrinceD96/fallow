@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775564458854,
+  "lastUpdate": 1775564624187,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7360,6 +7360,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2ef236de42f39ccddfcaba96e188167739b97acf"
         },
         "date": 1775564458153,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f9dc5cb5f97d59491baa1808d0c5591dd9ac336f",
+          "message": "chore: create CODE_OF_CONDUCT.md",
+          "timestamp": "2026-04-07T14:22:09+02:00",
+          "tree_id": "f02dd9f4c2670181d4022d223ff203a699b4b144",
+          "url": "https://github.com/fallow-rs/fallow/commit/f9dc5cb5f97d59491baa1808d0c5591dd9ac336f"
+        },
+        "date": 1775564622465,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
