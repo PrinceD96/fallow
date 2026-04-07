@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775565465444,
+  "lastUpdate": 1775567479130,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7505,6 +7505,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0fef7bc181c342a9f4368091ab245a1b5ef48c8c"
         },
         "date": 1775565464676,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "eefe6c6b9d10c6f1bff9fc3f8e46b2d57c57638f",
+          "message": "fix: increase Miri timeout to 45 minutes (cold cache after workflow move)",
+          "timestamp": "2026-04-07T15:09:56+02:00",
+          "tree_id": "6523c7dfe164b1396b46f1327bd50c5ec463b256",
+          "url": "https://github.com/fallow-rs/fallow/commit/eefe6c6b9d10c6f1bff9fc3f8e46b2d57c57638f"
+        },
+        "date": 1775567477914,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
