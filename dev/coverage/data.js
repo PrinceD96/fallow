@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775551687351,
+  "lastUpdate": 1775552004612,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7012,6 +7012,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/5c411bddfd272664aa338694562ea7d0dfbf0d4e"
         },
         "date": 1775551686397,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0c552eb5d571c7a2ecc1de2b174890241fcfe711",
+          "message": "fix(action): link all summary headers and metrics to docs pages\n\nAll three section headers (Code issues, Duplication, Complexity) now link\nto their respective docs pages using HTML anchors in <summary> tags.\nCodebase health header links to health docs. All table metrics link to\nspecific anchors: Maintainability, Avg complexity, Duplicated lines,\nClone instances, Cyclomatic, and Cognitive.",
+          "timestamp": "2026-04-07T10:51:52+02:00",
+          "tree_id": "67166a259d3c6143a64f8377137a08f2664729aa",
+          "url": "https://github.com/fallow-rs/fallow/commit/0c552eb5d571c7a2ecc1de2b174890241fcfe711"
+        },
+        "date": 1775552003041,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
