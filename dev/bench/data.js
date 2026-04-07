@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775540736798,
+  "lastUpdate": 1775543383460,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
@@ -19391,6 +19391,102 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2532930,
             "range": "± 9290",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "kamilthedev@gmail.com",
+            "name": "Kamil",
+            "username": "KamilDev"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4d8b17ec2196ecfcd7506d487047b2c5124b87f4",
+          "message": "fix: resolve root-relative HTML asset paths from project root (#61)\n\nIn Vite, Parcel, and other dev servers, `<script src=\"/src/main.tsx\">` means\n\"relative to the project root\", not an absolute filesystem path. The existing\nHTML parser correctly extracts these references, but the resolver couldn't\nresolve them, reporting false-positive unresolved imports which cascaded into\nfalse-positive unused files.\n\nResolve root-relative paths in HTML files by converting `/src/main.tsx` to\n`./src/main.tsx` and resolving against the project root directory.\n\nAlso adds canonical_fallback lookup for symlink parity with the main\nresolution path, and 3 integration tests with a dedicated fixture.",
+          "timestamp": "2026-04-07T08:25:40+02:00",
+          "tree_id": "00b2486e55e54570914cab2acee6a1bd09cf1cae",
+          "url": "https://github.com/fallow-rs/fallow/commit/4d8b17ec2196ecfcd7506d487047b2c5124b87f4"
+        },
+        "date": 1775543381685,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 41033,
+            "range": "± 1044",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 1662057,
+            "range": "± 19608",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 3000098,
+            "range": "± 67937",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 15638905,
+            "range": "± 259803",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 106682,
+            "range": "± 1219",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 1975,
+            "range": "± 6",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 204708,
+            "range": "± 2810",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 908351,
+            "range": "± 15019",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1703064,
+            "range": "± 19046",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 522710,
+            "range": "± 22485",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4198985,
+            "range": "± 46398",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2514826,
+            "range": "± 9141",
             "unit": "ns/iter"
           }
         ]
