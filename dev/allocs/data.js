@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775563152540,
+  "lastUpdate": 1775563573461,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -8393,6 +8393,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15510,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519141,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5526,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "20f4148bb7c0ce7d4de8e429eaa202dc874b44f0",
+          "message": "chore(deps): bump rmcp from 1.2.0 to 1.3.0 (#70)\n\nBumps [rmcp](https://github.com/modelcontextprotocol/rust-sdk) from 1.2.0 to 1.3.0.\n- [Release notes](https://github.com/modelcontextprotocol/rust-sdk/releases)\n- [Changelog](https://github.com/modelcontextprotocol/rust-sdk/blob/main/release-plz.toml)\n- [Commits](https://github.com/modelcontextprotocol/rust-sdk/compare/rmcp-v1.2.0...rmcp-v1.3.0)\n\n---\nupdated-dependencies:\n- dependency-name: rmcp\n  dependency-version: 1.3.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-04-07T14:04:13+02:00",
+          "tree_id": "45ab112165f78d4117601886ab2919ce3ecb6ba2",
+          "url": "https://github.com/fallow-rs/fallow/commit/20f4148bb7c0ce7d4de8e429eaa202dc874b44f0"
+        },
+        "date": 1775563572761,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3583352,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15524,
             "unit": "allocations"
           },
           {
