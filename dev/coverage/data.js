@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775565109564,
+  "lastUpdate": 1775565316742,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7447,6 +7447,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f28ec13eb4927274e7b044ba9796c82e06396c8f"
         },
         "date": 1775565108824,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "19e67689abc6ff0f9f5510e7029d66f349e2afa1",
+          "message": "fix: use pnpm audit --prod, add bot-conditions zizmor ignore\n\n- pnpm audit --prod skips devDependency vulnerabilities (mocha, vsce, vitest)\n- zizmor bot-conditions ignore for standard GitHub dependabot actor check",
+          "timestamp": "2026-04-07T14:33:54+02:00",
+          "tree_id": "538f7a0135d0fc07acd1b8849ff155b824b46c2d",
+          "url": "https://github.com/fallow-rs/fallow/commit/19e67689abc6ff0f9f5510e7029d66f349e2afa1"
+        },
+        "date": 1775565315604,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
