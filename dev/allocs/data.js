@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775540574298,
+  "lastUpdate": 1775543276535,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -7997,6 +7997,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15518,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519141,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5526,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "da3f00fda8a08e6c63388f2329d8df3afee5be71",
+          "message": "test: add integration tests for root-relative HTML resolution\n\nAdd fixture and 3 integration tests covering root-relative paths\n(/src/entry.ts, /src/global.css) in HTML files. Also add missing\ncanonical_fallback lookup for symlink parity with the main resolution\npath.",
+          "timestamp": "2026-04-07T08:26:07+02:00",
+          "tree_id": "30b22b849e8597ba2cc23c6f405f0cd936f6211c",
+          "url": "https://github.com/fallow-rs/fallow/commit/da3f00fda8a08e6c63388f2329d8df3afee5be71"
+        },
+        "date": 1775543275885,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3569720,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15500,
             "unit": "allocations"
           },
           {
