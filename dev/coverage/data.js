@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775565316742,
+  "lastUpdate": 1775565465444,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -7476,6 +7476,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/19e67689abc6ff0f9f5510e7029d66f349e2afa1"
         },
         "date": 1775565315604,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0fef7bc181c342a9f4368091ab245a1b5ef48c8c",
+          "message": "fix: pin @types/vscode to 1.85.0 to match engines.vscode\n\nvsce package validates that @types/vscode does not exceed the\nengines.vscode range. Pinning to the minimum engine version also\nensures only APIs available in VS Code 1.85+ are used.",
+          "timestamp": "2026-04-07T14:36:27+02:00",
+          "tree_id": "3abaeedebce8b1a6cc8c582eecc40e5b9a9c9497",
+          "url": "https://github.com/fallow-rs/fallow/commit/0fef7bc181c342a9f4368091ab245a1b5ef48c8c"
+        },
+        "date": 1775565464676,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
