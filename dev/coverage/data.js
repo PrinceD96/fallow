@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775595509637,
+  "lastUpdate": 1775599645522,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -8056,6 +8056,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e51d40440c4cc37febfd2be9c730f5b9a00484ac"
         },
         "date": 1775595508892,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e1fed16c3ae8e3de70fd2bfcd922b8a81f1c60c2",
+          "message": "chore: apply rustfmt to test files from coverage session",
+          "timestamp": "2026-04-08T00:06:06+02:00",
+          "tree_id": "ea28275757ea247e3224d1c86604347d0716bc0a",
+          "url": "https://github.com/fallow-rs/fallow/commit/e1fed16c3ae8e3de70fd2bfcd922b8a81f1c60c2"
+        },
+        "date": 1775599643901,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
