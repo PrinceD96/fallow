@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775548507048,
+  "lastUpdate": 1775549912904,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -6925,6 +6925,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/037d220c40cb555e4638134f19401086823bfe07"
         },
         "date": 1775548506383,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "d17a43bc11b416ee46b38149ab13692c4f021951",
+          "message": "docs: add crap_max, crap_above_threshold, coverage_model to output-schema.json",
+          "timestamp": "2026-04-07T10:17:15+02:00",
+          "tree_id": "ad1e19aa63baf1a28df3363d72d874db786fdc35",
+          "url": "https://github.com/fallow-rs/fallow/commit/d17a43bc11b416ee46b38149ab13692c4f021951"
+        },
+        "date": 1775549911899,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
