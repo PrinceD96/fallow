@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775595518323,
+  "lastUpdate": 1775599658340,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -9097,6 +9097,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15502,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519141,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5526,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e1fed16c3ae8e3de70fd2bfcd922b8a81f1c60c2",
+          "message": "chore: apply rustfmt to test files from coverage session",
+          "timestamp": "2026-04-08T00:06:06+02:00",
+          "tree_id": "ea28275757ea247e3224d1c86604347d0716bc0a",
+          "url": "https://github.com/fallow-rs/fallow/commit/e1fed16c3ae8e3de70fd2bfcd922b8a81f1c60c2"
+        },
+        "date": 1775599657554,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3591584,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15526,
             "unit": "allocations"
           },
           {
