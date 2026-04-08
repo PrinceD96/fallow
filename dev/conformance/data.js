@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775545800253,
+  "lastUpdate": 1775632338506,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -773,6 +773,73 @@ window.BENCHMARK_DATA = {
           {
             "name": "Fallow Total",
             "value": 6268,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 662,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 2.9,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.3,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 19.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "59cf13a3fb42a09d19145257a898c9c4a77d5a41",
+          "message": "fix: skip create_resolver tests under Miri (statx unsupported)\n\nTests directly calling specifier::create_resolver() trigger oxc_resolver\nwhich uses the statx syscall via rustix. Miri doesn't support statx\nunder isolation. Added #[cfg_attr(miri, ignore)] to 5 tests.",
+          "timestamp": "2026-04-08T06:34:51Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/59cf13a3fb42a09d19145257a898c9c4a77d5a41"
+        },
+        "date": 1775632337744,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 2.2,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 147,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 6265,
             "unit": "issues"
           },
           {
