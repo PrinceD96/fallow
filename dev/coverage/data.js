@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775664745173,
+  "lastUpdate": 1775667393037,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c535f6dd6c8448e54843b143826a8f287ca13e9f",
-          "message": "fix: correct plugin count to 84 (from registry, not file count)",
-          "timestamp": "2026-04-05T22:19:36+02:00",
-          "tree_id": "7c71a6155faa25ae81e7f423aefe818e5cf3a5cd",
-          "url": "https://github.com/fallow-rs/fallow/commit/c535f6dd6c8448e54843b143826a8f287ca13e9f"
-        },
-        "date": 1775420449373,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d2ece8fb3e19e60236d5583439965d44c10d31aa"
         },
         "date": 1775664743627,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "16f2401e423bd61ec1bc2ba5a456b0a3488df835",
+          "message": "chore: release v2.22.3",
+          "timestamp": "2026-04-08T18:55:00+02:00",
+          "tree_id": "f87b1c6156ff8881e3ae0698c24e5ba7adf0eae8",
+          "url": "https://github.com/fallow-rs/fallow/commit/16f2401e423bd61ec1bc2ba5a456b0a3488df835"
+        },
+        "date": 1775667392041,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
