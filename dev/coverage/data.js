@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775655053375,
+  "lastUpdate": 1775655243128,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "raihassanraza10@gmail.com",
-            "name": "Muhammad Hassan Raza",
-            "username": "M-Hassan-Raza"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "48ee537e6dfdaa8c382024acc72070862b2ba466",
-          "message": "fix: include plugin entry points in list mode (#45)",
-          "timestamp": "2026-04-05T20:29:43+02:00",
-          "tree_id": "4cb4f03b3faf49df4641fb44a2a1d928a794c2cd",
-          "url": "https://github.com/fallow-rs/fallow/commit/48ee537e6dfdaa8c382024acc72070862b2ba466"
-        },
-        "date": 1775413846329,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/76414e27990bfcd35dbfa0e7e452776fb9c99a66"
         },
         "date": 1775655052587,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "cd5062b0dc6061ea93af330d0121099218382fb8",
+          "message": "chore: add .playwright-mcp to gitignore",
+          "timestamp": "2026-04-08T15:32:27+02:00",
+          "tree_id": "063bcd2732393ae8de21a1329b39ab821abad998",
+          "url": "https://github.com/fallow-rs/fallow/commit/cd5062b0dc6061ea93af330d0121099218382fb8"
+        },
+        "date": 1775655242378,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
