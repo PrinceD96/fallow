@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775663086753,
+  "lastUpdate": 1775664238910,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f021dec3e7b9bfaeff9550c51d82439c2474e7db",
-          "message": "feat: add --group-by owner|directory for team-level issue triage\n\nCODEOWNERS parser with auto-probe (CODEOWNERS, .github/CODEOWNERS,\n.gitlab/CODEOWNERS, docs/CODEOWNERS), last-match-wins pattern semantics,\nfirst-owner-on-line selection. Groups all dead-code analysis output into\nlabeled sections by team ownership or first directory component.\n\nAll 6 output formats supported: human (colored group headers), JSON\n(grouped envelope with groups array), compact (group prefix per line),\nmarkdown (## sections), SARIF (properties.owner), CodeClimate (owner field).\n\nConfig: optional `codeowners` path field for custom CODEOWNERS location.\nMCP: `group_by` parameter on the analyze tool.",
-          "timestamp": "2026-04-03T10:04:05+02:00",
-          "tree_id": "276e4231c44f1c0213a17c1621841cc30b8e814f",
-          "url": "https://github.com/fallow-rs/fallow/commit/f021dec3e7b9bfaeff9550c51d82439c2474e7db"
-        },
-        "date": 1775203535513,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3589162,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15866,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 534576,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5819,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15527,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519093,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "791d14e58fb3605ff37a7e091da66a05e3d640aa",
+          "message": "chore: rustfmt formatting adjustments",
+          "timestamp": "2026-04-08T17:59:11+02:00",
+          "tree_id": "9e9a103ccd6420a50f7c1f85f81115afb4989b7f",
+          "url": "https://github.com/fallow-rs/fallow/commit/791d14e58fb3605ff37a7e091da66a05e3d640aa"
+        },
+        "date": 1775664237868,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3594256,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15533,
             "unit": "allocations"
           },
           {
