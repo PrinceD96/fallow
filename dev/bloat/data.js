@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775655814073,
+  "lastUpdate": 1775656152109,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4f9e625584f2862f514254cf0f46b9a25a261010",
-          "message": "feat: add boundary violations to GitHub Action, GitLab CI, and MCP server\n\nWire boundary violations through the remaining integration points:\n\n- GitHub Action: summary table row + detail section, review comments\n  with zone info and docs link, annotations with file/line/col\n- GitLab CI: summary table row + detail section, combined summary count\n- MCP server: boundary-violations added to ISSUE_TYPE_FLAGS, params\n  doc comment, and tool description\n- All test fixtures and inline test JSON updated with boundary_violations field",
-          "timestamp": "2026-04-01T16:51:16+02:00",
-          "tree_id": "8e4371032dd30f94de850a9a8d9c6eee4d2759a8",
-          "url": "https://github.com/fallow-rs/fallow/commit/4f9e625584f2862f514254cf0f46b9a25a261010"
-        },
-        "date": 1775055256870,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 118425896,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 159331128,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f9028d8338e03253c682f0e79e7f5aaa5075c6d1",
+          "message": "fix: add unicode-case feature to regex for case-insensitive HTML/SFC matching\n\nThe (?i) flag in HTML and SFC regex patterns requires the unicode-case\nfeature. Without it, patterns like (?si)<script\\b... panic at runtime\nwhen parsing HTML files.",
+          "timestamp": "2026-04-08T15:45:33+02:00",
+          "tree_id": "36a62acd7a25229fc766d4547e22f3bd48384a9b",
+          "url": "https://github.com/fallow-rs/fallow/commit/f9028d8338e03253c682f0e79e7f5aaa5075c6d1"
+        },
+        "date": 1775656150566,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 159467288,
             "unit": "bytes"
           }
         ]
