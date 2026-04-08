@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775649855399,
+  "lastUpdate": 1775650292059,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "bed6d5b2a00e22565c3aa52493579dcc7fcc2730",
-          "message": "fix(ci): trigger cross-arch on workflow file changes",
-          "timestamp": "2026-04-05T15:25:25+02:00",
-          "tree_id": "8cd267742be95efcb600767b9b7c96561db93db7",
-          "url": "https://github.com/fallow-rs/fallow/commit/bed6d5b2a00e22565c3aa52493579dcc7fcc2730"
-        },
-        "date": 1775395596518,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1d41343f87cfa04ecfecc1e10dfce750e4ce7615"
         },
         "date": 1775649854597,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "2685ac54e2ea21fbf93a5ecad2184cec5a7b30d1",
+          "message": "chore: release v2.22.1",
+          "timestamp": "2026-04-08T14:10:03+02:00",
+          "tree_id": "590c7804526d23d4fb400e4463a92b4471efd7aa",
+          "url": "https://github.com/fallow-rs/fallow/commit/2685ac54e2ea21fbf93a5ecad2184cec5a7b30d1"
+        },
+        "date": 1775650291311,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
