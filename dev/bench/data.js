@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775650014856,
+  "lastUpdate": 1775650452460,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f1fe55081e25831e99fb0ba4410eab0b153dd391",
-          "message": "feat: harden MCP server to quality 9\n\n- Add subprocess timeout (120s default, FALLOW_TIMEOUT_SECS env var)\n- Pass through structured JSON errors from CLI stdout on exit code 2+\n- Inject actions into health JSON (findings, targets, hotspots)\n- Inject actions into dupes JSON (clone families, clone groups)\n- Audit inherits actions for all three sub-analyses\n- Add list_boundaries tool (9th MCP tool)\n- Add boundary_violations convenience param on analyze\n- Add changed_since param on find_dupes\n- Add section params on project_info (entry_points, files, plugins, boundaries)",
-          "timestamp": "2026-04-02T16:10:10+02:00",
-          "tree_id": "6d215dbd9b3bfc5aef3af78bae82b913c2ede8fa",
-          "url": "https://github.com/fallow-rs/fallow/commit/f1fe55081e25831e99fb0ba4410eab0b153dd391"
-        },
-        "date": 1775139260497,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 39466,
-            "range": "± 1304",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1447415,
-            "range": "± 25022",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 2510173,
-            "range": "± 68760",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 12382733,
-            "range": "± 179289",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 97135,
-            "range": "± 2118",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2774,
-            "range": "± 58",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 161662,
-            "range": "± 1411",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 728566,
-            "range": "± 4819",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1571175,
-            "range": "± 27580",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 462499,
-            "range": "± 7473",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3585466,
-            "range": "± 60506",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2060733,
-            "range": "± 31882",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9599,6 +9503,102 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2151334,
             "range": "± 24422",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "2685ac54e2ea21fbf93a5ecad2184cec5a7b30d1",
+          "message": "chore: release v2.22.1",
+          "timestamp": "2026-04-08T14:10:03+02:00",
+          "tree_id": "590c7804526d23d4fb400e4463a92b4471efd7aa",
+          "url": "https://github.com/fallow-rs/fallow/commit/2685ac54e2ea21fbf93a5ecad2184cec5a7b30d1"
+        },
+        "date": 1775650451678,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 39811,
+            "range": "± 566",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 1690009,
+            "range": "± 23647",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 3068591,
+            "range": "± 120884",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 15594235,
+            "range": "± 105562",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 103422,
+            "range": "± 461",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 1990,
+            "range": "± 5",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 204496,
+            "range": "± 3635",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 911353,
+            "range": "± 11523",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1711579,
+            "range": "± 23739",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 525126,
+            "range": "± 33011",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4212736,
+            "range": "± 40174",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2540708,
+            "range": "± 7591",
             "unit": "ns/iter"
           }
         ]
