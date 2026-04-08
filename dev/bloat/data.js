@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775642800309,
+  "lastUpdate": 1775646250278,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c5be34d097e4ef85a85a2775624ca84ef802a44a",
-          "message": "feat: add `fallow audit` command for reviewing AI-generated code\n\nCombines dead-code + complexity + duplication scoped to changed files\nand returns a verdict (pass/warn/fail). Auto-detects the base branch\nif --base is not specified.\n\n- CLI: `fallow audit [--base <ref>]` with all 6 output formats\n- MCP: `audit` tool (8th tool, wraps CLI)\n- Global: `--base` alias for `--changed-since` on all commands\n- Verdict: pass (exit 0), warn (exit 0), fail (exit 1)\n- Hard error on failed git ref resolution (no silent fallback)\n- JSON envelope: verdict, summary, full sub-results with actions",
-          "timestamp": "2026-04-01T09:43:30+02:00",
-          "tree_id": "97932c571c38071a5ec0a56c711499bc9617fadc",
-          "url": "https://github.com/fallow-rs/fallow/commit/c5be34d097e4ef85a85a2775624ca84ef802a44a"
-        },
-        "date": 1775029646747,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 117415040,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 152256336,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "raihassanraza10@gmail.com",
+            "name": "Muhammad Hassan Raza",
+            "username": "M-Hassan-Raza"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0932ae169e5d742f02b15a132739166eaa7c6211",
+          "message": "feat: expand framework convention coverage across Astro, React Router, Remix, Gatsby, and VitePress (#84)\n\n* feat: expand Astro and Gatsby convention coverage\n\n* feat: cover React Router and Remix route contracts\n\n* feat: support VitePress docs scaffold conventions",
+          "timestamp": "2026-04-08T13:00:53+02:00",
+          "tree_id": "5f96cb8c151c87ec21a8357284cd87a74f5929b4",
+          "url": "https://github.com/fallow-rs/fallow/commit/0932ae169e5d742f02b15a132739166eaa7c6211"
+        },
+        "date": 1775646249311,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 152262200,
             "unit": "bytes"
           }
         ]
