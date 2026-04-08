@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775657433233,
+  "lastUpdate": 1775663029761,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e7c16e59db867a83f0c47b231cac985eed652209",
-          "message": "fix: wire --group-by through combined mode and add grouping tests\n\nCombined mode (no subcommand) now passes the ownership resolver to\nprint_check_result instead of hardcoded None, so `fallow --group-by\ndirectory` produces grouped output.\n\nAdds 19 unit tests for group_analysis_results covering: empty input,\nsingle/multiple groups, count-descending sort, unowned-last ordering,\nmulti-location type fallbacks, directory mode, and owner mode.",
-          "timestamp": "2026-04-03T11:14:37+02:00",
-          "tree_id": "3115d70e1a49e2931141b1346f2dd8b1ba2d7b5d",
-          "url": "https://github.com/fallow-rs/fallow/commit/e7c16e59db867a83f0c47b231cac985eed652209"
-        },
-        "date": 1775207918353,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 44318,
-            "range": "± 978",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1626169,
-            "range": "± 17710",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3003424,
-            "range": "± 22490",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 15528168,
-            "range": "± 67266",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 110022,
-            "range": "± 1086",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 1999,
-            "range": "± 32",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 203876,
-            "range": "± 2410",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 905965,
-            "range": "± 8312",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1705076,
-            "range": "± 19491",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 509608,
-            "range": "± 20360",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4197054,
-            "range": "± 26216",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2508406,
-            "range": "± 12105",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9599,6 +9503,102 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2531377,
             "range": "± 80346",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "03c1a5982d039dade6572b8a47967f240a422737",
+          "message": "test: add scoring tests for Istanbul lookup, CRAP formulas, and test refs\n\nAdd tests for IstanbulFileCoverage::lookup (exact, fuzzy, boundary),\ncompute_crap_scores_istanbul (empty, statistics), compute_crap_scores_binary\n(all branches), compute_crap_scores_estimated (mixed), and\nbuild_test_referenced_exports.",
+          "timestamp": "2026-04-08T17:15:20+02:00",
+          "tree_id": "faba04ace72d2e2fdf02fc3488fd203057b0a86e",
+          "url": "https://github.com/fallow-rs/fallow/commit/03c1a5982d039dade6572b8a47967f240a422737"
+        },
+        "date": 1775663027990,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 35133,
+            "range": "± 286",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 1559701,
+            "range": "± 18633",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 2601438,
+            "range": "± 80593",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 12301479,
+            "range": "± 322731",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 106387,
+            "range": "± 4739",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2812,
+            "range": "± 20",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 161675,
+            "range": "± 13105",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 739356,
+            "range": "± 8412",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1539684,
+            "range": "± 27179",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 465973,
+            "range": "± 21824",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3469231,
+            "range": "± 49462",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2037009,
+            "range": "± 11778",
             "unit": "ns/iter"
           }
         ]
