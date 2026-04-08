@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775669208851,
+  "lastUpdate": 1775670539219,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "86579fef424125f618f9676f41dcca57d307cf87",
-          "message": "chore: regenerate schema.json, add singularization test, gitignore proptest\n\n- Regenerate schema.json to reflect devDeps/optionalDeps default change\n  from Error to Warn\n- Add test for count=1 singularization of pre-pluralized summary labels\n  (\"1 enum member\" not \"1 enum members\")\n- Add proptest-regressions/ to .gitignore",
-          "timestamp": "2026-04-03T19:55:35+02:00",
-          "tree_id": "cf88ec4f4d48f8952f1064c4be0c591afc4ca1b5",
-          "url": "https://github.com/fallow-rs/fallow/commit/86579fef424125f618f9676f41dcca57d307cf87"
-        },
-        "date": 1775239017141,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3583354,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15854,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 534576,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5819,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15503,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519093,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "483822c3a66df6337270ff7c18b22ffca618d518",
+          "message": "test: add regression tests for extension priority, wildcard exports, and workspace glob\n\nThree conformance loop fixes shipped without dedicated tests. Add 8\nregression tests that fail without the fixes and pass with them:\n\n- .d.ts extension priority: 3 tests verifying .js resolves before\n  .d.ts when both exist, .ts before .d.ts, and fallback to .d.ts\n  when no runtime file exists\n\n- Wildcard subpath exports: 3 tests verifying expand_wildcard_entries\n  matches CSS files, handles empty dirs, and respects extensions\n\n- Workspace glob pruning: 2 tests verifying node_modules directories\n  (including deeply nested pnpm .pnpm/ trees) are pruned during\n  recursive workspace discovery",
+          "timestamp": "2026-04-08T19:47:27+02:00",
+          "tree_id": "6881d9431d68ad93adc2f3bcfcfcc975eee61940",
+          "url": "https://github.com/fallow-rs/fallow/commit/483822c3a66df6337270ff7c18b22ffca618d518"
+        },
+        "date": 1775670537461,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3592112,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15525,
             "unit": "allocations"
           },
           {
