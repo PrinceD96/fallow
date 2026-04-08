@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775637195209,
+  "lastUpdate": 1775639453677,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0f07026ef5b61a78c5ad0acfd0eeddce042e289e",
-          "message": "fix: replace typo in boundary test and add pre-commit typos hook\n\nThe test used \"databse\" as an invalid zone name, which triggered the\ntypos CI check. Replaced with \"nonexistent\". Added typos to the Claude\npre-commit hook so agents can't commit code with typos.",
-          "timestamp": "2026-04-01T17:22:55+02:00",
-          "tree_id": "9e9b363cbd9aa51942b2343006b5a259122d79c7",
-          "url": "https://github.com/fallow-rs/fallow/commit/0f07026ef5b61a78c5ad0acfd0eeddce042e289e"
-        },
-        "date": 1775057079208,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3590378,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15873,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 534576,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5819,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15519,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519093,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "36b0664949574c5474abc466075412ee3f344153",
+          "message": "chore: release v2.20.0",
+          "timestamp": "2026-04-08T11:09:12+02:00",
+          "tree_id": "2450f9aba8357e8febc2ad47b395afa58270d904",
+          "url": "https://github.com/fallow-rs/fallow/commit/36b0664949574c5474abc466075412ee3f344153"
+        },
+        "date": 1775639452067,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3584760,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15511,
             "unit": "allocations"
           },
           {
