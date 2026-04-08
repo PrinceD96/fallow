@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775654436218,
+  "lastUpdate": 1775655053375,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "raihassanraza10@gmail.com",
-            "name": "Muhammad Hassan Raza",
-            "username": "M-Hassan-Raza"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1e34ecafce6d55684b82f396eaca4e518d38682b",
-          "message": "docs: fix cargo run examples (#44)\n\n* docs: fix cargo run examples\n\n* docs: fix cargo run examples in CLAUDE.md\n\nSame fix as CONTRIBUTING.md — add --bin fallow for multi-binary\nworkspace, update check → dead-code.\n\n---------\n\nCo-authored-by: Bart Waardenburg <bart@waardenburg.dev>",
-          "timestamp": "2026-04-05T20:24:12+02:00",
-          "tree_id": "59ce8b4657574f5a4b95a841856f53bc422b27f5",
-          "url": "https://github.com/fallow-rs/fallow/commit/1e34ecafce6d55684b82f396eaca4e518d38682b"
-        },
-        "date": 1775413516998,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0c84df62b979f7708151a1d69e4ff1e37d911831"
         },
         "date": 1775654434444,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "76414e27990bfcd35dbfa0e7e452776fb9c99a66",
+          "message": "chore: upgrade oxc deps from 0.123 to 0.124\n\nAligns with oxc_coverage_instrument's transitive deps, eliminating\nduplicate compilation of the entire oxc stack (parser, AST, semantic,\nvisitor, etc.) in both 0.123 and 0.124 versions.",
+          "timestamp": "2026-04-08T15:29:34+02:00",
+          "tree_id": "102bd4fbac25caf2c4c924f3817642f647552f75",
+          "url": "https://github.com/fallow-rs/fallow/commit/76414e27990bfcd35dbfa0e7e452776fb9c99a66"
+        },
+        "date": 1775655052587,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
