@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775599840029,
+  "lastUpdate": 1775630183834,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
@@ -9185,6 +9185,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15510,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519141,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5526,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "59cf13a3fb42a09d19145257a898c9c4a77d5a41",
+          "message": "fix: skip create_resolver tests under Miri (statx unsupported)\n\nTests directly calling specifier::create_resolver() trigger oxc_resolver\nwhich uses the statx syscall via rustix. Miri doesn't support statx\nunder isolation. Added #[cfg_attr(miri, ignore)] to 5 tests.",
+          "timestamp": "2026-04-08T08:34:51+02:00",
+          "tree_id": "4ab6a9daf9a39db01d9de97156a1be8ab8592b01",
+          "url": "https://github.com/fallow-rs/fallow/commit/59cf13a3fb42a09d19145257a898c9c4a77d5a41"
+        },
+        "date": 1775630182232,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3578816,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15502,
             "unit": "allocations"
           },
           {
