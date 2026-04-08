@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775637182350,
+  "lastUpdate": 1775639456087,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "2c2c0f13242cdb73b482154aab6f2329caa955bb",
-          "message": "fix: add test_only_dependencies to GitHub Action and GitLab CI jq summary scripts\n\nPre-existing gap: test-only deps were detected by the analysis engine\nand serialized to JSON, but never surfaced in CI PR summary comments.\nAdds table row + detail section to all 4 jq scripts (action check,\naction combined, CI check, CI combined).",
-          "timestamp": "2026-04-04T00:23:01+02:00",
-          "tree_id": "e65d851097f7a2bb0e8bd9c97f103b8ec9f93fea",
-          "url": "https://github.com/fallow-rs/fallow/commit/2c2c0f13242cdb73b482154aab6f2329caa955bb"
-        },
-        "date": 1775255056155,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "36b0664949574c5474abc466075412ee3f344153",
+          "message": "chore: release v2.20.0",
+          "timestamp": "2026-04-08T11:09:12+02:00",
+          "tree_id": "2450f9aba8357e8febc2ad47b395afa58270d904",
+          "url": "https://github.com/fallow-rs/fallow/commit/36b0664949574c5474abc466075412ee3f344153"
+        },
+        "date": 1775639454408,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94,
             "unit": "%"
           }
         ]
