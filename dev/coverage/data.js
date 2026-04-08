@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775642651725,
+  "lastUpdate": 1775646198246,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e82a7d1733469c9ff5ff4b4b72818e36f1ead127",
-          "message": "style: fix trailing blank line in export fix tests",
-          "timestamp": "2026-04-04T11:12:48+02:00",
-          "tree_id": "c61033dae3a04e871279c4b6fd4de7571b2131ea",
-          "url": "https://github.com/fallow-rs/fallow/commit/e82a7d1733469c9ff5ff4b4b72818e36f1ead127"
-        },
-        "date": 1775294067433,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b49a818eb3832f3ead6d1f3be8ccc0fe65433042"
         },
         "date": 1775642650969,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "dd60a0fbbe9a1b66d98f0e875333cd38b3ec4bdf",
+          "message": "docs: add .vitepress to hidden directory allowlist in docs\n\nFollow-up to PR #84 which added .vitepress to ALLOWED_HIDDEN_DIRS.",
+          "timestamp": "2026-04-08T13:01:36+02:00",
+          "tree_id": "c2f8123039c7c79ca508fe905e9057d7487bf788",
+          "url": "https://github.com/fallow-rs/fallow/commit/dd60a0fbbe9a1b66d98f0e875333cd38b3ec4bdf"
+        },
+        "date": 1775646197041,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
