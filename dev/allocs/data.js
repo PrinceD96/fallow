@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775646137828,
+  "lastUpdate": 1775646463019,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e8ac7a8d75943a4f22685a369cb25d113bbc90bd",
-          "message": "test: add bulletproof preset integration test fixture\n\nFixture with an intentional features→app violation. Integration test\nverifies exactly 1 boundary violation is detected with correct zone\nclassification.",
-          "timestamp": "2026-04-01T20:40:59+02:00",
-          "tree_id": "dade9d50e91825d41fc34771e3234bf561dd1e18",
-          "url": "https://github.com/fallow-rs/fallow/commit/e8ac7a8d75943a4f22685a369cb25d113bbc90bd"
-        },
-        "date": 1775068953136,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3579858,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15859,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 534576,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5819,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4384,6 +4340,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Bytes Allocated",
             "value": 3592608,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15529,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519093,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "6a048d82e55778e8061d02c8677030fc57021736",
+          "message": "chore: release v2.22.0",
+          "timestamp": "2026-04-08T13:06:01+02:00",
+          "tree_id": "dcb4dcc239eaea6da3b090726617ffd532a44c39",
+          "url": "https://github.com/fallow-rs/fallow/commit/6a048d82e55778e8061d02c8677030fc57021736"
+        },
+        "date": 1775646462124,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3596064,
             "unit": "bytes"
           },
           {
