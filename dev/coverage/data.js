@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775670522623,
+  "lastUpdate": 1775677937990,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "80669b3be214442eecf11be73a2beecdc7eeff0a",
-          "message": "feat: add static coverage gaps to health (#53)\n\nfeat: add static coverage gaps to health",
-          "timestamp": "2026-04-06T13:12:58+02:00",
-          "tree_id": "1af722df2d997da5666ed7be4df0bd686e6896d9",
-          "url": "https://github.com/fallow-rs/fallow/commit/80669b3be214442eecf11be73a2beecdc7eeff0a"
-        },
-        "date": 1775474045078,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/483822c3a66df6337270ff7c18b22ffca618d518"
         },
         "date": 1775670521840,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "d711313df2cbc1b218d8b802f4ab48bd4967dc4e",
+          "message": "feat: detect Nuxt module authoring convention in plugin\n\nNuxt modules (projects with `@nuxt/kit` dependency) place runtime code\nin `src/runtime/` and register it programmatically via `addComponentsDir`,\n`addImportsDir`, and `addPlugin`. The Nuxt plugin now:\n\n- Activates when `@nuxt/kit` is in dependencies (module authoring)\n- Treats `src/module.{ts,js}` as a config file and always-used entry\n- Adds entry patterns for `src/runtime/` subdirectories: components,\n  composables, plugins, utils, locale, types, and vue\n\nTested on Nuxt UI v3: false positive unused files dropped from 521 to\n226 (-295). Consumer Nuxt apps (e.g. nuxt-dashboard) unaffected (0 FPs).",
+          "timestamp": "2026-04-08T21:50:39+02:00",
+          "tree_id": "149815e277091b65e731dccd612e8770dcef557a",
+          "url": "https://github.com/fallow-rs/fallow/commit/d711313df2cbc1b218d8b802f4ab48bd4967dc4e"
+        },
+        "date": 1775677937182,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
