@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775655177742,
+  "lastUpdate": 1775655814073,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f93db9ee717332d2c6500e4e814e4923049832d5",
-          "message": "feat: add architecture boundary violation detector (Phase 2)\n\nImplements the boundary violation detector that checks imports against\nuser-defined architecture zones and rules. Classifies modules into zones\nvia glob patterns and detects cross-zone imports that violate the\nconfigured allowlist.\n\nPipeline: for each reachable module, classify into zone → for each\nimport edge, classify target → if not in allowlist, emit violation.\nZone classification is cached per FileId for performance.\n\nIncludes: detector with unit tests, integration into analyze/mod.rs,\nCLI --boundary-violations filter flag, all 6 report formats (human,\nJSON, SARIF, compact, markdown, CodeClimate), LSP diagnostics with\nrelated info, baseline support, workspace/changed-file filtering,\nregression tracking, integration tests, test fixture, snapshot updates,\nand documentation updates (README, AGENTS, CLAUDE, detection rules,\noutput schema, backwards compatibility).",
-          "timestamp": "2026-04-01T16:31:24+02:00",
-          "tree_id": "c84e283d06b946bc03d81c98866f8af4f2bb7090",
-          "url": "https://github.com/fallow-rs/fallow/commit/f93db9ee717332d2c6500e4e814e4923049832d5"
-        },
-        "date": 1775054531099,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 118425896,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/76414e27990bfcd35dbfa0e7e452776fb9c99a66"
         },
         "date": 1775655176522,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 159331128,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "31e41fe5f963d8fa942d0254fa9f0e04e67e7206",
+          "message": "fix: configure ureq to use native-tls provider explicitly\n\nureq 3.x defaults to Rustls even when the native-tls feature is enabled.\nThe provider must be set explicitly via TlsConfig::builder().provider().\nWithout this, HTTPS requests panic at runtime.",
+          "timestamp": "2026-04-08T15:40:04+02:00",
+          "tree_id": "8c2f283f733d5ecfa0baf80a57fa7c0b7d99586d",
+          "url": "https://github.com/fallow-rs/fallow/commit/31e41fe5f963d8fa942d0254fa9f0e04e67e7206"
+        },
+        "date": 1775655812569,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
