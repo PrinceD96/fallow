@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775654041365,
+  "lastUpdate": 1775654367619,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "3e39c26723fc9a6177aeb55acfe8db5ebd32046e",
-          "message": "chore: release v2.9.1",
-          "timestamp": "2026-04-02T13:03:06+02:00",
-          "tree_id": "9d0752e16ccf69f0d95c154afe98f6267fed10ba",
-          "url": "https://github.com/fallow-rs/fallow/commit/3e39c26723fc9a6177aeb55acfe8db5ebd32046e"
-        },
-        "date": 1775127868114,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3572154,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15838,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 534576,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5819,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15529,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519093,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0c84df62b979f7708151a1d69e4ff1e37d911831",
+          "message": "fix: add vendored OpenSSL for Linux musl and cross-compilation targets\n\nThe native-tls switch requires OpenSSL on Linux. The vendored feature\ncompiles OpenSSL from source, ensuring musl and aarch64 cross-builds\nwork without system libssl-dev headers.",
+          "timestamp": "2026-04-08T15:16:44+02:00",
+          "tree_id": "3950dd0565e4a463826026d6955116fa6d02b941",
+          "url": "https://github.com/fallow-rs/fallow/commit/0c84df62b979f7708151a1d69e4ff1e37d911831"
+        },
+        "date": 1775654365910,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3581672,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15507,
             "unit": "allocations"
           },
           {
