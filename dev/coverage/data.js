@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775630164752,
+  "lastUpdate": 1775632990061,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
@@ -8143,6 +8143,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/59cf13a3fb42a09d19145257a898c9c4a77d5a41"
         },
         "date": 1775630163793,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b389950764e98cf2d649c4300a4e712d16f9a2df",
+          "message": "fix: skip parser-heavy extract tests under Miri\n\nOnly suppress, css, and visitor/helpers have pure data logic worth\ntesting under Miri. Parser-heavy modules (visitor::tests, sfc_template,\nhtml, template_usage) have no unsafe code and exceed Miri timeout\nafter recent test additions.",
+          "timestamp": "2026-04-08T09:21:48+02:00",
+          "tree_id": "21baf26d36857281a86230cd545a415bd5a35a77",
+          "url": "https://github.com/fallow-rs/fallow/commit/b389950764e98cf2d649c4300a4e712d16f9a2df"
+        },
+        "date": 1775632988585,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
