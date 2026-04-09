@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775632338506,
+  "lastUpdate": 1775718945765,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -870,6 +870,73 @@ window.BENCHMARK_DATA = {
           {
             "name": "zod Agreement",
             "value": 19.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "9ad9a68f42741179007c3ab8ffa119322c47f6d1",
+          "message": "chore: release v2.23.1",
+          "timestamp": "2026-04-09T06:02:18Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/9ad9a68f42741179007c3ab8ffa119322c47f6d1"
+        },
+        "date": 1775718944200,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 2.1,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 146,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 6434,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 662,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 3,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 3.5,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 14.7,
             "unit": "%"
           }
         ]
