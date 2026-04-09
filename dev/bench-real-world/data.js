@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775636434301,
+  "lastUpdate": 1775723239276,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -1325,6 +1325,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 3181,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "ec2eccfd30a46277e8b9977eb39936ed3c5ecaa8",
+          "message": "feat(vscode): log binary resolution steps to output channel\n\nEach candidate checked during LSP binary resolution is now logged to the\noutput channel, making it easy to diagnose version mismatches or\nunexpected binary selection.",
+          "timestamp": "2026-04-09T07:22:10Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/ec2eccfd30a46277e8b9977eb39936ed3c5ecaa8"
+        },
+        "date": 1775723237770,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 39,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 30,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 58,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 40,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 35,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 30,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 110,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 81,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 373,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 309,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 471,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 404,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 224,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 187,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 2309,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 2165,
             "unit": "ms"
           }
         ]
