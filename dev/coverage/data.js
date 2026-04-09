@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775731086348,
+  "lastUpdate": 1775731974971,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "kamilthedev@gmail.com",
-            "name": "Kamil",
-            "username": "KamilDev"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "949316dd543825d8ad1ec0992415039aa821fecf",
-          "message": "fix: use dunce::canonicalize to avoid \\?\\ path prefix on Windows (#55)",
-          "timestamp": "2026-04-06T20:25:00+02:00",
-          "tree_id": "4e1a65ae2d493c70c97a1392752a0638b41c589e",
-          "url": "https://github.com/fallow-rs/fallow/commit/949316dd543825d8ad1ec0992415039aa821fecf"
-        },
-        "date": 1775499974601,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/46d85626863107cdaa1060fd51890d1bcd87339f"
         },
         "date": 1775731084669,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "bf934af1aff4b3283cfc349b1febaa9edb89031e",
+          "message": "refactor(health): conditional rendering for risk profiles\n\nShow function size profile only when very_high_risk >= 3% (approaching\nthe 5% penalty threshold). Show parameter profile only when high or\nvery_high bins carry signal. Suppress both on healthy projects to\nreduce noise.\n\nRemove early return that suppressed profiles when trend was active,\nso users can see absolute distributions alongside trend deltas.",
+          "timestamp": "2026-04-09T12:51:27+02:00",
+          "tree_id": "4153bfea25b9efae928b7baeb56485ad3e87a009",
+          "url": "https://github.com/fallow-rs/fallow/commit/bf934af1aff4b3283cfc349b1febaa9edb89031e"
+        },
+        "date": 1775731973504,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
