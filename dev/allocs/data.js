@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775714628288,
+  "lastUpdate": 1775728933069,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "31ad2b795659f758b0815386fdacc05d56844e61",
-          "message": "chore: release v2.13.0",
-          "timestamp": "2026-04-04T12:03:19+02:00",
-          "tree_id": "05d19286a08e2d2d3c8da10469c4304354b81d1a",
-          "url": "https://github.com/fallow-rs/fallow/commit/31ad2b795659f758b0815386fdacc05d56844e61"
-        },
-        "date": 1775297104770,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3586546,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15863,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 534716,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5821,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15348,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519093,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "32750ac7d73d91ee04c5b13dd269b4f8867d60b7",
+          "message": "fix: improve zero-match warning message and add to dupes/health baselines\n\n- Improve warning text: use accessible language, include the baseline\n  file path in the re-save hint\n- Add zero-match warning to dupes baseline loading (was check-only)\n- Add zero-match warning to health baseline loading (was check-only)",
+          "timestamp": "2026-04-09T12:00:34+02:00",
+          "tree_id": "a0f2c0cf31ad0424d0251ed55d30de1388efba4e",
+          "url": "https://github.com/fallow-rs/fallow/commit/32750ac7d73d91ee04c5b13dd269b4f8867d60b7"
+        },
+        "date": 1775728931411,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3594268,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15346,
             "unit": "allocations"
           },
           {
