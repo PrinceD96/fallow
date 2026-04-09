@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775744827175,
+  "lastUpdate": 1775750525879,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "80669b3be214442eecf11be73a2beecdc7eeff0a",
-          "message": "feat: add static coverage gaps to health (#53)\n\nfeat: add static coverage gaps to health",
-          "timestamp": "2026-04-06T13:12:58+02:00",
-          "tree_id": "1af722df2d997da5666ed7be4df0bd686e6896d9",
-          "url": "https://github.com/fallow-rs/fallow/commit/80669b3be214442eecf11be73a2beecdc7eeff0a"
-        },
-        "date": 1775474064612,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3580895,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15863,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 535949,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5826,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15328,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519093,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4bfd1d3885e98aaf3b5ca288bb7fe030d683190a",
+          "message": "chore: release v2.26.0",
+          "timestamp": "2026-04-09T18:00:19+02:00",
+          "tree_id": "2ef95295b829d817bb729f9a0e2b2366f7b818fc",
+          "url": "https://github.com/fallow-rs/fallow/commit/4bfd1d3885e98aaf3b5ca288bb7fe030d683190a"
+        },
+        "date": 1775750524874,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3587612,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15334,
             "unit": "allocations"
           },
           {
