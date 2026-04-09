@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775730941510,
+  "lastUpdate": 1775731086348,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4bdb26a6ae0c90b99945a56f95f70f88def04245",
-          "message": "fix: bump CACHE_VERSION to 20 for SFC template extraction changes",
-          "timestamp": "2026-04-06T20:20:41+02:00",
-          "tree_id": "1470ce28f39fc28ed720ba0d3bb594643e63d462",
-          "url": "https://github.com/fallow-rs/fallow/commit/4bdb26a6ae0c90b99945a56f95f70f88def04245"
-        },
-        "date": 1775499711732,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0be2bee514517490f4f36207c8a2a0c26394a508"
         },
         "date": 1775730940248,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "46d85626863107cdaa1060fd51890d1bcd87339f",
+          "message": "chore: gitignore quality/ dir, update AGENTS.md with risk profile fields",
+          "timestamp": "2026-04-09T12:36:44+02:00",
+          "tree_id": "ebc92058e17a09b4880dada4f0710f9493036bde",
+          "url": "https://github.com/fallow-rs/fallow/commit/46d85626863107cdaa1060fd51890d1bcd87339f"
+        },
+        "date": 1775731084669,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
