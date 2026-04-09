@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775750519031,
+  "lastUpdate": 1775751086275,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d17a43bc11b416ee46b38149ab13692c4f021951",
-          "message": "docs: add crap_max, crap_above_threshold, coverage_model to output-schema.json",
-          "timestamp": "2026-04-07T10:17:15+02:00",
-          "tree_id": "ad1e19aa63baf1a28df3363d72d874db786fdc35",
-          "url": "https://github.com/fallow-rs/fallow/commit/d17a43bc11b416ee46b38149ab13692c4f021951"
-        },
-        "date": 1775549911899,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4bfd1d3885e98aaf3b5ca288bb7fe030d683190a"
         },
         "date": 1775750517197,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "00eec3bfc29d8e57af2fadb1c69e4eee6cd571a1",
+          "message": "fix(action): handle multiple JSON objects in bare invocation output\n\nBare invocations on non-git directories emit an error JSON (e.g.,\n\"hotspot analysis requires a git repository\") followed by the actual\ncombined results. This caused jq to parse the error object instead of\nthe results, producing an invalid issue count that failed the numeric\nregex check.\n\nFix: pipe through jq -s 'last' to extract only the final JSON object.",
+          "timestamp": "2026-04-09T18:10:01+02:00",
+          "tree_id": "1d8c896dc3986ddfe85a5e95ef4361923ee49368",
+          "url": "https://github.com/fallow-rs/fallow/commit/00eec3bfc29d8e57af2fadb1c69e4eee6cd571a1"
+        },
+        "date": 1775751085167,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
