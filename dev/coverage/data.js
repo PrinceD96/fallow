@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775744809870,
+  "lastUpdate": 1775745110648,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "raihassanraza10@gmail.com",
-            "name": "Muhammad Hassan Raza",
-            "username": "M-Hassan-Raza"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "8dc91a2b81a0e696a765f0e164835210e1101435",
-          "message": "feat: harden Vue and Nuxt framework edge cases (#60)",
-          "timestamp": "2026-04-07T09:40:31+02:00",
-          "tree_id": "aa7bbc8e3bb49614c5b6b9c2a8af35ed2f511ac3",
-          "url": "https://github.com/fallow-rs/fallow/commit/8dc91a2b81a0e696a765f0e164835210e1101435"
-        },
-        "date": 1775547716174,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9f98c70a6df62ee8eee519970de89523d8fbb1a9"
         },
         "date": 1775744808594,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a00a062a4c227fa4eadd3bdfa2c4d4f889d20195",
+          "message": "fix(action): disable errexit inherited from composite action runner\n\nThe composite action runner invokes scripts with `bash -e`, but\nanalyze.sh handles errors explicitly via if-guards and `|| true`.\nThe inherited errexit causes silent failures on fork PRs where\nintermediate commands (git diff, grep -q) return non-zero as part\nof normal flow. This has been breaking the \"Test clean project\"\nCI check on all external PRs.",
+          "timestamp": "2026-04-09T16:30:25+02:00",
+          "tree_id": "d82de893dec7c4f4edddfe9402d53a46f4e73eb2",
+          "url": "https://github.com/fallow-rs/fallow/commit/a00a062a4c227fa4eadd3bdfa2c4d4f889d20195"
+        },
+        "date": 1775745109767,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
