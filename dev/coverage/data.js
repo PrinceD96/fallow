@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775731974971,
+  "lastUpdate": 1775732395273,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b3c5a2e5e8ddfd16887045224b44513d8b4bfccf",
-          "message": "docs: update rules for SFC template tracking and detection improvements",
-          "timestamp": "2026-04-06T20:27:43+02:00",
-          "tree_id": "2623a4006757b903615c33007bd75f0f243e4eb6",
-          "url": "https://github.com/fallow-rs/fallow/commit/b3c5a2e5e8ddfd16887045224b44513d8b4bfccf"
-        },
-        "date": 1775500137846,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/bf934af1aff4b3283cfc349b1febaa9edb89031e"
         },
         "date": 1775731973504,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "07cceb25b60c4159efa937970223121a99160b9d",
+          "message": "chore: release v2.24.0",
+          "timestamp": "2026-04-09T12:58:20+02:00",
+          "tree_id": "f1d01dc3b83e57085f5907dd307ca9144447c68f",
+          "url": "https://github.com/fallow-rs/fallow/commit/07cceb25b60c4159efa937970223121a99160b9d"
+        },
+        "date": 1775732394282,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
