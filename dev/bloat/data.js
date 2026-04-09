@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775742425108,
+  "lastUpdate": 1775743097259,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "h.raza1164@yahoo.com",
-            "name": "Muhammad Hassan Raza",
-            "username": "M-Hassan-Raza"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "71790b18bec1f38a36bd3ecb7ae7e69a8b5d96ae",
-          "message": "fix: align init hook CLI names (#43)",
-          "timestamp": "2026-04-05T15:23:06+02:00",
-          "tree_id": "d39c2898c45bf580390a370231e2231c4028fce4",
-          "url": "https://github.com/fallow-rs/fallow/commit/71790b18bec1f38a36bd3ecb7ae7e69a8b5d96ae"
-        },
-        "date": 1775395574538,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 142787136,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/64d0f84d1ab4e73da2a4ec208b144886f7eb986f"
         },
         "date": 1775742423509,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 146553240,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "263d76905e430c01585b4f6d567ba19623a1feb4",
+          "message": "fix(lsp): merge test_only_dependencies, boundary_violations, and export_usages across workspace roots",
+          "timestamp": "2026-04-09T15:54:42+02:00",
+          "tree_id": "27b2d47ffb22527722341821c34dac867433776c",
+          "url": "https://github.com/fallow-rs/fallow/commit/263d76905e430c01585b4f6d567ba19623a1feb4"
+        },
+        "date": 1775743095645,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
