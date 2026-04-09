@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775730955064,
+  "lastUpdate": 1775731985220,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0d88519cb64edfca6142a28a772ac8c3aae0b012",
-          "message": "chore: release v2.13.1",
-          "timestamp": "2026-04-05T15:39:05+02:00",
-          "tree_id": "22e95308560e66b8c93627dac0056cf318004b41",
-          "url": "https://github.com/fallow-rs/fallow/commit/0d88519cb64edfca6142a28a772ac8c3aae0b012"
-        },
-        "date": 1775396433186,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3595730,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15879,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 534716,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5821,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15326,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519093,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "bf934af1aff4b3283cfc349b1febaa9edb89031e",
+          "message": "refactor(health): conditional rendering for risk profiles\n\nShow function size profile only when very_high_risk >= 3% (approaching\nthe 5% penalty threshold). Show parameter profile only when high or\nvery_high bins carry signal. Suppress both on healthy projects to\nreduce noise.\n\nRemove early return that suppressed profiles when trend was active,\nso users can see absolute distributions alongside trend deltas.",
+          "timestamp": "2026-04-09T12:51:27+02:00",
+          "tree_id": "4153bfea25b9efae928b7baeb56485ad3e87a009",
+          "url": "https://github.com/fallow-rs/fallow/commit/bf934af1aff4b3283cfc349b1febaa9edb89031e"
+        },
+        "date": 1775731983610,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3582388,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15328,
             "unit": "allocations"
           },
           {
