@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775751086275,
+  "lastUpdate": 1775751218056,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b434ec77dddff007406ec3267cfa42840e57dfd4",
-          "message": "chore: release v2.17.0",
-          "timestamp": "2026-04-07T10:18:42+02:00",
-          "tree_id": "bf4fd6f117333efd1ab0ad31ee1304c2e91cf2c5",
-          "url": "https://github.com/fallow-rs/fallow/commit/b434ec77dddff007406ec3267cfa42840e57dfd4"
-        },
-        "date": 1775550010600,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/00eec3bfc29d8e57af2fadb1c69e4eee6cd571a1"
         },
         "date": 1775751085167,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "aff17ee52edb7d628f9369cf7b1f1b5fa99790de",
+          "message": "chore: tighten analyze.sh header comment",
+          "timestamp": "2026-04-09T18:12:17+02:00",
+          "tree_id": "ba1333a41245272b0c68ca9a5f5b65f51e1994c7",
+          "url": "https://github.com/fallow-rs/fallow/commit/aff17ee52edb7d628f9369cf7b1f1b5fa99790de"
+        },
+        "date": 1775751217171,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
