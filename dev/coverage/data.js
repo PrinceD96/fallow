@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775741707233,
+  "lastUpdate": 1775742169371,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "5b6a212c12a6f717a69df248eb71329b626483d6",
-          "message": "fix(ci): skip PR comment test on fork PRs\n\nFork PRs receive a restricted github.token that cannot write PR\ncomments (HTTP 403), causing the test-comment job to always fail on\ncontributor PRs.  Skip the job when the PR originates from a fork.",
-          "timestamp": "2026-04-07T07:20:04+02:00",
-          "tree_id": "a370c263647c13a28a10363929fafadc3abd3fd6",
-          "url": "https://github.com/fallow-rs/fallow/commit/5b6a212c12a6f717a69df248eb71329b626483d6"
-        },
-        "date": 1775539276678,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7da37c2fb364cef02693babdfa6b1c71aa1e829d"
         },
         "date": 1775741705920,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ba62bf4078fc41ca273ec67ff923b6bbac8d0bb2",
+          "message": "fix(lsp): deduplicate diagnostics in multi-root workspaces\n\nbuild_diagnostics was called once per workspace root from the merged\nresults, producing N copies of every diagnostic. Call it once with the\nworkspace root instead, since each result item already carries its own\nfile path.\n\nCloses #90",
+          "timestamp": "2026-04-09T15:39:21+02:00",
+          "tree_id": "b7953944fefeac93c130c1e053708323819b4cf3",
+          "url": "https://github.com/fallow-rs/fallow/commit/ba62bf4078fc41ca273ec67ff923b6bbac8d0bb2"
+        },
+        "date": 1775742168406,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
