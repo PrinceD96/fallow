@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775738920966,
+  "lastUpdate": 1775739360846,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "dca8c3017f7d2bfb056c1308ab5fa79f1262689b",
-          "message": "fix: spell out maintainability instead of MI in all user-facing output",
-          "timestamp": "2026-04-05T21:13:03+02:00",
-          "tree_id": "2288463488835f884ca25a528766ab9ec6793602",
-          "url": "https://github.com/fallow-rs/fallow/commit/dca8c3017f7d2bfb056c1308ab5fa79f1262689b"
-        },
-        "date": 1775416471818,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3576866,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15843,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 534716,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5821,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15336,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 519093,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "12b9f61371290122751ba77e01b9032e3f0a217a",
+          "message": "refactor(health): improve hint wording for duplication tip and --top\n\n- Add concrete examples to health.ignore tip (\"dist\", \"__generated__\")\n- Drop redundant second number from --top hint (\"use --top N to see all\")",
+          "timestamp": "2026-04-09T14:54:33+02:00",
+          "tree_id": "538c559ab87097a9fd78802228b7ead6ff4dcae4",
+          "url": "https://github.com/fallow-rs/fallow/commit/12b9f61371290122751ba77e01b9032e3f0a217a"
+        },
+        "date": 1775739359718,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3578516,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15320,
             "unit": "allocations"
           },
           {
