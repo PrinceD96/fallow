@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775752774486,
+  "lastUpdate": 1775752873069,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0c552eb5d571c7a2ecc1de2b174890241fcfe711",
-          "message": "fix(action): link all summary headers and metrics to docs pages\n\nAll three section headers (Code issues, Duplication, Complexity) now link\nto their respective docs pages using HTML anchors in <summary> tags.\nCodebase health header links to health docs. All table metrics link to\nspecific anchors: Maintainability, Avg complexity, Duplicated lines,\nClone instances, Cyclomatic, and Cognitive.",
-          "timestamp": "2026-04-07T10:51:52+02:00",
-          "tree_id": "67166a259d3c6143a64f8377137a08f2664729aa",
-          "url": "https://github.com/fallow-rs/fallow/commit/0c552eb5d571c7a2ecc1de2b174890241fcfe711"
-        },
-        "date": 1775552003041,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3b3f1484f58df1a8a5d03a519e5b45dbcb119c89"
         },
         "date": 1775752772635,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a2fa03c7df0e1a19d4eb88c4edf3c9e579fd023c",
+          "message": "chore: release v2.26.1",
+          "timestamp": "2026-04-09T18:39:47+02:00",
+          "tree_id": "0ef80113c8f7593f8057c16ed4df215e9913e9e2",
+          "url": "https://github.com/fallow-rs/fallow/commit/a2fa03c7df0e1a19d4eb88c4edf3c9e579fd023c"
+        },
+        "date": 1775752872194,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
