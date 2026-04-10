@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775752873069,
+  "lastUpdate": 1775798018029,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "a9c906bd202f254b954dc31e732bf8e06e5f2853",
-          "message": "chore: release v2.17.1",
-          "timestamp": "2026-04-07T10:58:17+02:00",
-          "tree_id": "32d50cbb6874ddb21b12c82e2f47eb363bfebf06",
-          "url": "https://github.com/fallow-rs/fallow/commit/a9c906bd202f254b954dc31e732bf8e06e5f2853"
-        },
-        "date": 1775552375841,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a2fa03c7df0e1a19d4eb88c4edf3c9e579fd023c"
         },
         "date": 1775752872194,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "934fd58ce66298177773ea45ebea150eff413ca0",
+          "message": "test(vscode): add version marker round-trip tests\n\nExport writeVersionMarker/readVersionMarker for direct testing. Covers\nwrite+read round-trip, missing marker, whitespace trimming, and empty\nfile edge cases.",
+          "timestamp": "2026-04-10T07:10:41+02:00",
+          "tree_id": "98b359a7435bd57ae674d99dc0195dbc037be757",
+          "url": "https://github.com/fallow-rs/fallow/commit/934fd58ce66298177773ea45ebea150eff413ca0"
+        },
+        "date": 1775798016530,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
