@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775815549757,
+  "lastUpdate": 1775817666721,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f1aee24dc81bf57ac0940a59ac790e6ae2e2230f",
-          "message": "feat: wire coverage-gaps into inline suppression system\n\nAdd IssueKind::CoverageGaps variant (discriminant 16) so\n`// fallow-ignore-file coverage-gaps` comments are parsed and\nhonored. Coverage gap analysis now checks file suppressions\nbefore counting runtime files or reporting untested exports.",
-          "timestamp": "2026-04-06T16:51:00+02:00",
-          "tree_id": "d1de27ff0e3c8ceead662d4676096233f82c4dc5",
-          "url": "https://github.com/fallow-rs/fallow/commit/f1aee24dc81bf57ac0940a59ac790e6ae2e2230f"
-        },
-        "date": 1775487142476,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3598975,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15895,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 535949,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5826,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15302,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 521517,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e7992f9104a67f471bd526414e7d703f1fd1978e",
+          "message": "fix: wire dead code cross-reference into fallow flags command\n\nThe correlate_with_dead_code() function existed but was never called\nfrom the flags command. Now runs full dead code analysis via\nanalyze_with_parse_result() (reusing pre-parsed modules) and populates\nguarded_dead_exports on each flag. Output shows \"Flags guarding dead\ncode\" section with line counts and dead export names.",
+          "timestamp": "2026-04-10T12:39:31+02:00",
+          "tree_id": "58fc1c68419aeba1690141437de80046e3e6c6a7",
+          "url": "https://github.com/fallow-rs/fallow/commit/e7992f9104a67f471bd526414e7d703f1fd1978e"
+        },
+        "date": 1775817665231,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3574252,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15300,
             "unit": "allocations"
           },
           {
