@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775820927823,
+  "lastUpdate": 1775821872840,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "da2dc07b4718a9331880bea23705c3b593eea056",
-          "message": "Merge pull request #58 from M-Hassan-Raza/feat/sfc-template-usage\n\nfeat: track template-visible import usage in SFCs",
-          "timestamp": "2026-04-06T20:15:42+02:00",
-          "tree_id": "bc7e6477f60ffabd9b94c0c528b4f7cc1687a41f",
-          "url": "https://github.com/fallow-rs/fallow/commit/da2dc07b4718a9331880bea23705c3b593eea056"
-        },
-        "date": 1775499426420,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3614540,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 16118,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 537549,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5826,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15340,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 521517,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "970c16c2bbad2c20a38d3bde6eeb13a2074ab1e1",
+          "message": "chore: release v2.27.0",
+          "timestamp": "2026-04-10T13:47:36+02:00",
+          "tree_id": "bdebe461be739022a7722500fa8ef476d182c4b9",
+          "url": "https://github.com/fallow-rs/fallow/commit/970c16c2bbad2c20a38d3bde6eeb13a2074ab1e1"
+        },
+        "date": 1775821871891,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3594932,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15334,
             "unit": "allocations"
           },
           {
