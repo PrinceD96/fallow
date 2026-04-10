@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775845019364,
+  "lastUpdate": 1775846658325,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1749b8ecacdd45be89a43c09973aab43f87cd249",
-          "message": "chore: release v2.15.0",
-          "timestamp": "2026-04-06T22:50:09+02:00",
-          "tree_id": "e3d485f2fafdd21638a43a93a6644736c262c389",
-          "url": "https://github.com/fallow-rs/fallow/commit/1749b8ecacdd45be89a43c09973aab43f87cd249"
-        },
-        "date": 1775508694923,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3612604,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 16114,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 537549,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5826,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15315,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 540717,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "824884c7f9fd6825445b0bb90059df4b0de8b6e7",
+          "message": "fix: harden SCSS index convention and default export class extends\n\nAdd SCSS directory index resolution: `@use 'components'` now resolves to\n`components/_index.scss` or `components/index.scss`. Add test coverage\nfor `export default class extends Foo` inheritance pattern.",
+          "timestamp": "2026-04-10T20:40:38+02:00",
+          "tree_id": "773e9796a59368ef19bd17f7d7b898cfaf9fec9f",
+          "url": "https://github.com/fallow-rs/fallow/commit/824884c7f9fd6825445b0bb90059df4b0de8b6e7"
+        },
+        "date": 1775846656581,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3602088,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15309,
             "unit": "allocations"
           },
           {
