@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775835740621,
+  "lastUpdate": 1775842257780,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "19e67689abc6ff0f9f5510e7029d66f349e2afa1",
-          "message": "fix: use pnpm audit --prod, add bot-conditions zizmor ignore\n\n- pnpm audit --prod skips devDependency vulnerabilities (mocha, vsce, vitest)\n- zizmor bot-conditions ignore for standard GitHub dependabot actor check",
-          "timestamp": "2026-04-07T14:33:54+02:00",
-          "tree_id": "538f7a0135d0fc07acd1b8849ff155b824b46c2d",
-          "url": "https://github.com/fallow-rs/fallow/commit/19e67689abc6ff0f9f5510e7029d66f349e2afa1"
-        },
-        "date": 1775565315604,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9255270050b2acc196bbda0b40b7774bb9c84407"
         },
         "date": 1775835739772,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "33868b8595ff88595172049b8e0a7585115e2e62",
+          "message": "fix(extract): Angular @defer, @let, @else if, and outputFromObservable support (#92, #93, #94)\n\nAdd missing Angular template syntax and signal API recognition to\neliminate false positive unused-class-member reports:\n\n- @defer (when expr) / (prefetch when) / (hydrate when) conditions\n- @let name = expr; template-local variables with scope tracking\n- @else if (condition) expression scanning\n- outputFromObservable() as Angular signal API in ANGULAR_SIGNAL_APIS\n\nBump CACHE_VERSION 28->29 for changed extraction semantics.",
+          "timestamp": "2026-04-10T19:29:38+02:00",
+          "tree_id": "911f33ad29bb98b0a36e953ad56fdb31037799c6",
+          "url": "https://github.com/fallow-rs/fallow/commit/33868b8595ff88595172049b8e0a7585115e2e62"
+        },
+        "date": 1775842256912,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
