@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775849709152,
+  "lastUpdate": 1775852054309,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e24ccda4e623128111b49cd10b8260923b72d08e",
-          "message": "chore: release v2.18.3",
-          "timestamp": "2026-04-07T16:39:29+02:00",
-          "tree_id": "2a5f4d1813696868d3cea7d3cc1fdfb510a0c1cd",
-          "url": "https://github.com/fallow-rs/fallow/commit/e24ccda4e623128111b49cd10b8260923b72d08e"
-        },
-        "date": 1775572849801,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/254e25fc89d89d296e9d1c14b9775588d94a58f0"
         },
         "date": 1775849708311,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "8d2200f3a3502cde1ecd76336b85560dfb265a6c",
+          "message": "fix: include LICENSE file in VS Code extension package\n\nvsce package warns when no LICENSE/LICENSE.md/LICENSE.txt is present in\nthe extension directory. The repo root has LICENSE, but vsce only reads\nthe extension's working directory, so the root file isn't bundled.\n\n- release.yml copies root LICENSE into editors/vscode/ before packaging\n- A prepackage npm lifecycle script does the same for local pnpm package\n- .gitignore excludes the copied file so the root LICENSE remains the\n  single source of truth",
+          "timestamp": "2026-04-10T22:10:40+02:00",
+          "tree_id": "0988482567c17a1afeadbc0cea51cad6a429bb49",
+          "url": "https://github.com/fallow-rs/fallow/commit/8d2200f3a3502cde1ecd76336b85560dfb265a6c"
+        },
+        "date": 1775852053237,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
