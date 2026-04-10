@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775821855789,
+  "lastUpdate": 1775827930774,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4b4547138dfdc410212d4b4d566ce1c518b21300",
-          "message": "fix: address review findings in supply chain hardening\n\n- Scope dependabot auto-merge to main branch only\n- Use minimal permissions in scorecard workflow (was read-all)\n- Add crates/config/** to miri path filter (transitive dep)\n- Add unit comments to .npmrc (pnpm=minutes, npm=days)",
-          "timestamp": "2026-04-07T14:25:38+02:00",
-          "tree_id": "651675f1c413fd9faf4685bdf9697bd2f3e7303d",
-          "url": "https://github.com/fallow-rs/fallow/commit/4b4547138dfdc410212d4b4d566ce1c518b21300"
-        },
-        "date": 1775564844159,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/970c16c2bbad2c20a38d3bde6eeb13a2074ab1e1"
         },
         "date": 1775821854474,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0c42c5dc4c22864e2c599c17d33187a35dc895cd",
+          "message": "docs: add codex repo overlay",
+          "timestamp": "2026-04-10T15:30:56+02:00",
+          "tree_id": "d854271fb48f8a5cf5bf24d2ba6ae062a8d467d7",
+          "url": "https://github.com/fallow-rs/fallow/commit/0c42c5dc4c22864e2c599c17d33187a35dc895cd"
+        },
+        "date": 1775827929977,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
