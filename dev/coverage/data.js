@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775856244581,
+  "lastUpdate": 1775857125487,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d3a0be3398c2ceb042c67e0b7fd555b32d47d0df",
-          "message": "fix(vscode): re-download binaries when version mismatches extension\n\nThe auto-downloaded fallow-lsp binary in global storage was never\nrefreshed after initial download. When a user updated the extension\n(or installed a newer CLI globally), the stale binary continued to\nserve LSP diagnostics, causing version skew between VS Code and CLI.\n\nNow checks the installed binary's version on activation and removes\nstale binaries to trigger a fresh download from the matching release.\n\nFixes #80",
-          "timestamp": "2026-04-07T19:45:55+02:00",
-          "tree_id": "5ec576c8be1ac8708802c2f4218a42604fa6d363",
-          "url": "https://github.com/fallow-rs/fallow/commit/d3a0be3398c2ceb042c67e0b7fd555b32d47d0df"
-        },
-        "date": 1775584024709,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e05ebda310edacdc7a2946a9f9beb459e8500286"
         },
         "date": 1775856243735,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0cbd99146c6eb610aa7b5eafab3bb7c328280691",
+          "message": "fix: report accurate line numbers for unused re-exports\n\nRe-exports synthesized from ReExportInfo into ExportSymbol entries were\nreported with line :1 because the synthesis used Span::new(0, 0) as a\nsentinel for 'no source location'. This applied even to import-then-\nreexport patterns and `export { X } from './a'` statements that DO have\nreal source spans.\n\nPlumb a span field from ReExportInfo (set by the visitor) through\nReExportEdge into the synthesized ExportSymbol so unused-export reporting\ncan compute the correct line via byte_offset_to_line_col. The (0, 0)\nsentinel is now reserved for graph-internal synthesis (star re-export\nchain propagation, namespace narrowing).\n\nThe unused-export detector previously inferred is_re_export from the\nspan(0, 0) sentinel. With real spans propagating through, the detection\nnow looks up the export name in the module's re_exports list instead,\nwhich is the semantic check.\n\nCACHE_VERSION bumped 31 -> 32 because CachedReExport gained span_start\nand span_end fields. ReExportEdge size assertion bumped 56 -> 64 bytes\nto account for the new span field.",
+          "timestamp": "2026-04-10T23:35:09+02:00",
+          "tree_id": "ac482df32ec0cc4e16334add492c162d5a554c46",
+          "url": "https://github.com/fallow-rs/fallow/commit/0cbd99146c6eb610aa7b5eafab3bb7c328280691"
+        },
+        "date": 1775857124334,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
