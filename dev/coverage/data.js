@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775798018029,
+  "lastUpdate": 1775798295945,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "96be261b4fa3cc4daf6a50ea76c1715b6ba355fb",
-          "message": "fix(action): use metric labels, add first-run hint, improve CI docs\n\n- Use trend metric .label field (e.g., \"avg complexity\") instead of\n  hardcoded names in delta header for robustness and clarity\n- Add progressive disclosure footnote on first run (score present but\n  no trend): suggests enabling save-snapshot for trend tracking\n- Fix action.yml descriptions to mention bare command support and\n  snapshot location (.fallow/snapshots/)\n- Add inline comments to GitLab CI env vars for discoverability",
-          "timestamp": "2026-04-07T11:53:42+02:00",
-          "tree_id": "abadf24e78d4f2540485b79b1112c5ad02f8d63b",
-          "url": "https://github.com/fallow-rs/fallow/commit/96be261b4fa3cc4daf6a50ea76c1715b6ba355fb"
-        },
-        "date": 1775555950389,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/934fd58ce66298177773ea45ebea150eff413ca0"
         },
         "date": 1775798016530,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "79243fb69d3686ff035184e180d0dd8144d17514",
+          "message": "fix: typo in test name (unparseable -> unparsable)",
+          "timestamp": "2026-04-10T07:16:52+02:00",
+          "tree_id": "ab031f80965b6919c8a61a338d613f17d3cf3b41",
+          "url": "https://github.com/fallow-rs/fallow/commit/79243fb69d3686ff035184e180d0dd8144d17514"
+        },
+        "date": 1775798294260,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
