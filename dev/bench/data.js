@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775849883868,
+  "lastUpdate": 1775853179648,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "kamilthedev@gmail.com",
-            "name": "Kamil",
-            "username": "KamilDev"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4d8b17ec2196ecfcd7506d487047b2c5124b87f4",
-          "message": "fix: resolve root-relative HTML asset paths from project root (#61)\n\nIn Vite, Parcel, and other dev servers, `<script src=\"/src/main.tsx\">` means\n\"relative to the project root\", not an absolute filesystem path. The existing\nHTML parser correctly extracts these references, but the resolver couldn't\nresolve them, reporting false-positive unresolved imports which cascaded into\nfalse-positive unused files.\n\nResolve root-relative paths in HTML files by converting `/src/main.tsx` to\n`./src/main.tsx` and resolving against the project root directory.\n\nAlso adds canonical_fallback lookup for symlink parity with the main\nresolution path, and 3 integration tests with a dedicated fixture.",
-          "timestamp": "2026-04-07T08:25:40+02:00",
-          "tree_id": "00b2486e55e54570914cab2acee6a1bd09cf1cae",
-          "url": "https://github.com/fallow-rs/fallow/commit/4d8b17ec2196ecfcd7506d487047b2c5124b87f4"
-        },
-        "date": 1775543381685,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 41033,
-            "range": "± 1044",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1662057,
-            "range": "± 19608",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3000098,
-            "range": "± 67937",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 15638905,
-            "range": "± 259803",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 106682,
-            "range": "± 1219",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 1975,
-            "range": "± 6",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 204708,
-            "range": "± 2810",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 908351,
-            "range": "± 15019",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1703064,
-            "range": "± 19046",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 522710,
-            "range": "± 22485",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4198985,
-            "range": "± 46398",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2514826,
-            "range": "± 9141",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9599,6 +9503,102 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2614793,
             "range": "± 9097",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "7445a42021e50bca8cb498929dbdca192023a1ef",
+          "message": "chore: shrink VS Code extension package and add CSS path alias tests\n\n- .vscodeignore now excludes pnpm-lock.yaml, .fallow/, .test-dist/,\n  test/, vitest.config.mts, tsconfig.test.json, and .fallowrc.json.\n  Reduces the VSIX from 192KB to 100KB (48% smaller).\n- Add regression tests for CSS path aliases (@/components/Button.css)\n  sharing the @-prefix with scoped packages. Path aliases must stay\n  bare so the resolver's alias path handles them.",
+          "timestamp": "2026-04-10T22:26:29+02:00",
+          "tree_id": "916a746b341c25a8e02c3aa4935c7446cd630dc1",
+          "url": "https://github.com/fallow-rs/fallow/commit/7445a42021e50bca8cb498929dbdca192023a1ef"
+        },
+        "date": 1775853178079,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 44164,
+            "range": "± 612",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 1757416,
+            "range": "± 23874",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 3105604,
+            "range": "± 93357",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 15364807,
+            "range": "± 73116",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 110348,
+            "range": "± 451",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2032,
+            "range": "± 33",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 214398,
+            "range": "± 21762",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 958712,
+            "range": "± 12047",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1741668,
+            "range": "± 35101",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 527070,
+            "range": "± 30834",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4161393,
+            "range": "± 63428",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2654305,
+            "range": "± 19150",
             "unit": "ns/iter"
           }
         ]
