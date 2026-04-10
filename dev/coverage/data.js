@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775849413035,
+  "lastUpdate": 1775849709152,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "07bada33acc11ba99e6737631a572a6823267b5c",
-          "message": "fix(ci): restore two-step npm bootstrap for OIDC publishing",
-          "timestamp": "2026-04-07T16:37:56+02:00",
-          "tree_id": "ced6c9f05a694d7701c6c84bd08b9f9eed1732ae",
-          "url": "https://github.com/fallow-rs/fallow/commit/07bada33acc11ba99e6737631a572a6823267b5c"
-        },
-        "date": 1775572755969,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e629a4a0100da2643634b270fe621883d59d365b"
         },
         "date": 1775849412161,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "254e25fc89d89d296e9d1c14b9775588d94a58f0",
+          "message": "chore: release v2.27.3",
+          "timestamp": "2026-04-10T21:31:19+02:00",
+          "tree_id": "48d11b49cf0142881ac662bdeaf05f5dc0bfef0e",
+          "url": "https://github.com/fallow-rs/fallow/commit/254e25fc89d89d296e9d1c14b9775588d94a58f0"
+        },
+        "date": 1775849708311,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
