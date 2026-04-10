@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775842257780,
+  "lastUpdate": 1775843165707,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0fef7bc181c342a9f4368091ab245a1b5ef48c8c",
-          "message": "fix: pin @types/vscode to 1.85.0 to match engines.vscode\n\nvsce package validates that @types/vscode does not exceed the\nengines.vscode range. Pinning to the minimum engine version also\nensures only APIs available in VS Code 1.85+ are used.",
-          "timestamp": "2026-04-07T14:36:27+02:00",
-          "tree_id": "3abaeedebce8b1a6cc8c582eecc40e5b9a9c9497",
-          "url": "https://github.com/fallow-rs/fallow/commit/0fef7bc181c342a9f4368091ab245a1b5ef48c8c"
-        },
-        "date": 1775565464676,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/33868b8595ff88595172049b8e0a7585115e2e62"
         },
         "date": 1775842256912,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "460afaee1c2411dbf289ae6dbec4fd95d0cd9bff",
+          "message": "test(extract): harden Angular @defer nested parens and @else if word boundary\n\nAdd word boundary check for @else if detection to prevent matching\nidentifiers starting with \"if\" (e.g. @else iffy). Add test for\n@defer (on timer(1s)) confirming nested parentheses in triggers\ndon't break the scanner.",
+          "timestamp": "2026-04-10T19:44:38+02:00",
+          "tree_id": "efad6a8704b4dbc5f6bb99fd87094571a8581020",
+          "url": "https://github.com/fallow-rs/fallow/commit/460afaee1c2411dbf289ae6dbec4fd95d0cd9bff"
+        },
+        "date": 1775843164019,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
