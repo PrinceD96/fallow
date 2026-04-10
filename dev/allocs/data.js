@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775844115726,
+  "lastUpdate": 1775845019364,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "52029bed1d363f0fc43035201762e64d763a2705",
-          "message": "feat: expand framework convention and template coverage (#59)\n\n- Expand Next.js convention handling: App Router/Pages Router special files,\n  route segment exports, mdx-components, instrumentation, proxy, and\n  transpilePackages treated as framework usage\n- Parse config aliases for Vite, Nuxt, and SvelteKit, feed into resolver\n  fallbacks so config-defined aliases stop producing false reports\n- Improve Vue and Svelte SFC template extraction: component tags, custom\n  directives, v-on=\"handlers\", Svelte attribute expressions, shorthand\n  props, and $store subscriptions mark imports as used\n- Harden unused export analysis so entry-point files with framework-used\n  exports still report unrelated unused helpers\n- Add Nuxt srcDir support with custom alias, imports.dirs, and components\n  directory detection\n- Bump CACHE_VERSION to 21 for new template extraction semantics\n- Fix Svelte template scanner index advancement after HTML tag parsing\n- Fix panic on malformed Svelte brace attribute expressions\n\nCloses #59",
-          "timestamp": "2026-04-06T22:48:19+02:00",
-          "tree_id": "9908c120264b7097d39be203e0d3e837b3e752b6",
-          "url": "https://github.com/fallow-rs/fallow/commit/52029bed1d363f0fc43035201762e64d763a2705"
-        },
-        "date": 1775508592137,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3622260,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 16128,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 537549,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5826,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15323,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 540717,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "1b76bfa33b0fbe3f992790c709bddc2782219c40",
+          "message": "chore: release v2.27.2",
+          "timestamp": "2026-04-10T20:12:26+02:00",
+          "tree_id": "0f63c8a8d53327d3eca3918f8a392abf633203be",
+          "url": "https://github.com/fallow-rs/fallow/commit/1b76bfa33b0fbe3f992790c709bddc2782219c40"
+        },
+        "date": 1775845018441,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3605760,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15315,
             "unit": "allocations"
           },
           {
