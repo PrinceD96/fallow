@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775821872840,
+  "lastUpdate": 1775842273772,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4bdb26a6ae0c90b99945a56f95f70f88def04245",
-          "message": "fix: bump CACHE_VERSION to 20 for SFC template extraction changes",
-          "timestamp": "2026-04-06T20:20:41+02:00",
-          "tree_id": "1470ce28f39fc28ed720ba0d3bb594643e63d462",
-          "url": "https://github.com/fallow-rs/fallow/commit/4bdb26a6ae0c90b99945a56f95f70f88def04245"
-        },
-        "date": 1775499718778,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3628356,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 16140,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 537549,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5826,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15334,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 521517,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "33868b8595ff88595172049b8e0a7585115e2e62",
+          "message": "fix(extract): Angular @defer, @let, @else if, and outputFromObservable support (#92, #93, #94)\n\nAdd missing Angular template syntax and signal API recognition to\neliminate false positive unused-class-member reports:\n\n- @defer (when expr) / (prefetch when) / (hydrate when) conditions\n- @let name = expr; template-local variables with scope tracking\n- @else if (condition) expression scanning\n- outputFromObservable() as Angular signal API in ANGULAR_SIGNAL_APIS\n\nBump CACHE_VERSION 28->29 for changed extraction semantics.",
+          "timestamp": "2026-04-10T19:29:38+02:00",
+          "tree_id": "911f33ad29bb98b0a36e953ad56fdb31037799c6",
+          "url": "https://github.com/fallow-rs/fallow/commit/33868b8595ff88595172049b8e0a7585115e2e62"
+        },
+        "date": 1775842272039,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3598820,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15346,
             "unit": "allocations"
           },
           {
