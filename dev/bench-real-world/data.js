@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775723239276,
+  "lastUpdate": 1775809723187,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -1427,6 +1427,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 2165,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "4a044265d4ab6858c72cf851d932674173211996",
+          "message": "chore: add ADRs, reviewer subagents, and team assembly rule\n\nAdd Architecture Decision Records (ADRs 001-005) documenting key\ndesign choices. Add specialized reviewer subagents for CI formats,\nCLI output, GitHub Actions, GitLab CI, JSON output, LSP, MCP, and\nVS Code extension. Add team assembly rule for coordinating parallel\nagent work.",
+          "timestamp": "2026-04-10T07:51:17Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/4a044265d4ab6858c72cf851d932674173211996"
+        },
+        "date": 1775809721946,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 51,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 44,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 58,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 49,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 42,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 39,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 124,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 105,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 496,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 443,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 623,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 588,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 294,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 256,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 3524,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 3342,
             "unit": "ms"
           }
         ]
