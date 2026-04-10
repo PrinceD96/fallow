@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775853407883,
+  "lastUpdate": 1775853597980,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ce7fcee0ce048655b9dc4c9df604b8edd17cc3e2",
-          "message": "fix(ci): disable auto-changed-since in clean project test\n\nThe clean project at /tmp is not a git repo, so auto-scoping to\nPR changed files causes fallow to error. Disabling auto-changed-since\nfor this test since it validates zero-issue behavior, not PR scoping.",
-          "timestamp": "2026-04-07T19:23:17+02:00",
-          "tree_id": "61a44c1b5e444ca7b64b3d89f8de86fd206bceea",
-          "url": "https://github.com/fallow-rs/fallow/commit/ce7fcee0ce048655b9dc4c9df604b8edd17cc3e2"
-        },
-        "date": 1775582674617,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1cb2d98e43d3068fbb0bd2dd5ab168c27a4540be"
         },
         "date": 1775853407039,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "8b362e65f153b57cf96dc2efe1b99bcd7fcf33db",
+          "message": "chore: release v2.27.4",
+          "timestamp": "2026-04-10T22:38:30+02:00",
+          "tree_id": "8040373a8f7c63d4c343e7d8105b2f14705bad0c",
+          "url": "https://github.com/fallow-rs/fallow/commit/8b362e65f153b57cf96dc2efe1b99bcd7fcf33db"
+        },
+        "date": 1775853597064,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
