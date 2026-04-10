@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775820108511,
+  "lastUpdate": 1775820907502,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0971f0561454e366fd2635cc6fa81346db6674f4",
-          "message": "chore: add Dependabot auto-merge for patch/minor bumps\n\nAuto-merges Dependabot PRs after CI passes, except major version\nbumps which still require manual review.",
-          "timestamp": "2026-04-07T14:17:41+02:00",
-          "tree_id": "d2e0d3cea8f1a6687e722fd99e766e3780a33d90",
-          "url": "https://github.com/fallow-rs/fallow/commit/0971f0561454e366fd2635cc6fa81346db6674f4"
-        },
-        "date": 1775564333897,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/5c24a840f5b964fd8cca7bcc69d276b6e291da21"
         },
         "date": 1775820106946,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "raihassanraza10@gmail.com",
+            "name": "Muhammad Hassan Raza",
+            "username": "M-Hassan-Raza"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "af1c1a3ee1ac7de5ae1d14a3c19904e34cd9a6c2",
+          "message": "feat(core): improve Docusaurus convention coverage (#91)",
+          "timestamp": "2026-04-10T13:23:27+02:00",
+          "tree_id": "f337a9806aa317c7bac202b7cbd7705e747c0987",
+          "url": "https://github.com/fallow-rs/fallow/commit/af1c1a3ee1ac7de5ae1d14a3c19904e34cd9a6c2"
+        },
+        "date": 1775820906636,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
