@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775820907502,
+  "lastUpdate": 1775821438028,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "2ef236de42f39ccddfcaba96e188167739b97acf",
-          "message": "fix: use pull_request_target for Dependabot auto-merge, add tests/ to CI path filter\n\n- pull_request gives Dependabot read-only GITHUB_TOKEN, blocking merges\n- tests/fixtures/ was not triggering Rust CI on changes",
-          "timestamp": "2026-04-07T14:19:41+02:00",
-          "tree_id": "d93f1111b4dfd2a01dfcb4610d768b2613dfc1b5",
-          "url": "https://github.com/fallow-rs/fallow/commit/2ef236de42f39ccddfcaba96e188167739b97acf"
-        },
-        "date": 1775564458153,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/af1c1a3ee1ac7de5ae1d14a3c19904e34cd9a6c2"
         },
         "date": 1775820906636,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "1c456632db6209fcfa460ba128944b006c1f5b03",
+          "message": "chore: ignore symlinks for shared gitignored directories\n\nPatterns with trailing slash only match directories, not symlinks.\nAdding patterns without trailing slash ensures the symlinks used in\nfallow-2 to share .internal/, quality/, reference/, and benchmarks/\nwith the main fallow repo are properly ignored.",
+          "timestamp": "2026-04-10T13:42:35+02:00",
+          "tree_id": "7372fb618f3ef8125278c083794ed0009a4a2a01",
+          "url": "https://github.com/fallow-rs/fallow/commit/1c456632db6209fcfa460ba128944b006c1f5b03"
+        },
+        "date": 1775821436853,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
