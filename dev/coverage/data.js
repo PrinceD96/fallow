@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775827930774,
+  "lastUpdate": 1775835740621,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f28ec13eb4927274e7b044ba9796c82e06396c8f",
-          "message": "fix: regenerate lockfile for pinned versions, fix scorecard SHA and zizmor config\n\n- Lockfile specifiers now match pinned versions (no carets)\n- Use correct codeql-action/upload-sarif SHA (v3.35.1)\n- Add zizmor ignores for dependabot-auto-merge (pull_request_target)\n  and ci-ok (safe toJSON template)",
-          "timestamp": "2026-04-07T14:30:33+02:00",
-          "tree_id": "93418fd90cefe94b1666f21b8f4537eee927dc26",
-          "url": "https://github.com/fallow-rs/fallow/commit/f28ec13eb4927274e7b044ba9796c82e06396c8f"
-        },
-        "date": 1775565108824,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0c42c5dc4c22864e2c599c17d33187a35dc895cd"
         },
         "date": 1775827929977,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9255270050b2acc196bbda0b40b7774bb9c84407",
+          "message": "chore: gitignore AGENTS.md and .codex (local agent config)\n\nAgent-specific development workflows (Codex skills, Claude overlay)\nare local tooling configuration, not project source.",
+          "timestamp": "2026-04-10T17:40:16+02:00",
+          "tree_id": "bec1584a7d04a5a0e2727bc3190aedaa52af3f30",
+          "url": "https://github.com/fallow-rs/fallow/commit/9255270050b2acc196bbda0b40b7774bb9c84407"
+        },
+        "date": 1775835739772,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
