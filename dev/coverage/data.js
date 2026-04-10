@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775818773889,
+  "lastUpdate": 1775820108511,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "17e6cc28a37e262c6cab73a8659f7f1fac64d420",
-          "message": "chore: supply chain hardening\n\n- Pin npm dependency versions (remove carets)\n- Add .npmrc with ignore-scripts and min-release-age (7 days)\n- Add pnpm audit step to vscode CI job\n- Add path-based CI job filtering (skip Rust checks on npm-only PRs)\n- Add CI summary job for branch protection\n- Add OpenSSF Scorecard workflow",
-          "timestamp": "2026-04-07T14:15:11+02:00",
-          "tree_id": "c836925772192f22279b4909104be6b532566b6c",
-          "url": "https://github.com/fallow-rs/fallow/commit/17e6cc28a37e262c6cab73a8659f7f1fac64d420"
-        },
-        "date": 1775564195874,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ff02943f8825e764a78af080c36f9d72965426f3"
         },
         "date": 1775818773061,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "raihassanraza10@gmail.com",
+            "name": "Muhammad Hassan Raza",
+            "username": "M-Hassan-Raza"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5c24a840f5b964fd8cca7bcc69d276b6e291da21",
+          "message": "Improve Docusaurus convention coverage (#91)\n\n* refactor(core): share config parser AST helpers\n\n* feat(core): harden docusaurus convention coverage",
+          "timestamp": "2026-04-10T13:20:23+02:00",
+          "tree_id": "f337a9806aa317c7bac202b7cbd7705e747c0987",
+          "url": "https://github.com/fallow-rs/fallow/commit/5c24a840f5b964fd8cca7bcc69d276b6e291da21"
+        },
+        "date": 1775820106946,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
