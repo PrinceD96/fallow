@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775843165707,
+  "lastUpdate": 1775843397854,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "eefe6c6b9d10c6f1bff9fc3f8e46b2d57c57638f",
-          "message": "fix: increase Miri timeout to 45 minutes (cold cache after workflow move)",
-          "timestamp": "2026-04-07T15:09:56+02:00",
-          "tree_id": "6523c7dfe164b1396b46f1327bd50c5ec463b256",
-          "url": "https://github.com/fallow-rs/fallow/commit/eefe6c6b9d10c6f1bff9fc3f8e46b2d57c57638f"
-        },
-        "date": 1775567477914,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/460afaee1c2411dbf289ae6dbec4fd95d0cd9bff"
         },
         "date": 1775843164019,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "8e94a96bb4fab971564f47da95676e404a8effb7",
+          "message": "chore: release v2.27.0",
+          "timestamp": "2026-04-10T19:48:25+02:00",
+          "tree_id": "377e4e1641bd937f9454fbe5c8aea074311b6347",
+          "url": "https://github.com/fallow-rs/fallow/commit/8e94a96bb4fab971564f47da95676e404a8effb7"
+        },
+        "date": 1775843396921,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
