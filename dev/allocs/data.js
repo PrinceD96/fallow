@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775842273772,
+  "lastUpdate": 1775843164047,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "kamilthedev@gmail.com",
-            "name": "Kamil",
-            "username": "KamilDev"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "949316dd543825d8ad1ec0992415039aa821fecf",
-          "message": "fix: use dunce::canonicalize to avoid \\?\\ path prefix on Windows (#55)",
-          "timestamp": "2026-04-06T20:25:00+02:00",
-          "tree_id": "4e1a65ae2d493c70c97a1392752a0638b41c589e",
-          "url": "https://github.com/fallow-rs/fallow/commit/949316dd543825d8ad1ec0992415039aa821fecf"
-        },
-        "date": 1775499984117,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3617916,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 16122,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 537549,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5826,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15346,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 521517,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "460afaee1c2411dbf289ae6dbec4fd95d0cd9bff",
+          "message": "test(extract): harden Angular @defer nested parens and @else if word boundary\n\nAdd word boundary check for @else if detection to prevent matching\nidentifiers starting with \"if\" (e.g. @else iffy). Add test for\n@defer (on timer(1s)) confirming nested parentheses in triggers\ndon't break the scanner.",
+          "timestamp": "2026-04-10T19:44:38+02:00",
+          "tree_id": "efad6a8704b4dbc5f6bb99fd87094571a8581020",
+          "url": "https://github.com/fallow-rs/fallow/commit/460afaee1c2411dbf289ae6dbec4fd95d0cd9bff"
+        },
+        "date": 1775843163115,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3575788,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15300,
             "unit": "allocations"
           },
           {
