@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775928114720,
+  "lastUpdate": 1775933674915,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "kamilthedev@gmail.com",
-            "name": "Kamil",
-            "username": "KamilDev"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "774f13a35ce83470fa7ca26d73c74aeef546601f",
-          "message": "fix(extract): resolve chained member access through class field assignments (#63)\n\nWhen a class stores an instance in a field (this.service = new MyService())\nand later calls a method through it (this.service.doWork()), the analysis\nnow correctly recognizes doWork as a used member of MyService.",
-          "timestamp": "2026-04-07T14:24:10+02:00",
-          "tree_id": "c53f2c5c711ec5d7329920cd0f0958f9a7ab2d1c",
-          "url": "https://github.com/fallow-rs/fallow/commit/774f13a35ce83470fa7ca26d73c74aeef546601f"
-        },
-        "date": 1775564900627,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 40381,
-            "range": "± 538",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1675306,
-            "range": "± 26693",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3052752,
-            "range": "± 30588",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 16269996,
-            "range": "± 282187",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 102271,
-            "range": "± 2428",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 1995,
-            "range": "± 29",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 206993,
-            "range": "± 5523",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 921698,
-            "range": "± 127063",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1721204,
-            "range": "± 37400",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 519563,
-            "range": "± 31611",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4262024,
-            "range": "± 84730",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2541825,
-            "range": "± 80639",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9599,6 +9503,102 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2639460,
             "range": "± 9465",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "1ae2f7e6cc4ea56a5174fb156dd80074f715008b",
+          "message": "chore: release v2.28.1",
+          "timestamp": "2026-04-11T20:48:57+02:00",
+          "tree_id": "7aecae1d27deb3eb517de61519d8b98be6b0823b",
+          "url": "https://github.com/fallow-rs/fallow/commit/1ae2f7e6cc4ea56a5174fb156dd80074f715008b"
+        },
+        "date": 1775933673292,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 43760,
+            "range": "± 608",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 1775842,
+            "range": "± 75343",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 3146404,
+            "range": "± 37241",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 16480335,
+            "range": "± 240874",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 112763,
+            "range": "± 3487",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2022,
+            "range": "± 65",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 212661,
+            "range": "± 8664",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 951695,
+            "range": "± 11088",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1733470,
+            "range": "± 23009",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 548352,
+            "range": "± 17896",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4238642,
+            "range": "± 39380",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2653739,
+            "range": "± 13345",
             "unit": "ns/iter"
           }
         ]
