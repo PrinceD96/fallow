@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775927929210,
+  "lastUpdate": 1775933484508,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
@@ -2155,6 +2155,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 463,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "1ae2f7e6cc4ea56a5174fb156dd80074f715008b",
+          "message": "chore: release v2.28.1",
+          "timestamp": "2026-04-11T20:48:57+02:00",
+          "tree_id": "7aecae1d27deb3eb517de61519d8b98be6b0823b",
+          "url": "https://github.com/fallow-rs/fallow/commit/1ae2f7e6cc4ea56a5174fb156dd80074f715008b"
+        },
+        "date": 1775933482869,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 12,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 12,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 219,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 464,
             "unit": "count"
           }
         ]
