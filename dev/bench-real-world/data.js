@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775894380382,
+  "lastUpdate": 1775981443192,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -1631,6 +1631,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 3456,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "5ea37114e61b8f961c154288622959eb77afa39f",
+          "message": "fix(flags): wire inline suppression into feature flag collection\n\nThe JSON output action suggested `// fallow-ignore-next-line feature-flag`\nbut the flags command never checked suppressions. Both the built-in and\ncustom flag collection loops now call `is_suppressed()` /\n`is_file_suppressed()` with `IssueKind::FeatureFlag`, matching the\ncontract the JSON output already promised.",
+          "timestamp": "2026-04-12T08:00:05Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/5ea37114e61b8f961c154288622959eb77afa39f"
+        },
+        "date": 1775981442328,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 45,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 48,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 52,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 45,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 44,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 42,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 126,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 99,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 524,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 491,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 642,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 608,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 314,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 275,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 3322,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 3075,
             "unit": "ms"
           }
         ]
