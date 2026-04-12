@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775981603853,
+  "lastUpdate": 1775981898427,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "kamilthedev@gmail.com",
-            "name": "KamilDev",
-            "username": "KamilDev"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "a67f9c5c617e9bc477da106c242bc7aea88de1d6",
-          "message": "fix(extract): track class instances through factory initializers (#79)\n\nWhen a class is instantiated inside a factory function passed to a\nwrapper like React's useState, e.g. `const [svc] = useState(() => new\nMyService())`, the first array-destructured binding is now recognized\nas an instance of that class, so member accesses on it correctly count\nas usage.\n\nHandles arrow expression bodies, arrow block bodies, and function\nexpressions. Built-in constructors are filtered. Whole-object use\npropagation works through the factory pattern.\n\nCloses #79",
-          "timestamp": "2026-04-07T19:31:02+02:00",
-          "tree_id": "ebf820523170b03366fec0a0f75ff850dcb2723c",
-          "url": "https://github.com/fallow-rs/fallow/commit/a67f9c5c617e9bc477da106c242bc7aea88de1d6"
-        },
-        "date": 1775583155855,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3585000,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15528,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519141,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5526,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15341,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 540717,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "920a8e0cca3e1b58d0ef5bf106aacde11102cb96",
+          "message": "chore: release v2.29.1",
+          "timestamp": "2026-04-12T10:13:19+02:00",
+          "tree_id": "f81e7cb7beb5212473becb3033f76f4a0820a639",
+          "url": "https://github.com/fallow-rs/fallow/commit/920a8e0cca3e1b58d0ef5bf106aacde11102cb96"
+        },
+        "date": 1775981897243,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3602856,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15309,
             "unit": "allocations"
           },
           {
