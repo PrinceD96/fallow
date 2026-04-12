@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775981037975,
+  "lastUpdate": 1775981600390,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "dd60a0fbbe9a1b66d98f0e875333cd38b3ec4bdf",
-          "message": "docs: add .vitepress to hidden directory allowlist in docs\n\nFollow-up to PR #84 which added .vitepress to ALLOWED_HIDDEN_DIRS.",
-          "timestamp": "2026-04-08T13:01:36+02:00",
-          "tree_id": "c2f8123039c7c79ca508fe905e9057d7487bf788",
-          "url": "https://github.com/fallow-rs/fallow/commit/dd60a0fbbe9a1b66d98f0e875333cd38b3ec4bdf"
-        },
-        "date": 1775646197041,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "85ab8885f35c91c5ec5fb006dfa0fddd54385dd9",
+          "message": "test(flags): regression test for feature-flag inline suppression\n\nThe fix in 5ea37114 wired is_suppressed() into the flags collection\nloop but shipped without a test. Add a CLI-level regression test\nverifying that // fallow-ignore-next-line feature-flag suppresses the\nannotated flag while leaving unsuppressed flags visible. Uses a\ndedicated feature-flag-suppression fixture with two env var flags,\none suppressed and one not.",
+          "timestamp": "2026-04-12T10:09:31+02:00",
+          "tree_id": "4d61e434fabebeb0c06dd493017d282763f98aa7",
+          "url": "https://github.com/fallow-rs/fallow/commit/85ab8885f35c91c5ec5fb006dfa0fddd54385dd9"
+        },
+        "date": 1775981599539,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
             "unit": "%"
           }
         ]
