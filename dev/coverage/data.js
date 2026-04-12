@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776031914761,
+  "lastUpdate": 1776032258537,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "2685ac54e2ea21fbf93a5ecad2184cec5a7b30d1",
-          "message": "chore: release v2.22.1",
-          "timestamp": "2026-04-08T14:10:03+02:00",
-          "tree_id": "590c7804526d23d4fb400e4463a92b4471efd7aa",
-          "url": "https://github.com/fallow-rs/fallow/commit/2685ac54e2ea21fbf93a5ecad2184cec5a7b30d1"
-        },
-        "date": 1775650291311,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/712bc212ac0d728a6065422a6b49847e2954d7e4"
         },
         "date": 1776031913856,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "92840d926064010154146be73bfcadfbe468741b",
+          "message": "docs: update README with new features\n\nAdd arrow-wrapped dynamic imports, visibility tags (@public, @internal,\n@beta, @alpha), --file flag for lint-staged, --include-entry-exports for\nentry validation, and script multiplexer support.",
+          "timestamp": "2026-04-13T00:16:14+02:00",
+          "tree_id": "607c0038fe4071f7665f721d6de088156cd73c58",
+          "url": "https://github.com/fallow-rs/fallow/commit/92840d926064010154146be73bfcadfbe468741b"
+        },
+        "date": 1776032256972,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
