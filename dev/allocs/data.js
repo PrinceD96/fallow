@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776103188228,
+  "lastUpdate": 1776114985502,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b49a818eb3832f3ead6d1f3be8ccc0fe65433042",
-          "message": "chore: release v2.21.0",
-          "timestamp": "2026-04-08T12:02:49+02:00",
-          "tree_id": "656a38347e069cac00a29db44c32889fc05bfd3b",
-          "url": "https://github.com/fallow-rs/fallow/commit/b49a818eb3832f3ead6d1f3be8ccc0fe65433042"
-        },
-        "date": 1775642668740,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3605168,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15549,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4378,6 +4334,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15340,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 542105,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a7f42022f109241317d9b06833310ea59d8ca7e0",
+          "message": "feat: surface per-file LOC in health output\n\nShow file line count as the first metric on the file health detail line,\ninclude LOC in SplitHighImpact, ExtractComplexFunctions, and\nExtractDependencies recommendation messages, and add a \"lines\" metric\nentry to health_meta() for JSON explain consumers.",
+          "timestamp": "2026-04-13T23:12:20+02:00",
+          "tree_id": "33aa79294ae5091b5493993ed26dc54bc9317bc1",
+          "url": "https://github.com/fallow-rs/fallow/commit/a7f42022f109241317d9b06833310ea59d8ca7e0"
+        },
+        "date": 1776114984272,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3645137,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15334,
             "unit": "allocations"
           },
           {
