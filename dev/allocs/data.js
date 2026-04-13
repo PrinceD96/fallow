@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776118825411,
+  "lastUpdate": 1776119008601,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c4af48aa7e21c218f70013786ae94f8a8a2677b4",
-          "message": "fix: discover sub-packages from package.json exports map\n\nProjects like preact define sub-packages (compat/, hooks/, debug/) as\ndirectories with their own package.json, referenced via the root exports\nmap (e.g., \"./compat\": {...}). These were not discovered as entry points\nbecause they don't live in the hardcoded monorepo dirs (packages/, apps/).\n\nExtract directory prefixes from exports map keys and scan those for\npackage.json files with source/main/module fields. Reduces false\npositives on preact by 13 files and 19 exports (259 -> 227 issues).",
-          "timestamp": "2026-04-08T14:25:10+02:00",
-          "tree_id": "7903eea0e7a8d4202ab3bd244e16918bc34eef48",
-          "url": "https://github.com/fallow-rs/fallow/commit/c4af48aa7e21c218f70013786ae94f8a8a2677b4"
-        },
-        "date": 1775651218266,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3581960,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15507,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4382,6 +4338,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 5624,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "committer": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "distinct": true,
+          "id": "cfb451e3794e9c884a32cabfa39a317ef6c51ea8",
+          "message": "revert: remove unmeasured perf changes, keep parallel walker\n\nReverts the O(n^2) algorithmic fixes and export dedup that showed\nno measurable improvement on real projects or benchmarks. Keeps only\nthe parallel file walker and line_offsets borrow which had verified\nreal-world impact.\n\nReverted commits:\n- perf: eliminate O(n^2) patterns in analyze, cross-reference, and families\n- fix: add deterministic tiebreaker to clone family sort\n- perf: O(1) export name dedup in build_module_node",
+          "timestamp": "2026-04-14T00:19:10+02:00",
+          "tree_id": "5fe15b72345d2b3d48251d6c1cc5f39aeddddd3e",
+          "url": "https://github.com/fallow-rs/fallow/commit/cfb451e3794e9c884a32cabfa39a317ef6c51ea8"
+        },
+        "date": 1776119007138,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3738031,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15469,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 582941,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5626,
             "unit": "allocations"
           }
         ]
