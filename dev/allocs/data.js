@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776091168257,
+  "lastUpdate": 1776103188228,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "3a8fc3d4f64f84e0e36f64e8bf39b5f1512b4243",
-          "message": "feat: Istanbul match-rate stats, snapshot coverage_model, CI warning, --coverage-root\n\n- Add istanbul_matched/istanbul_total to HealthSummary JSON (only when\n  coverage_model is istanbul). Human output shows match rate in footer.\n- Persist coverage_model in VitalSignsSnapshot (schema v3). Trend output\n  warns when comparing snapshots with different CRAP models.\n- CI auto-detection note: when CI=true and coverage was auto-detected,\n  emit \"note:\" on stderr suggesting explicit --coverage.\n- New --coverage-root flag to rebase Istanbul file paths for cross-\n  environment matching (CI runner paths vs local checkout).",
-          "timestamp": "2026-04-08T12:00:55+02:00",
-          "tree_id": "bbc1f72ddd6b4f5202ebbbe8e41b996946946e5a",
-          "url": "https://github.com/fallow-rs/fallow/commit/3a8fc3d4f64f84e0e36f64e8bf39b5f1512b4243"
-        },
-        "date": 1775642536316,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3589024,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15521,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4378,6 +4334,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15322,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 542105,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "8e38ff62d1daa5c4454569c8a3f3a921c84bc2d3",
+          "message": "chore: release v2.33.0",
+          "timestamp": "2026-04-13T19:57:50+02:00",
+          "tree_id": "9fa73cb7ce8a1bb5a4e79e6741fa6ff62a6da95e",
+          "url": "https://github.com/fallow-rs/fallow/commit/8e38ff62d1daa5c4454569c8a3f3a921c84bc2d3"
+        },
+        "date": 1776103187160,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3645737,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15340,
             "unit": "allocations"
           },
           {
