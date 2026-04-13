@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776119670649,
+  "lastUpdate": 1776120113019,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -1937,6 +1937,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 2121,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Test User",
+            "username": "bhanuprasad14",
+            "email": "test@example.com"
+          },
+          "committer": {
+            "name": "Test User",
+            "username": "bhanuprasad14",
+            "email": "test@example.com"
+          },
+          "id": "c157b043953c6bf27780b0545b07b83ad7a18079",
+          "message": "fix: use bare fallow (not check) for real-world benchmarks\n\n`fallow check` is an alias for `fallow dead-code`. Bare `fallow`\nruns the full pipeline (dead-code + dupes + health).",
+          "timestamp": "2026-04-13T22:33:17Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/c157b043953c6bf27780b0545b07b83ad7a18079"
+        },
+        "date": 1776120112174,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 173,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 170,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 265,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 263,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 176,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 177,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 485,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 461,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1271,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1195,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1393,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1371,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 700,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 674,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 11870,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 12054,
             "unit": "ms"
           }
         ]
