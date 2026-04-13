@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776082734504,
+  "lastUpdate": 1776082983741,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b16139982a6b342e09f7a6cad7710da59fb54798",
-          "message": "chore: release v2.19.0",
-          "timestamp": "2026-04-07T19:52:22+02:00",
-          "tree_id": "7e71084079a9bf4c00c4ec7dab9e716ff608aa1d",
-          "url": "https://github.com/fallow-rs/fallow/commit/b16139982a6b342e09f7a6cad7710da59fb54798"
-        },
-        "date": 1775584537594,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 149672808,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2892,6 +2863,33 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 153228504,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "committer": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "distinct": true,
+          "id": "ea005f479a5a184cd55a9b98fa38d416dc28f00b",
+          "message": "chore: release v2.32.1",
+          "timestamp": "2026-04-13T14:16:33+02:00",
+          "tree_id": "33766a0603a3ac74230de23772a0c749721588eb",
+          "url": "https://github.com/fallow-rs/fallow/commit/ea005f479a5a184cd55a9b98fa38d416dc28f00b"
+        },
+        "date": 1776082982858,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 153230008,
             "unit": "bytes"
           }
         ]
