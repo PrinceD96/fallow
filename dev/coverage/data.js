@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776118505448,
+  "lastUpdate": 1776118809597,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d711313df2cbc1b218d8b802f4ab48bd4967dc4e",
-          "message": "feat: detect Nuxt module authoring convention in plugin\n\nNuxt modules (projects with `@nuxt/kit` dependency) place runtime code\nin `src/runtime/` and register it programmatically via `addComponentsDir`,\n`addImportsDir`, and `addPlugin`. The Nuxt plugin now:\n\n- Activates when `@nuxt/kit` is in dependencies (module authoring)\n- Treats `src/module.{ts,js}` as a config file and always-used entry\n- Adds entry patterns for `src/runtime/` subdirectories: components,\n  composables, plugins, utils, locale, types, and vue\n\nTested on Nuxt UI v3: false positive unused files dropped from 521 to\n226 (-295). Consumer Nuxt apps (e.g. nuxt-dashboard) unaffected (0 FPs).",
-          "timestamp": "2026-04-08T21:50:39+02:00",
-          "tree_id": "149815e277091b65e731dccd612e8770dcef557a",
-          "url": "https://github.com/fallow-rs/fallow/commit/d711313df2cbc1b218d8b802f4ab48bd4967dc4e"
-        },
-        "date": 1775677937182,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2879,6 +2850,33 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e2ba7dd6e8900c560af50301fabed82e1a58e267"
         },
         "date": 1776118504157,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "committer": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "distinct": true,
+          "id": "da0cf78405cc033bc17bdd2f24a990b5447ef255",
+          "message": "fix: add deterministic tiebreaker to clone family sort\n\nFxHashMap iteration order is non-deterministic, so families with\nequal total_duplicated_lines and group count could appear in\narbitrary order. Add first file path as a third sort key.",
+          "timestamp": "2026-04-14T00:16:16+02:00",
+          "tree_id": "f604a6d4d24a68ad90633329b1d659a65f3695ff",
+          "url": "https://github.com/fallow-rs/fallow/commit/da0cf78405cc033bc17bdd2f24a990b5447ef255"
+        },
+        "date": 1776118808235,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
