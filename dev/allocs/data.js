@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776081131666,
+  "lastUpdate": 1776081282326,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "bd459982c085b657be302888ba986b9abfe87f82",
-          "message": "fix: match ignorePatterns against relative paths during file discovery\n\nGlob patterns in ignorePatterns (e.g. \"src/api/generated/**\") were matched\nagainst absolute walker paths, so only patterns with **/ prefix worked.\nStrip project root before matching, consistent with production_excludes.\n\nCloses #83",
-          "timestamp": "2026-04-08T10:07:23+02:00",
-          "tree_id": "00601be2891f0eb3bf70206a82e206dd580e4144",
-          "url": "https://github.com/fallow-rs/fallow/commit/bd459982c085b657be302888ba986b9abfe87f82"
-        },
-        "date": 1775635747674,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3578768,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15501,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4379,6 +4335,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Bytes Allocated",
             "value": 3647841,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15338,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 542105,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "2b76af893757da9d453ffdddab26b3e864f7925f",
+          "message": "style: apply rustfmt to stale suppression tests",
+          "timestamp": "2026-04-13T13:53:03+02:00",
+          "tree_id": "0ec9e18ccb5b1cd07772aec91c67ed5f80a20760",
+          "url": "https://github.com/fallow-rs/fallow/commit/2b76af893757da9d453ffdddab26b3e864f7925f"
+        },
+        "date": 1776081280650,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3643617,
             "unit": "bytes"
           },
           {
