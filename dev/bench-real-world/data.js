@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775981443192,
+  "lastUpdate": 1776071374377,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -1733,6 +1733,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 3075,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Test User",
+            "username": "bhanuprasad14",
+            "email": "test@example.com"
+          },
+          "committer": {
+            "name": "Test User",
+            "username": "bhanuprasad14",
+            "email": "test@example.com"
+          },
+          "id": "bc2ac04af20694bea9f773243d21077df9aec6ed",
+          "message": "fix(test): prevent git operations from leaking into main repo via GIT_DIR\n\nWhen the pre-push hook runs cargo test, git sets GIT_DIR in the hook\nenvironment pointing to the main repo's .git directory. Test helpers\nthat create temp git repos via current_dir() were still committing to\nthe main repo because GIT_DIR overrides current_dir. Added\nenv_remove(\"GIT_DIR\") and env_remove(\"GIT_WORK_TREE\") to both the\nhealth_tests and audit_tests git helpers.",
+          "timestamp": "2026-04-13T08:44:32Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/bc2ac04af20694bea9f773243d21077df9aec6ed"
+        },
+        "date": 1776071373527,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 44,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 41,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 61,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 49,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 49,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 45,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 123,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 106,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 530,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 464,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 647,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 616,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 300,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 266,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 3696,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 3472,
             "unit": "ms"
           }
         ]
