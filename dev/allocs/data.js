@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776069969146,
+  "lastUpdate": 1776079935401,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e1fed16c3ae8e3de70fd2bfcd922b8a81f1c60c2",
-          "message": "chore: apply rustfmt to test files from coverage session",
-          "timestamp": "2026-04-08T00:06:06+02:00",
-          "tree_id": "ea28275757ea247e3224d1c86604347d0716bc0a",
-          "url": "https://github.com/fallow-rs/fallow/commit/e1fed16c3ae8e3de70fd2bfcd922b8a81f1c60c2"
-        },
-        "date": 1775599657554,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3591584,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15526,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519141,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5526,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4384,6 +4340,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15334,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 542105,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9a372be83e39b91758711aeb2b6789cb2be605d6",
+          "message": "docs: update README, output schema, and knip analysis for stale suppressions\n\nAdd stale suppression comments and @expected-unused JSDoc tag to\nREADME \"Dead code\" section. Add StaleSuppression definition and\nstale_suppressions field to docs/output-schema.json. Mark items\n#6 and #10 as shipped in knip-issue-analysis.md.",
+          "timestamp": "2026-04-13T13:29:09+02:00",
+          "tree_id": "5b28531801a5ed9f8da1167861fb20db9df28e37",
+          "url": "https://github.com/fallow-rs/fallow/commit/9a372be83e39b91758711aeb2b6789cb2be605d6"
+        },
+        "date": 1776079933605,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3644169,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15332,
             "unit": "allocations"
           },
           {
