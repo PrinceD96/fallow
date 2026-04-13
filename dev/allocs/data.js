@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776065521424,
+  "lastUpdate": 1776066972406,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "518aea81f2bd3dbc6c1c983a7e8e7c05f9db7c0f",
-          "message": "chore: release v2.19.1",
-          "timestamp": "2026-04-07T21:26:54+02:00",
-          "tree_id": "5c4b1769d0b51c144905f106e474f11fbd741c7f",
-          "url": "https://github.com/fallow-rs/fallow/commit/518aea81f2bd3dbc6c1c983a7e8e7c05f9db7c0f"
-        },
-        "date": 1775590110600,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3586064,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15514,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519141,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5526,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,49 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 5525,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "distinct": true,
+          "id": "7916cc5c85af7a96188948f16af08b69ef891f11",
+          "message": "docs: update detection.md with production mode config glob details (#111)",
+          "timestamp": "2026-04-13T09:53:29+02:00",
+          "tree_id": "8cf5ce3cb688b532a87caa723ccb599a82453f76",
+          "url": "https://github.com/fallow-rs/fallow/commit/7916cc5c85af7a96188948f16af08b69ef891f11"
+        },
+        "date": 1776066970648,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3637393,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15318,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 542105,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5538,
             "unit": "allocations"
           }
         ]
