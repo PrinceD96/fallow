@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776068460960,
+  "lastUpdate": 1776069969146,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e51d40440c4cc37febfd2be9c730f5b9a00484ac",
-          "message": "test: improve coverage for svelte, shared templates, config format, gatsby, and churn\n\nAdd 153 tests across 5 files: svelte template parsing (42), shared\ntemplate utilities (64), config format detection (4), gatsby plugin\n(12), and git churn analysis (31). Overall coverage 90.6% to 90.9%.",
-          "timestamp": "2026-04-07T22:57:08+02:00",
-          "tree_id": "903669856c8e0d9d3141f4c5a8a9a92cb9f8a999",
-          "url": "https://github.com/fallow-rs/fallow/commit/e51d40440c4cc37febfd2be9c730f5b9a00484ac"
-        },
-        "date": 1775595517475,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3578528,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15502,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519141,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5526,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4386,6 +4342,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15312,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 542105,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "committer": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "distinct": true,
+          "id": "bc2ac04af20694bea9f773243d21077df9aec6ed",
+          "message": "fix(test): prevent git operations from leaking into main repo via GIT_DIR\n\nWhen the pre-push hook runs cargo test, git sets GIT_DIR in the hook\nenvironment pointing to the main repo's .git directory. Test helpers\nthat create temp git repos via current_dir() were still committing to\nthe main repo because GIT_DIR overrides current_dir. Added\nenv_remove(\"GIT_DIR\") and env_remove(\"GIT_WORK_TREE\") to both the\nhealth_tests and audit_tests git helpers.",
+          "timestamp": "2026-04-13T10:44:32+02:00",
+          "tree_id": "bd03c9a8667771534930d1508746e7694dcf2c59",
+          "url": "https://github.com/fallow-rs/fallow/commit/bc2ac04af20694bea9f773243d21077df9aec6ed"
+        },
+        "date": 1776069968264,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3642833,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15334,
             "unit": "allocations"
           },
           {
