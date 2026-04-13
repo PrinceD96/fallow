@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776082588002,
+  "lastUpdate": 1776082844056,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
@@ -3103,6 +3103,53 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a9458e58fbb4d2943a732a5bc0f8f0be9dd929e1"
         },
         "date": 1776082587075,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 12,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 12,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 224,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 477,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "committer": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "distinct": true,
+          "id": "ea005f479a5a184cd55a9b98fa38d416dc28f00b",
+          "message": "chore: release v2.32.1",
+          "timestamp": "2026-04-13T14:16:33+02:00",
+          "tree_id": "33766a0603a3ac74230de23772a0c749721588eb",
+          "url": "https://github.com/fallow-rs/fallow/commit/ea005f479a5a184cd55a9b98fa38d416dc28f00b"
+        },
+        "date": 1776082842739,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
