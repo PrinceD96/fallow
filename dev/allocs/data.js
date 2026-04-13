@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776118513279,
+  "lastUpdate": 1776118825411,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "2685ac54e2ea21fbf93a5ecad2184cec5a7b30d1",
-          "message": "chore: release v2.22.1",
-          "timestamp": "2026-04-08T14:10:03+02:00",
-          "tree_id": "590c7804526d23d4fb400e4463a92b4471efd7aa",
-          "url": "https://github.com/fallow-rs/fallow/commit/2685ac54e2ea21fbf93a5ecad2184cec5a7b30d1"
-        },
-        "date": 1775650302046,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3580912,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15509,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4374,6 +4330,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15485,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 578797,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5624,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "committer": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "distinct": true,
+          "id": "da0cf78405cc033bc17bdd2f24a990b5447ef255",
+          "message": "fix: add deterministic tiebreaker to clone family sort\n\nFxHashMap iteration order is non-deterministic, so families with\nequal total_duplicated_lines and group count could appear in\narbitrary order. Add first file path as a third sort key.",
+          "timestamp": "2026-04-14T00:16:16+02:00",
+          "tree_id": "f604a6d4d24a68ad90633329b1d659a65f3695ff",
+          "url": "https://github.com/fallow-rs/fallow/commit/da0cf78405cc033bc17bdd2f24a990b5447ef255"
+        },
+        "date": 1776118823556,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3711655,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15471,
             "unit": "allocations"
           },
           {
