@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776066826187,
+  "lastUpdate": 1776151426191,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -1160,6 +1160,73 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/cf3fa79f9c1215b1bf796f3a8d49f525ae71f56c"
         },
         "date": 1776066825090,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 2.3,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 155,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 6354,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 662,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 2.9,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 8.3,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 14.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Test User",
+            "username": "bhanuprasad14",
+            "email": "test@example.com"
+          },
+          "committer": {
+            "name": "Test User",
+            "username": "bhanuprasad14",
+            "email": "test@example.com"
+          },
+          "id": "7b468e52310cf9a90e61e86fb8449ae5a2b224b8",
+          "message": "perf: share parsed modules between check and health in combined mode\n\nWhen running bare `fallow` (dead-code + dupes + health), the check\npipeline now parses with need_complexity=true and retains the\nmodules + discovered files. Health reuses them, skipping its own\ndiscovery and parse pass.\n\nOn next.js (21K files): eliminates ~374ms of redundant parsing.\nNet wall-clock savings ~250ms (complexity visitor adds ~100ms to\nthe check parse, offsetting part of the savings).",
+          "timestamp": "2026-04-14T05:29:58Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/7b468e52310cf9a90e61e86fb8449ae5a2b224b8"
+        },
+        "date": 1776151424620,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
