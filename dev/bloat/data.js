@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776156811555,
+  "lastUpdate": 1776157694034,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "2685ac54e2ea21fbf93a5ecad2184cec5a7b30d1",
-          "message": "chore: release v2.22.1",
-          "timestamp": "2026-04-08T14:10:03+02:00",
-          "tree_id": "590c7804526d23d4fb400e4463a92b4471efd7aa",
-          "url": "https://github.com/fallow-rs/fallow/commit/2685ac54e2ea21fbf93a5ecad2184cec5a7b30d1"
-        },
-        "date": 1775650415397,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 152237312,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2876,6 +2847,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 154052744,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "7305e1c0702336258b8b057dc2ec397e449984bb",
+          "message": "fix: resolve CLI binary names to package names via dependency bin fields\n\nPackages whose binary name diverges from the package name (e.g.,\n@arethetypeswrong/cli provides \"attw\") were falsely flagged as unused\ndependencies when used in npm scripts. Build a dynamic bin-to-package\nreverse map from dependency package.json bin fields, probing node_modules\nat both project root and workspace roots for non-hoisted setups.\n\nCloses #107",
+          "timestamp": "2026-04-14T11:02:18+02:00",
+          "tree_id": "705bfb6976b38bd74173351a7a2819de8d632179",
+          "url": "https://github.com/fallow-rs/fallow/commit/7305e1c0702336258b8b057dc2ec397e449984bb"
+        },
+        "date": 1776157693063,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 154216008,
             "unit": "bytes"
           }
         ]
