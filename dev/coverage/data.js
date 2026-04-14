@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776156691044,
+  "lastUpdate": 1776163355944,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0be2bee514517490f4f36207c8a2a0c26394a508",
-          "message": "refactor: unify baseline key helpers and add baseline stats to combined JSON\n\n- Replace inline strip_prefix in clone_group_key, target_baseline_key,\n  and health_finding_key with the shared relative_path() helper\n- Add baseline match stats to combined-mode JSON output (was check-only)",
-          "timestamp": "2026-04-09T12:34:21+02:00",
-          "tree_id": "f8e8e24f80355ffb896cd94de98e0ca4bd9c38f4",
-          "url": "https://github.com/fallow-rs/fallow/commit/0be2bee514517490f4f36207c8a2a0c26394a508"
-        },
-        "date": 1775730940248,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2872,6 +2843,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "fab9482b633f9d3a456f1f711831f1a0c6b93ddd",
+          "message": "fix: track fixture node_modules for bin-script-deps integration test\n\nThe bin-script-deps fixture needs stub node_modules entries so\nbuild_bin_to_package_map can resolve divergent binary names (attw ->\n@arethetypeswrong/cli). These were gitignored, causing the test to\npanic in CI.",
+          "timestamp": "2026-04-14T12:39:47+02:00",
+          "tree_id": "21da41a43ce6d1521aaf1c1c37950ee763f1fca0",
+          "url": "https://github.com/fallow-rs/fallow/commit/fab9482b633f9d3a456f1f711831f1a0c6b93ddd"
+        },
+        "date": 1776163354732,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.6,
             "unit": "%"
           }
         ]
