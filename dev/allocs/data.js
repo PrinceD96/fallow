@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776156113568,
+  "lastUpdate": 1776156700308,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "5aaafac267fe705b4d163bedfb32745d4992d3be",
-          "message": "test: add regex compilation smoke tests for all file type parsers\n\nAll LazyLock<Regex> statics are lazily compiled on first use. If a regex\nfeature is missing, it panics at runtime only when that file type is\nactually parsed. This adds tests that parse a minimal file of each type\n(HTML, CSS, SCSS, Vue, Svelte, Astro, Angular) to force every regex to\ncompile, catching feature mismatches at test time instead of in production.",
-          "timestamp": "2026-04-08T15:49:10+02:00",
-          "tree_id": "c9d8b71d64b4be6f14fd9f118e7b0772e3a3082e",
-          "url": "https://github.com/fallow-rs/fallow/commit/5aaafac267fe705b4d163bedfb32745d4992d3be"
-        },
-        "date": 1775656248004,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3578480,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15501,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4366,6 +4322,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15468,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 578797,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5624,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "89130f8d7377c10d72e1749e7a8729d71d89ab18",
+          "message": "fix: expand Nx tokens in main and tsConfig fields, not just includePaths\n\n{projectRoot} and {workspaceRoot} can appear in any path-valued field\nin project.json. Hoisted token expansion above all three path fields\n(main, tsConfig, includePaths) so they all expand consistently.",
+          "timestamp": "2026-04-14T10:49:59+02:00",
+          "tree_id": "43bf52d8c0f2ec92ae902ddce0dfee644e3a28b8",
+          "url": "https://github.com/fallow-rs/fallow/commit/89130f8d7377c10d72e1749e7a8729d71d89ab18"
+        },
+        "date": 1776156699090,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3725559,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15500,
             "unit": "allocations"
           },
           {
