@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776152961306,
+  "lastUpdate": 1776155427474,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "31e41fe5f963d8fa942d0254fa9f0e04e67e7206",
-          "message": "fix: configure ureq to use native-tls provider explicitly\n\nureq 3.x defaults to Rustls even when the native-tls feature is enabled.\nThe provider must be set explicitly via TlsConfig::builder().provider().\nWithout this, HTTPS requests panic at runtime.",
-          "timestamp": "2026-04-08T15:40:04+02:00",
-          "tree_id": "8c2f283f733d5ecfa0baf80a57fa7c0b7d99586d",
-          "url": "https://github.com/fallow-rs/fallow/commit/31e41fe5f963d8fa942d0254fa9f0e04e67e7206"
-        },
-        "date": 1775655709926,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3592424,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15531,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4366,6 +4322,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15474,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 578797,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5624,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "7b1c7d7d1d690641a6b6c3bae38b416b6487f21d",
+          "message": "fix: expand {projectRoot} and {workspaceRoot} tokens in Nx includePaths (#114)\n\nNx project.json uses {projectRoot} and {workspaceRoot} placeholder\ntokens in stylePreprocessorOptions.includePaths. These are now expanded\nbefore resolving SCSS include directories, fixing false unresolved\nimport reports in Angular+Nx monorepos.",
+          "timestamp": "2026-04-14T10:28:43+02:00",
+          "tree_id": "7815b65e705126ce64f70956f3bf1b53eef5caad",
+          "url": "https://github.com/fallow-rs/fallow/commit/7b1c7d7d1d690641a6b6c3bae38b416b6487f21d"
+        },
+        "date": 1776155425623,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3731639,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15498,
             "unit": "allocations"
           },
           {
