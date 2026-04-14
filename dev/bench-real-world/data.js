@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776120113019,
+  "lastUpdate": 1776153327734,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -2039,6 +2039,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 12054,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "aaee82e2b04b77783a12c6aafd46073a0426e197",
+          "message": "perf: share analysis graph between check and health in combined mode\n\nExtends the shared parse optimization to also share the module graph\nand analysis results. Health's compute_filtered_file_scores now\nreuses the pre-computed AnalysisOutput instead of re-running\ndiscovery + plugins + resolution + graph build for file scoring.\n\nOn next.js (21K files): eliminates ~1.5s of redundant analysis.\nCombined with module sharing: 6.2s -> ~5.0s (-19%).",
+          "timestamp": "2026-04-14T07:37:56Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/aaee82e2b04b77783a12c6aafd46073a0426e197"
+        },
+        "date": 1776153325991,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 128,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 121,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 186,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 180,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 123,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 118,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 354,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 322,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 750,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 713,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 682,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 694,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 437,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 375,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 7717,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 7334,
             "unit": "ms"
           }
         ]
