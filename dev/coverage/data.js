@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776119808140,
+  "lastUpdate": 1776144829908,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "eb1113dc4e1c1571a1a753b371157a96318d7f49",
-          "message": "feat(vscode): resolve binaries from local node_modules/.bin first\n\nTeams installing fallow as a devDependency now get consistent versions\nacross all developers. The extension checks node_modules/.bin in the\nworkspace root before falling back to fallow.lspPath, PATH, or\nauto-download.\n\nCloses #86",
-          "timestamp": "2026-04-09T07:33:45+02:00",
-          "tree_id": "58881b20ffe9b90bb32cadadd35e95f47f33f45f",
-          "url": "https://github.com/fallow-rs/fallow/commit/eb1113dc4e1c1571a1a753b371157a96318d7f49"
-        },
-        "date": 1775712916628,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2871,6 +2842,33 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c157b043953c6bf27780b0545b07b83ad7a18079"
         },
         "date": 1776119806421,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "committer": {
+            "email": "test@example.com",
+            "name": "Test User"
+          },
+          "distinct": true,
+          "id": "7b468e52310cf9a90e61e86fb8449ae5a2b224b8",
+          "message": "perf: share parsed modules between check and health in combined mode\n\nWhen running bare `fallow` (dead-code + dupes + health), the check\npipeline now parses with need_complexity=true and retains the\nmodules + discovered files. Health reuses them, skipping its own\ndiscovery and parse pass.\n\nOn next.js (21K files): eliminates ~374ms of redundant parsing.\nNet wall-clock savings ~250ms (complexity visitor adds ~100ms to\nthe check parse, offsetting part of the savings).",
+          "timestamp": "2026-04-14T07:29:58+02:00",
+          "tree_id": "3461b3f22786ecfa1f93d7345101797cc9734167",
+          "url": "https://github.com/fallow-rs/fallow/commit/7b468e52310cf9a90e61e86fb8449ae5a2b224b8"
+        },
+        "date": 1776144829030,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
