@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776239017496,
+  "lastUpdate": 1776241225232,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0838d23ef6c3f18bbc8045620028575c58a91990",
-          "message": "feat(health): add large function drill-down and duplication score penalty\n\nAdd two new health features:\n\n1. Large function drill-down: list functions exceeding 60 LOC in a new\n   \"Large functions\" section when the very-high-risk bin is >= 3%.\n   Includes file path, function name, line number, and LOC count.\n   Sorted by line count descending, truncated to 10 items.\n\n2. Duplication in health score: run duplication analysis when --score is\n   active and penalize when duplication exceeds 5%. Formula:\n   min(max(0, duplication_pct - 5) * 1.0, 10), max 10 points.\n   Updates deductions line, vital signs metrics, JSON output,\n   trend tracking, and snapshot persistence.\n\nBump SNAPSHOT_SCHEMA_VERSION to 5 for the formula change.",
-          "timestamp": "2026-04-09T14:28:14+02:00",
-          "tree_id": "20a55bea7e01cdd5cbdbed931a437208bc00cc4f",
-          "url": "https://github.com/fallow-rs/fallow/commit/0838d23ef6c3f18bbc8045620028575c58a91990"
-        },
-        "date": 1775737777374,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c07d06b0000536b69f883c56cb3ce95e4eea88f4"
         },
         "date": 1776239015855,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "40c70bd59d5dec11828bc0d0745377720f205b85",
+          "message": "chore(ci): bump softprops/action-gh-release to v3.0.0\n\nv3.0.0 moves the action runtime from Node.js 20 to Node.js 24, silencing\nthe deprecation annotation emitted by GitHub Actions on recent releases.\nv3 is a pure runtime bump — no API changes, drop-in replacement. Pinned\nto commit SHA per fallow-rs supply-chain policy.\n\nAnnotation observed on the v2.37.0 release run (24442626182):\n> Node.js 20 actions are deprecated. Actions will be forced to run with\n> Node.js 24 by default starting June 2nd, 2026.\n\nRef: https://github.com/softprops/action-gh-release/releases/tag/v3.0.0",
+          "timestamp": "2026-04-15T10:16:59+02:00",
+          "tree_id": "feb6db986423d4796ec7d8e974bd5cde92d1e198",
+          "url": "https://github.com/fallow-rs/fallow/commit/40c70bd59d5dec11828bc0d0745377720f205b85"
+        },
+        "date": 1776241223852,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
