@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776239023213,
+  "lastUpdate": 1776243298162,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1ccf31f7d35cb8a6bbe17708b0edb029b84ac57e",
-          "message": "fix: prune node_modules during workspace glob traversal\n\nThe glob crate's `**` expansion walks into node_modules before\nfiltering, which is catastrophic with pnpm's deep symlink trees\n(50,000+ entries for `packages/**/*` in starlight). This caused\nmonorepo analysis to hang indefinitely.\n\nReplace glob for patterns containing `**` with a manual recursive\nwalk that prunes node_modules and .git directories during traversal.\nNon-recursive patterns still use glob.\n\nStarlight monorepo: from infinite hang to 0.74s.",
-          "timestamp": "2026-04-08T19:06:29+02:00",
-          "tree_id": "0b8983bc94a3b04b483f595f893c0930460865ee",
-          "url": "https://github.com/fallow-rs/fallow/commit/1ccf31f7d35cb8a6bbe17708b0edb029b84ac57e"
-        },
-        "date": 1775668077743,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3581384,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15507,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4376,6 +4332,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 5624,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "77c956fb040565e5f76901e7380751f9da1a3ba7",
+          "message": "chore: release v2.38.0",
+          "timestamp": "2026-04-15T10:53:07+02:00",
+          "tree_id": "7227bcaf30f778bbce1d103164549f8397c31667",
+          "url": "https://github.com/fallow-rs/fallow/commit/77c956fb040565e5f76901e7380751f9da1a3ba7"
+        },
+        "date": 1776243297049,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3748545,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15489,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 582941,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5626,
             "unit": "allocations"
           }
         ]
