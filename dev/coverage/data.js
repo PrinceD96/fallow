@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776238640600,
+  "lastUpdate": 1776239017496,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ae0442cea53729e201afd48d8dc377b00ab067bc",
-          "message": "chore: document why --acyclic is omitted from coupling workflow",
-          "timestamp": "2026-04-09T13:23:07+02:00",
-          "tree_id": "b428e37f8cc8c059ed8a8aeaaa112bb9af282d59",
-          "url": "https://github.com/fallow-rs/fallow/commit/ae0442cea53729e201afd48d8dc377b00ab067bc"
-        },
-        "date": 1775733874116,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/073d29d979974a036c0103c95b0bd09a8ff98577"
         },
         "date": 1776238638955,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "c07d06b0000536b69f883c56cb3ce95e4eea88f4",
+          "message": "chore: release v2.37.0",
+          "timestamp": "2026-04-15T09:39:07+02:00",
+          "tree_id": "fcd20f02d94471d15b576e6498af3f852217019b",
+          "url": "https://github.com/fallow-rs/fallow/commit/c07d06b0000536b69f883c56cb3ce95e4eea88f4"
+        },
+        "date": 1776239015855,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
