@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776243452310,
+  "lastUpdate": 1776332628475,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "eac05fa01ac34afcdd4880e49a8fc66d11528558",
-          "message": "perf: optimize re-export chain resolution with O(1) duplicate detection\n\nReplace O(n) linear scan for duplicate reference detection in\npropagate_star_re_export with FxHashSet for O(1) lookups. Also\npre-build reverse edge index for O(incoming) instead of O(all_edges)\nper star re-export, and group references by name to reduce\nper-name export lookups.\n\nThe quadratic duplicate check was the dominant cost in barrel-heavy\nmonorepos: reference lists grow across iterations, making each check\nincreasingly expensive. The HashSet fix provides increasing savings\nin later iterations as reference lists grow.\n\nReal-world impact (vrs-portals, 1123 files, 259 re-exports):\n- re-export chain resolution: 38.7ms -> 21.2ms (-45%)\n- per-iteration cost reduction: iteration 2: 10.8ms -> 6.3ms (-42%)",
-          "timestamp": "2026-04-08T21:50:17+02:00",
-          "tree_id": "9940f255d5e949663ef9d4af6ddab37bb00dd4eb",
-          "url": "https://github.com/fallow-rs/fallow/commit/eac05fa01ac34afcdd4880e49a8fc66d11528558"
-        },
-        "date": 1775678058336,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 34087,
-            "range": "± 341",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1812523,
-            "range": "± 22795",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3201433,
-            "range": "± 70338",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 16146842,
-            "range": "± 48594",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 102144,
-            "range": "± 2062",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2048,
-            "range": "± 17",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 174224,
-            "range": "± 4393",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 762428,
-            "range": "± 4466",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1619537,
-            "range": "± 20904",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 502976,
-            "range": "± 35129",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3554445,
-            "range": "± 33367",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2082194,
-            "range": "± 8253",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9576,6 +9480,102 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2647904,
             "range": "± 5171",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "039fb44c1627d0512f7c578a0b7839b670219e85",
+          "message": "fix: stabilize production coverage health flow",
+          "timestamp": "2026-04-16T11:36:50+02:00",
+          "tree_id": "0b1acc311e2c78591ed966b8bc399ab48150fefe",
+          "url": "https://github.com/fallow-rs/fallow/commit/039fb44c1627d0512f7c578a0b7839b670219e85"
+        },
+        "date": 1776332627291,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 44118,
+            "range": "± 2961",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3404783,
+            "range": "± 219222",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 4300262,
+            "range": "± 244166",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 15786498,
+            "range": "± 365129",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 110157,
+            "range": "± 1584",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2011,
+            "range": "± 41",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 212123,
+            "range": "± 4963",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 951243,
+            "range": "± 76074",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1723249,
+            "range": "± 25229",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 541231,
+            "range": "± 25602",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4253733,
+            "range": "± 82053",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2637947,
+            "range": "± 40914",
             "unit": "ns/iter"
           }
         ]
