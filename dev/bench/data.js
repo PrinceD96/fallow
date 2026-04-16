@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776346987393,
+  "lastUpdate": 1776348368798,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "da66e0cb96cc43c776b3f5c481238554cfb9eeb9",
-          "message": "fix: strip type annotations in collect_pattern_usage to prevent infinite recursion\n\nSame bug as the Svelte snippet fix (f3018a69) but in the sibling\nfunction `collect_pattern_usage`. Typed destructuring patterns like\n`{ id, name }: Item` in Vue v-for/v-slot directives would also\ninfinite-recurse because `strip_wrapping` fails on the trailing type\nannotation, falling through to a comma-split that returns the whole\nstring unchanged.",
-          "timestamp": "2026-04-09T07:22:29+02:00",
-          "tree_id": "a42fea46b3a187937aa6de6c302a5dab232422ef",
-          "url": "https://github.com/fallow-rs/fallow/commit/da66e0cb96cc43c776b3f5c481238554cfb9eeb9"
-        },
-        "date": 1775712386811,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 40331,
-            "range": "± 1313",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1774515,
-            "range": "± 121908",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3098745,
-            "range": "± 35331",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 15318851,
-            "range": "± 140582",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 111052,
-            "range": "± 1164",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2018,
-            "range": "± 24",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 211879,
-            "range": "± 4218",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 946218,
-            "range": "± 12270",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1720425,
-            "range": "± 15678",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 542445,
-            "range": "± 14424",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4350262,
-            "range": "± 44623",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2608790,
-            "range": "± 6565",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9576,6 +9480,102 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2296682,
             "range": "± 26155",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0368c055cc3f971a8569012544d528ead40a2a46",
+          "message": "fix: polish coverage input detection and docs",
+          "timestamp": "2026-04-16T16:01:45+02:00",
+          "tree_id": "eba619400b8fafafd59679f58dc2ea6048e81c38",
+          "url": "https://github.com/fallow-rs/fallow/commit/0368c055cc3f971a8569012544d528ead40a2a46"
+        },
+        "date": 1776348367416,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 43810,
+            "range": "± 1115",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3719873,
+            "range": "± 209815",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 4509381,
+            "range": "± 171799",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 16113459,
+            "range": "± 415368",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 107362,
+            "range": "± 3214",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2381,
+            "range": "± 25",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 187187,
+            "range": "± 17336",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 831290,
+            "range": "± 3079",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1639374,
+            "range": "± 16988",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 510760,
+            "range": "± 18560",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4013084,
+            "range": "± 39481",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2288999,
+            "range": "± 81796",
             "unit": "ns/iter"
           }
         ]
