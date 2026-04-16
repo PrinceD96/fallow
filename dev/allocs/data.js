@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776373027564,
+  "lastUpdate": 1776373589959,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "8d64ddac69b197eb2ecd6de8b9ebd67b072b5bc6",
-          "message": "test: add regression tests for typed template bindings in Vue and Svelte\n\nAdd unit tests (Vue v-for, v-slot, Svelte snippet) and full-pipeline\nintegration tests verifying that TypeScript type annotations on\ndestructuring patterns do not cause infinite recursion.\n\nAlso fix stale rustfmt drift in registry/mod.rs.",
-          "timestamp": "2026-04-09T07:26:59+02:00",
-          "tree_id": "4caf0f2e3e5da24df0421eed82bcf762f6e1aff0",
-          "url": "https://github.com/fallow-rs/fallow/commit/8d64ddac69b197eb2ecd6de8b9ebd67b072b5bc6"
-        },
-        "date": 1775712506678,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3584980,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15328,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4376,6 +4332,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 5624,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "23a90cc0da3a4f1bb8f850a33590ffd523819de9",
+          "message": "fix: address rust 1.95 clippy regressions",
+          "timestamp": "2026-04-16T23:04:42+02:00",
+          "tree_id": "a674c7987d4e8a369c8b3cadb2f84d0a10b3ce79",
+          "url": "https://github.com/fallow-rs/fallow/commit/23a90cc0da3a4f1bb8f850a33590ffd523819de9"
+        },
+        "date": 1776373588966,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3736472,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15446,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 576185,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5600,
             "unit": "allocations"
           }
         ]
