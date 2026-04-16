@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776375156996,
+  "lastUpdate": 1776376232753,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "raihassanraza10@gmail.com",
-            "name": "Muhammad Hassan Raza",
-            "username": "M-Hassan-Raza"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9f98c70a6df62ee8eee519970de89523d8fbb1a9",
-          "message": "feat: add Expo Router and TanStack Router convention coverage (#88)\n\nfeat: add Expo Router and TanStack Router convention coverage\n\nAdds ExpoRouterPlugin (85th built-in plugin) with configurable route root from app.json, special file exports (+api, +middleware, +html, +not-found, +native-intent), and API route HTTP method exports.\n\nEnhances TanstackRouterPlugin with tsr.config.json parsing for custom route directories, route file prefix/ignore patterns, lazy route export separation, and replace semantics for config-driven overrides.\n\nIntroduces PathRule with glob/regex/segment-regex exclusions and CompiledPathRule for strict entry-point and used-export matching. Refactors define_plugin! macro to remove custom resolve_config body variant in favor of explicit Plugin trait impls.",
-          "timestamp": "2026-04-09T14:25:19Z",
-          "tree_id": "ac511e0951e2d1f10f162426cce303a2eb694a0b",
-          "url": "https://github.com/fallow-rs/fallow/commit/9f98c70a6df62ee8eee519970de89523d8fbb1a9"
-        },
-        "date": 1775744808594,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.1,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d6d73ac91d5af4878f7c4ec6f736e6c7b90c55a6"
         },
         "date": 1776375155356,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4698e93faf00335d4d98650893155c98fdf3c377",
+          "message": "fix: resolve toolchain from rust-toolchain.toml in setup-rust\n\nThe pinned dtolnay/rust-toolchain commit requires a non-empty\ntoolchain input, so the previous default change ('' meaning\n\"read rust-toolchain.toml\") failed every workflow at setup:\n\n    'toolchain' is a required input\n\nInstead, resolve the toolchain in a pre-step: honor the action\ninput when set, otherwise parse the channel from rust-toolchain.toml,\notherwise fall back to 'stable'. Keeps CI consistent with the\nlocally pinned channel without requiring each workflow to pass it\nexplicitly.",
+          "timestamp": "2026-04-16T23:48:00+02:00",
+          "tree_id": "17366d1ee523c6ffebe0b3c2c7cfc30f58a998a8",
+          "url": "https://github.com/fallow-rs/fallow/commit/4698e93faf00335d4d98650893155c98fdf3c377"
+        },
+        "date": 1776376231698,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
