@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776243298162,
+  "lastUpdate": 1776332475937,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "241c0e4feb9d45dbf9fc16bfadca81c194400d69",
-          "message": "fix: replace em dashes with colons in meta-framework warnings",
-          "timestamp": "2026-04-08T19:25:22+02:00",
-          "tree_id": "81db31e4099de755e65d1f5d08102098fb33fa16",
-          "url": "https://github.com/fallow-rs/fallow/commit/241c0e4feb9d45dbf9fc16bfadca81c194400d69"
-        },
-        "date": 1775669208026,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3580024,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15503,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4366,6 +4322,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15489,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 582941,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5626,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "039fb44c1627d0512f7c578a0b7839b670219e85",
+          "message": "fix: stabilize production coverage health flow",
+          "timestamp": "2026-04-16T11:36:50+02:00",
+          "tree_id": "0b1acc311e2c78591ed966b8bc399ab48150fefe",
+          "url": "https://github.com/fallow-rs/fallow/commit/039fb44c1627d0512f7c578a0b7839b670219e85"
+        },
+        "date": 1776332474865,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3736249,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15473,
             "unit": "allocations"
           },
           {
