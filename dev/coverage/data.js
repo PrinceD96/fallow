@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776410630989,
+  "lastUpdate": 1776415716232,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "00eec3bfc29d8e57af2fadb1c69e4eee6cd571a1",
-          "message": "fix(action): handle multiple JSON objects in bare invocation output\n\nBare invocations on non-git directories emit an error JSON (e.g.,\n\"hotspot analysis requires a git repository\") followed by the actual\ncombined results. This caused jq to parse the error object instead of\nthe results, producing an invalid issue count that failed the numeric\nregex check.\n\nFix: pipe through jq -s 'last' to extract only the final JSON object.",
-          "timestamp": "2026-04-09T18:10:01+02:00",
-          "tree_id": "1d8c896dc3986ddfe85a5e95ef4361923ee49368",
-          "url": "https://github.com/fallow-rs/fallow/commit/00eec3bfc29d8e57af2fadb1c69e4eee6cd571a1"
-        },
-        "date": 1775751085167,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.1,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b9e06014a170bcabfb53f78ffd88b8e5940936bc"
         },
         "date": 1776410629743,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "781f9c0fd1221ef7faa99c546bc320c02cb63644",
+          "message": "fix(cli): support GitLab CODEOWNERS section headers and exclusions\n\nCloses #127. The CODEOWNERS parser previously treated `[Section name]`\nheaders as glob character classes, causing hard errors for `--group-by\nowner` and silent null ownership for `--ownership` on any GitLab\nproject using sections.\n\n- Recognize section headers (`[Name]`, `^[Name]`, `[Name][N]`) and skip\n  them as rules; propagate section default owners to bare pattern lines.\n- Accept GitLab 17.10+ exclusion patterns (`!path`) and clear ownership\n  for files whose last matching rule is a negation.\n- Emit a stderr warning when `--ownership` encounters an unparsable\n  CODEOWNERS instead of silently returning null ownership data.",
+          "timestamp": "2026-04-17T10:46:47+02:00",
+          "tree_id": "de8c3da53f739f1f4881b916258b941081fa78c7",
+          "url": "https://github.com/fallow-rs/fallow/commit/781f9c0fd1221ef7faa99c546bc320c02cb63644"
+        },
+        "date": 1776415715249,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
