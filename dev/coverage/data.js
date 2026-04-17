@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776441468277,
+  "lastUpdate": 1776453136059,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e7992f9104a67f471bd526414e7d703f1fd1978e",
-          "message": "fix: wire dead code cross-reference into fallow flags command\n\nThe correlate_with_dead_code() function existed but was never called\nfrom the flags command. Now runs full dead code analysis via\nanalyze_with_parse_result() (reusing pre-parsed modules) and populates\nguarded_dead_exports on each flag. Output shows \"Flags guarding dead\ncode\" section with line counts and dead export names.",
-          "timestamp": "2026-04-10T12:39:31+02:00",
-          "tree_id": "58fc1c68419aeba1690141437de80046e3e6c6a7",
-          "url": "https://github.com/fallow-rs/fallow/commit/e7992f9104a67f471bd526414e7d703f1fd1978e"
-        },
-        "date": 1775817648563,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1419e2d3261b6864438808c237e1bdc60abd00f0"
         },
         "date": 1776441466881,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "5d433b3afe73a12bdf017b7f89cd244a5399bd93",
+          "message": "fix(extract): credit super.method() calls to parent class\n\nsuper.method() calls inside a subclass body were silently dropped by\nthe visitor because visit_static_member_expression only handled\nExpression::Identifier and Expression::ThisExpression objects, not\nExpression::Super. This caused false-positive unused-class-member\nreports on base class methods only called via super.method() from\nsubclasses.\n\nTrack a class_super_stack in the visitor: push the extends identifier\non visit_class entry, pop on exit. When visiting Super.member, emit a\nMemberAccess against the super-class local identifier. The existing\nlocal_to_imported mapping in find_unused_members resolves it to the\nparent's export name, crediting the member as used.\n\nVerified against svelte (13 false positives eliminated, all with real\nsuper.X calls in source) and vite (-2). Zero new findings introduced.\n\nCloses #130",
+          "timestamp": "2026-04-17T21:08:34+02:00",
+          "tree_id": "ad1b2c23536e3c058c8ea690878a03af34533148",
+          "url": "https://github.com/fallow-rs/fallow/commit/5d433b3afe73a12bdf017b7f89cd244a5399bd93"
+        },
+        "date": 1776453135022,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
