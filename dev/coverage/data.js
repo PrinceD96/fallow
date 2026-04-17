@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776423234994,
+  "lastUpdate": 1776424009345,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "934fd58ce66298177773ea45ebea150eff413ca0",
-          "message": "test(vscode): add version marker round-trip tests\n\nExport writeVersionMarker/readVersionMarker for direct testing. Covers\nwrite+read round-trip, missing marker, whitespace trimming, and empty\nfile edge cases.",
-          "timestamp": "2026-04-10T07:10:41+02:00",
-          "tree_id": "98b359a7435bd57ae674d99dc0195dbc037be757",
-          "url": "https://github.com/fallow-rs/fallow/commit/934fd58ce66298177773ea45ebea150eff413ca0"
-        },
-        "date": 1775798016530,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/90869d0bc79d760fed5dbc273dcd4315414a725c"
         },
         "date": 1776423234042,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "raihassanraza10@gmail.com",
+            "name": "Muhammad Hassan Raza",
+            "username": "M-Hassan-Raza"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c7cfff394380542f9007e4162bb7f6a6bea0a5a2",
+          "message": "feat: add scoped usedClassMembers rules",
+          "timestamp": "2026-04-17T13:05:15+02:00",
+          "tree_id": "080fd1b8e9fcb7c514be06704e4412718a9d21da",
+          "url": "https://github.com/fallow-rs/fallow/commit/c7cfff394380542f9007e4162bb7f6a6bea0a5a2"
+        },
+        "date": 1776424007916,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
