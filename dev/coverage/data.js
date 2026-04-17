@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776415716232,
+  "lastUpdate": 1776417723734,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "aff17ee52edb7d628f9369cf7b1f1b5fa99790de",
-          "message": "chore: tighten analyze.sh header comment",
-          "timestamp": "2026-04-09T18:12:17+02:00",
-          "tree_id": "ba1333a41245272b0c68ca9a5f5b65f51e1994c7",
-          "url": "https://github.com/fallow-rs/fallow/commit/aff17ee52edb7d628f9369cf7b1f1b5fa99790de"
-        },
-        "date": 1775751217171,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.1,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/781f9c0fd1221ef7faa99c546bc320c02cb63644"
         },
         "date": 1776415715249,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "04c3c04d8b9f9f0e3992e2795a8a014f16880a8c",
+          "message": "chore(cli): flip fallow-cov-protocol from path dep to crates.io 0.2\n\nNow that fallow-cov-protocol 0.2.0 is published, drop the path dep used\nduring the Wave 3 integration. The CLI ships against the identical bytes\nthe sidecar consumes.",
+          "timestamp": "2026-04-17T11:18:17+02:00",
+          "tree_id": "5e3a348fa860e8e0eb19369bd7536fe6122dd68b",
+          "url": "https://github.com/fallow-rs/fallow/commit/04c3c04d8b9f9f0e3992e2795a8a014f16880a8c"
+        },
+        "date": 1776417721945,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
