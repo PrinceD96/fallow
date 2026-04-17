@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776329600720,
+  "lastUpdate": 1776415972563,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -2447,6 +2447,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 8242,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "781f9c0fd1221ef7faa99c546bc320c02cb63644",
+          "message": "fix(cli): support GitLab CODEOWNERS section headers and exclusions\n\nCloses #127. The CODEOWNERS parser previously treated `[Section name]`\nheaders as glob character classes, causing hard errors for `--group-by\nowner` and silent null ownership for `--ownership` on any GitLab\nproject using sections.\n\n- Recognize section headers (`[Name]`, `^[Name]`, `[Name][N]`) and skip\n  them as rules; propagate section default owners to bare pattern lines.\n- Accept GitLab 17.10+ exclusion patterns (`!path`) and clear ownership\n  for files whose last matching rule is a negation.\n- Emit a stderr warning when `--ownership` encounters an unparsable\n  CODEOWNERS instead of silently returning null ownership data.",
+          "timestamp": "2026-04-17T08:46:47Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/781f9c0fd1221ef7faa99c546bc320c02cb63644"
+        },
+        "date": 1776415970874,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 116,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 115,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 201,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 121,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 119,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 351,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 334,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 752,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 687,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 703,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 740,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 560,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 524,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 7590,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 7211,
             "unit": "ms"
           }
         ]
