@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776423251533,
+  "lastUpdate": 1776424018809,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f4ead2ec300d57e2e9bd224384c9896f371600ab",
-          "message": "chore: apply rustfmt to expect attributes",
-          "timestamp": "2026-04-09T13:19:14+02:00",
-          "tree_id": "425d6f52c45a0e0441fc0c0fb67a19e7d1700242",
-          "url": "https://github.com/fallow-rs/fallow/commit/f4ead2ec300d57e2e9bd224384c9896f371600ab"
-        },
-        "date": 1775733663238,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3589820,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15338,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4371,6 +4327,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Memory",
             "value": 578797,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5624,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "raihassanraza10@gmail.com",
+            "name": "Muhammad Hassan Raza",
+            "username": "M-Hassan-Raza"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c7cfff394380542f9007e4162bb7f6a6bea0a5a2",
+          "message": "feat: add scoped usedClassMembers rules",
+          "timestamp": "2026-04-17T13:05:15+02:00",
+          "tree_id": "080fd1b8e9fcb7c514be06704e4412718a9d21da",
+          "url": "https://github.com/fallow-rs/fallow/commit/c7cfff394380542f9007e4162bb7f6a6bea0a5a2"
+        },
+        "date": 1776424017844,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3968805,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 17603,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 581221,
             "unit": "bytes"
           },
           {
