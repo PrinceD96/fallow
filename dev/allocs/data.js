@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776417730017,
+  "lastUpdate": 1776418118410,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "bf934af1aff4b3283cfc349b1febaa9edb89031e",
-          "message": "refactor(health): conditional rendering for risk profiles\n\nShow function size profile only when very_high_risk >= 3% (approaching\nthe 5% penalty threshold). Show parameter profile only when high or\nvery_high bins carry signal. Suppress both on healthy projects to\nreduce noise.\n\nRemove early return that suppressed profiles when trend was active,\nso users can see absolute distributions alongside trend deltas.",
-          "timestamp": "2026-04-09T12:51:27+02:00",
-          "tree_id": "4153bfea25b9efae928b7baeb56485ad3e87a009",
-          "url": "https://github.com/fallow-rs/fallow/commit/bf934af1aff4b3283cfc349b1febaa9edb89031e"
-        },
-        "date": 1775731983610,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3582388,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15328,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 519093,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4366,6 +4322,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 15490,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 578797,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 5624,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f1f24d2e54705609eff99ae6c1a476cd88d4ebfe",
+          "message": "chore: release v2.39.0",
+          "timestamp": "2026-04-17T11:24:26+02:00",
+          "tree_id": "cbf0e78ae13212f38bc1015ae94f86989b9f14b7",
+          "url": "https://github.com/fallow-rs/fallow/commit/f1f24d2e54705609eff99ae6c1a476cd88d4ebfe"
+        },
+        "date": 1776418117402,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 3713209,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 15481,
             "unit": "allocations"
           },
           {
