@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776435386505,
+  "lastUpdate": 1776436379717,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "32750ac7d73d91ee04c5b13dd269b4f8867d60b7",
-          "message": "fix: improve zero-match warning message and add to dupes/health baselines\n\n- Improve warning text: use accessible language, include the baseline\n  file path in the re-save hint\n- Add zero-match warning to dupes baseline loading (was check-only)\n- Add zero-match warning to health baseline loading (was check-only)",
-          "timestamp": "2026-04-09T12:00:34+02:00",
-          "tree_id": "a0f2c0cf31ad0424d0251ed55d30de1388efba4e",
-          "url": "https://github.com/fallow-rs/fallow/commit/32750ac7d73d91ee04c5b13dd269b4f8867d60b7"
-        },
-        "date": 1775729040419,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 145454976,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2876,6 +2847,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 165690760,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "987d9e205a120678411973bc90280cc3dc4ffcc8",
+          "message": "chore: release v2.40.0",
+          "timestamp": "2026-04-17T16:24:33+02:00",
+          "tree_id": "698e1d247e68134da994de20b7ff67fd6b5ae03c",
+          "url": "https://github.com/fallow-rs/fallow/commit/987d9e205a120678411973bc90280cc3dc4ffcc8"
+        },
+        "date": 1776436378763,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 165669536,
             "unit": "bytes"
           }
         ]
