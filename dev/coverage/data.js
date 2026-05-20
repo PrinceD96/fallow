@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779290862246,
+  "lastUpdate": 1779291008566,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0c42c5dc4c22864e2c599c17d33187a35dc895cd",
-          "message": "docs: add codex repo overlay",
-          "timestamp": "2026-04-10T15:30:56+02:00",
-          "tree_id": "d854271fb48f8a5cf5bf24d2ba6ae062a8d467d7",
-          "url": "https://github.com/fallow-rs/fallow/commit/0c42c5dc4c22864e2c599c17d33187a35dc895cd"
-        },
-        "date": 1775827929977,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/96484ac412e8cc275af2729dc1b5ae75e3b0f154"
         },
         "date": 1779290860332,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ddf12455f8bd9d65b2730e3ca105e0051224416b",
+          "message": "fix(action): keep smoke tests compatible before release\n\nResolve global npm optional packages from the installed fallow package directory and skip binary verification only in the Action self-test workflow, where checked-out verifier code can be newer than the published npm platform packages before the next release.",
+          "timestamp": "2026-05-20T17:27:20+02:00",
+          "tree_id": "b9d3b06333c2b19628f9984d3925b99df53a1ec9",
+          "url": "https://github.com/fallow-rs/fallow/commit/ddf12455f8bd9d65b2730e3ca105e0051224416b"
+        },
+        "date": 1779291006297,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
