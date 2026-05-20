@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779290649448,
+  "lastUpdate": 1779290862246,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "970c16c2bbad2c20a38d3bde6eeb13a2074ab1e1",
-          "message": "chore: release v2.27.0",
-          "timestamp": "2026-04-10T13:47:36+02:00",
-          "tree_id": "bdebe461be739022a7722500fa8ef476d182c4b9",
-          "url": "https://github.com/fallow-rs/fallow/commit/970c16c2bbad2c20a38d3bde6eeb13a2074ab1e1"
-        },
-        "date": 1775821854474,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e91ccd2086db43b2854ede205ba416450931ae42"
         },
         "date": 1779290645849,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "96484ac412e8cc275af2729dc1b5ae75e3b0f154",
+          "message": "fix(action): verify npm binaries before execution (#488)\n\nAdds Ed25519 and GitHub Release SHA-256 checks for npm platform binaries, runs the GitHub Action verifier from the checked-out action after --ignore-scripts install, and preserves provenance-only npm publishing.\n\nFixes #465",
+          "timestamp": "2026-05-20T16:24:55+01:00",
+          "tree_id": "f7feb8208fdaee2c3f2a9933155ed9239fb5f9c6",
+          "url": "https://github.com/fallow-rs/fallow/commit/96484ac412e8cc275af2729dc1b5ae75e3b0f154"
+        },
+        "date": 1779290860332,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
