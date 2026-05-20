@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779304573336,
+  "lastUpdate": 1779307349788,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "263d76905e430c01585b4f6d567ba19623a1feb4",
-          "message": "fix(lsp): merge test_only_dependencies, boundary_violations, and export_usages across workspace roots",
-          "timestamp": "2026-04-09T15:54:42+02:00",
-          "tree_id": "27b2d47ffb22527722341821c34dac867433776c",
-          "url": "https://github.com/fallow-rs/fallow/commit/263d76905e430c01585b4f6d567ba19623a1feb4"
-        },
-        "date": 1775743095645,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 146553240,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2876,6 +2847,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 229609672,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6bfda71d4bf4c04dc5b02ea7c88f273bbb14cb13",
+          "message": "fix(unused-class-members): credit Playwright POM methods via helper-function fixtures\n\nThe #268 fix correlated `const test = base.extend<MyFixtures>(...)` definitions\nwith their callback-side member uses, but the helper form (`export function\nappTest() { return base.extend<MyFixtures>(...); }` consumed as `appTest()(...)`)\nreintroduced the false positive on nested POM methods. Three declarator shapes\nnow capture the helper (function declaration, arrow expression, function\nexpression) when the body is a single `return <call>` statement; a finalize-time\npass gates the `base` local on `@playwright/test`'s `test` named import and\nemits the same def-sentinel `MemberAccess` the analyzer already correlates with\nuse sentinels. Same-file helper chains propagate via a capped fixed-point pass\nover `(caller, callee)` aliases. The use-side `appTest()(...)` form is\nrecognised by extending `playwright_test_callee_name` with a `CallExpression`\nrecursion arm. Cross-file helper chains are out of scope.\n\nBumps `CACHE_VERSION` to 86 so warm caches refresh on upgrade.\n\nFixes #491.",
+          "timestamp": "2026-05-20T20:56:00+01:00",
+          "tree_id": "9bd374296be7afbf2ac3acc6ae50499efaec28fa",
+          "url": "https://github.com/fallow-rs/fallow/commit/6bfda71d4bf4c04dc5b02ea7c88f273bbb14cb13"
+        },
+        "date": 1779307347695,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 229849232,
             "unit": "bytes"
           }
         ]
