@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779291008566,
+  "lastUpdate": 1779291453684,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "9255270050b2acc196bbda0b40b7774bb9c84407",
-          "message": "chore: gitignore AGENTS.md and .codex (local agent config)\n\nAgent-specific development workflows (Codex skills, Claude overlay)\nare local tooling configuration, not project source.",
-          "timestamp": "2026-04-10T17:40:16+02:00",
-          "tree_id": "bec1584a7d04a5a0e2727bc3190aedaa52af3f30",
-          "url": "https://github.com/fallow-rs/fallow/commit/9255270050b2acc196bbda0b40b7774bb9c84407"
-        },
-        "date": 1775835739772,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ddf12455f8bd9d65b2730e3ca105e0051224416b"
         },
         "date": 1779291006297,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "54552a01e8b58619da71b45000d174ab28eafcad",
+          "message": "fix(ci): sync bundled gitlab template",
+          "timestamp": "2026-05-20T17:35:06+02:00",
+          "tree_id": "741872199ed7811f87f2567e9277a472722e06d1",
+          "url": "https://github.com/fallow-rs/fallow/commit/54552a01e8b58619da71b45000d174ab28eafcad"
+        },
+        "date": 1779291452327,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
