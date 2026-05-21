@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779400642760,
+  "lastUpdate": 1779401309393,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "5ea37114e61b8f961c154288622959eb77afa39f",
-          "message": "fix(flags): wire inline suppression into feature flag collection\n\nThe JSON output action suggested `// fallow-ignore-next-line feature-flag`\nbut the flags command never checked suppressions. Both the built-in and\ncustom flag collection loops now call `is_suppressed()` /\n`is_file_suppressed()` with `IssueKind::FeatureFlag`, matching the\ncontract the JSON output already promised.",
-          "timestamp": "2026-04-12T10:00:05+02:00",
-          "tree_id": "945fa52df7642983222a90b91013b73861cc78bb",
-          "url": "https://github.com/fallow-rs/fallow/commit/5ea37114e61b8f961c154288622959eb77afa39f"
-        },
-        "date": 1775981198342,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 34949,
-            "range": "± 552",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1802912,
-            "range": "± 27102",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3220617,
-            "range": "± 19740",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 16123824,
-            "range": "± 152211",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 100150,
-            "range": "± 492",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2849,
-            "range": "± 111",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 173652,
-            "range": "± 1612",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 764968,
-            "range": "± 11417",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1656329,
-            "range": "± 23102",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 505345,
-            "range": "± 34543",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3605918,
-            "range": "± 44266",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2079298,
-            "range": "± 11243",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9828,6 +9732,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2230103,
             "range": "± 10473",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fb814dac1f7fcb483768f923c200c3ccec6c7c49",
+          "message": "fix(cli): render workspace-relative paths in nudge and rollup lines\n\n* fix(cli): render workspace-relative paths in nudge and rollup lines\n\nReplace four human-output sites that previously rendered bare basenames\nvia `path.file_name()` with workspace-relative paths via a new\n`format_display_path` helper in `report/mod.rs`. Affects:\n\n- combined-mode failure footer (\"start with index.ts\" becomes \"start\n  with apps/server/src/index.ts\").\n- combined-mode refactoring-targets nudge.\n- Angular component rollup template path in the health rollup line.\n- inherited-from owner display on CRAP-coverage suffix.\n\nIn Nx / Angular / Rust workspaces, many files share basenames like\n`index.ts`, `mod.rs`, `*.component.ts`. Bare basenames cannot identify\nthe intended file, so the nudge tells users nothing actionable.\nWorkspace-relative paths resolve the ambiguity in a single uniform\nshape across all four sites, matching knip / ts-prune / depcheck.\n\nJSON, SARIF, CodeClimate, and MCP output already serialize full paths\nand are unchanged.\n\nFixes #547\n\n* docs(changelog): note workspace-relative paths in nudge / rollup / inherited-from\n\nAdds the [Unreleased] entry for #547 covering the four human-output\nsites whose bare-basename rendering was replaced with project-relative\npaths.",
+          "timestamp": "2026-05-21T23:02:02+01:00",
+          "tree_id": "b7336b749be8b697745aa29c713826edd66d08d5",
+          "url": "https://github.com/fallow-rs/fallow/commit/fb814dac1f7fcb483768f923c200c3ccec6c7c49"
+        },
+        "date": 1779401307289,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 48347,
+            "range": "± 433",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3058922,
+            "range": "± 38266",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 4217736,
+            "range": "± 58099",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 17743373,
+            "range": "± 338806",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 104695,
+            "range": "± 2592",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 3012,
+            "range": "± 4",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 156566,
+            "range": "± 4925",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 711714,
+            "range": "± 4662",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1195681,
+            "range": "± 22516",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 460341,
+            "range": "± 7169",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 2876165,
+            "range": "± 14245",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 2903557,
+            "range": "± 52407",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 1944582,
+            "range": "± 3522",
             "unit": "ns/iter"
           }
         ]
