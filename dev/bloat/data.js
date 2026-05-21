@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779395333603,
+  "lastUpdate": 1779396585427,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "47f8ac37e3296d612bcb5eede0f154d44f02cdb1",
-          "message": "chore: release v2.27.5",
-          "timestamp": "2026-04-11T00:02:00+02:00",
-          "tree_id": "fd8478487500ab9bd6502acf15b0e1dca5cb3e82",
-          "url": "https://github.com/fallow-rs/fallow/commit/47f8ac37e3296d612bcb5eede0f154d44f02cdb1"
-        },
-        "date": 1775858937447,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 151611320,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2876,6 +2847,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 234862792,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8ee61a22454a80a815b04b53d34616b41f8a6370",
+          "message": "fix(cli): normalise fallow-cov sidecar request paths to forward slashes\n\n`crates/cli/src/health/coverage.rs::build_request` emitted\n`static_findings.files[].path` via `relative.to_string_lossy().into_owned()`,\nwhich preserves backslashes on Windows checkouts. The sidecar JSON\nwire format must be host-OS-independent (a sidecar or downstream\nconsumer can run on a different machine), so the path now goes\nthrough `.replace('\\\\\\\\', \"/\")` to match the existing convention in\n`report::ci::diff_filter::relative_to_diff_path` and\n`health::mod::relative_to_root`.\n\nCloses the last Windows-only test failure observed on the push-to-main\nCI matrix after PR #548 + #551 (13 -> 6 -> 1 -> 0).\n\nRefs #545.",
+          "timestamp": "2026-05-21T21:42:45+01:00",
+          "tree_id": "d55a1ddf02c24ff3f3623ea8d4e5a4e91400fcaf",
+          "url": "https://github.com/fallow-rs/fallow/commit/8ee61a22454a80a815b04b53d34616b41f8a6370"
+        },
+        "date": 1779396582846,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 234866784,
             "unit": "bytes"
           }
         ]
