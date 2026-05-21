@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779356985066,
+  "lastUpdate": 1779357675551,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "3531f8e369452c04843ca6f56467e2fa4c2753c2",
-          "message": "chore: release v2.27.1",
-          "timestamp": "2026-04-10T19:50:06+02:00",
-          "tree_id": "3b4d4381b4e477ccbeef204982fe33fd0293f106",
-          "url": "https://github.com/fallow-rs/fallow/commit/3531f8e369452c04843ca6f56467e2fa4c2753c2"
-        },
-        "date": 1775843509547,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3581780,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15310,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 521517,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4376,6 +4332,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6292,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c224787ed950fa22c5d039f6f38358339e8b946f",
+          "message": "fix(fix): refuse stale writes, batch commits atomically, compose cross-fixer edits\n\n`fallow fix` re-ran analysis in-process and then wrote each per-file rewrite\nvia a standalone `atomic_write`. If a parallel editor save, CI rebase, or\nother tool mutated a target file between the analysis read and the\nfix-time write, the line offsets computed during analysis landed on the\nwrong bytes and silently corrupted the file. Per-file writes also ran\nunbatched, so an OOM or transient I/O failure mid-run left the project in\na half-applied state where the surviving files' offsets no longer matched\nthe original analysis.\n\nCapture every parsed source file's xxh3 content hash during analysis (the\nsame value the extract cache already computes) and thread the\n`CapturedHashes` map through each fixer. Per-file entry recomputes the\nhash and emits a `skipped: true` record with `skip_reason: \"content_changed\"`\non mismatch; the run exits 2 so CI surfaces the mismatch instead of\ntreating a partial run as a clean no-op. The new `FixPlan` accumulator in\n`crates/cli/src/fix/plan.rs` stages every rewrite into a sibling\n`NamedTempFile`; the orchestrator commits the plan in one batch after all\nfixers run. Stage failure leaves every target file at its original\ncontent; rename failure mid-batch is reported per-path.\n\nTwo structural invariants the pre-refactor `atomic_write` provided were\npreserved explicitly: (1) the second fixer reads its source bytes from\nthe in-flight plan when the path is already staged, so cross-fixer\nsame-file edits compose into one coherent rewrite instead of overwriting\nvia last-write-wins; (2) the commit canonicalizes through symlinks so the\nfinal rename writes to the real target instead of replacing the link\nitself with a regular file.\n\nJSON envelope gains a top-level `skipped_content_changed: number` (always\npresent) and a new per-file entry shape\n`{type: \"skipped\", path: ..., skipped: true, skip_reason: \"content_changed\"}`\nin `fixes[]`. The existing `skipped` counter keeps its prior semantics\n(catalog / YAML guard skips only). `action/jq/summary-fix.jq` counts\nsuccessful fix attempts in its headline and surfaces\n`skipped_content_changed` in the prose. MCP `fix_preview` / `fix_apply`\ndescriptions and the VS Code `FallowFixResult` type document the new\nfield and skip reason.\n\nFive new regression tests cover round-trip clearing of targeted findings,\nbatch abort on a read-only target directory, the envelope-field contract,\ncross-fixer composition, and symlink follow-through.\n\nFixes #454.",
+          "timestamp": "2026-05-21T10:59:03+01:00",
+          "tree_id": "d682cc7ef0d9a814b4a6703777cad403627d6062",
+          "url": "https://github.com/fallow-rs/fallow/commit/c224787ed950fa22c5d039f6f38358339e8b946f"
+        },
+        "date": 1779357673692,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5072476,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27535,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 711075,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6797,
             "unit": "allocations"
           }
         ]
