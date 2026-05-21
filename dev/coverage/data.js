@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779367139692,
+  "lastUpdate": 1779369024096,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1ae2f7e6cc4ea56a5174fb156dd80074f715008b",
-          "message": "chore: release v2.28.1",
-          "timestamp": "2026-04-11T20:48:57+02:00",
-          "tree_id": "7aecae1d27deb3eb517de61519d8b98be6b0823b",
-          "url": "https://github.com/fallow-rs/fallow/commit/1ae2f7e6cc4ea56a5174fb156dd80074f715008b"
-        },
-        "date": 1775933485677,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9d47eda745e6e35534bd4b578b0f4bc77653379a"
         },
         "date": 1779367138527,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9035c4b2e8b10bc1d444b32a36732c548d3ca581",
+          "message": "chore(ci): add schema.json drift gate against FallowConfig::json_schema()\n\nMirrors the docs/output-schema.json drift gate (issue #338) on the\nsymmetric config-input chain. A new `#[cfg(test)] mod config_schema_drift`\nin crates/cli/src/init.rs parses the committed schema.json and the live\n`FallowConfig::json_schema()` output to `serde_json::Value` and\n`assert_eq!`s them, guarded by `is_object()` against the production\ncode's `unwrap_or_default()` swallowing a future schemars failure into\n`Value::Null`. On mismatch a three-line panic points at the regen\ncommand (`cargo run --bin fallow -- config-schema > schema.json`).\n\nThe include_str! path resolves inside the crate via a git symlink\ncrates/cli/schema.json -> ../../schema.json so cargo package dereferences\ninto a self-contained tarball, matching the existing pattern at\ncrates/cli/templates/ci/gitlab-ci.yml. The ci.yml `rust:` paths-filter\nnow also matches edits to schema.json directly so schema-only PRs still\ntrigger the check job; `schema.json` is added to the `npm-package:`\nfilter too so the new `diff schema.json npm/fallow/schema.json` step\nfires at PR time on schema-only PRs. Both ci.yml and release.yml now\nfollow `cp schema.json npm/fallow/schema.json` with a `diff` invariant\nguard so a future refactor that drops or moves the cp fails loud rather\nthan shipping a stale schema to npm consumers.\n\nFixes #440.",
+          "timestamp": "2026-05-21T14:08:02+01:00",
+          "tree_id": "8877b82009ffadd726fc9aa70a78fb47ee53c226",
+          "url": "https://github.com/fallow-rs/fallow/commit/9035c4b2e8b10bc1d444b32a36732c548d3ca581"
+        },
+        "date": 1779369022850,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
