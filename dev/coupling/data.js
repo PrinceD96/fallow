@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779400989337,
+  "lastUpdate": 1779401245245,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7445a42021e50bca8cb498929dbdca192023a1ef",
-          "message": "chore: shrink VS Code extension package and add CSS path alias tests\n\n- .vscodeignore now excludes pnpm-lock.yaml, .fallow/, .test-dist/,\n  test/, vitest.config.mts, tsconfig.test.json, and .fallowrc.json.\n  Reduces the VSIX from 192KB to 100KB (48% smaller).\n- Add regression tests for CSS path aliases (@/components/Button.css)\n  sharing the @-prefix with scoped packages. Path aliases must stay\n  bare so the resolver's alias path handles them.",
-          "timestamp": "2026-04-10T22:26:29+02:00",
-          "tree_id": "916a746b341c25a8e02c3aa4935c7446cd630dc1",
-          "url": "https://github.com/fallow-rs/fallow/commit/7445a42021e50bca8cb498929dbdca192023a1ef"
-        },
-        "date": 1775853004688,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 218,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 460,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4851,6 +4802,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/fb814dac1f7fcb483768f923c200c3ccec6c7c49"
         },
         "date": 1779400986880,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 300,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 682,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ab27bcfbf1607f145649d52ed95777f50221710a",
+          "message": "fix(audit): strip Windows verbatim prefix at git_toplevel for --changed-since + audit\n\nThe real Windows-only bug behind #561 (the dunce::simplified fix in\n40b000f8 was a real correctness improvement but not load-bearing for\nthis issue): `resolve_git_toplevel` in `crates/core/src/changed_files.rs`\nused `std::fs::canonicalize`, which on Windows adds the `\\\\?\\`\nverbatim prefix to its result. Every path from `git diff --name-only`\ngot joined onto this verbatim-prefixed toplevel, producing\nchanged-files paths shaped like `\\\\?\\C:\\Users\\...\\Temp\\test\\src\\foo.ts`.\n\nDownstream `strip_prefix` comparisons against `opts.root` (the CLI's\nproject root from clap, which carries NO verbatim prefix) walk the\ncomponent graph and see `Prefix(VerbatimDisk('C'))` against\n`Prefix(Disk('C'))`. They are not equal. Every entry in the\nchanged-files set silently failed the prefix check, the focus filter\ndropped EVERY finding before the audit attribution pass ran, and\naudit reported 0 pre-existing findings.\n\nThat's the root cause of the 8 audit integration tests in\n`crates/cli/tests/audit_tests.rs` that report\n`expected at least 5 pre-existing unused exports, got 0` on Windows.\nThree sites switch from `std::fs::canonicalize` to\n`dunce::canonicalize`:\n\n- `crates/core/src/changed_files.rs::resolve_git_toplevel`\n- `crates/cli/src/audit.rs::git_toplevel`\n- `crates/cli/src/audit.rs::base_analysis_root` (current_root)\n\n`dunce::canonicalize` strips the `\\\\?\\` prefix on Windows and is\nidentical to `std::fs::canonicalize` on POSIX, so behaviour off\nWindows is unchanged.\n\nRefs #561, #447, #545.",
+          "timestamp": "2026-05-21T23:06:17+01:00",
+          "tree_id": "35c4d13c1fcdbff03c98af73fb387f21669ce563",
+          "url": "https://github.com/fallow-rs/fallow/commit/ab27bcfbf1607f145649d52ed95777f50221710a"
+        },
+        "date": 1779401243939,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
