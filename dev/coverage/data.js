@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779394340790,
+  "lastUpdate": 1779395115115,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "920a8e0cca3e1b58d0ef5bf106aacde11102cb96",
-          "message": "chore: release v2.29.1",
-          "timestamp": "2026-04-12T10:13:19+02:00",
-          "tree_id": "f81e7cb7beb5212473becb3033f76f4a0820a639",
-          "url": "https://github.com/fallow-rs/fallow/commit/920a8e0cca3e1b58d0ef5bf106aacde11102cb96"
-        },
-        "date": 1775981878376,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6303864bf02c45bd1f9b7c3dceae7f6b4d89533d"
         },
         "date": 1779394339561,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "02dc1cccb62b7b55ccb94904f91fdad960503fb1",
+          "message": "fix(cli): classify POSIX-style absolute paths in health diff filter on Windows\n\nFollow-up to PR #548 (the #545 main fix). The Windows CI matrix run on\n`6303864b` showed 6 health::* test failures remained after the\ncheck-side fix: `crates/cli/src/health/mod.rs` carried a near-duplicate\n`relative_to_root` helper with the same `Path::is_absolute()` gate bug,\nand `retain_hot_paths_in_change_scope` applied the same gate to\n`hot_path.path` before joining against the root.\n\nBoth sites are now routed through the shared `crate::path_util`\nhelpers introduced in PR #548. `relative_to_root` adopts the\nstrip_prefix-first shape that mirrors\n`report::ci::diff_filter::relative_to_diff_path`, so POSIX-style\nabsolute paths in cross-platform CI configs (or deserialized from JSON\noutput authored on a Unix host) classify correctly on Windows.\n\nAll 6 previously-failing tests pass under the new logic on Ubuntu;\nthe Windows CI matrix on push to main will be the empirical\nconfirmation.\n\nRefs #545.",
+          "timestamp": "2026-05-21T21:22:45+01:00",
+          "tree_id": "a1db6d1b65fd722830f01a52197d2d674b583b74",
+          "url": "https://github.com/fallow-rs/fallow/commit/02dc1cccb62b7b55ccb94904f91fdad960503fb1"
+        },
+        "date": 1779395113133,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
