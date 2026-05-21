@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779400302412,
+  "lastUpdate": 1779401066100,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "65104286192c17e875cc95b7ba5ac86b32abb892",
-          "message": "feat(health): inline suppression for complexity findings (#108)\n\nAdd `IssueKind::Complexity` (discriminant 18) to the inline\nsuppression system so health command complexity findings can be\nsuppressed per-function or per-file:\n\n  // fallow-ignore-next-line complexity\n  function parseCsv(text) { ... }\n\n  // fallow-ignore-file complexity   (suppresses all functions in file)\n  // fallow-ignore-next-line         (blanket, also covers complexity)\n\nThe check happens in `collect_findings()` before pushing a finding,\nusing `suppress::is_suppressed()` with the function's line number.\nFile scores, vital signs, and hotspots are unaffected by suppression\nsince they reflect actual complexity, not alerting.\n\nHuman output now shows a suppress hint in the findings footer when\n3+ functions exceed thresholds.\n\nCache version 36 -> 37 so stale caches re-parse files that already\ncontain `// fallow-ignore-next-line complexity` comments (previously\nsilently ignored because the kind was unrecognised).",
-          "timestamp": "2026-04-12T09:32:55+02:00",
-          "tree_id": "4115c434a1562834e193e4a93e8b699f85100ddf",
-          "url": "https://github.com/fallow-rs/fallow/commit/65104286192c17e875cc95b7ba5ac86b32abb892"
-        },
-        "date": 1775979424737,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3603824,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15311,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 540717,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4376,6 +4332,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6797,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fb814dac1f7fcb483768f923c200c3ccec6c7c49",
+          "message": "fix(cli): render workspace-relative paths in nudge and rollup lines\n\n* fix(cli): render workspace-relative paths in nudge and rollup lines\n\nReplace four human-output sites that previously rendered bare basenames\nvia `path.file_name()` with workspace-relative paths via a new\n`format_display_path` helper in `report/mod.rs`. Affects:\n\n- combined-mode failure footer (\"start with index.ts\" becomes \"start\n  with apps/server/src/index.ts\").\n- combined-mode refactoring-targets nudge.\n- Angular component rollup template path in the health rollup line.\n- inherited-from owner display on CRAP-coverage suffix.\n\nIn Nx / Angular / Rust workspaces, many files share basenames like\n`index.ts`, `mod.rs`, `*.component.ts`. Bare basenames cannot identify\nthe intended file, so the nudge tells users nothing actionable.\nWorkspace-relative paths resolve the ambiguity in a single uniform\nshape across all four sites, matching knip / ts-prune / depcheck.\n\nJSON, SARIF, CodeClimate, and MCP output already serialize full paths\nand are unchanged.\n\nFixes #547\n\n* docs(changelog): note workspace-relative paths in nudge / rollup / inherited-from\n\nAdds the [Unreleased] entry for #547 covering the four human-output\nsites whose bare-basename rendering was replaced with project-relative\npaths.",
+          "timestamp": "2026-05-21T23:02:02+01:00",
+          "tree_id": "b7336b749be8b697745aa29c713826edd66d08d5",
+          "url": "https://github.com/fallow-rs/fallow/commit/fb814dac1f7fcb483768f923c200c3ccec6c7c49"
+        },
+        "date": 1779401064063,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5104034,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27577,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 710323,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6790,
             "unit": "allocations"
           }
         ]
