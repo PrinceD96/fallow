@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779363576917,
+  "lastUpdate": 1779364375774,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e629a4a0100da2643634b270fe621883d59d365b",
-          "message": "fix: CSS scoped package imports and HTML workspace root-relative paths\n\nTwo false-positive fixes discovered by running fallow on fallow-cloud:\n\n1. CSS scoped npm package imports (e.g., @fontsource/monaspace-neon/400.css,\n   @fallow/design-system/styles.css) were being normalized with a leading ./,\n   causing them to be reported as unresolved instead of resolved from\n   node_modules. normalize_css_import_path() now keeps scoped specifiers\n   (@scope/pkg) bare regardless of file extension.\n\n2. HTML root-relative paths (<script src=\"/src/main.tsx\">) in workspace\n   members resolved against the monorepo root instead of the workspace member\n   root. site/index.html referencing /src/main.tsx was looking for\n   <root>/src/main.tsx instead of site/src/main.tsx. Now resolves from the\n   HTML file's parent directory first, with fallback to project root for\n   the public/index.html case.\n\nCACHE_VERSION bumped 29 -> 30 because the CSS change alters import specifiers\nstored at extraction time.",
-          "timestamp": "2026-04-10T21:26:49+02:00",
-          "tree_id": "7649e2e285a430448e4522b3b95222053e7a9177",
-          "url": "https://github.com/fallow-rs/fallow/commit/e629a4a0100da2643634b270fe621883d59d365b"
-        },
-        "date": 1775849428858,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3626824,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15349,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 540717,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4376,6 +4332,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6267,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ab3a66f3b831f5bb9c9720d837d0faab77aceb91",
+          "message": "fix(ci-template): symlink bundled GitLab templates to workspace sources\n\nReplaces the byte-copy of `crates/cli/templates/ci/{gitlab-ci.yml,\nscripts/comment.sh, scripts/review.sh}` with git symlinks pointing at the\ncanonical workspace `ci/` files. Contributors now edit one source of\ntruth; `cargo package` dereferences the symlinks into regular files so\nthe published crate stays self-contained.\n\nRemoves the `bundled_templates_match_workspace_sources` byte-drift test\nin favour of the inode equivalence the symlink provides. The companion\n`gitlab_ci_template_for_loops_match_vendored_files` test still guards\nthe `GITLAB_FILES` list against `for f in ...` loop drift inside the\ntemplate.\n\nDocuments the Windows prerequisite (`git config --global core.symlinks\ntrue`) in `CONTRIBUTING.md` and updates `.claude/rules/cli-crate.md` to\ndescribe the new packaging contract.\n\nFixes #518.",
+          "timestamp": "2026-05-21T12:49:52+01:00",
+          "tree_id": "0e813a531d3e692f016e49c9dc118c7dc1238478",
+          "url": "https://github.com/fallow-rs/fallow/commit/ab3a66f3b831f5bb9c9720d837d0faab77aceb91"
+        },
+        "date": 1779364374575,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5101042,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27579,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 708539,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6795,
             "unit": "allocations"
           }
         ]
