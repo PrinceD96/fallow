@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779402837438,
+  "lastUpdate": 1779403826074,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "cf3fa79f9c1215b1bf796f3a8d49f525ae71f56c",
-          "message": "feat: add Hardhat, UnoCSS, Qwik, Convex, pnpm plugins (85 -> 90)\n\nFive new framework plugins, each validated against real open source\nprojects:\n\n- Hardhat: Ethereum dev framework. Parses hardhat.config via new\n  extract_imports_and_requires() to capture both import statements and\n  side-effect require() calls. Entry points for test/, scripts/, tasks/,\n  deploy/, ignition/modules/.\n- UnoCSS: Atomic CSS engine. Supports both uno.config and unocss.config\n  file names. Extracts preset/transformer imports via imports_only.\n  Prefix enabler @unocss/ catches all scoped packages.\n- Qwik: Web framework (v1 @builder.io + v2 @qwik.dev). File-system\n  routing with used_exports for route handlers (onGet, onPost, etc.)\n  and layouts including reset layouts (layout!).\n- Convex: Backend platform. All convex/**/*.ts files are entry points.\n  Protects _generated/, schema, auth, http from unused-file detection.\n- pnpm: Package manager with file-existence detection (pnpm-lock.yaml,\n  pnpm-workspace.yaml) since pnpm is rarely a package.json dependency.\n\nAlso adds extract_imports_and_requires() to config_parser.rs for\nconfigs that load plugins via top-level require() statements.",
-          "timestamp": "2026-04-13T09:29:52+02:00",
-          "tree_id": "49a7c77b15fdb3a97dfb38b63788a078c79ecb5b",
-          "url": "https://github.com/fallow-rs/fallow/commit/cf3fa79f9c1215b1bf796f3a8d49f525ae71f56c"
-        },
-        "date": 1776065681648,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 38343,
-            "range": "± 390",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1544786,
-            "range": "± 21234",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 2560036,
-            "range": "± 60282",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 11679958,
-            "range": "± 45667",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 106639,
-            "range": "± 3193",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2825,
-            "range": "± 13",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 155987,
-            "range": "± 726",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 698994,
-            "range": "± 7891",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1498360,
-            "range": "± 21061",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 456789,
-            "range": "± 8045",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3299843,
-            "range": "± 19800",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 1908372,
-            "range": "± 13142",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9858,6 +9762,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2990071,
             "range": "± 6836",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "86ce691866f97fa9852823d22f812a621a83d97a",
+          "message": "fix(audit): normalise forward-slash segments + simplify temp-dir path comparison\n\nTwo distinct Windows-only path-shape bugs surface after PR #569\nfixed the docs-only fast path but exposed a regression and two\nremaining audit test failures:\n\n1. `try_get_changed_files` joined forward-slash segments from\n   `git diff --name-only` (`src/legacy.ts`) onto an absolute toplevel\n   via `PathBuf::join`. On Windows, `join` appends with the native\n   backslash separator without converting separators inside the\n   appended segment, so the resulting buffer landed as\n   `C:\\Users\\...\\Temp\\test\\src/legacy.ts` (mixed separators). File\n   discovery via walkdir produces all-backslash paths. `FxHashSet`'s\n   `contains` compares bytes, not components, so the two shapes\n   mismatched and the focused duplicates / changed-since filter\n   silently dropped every finding. This broke\n   `audit_dupes_only_materializes_groups_touching_changed_files`\n   and `audit_gate_new_only_inherits_pre_existing_duplicates_in_focused_files`.\n\n   Fix: `#[cfg(windows)]`-guarded `replace('/', \"\\\\\")` on the\n   relative segment before `toplevel.join(...)`. POSIX path is\n   unchanged (no-op on the segment).\n\n2. `path_is_inside_temp_dir`'s previous switch to `dunce::canonicalize`\n   broke `audit_worktree_helpers_filter_to_fallow_temp_prefix` because\n   the test constructs synthetic worktree paths that DO NOT exist on\n   disk. `dunce::canonicalize` (which wraps `std::fs::canonicalize`)\n   returns Err for non-existent paths, so the fallback never ran. The\n   pre-fix std path happened to match because the test pre-canonicalised\n   with the same std function.\n\n   Fix: use `dunce::simplified` (string-level prefix strip, no I/O) for\n   the primary comparison. Keep the canonicalize fallback for symlinked\n   temp dirs but route both ends through `dunce::simplified` after\n   canonicalising. This accepts both verbatim and non-verbatim input\n   shapes.\n\nRefs #561.",
+          "timestamp": "2026-05-21T23:45:31+01:00",
+          "tree_id": "c8ad288b7349bb43295822669dffea82de6f9602",
+          "url": "https://github.com/fallow-rs/fallow/commit/86ce691866f97fa9852823d22f812a621a83d97a"
+        },
+        "date": 1779403824878,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 42578,
+            "range": "± 336",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3731627,
+            "range": "± 174946",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 4974950,
+            "range": "± 196751",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 22511387,
+            "range": "± 311667",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 109950,
+            "range": "± 839",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2409,
+            "range": "± 10",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 184480,
+            "range": "± 7427",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 819301,
+            "range": "± 11570",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1315812,
+            "range": "± 29430",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 533280,
+            "range": "± 37681",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3292223,
+            "range": "± 28901",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3302299,
+            "range": "± 38677",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2226731,
+            "range": "± 9016",
             "unit": "ns/iter"
           }
         ]
