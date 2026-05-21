@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779368986321,
+  "lastUpdate": 1779371348688,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e7992f9104a67f471bd526414e7d703f1fd1978e",
-          "message": "fix: wire dead code cross-reference into fallow flags command\n\nThe correlate_with_dead_code() function existed but was never called\nfrom the flags command. Now runs full dead code analysis via\nanalyze_with_parse_result() (reusing pre-parsed modules) and populates\nguarded_dead_exports on each flag. Output shows \"Flags guarding dead\ncode\" section with line counts and dead export names.",
-          "timestamp": "2026-04-10T12:39:31+02:00",
-          "tree_id": "58fc1c68419aeba1690141437de80046e3e6c6a7",
-          "url": "https://github.com/fallow-rs/fallow/commit/e7992f9104a67f471bd526414e7d703f1fd1978e"
-        },
-        "date": 1775817638311,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 218,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 459,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4851,6 +4802,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9035c4b2e8b10bc1d444b32a36732c548d3ca581"
         },
         "date": 1779368984862,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 298,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 676,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7755f3637f5f5420f87c0ae37a99c18daf93e77e",
+          "message": "feat(audit): age-based GC for persistent reusable base-snapshot caches\n\n* feat(audit): age-based GC for persistent reusable base-snapshot caches\n\n`fallow audit` keys persistent worktree caches in\n`std::env::temp_dir()/fallow-audit-base-cache-<repo_hash>-<sha>`. Until\nnow these never expired: every distinct base SHA the user ever audited\naccumulated a cache entry, easily reaching hundreds of MB to multiple\nGB on developer machines after weeks of daily audits.\n\nAdd `sweep_old_reusable_caches` invoked at the top of `execute_audit`\nthat walks git-registered worktrees, filters to reusable cache paths,\nand removes entries whose sidecar `.last-used` mtime exceeds the\nconfigured age. The sidecar is touched on every cache-hit reuse so the\nstaleness signal stays current even when the cache directory itself\nis not mutated.\n\nConfiguration:\n- env: FALLOW_AUDIT_CACHE_MAX_AGE_DAYS (wins)\n- config: `audit.cacheMaxAgeDays` (Option<u32>)\n- default: 30 days\n- `0` from either source disables the sweep\n- Invalid env values silently fall back to config / default\n\nConcurrency invariants:\n- Each candidate is gated by `ReusableWorktreeLock::try_acquire`; the\n  sweep skips on contention so an in-flight `fallow audit` mid-rebuild\n  is not disturbed.\n- The `.lock` file is NEVER deleted. An unlinked-but-still-flocked\n  inode plus a racer's `open(O_CREAT)` at the same path would produce\n  two processes each holding a kernel flock on different inodes. Lock\n  files are tens of bytes; leaking them is harmless.\n\nPre-upgrade grace: existing caches lacking a sidecar (created before\nthis feature shipped) are NOT removed on first encounter; instead the\nsweep seeds a fresh sidecar so the next invocation can age from real\nlast-use. Without this grace, the dir's own mtime (= creation date on\nPOSIX) would wipe every legitimately-warm pre-upgrade cache on the\nfirst run after upgrade.\n\nObservability: per-entry removal failures emit `tracing::warn!`; the\nsweep emits a `tracing::info!` summary line on non-empty reclaim and\na stderr \"fallow: reclaimed N stale base-snapshot caches\" when\n`!opts.quiet`.\n\nFixes #498\n\n* docs(audit): document #498 GC threshold env var + config field\n\n- CHANGELOG.md: user-facing bold entry under [Unreleased] Fixed.\n- .claude/rules/cli-crate.md: env var section + audit.rs bullet (#498 lifecycle).\n- docs/backwards-compatibility.md: list FALLOW_AUDIT_CACHE_MAX_AGE_DAYS as stable.\n- schema.json: regenerated from updated AuditConfig.\n\nRefs #498\n\n* fix(audit): only count actually-removed cache entries in reclaim summary\n\nrust-reviewer flagged that `removed += 1` unconditionally incremented\nthe counter after the `remove_dir_all` match block. When the directory\nsurvived removal (the `warn!` branch), the summary line \"fallow:\nreclaimed N stale base-snapshot caches\" and the `tracing::info!` event\nboth over-counted by including entries whose on-disk content was NOT\nactually reclaimed. The git registration cleanup still happens in that\nbranch (via the preceding `remove_audit_worktree`), so `git worktree\nprune` remains correct; only the user-facing count was misleading.\n\nTrack dir-removal success and only bump the counter on Ok / NotFound.\n\nRefs #498\n\n* fix(audit): stamp sidecar on fresh-create so age is measured from creation\n\n`AuditConfig::cache_max_age_days`'s docstring contract reads\n\"Maximum age (in days since last reuse or fresh create)\". The shipped\ncode touched the sidecar on the cache-hit branch only, leaving every\nfreshly-created cache without a sidecar until the NEXT audit\ninvocation grace-seeded it. For one-off base SHAs the cache would\nsurvive the first stale sweep regardless of age; for users who run\naudit infrequently the documented 30-day window expanded into\n\"30 days starting from the next audit run\", silently doubling the\neffective lifespan.\n\nStamp the sidecar at the end of the fresh-create branch in\n`BaseWorktree::reuse_or_create`, mirroring what the cache-hit branch\nalready does. The sweep's sidecar-absent grace path is still\nload-bearing for pre-upgrade caches created before this feature\nshipped (it seeds them on first encounter rather than wiping).\n\nAdd a regression test that pins both halves of the contract: a fresh\n`reuse_or_create` writes a near-now sidecar AND backdating that\nsidecar causes the next sweep to actually remove the entry.\n\nRefs #498\n\n* docs(rules): drop em-dash on touched audit.rs bullet in cli-crate.md\n\nCLAUDE.md style rule forbids em-dashes in any output. My #498 edit\nappended an \"Age-based GC\" paragraph to the audit.rs bullet, which\nre-emits the bullet's leading \"audit.rs — Audit command:\" through git\ndiff. Swap that em-dash for a colon + parenthesis on the line I\ntouched so the diff is em-dash-clean. Other untouched bullets in the\nsame file retain their em-dashes (drive-by reformatting is out of\nscope for this PR).",
+          "timestamp": "2026-05-21T14:45:20+01:00",
+          "tree_id": "361bacc1b8750cb701ca6ac8f280b6d04b45776c",
+          "url": "https://github.com/fallow-rs/fallow/commit/7755f3637f5f5420f87c0ae37a99c18daf93e77e"
+        },
+        "date": 1779371346853,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
