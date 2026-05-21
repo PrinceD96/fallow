@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779365916514,
+  "lastUpdate": 1779366572002,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e05ebda310edacdc7a2946a9f9beb459e8500286",
-          "message": "fix: detect import-then-reexport pattern as re-export\n\nThe pattern `import { X } from './a'; export { X };` is semantically\nequivalent to `export { X } from './a';` but the visitor was treating\nthe bottom export as a NEW local declaration, causing two false positive\nclasses:\n\n1. Duplicate-export findings when the same name was also exported from\n   the original source file (because both files appeared to declare X\n   locally).\n2. Unused-export findings at the export site, since the re-export chain\n   propagation only follows ReExportInfo edges and never reached the\n   misclassified ExportInfo entries.\n\nThe visitor now scans `self.imports` for a matching local binding when\nprocessing `export { X }` without a `from` clause. If found, it emits a\nReExportInfo pointing back to the original source instead of an\nExportInfo. Handles renames on either side, default imports\n(`imported_name: \"default\"`), and mixed local + re-export statements.\nOrder-sensitive: relies on imports preceding exports in source order\n(standard practice).\n\nCACHE_VERSION bumped 30 -> 31 because extraction output now differs for\nfiles using this pattern.\n\nEliminated 4 duplicate-export false positives in fallow-cloud's\n`packages/beacon/src/transport.ts` (a real-world Vite + Bun monorepo).\n9 new unit tests cover the basic case, type-only variants, renames on\nboth sides, default imports, mixed statements, namespace edge case, and\nthe regression guard for pure local exports.",
-          "timestamp": "2026-04-10T23:20:03+02:00",
-          "tree_id": "a2a3def3c63ff85b33f596e9fdf1ca81d3f3528a",
-          "url": "https://github.com/fallow-rs/fallow/commit/e05ebda310edacdc7a2946a9f9beb459e8500286"
-        },
-        "date": 1775856411453,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 35365,
-            "range": "± 746",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1818676,
-            "range": "± 45750",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3234190,
-            "range": "± 19211",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 16366153,
-            "range": "± 217688",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 109044,
-            "range": "± 869",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2096,
-            "range": "± 5",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 174684,
-            "range": "± 5257",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 772021,
-            "range": "± 9215",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1627285,
-            "range": "± 26677",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 506996,
-            "range": "± 34512",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3582562,
-            "range": "± 58338",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2082466,
-            "range": "± 17900",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9732,6 +9636,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2207408,
             "range": "± 4710",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "99c315052e24624532a7ae160650f873e26b0b12",
+          "message": "chore(ci): unblock Documentation + Windows ARM64 jobs\n\nTwo CI failures landed on main in the back-to-back merges of #473\n(workspace diagnostics) and #477 (signal handlers). Both are\none-line follow-ups; #466 caught them on its post-merge run.\n\nDocumentation job: `discover_workspaces` in `crates/config/src/\nworkspace/mod.rs:70` referenced the private `emit_warn` helper via\na rustdoc intra-doc link `[`emit_warn`]`. `-D warnings` promotes\n`rustdoc::private_intra_doc_links` to a hard error since `emit_warn`\nis `pub(super)` inside the sibling `diagnostics` module. Switched to\na plain backtick code span plus a short pointer to where the helper\nlives so the reader can still find it without the link.\n\nWindows ARM64 Native Compile job: `crates/cli/src/signal/windows.rs`\nimported `BOOL` from `windows_sys::Win32::Foundation::BOOL`, which\nno longer resolves under windows-sys 0.61. Confirmed via the crate\nsource that `BOOL` now lives at `windows_sys::core::BOOL` and matches\nthe `SetConsoleCtrlHandler` signature `add: windows_sys::core::BOOL\n-> windows_sys::core::BOOL`. Updated the import path and added a\ncomment explaining the move so the next windows-sys bump audit picks\nit up.",
+          "timestamp": "2026-05-21T13:24:18+01:00",
+          "tree_id": "404c3d2146d38996544a601c21b3e63ecdff1894",
+          "url": "https://github.com/fallow-rs/fallow/commit/99c315052e24624532a7ae160650f873e26b0b12"
+        },
+        "date": 1779366570864,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 57232,
+            "range": "± 1760",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3579438,
+            "range": "± 161803",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 4860985,
+            "range": "± 151103",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 21306191,
+            "range": "± 356786",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 116795,
+            "range": "± 542",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2200,
+            "range": "± 21",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 234470,
+            "range": "± 6356",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 1060818,
+            "range": "± 5692",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1490968,
+            "range": "± 12621",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 569162,
+            "range": "± 12979",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4296500,
+            "range": "± 26639",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 4327386,
+            "range": "± 27848",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2954982,
+            "range": "± 9634",
             "unit": "ns/iter"
           }
         ]
