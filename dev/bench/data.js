@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779366572002,
+  "lastUpdate": 1779367292266,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0cbd99146c6eb610aa7b5eafab3bb7c328280691",
-          "message": "fix: report accurate line numbers for unused re-exports\n\nRe-exports synthesized from ReExportInfo into ExportSymbol entries were\nreported with line :1 because the synthesis used Span::new(0, 0) as a\nsentinel for 'no source location'. This applied even to import-then-\nreexport patterns and `export { X } from './a'` statements that DO have\nreal source spans.\n\nPlumb a span field from ReExportInfo (set by the visitor) through\nReExportEdge into the synthesized ExportSymbol so unused-export reporting\ncan compute the correct line via byte_offset_to_line_col. The (0, 0)\nsentinel is now reserved for graph-internal synthesis (star re-export\nchain propagation, namespace narrowing).\n\nThe unused-export detector previously inferred is_re_export from the\nspan(0, 0) sentinel. With real spans propagating through, the detection\nnow looks up the export name in the module's re_exports list instead,\nwhich is the semantic check.\n\nCACHE_VERSION bumped 31 -> 32 because CachedReExport gained span_start\nand span_end fields. ReExportEdge size assertion bumped 56 -> 64 bytes\nto account for the new span field.",
-          "timestamp": "2026-04-10T23:35:09+02:00",
-          "tree_id": "ac482df32ec0cc4e16334add492c162d5a554c46",
-          "url": "https://github.com/fallow-rs/fallow/commit/0cbd99146c6eb610aa7b5eafab3bb7c328280691"
-        },
-        "date": 1775857303548,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 44090,
-            "range": "± 293",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1775552,
-            "range": "± 24970",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3168250,
-            "range": "± 37499",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 17026405,
-            "range": "± 461637",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 115236,
-            "range": "± 846",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2011,
-            "range": "± 5",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 219644,
-            "range": "± 10086",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 961689,
-            "range": "± 29651",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1754709,
-            "range": "± 33102",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 535996,
-            "range": "± 33499",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4307905,
-            "range": "± 64786",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2708736,
-            "range": "± 23898",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9738,6 +9642,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2954982,
             "range": "± 9634",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9d47eda745e6e35534bd4b578b0f4bc77653379a",
+          "message": "fix(lsp): skip stale diagnostic publishes when document version moves mid-analysis\n\n* fix(lsp): skip stale diagnostic publishes when document version moves mid-analysis\n\nThe LSP captured analysis input at run_analysis entry and published its\noutput unconditionally, even when the user had typed further between\nspawn_blocking dispatch and publish. Squiggles ended up pinned to lines\nthe user no longer wrote.\n\nTrack per-URI document `version` alongside the cached text (LSP supplies\nit on did_open / did_change). Snapshot the live version map once at\nrun_analysis entry, thread the snapshot through to\npublish_collected_diagnostics, and per URI:\n\n  - If the live version has advanced past the snapshot (strict `>`), or\n    if the document was closed mid-run (in snapshot, absent from live),\n    skip publish + cache update. Still insert the URI into `new_uris`\n    so the next-run stale-clearing branch does not erase the last-valid\n    diagnostics from the client.\n  - Otherwise publish as before, passing `Some(snapshot_version)` to\n    `publish_diagnostics` so LSP 3.17 clients can use the standard\n    PublishDiagnosticsParams.version slot.\n\nThe single-flight `analysis_guard`, did_save debouncer, and pull-model\ndiagnostic handler are unchanged. The stale-clearing branch mirrors the\nsame skip and reads all needed live versions before acquiring the\n`cached_diagnostics.write()` lock (avoids holding a write-lock across an\nawait on `documents.read()`).\n\nAdds 7 tests covering: stale-skip on advanced version, equal-version\npublishes, URI-not-in-snapshot publishes, did_close-mid-run skip,\n`Some(snapshot_version)` is threaded to publish_diagnostics, stale-\nclearing branch skips advanced URIs, skipped URIs land in\nprevious_diagnostic_uris.\n\nFixes #450\n\n* docs(lsp): document diagnostic publish staleness invariant + changelog\n\nAdds a \"Diagnostic publish staleness\" section to .claude/rules/lsp-server.md\ncovering the snapshot-then-compare semantics, the stale-skip + new_uris\npreservation invariant, the LSP 3.17 PublishDiagnosticsParams.version slot\nthreading, and the pull-model cache-at-last-valid behavior. Adds the\nmatching user-facing CHANGELOG entry under Unreleased.\n\nCompanion to #450.\n\n* fix(lsp): also treat opened-mid-run URIs as stale; tighten staleness contract\n\nCodex's parallel /fallow-review on the #450 stale-publish fix BLOCKed on a\nrace in `uri_is_stale`: a URI absent from the snapshot but PRESENT in\n`live_versions` was treated as non-stale. That covered the legitimate\n\"cross-file diagnostic on a never-opened file\" case, but it also let an\n`did_open` landing between snapshot capture and publish slip through:\nthe analysis ran without seeing the just-opened buffer, the publish went\nout with `version: None` (no snapshot for that URI), and the client could\nnot version-discard the mismatched payload server-to-client.\n\n`uri_is_stale` now requires a URI to be absent from BOTH the snapshot AND\nthe live `documents` map to count as non-stale. Three conditions now\nshort-circuit to STALE: live > snapshot (edited mid-run), snapshot\npresent + live absent (closed mid-run), snapshot absent + live present\n(opened mid-run). Only the (None, None) case publishes unconditionally,\ncovering cross-file diagnostics anchored to files the user never opened\nvia the LSP (`package.json`, `pnpm-workspace.yaml`).\n\nAdds `publish_skips_uri_when_opened_mid_run`; renames the existing\n`publish_emits_when_uri_absent_from_snapshot` to\n`publish_emits_when_uri_absent_from_snapshot_and_live` and tightens its\ncomment so the contract is explicit. Updates the LSP staleness invariant\nsection in `.claude/rules/lsp-server.md` to match the corrected\nsemantics.\n\nRefs #450.",
+          "timestamp": "2026-05-21T13:36:44+01:00",
+          "tree_id": "d0af9dda8e722a2896fac93f1b68e79904549967",
+          "url": "https://github.com/fallow-rs/fallow/commit/9d47eda745e6e35534bd4b578b0f4bc77653379a"
+        },
+        "date": 1779367290358,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 22142,
+            "range": "± 296",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 2452476,
+            "range": "± 60001",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 3297392,
+            "range": "± 53708",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 14184988,
+            "range": "± 329352",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 69087,
+            "range": "± 2139",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 1711,
+            "range": "± 25",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 99314,
+            "range": "± 7302",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 445453,
+            "range": "± 14367",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 710432,
+            "range": "± 19918",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 335623,
+            "range": "± 30846",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 1857603,
+            "range": "± 49087",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 1879839,
+            "range": "± 54506",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 1273034,
+            "range": "± 68801",
             "unit": "ns/iter"
           }
         ]
