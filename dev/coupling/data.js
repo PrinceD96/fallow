@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779400054871,
+  "lastUpdate": 1779400231812,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e629a4a0100da2643634b270fe621883d59d365b",
-          "message": "fix: CSS scoped package imports and HTML workspace root-relative paths\n\nTwo false-positive fixes discovered by running fallow on fallow-cloud:\n\n1. CSS scoped npm package imports (e.g., @fontsource/monaspace-neon/400.css,\n   @fallow/design-system/styles.css) were being normalized with a leading ./,\n   causing them to be reported as unresolved instead of resolved from\n   node_modules. normalize_css_import_path() now keeps scoped specifiers\n   (@scope/pkg) bare regardless of file extension.\n\n2. HTML root-relative paths (<script src=\"/src/main.tsx\">) in workspace\n   members resolved against the monorepo root instead of the workspace member\n   root. site/index.html referencing /src/main.tsx was looking for\n   <root>/src/main.tsx instead of site/src/main.tsx. Now resolves from the\n   HTML file's parent directory first, with fallback to project root for\n   the public/index.html case.\n\nCACHE_VERSION bumped 29 -> 30 because the CSS change alters import specifiers\nstored at extraction time.",
-          "timestamp": "2026-04-10T21:26:49+02:00",
-          "tree_id": "7649e2e285a430448e4522b3b95222053e7a9177",
-          "url": "https://github.com/fallow-rs/fallow/commit/e629a4a0100da2643634b270fe621883d59d365b"
-        },
-        "date": 1775849403324,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 218,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 460,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4851,6 +4802,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/936fee7235c98eb460b9726c90ca418cdce6fe03"
         },
         "date": 1779400053658,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 300,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 682,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2d26dc151e1416fb46f3103da9df1d6326ae257e",
+          "message": "fix(audit): normalise Windows verbatim path prefix in relative_key_path\n\n`crates/cli/src/audit.rs::relative_key_path` stripped the project root\nfrom each finding path before building the BASE-vs-HEAD intersection\nkey. On Windows, `config.root` (often canonicalised via\n`std::fs::canonicalize`, which adds the `\\\\?\\` verbatim prefix) and\n`finding.path` (constructed from the BASE worktree's\n`std::env::temp_dir()` join, which does NOT) disagreed on prefix\nshape; `strip_prefix` silently fell through to the un-stripped path,\nHEAD keys landed as `src/foo.ts` while BASE keys landed as\n`C:/Users/.../Temp/fallow-audit-base-xxx/src/foo.ts`, and the\nintersection was empty.\n\nResult on the push-to-main Windows CI matrix: 8 audit integration\ntests in `crates/cli/tests/audit_tests.rs` reported 0 pre-existing\nfindings where 5+ were expected, because every inherited finding\nlanded as \"introduced\".\n\nFix: route both inputs through `dunce::simplified` before\n`strip_prefix`. `dunce::simplified` strips the `\\\\?\\` verbatim prefix\nwithout touching the filesystem; on POSIX it is a no-op so there is\nno behaviour change off-Windows.\n\nFixes #561.\nRefs #447, #545.",
+          "timestamp": "2026-05-21T22:49:13+01:00",
+          "tree_id": "3cdcb113204c9b8ae47f0ea7f8023e626cbc77e0",
+          "url": "https://github.com/fallow-rs/fallow/commit/2d26dc151e1416fb46f3103da9df1d6326ae257e"
+        },
+        "date": 1779400230169,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
