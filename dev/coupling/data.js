@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779396260505,
+  "lastUpdate": 1779400054871,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "824884c7f9fd6825445b0bb90059df4b0de8b6e7",
-          "message": "fix: harden SCSS index convention and default export class extends\n\nAdd SCSS directory index resolution: `@use 'components'` now resolves to\n`components/_index.scss` or `components/index.scss`. Add test coverage\nfor `export default class extends Foo` inheritance pattern.",
-          "timestamp": "2026-04-10T20:40:38+02:00",
-          "tree_id": "773e9796a59368ef19bd17f7d7b898cfaf9fec9f",
-          "url": "https://github.com/fallow-rs/fallow/commit/824884c7f9fd6825445b0bb90059df4b0de8b6e7"
-        },
-        "date": 1775846629241,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 218,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 460,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4851,6 +4802,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8ee61a22454a80a815b04b53d34616b41f8a6370"
         },
         "date": 1779396259317,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 300,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 682,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "936fee7235c98eb460b9726c90ca418cdce6fe03",
+          "message": "fix(cli): group top-level help commands",
+          "timestamp": "2026-05-21T23:45:56+02:00",
+          "tree_id": "8334c179a9f5e820c0ea25d8959ad8c474100b87",
+          "url": "https://github.com/fallow-rs/fallow/commit/936fee7235c98eb460b9726c90ca418cdce6fe03"
+        },
+        "date": 1779400053658,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
