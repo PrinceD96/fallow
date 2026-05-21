@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779373897917,
+  "lastUpdate": 1779383053944,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "79b1fc8050f8a278776f5302d6da992b0489ae7c",
-          "message": "chore: release v2.27.6",
-          "timestamp": "2026-04-11T00:27:17+02:00",
-          "tree_id": "b649d3a4de2a3b262d371aa7b834ecd164079414",
-          "url": "https://github.com/fallow-rs/fallow/commit/79b1fc8050f8a278776f5302d6da992b0489ae7c"
-        },
-        "date": 1775860376066,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 44236,
-            "range": "± 473",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1772186,
-            "range": "± 27015",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3149257,
-            "range": "± 122963",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 15413383,
-            "range": "± 65773",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 112744,
-            "range": "± 483",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2025,
-            "range": "± 8",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 213641,
-            "range": "± 4110",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 959325,
-            "range": "± 107347",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1750678,
-            "range": "± 28291",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 531402,
-            "range": "± 27302",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4243526,
-            "range": "± 33228",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2661046,
-            "range": "± 5701",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9768,6 +9672,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 1975914,
             "range": "± 17256",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3e8f66272385783858d138445678968cb31c6119",
+          "message": "feat: surface re-export cycles as user-visible findings\n\n* feat(types,config,graph,core,cli): scaffold re-export-cycle finding (WIP)\n\nAdds the new `re-export-cycle` issue type across the types, config,\ngraph crates plus the cross-cutting match-arm + struct-literal sites in\ncore, cli, and regression baseline. Detection logic already exists in\n`crates/graph/src/graph/re_exports/mod.rs::find_re_export_cycles`\n(formerly `warn_on_re_export_cycles`, added in #442); this commit gives\nit a structured return type, threads cycles onto the ModuleGraph, and\nprepares every downstream literal so the rest of the pipeline (D-L from\n.plans/issue-515-re-export-cycles.md) can be hooked up incrementally\nwithout per-step compile breakage.\n\ntypes:\n- `ReExportCycle { files, kind: ReExportCycleKind }` plus wrapper\n  `ReExportCycleFinding` carrying typed `actions[]`\n  (`refactor-re-export-cycle` informational primary + `suppress-file`\n  secondary; cycles are file-scoped so a single suppression on\n  alphabetically-first member breaks the cycle).\n- `IssueKind::ReExportCycle` (discriminant 26) with parse aliases\n  `re-export-cycle`, `re-export-cycles`, `reexport-cycle`,\n  `reexport-cycles`.\n- `FixActionType::RefactorReExportCycle`.\n\nconfig:\n- `RulesConfig.re_export_cycle: Severity` defaulting to `Warn`\n  (panel-reviewed: existing projects with latent cycles do not get\n  sudden CI failures on upgrade). Same three serde aliases on both\n  `RulesConfig` and `PartialRulesConfig`.\n- Per-file `overrides.rules.re-export-cycle` is a no-op (cycle spans\n  multiple files); load-time warn block extended to point users at the\n  working escape hatch.\n- `KNOWN_RULE_NAMES.len()` 48 -> 52; alias-in-source drift guard passes.\n\ngraph:\n- `find_re_export_cycles` (renamed from `warn_on_re_export_cycles`)\n  returns `Vec<GraphReExportCycle>` while keeping the existing\n  `RUST_LOG=warn` emissions intact. Carries parallel `files` +\n  `file_ids` arrays so the downstream detector can call\n  `suppressions.is_file_suppressed` without a path-to-FileId lookup.\n- `ModuleGraph` gains a `re_export_cycles: Vec<GraphReExportCycle>`\n  field populated after Phase 4 chain resolution.\n\ncore (cross-cutting only):\n- `severity_for_kind` and the stale-suppression kind-to-string map\n  cover the new `IssueKind::ReExportCycle` variant.\n\ncli, regression baseline (cross-cutting only):\n- `CheckCounts` + `RegressionBaseline` (cli local + fallow_config) gain\n  a `re_export_cycles: usize` field.\n- All `RulesConfig {}` test literals across cli/check/rules.rs,\n  cli/report/*, cli/tests/snapshot_tests.rs, core integration tests\n  gain `re_export_cycle: Severity::<X>` to keep workspace builds clean.\n\nRemaining work for #515:\n- Wire `find_re_export_cycles` detector into `find_dead_code_full` and\n  populate `AnalysisResults.re_export_cycles`.\n- CLI plumbing: `--re-export-cycles` flag, IssueFilters, baseline\n  retain, explain RuleDef, all 6 report formats.\n- LSP diagnostic + MCP tool description + GH Action/GitLab CI jq +\n  VS Code TS contract.\n- Snapshot tests + integration fixtures + schema regen.\n\nRefs #515\n\n* feat(core,cli,lsp,mcp,types): wire re-export-cycle finding end-to-end (WIP)\n\nLifts the upfront Tarjan SCC pass added in #442 from a `tracing::warn!`\ninto a user-visible AnalysisResults finding, then threads it through the\nCLI filter / baseline / explain / 6 output formats, the LSP diagnostic\nprovider, and the MCP tool registry.\n\ncore:\n- new `analyze/re_export_cycles.rs` detector: walks the graph-layer\n  `GraphReExportCycle` vec, applies file-level suppression (any member\n  file with `// fallow-ignore-file re-export-cycle` short-circuits the\n  whole cycle), and maps each entry to a typed `ReExportCycleFinding`\n  via the existing `with_actions` wrapper.\n- `find_dead_code_full` rayon-join arm hoisted into three small helper\n  fns (`run_circular_dep_detector`, `run_re_export_cycle_detector`,\n  `run_export_usages_collector`) to keep the tree under the clippy\n  `excessive_nesting` threshold (7); each helper does the `Severity::Off`\n  gate plus the wrapper map.\n- `core::results` re-exports `ReExportCycleFinding`, `ReExportCycle`,\n  `ReExportCycleKind` so downstream crates (cli, lsp) can build literals\n  without touching `fallow_types::*` directly.\n\ncli:\n- `--re-export-cycles` clap flag on `check` and the matching field on\n  `IssueFilters`, `DeadCodeFilters`, and the napi `DeadCodeOptionsJs`.\n- `apply_rules` / `has_error_severity_issues` / `promote_warns_to_errors`\n  arms for the new `rules.re_export_cycle` severity.\n- workspace + changed-files retain logic (`retain(any-member-under-X)`,\n  matching circular_dependencies).\n- baseline: new `re_export_cycles: Vec<String>` field keyed by\n  `kind:<sorted-paths-joined-with-<->` so self-loops cannot\n  keyspace-collide with future single-file multi-node shapes (panel\n  catch #7, Sarah/Aisha).\n- explain `RuleDef` entry under \"Architecture\" with plain-English fix\n  guidance; `CHECK_RULES.len()` bumped 22 -> 23.\n- all six report formats:\n  human/check.rs: `build_re_export_cycles_section` + Structure-category\n  hookup + summary-line \"re-export cycles\" and Re-Export Cycles row in\n  `print_check_summary`.\n  json.rs: count in `CheckSummary`, `suppression_kind_rank` arm at 10\n  (between circular-dependency at 9 and boundary-violation at 11).\n  sarif.rs: `sarif_re_export_cycle_fields` builder + rule registration\n  with helpUri pointing at `explanations/dead-code#re-export-cycles`.\n  compact.rs: emits `re-export-cycle:<first>:1:0:<chain>(self-loop)?`.\n  markdown.rs: Re-export-cycles section renders chain joined by `<->`\n  with `*(self-loop)*` italic tag.\n  codeclimate.rs: `push_re_export_cycle_issues` with kind-prefixed\n  fingerprint so self-loop and multi-node shapes hash distinctly.\n  ci/pr_comment.rs: `fallow/re-export-cycle` registered as\n  source-file-scoped (not project-level).\n\nlsp:\n- `push_re_export_cycle_diagnostics` emits one Diagnostic per member\n  file at line 1 col 0 (cycle is file-scoped; per-edge anchoring\n  deferred). Severity inherits from the resolved rule severity.\n- `DIAGNOSTIC_ISSUE_TYPES` extended with `re-export-cycle` so editor\n  clients can toggle it via `initializationOptions.issueTypes`.\n- `merge_results` and `dedup_results` paths cover the new field; the\n  dedup key includes the `kind` discriminant for the same self-loop\n  collision reason as the baseline key.\n\nmcp:\n- `(\"re-export-cycles\", \"--re-export-cycles\")` added to\n  `ISSUE_TYPE_FLAGS`; flag-count assertion bumped 18 -> 19.\n- `analyze` tool description prose updated with the explicit Kai wording\n  \"barrel files that form a structural loop, silently breaking\n  re-exports\".\n- `params.rs` `issue_types` doc comment extended.\n\ntypes/envelope:\n- `CheckSummary.re_export_cycles: usize` with `#[serde(default)]` so\n  pre-existing baselines and consumers parse unchanged.\n\ntests:\n- 5 per-format snapshot tests (json / sarif / compact / markdown /\n  codeclimate) drive a 2-finding fixture (one multi-node, one self-loop)\n  to lock the wire shape; sample_results gains one re-export-cycle so\n  every existing snapshot exercises the additive field too.\n- 4-arm alias round-trip test in config/rules.rs:\n  `re-export-cycle` / `re-export-cycles` / `reexport-cycle` /\n  `reexport-cycles` all deserialize to the same field (panel catch #10).\n- 4 fixtures under `tests/fixtures/re-export-cycle-{2-node,3-node,\n  self-loop,type-only}/` plus the matching integration test asserting\n  the cycle list is populated, the `kind` discriminator is correct, and\n  every finding ships with a non-empty `actions[]` (AC19); type-only\n  fixture also pins panel catch #9 (chain propagation is a no-op for\n  `export type *` cycles, so the finding still fires).\n\nDrift-guard / count bumps:\n- `KNOWN_RULE_NAMES`: 48 -> 52 (4 new alias name forms).\n- `KNOWN_ISSUE_KIND_NAMES`: matching bump.\n- `CHECK_RULES.len()`: 22 -> 23.\n- `ISSUE_TYPE_FLAGS.len()`: 18 -> 19.\n- `IssueKind::ReExportCycle` discriminant: 26 (next free after\n  `EmptyCatalogGroup = 25`).\n- `severity_for_kind` + stale-suppression kind-to-string map cover the\n  new variant.\n\nDefault severity stays `Warn` (user-confirmed): existing projects with\nlatent cycles don't get sudden CI failures on upgrade. Users opt into\n`error` via `rules.re-export-cycle: error`.\n\nRefs #515\n\n* feat(schema,action,ci,vscode): wire re-export-cycle into ci surfaces + tooling\n\nLands the remaining downstream surfaces for the #515 finding type after\nthe core/cli/lsp/mcp/types work in 62a54f26.\n\nschema:\n- regenerated docs/output-schema.json from the Rust source via the\n  fallow-schema-emit binary; new `re_export_cycles` arrays + summary\n  count + `ReExportCycleFinding` + `ReExportCycle` + `ReExportCycleKind`\n  + `refactor-re-export-cycle` FixActionType constant. All additions are\n  optional on the wire (`?`) so pinned consumers stay typecheck-clean.\n- regenerated editors/vscode/src/generated/output-contract.d.ts and\n  npm/fallow/types/output-contract.d.ts via codegen-types.mjs.\n- ajv strict=true passes; tsc --noEmit passes (covers panel catch #5b\n  in the additive-shape sense; the field is `?` so a pinned consumer\n  that doesn't reference it stays valid).\n\naction/ (GitHub Action):\n- summary-check.jq: new \"Re-export cycles\" table_row + section block\n  rendering chain joined by ` <-> ` plus a kind column.\n- summary-combined.jq: per-category count row gated on length > 0.\n- summary-audit.jq: audit-table row using the same chain format and\n  the `kind` discriminator as item.\n- annotations-check.jq: one ::warning per member file, with copy that\n  branches on `kind == \"self-loop\"` for the fix hint.\n- filter-changed.jq: `.re_export_cycles |= map(select(.files | any(in_changed)))`\n  retain + matching `(.re_export_cycles // [] | length) +` term in the\n  total_issues recalc block (panel catch #11).\n- fixtures patched via jq (not echoed wrappers, per the seed-by-patch\n  rule); `bash action/tests/run.sh` -> 238 passed.\n\nci/ (GitLab CI):\n- summary-check.jq, summary-combined.jq, summary-audit.jq: same shape\n  as the action/ jq.\n- HARD ACK: `grep -n total_issues ci/jq/` returns no\n  filter-changed.jq; the GitLab pipeline currently has no\n  changed-file filter. No total_issues recalc to mirror.\n- fixtures patched the same way; `bash ci/tests/run.sh` -> 222 passed.\n\neditors/vscode:\n- labels.ts: new `re-export-cycles` IssueCategory + \"Re-Export Cycles\"\n  label.\n- settings.ts: new `re-export-cycles: boolean` field on\n  IssueTypeConfig.\n- commands.ts: filter arm + summary count.\n- treeView.ts: tree node entry using the `sync-ignored` icon (visually\n  distinct from circular_dependencies' `sync`); the IssueItem label\n  branches on kind (Self-loop vs N files).\n- analysis-utils.ts: `re_export_cycles?.length ?? 0` added to the\n  total-issues sum.\n- statusBar-utils.ts: `reExportCycles: number` on\n  AnalysisCompleteParams + the buildParamsFromCli mapping + a\n  BreakdownLine row in STATUS_BAR_BREAKDOWN.\n- config.ts: default `re-export-cycles: true` in getIssueTypes.\n- diagnosticFilter.ts: bundled DIAGNOSTIC_CATEGORIES fallback row\n  matching the new LSP issue type so muting still works if the\n  `fallow/issueTypes` LSP request fails.\n- package.json: enabled in `fallow.issueTypes` default + a new\n  `re-export-cycles: boolean` property in the schema.\n- test fixture updated for AnalysisCompleteParams shape.\n- `pnpm lint` + `pnpm test` -> all 104 tests pass.\n- bundled dist/extension.js regenerated via prebuild + codegen.\n\nRefs #515\n\n* fix(audit,changed-since,types): close re-export-cycle attribution gaps from review\n\nAddresses BLOCK + CONCERN findings from the rust-reviewer and\ncli-output-reviewer Phase 4 audit.\n\nBLOCK fixes:\n\n1. Audit attribution trio (rust-reviewer): re_export_cycles was missing\n   from all three attribution surfaces in crates/cli/src/audit.rs, so a\n   newly-introduced re-export cycle would never set `introduced: true`\n   on the JSON, the `retain_introduced_dead_code` gate-filter would not\n   touch it, and `dead_code_keys` would undercount the verdict.\n   - `dead_code_keys`: new key block. Format `re-export-cycle:<kind>:<sorted-paths-joined-with-|>`\n     where kind is `multi-node` or `self-loop`, mirroring the baseline\n     `re_export_cycle_key` rationale (panel catch #7: prevent self-loop\n     vs single-file multi-node keyspace collision).\n   - `retain_introduced_dead_code`: matching `.retain` block.\n   - `annotate_dead_code_json`: matching `annotate_issue_array` call\n     under key `\"re_export_cycles\"`.\n\n2. Changed-since filter (rust-reviewer):\n   `crates/core/src/changed_files.rs::filter_results_by_changed_files`\n   had no retain block for re_export_cycles, so the `--changed-since`\n   path silently dropped every re-export-cycle finding regardless of\n   the changed file set. Added a retain mirroring the circular_deps\n   shape (any member file in the changed set keeps the cycle).\n\n3. Absolute-path leak in SuppressFile description (rust-reviewer +\n   json-output-reviewer; both flagged BLOCK):\n   `ReExportCycleFinding::with_actions` was embedding raw\n   `PathBuf::display().to_string()` paths into the SuppressFile\n   `description` string. The CLI's `strip_root_prefix` post-pass only\n   strips strings that START with the prefix; the description text\n   starts with \"Suppress with...\" so absolute machine paths were\n   leaking into the JSON `description` field on every multi-node\n   cycle.\n   Fix: the description no longer embeds member paths. Consumers\n   needing the member list read the sibling `files` array; the new\n   wording points them there explicitly.\n\nCONCERN fixes:\n\n4. Docs URL noise in human output (cli-output-reviewer): every\n   re-export-cycle entry rendered its own\n   `https://fallow.tools/explanations/dead-code#re-export-cycles`\n   trailer. No other section in `report/human/check.rs` repeats the\n   docs URL per item; the SARIF helpUri already covers tool-driven\n   navigation. Dropped the per-item URL.\n\n5. Compact `:1:0:` placeholder (cli-output-reviewer): the line was\n   `re-export-cycle:<file>:1:0:<chain>` even though the finding is\n   file-scoped (no real line/col exists). The convention for other\n   file-scoped issues (`unlisted-dep`, `duplicate-export`) omits\n   line/col entirely. Aligned to `re-export-cycle:<file>:<chain>`.\n\nNotes on a rust-reviewer recommendation we did NOT take:\n\nThe reviewer suggested adding `!has_overrides` symmetry guard to\n`has_error_severity_issues` for re_export_cycle, parallel to\ncircular_dependencies. The guard exists for circular_dependencies\nbecause the file-scoped block above re-resolves circular_dependencies\nseverity per-cycle-member-path. Re-export-cycle is intentionally NOT\nfile-scopable (`overrides.rules.re-export-cycle` is a no-op per\n`crates/config/src/config/resolution.rs`), so it is NOT included in\nthe file-scoped block. Adding the `!has_overrides` guard would\nsilently mute re_export_cycle errors whenever an override exists for\nany unrelated rule — the opposite of the reviewer's intent.\nDocumented in a comment at the call site so the asymmetry doesn't\nlook like a bug.\n\nLSP unit tests (lsp-reviewer CONCERN):\n\nAdded two tests to crates/lsp/src/diagnostics/structural.rs:\n- `re_export_cycle_multi_node_emits_one_diagnostic_per_member`: pins\n  the one-diagnostic-per-member behavior (deliberate divergence from\n  circular-dep which emits one per cycle), the helpUri anchor, the\n  message format, the related_information skip-self, and the file-\n  scoped line/col (0,0).\n- `re_export_cycle_self_loop_emits_self_loop_message_and_no_related_info`:\n  pins the singularized \"1 file\" copy and the self-loop fix hint, and\n  that single-member findings emit no related_information.\n\nRefs #515\n\n* fix(action,ci): consolidate re-export-cycle annotation + strip bogus fixture summary\n\nTwo fixes from github-action-reviewer Phase 4 CONCERN:\n\n1. Annotation fan-out budget (action/jq/annotations-check.jq line 45-47).\n   The previous implementation emitted one ::warning per member file for\n   each cycle, so a 6-file cycle would burn 6 of GitHub's 10 annotations-\n   per-step budget on a single finding. Aligned with the circular-\n   dependency pattern at line 44: emit ONE annotation per cycle,\n   anchored at $files[0]. The annotation body still names every member\n   so the user sees the full chain; the diff between the two patterns\n   is purely the annotation-count fan-out, not the displayed info.\n   (LSP keeps per-member diagnostics; the jump-to-any-file UX makes\n   sense in an editor's Problems panel but is the wrong tradeoff against\n   GitHub's hard annotation cap.)\n\n2. Self-loop fixture gap. check.json carried only a multi-node entry,\n   so the self-loop arm of the jq `if $kind == \"self-loop\"` branch in\n   annotations-check.jq line 47 was untested. Added a second\n   re_export_cycles entry with kind=\"self-loop\" via jq patch.\n\nAlso: stripped a bogus `.summary` object I inadvertently added to all 8\naction/ci fixtures in the earlier J/K commits. The real CLI envelope's\ntop-level `summary` is computed elsewhere and the jq scripts read\ndirectly from the array fields; the patched `.summary` object only ever\nheld a stub `re_export_cycles` count that no script consumed.\n\n`bash action/tests/run.sh` -> 238 passed.\n`bash ci/tests/run.sh` -> 222 passed.\n\nRefs #515\n\n* docs: re-export-cycle finding type — CHANGELOG, detection rules, AGENTS issue tokens\n\nPhase 5 in-repo documentation for #515. Captures the user-visible\ncontract of the new `re-export-cycle` finding so consumers reading\nCHANGELOG / AGENTS / detection.md understand the surface ahead of\nthe companion-repo docs update (fallow-docs + fallow-skills).\n\nCHANGELOG.md (Unreleased > Added):\n- New entry leading with the finding's role: lifts the upfront SCC\n  pass added in #442 from `tracing::warn!` into a structured\n  AnalysisResults finding with `files`, `kind` (`multi-node` /\n  `self-loop`), and a typed `actions[]` array. Names the explicit\n  CLI flag (`--re-export-cycles`), default severity (`Warn`), four\n  config aliases, suppression form, panel-catch wording (\"barrel\n  files that form a structural loop, silently breaking re-exports\")\n  in the MCP description, and the heads-up note about `total_issues`\n  showing a step change on the first run after upgrade (panel catch\n  from Marcus). Cache version is intentionally NOT bumped.\n\n.claude/rules/detection.md (`export *` chain propagation bullet):\n- Extended the existing #442 bullet to point at the new\n  user-visible surface. Documents BOTH paths surfacing in parallel:\n  `tracing::warn!` for RUST_LOG=warn discoverability AND the typed\n  `AnalysisResults.re_export_cycles` finding. Names the four\n  suppression alias spellings, the file-scoped semantics\n  (`overrides.rules.re-export-cycle` is a no-op), and the type-only\n  cycle behavior (still fires).\n\nAGENTS.md:\n- Added `--re-export-cycles` to the dead-code issue-type filter\n  list.\n- Added `re-export-cycle` to the issue-type tokens list.\n\nDid NOT touch:\n- `.claude/rules/cli-crate.md` (no per-flag enumeration to extend).\n- `.claude/rules/mcp-server.md` (tool count unchanged; per-tool\n  description was already updated in 62a54f26).\n- `docs/backwards-compatibility.md` (the stable-list is global\n  flags only, no per-issue-type filter table to extend).\n- `docs/output-schema.json` (regenerated in c9a4bf2d).\n\nRefs #515\n\n* docs(schema): regenerate root config-input schema for re-export-cycle rule\n\nCatches the root `schema.json` regen that was missed in the #515\nimplementation. This is the config-input schema (powers\n`.fallowrc.json` IDE autocomplete and ships verbatim in the npm\npackage), distinct from `docs/output-schema.json` (output envelope,\nalready regenerated in c9a4bf2d). The root file has no CI drift gate\n(`project_schema_json_no_drift_gate.md`), so the gap survived through\nPhase 5 docs and was caught by `/fallow-review`.\n\nDiff:\n- `RulesConfig` default map: `\"re-export-cycle\": \"warn\"` so editors\n  show the live default when a user creates a fresh `.fallowrc.json`.\n- `RulesConfig` schema property `\"re-export-cycle\"` referencing\n  `#/$defs/Severity` with `default: \"warn\"`.\n- `PartialRulesConfig` (per-file overrides) arm `\"re-export-cycle\"`\n  with the same `Severity | null` anyOf shape every sibling carries.\n  Per-file overrides for re-export-cycle are documented as no-ops at\n  runtime (the cycle spans multiple files), but the schema still\n  needs to accept the key to avoid an editor \"unknown property\"\n  squiggle on a config the resolver gracefully ignores.\n- `RegressionBaseline.counts` schema: `reExportCycles` integer with\n  `default: 0` matching the rest of the per-issue-type counts.\n\nRegenerated via `cargo run --bin fallow -- config-schema`. Diff is\npurely additive (no field renames or removals). Existing\n`.fallowrc.json` files validate unchanged.\n\nRefs #515\n\n* fix(codegen,docs): export bare ReExportCycle alias + extend stable issue-type list\n\nTwo follow-ups from the /fallow-review verdict that would have leaked\ninto the npm release if not caught:\n\n1. `editors/vscode/scripts/codegen-types.mjs::BARE_DEAD_CODE_ALIASES`\n   was missing the `ReExportCycle` entry. Because\n   `ReExportCycleFinding` uses `#[serde(flatten)] cycle: ReExportCycle`,\n   json-schema-to-typescript dedupes the parent type away (the same\n   pattern documented in `project_serde_flatten_ts_codegen_dedupes`),\n   so the bare `ReExportCycle` interface never appeared in\n   `npm/fallow/types/output-contract.d.ts`. External consumers doing\n   `import type { ReExportCycle } from \"fallow/types\"` would have\n   failed at type-check while every sibling bare alias\n   (`CircularDependency`, `BoundaryViolation`, `DuplicateExport`, ...)\n   worked. Adding the alias entry, regenerating both committed TS\n   contracts; `pnpm run check:codegen` clean.\n\n2. `docs/backwards-compatibility.md:20` stable issue-type-arrays list\n   was missing `re_export_cycles`. Adding it keeps the list authoritative\n   for SemVer / backwards-compat reasoning (the array follows the same\n   wire-shape stability contract as every sibling: skip-serializing-if-\n   empty so absence is the default, additive optional field so\n   schema_version does not bump).\n\nThe /fallow-review noted both as FIX FIRST: (1) is a real consumer\nbreak the npm release would have shipped; (2) is a docs-truth gate.\nBoth land before the fallow PR opens so the npm types and the\nbackwards-compat doc agree with the wire shape on day one.\n\nRefs #515",
+          "timestamp": "2026-05-21T17:58:36+01:00",
+          "tree_id": "ade3e118b72c66c9f49499197e544e06c8444b9d",
+          "url": "https://github.com/fallow-rs/fallow/commit/3e8f66272385783858d138445678968cb31c6119"
+        },
+        "date": 1779383051867,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 57465,
+            "range": "± 491",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3994244,
+            "range": "± 153637",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5170648,
+            "range": "± 208615",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 22901942,
+            "range": "± 594464",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 117687,
+            "range": "± 651",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2311,
+            "range": "± 133",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 255178,
+            "range": "± 25448",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 1092064,
+            "range": "± 16022",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1533160,
+            "range": "± 23018",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 576010,
+            "range": "± 13298",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4389385,
+            "range": "± 36968",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 4380907,
+            "range": "± 60835",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2985819,
+            "range": "± 15866",
             "unit": "ns/iter"
           }
         ]
