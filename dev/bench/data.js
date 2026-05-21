@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779401309393,
+  "lastUpdate": 1779401643110,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "85ab8885f35c91c5ec5fb006dfa0fddd54385dd9",
-          "message": "test(flags): regression test for feature-flag inline suppression\n\nThe fix in 5ea37114 wired is_suppressed() into the flags collection\nloop but shipped without a test. Add a CLI-level regression test\nverifying that // fallow-ignore-next-line feature-flag suppresses the\nannotated flag while leaving unsuppressed flags visible. Uses a\ndedicated feature-flag-suppression fixture with two env var flags,\none suppressed and one not.",
-          "timestamp": "2026-04-12T10:09:31+02:00",
-          "tree_id": "4d61e434fabebeb0c06dd493017d282763f98aa7",
-          "url": "https://github.com/fallow-rs/fallow/commit/85ab8885f35c91c5ec5fb006dfa0fddd54385dd9"
-        },
-        "date": 1775981770365,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 44312,
-            "range": "± 1444",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1769315,
-            "range": "± 58749",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3116443,
-            "range": "± 22971",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 15685984,
-            "range": "± 162258",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 109712,
-            "range": "± 3771",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2018,
-            "range": "± 5",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 215711,
-            "range": "± 6330",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 966082,
-            "range": "± 10951",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1749367,
-            "range": "± 17479",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 537409,
-            "range": "± 21688",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4227504,
-            "range": "± 54403",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2653504,
-            "range": "± 8378",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9834,6 +9738,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 1944582,
             "range": "± 3522",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ab27bcfbf1607f145649d52ed95777f50221710a",
+          "message": "fix(audit): strip Windows verbatim prefix at git_toplevel for --changed-since + audit\n\nThe real Windows-only bug behind #561 (the dunce::simplified fix in\n40b000f8 was a real correctness improvement but not load-bearing for\nthis issue): `resolve_git_toplevel` in `crates/core/src/changed_files.rs`\nused `std::fs::canonicalize`, which on Windows adds the `\\\\?\\`\nverbatim prefix to its result. Every path from `git diff --name-only`\ngot joined onto this verbatim-prefixed toplevel, producing\nchanged-files paths shaped like `\\\\?\\C:\\Users\\...\\Temp\\test\\src\\foo.ts`.\n\nDownstream `strip_prefix` comparisons against `opts.root` (the CLI's\nproject root from clap, which carries NO verbatim prefix) walk the\ncomponent graph and see `Prefix(VerbatimDisk('C'))` against\n`Prefix(Disk('C'))`. They are not equal. Every entry in the\nchanged-files set silently failed the prefix check, the focus filter\ndropped EVERY finding before the audit attribution pass ran, and\naudit reported 0 pre-existing findings.\n\nThat's the root cause of the 8 audit integration tests in\n`crates/cli/tests/audit_tests.rs` that report\n`expected at least 5 pre-existing unused exports, got 0` on Windows.\nThree sites switch from `std::fs::canonicalize` to\n`dunce::canonicalize`:\n\n- `crates/core/src/changed_files.rs::resolve_git_toplevel`\n- `crates/cli/src/audit.rs::git_toplevel`\n- `crates/cli/src/audit.rs::base_analysis_root` (current_root)\n\n`dunce::canonicalize` strips the `\\\\?\\` prefix on Windows and is\nidentical to `std::fs::canonicalize` on POSIX, so behaviour off\nWindows is unchanged.\n\nRefs #561, #447, #545.",
+          "timestamp": "2026-05-21T23:06:17+01:00",
+          "tree_id": "35c4d13c1fcdbff03c98af73fb387f21669ce563",
+          "url": "https://github.com/fallow-rs/fallow/commit/ab27bcfbf1607f145649d52ed95777f50221710a"
+        },
+        "date": 1779401641101,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 42384,
+            "range": "± 1495",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3675001,
+            "range": "± 144546",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 4940754,
+            "range": "± 159753",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 22606766,
+            "range": "± 338974",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 110589,
+            "range": "± 1133",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2308,
+            "range": "± 34",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 184221,
+            "range": "± 9886",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 815777,
+            "range": "± 3270",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1308100,
+            "range": "± 19490",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 527999,
+            "range": "± 16774",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3281796,
+            "range": "± 36457",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3325948,
+            "range": "± 30981",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2225803,
+            "range": "± 14197",
             "unit": "ns/iter"
           }
         ]
