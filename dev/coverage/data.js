@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779395515839,
+  "lastUpdate": 1779396315256,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "92840d926064010154146be73bfcadfbe468741b",
-          "message": "docs: update README with new features\n\nAdd arrow-wrapped dynamic imports, visibility tags (@public, @internal,\n@beta, @alpha), --file flag for lint-staged, --include-entry-exports for\nentry validation, and script multiplexer support.",
-          "timestamp": "2026-04-13T00:16:14+02:00",
-          "tree_id": "607c0038fe4071f7665f721d6de088156cd73c58",
-          "url": "https://github.com/fallow-rs/fallow/commit/92840d926064010154146be73bfcadfbe468741b"
-        },
-        "date": 1776032256972,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/429b178122f56c4feea4fd173318547b67118d78"
         },
         "date": 1779395513990,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8ee61a22454a80a815b04b53d34616b41f8a6370",
+          "message": "fix(cli): normalise fallow-cov sidecar request paths to forward slashes\n\n`crates/cli/src/health/coverage.rs::build_request` emitted\n`static_findings.files[].path` via `relative.to_string_lossy().into_owned()`,\nwhich preserves backslashes on Windows checkouts. The sidecar JSON\nwire format must be host-OS-independent (a sidecar or downstream\nconsumer can run on a different machine), so the path now goes\nthrough `.replace('\\\\\\\\', \"/\")` to match the existing convention in\n`report::ci::diff_filter::relative_to_diff_path` and\n`health::mod::relative_to_root`.\n\nCloses the last Windows-only test failure observed on the push-to-main\nCI matrix after PR #548 + #551 (13 -> 6 -> 1 -> 0).\n\nRefs #545.",
+          "timestamp": "2026-05-21T21:42:45+01:00",
+          "tree_id": "d55a1ddf02c24ff3f3623ea8d4e5a4e91400fcaf",
+          "url": "https://github.com/fallow-rs/fallow/commit/8ee61a22454a80a815b04b53d34616b41f8a6370"
+        },
+        "date": 1779396313286,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
