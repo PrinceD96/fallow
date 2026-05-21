@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779390616904,
+  "lastUpdate": 1779392395304,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "5ea37114e61b8f961c154288622959eb77afa39f",
-          "message": "fix(flags): wire inline suppression into feature flag collection\n\nThe JSON output action suggested `// fallow-ignore-next-line feature-flag`\nbut the flags command never checked suppressions. Both the built-in and\ncustom flag collection loops now call `is_suppressed()` /\n`is_file_suppressed()` with `IssueKind::FeatureFlag`, matching the\ncontract the JSON output already promised.",
-          "timestamp": "2026-04-12T10:00:05+02:00",
-          "tree_id": "945fa52df7642983222a90b91013b73861cc78bb",
-          "url": "https://github.com/fallow-rs/fallow/commit/5ea37114e61b8f961c154288622959eb77afa39f"
-        },
-        "date": 1775981036455,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b16f3cdf097edf08def56aef0584d12160135067"
         },
         "date": 1779390615709,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6ef6a5c37f926961130baa5590890805e2e04598",
+          "message": "chore(ci): re-enable Windows in main Rust Check job on push to main\n\nThe `check` job in `.github/workflows/ci.yml` was hard-coded to\n`ubuntu-latest` to conserve CI minutes (per the comment block: \"Run\nmacos + windows locally before release\"). Reviewer enforcement is not\nenough: Windows-specific path bugs (backslash separators, UNC paths,\nlong-path `\\\\?\\` prefix, case insensitivity) only surfaced at release\ntime or via user reports (PR #55 history, ongoing case-sensitivity\nedge cases).\n\nExpand the matrix on push to `main` only, mirroring the structural\npattern already in use for the `zed` job at ci.yml:267. PR runs stay\nubuntu-only for fast feedback and to keep the April 2026 Actions\nbudget tightening (commit 7f2e61e6) honored. macOS stays out of the\nmatrix because it is a 10x multiplier vs Windows 2x; local pre-release\nruns continue to cover that platform.\n\nFixes #447.",
+          "timestamp": "2026-05-21T20:37:34+01:00",
+          "tree_id": "d459f638960716655f7af62adfdc21e6ad44e102",
+          "url": "https://github.com/fallow-rs/fallow/commit/6ef6a5c37f926961130baa5590890805e2e04598"
+        },
+        "date": 1779392394139,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
