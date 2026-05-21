@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779396315256,
+  "lastUpdate": 1779398815520,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7266c648d08820283e95da0567017783b810755b",
-          "message": "chore: release v2.30.0",
-          "timestamp": "2026-04-13T00:22:53+02:00",
-          "tree_id": "64da1dfc25eb916ef271c9a9ba666650d7406d29",
-          "url": "https://github.com/fallow-rs/fallow/commit/7266c648d08820283e95da0567017783b810755b"
-        },
-        "date": 1776032661290,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2867,6 +2838,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8ee61a22454a80a815b04b53d34616b41f8a6370"
         },
         "date": 1779396313286,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9cdae3051c30dcd052453fd2595f4e312dd4bf0a",
+          "message": "fix(ci): bump Windows fallow binary main-thread stack from 1 MiB to 16 MiB\n\nThe push-to-main Windows CI matrix from #447 surfaced 22+ audit\nintegration tests in `crates/cli/tests/audit_tests.rs` crashing with\n`STATUS_STACK_OVERFLOW` (exit `-1073741571`) when invoking the fallow\nbinary as a subprocess on `windows-latest`. Some recursive code path\ninside `fallow audit` (graph traversal, AST visitor, glob matching,\ngit worktree orchestration) exceeds the Windows default 1 MiB main\nthread stack but stays under the POSIX default 8 MiB.\n\n`.cargo/config.toml` now sets `link-arg=/STACK:16777216` for both\n`x86_64-pc-windows-msvc` and `aarch64-pc-windows-msvc` targets,\nmatching the 16 MiB ceiling that `crates/cli/src/rayon_pool.rs::WORKER_STACK_SIZE`\nalready enforces on rayon worker threads. `/STACK` reserves virtual\naddress space lazily so there is no runtime memory cost until the\nstack actually grows.\n\n`.gitignore` was rewritten from `.cargo/` to `.cargo/* + !.cargo/config.toml`\nso the committed config ships with the repo while local credentials\nunder `.cargo/credentials.toml` stay ignored.\n\nIdentifying and flattening the specific recursive offender is a\nfollow-up; this PR is the unblock-Windows-CI quick fix.\n\nFixes #556.\nRefs #447.",
+          "timestamp": "2026-05-21T22:24:30+01:00",
+          "tree_id": "9303fed54d79091cb144460d8c76caa71e751bd1",
+          "url": "https://github.com/fallow-rs/fallow/commit/9cdae3051c30dcd052453fd2595f4e312dd4bf0a"
+        },
+        "date": 1779398813528,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
