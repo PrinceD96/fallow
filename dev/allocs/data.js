@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779371351148,
+  "lastUpdate": 1779371569852,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7d788037ade9caea0daaff0a8e8a183809c8e703",
-          "message": "perf: O(N) re-export name lookup in unused-export detection\n\nThe is_re_export check introduced in the previous commit used\n`module.re_exports.iter().any(...)` per export specifier. For barrel\nfiles with hundreds of synthesized re-export entries, this made the\nper-module work O(N²) (N exports × M re_exports, where N ≈ M for\nbarrels).\n\nLift a FxHashSet<&str> of re-exported names out of the inner loop so\nthe lookup becomes O(1) per export, making total work O(N + M). vue-core\nhas barrel files with 86+ re-exports per file where this matters most.",
-          "timestamp": "2026-04-10T23:45:17+02:00",
-          "tree_id": "875f1f598d83ef3ad557ec86d9e2f600b4f1e5e6",
-          "url": "https://github.com/fallow-rs/fallow/commit/7d788037ade9caea0daaff0a8e8a183809c8e703"
-        },
-        "date": 1775857789869,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3619280,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15335,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 540717,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5525,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4376,6 +4332,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6789,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bfe89df1823479e7d3dbe6d44472e0bab3ed605f",
+          "message": "chore(audit): name lock-lifecycle invariant in test comments substantively\n\nTest comments and assertion messages in `reusable_cache_gc_preserves_lock_file_after_removal`\nreferenced an internal review-process label rather than the substantive\ninvariant they pin. Switch to \"lock-file lifecycle invariant\" so the\ntest reads correctly to future maintainers without dependencies on\nout-of-tree review nomenclature.\n\nNo functional change.",
+          "timestamp": "2026-05-21T14:50:11+01:00",
+          "tree_id": "1a3968b6e5dfc332584e928b2c97e0580a9b77b1",
+          "url": "https://github.com/fallow-rs/fallow/commit/bfe89df1823479e7d3dbe6d44472e0bab3ed605f"
+        },
+        "date": 1779371568737,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5083090,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27565,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 656799,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6285,
             "unit": "allocations"
           }
         ]
