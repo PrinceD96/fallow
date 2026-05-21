@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779369175194,
+  "lastUpdate": 1779371427926,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "da5f29945923d1ffb0920d62df138b33e2f1a4d3",
-          "message": "fix(extract): normalize Angular templateUrl/styleUrl without ./ prefix (#100)\n\nAngular's @Component decorator resolves both 'app.component.html' and\n'./app.component.html' relative to the component file. Fallow was\nemitting the raw specifier as an ImportInfo source, so downstream\nresolution classified bare filenames as npm packages and reported them\nas unlisted dependencies.\n\nAdd a normalize_angular_asset_url helper that prepends './' to bare\nfilenames while leaving already-relative, absolute, URL, and scoped\npackage paths untouched. Mirrors the existing CSS import normalization\npattern. Bump CACHE_VERSION so warm caches don't keep the stale bare\nspecifier.\n\nFixes #99",
-          "timestamp": "2026-04-10T23:57:22+02:00",
-          "tree_id": "e99329854b2c6ba7e8998ca052fee39e37c361a2",
-          "url": "https://github.com/fallow-rs/fallow/commit/da5f29945923d1ffb0920d62df138b33e2f1a4d3"
-        },
-        "date": 1775858488404,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 35537,
-            "range": "± 694",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1808057,
-            "range": "± 33379",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3228942,
-            "range": "± 19241",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 17135552,
-            "range": "± 279143",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 112740,
-            "range": "± 420",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2074,
-            "range": "± 24",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 174124,
-            "range": "± 5446",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 773835,
-            "range": "± 7641",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1647501,
-            "range": "± 252578",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 511468,
-            "range": "± 8621",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3599304,
-            "range": "± 45997",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2083527,
-            "range": "± 11456",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9750,6 +9654,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2972012,
             "range": "± 14549",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7755f3637f5f5420f87c0ae37a99c18daf93e77e",
+          "message": "feat(audit): age-based GC for persistent reusable base-snapshot caches\n\n* feat(audit): age-based GC for persistent reusable base-snapshot caches\n\n`fallow audit` keys persistent worktree caches in\n`std::env::temp_dir()/fallow-audit-base-cache-<repo_hash>-<sha>`. Until\nnow these never expired: every distinct base SHA the user ever audited\naccumulated a cache entry, easily reaching hundreds of MB to multiple\nGB on developer machines after weeks of daily audits.\n\nAdd `sweep_old_reusable_caches` invoked at the top of `execute_audit`\nthat walks git-registered worktrees, filters to reusable cache paths,\nand removes entries whose sidecar `.last-used` mtime exceeds the\nconfigured age. The sidecar is touched on every cache-hit reuse so the\nstaleness signal stays current even when the cache directory itself\nis not mutated.\n\nConfiguration:\n- env: FALLOW_AUDIT_CACHE_MAX_AGE_DAYS (wins)\n- config: `audit.cacheMaxAgeDays` (Option<u32>)\n- default: 30 days\n- `0` from either source disables the sweep\n- Invalid env values silently fall back to config / default\n\nConcurrency invariants:\n- Each candidate is gated by `ReusableWorktreeLock::try_acquire`; the\n  sweep skips on contention so an in-flight `fallow audit` mid-rebuild\n  is not disturbed.\n- The `.lock` file is NEVER deleted. An unlinked-but-still-flocked\n  inode plus a racer's `open(O_CREAT)` at the same path would produce\n  two processes each holding a kernel flock on different inodes. Lock\n  files are tens of bytes; leaking them is harmless.\n\nPre-upgrade grace: existing caches lacking a sidecar (created before\nthis feature shipped) are NOT removed on first encounter; instead the\nsweep seeds a fresh sidecar so the next invocation can age from real\nlast-use. Without this grace, the dir's own mtime (= creation date on\nPOSIX) would wipe every legitimately-warm pre-upgrade cache on the\nfirst run after upgrade.\n\nObservability: per-entry removal failures emit `tracing::warn!`; the\nsweep emits a `tracing::info!` summary line on non-empty reclaim and\na stderr \"fallow: reclaimed N stale base-snapshot caches\" when\n`!opts.quiet`.\n\nFixes #498\n\n* docs(audit): document #498 GC threshold env var + config field\n\n- CHANGELOG.md: user-facing bold entry under [Unreleased] Fixed.\n- .claude/rules/cli-crate.md: env var section + audit.rs bullet (#498 lifecycle).\n- docs/backwards-compatibility.md: list FALLOW_AUDIT_CACHE_MAX_AGE_DAYS as stable.\n- schema.json: regenerated from updated AuditConfig.\n\nRefs #498\n\n* fix(audit): only count actually-removed cache entries in reclaim summary\n\nrust-reviewer flagged that `removed += 1` unconditionally incremented\nthe counter after the `remove_dir_all` match block. When the directory\nsurvived removal (the `warn!` branch), the summary line \"fallow:\nreclaimed N stale base-snapshot caches\" and the `tracing::info!` event\nboth over-counted by including entries whose on-disk content was NOT\nactually reclaimed. The git registration cleanup still happens in that\nbranch (via the preceding `remove_audit_worktree`), so `git worktree\nprune` remains correct; only the user-facing count was misleading.\n\nTrack dir-removal success and only bump the counter on Ok / NotFound.\n\nRefs #498\n\n* fix(audit): stamp sidecar on fresh-create so age is measured from creation\n\n`AuditConfig::cache_max_age_days`'s docstring contract reads\n\"Maximum age (in days since last reuse or fresh create)\". The shipped\ncode touched the sidecar on the cache-hit branch only, leaving every\nfreshly-created cache without a sidecar until the NEXT audit\ninvocation grace-seeded it. For one-off base SHAs the cache would\nsurvive the first stale sweep regardless of age; for users who run\naudit infrequently the documented 30-day window expanded into\n\"30 days starting from the next audit run\", silently doubling the\neffective lifespan.\n\nStamp the sidecar at the end of the fresh-create branch in\n`BaseWorktree::reuse_or_create`, mirroring what the cache-hit branch\nalready does. The sweep's sidecar-absent grace path is still\nload-bearing for pre-upgrade caches created before this feature\nshipped (it seeds them on first encounter rather than wiping).\n\nAdd a regression test that pins both halves of the contract: a fresh\n`reuse_or_create` writes a near-now sidecar AND backdating that\nsidecar causes the next sweep to actually remove the entry.\n\nRefs #498\n\n* docs(rules): drop em-dash on touched audit.rs bullet in cli-crate.md\n\nCLAUDE.md style rule forbids em-dashes in any output. My #498 edit\nappended an \"Age-based GC\" paragraph to the audit.rs bullet, which\nre-emits the bullet's leading \"audit.rs — Audit command:\" through git\ndiff. Swap that em-dash for a colon + parenthesis on the line I\ntouched so the diff is em-dash-clean. Other untouched bullets in the\nsame file retain their em-dashes (drive-by reformatting is out of\nscope for this PR).",
+          "timestamp": "2026-05-21T14:45:20+01:00",
+          "tree_id": "361bacc1b8750cb701ca6ac8f280b6d04b45776c",
+          "url": "https://github.com/fallow-rs/fallow/commit/7755f3637f5f5420f87c0ae37a99c18daf93e77e"
+        },
+        "date": 1779371425908,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 59240,
+            "range": "± 1482",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3774966,
+            "range": "± 156002",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 4990652,
+            "range": "± 146021",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 22131936,
+            "range": "± 446057",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 121314,
+            "range": "± 737",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2204,
+            "range": "± 45",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 236972,
+            "range": "± 19345",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 1073565,
+            "range": "± 12907",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1518031,
+            "range": "± 26165",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 574950,
+            "range": "± 29051",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4377649,
+            "range": "± 31035",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 4286118,
+            "range": "± 32752",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2998375,
+            "range": "± 11502",
             "unit": "ns/iter"
           }
         ]
