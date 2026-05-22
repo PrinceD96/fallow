@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779481173722,
+  "lastUpdate": 1779483218125,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "50f6b7af3a54858ff8c0fb25f4af9ed91729415d",
-          "message": "chore: release v2.34.0",
-          "timestamp": "2026-04-14T11:11:01+02:00",
-          "tree_id": "6f1602074a4487d1b4ed944f452eee3557294f55",
-          "url": "https://github.com/fallow-rs/fallow/commit/50f6b7af3a54858ff8c0fb25f4af9ed91729415d"
-        },
-        "date": 1776158230730,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3718441,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15481,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 578797,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5624,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "mike@mike-engel.com",
+            "name": "Mike Engel",
+            "username": "mike-engel"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2cdc1f078a43b692b968ea393adcea07f4f14c06",
+          "message": "feat(glimmer): add support for strict-mode glimmer/ember\n\nAdds native support for Ember strict-mode glimmer components (.gts, .gjs):\n\n- New ember.js / glimmer / embroider plugin (97 total framework plugins)\n- Scan glimmer <template> blocks for imported-binding usage, including triple-stash helpers\n- Resolve .ts/.js imports to sibling .gts/.gjs files\n- Skip template-placeholder specifiers in HTML asset scanner\n- ember-classic integration fixture\n- CACHE_VERSION 95\n\nCloses #369.",
+          "timestamp": "2026-05-22T21:51:29+01:00",
+          "tree_id": "63434c0b9548677a685b7478d1a9257c8a102e90",
+          "url": "https://github.com/fallow-rs/fallow/commit/2cdc1f078a43b692b968ea393adcea07f4f14c06"
+        },
+        "date": 1779483216844,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5100914,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27332,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 696915,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6530,
             "unit": "allocations"
           }
         ]
