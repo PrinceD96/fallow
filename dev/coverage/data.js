@@ -1,35 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779432966003,
+  "lastUpdate": 1779433264607,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "committer": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "distinct": true,
-          "id": "148a8d0fcf4e254145e71807e4705ebdaa09771e",
-          "message": "perf: eliminate O(n^2) patterns in analyze, cross-reference, and families\n\n- Pre-compile public_packages glob matchers once instead of per-workspace\n- Use FxHashSet for ignore_dependencies in find_type_only_dependencies\n  (was linear scan, matching sibling functions)\n- Build per-file index for cross_reference unused export lookup\n  (was O(clones * all_exports), now O(clones * per_file_exports))\n- Use FxHashMap for clone family grouping (was O(N*M) Vec scan)",
-          "timestamp": "2026-04-14T00:07:02+02:00",
-          "tree_id": "7f3d6bb02e974520337b1592e2d3ebe9dc4d90b2",
-          "url": "https://github.com/fallow-rs/fallow/commit/148a8d0fcf4e254145e71807e4705ebdaa09771e"
-        },
-        "date": 1776118283367,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2880,6 +2853,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ab27dc47ed26981eeacabf2540c688ac8f948d77"
         },
         "date": 1779432964742,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b726cbe0d2e3edf4303bc71c4f4ff7d2d64eb5e4",
+          "message": "fix(cli): type combined explain metadata",
+          "timestamp": "2026-05-22T08:57:51+02:00",
+          "tree_id": "ee305331a668cf42d9d8647374b7367ec9b0c670",
+          "url": "https://github.com/fallow-rs/fallow/commit/b726cbe0d2e3edf4303bc71c4f4ff7d2d64eb5e4"
+        },
+        "date": 1779433262324,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
