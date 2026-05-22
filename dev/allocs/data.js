@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779433035524,
+  "lastUpdate": 1779433228180,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "06c108192e0308605c8c4839d9d11932d343d3e9",
-          "message": "test: add integration fixture and exhaustiveness test for stale suppressions\n\nIntegration fixture exercises all stale suppression variants:\n- Stale next-line comment (used export)\n- Active next-line comment (unused export, suppression working)\n- Stale blanket comment (no issues on next line)\n- Stale file-level comment (file is reachable)\n- Stale @expected-unused tag (export became used)\n- Active @expected-unused tag (export genuinely unused)\n\nExhaustiveness test ensures every IssueKind variant is classified\nin either core_kinds (checked by SuppressionContext) or NON_CORE_KINDS\n(excluded from stale detection). Fails when a new variant is added\nwithout being classified.",
-          "timestamp": "2026-04-13T13:50:36+02:00",
-          "tree_id": "82700228de6a3dc1cba36a97c3a39e73d0e09d10",
-          "url": "https://github.com/fallow-rs/fallow/commit/06c108192e0308605c8c4839d9d11932d343d3e9"
-        },
-        "date": 1776081130470,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3647841,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15338,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 542105,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5538,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4381,6 +4337,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6535,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b726cbe0d2e3edf4303bc71c4f4ff7d2d64eb5e4",
+          "message": "fix(cli): type combined explain metadata",
+          "timestamp": "2026-05-22T08:57:51+02:00",
+          "tree_id": "ee305331a668cf42d9d8647374b7367ec9b0c670",
+          "url": "https://github.com/fallow-rs/fallow/commit/b726cbe0d2e3edf4303bc71c4f4ff7d2d64eb5e4"
+        },
+        "date": 1779433226574,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5115990,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27346,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697779,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6537,
             "unit": "allocations"
           }
         ]
