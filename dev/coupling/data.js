@@ -1,55 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779469647657,
+  "lastUpdate": 1779471573454,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "committer": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "distinct": true,
-          "id": "bc2ac04af20694bea9f773243d21077df9aec6ed",
-          "message": "fix(test): prevent git operations from leaking into main repo via GIT_DIR\n\nWhen the pre-push hook runs cargo test, git sets GIT_DIR in the hook\nenvironment pointing to the main repo's .git directory. Test helpers\nthat create temp git repos via current_dir() were still committing to\nthe main repo because GIT_DIR overrides current_dir. Added\nenv_remove(\"GIT_DIR\") and env_remove(\"GIT_WORK_TREE\") to both the\nhealth_tests and audit_tests git helpers.",
-          "timestamp": "2026-04-13T10:44:32+02:00",
-          "tree_id": "bd03c9a8667771534930d1508746e7694dcf2c59",
-          "url": "https://github.com/fallow-rs/fallow/commit/bc2ac04af20694bea9f773243d21077df9aec6ed"
-        },
-        "date": 1776069946011,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 224,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 475,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4854,6 +4807,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7f89de4fc78789364b4d35df1a7e647ed783e316"
         },
         "date": 1779469645474,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 300,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 685,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "dfa5b8996744d934a8173a793473f192f51ed53d",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.78.1",
+          "timestamp": "2026-05-22T19:38:31+02:00",
+          "tree_id": "c92064d5310efe013a6cd73c0826a354f98c9210",
+          "url": "https://github.com/fallow-rs/fallow/commit/dfa5b8996744d934a8173a793473f192f51ed53d"
+        },
+        "date": 1779471572146,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
