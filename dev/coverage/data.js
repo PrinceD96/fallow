@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779471903373,
+  "lastUpdate": 1779476336616,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "485d7de07bc7c0a532f96436bf78d92fd6cc068d",
-          "message": "chore: release v2.35.0",
-          "timestamp": "2026-04-14T16:08:41+02:00",
-          "tree_id": "d12b9b7e5cc2bea1c4225c6d707afe6f1cddf44f",
-          "url": "https://github.com/fallow-rs/fallow/commit/485d7de07bc7c0a532f96436bf78d92fd6cc068d"
-        },
-        "date": 1776175985305,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8604f89c14304bd43d3394782b736ffc983bce9a"
         },
         "date": 1779471901096,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "99c5b45ee6cc068b55a0e064d3cc275a4ed7cd59",
+          "message": "docs(changelog): note Wrangler / Content Collections / module.register fixes (#596)\n\nUser-facing notes for the three convention-driven false-positive fixes\nthat landed via PR #596 (M-Hassan-Raza, rework). Calls out the warm-cache\nre-extract on first run after upgrading.",
+          "timestamp": "2026-05-22T20:54:48+02:00",
+          "tree_id": "951dda39288ae1300680d30d54a45d20e95db4e0",
+          "url": "https://github.com/fallow-rs/fallow/commit/99c5b45ee6cc068b55a0e064d3cc275a4ed7cd59"
+        },
+        "date": 1779476335155,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
