@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779480453254,
+  "lastUpdate": 1779481173722,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7305e1c0702336258b8b057dc2ec397e449984bb",
-          "message": "fix: resolve CLI binary names to package names via dependency bin fields\n\nPackages whose binary name diverges from the package name (e.g.,\n@arethetypeswrong/cli provides \"attw\") were falsely flagged as unused\ndependencies when used in npm scripts. Build a dynamic bin-to-package\nreverse map from dependency package.json bin fields, probing node_modules\nat both project root and workspace roots for non-hoisted setups.\n\nCloses #107",
-          "timestamp": "2026-04-14T11:02:18+02:00",
-          "tree_id": "705bfb6976b38bd74173351a7a2819de8d632179",
-          "url": "https://github.com/fallow-rs/fallow/commit/7305e1c0702336258b8b057dc2ec397e449984bb"
-        },
-        "date": 1776157581879,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3748257,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15493,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 582941,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5626,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6533,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4e7eecf09fdb817b09e0d4654cf6f1f962f4d8d4",
+          "message": "fix(tanstack): suppress generated route tree imports\n\nTanStack Router and Start projects commonly import the generated\nroute tree as ./routeTree.gen before src/routeTree.gen.ts exists in a\nclean checkout. That framework artifact was reported as an unresolved\nimport even though TanStack tooling creates it during codegen.\n\nRegister /routeTree.gen as a TanStack Router generated import suffix\nthrough the existing plugin hook. The suppression stays plugin-gated,\nso non-TanStack projects still report the same missing import.\n\nAdd a regression fixture with an active TanStack Router project, no\ngenerated route tree file, and a separate missing import control. The\ntest locks in both the false-positive fix and the ordinary unresolved\nimport behavior.\n\nFixes #646.",
+          "timestamp": "2026-05-22T21:17:01+01:00",
+          "tree_id": "2063a9403501a471813b45358e0f121025b00554",
+          "url": "https://github.com/fallow-rs/fallow/commit/4e7eecf09fdb817b09e0d4654cf6f1f962f4d8d4"
+        },
+        "date": 1779481172440,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5128590,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27323,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 701639,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6538,
             "unit": "allocations"
           }
         ]
