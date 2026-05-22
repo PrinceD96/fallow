@@ -1,50 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779453966916,
+  "lastUpdate": 1779459487983,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "committer": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "distinct": true,
-          "id": "da0cf78405cc033bc17bdd2f24a990b5447ef255",
-          "message": "fix: add deterministic tiebreaker to clone family sort\n\nFxHashMap iteration order is non-deterministic, so families with\nequal total_duplicated_lines and group count could appear in\narbitrary order. Add first file path as a third sort key.",
-          "timestamp": "2026-04-14T00:16:16+02:00",
-          "tree_id": "f604a6d4d24a68ad90633329b1d659a65f3695ff",
-          "url": "https://github.com/fallow-rs/fallow/commit/da0cf78405cc033bc17bdd2f24a990b5447ef255"
-        },
-        "date": 1776118823556,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3711655,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15471,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 578797,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5624,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4391,6 +4349,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6537,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b467e04c1377424747107ce1554a82bf64687a22",
+          "message": "fix(ci): silence two more Windows-only clippy regressions on `main`\n\nSibling to PR #587 and the v2.78.0 release commit's mcp tests fix. Rust 1.95's\nstrict `-D warnings` surfaced two more Windows-only paths on the post-release\nci.yml run for main:\n\n- `crates/cli/src/ci_template.rs::set_executable` Windows stub returns\n  `std::io::Result<()>` to match the Unix signature so the unconditional\n  caller can `?`-propagate without `#[cfg]` branching. The Windows body is\n  trivially `Ok(())`, so clippy's `unnecessary_wraps` fires. Suppress via\n  `#[expect(clippy::unnecessary_wraps, reason = \"...\")]` on the Windows\n  stub; matching the Unix signature is load-bearing for the caller.\n\n- `crates/cli/src/signal/scoped_child.rs::assert_deregistered` test helper\n  is only called from two `#[cfg(unix)]` tests in the same module. Gating\n  the helper itself with `#[cfg(unix)]` aligns it with its callers and\n  silences the `dead-code` lint on Windows.\n\nBoth are post-release CI fixes; v2.78.0 binaries are unaffected. Refs #447.",
+          "timestamp": "2026-05-22T16:15:53+02:00",
+          "tree_id": "05dfc715ccb9403790a2796c1247b4c3dd63fee6",
+          "url": "https://github.com/fallow-rs/fallow/commit/b467e04c1377424747107ce1554a82bf64687a22"
+        },
+        "date": 1779459485127,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5052806,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27263,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697367,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6535,
             "unit": "allocations"
           }
         ]
