@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779484018809,
+  "lastUpdate": 1779484435136,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e9a71762d7f4fd8c0d982a94694c725ce2d69dd9",
-          "message": "fix: publish new crates before cli release",
-          "timestamp": "2026-04-16T16:17:46+02:00",
-          "tree_id": "4627d1e3bd649b8f2df013f0c1faf735052faefc",
-          "url": "https://github.com/fallow-rs/fallow/commit/e9a71762d7f4fd8c0d982a94694c725ce2d69dd9"
-        },
-        "date": 1776349388758,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.1,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/62bed8d6298ba5e83a178f4fcbee05ee7ae548d1"
         },
         "date": 1779484017444,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d7f0b1bab714f1781a84f0455d5e5a242ac177cb",
+          "message": "docs(skill): bring remaining vendored plugin counts to 97\n\nBumps the four other 94/95-counted lines in npm/fallow/skills/fallow/SKILL.md to 97 to match the bump landed in #369. Mirrors canonical fallow-skills b371366 + docs c8591e3.",
+          "timestamp": "2026-05-22T22:11:24+01:00",
+          "tree_id": "b6ccc9e8d759185c125b99d21158cd209ab0651f",
+          "url": "https://github.com/fallow-rs/fallow/commit/d7f0b1bab714f1781a84f0455d5e5a242ac177cb"
+        },
+        "date": 1779484433855,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
