@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779427023311,
+  "lastUpdate": 1779431042068,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f0efabefc8f162fb96b4e44b325f6fc2aac6f9e3",
-          "message": "feat: add ignoreImports option to exclude imports from duplication detection\n\nAdd `ignoreImports` config option and `--ignore-imports` CLI flag that\nstrips ES import declarations from the token stream before clone\ndetection. Reduces noise from sorted import blocks that naturally look\nsimilar across files.\n\nCloses #113",
-          "timestamp": "2026-04-13T19:56:18+02:00",
-          "tree_id": "c51384d5672b9ec0a8ded6962702190e1d8dc23f",
-          "url": "https://github.com/fallow-rs/fallow/commit/f0efabefc8f162fb96b4e44b325f6fc2aac6f9e3"
-        },
-        "date": 1776103062377,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2878,6 +2849,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c0b8ebb699a1e25657c537056cccde0e60323012"
         },
         "date": 1779427022116,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "60b197c329c3976c3ffd6bcdfd59d8228f790545",
+          "message": "fix(list): emit forward-slashed paths in --files and --entry-points JSON (#575)\n\nMirror the workspaces / nudge / rollup path-normalisation convention. fallow list --files --format json and --entry-points --format json projected per-path JSON without the .replace('\\\\', \"/\") that the workspaces array already applies, so consumers received backslashed paths on Windows. JSON output must be stable cross-platform for CI glob filters, MCP agents, and downstream pipelines.\n\nExisting list_files_includes_plugin_scoped_hidden_dirs_for_react_router and ..._for_remix tests already assert the forward-slash shape; they were silently passing on POSIX and failing on the push-to-main Windows matrix, so they are exactly the regression coverage.\n\nRefs #561",
+          "timestamp": "2026-05-22T07:21:41+01:00",
+          "tree_id": "6c086fec5003edd68a0e9ccc0eaa8ea6d2095fbf",
+          "url": "https://github.com/fallow-rs/fallow/commit/60b197c329c3976c3ffd6bcdfd59d8228f790545"
+        },
+        "date": 1779431040883,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
