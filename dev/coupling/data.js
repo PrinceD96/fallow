@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779432751384,
+  "lastUpdate": 1779432881108,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1ae2f7e6cc4ea56a5174fb156dd80074f715008b",
-          "message": "chore: release v2.28.1",
-          "timestamp": "2026-04-11T20:48:57+02:00",
-          "tree_id": "7aecae1d27deb3eb517de61519d8b98be6b0823b",
-          "url": "https://github.com/fallow-rs/fallow/commit/1ae2f7e6cc4ea56a5174fb156dd80074f715008b"
-        },
-        "date": 1775933482869,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 219,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 464,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4851,6 +4802,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4a3268f9785fdf864dedb7acc16eda9d58bdfb8c"
         },
         "date": 1779432749353,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 300,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 682,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ab27dc47ed26981eeacabf2540c688ac8f948d77",
+          "message": "fix(config): drop is_absolute gate from existing-entry dedup (#576)\n\nrecord_existing_file in crates/config/src/config_writer.rs skipped the dir-relative dedup key whenever the existing entry was not Path::is_absolute. On Windows that gate rejects POSIX-rooted paths like /project/src/a.ts because Windows requires a drive letter or UNC prefix for is_absolute, so a Linux-CI-written config silently lost its dedup signal on Windows and the writer appended a relative duplicate of every entry on every run.\n\nstrip_prefix already returns Err for entries that do not start with config_dir, so the absoluteness pre-gate is redundant. Drop it.\n\nSame class of fix as PR #574 (validate_coverage_root_absolute). Existing dedupes_existing_absolute_paths_against_relative_emissions tests are the regression coverage.\n\nRefs #561",
+          "timestamp": "2026-05-22T07:53:04+01:00",
+          "tree_id": "946d981ac402c01c1711f9297919d09691c0e5b1",
+          "url": "https://github.com/fallow-rs/fallow/commit/ab27dc47ed26981eeacabf2540c688ac8f948d77"
+        },
+        "date": 1779432879113,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
