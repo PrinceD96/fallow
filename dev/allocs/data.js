@@ -1,50 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779450626284,
+  "lastUpdate": 1779451952339,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "committer": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "distinct": true,
-          "id": "148a8d0fcf4e254145e71807e4705ebdaa09771e",
-          "message": "perf: eliminate O(n^2) patterns in analyze, cross-reference, and families\n\n- Pre-compile public_packages glob matchers once instead of per-workspace\n- Use FxHashSet for ignore_dependencies in find_type_only_dependencies\n  (was linear scan, matching sibling functions)\n- Build per-file index for cross_reference unused export lookup\n  (was O(clones * all_exports), now O(clones * per_file_exports))\n- Use FxHashMap for clone family grouping (was O(N*M) Vec scan)",
-          "timestamp": "2026-04-14T00:07:02+02:00",
-          "tree_id": "7f3d6bb02e974520337b1592e2d3ebe9dc4d90b2",
-          "url": "https://github.com/fallow-rs/fallow/commit/148a8d0fcf4e254145e71807e4705ebdaa09771e"
-        },
-        "date": 1776118298792,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3724079,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15490,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 578797,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5624,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4347,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6536,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e5e082abbfa94ce234d6a33036b38975e30fef9a",
+          "message": "chore: release v2.78.0",
+          "timestamp": "2026-05-22T14:10:23+02:00",
+          "tree_id": "7476225041fb4838486d000a08f8ab0de925903f",
+          "url": "https://github.com/fallow-rs/fallow/commit/e5e082abbfa94ce234d6a33036b38975e30fef9a"
+        },
+        "date": 1779451950533,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5142750,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27347,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 695643,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6529,
             "unit": "allocations"
           }
         ]
