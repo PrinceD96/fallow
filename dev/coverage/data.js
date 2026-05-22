@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779484435136,
+  "lastUpdate": 1779485572474,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "5c228a9bdc3ce5d2f65ec9c56cce52925a247fa9",
-          "message": "fix: resolve CI regressions on main",
-          "timestamp": "2026-04-16T16:36:04+02:00",
-          "tree_id": "b5d83a6d772586be73e5634e7e3d5dc7e0f6a48a",
-          "url": "https://github.com/fallow-rs/fallow/commit/5c228a9bdc3ce5d2f65ec9c56cce52925a247fa9"
-        },
-        "date": 1776350290009,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.1,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d7f0b1bab714f1781a84f0455d5e5a242ac177cb"
         },
         "date": 1779484433855,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "6d5b84cd74fbb99e839d1b75ff12933eb26c84b6",
+          "message": "chore: release v2.79.0",
+          "timestamp": "2026-05-22T23:29:18+02:00",
+          "tree_id": "d476e7566053f30eb08ef07ff88ca5fa1f716bff",
+          "url": "https://github.com/fallow-rs/fallow/commit/6d5b84cd74fbb99e839d1b75ff12933eb26c84b6"
+        },
+        "date": 1779485571209,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
