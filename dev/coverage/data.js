@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779468643506,
+  "lastUpdate": 1779469737502,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "fab9482b633f9d3a456f1f711831f1a0c6b93ddd",
-          "message": "fix: track fixture node_modules for bin-script-deps integration test\n\nThe bin-script-deps fixture needs stub node_modules entries so\nbuild_bin_to_package_map can resolve divergent binary names (attw ->\n@arethetypeswrong/cli). These were gitignored, causing the test to\npanic in CI.",
-          "timestamp": "2026-04-14T12:39:47+02:00",
-          "tree_id": "21da41a43ce6d1521aaf1c1c37950ee763f1fca0",
-          "url": "https://github.com/fallow-rs/fallow/commit/fab9482b633f9d3a456f1f711831f1a0c6b93ddd"
-        },
-        "date": 1776163354732,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/721f47b3d036b2582f6acd68b32693713dc71f0c"
         },
         "date": 1779468641323,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "7f89de4fc78789364b4d35df1a7e647ed783e316",
+          "message": "chore: release v2.78.1",
+          "timestamp": "2026-05-22T19:06:03+02:00",
+          "tree_id": "35d64bc4b79b7ac57ab36da1c73cfc80ecd3f260",
+          "url": "https://github.com/fallow-rs/fallow/commit/7f89de4fc78789364b4d35df1a7e647ed783e316"
+        },
+        "date": 1779469735280,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
