@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779439511290,
+  "lastUpdate": 1779449859360,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "8e38ff62d1daa5c4454569c8a3f3a921c84bc2d3",
-          "message": "chore: release v2.33.0",
-          "timestamp": "2026-04-13T19:57:50+02:00",
-          "tree_id": "9fa73cb7ce8a1bb5a4e79e6741fa6ff62a6da95e",
-          "url": "https://github.com/fallow-rs/fallow/commit/8e38ff62d1daa5c4454569c8a3f3a921c84bc2d3"
-        },
-        "date": 1776103187160,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3645737,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15340,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 542105,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5538,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4387,6 +4343,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6537,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "949013ad769c933b751d05d7726f68069b621be0",
+          "message": "fix(cli): silence Windows-only clippy lints that Rust 1.95 surfaced (#587)\n\ncargo clippy --workspace --all-targets -- -D warnings on the Windows runner failed with 6 errors that POSIX clippy never sees because the offending code is #[cfg(windows)]-gated:\n\naudit.rs:1644 - match_same_arms: named ERROR_ACCESS_DENIED arm documents the cross-session protected-process case; add #[expect(clippy::match_same_arms)].\nsignal/registry.rs:108,140 - unsafe_code on Win32 FFI blocks (OpenProcess/TerminateProcess/WaitForSingleObject/CloseHandle); add #[expect(unsafe_code)] to each enclosing function, mirroring the existing pattern around mod windows_process in audit.rs.\nsignal/windows.rs:38 - unsafe_code on the unsafe extern \"system\" fn handler PHANDLER_ROUTINE callback declaration; add #[expect(unsafe_code)] and rewrite the leading /// SAFETY: doc as a # Safety heading so unnecessary_safety_comment also clears.\nsignal/windows.rs:53 - unsafe_code on the SetConsoleCtrlHandler FFI call inside install().\n\nAll annotations use #[expect] (preferred over #[allow] per project convention) because the lint reliably fires whenever the gated code is compiled. POSIX clippy keeps green because the items are excluded.\n\nRefs #561",
+          "timestamp": "2026-05-22T12:35:32+01:00",
+          "tree_id": "fbd90a186af489a21671e25b341ca4c3b343c839",
+          "url": "https://github.com/fallow-rs/fallow/commit/949013ad769c933b751d05d7726f68069b621be0"
+        },
+        "date": 1779449857825,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5110766,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27331,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 705747,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6622,
             "unit": "allocations"
           }
         ]
