@@ -1,104 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779434818786,
+  "lastUpdate": 1779435911233,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f0efabefc8f162fb96b4e44b325f6fc2aac6f9e3",
-          "message": "feat: add ignoreImports option to exclude imports from duplication detection\n\nAdd `ignoreImports` config option and `--ignore-imports` CLI flag that\nstrips ES import declarations from the token stream before clone\ndetection. Reduces noise from sorted import blocks that naturally look\nsimilar across files.\n\nCloses #113",
-          "timestamp": "2026-04-13T19:56:18+02:00",
-          "tree_id": "c51384d5672b9ec0a8ded6962702190e1d8dc23f",
-          "url": "https://github.com/fallow-rs/fallow/commit/f0efabefc8f162fb96b4e44b325f6fc2aac6f9e3"
-        },
-        "date": 1776103235243,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 44712,
-            "range": "± 3944",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1783945,
-            "range": "± 28866",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3140598,
-            "range": "± 29114",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 16464411,
-            "range": "± 175254",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 104894,
-            "range": "± 5825",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2047,
-            "range": "± 25",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 212822,
-            "range": "± 3859",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 955074,
-            "range": "± 20664",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1746790,
-            "range": "± 151614",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 539448,
-            "range": "± 44517",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4239337,
-            "range": "± 51365",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2636834,
-            "range": "± 10065",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9935,6 +9839,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2994904,
             "range": "± 4054",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b49aeec7cdaaa3b235a3e80e5daebd5fbdbb6860",
+          "message": "test(core): normalise path separators in glimmer-path-aliases test (#581)\n\nglimmer_typescript_imports_use_tsconfig_path_aliases collected unused file paths without the .replace('\\\\', \"/\") normalisation that the sibling rootdirs_relative_imports_resolve_under_broken_extends_chain test applies. On Windows the stored paths use backslash separators, so the path.ends_with(\"app/services/unused-service.ts\") check returned false even though the path was present, and the assertion panicked. Add the same normalisation.\n\nPure test fix; no production change.\n\nRefs #561",
+          "timestamp": "2026-05-22T08:40:00+01:00",
+          "tree_id": "95ba0eab2ee0e37be484e56d364a7f8c10ec0a6f",
+          "url": "https://github.com/fallow-rs/fallow/commit/b49aeec7cdaaa3b235a3e80e5daebd5fbdbb6860"
+        },
+        "date": 1779435909197,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 59556,
+            "range": "± 1312",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3934493,
+            "range": "± 179628",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5234347,
+            "range": "± 168609",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 23134723,
+            "range": "± 578821",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 117355,
+            "range": "± 1179",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2203,
+            "range": "± 9",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 238189,
+            "range": "± 5624",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 1077071,
+            "range": "± 21146",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1525098,
+            "range": "± 14440",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 602834,
+            "range": "± 27813",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4389410,
+            "range": "± 69293",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 4384729,
+            "range": "± 117760",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 3023081,
+            "range": "± 35602",
             "unit": "ns/iter"
           }
         ]
