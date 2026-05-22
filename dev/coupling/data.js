@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779432510429,
+  "lastUpdate": 1779432751384,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e31cf48749026072c259b881e57ea8ac2c29a21b",
-          "message": "chore: release v2.28.0",
-          "timestamp": "2026-04-11T19:17:12+02:00",
-          "tree_id": "a95c524acd7646e6e5497c948ed25b591fd7e081",
-          "url": "https://github.com/fallow-rs/fallow/commit/e31cf48749026072c259b881e57ea8ac2c29a21b"
-        },
-        "date": 1775927928290,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 219,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 463,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4851,6 +4802,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7cd0a8655e814d0e0f82c54443d6b9af037a3577"
         },
         "date": 1779432509184,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 300,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 682,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4a3268f9785fdf864dedb7acc16eda9d58bdfb8c",
+          "message": "feat(cli): plumb --explain through human + combined JSON output\n\nIn human format, --explain now prints a Description: line under each\nsection header for check, dupes, and health (standalone, grouped, and\ncombined). Previously the flag was JSON-only and the human reference\ntables claimed descriptions were always shown, which was never true.\n\nIn combined JSON, --explain emits a sectioned _meta block with check,\ndupes, and health keys carrying their per-analysis rules, metrics, and\nfield definitions. The standalone _meta shapes are unchanged; combined\nmode just nests them under one analysis-keyed envelope so a single\nfetch covers every analysis the run produced.\n\nRegression coverage in crates/cli/tests/exit_code_tests.rs covers the\ncombined human path, the standalone human path, the --group-by human\npath, and the combined JSON _meta shape. Generated output contract +\ndocs/output-schema.json updated to match.\n\nFixes #559.",
+          "timestamp": "2026-05-22T07:51:20+01:00",
+          "tree_id": "8826fa30fd074c9299828cf0405dca953e961a84",
+          "url": "https://github.com/fallow-rs/fallow/commit/4a3268f9785fdf864dedb7acc16eda9d58bdfb8c"
+        },
+        "date": 1779432749353,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
