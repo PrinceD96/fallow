@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779476187761,
+  "lastUpdate": 1779478620501,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7b1c7d7d1d690641a6b6c3bae38b416b6487f21d",
-          "message": "fix: expand {projectRoot} and {workspaceRoot} tokens in Nx includePaths (#114)\n\nNx project.json uses {projectRoot} and {workspaceRoot} placeholder\ntokens in stylePreprocessorOptions.includePaths. These are now expanded\nbefore resolving SCSS include directories, fixing false unresolved\nimport reports in Angular+Nx monorepos.",
-          "timestamp": "2026-04-14T10:28:43+02:00",
-          "tree_id": "7815b65e705126ce64f70956f3bf1b53eef5caad",
-          "url": "https://github.com/fallow-rs/fallow/commit/7b1c7d7d1d690641a6b6c3bae38b416b6487f21d"
-        },
-        "date": 1776155425623,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3731639,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15498,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 578797,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5624,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6527,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "5a4bcc0b8c0498059a19894948d554e72716f746",
+          "message": "docs: reposition fallow as codebase intelligence",
+          "timestamp": "2026-05-22T21:34:50+02:00",
+          "tree_id": "b890279d99ac3adf9069bede3ddb65d93175a2ae",
+          "url": "https://github.com/fallow-rs/fallow/commit/5a4bcc0b8c0498059a19894948d554e72716f746"
+        },
+        "date": 1779478618686,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5122326,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27321,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 701991,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6540,
             "unit": "allocations"
           }
         ]
