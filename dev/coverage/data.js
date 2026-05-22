@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779476336616,
+  "lastUpdate": 1779478647453,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "a36a915fa5afbc806c186ad90f60f0563f24db66",
-          "message": "chore: release v2.36.0",
-          "timestamp": "2026-04-14T23:38:28+02:00",
-          "tree_id": "de2f70dfc477f5b74915f68c6e846838137ab119",
-          "url": "https://github.com/fallow-rs/fallow/commit/a36a915fa5afbc806c186ad90f60f0563f24db66"
-        },
-        "date": 1776202793268,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/99c5b45ee6cc068b55a0e064d3cc275a4ed7cd59"
         },
         "date": 1779476335155,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "5a4bcc0b8c0498059a19894948d554e72716f746",
+          "message": "docs: reposition fallow as codebase intelligence",
+          "timestamp": "2026-05-22T21:34:50+02:00",
+          "tree_id": "b890279d99ac3adf9069bede3ddb65d93175a2ae",
+          "url": "https://github.com/fallow-rs/fallow/commit/5a4bcc0b8c0498059a19894948d554e72716f746"
+        },
+        "date": 1779478646159,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
