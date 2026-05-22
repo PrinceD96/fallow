@@ -1,50 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779435761091,
+  "lastUpdate": 1779438033050,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "committer": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "distinct": true,
-          "id": "ea005f479a5a184cd55a9b98fa38d416dc28f00b",
-          "message": "chore: release v2.32.1",
-          "timestamp": "2026-04-13T14:16:33+02:00",
-          "tree_id": "33766a0603a3ac74230de23772a0c749721588eb",
-          "url": "https://github.com/fallow-rs/fallow/commit/ea005f479a5a184cd55a9b98fa38d416dc28f00b"
-        },
-        "date": 1776082866595,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3624841,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15300,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 542105,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5538,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4383,6 +4341,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6536,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "239f75a6d9704fadfe1db30ab14665a355ee673a",
+          "message": "fix(core): normalise path separators in trace::path_matches (#584)\n\npath_matches did byte-level string comparison between the filesystem-shaped module_path (backslash-separated on Windows) and the forward-slash-shaped user_path (the convention every cross-platform consumer uses, including the MCP server's trace_export / trace_file tools which pass src/utils.ts literally). On Windows the four comparisons all silently missed even when the file was in the graph, so fallow dead-code --trace src/utils.ts:foo returned \"no module found\" instead of the trace payload.\n\nNormalise both sides to forward slashes before each comparison; POSIX is a no-op. Two regression tests pin the fix using PathBuf::from(r\"D:\\\\a\\\\...\") raw-string Windows-shaped literals that work cross-platform.\n\nFixes the MCP e2e e2e_trace_export_returns_json and e2e_trace_file_returns_json failures.\n\nRefs #561",
+          "timestamp": "2026-05-22T09:18:24+01:00",
+          "tree_id": "cf4323d1cf6175e7c975e5e1f150d4aa803af4b2",
+          "url": "https://github.com/fallow-rs/fallow/commit/239f75a6d9704fadfe1db30ab14665a355ee673a"
+        },
+        "date": 1779438030935,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5110766,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27329,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 698602,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6559,
             "unit": "allocations"
           }
         ]
