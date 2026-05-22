@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779479578985,
+  "lastUpdate": 1779480460243,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "40c70bd59d5dec11828bc0d0745377720f205b85",
-          "message": "chore(ci): bump softprops/action-gh-release to v3.0.0\n\nv3.0.0 moves the action runtime from Node.js 20 to Node.js 24, silencing\nthe deprecation annotation emitted by GitHub Actions on recent releases.\nv3 is a pure runtime bump — no API changes, drop-in replacement. Pinned\nto commit SHA per fallow-rs supply-chain policy.\n\nAnnotation observed on the v2.37.0 release run (24442626182):\n> Node.js 20 actions are deprecated. Actions will be forced to run with\n> Node.js 24 by default starting June 2nd, 2026.\n\nRef: https://github.com/softprops/action-gh-release/releases/tag/v3.0.0",
-          "timestamp": "2026-04-15T10:16:59+02:00",
-          "tree_id": "feb6db986423d4796ec7d8e974bd5cde92d1e198",
-          "url": "https://github.com/fallow-rs/fallow/commit/40c70bd59d5dec11828bc0d0745377720f205b85"
-        },
-        "date": 1776241223852,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/325a409eef77c7686d2405500073fc662848da44"
         },
         "date": 1779479577639,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e63fbe4d1783276468f87bd81ca022fe8d7a5d48",
+          "message": "fix(cli): polish human summary output\n\nCombined human summary output now lets the combined renderer own the section headings while the per-analysis summary renderers suppress their duplicate titles. The report context carries that choice through dead-code, duplication, and health output without changing JSON or CI formats.\n\nExplain accepts issue labels split across words, so commands like `fallow explain unused files` resolve to the same rule metadata as the hyphenated form. Config-loaded notices are deduped by canonical config path so combined runs do not repeat the same line while separate configs still report independently.",
+          "timestamp": "2026-05-22T21:05:15+01:00",
+          "tree_id": "dcca61d3d8ed640dbc187769c5032fa093b32c53",
+          "url": "https://github.com/fallow-rs/fallow/commit/e63fbe4d1783276468f87bd81ca022fe8d7a5d48"
+        },
+        "date": 1779480458964,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
