@@ -1,50 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779438033050,
+  "lastUpdate": 1779439511290,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "committer": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "distinct": true,
-          "id": "ac43d767717fa11e1ed4d1537d378acf55ad9419",
-          "message": "fix: harden CI workflow permissions for OpenSSF Scorecard\n\nRemove unnecessary `deployments: write` from 7 benchmark/CI workflows\nsince benchmark-action only needs `contents: write` for gh-pages push.\n\nAdd top-level `permissions: {}` to test-action.yml and move\ndependabot-auto-merge.yml permissions from workflow to job level.",
-          "timestamp": "2026-04-13T15:32:46+02:00",
-          "tree_id": "001a4bc0c736b419b62c35796d92bf2c9ae1968a",
-          "url": "https://github.com/fallow-rs/fallow/commit/ac43d767717fa11e1ed4d1537d378acf55ad9419"
-        },
-        "date": 1776091166297,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3637409,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15322,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 542105,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5538,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4385,6 +4343,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6559,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d177bab8546290ca50321e3a8ab16d02ca74d456",
+          "message": "fix(core): serialise trace output PathBufs with serde_path forward-slash (#585)\n\nAttach #[serde(serialize_with = \"serde_path::serialize\")] to every single-PathBuf field and serialize_vec to every Vec<PathBuf> field in the trace output structs (ExportTrace, ExportReference, ReExportChain, FileTrace, TracedReExport, DependencyTrace, CloneTrace). After PR #584 fixed path_matches so the lookup succeeded on Windows, the output still serialised backslash-separated paths via serde's default, breaking JSON consumers (MCP agents, CI glob filters, downstream pipelines) that expect forward-slash. CloneInstance.file already used this convention; trace structs now match.\n\nTwo cross-platform regression tests build a backslash-shaped PathBuf literal and assert the JSON contains the forward-slash form for every newly-decorated field.\n\nFixes the remaining MCP e2e e2e_trace_export_returns_json and e2e_trace_file_returns_json failures.\n\nRefs #561",
+          "timestamp": "2026-05-22T09:43:06+01:00",
+          "tree_id": "fc7d1cc4e6428d6546c061d96045d4a1f4241da4",
+          "url": "https://github.com/fallow-rs/fallow/commit/d177bab8546290ca50321e3a8ab16d02ca74d456"
+        },
+        "date": 1779439509987,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5068782,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27298,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697503,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6537,
             "unit": "allocations"
           }
         ]
