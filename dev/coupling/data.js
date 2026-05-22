@@ -1,55 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779479291986,
+  "lastUpdate": 1779480396801,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "committer": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "distinct": true,
-          "id": "a9458e58fbb4d2943a732a5bc0f8f0be9dd929e1",
-          "message": "fix: use is_config_file predicate for workspace-level config detection (#112)\n\nAfter #111 narrowed PRODUCTION_EXCLUDE_PATTERNS from **/*.config.* to\n*.config.* (root-anchored), find_test_only_dependencies no longer matched\nworkspace-level config files like packages/foo/vitest.config.ts.\n\nAdd is_config_file() as an additional predicate alongside the glob match.\nThe curated predicate checks filenames against ~50 known config patterns\nat any depth, avoiding false matches on application configs like\napp.config.ts while correctly matching workspace-level tooling configs.\n\nCloses #112",
-          "timestamp": "2026-04-13T14:13:01+02:00",
-          "tree_id": "57e8c1bad9d7e2db0d2928e7bdd34287c0ae4068",
-          "url": "https://github.com/fallow-rs/fallow/commit/a9458e58fbb4d2943a732a5bc0f8f0be9dd929e1"
-        },
-        "date": 1776082587075,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 12,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 224,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 477,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4856,6 +4809,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/07b784a4b81c774ed3367b04678a2fa9c907ee05"
         },
         "date": 1779479289640,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 301,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 688,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e63fbe4d1783276468f87bd81ca022fe8d7a5d48",
+          "message": "fix(cli): polish human summary output\n\nCombined human summary output now lets the combined renderer own the section headings while the per-analysis summary renderers suppress their duplicate titles. The report context carries that choice through dead-code, duplication, and health output without changing JSON or CI formats.\n\nExplain accepts issue labels split across words, so commands like `fallow explain unused files` resolve to the same rule metadata as the hyphenated form. Config-loaded notices are deduped by canonical config path so combined runs do not repeat the same line while separate configs still report independently.",
+          "timestamp": "2026-05-22T21:05:15+01:00",
+          "tree_id": "dcca61d3d8ed640dbc187769c5032fa093b32c53",
+          "url": "https://github.com/fallow-rs/fallow/commit/e63fbe4d1783276468f87bd81ca022fe8d7a5d48"
+        },
+        "date": 1779480395412,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
