@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779479349108,
+  "lastUpdate": 1779479578985,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c07d06b0000536b69f883c56cb3ce95e4eea88f4",
-          "message": "chore: release v2.37.0",
-          "timestamp": "2026-04-15T09:39:07+02:00",
-          "tree_id": "fcd20f02d94471d15b576e6498af3f852217019b",
-          "url": "https://github.com/fallow-rs/fallow/commit/c07d06b0000536b69f883c56cb3ce95e4eea88f4"
-        },
-        "date": 1776239015855,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/07b784a4b81c774ed3367b04678a2fa9c907ee05"
         },
         "date": 1779479346986,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 90.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "325a409eef77c7686d2405500073fc662848da44",
+          "message": "docs(readme): improve CI integration docs\n\nExpand the README CI section around the current GitHub Action and GitLab template capabilities.\n\nDocument audit as the PR gate, richer Action modes, GitLab review envelope v2 behavior, Code Quality output, diff filtering, monorepo scoping, and runtime-backed health examples.",
+          "timestamp": "2026-05-22T21:50:23+02:00",
+          "tree_id": "3221affaf0e1d4267bc9d0167aafaf93426b30d7",
+          "url": "https://github.com/fallow-rs/fallow/commit/325a409eef77c7686d2405500073fc662848da44"
+        },
+        "date": 1779479577639,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
