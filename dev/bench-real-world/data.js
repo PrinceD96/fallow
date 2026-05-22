@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779360112368,
+  "lastUpdate": 1779445614039,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -2651,6 +2651,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 7057,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "d177bab8546290ca50321e3a8ab16d02ca74d456",
+          "message": "fix(core): serialise trace output PathBufs with serde_path forward-slash (#585)\n\nAttach #[serde(serialize_with = \"serde_path::serialize\")] to every single-PathBuf field and serialize_vec to every Vec<PathBuf> field in the trace output structs (ExportTrace, ExportReference, ReExportChain, FileTrace, TracedReExport, DependencyTrace, CloneTrace). After PR #584 fixed path_matches so the lookup succeeded on Windows, the output still serialised backslash-separated paths via serde's default, breaking JSON consumers (MCP agents, CI glob filters, downstream pipelines) that expect forward-slash. CloneInstance.file already used this convention; trace structs now match.\n\nTwo cross-platform regression tests build a backslash-shaped PathBuf literal and assert the JSON contains the forward-slash form for every newly-decorated field.\n\nFixes the remaining MCP e2e e2e_trace_export_returns_json and e2e_trace_file_returns_json failures.\n\nRefs #561",
+          "timestamp": "2026-05-22T08:43:06Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/d177bab8546290ca50321e3a8ab16d02ca74d456"
+        },
+        "date": 1779445612576,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 136,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 133,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 242,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 239,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 132,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 138,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 450,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 397,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 999,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 911,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 914,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 904,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 756,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 664,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 8107,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 7042,
             "unit": "ms"
           }
         ]
