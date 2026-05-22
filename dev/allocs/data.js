@@ -1,51 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779427011951,
+  "lastUpdate": 1779429404681,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "distinct": true,
-          "id": "7916cc5c85af7a96188948f16af08b69ef891f11",
-          "message": "docs: update detection.md with production mode config glob details (#111)",
-          "timestamp": "2026-04-13T09:53:29+02:00",
-          "tree_id": "8cf5ce3cb688b532a87caa723ccb599a82453f76",
-          "url": "https://github.com/fallow-rs/fallow/commit/7916cc5c85af7a96188948f16af08b69ef891f11"
-        },
-        "date": 1776066970648,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3637393,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15318,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 542105,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5538,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4366,6 +4323,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 27566,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 708883,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6796,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "30cd07215d3dba9d11a9c15c114d9ddc248bba1c",
+          "message": "fix(audit): accept root-anchored coverage-root prefix on Windows (#574)\n\nRelax validate_coverage_root_absolute to Path::has_root. validate_coverage_root_absolute previously checked Path::is_absolute, which on Windows requires a drive letter or UNC prefix. Linux-CI Istanbul data uses POSIX-shaped paths like /ci/workspace/src/index.ts, so --coverage-root /ci/workspace was the only shape that lined up with the data but was rejected with exit 2 on Windows. Path::has_root accepts both Windows-absolute and root-anchored POSIX prefixes while still rejecting truly-relative inputs.\n\nAdds POSIX unit tests for accept/reject/None paths, and cfg(windows) tests pinning that both shapes are accepted on Windows. The component-wise strip_prefix in load_istanbul_coverage tolerates either separator orientation, so no other call site changes.\n\nRefs #561",
+          "timestamp": "2026-05-22T06:54:39+01:00",
+          "tree_id": "b3aa48e7ef7fa5df45036fee83e7ea80da2743f7",
+          "url": "https://github.com/fallow-rs/fallow/commit/30cd07215d3dba9d11a9c15c114d9ddc248bba1c"
+        },
+        "date": 1779429403459,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5080530,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27565,
             "unit": "allocations"
           },
           {
