@@ -1,102 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779432767507,
+  "lastUpdate": 1779433114914,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "committer": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "distinct": true,
-          "id": "a9458e58fbb4d2943a732a5bc0f8f0be9dd929e1",
-          "message": "fix: use is_config_file predicate for workspace-level config detection (#112)\n\nAfter #111 narrowed PRODUCTION_EXCLUDE_PATTERNS from **/*.config.* to\n*.config.* (root-anchored), find_test_only_dependencies no longer matched\nworkspace-level config files like packages/foo/vitest.config.ts.\n\nAdd is_config_file() as an additional predicate alongside the glob match.\nThe curated predicate checks filenames against ~50 known config patterns\nat any depth, avoiding false matches on application configs like\napp.config.ts while correctly matching workspace-level tooling configs.\n\nCloses #112",
-          "timestamp": "2026-04-13T14:13:01+02:00",
-          "tree_id": "57e8c1bad9d7e2db0d2928e7bdd34287c0ae4068",
-          "url": "https://github.com/fallow-rs/fallow/commit/a9458e58fbb4d2943a732a5bc0f8f0be9dd929e1"
-        },
-        "date": 1776082779124,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 44833,
-            "range": "± 712",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 1772233,
-            "range": "± 22207",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 3153113,
-            "range": "± 37212",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 15885002,
-            "range": "± 327720",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 108495,
-            "range": "± 1559",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2093,
-            "range": "± 42",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 213603,
-            "range": "± 7215",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 955917,
-            "range": "± 9227",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1773269,
-            "range": "± 23565",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 537292,
-            "range": "± 29284",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4225125,
-            "range": "± 33422",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2650135,
-            "range": "± 18117",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9911,6 +9817,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2217950,
             "range": "± 11374",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4a3268f9785fdf864dedb7acc16eda9d58bdfb8c",
+          "message": "feat(cli): plumb --explain through human + combined JSON output\n\nIn human format, --explain now prints a Description: line under each\nsection header for check, dupes, and health (standalone, grouped, and\ncombined). Previously the flag was JSON-only and the human reference\ntables claimed descriptions were always shown, which was never true.\n\nIn combined JSON, --explain emits a sectioned _meta block with check,\ndupes, and health keys carrying their per-analysis rules, metrics, and\nfield definitions. The standalone _meta shapes are unchanged; combined\nmode just nests them under one analysis-keyed envelope so a single\nfetch covers every analysis the run produced.\n\nRegression coverage in crates/cli/tests/exit_code_tests.rs covers the\ncombined human path, the standalone human path, the --group-by human\npath, and the combined JSON _meta shape. Generated output contract +\ndocs/output-schema.json updated to match.\n\nFixes #559.",
+          "timestamp": "2026-05-22T07:51:20+01:00",
+          "tree_id": "8826fa30fd074c9299828cf0405dca953e961a84",
+          "url": "https://github.com/fallow-rs/fallow/commit/4a3268f9785fdf864dedb7acc16eda9d58bdfb8c"
+        },
+        "date": 1779433113019,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 59303,
+            "range": "± 1020",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3853687,
+            "range": "± 186600",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5071404,
+            "range": "± 173837",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 22981635,
+            "range": "± 441375",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 112873,
+            "range": "± 885",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2207,
+            "range": "± 24",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 237485,
+            "range": "± 7918",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 1076537,
+            "range": "± 9417",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1525673,
+            "range": "± 23993",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 583142,
+            "range": "± 11551",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4340818,
+            "range": "± 56046",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 4369798,
+            "range": "± 64756",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 3000354,
+            "range": "± 12188",
             "unit": "ns/iter"
           }
         ]
