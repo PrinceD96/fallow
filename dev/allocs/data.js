@@ -1,50 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779459487983,
+  "lastUpdate": 1779468603957,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "committer": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "distinct": true,
-          "id": "cfb451e3794e9c884a32cabfa39a317ef6c51ea8",
-          "message": "revert: remove unmeasured perf changes, keep parallel walker\n\nReverts the O(n^2) algorithmic fixes and export dedup that showed\nno measurable improvement on real projects or benchmarks. Keeps only\nthe parallel file walker and line_offsets borrow which had verified\nreal-world impact.\n\nReverted commits:\n- perf: eliminate O(n^2) patterns in analyze, cross-reference, and families\n- fix: add deterministic tiebreaker to clone family sort\n- perf: O(1) export name dedup in build_module_node",
-          "timestamp": "2026-04-14T00:19:10+02:00",
-          "tree_id": "5fe15b72345d2b3d48251d6c1cc5f39aeddddd3e",
-          "url": "https://github.com/fallow-rs/fallow/commit/cfb451e3794e9c884a32cabfa39a317ef6c51ea8"
-        },
-        "date": 1776119007138,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3738031,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15469,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 582941,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5626,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4393,6 +4351,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6535,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "721f47b3d036b2582f6acd68b32693713dc71f0c",
+          "message": "fix(cli): silence Windows-only dead_code on ScopedChild::id (#595)\n\nAfter PR #587 and b467e04c closed the bulk of the cfg(windows) clippy hits, one Rust 1.95 lint remained that POSIX clippy never sees: ScopedChild::id is consumed only by the cfg(unix) signal_test_helper in main.rs; on Windows the helper is excluded so the method has no caller. Tag with #[cfg_attr(not(unix), expect(dead_code))] to preserve the symmetric public surface for embedders rather than gating the method itself with #[cfg(unix)].\n\nPOSIX clippy + workspace tests stay green.\n\nRefs #561",
+          "timestamp": "2026-05-22T17:47:50+01:00",
+          "tree_id": "991866f70fad5320edde9b52b7ead5ebbaeb88f4",
+          "url": "https://github.com/fallow-rs/fallow/commit/721f47b3d036b2582f6acd68b32693713dc71f0c"
+        },
+        "date": 1779468602694,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5100966,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27321,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697847,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6538,
             "unit": "allocations"
           }
         ]
