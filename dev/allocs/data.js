@@ -1,50 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779468603957,
+  "lastUpdate": 1779469719765,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "committer": {
-            "email": "test@example.com",
-            "name": "Test User"
-          },
-          "distinct": true,
-          "id": "7b468e52310cf9a90e61e86fb8449ae5a2b224b8",
-          "message": "perf: share parsed modules between check and health in combined mode\n\nWhen running bare `fallow` (dead-code + dupes + health), the check\npipeline now parses with need_complexity=true and retains the\nmodules + discovered files. Health reuses them, skipping its own\ndiscovery and parse pass.\n\nOn next.js (21K files): eliminates ~374ms of redundant parsing.\nNet wall-clock savings ~250ms (complexity visitor adds ~100ms to\nthe check parse, offsetting part of the savings).",
-          "timestamp": "2026-04-14T07:29:58+02:00",
-          "tree_id": "3461b3f22786ecfa1f93d7345101797cc9734167",
-          "url": "https://github.com/fallow-rs/fallow/commit/7b468e52310cf9a90e61e86fb8449ae5a2b224b8"
-        },
-        "date": 1776144841489,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3713999,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15474,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 578797,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5624,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4395,6 +4353,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "7f89de4fc78789364b4d35df1a7e647ed783e316",
+          "message": "chore: release v2.78.1",
+          "timestamp": "2026-05-22T19:06:03+02:00",
+          "tree_id": "35d64bc4b79b7ac57ab36da1c73cfc80ecd3f260",
+          "url": "https://github.com/fallow-rs/fallow/commit/7f89de4fc78789364b4d35df1a7e647ed783e316"
+        },
+        "date": 1779469717167,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5127070,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27330,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 654063,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6039,
             "unit": "allocations"
           }
         ]
