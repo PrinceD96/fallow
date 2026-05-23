@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779521741565,
+  "lastUpdate": 1779546523584,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0368c055cc3f971a8569012544d528ead40a2a46",
-          "message": "fix: polish coverage input detection and docs",
-          "timestamp": "2026-04-16T16:01:45+02:00",
-          "tree_id": "eba619400b8fafafd59679f58dc2ea6048e81c38",
-          "url": "https://github.com/fallow-rs/fallow/commit/0368c055cc3f971a8569012544d528ead40a2a46"
-        },
-        "date": 1776348211490,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3710817,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15480,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 578797,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5624,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6537,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a13ec35cec22c6edab315ed472cd634d218f6451",
+          "message": "fix(extract): credit Node script runner entrypoints\n\nResolve extensionless package-script paths through directory index files after exact and extension fallback.\n\nCredit statically resolvable local child_process.fork runner targets from proven Node child_process imports and requires, including path.resolve(fileURLToPath(import.meta.url), ...).\n\nFixes #638.",
+          "timestamp": "2026-05-23T15:25:08+01:00",
+          "tree_id": "cc2a64b75e2862a036c38750f4687a0c2e105a93",
+          "url": "https://github.com/fallow-rs/fallow/commit/a13ec35cec22c6edab315ed472cd634d218f6451"
+        },
+        "date": 1779546522305,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5139287,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27687,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697883,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6539,
             "unit": "allocations"
           }
         ]
