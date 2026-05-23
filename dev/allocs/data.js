@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779547001572,
+  "lastUpdate": 1779548083102,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0936e8e8d02e6dcc211ce798f5c0f6ce2650dee6",
-          "message": "fix: stabilize remaining CI checks",
-          "timestamp": "2026-04-16T22:55:21+02:00",
-          "tree_id": "fbca194f0b389966642deb0400fcb8e052b7fb7d",
-          "url": "https://github.com/fallow-rs/fallow/commit/0936e8e8d02e6dcc211ce798f5c0f6ce2650dee6"
-        },
-        "date": 1776373026309,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3715793,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15475,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 578797,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5624,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6038,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ac81b9247538cf526db76f97dd2bf18a2f4dceb3",
+          "message": "fix(core): honor Wrangler config precedence\n\nMatch Wrangler's same-directory config selection before extracting worker main entries. Only the highest-precedence sibling config contributes main and environment main entry patterns, while all wrangler config files remain credited as used.\n\nPin Wrangler's current source order, json, jsonc, toml, with pairwise tests, a no-fallback presence test, non-sibling isolation, and an end-to-end unused-file regression for stale migration configs.\n\nFixes #630.",
+          "timestamp": "2026-05-23T15:52:30+01:00",
+          "tree_id": "fb031db1f013464842049888ef4d77509678aaaa",
+          "url": "https://github.com/fallow-rs/fallow/commit/ac81b9247538cf526db76f97dd2bf18a2f4dceb3"
+        },
+        "date": 1779548081151,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5144807,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27737,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697883,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6539,
             "unit": "allocations"
           }
         ]
