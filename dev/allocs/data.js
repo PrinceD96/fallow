@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779519027447,
+  "lastUpdate": 1779520001968,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "039fb44c1627d0512f7c578a0b7839b670219e85",
-          "message": "fix: stabilize production coverage health flow",
-          "timestamp": "2026-04-16T11:36:50+02:00",
-          "tree_id": "0b1acc311e2c78591ed966b8bc399ab48150fefe",
-          "url": "https://github.com/fallow-rs/fallow/commit/039fb44c1627d0512f7c578a0b7839b670219e85"
-        },
-        "date": 1776332474865,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3736249,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15473,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 582941,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5626,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6536,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a9cefb483b39a3fe21e171d56fa7def1dc4bace4",
+          "message": "fix(core): treat bare bun as builtin\n\nCloses #642.",
+          "timestamp": "2026-05-23T08:04:32+01:00",
+          "tree_id": "7ffcc0816f0bda828e6478c5186a364c86c15a22",
+          "url": "https://github.com/fallow-rs/fallow/commit/a9cefb483b39a3fe21e171d56fa7def1dc4bace4"
+        },
+        "date": 1779519999551,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5103023,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27560,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 649339,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6033,
             "unit": "allocations"
           }
         ]
