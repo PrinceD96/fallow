@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779548083102,
+  "lastUpdate": 1779557279844,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "23a90cc0da3a4f1bb8f850a33590ffd523819de9",
-          "message": "fix: address rust 1.95 clippy regressions",
-          "timestamp": "2026-04-16T23:04:42+02:00",
-          "tree_id": "a674c7987d4e8a369c8b3cadb2f84d0a10b3ce79",
-          "url": "https://github.com/fallow-rs/fallow/commit/23a90cc0da3a4f1bb8f850a33590ffd523819de9"
-        },
-        "date": 1776373588966,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3736472,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15446,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 576185,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5600,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 27737,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697883,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6539,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c82ba6ffbb26df4fa411b342fe3f0116e00b8eef",
+          "message": "feat: add optional review guidance\n\n* feat: add optional review guidance\n\n* test(ci): cover review guidance wiring",
+          "timestamp": "2026-05-23T18:25:52+01:00",
+          "tree_id": "3bb8bded8e399b9bc2fc1885ddabb9acbacb7aec",
+          "url": "https://github.com/fallow-rs/fallow/commit/c82ba6ffbb26df4fa411b342fe3f0116e00b8eef"
+        },
+        "date": 1779557278568,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5139119,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27732,
             "unit": "allocations"
           },
           {
