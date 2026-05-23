@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779518615893,
+  "lastUpdate": 1779519027447,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "77c956fb040565e5f76901e7380751f9da1a3ba7",
-          "message": "chore: release v2.38.0",
-          "timestamp": "2026-04-15T10:53:07+02:00",
-          "tree_id": "7227bcaf30f778bbce1d103164549f8397c31667",
-          "url": "https://github.com/fallow-rs/fallow/commit/77c956fb040565e5f76901e7380751f9da1a3ba7"
-        },
-        "date": 1776243297049,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3748545,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15489,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 582941,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5626,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2f8fc779cffcde8caf01b419a60e1017307a5a49",
+          "message": "fix(mdx): ignore imports inside documentation code fences\n\nMDX extraction previously treated import and export examples inside fenced Markdown blocks as executable top-level MDX statements. Documentation snippets that use virtual file boundaries could therefore create graph edges and false unresolved-import findings.\n\nTrack CommonMark-style backtick and tilde fences before the existing MDX statement extractor runs. Fenced blocks are skipped entirely, while real top-level MDX imports and exports continue through the same parser path.\n\nAdd unit, parser, and integration coverage for fenced examples, including a fixture that preserves a real top-level missing import as a control. Bump the extraction cache version so warm MDX cache entries are re-extracted on upgrade.\n\nFixes #639.",
+          "timestamp": "2026-05-23T07:47:09+01:00",
+          "tree_id": "a5459ca8fa383ccdc1ae4582d7cbe993efb94235",
+          "url": "https://github.com/fallow-rs/fallow/commit/2f8fc779cffcde8caf01b419a60e1017307a5a49"
+        },
+        "date": 1779519025804,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5088607,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27542,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697403,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6536,
             "unit": "allocations"
           }
         ]
