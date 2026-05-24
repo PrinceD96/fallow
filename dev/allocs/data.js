@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779557279844,
+  "lastUpdate": 1779607868399,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d6d73ac91d5af4878f7c4ec6f736e6c7b90c55a6",
-          "message": "fix: address rust 1.95 ci regressions\n\n- Swap Duration::from_secs for from_mins to satisfy the new\n  clippy::duration_suboptimal_units lint in 1.95.\n- Soft-fail the Module Coupling job: cargo-modules (via cargo_metadata)\n  still passes --lockfile-path to `cargo metadata`, which 1.95 removed.\n  Drop --locked to let a fixed cargo_metadata land, gate analyze/store\n  steps on actual graph collection, and mark the job continue-on-error\n  so this metric workflow does not block main while upstream catches up.",
-          "timestamp": "2026-04-16T23:30:56+02:00",
-          "tree_id": "08448ef675577b0c8d40790b78febab319a777fa",
-          "url": "https://github.com/fallow-rs/fallow/commit/d6d73ac91d5af4878f7c4ec6f736e6c7b90c55a6"
-        },
-        "date": 1776375168856,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3766049,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15518,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 582941,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5626,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6539,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4ce779558a06ddbe8cae6096de095b4fee39e9dd",
+          "message": "feat: add PR comment summary scope\n\n* chore: open issue #661 implementation branch\n\n* fix(ci): add diff scope for sticky summaries\n\n* test(ci): avoid racy summary scope env mutation",
+          "timestamp": "2026-05-24T08:28:55+01:00",
+          "tree_id": "4cc7a012a41ca56fae83a44ae06a2000ad424af2",
+          "url": "https://github.com/fallow-rs/fallow/commit/4ce779558a06ddbe8cae6096de095b4fee39e9dd"
+        },
+        "date": 1779607866270,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5149239,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27748,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697531,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6537,
             "unit": "allocations"
           }
         ]
