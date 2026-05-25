@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779712113929,
+  "lastUpdate": 1779714010691,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "raihassanraza10@gmail.com",
-            "name": "Muhammad Hassan Raza",
-            "username": "M-Hassan-Raza"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c7cfff394380542f9007e4162bb7f6a6bea0a5a2",
-          "message": "feat: add scoped usedClassMembers rules",
-          "timestamp": "2026-04-17T13:05:15+02:00",
-          "tree_id": "080fd1b8e9fcb7c514be06704e4412718a9d21da",
-          "url": "https://github.com/fallow-rs/fallow/commit/c7cfff394380542f9007e4162bb7f6a6bea0a5a2"
-        },
-        "date": 1776424017844,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3968805,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 17603,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 581221,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5624,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6539,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2f4a8313def90099019820c3e03ba0d571c5bdae",
+          "message": "fix: guard CachedModule cache shape\n\n* chore: open issue 443 implementation branch\n\n* fix: guard cached module shape",
+          "timestamp": "2026-05-25T13:57:59+01:00",
+          "tree_id": "a414603807ce9de5bc42c3bc5f3a639ecb8b0a68",
+          "url": "https://github.com/fallow-rs/fallow/commit/2f4a8313def90099019820c3e03ba0d571c5bdae"
+        },
+        "date": 1779714009046,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5154263,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27731,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 695679,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6530,
             "unit": "allocations"
           }
         ]
