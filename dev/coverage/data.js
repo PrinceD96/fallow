@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779718405943,
+  "lastUpdate": 1779733169609,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "96484ac412e8cc275af2729dc1b5ae75e3b0f154",
-          "message": "fix(action): verify npm binaries before execution (#488)\n\nAdds Ed25519 and GitHub Release SHA-256 checks for npm platform binaries, runs the GitHub Action verifier from the checked-out action after --ignore-scripts install, and preserves provenance-only npm publishing.\n\nFixes #465",
-          "timestamp": "2026-05-20T16:24:55+01:00",
-          "tree_id": "f7feb8208fdaee2c3f2a9933155ed9239fb5f9c6",
-          "url": "https://github.com/fallow-rs/fallow/commit/96484ac412e8cc275af2729dc1b5ae75e3b0f154"
-        },
-        "date": 1779290860332,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 91,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "32ba9d5bed686d80322176eebd695868c8061590",
+          "message": "fix: make coverage setup resumable\n\nPersist coverage setup progress in `.fallow/setup.json`, guard human setup runs with `.fallow/setup.lock`, and validate resume state against current project artifacts before skipping work.\n\nFixes #460.",
+          "timestamp": "2026-05-25T19:15:09+01:00",
+          "tree_id": "e9570c8b648845afc03c142805cdb7d5bc93d878",
+          "url": "https://github.com/fallow-rs/fallow/commit/32ba9d5bed686d80322176eebd695868c8061590"
+        },
+        "date": 1779733168313,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.4,
             "unit": "%"
           }
         ]
