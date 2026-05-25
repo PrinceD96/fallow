@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779744973314,
+  "lastUpdate": 1779745206797,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "54552a01e8b58619da71b45000d174ab28eafcad",
-          "message": "fix(ci): sync bundled gitlab template",
-          "timestamp": "2026-05-20T17:35:06+02:00",
-          "tree_id": "741872199ed7811f87f2567e9277a472722e06d1",
-          "url": "https://github.com/fallow-rs/fallow/commit/54552a01e8b58619da71b45000d174ab28eafcad"
-        },
-        "date": 1779291448904,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5091508,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27475,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 711736,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6830,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6539,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "295e2904232c41f81b021716955278d72c059e6b",
+          "message": "feat: add OpenCode plugin support\n\nAdds built-in OpenCode plugin support so OpenCode project plugin files and opencode.json plugin dependencies are treated as reachable.\n\nFixes #629.",
+          "timestamp": "2026-05-25T22:37:32+01:00",
+          "tree_id": "7794b0b1c5573b7148375d0a8fc6d6b0970773cd",
+          "url": "https://github.com/fallow-rs/fallow/commit/295e2904232c41f81b021716955278d72c059e6b"
+        },
+        "date": 1779745204514,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5112209,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27716,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697267,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6534,
             "unit": "allocations"
           }
         ]
