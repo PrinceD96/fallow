@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779714032488,
+  "lastUpdate": 1779716662697,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "25960fda32a6460c52f1fdd6c21d763eeec4f195",
-          "message": "chore(deps): bump similar from 2.7.0 to 3.1.0 (#439)\n\nBumps [similar](https://github.com/mitsuhiko/similar) from 2.7.0 to 3.1.0.\n- [Changelog](https://github.com/mitsuhiko/similar/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/mitsuhiko/similar/compare/2.7.0...3.1.0)\n\n---\nupdated-dependencies:\n- dependency-name: similar\n  dependency-version: 3.1.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
-          "timestamp": "2026-05-20T14:29:38+01:00",
-          "tree_id": "5e4bdef9c939bc84d2d0789ae62b869792b20c18",
-          "url": "https://github.com/fallow-rs/fallow/commit/25960fda32a6460c52f1fdd6c21d763eeec4f195"
-        },
-        "date": 1779284124822,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2f4a8313def90099019820c3e03ba0d571c5bdae"
         },
         "date": 1779714030703,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ba8a3d97556bc3271fdc634c333dcc2b19992970",
+          "message": "fix(ci): dogfood JS and TS surfaces\n\n* chore: open issue #483 implementation branch\n\n* fix(ci): dogfood JS and TS surfaces\n\nAdd a fallow-self-analyze CI job that builds the local fallow binary and runs dead-code analysis against the VS Code extension and npm wrapper package on relevant PRs and every push to main.\n\nConfigure each JavaScript and TypeScript surface with explicit entry points and warning-level intentional findings, preserve the existing VS Code package handling, and stop exporting the unused npm fetchReleaseDigest helper.\n\nWire npm wrapper unit tests into CI and document the self-analysis gate in the README and changelog.\n\nFixes #483.",
+          "timestamp": "2026-05-25T14:39:27+01:00",
+          "tree_id": "84ebfff940bc806dafd107d5d52cddd3ddf2423b",
+          "url": "https://github.com/fallow-rs/fallow/commit/ba8a3d97556bc3271fdc634c333dcc2b19992970"
+        },
+        "date": 1779716660477,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
