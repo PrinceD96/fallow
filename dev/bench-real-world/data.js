@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779614610578,
+  "lastUpdate": 1779707584079,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -2957,6 +2957,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 6742,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "04fc48077af977a27894861d8db1a7c4243c4640",
+          "message": "fix: recognize Danger and Stryker tooling configs\n\n* chore: open issue #618 implementation branch\n\n* fix: recognize Danger and Stryker tooling configs",
+          "timestamp": "2026-05-25T11:08:53Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/04fc48077af977a27894861d8db1a7c4243c4640"
+        },
+        "date": 1779707581524,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 133,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 131,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 247,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 229,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 132,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 126,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 436,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 350,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1104,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 997,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 904,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 918,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 759,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 679,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 7389,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 6727,
             "unit": "ms"
           }
         ]
