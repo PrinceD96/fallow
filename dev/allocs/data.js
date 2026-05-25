@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779708512015,
+  "lastUpdate": 1779710865072,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f1f24d2e54705609eff99ae6c1a476cd88d4ebfe",
-          "message": "chore: release v2.39.0",
-          "timestamp": "2026-04-17T11:24:26+02:00",
-          "tree_id": "cbf0e78ae13212f38bc1015ae94f86989b9f14b7",
-          "url": "https://github.com/fallow-rs/fallow/commit/f1f24d2e54705609eff99ae6c1a476cd88d4ebfe"
-        },
-        "date": 1776418117402,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3713209,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 15481,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 578797,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5624,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "77008265+pasTa4667@users.noreply.github.com",
+            "name": "pasTa",
+            "username": "pasTa4667"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "683ccdedea393f00b2ca6b7b57852b0db671d3e1",
+          "message": "fix(plugins): parse jsPlugins for oxlint config (#667)\n\nParse jsPlugins from .oxlintrc.json, oxlint.json, and oxlint.config.ts: credit string entries, alias-object specifier values, and tuple first-elements as npm dependencies; record relative/absolute plugin paths as setup files; ignore built-in plugin names.\n\nThanks @pasTa4667.\n\nCloses #607",
+          "timestamp": "2026-05-25T13:04:26+01:00",
+          "tree_id": "eff4e67a238a89e5c503cc2b6eeb43759e02b2a1",
+          "url": "https://github.com/fallow-rs/fallow/commit/683ccdedea393f00b2ca6b7b57852b0db671d3e1"
+        },
+        "date": 1779710862866,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5132991,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27726,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 705250,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6616,
             "unit": "allocations"
           }
         ]
