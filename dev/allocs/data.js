@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779716915450,
+  "lastUpdate": 1779717694409,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "987d9e205a120678411973bc90280cc3dc4ffcc8",
-          "message": "chore: release v2.40.0",
-          "timestamp": "2026-04-17T16:24:33+02:00",
-          "tree_id": "698e1d247e68134da994de20b7ff67fd6b5ae03c",
-          "url": "https://github.com/fallow-rs/fallow/commit/987d9e205a120678411973bc90280cc3dc4ffcc8"
-        },
-        "date": 1776436244447,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3962925,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 17595,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 581221,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5624,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c0f47b501edd68de711a5c59cdec99d52ef5e91b",
+          "message": "fix: harden programmatic napi analysis context\n\nAdd per-call Rayon pools for programmatic and N-API analyses so thread counts do not become first-call-wins process state.\n\nAdd programmatic diff_file and N-API diffFile, and thread explicit diff indexes through dead-code, duplication, and health execution without letting embedded callers fall back to the CLI shared diff cache.\n\nAdd regression coverage for CLI global parity, per-call thread counts, per-call diff scoping, shared-diff isolation, and Node diffFile usage.\n\nFixes #469.",
+          "timestamp": "2026-05-25T14:59:20+01:00",
+          "tree_id": "b3afbf6694de62a65356b73ca946001919187f5c",
+          "url": "https://github.com/fallow-rs/fallow/commit/c0f47b501edd68de711a5c59cdec99d52ef5e91b"
+        },
+        "date": 1779717691893,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5108175,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27705,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 649939,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6037,
             "unit": "allocations"
           }
         ]
