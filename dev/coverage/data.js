@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779733169609,
+  "lastUpdate": 1779733612472,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ddf12455f8bd9d65b2730e3ca105e0051224416b",
-          "message": "fix(action): keep smoke tests compatible before release\n\nResolve global npm optional packages from the installed fallow package directory and skip binary verification only in the Action self-test workflow, where checked-out verifier code can be newer than the published npm platform packages before the next release.",
-          "timestamp": "2026-05-20T17:27:20+02:00",
-          "tree_id": "b9d3b06333c2b19628f9984d3925b99df53a1ec9",
-          "url": "https://github.com/fallow-rs/fallow/commit/ddf12455f8bd9d65b2730e3ca105e0051224416b"
-        },
-        "date": 1779291006297,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/32ba9d5bed686d80322176eebd695868c8061590"
         },
         "date": 1779733168313,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3bbc57c10ff91d823d29d06779921330da07b935",
+          "message": "test: gate MCP tool default drift\n\nCloses #455",
+          "timestamp": "2026-05-25T19:24:23+01:00",
+          "tree_id": "92b272b9aed73a1a8ddcb463550cdeada56cee99",
+          "url": "https://github.com/fallow-rs/fallow/commit/3bbc57c10ff91d823d29d06779921330da07b935"
+        },
+        "date": 1779733610854,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
