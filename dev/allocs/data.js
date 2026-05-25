@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779718388744,
+  "lastUpdate": 1779732647759,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1419e2d3261b6864438808c237e1bdc60abd00f0",
-          "message": "chore: release v2.40.1",
-          "timestamp": "2026-04-17T17:45:57+02:00",
-          "tree_id": "ad63d6e2c67c46dd3a079b627c124440e722004a",
-          "url": "https://github.com/fallow-rs/fallow/commit/1419e2d3261b6864438808c237e1bdc60abd00f0"
-        },
-        "date": 1776441470207,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 3952837,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 17578,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 581221,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 5624,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6530,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "de21eb76e285ceb042bfb24a08cae294c60200fa",
+          "message": "fix: harden reconcile-review apply\n\n* chore: open issue #459 implementation branch\n\n* fix: make reconcile review apply fail fast",
+          "timestamp": "2026-05-25T19:08:44+01:00",
+          "tree_id": "6ac8bcc88c718f5e1778035edd064d95cba0bcf0",
+          "url": "https://github.com/fallow-rs/fallow/commit/de21eb76e285ceb042bfb24a08cae294c60200fa"
+        },
+        "date": 1779732646181,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5148775,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27745,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697259,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6533,
             "unit": "allocations"
           }
         ]
