@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779743907614,
+  "lastUpdate": 1779744188348,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "raihassanraza10@gmail.com",
-            "name": "Muhammad Hassan Raza",
-            "username": "M-Hassan-Raza"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b14fd612ce21ea710ee9c41860c24d73c14d0589",
-          "message": "fix(extract): barrel re-export member propagation, source-order-independent (#427)\n\nClass-inheritance and interface-implementer credit now walks re-export\norigins, so a child class extends BaseShape (or implements RenderableShape)\nthrough a contracts/index.ts barrel correctly credits the parent's this.*\naccesses on the actual defining file. The visitor also now resolves\nexport { X }; import { X } from './a'; (export-before-import) as a\nre-export instead of a local export, matching the existing import-before-\nexport behavior. A local declaration of X in the same module shadows the\nimport and keeps the export local.\n\nCACHE_VERSION bumped 83 to 84 so warm caches get the new ModuleInfo shape\non upgrade.\n\nThanks @M-Hassan-Raza for the patch.",
-          "timestamp": "2026-05-20T15:20:42+01:00",
-          "tree_id": "992b899202c8d6c9d38cd81a03c384a179f20b7f",
-          "url": "https://github.com/fallow-rs/fallow/commit/b14fd612ce21ea710ee9c41860c24d73c14d0589"
-        },
-        "date": 1779286984768,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5060772,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27444,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 708591,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6796,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6528,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1eafebd46c6c3aa7d88ddf7504aea857402c117d",
+          "message": "feat: add RedwoodSDK worker entrypoints\n\nAdd a built-in RedwoodSDK plugin activated by `rwsdk` that marks `src/worker.*` as a runtime entrypoint within the active workspace. Keep Vite config ownership with the existing Vite plugin so `rwsdk/vite` apps do not trigger config-pattern collisions.\n\nFixes #632.",
+          "timestamp": "2026-05-25T22:20:23+01:00",
+          "tree_id": "5e45b3ed56c62e94eb0e97d9f84c2fcc43767891",
+          "url": "https://github.com/fallow-rs/fallow/commit/1eafebd46c6c3aa7d88ddf7504aea857402c117d"
+        },
+        "date": 1779744185911,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5115751,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27704,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697395,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6535,
             "unit": "allocations"
           }
         ]
