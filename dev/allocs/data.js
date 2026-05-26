@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779749400251,
+  "lastUpdate": 1779771050754,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6bfda71d4bf4c04dc5b02ea7c88f273bbb14cb13",
-          "message": "fix(unused-class-members): credit Playwright POM methods via helper-function fixtures\n\nThe #268 fix correlated `const test = base.extend<MyFixtures>(...)` definitions\nwith their callback-side member uses, but the helper form (`export function\nappTest() { return base.extend<MyFixtures>(...); }` consumed as `appTest()(...)`)\nreintroduced the false positive on nested POM methods. Three declarator shapes\nnow capture the helper (function declaration, arrow expression, function\nexpression) when the body is a single `return <call>` statement; a finalize-time\npass gates the `base` local on `@playwright/test`'s `test` named import and\nemits the same def-sentinel `MemberAccess` the analyzer already correlates with\nuse sentinels. Same-file helper chains propagate via a capped fixed-point pass\nover `(caller, callee)` aliases. The use-side `appTest()(...)` form is\nrecognised by extending `playwright_test_callee_name` with a `CallExpression`\nrecursion arm. Cross-file helper chains are out of scope.\n\nBumps `CACHE_VERSION` to 86 so warm caches refresh on upgrade.\n\nFixes #491.",
-          "timestamp": "2026-05-20T20:56:00+01:00",
-          "tree_id": "9bd374296be7afbf2ac3acc6ae50499efaec28fa",
-          "url": "https://github.com/fallow-rs/fallow/commit/6bfda71d4bf4c04dc5b02ea7c88f273bbb14cb13"
-        },
-        "date": 1779307127628,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5076924,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27469,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 706459,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6796,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9de44d7faf6a0832739993df9829a11f5812ac2d",
+          "message": "chore: release v2.81.0",
+          "timestamp": "2026-05-26T06:48:04+02:00",
+          "tree_id": "c3d1de812df994e846909ad2229dcda901e8834f",
+          "url": "https://github.com/fallow-rs/fallow/commit/9de44d7faf6a0832739993df9829a11f5812ac2d"
+        },
+        "date": 1779771048847,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5183297,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 27773,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 699355,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6537,
             "unit": "allocations"
           }
         ]
