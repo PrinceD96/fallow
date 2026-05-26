@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779780012112,
+  "lastUpdate": 1779780311047,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6fd51d1802ec2c1e78944d839f761e1b2bdba63c",
-          "message": "test(stale-suppressions): relax exact-count assertion to lower bound\n\n`total_stale_suppressions_count` asserted `len() == 4` against the\nstale-suppressions fixture. Future additions to the fixture (or sibling\ntests that grow the fixture's stale surface) would break this test\nwithout surfacing a real regression. Each of the 4 documented findings\nis already covered by a dedicated presence assertion above, so the\ncount test's safety net is \"no expected finding is silently dropped\"\nwhich `>=` preserves.\n\nRelax the assertion to `>= 4` and update the rationale comment.",
-          "timestamp": "2026-05-21T10:47:16+01:00",
-          "tree_id": "9289079f54eb3cef4f1602224889c6a8892030e5",
-          "url": "https://github.com/fallow-rs/fallow/commit/6fd51d1802ec2c1e78944d839f761e1b2bdba63c"
-        },
-        "date": 1779357001175,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3c1b1c8e0a1736cc3dc26f7e2b01a6166a5c675e"
         },
         "date": 1779780010776,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "06a8a5766c29eae21ddd6a3b667f92fc79e6d23c",
+          "message": "chore(hooks): gate oxlint + oxfmt --check on staged JS/TS\n\nAdds a pre-commit branch that runs `npm run lint:js` and\n`npm run fmt:js:check` when this commit touches a `.js|.ts|.mjs|.cjs|\n.jsx|.tsx` file inside one of the lintable scopes (`npm/`, `benchmarks/`,\n`crates/napi/`, `.github/scripts/`, `editors/vscode/src/`,\n`commitlint.config.mjs`). Pure-Rust commits skip the JS gate so the\nhook stays fast.\n\nThis is the local pre-commit safety net that catches `freshEnv`-style\ndead code, single-vs-double quote drift, and `.sort()` misuse before\nthey reach CI. CodeQL already catches these post-merge; the hook moves\nthe catch one step earlier so users do not need to wait for CI.\n\nIf `node_modules/` is missing the hook aborts with an `npm install`\nhint rather than skipping silently, so the gate cannot be bypassed by\nforgetting to install.",
+          "timestamp": "2026-05-26T08:22:38+01:00",
+          "tree_id": "0fccec8eb0b910df9cab9cc9930a48b0daca927e",
+          "url": "https://github.com/fallow-rs/fallow/commit/06a8a5766c29eae21ddd6a3b667f92fc79e6d23c"
+        },
+        "date": 1779780309370,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
