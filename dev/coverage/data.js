@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779830511492,
+  "lastUpdate": 1779831408857,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6ef6a5c37f926961130baa5590890805e2e04598",
-          "message": "chore(ci): re-enable Windows in main Rust Check job on push to main\n\nThe `check` job in `.github/workflows/ci.yml` was hard-coded to\n`ubuntu-latest` to conserve CI minutes (per the comment block: \"Run\nmacos + windows locally before release\"). Reviewer enforcement is not\nenough: Windows-specific path bugs (backslash separators, UNC paths,\nlong-path `\\\\?\\` prefix, case insensitivity) only surfaced at release\ntime or via user reports (PR #55 history, ongoing case-sensitivity\nedge cases).\n\nExpand the matrix on push to `main` only, mirroring the structural\npattern already in use for the `zed` job at ci.yml:267. PR runs stay\nubuntu-only for fast feedback and to keep the April 2026 Actions\nbudget tightening (commit 7f2e61e6) honored. macOS stays out of the\nmatrix because it is a 10x multiplier vs Windows 2x; local pre-release\nruns continue to cover that platform.\n\nFixes #447.",
-          "timestamp": "2026-05-21T20:37:34+01:00",
-          "tree_id": "d459f638960716655f7af62adfdc21e6ad44e102",
-          "url": "https://github.com/fallow-rs/fallow/commit/6ef6a5c37f926961130baa5590890805e2e04598"
-        },
-        "date": 1779392394139,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1b91ccf1e04dc7dfb411d8fcca35315107b2f224"
         },
         "date": 1779830509282,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "033a5fa88d4e22320b737aa9f6b2d9035d9feb84",
+          "message": "fix: parse browser extension manifest entrypoints\n\n* chore: open issue #616 implementation branch\n\n* fix: parse browser extension manifest entrypoints",
+          "timestamp": "2026-05-26T22:32:35+01:00",
+          "tree_id": "fc86255d043ff905ac5c0f143dff28c19360e2d7",
+          "url": "https://github.com/fallow-rs/fallow/commit/033a5fa88d4e22320b737aa9f6b2d9035d9feb84"
+        },
+        "date": 1779831407411,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
