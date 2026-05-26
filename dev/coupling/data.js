@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779807805777,
+  "lastUpdate": 1779808738445,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7755f3637f5f5420f87c0ae37a99c18daf93e77e",
-          "message": "feat(audit): age-based GC for persistent reusable base-snapshot caches\n\n* feat(audit): age-based GC for persistent reusable base-snapshot caches\n\n`fallow audit` keys persistent worktree caches in\n`std::env::temp_dir()/fallow-audit-base-cache-<repo_hash>-<sha>`. Until\nnow these never expired: every distinct base SHA the user ever audited\naccumulated a cache entry, easily reaching hundreds of MB to multiple\nGB on developer machines after weeks of daily audits.\n\nAdd `sweep_old_reusable_caches` invoked at the top of `execute_audit`\nthat walks git-registered worktrees, filters to reusable cache paths,\nand removes entries whose sidecar `.last-used` mtime exceeds the\nconfigured age. The sidecar is touched on every cache-hit reuse so the\nstaleness signal stays current even when the cache directory itself\nis not mutated.\n\nConfiguration:\n- env: FALLOW_AUDIT_CACHE_MAX_AGE_DAYS (wins)\n- config: `audit.cacheMaxAgeDays` (Option<u32>)\n- default: 30 days\n- `0` from either source disables the sweep\n- Invalid env values silently fall back to config / default\n\nConcurrency invariants:\n- Each candidate is gated by `ReusableWorktreeLock::try_acquire`; the\n  sweep skips on contention so an in-flight `fallow audit` mid-rebuild\n  is not disturbed.\n- The `.lock` file is NEVER deleted. An unlinked-but-still-flocked\n  inode plus a racer's `open(O_CREAT)` at the same path would produce\n  two processes each holding a kernel flock on different inodes. Lock\n  files are tens of bytes; leaking them is harmless.\n\nPre-upgrade grace: existing caches lacking a sidecar (created before\nthis feature shipped) are NOT removed on first encounter; instead the\nsweep seeds a fresh sidecar so the next invocation can age from real\nlast-use. Without this grace, the dir's own mtime (= creation date on\nPOSIX) would wipe every legitimately-warm pre-upgrade cache on the\nfirst run after upgrade.\n\nObservability: per-entry removal failures emit `tracing::warn!`; the\nsweep emits a `tracing::info!` summary line on non-empty reclaim and\na stderr \"fallow: reclaimed N stale base-snapshot caches\" when\n`!opts.quiet`.\n\nFixes #498\n\n* docs(audit): document #498 GC threshold env var + config field\n\n- CHANGELOG.md: user-facing bold entry under [Unreleased] Fixed.\n- .claude/rules/cli-crate.md: env var section + audit.rs bullet (#498 lifecycle).\n- docs/backwards-compatibility.md: list FALLOW_AUDIT_CACHE_MAX_AGE_DAYS as stable.\n- schema.json: regenerated from updated AuditConfig.\n\nRefs #498\n\n* fix(audit): only count actually-removed cache entries in reclaim summary\n\nrust-reviewer flagged that `removed += 1` unconditionally incremented\nthe counter after the `remove_dir_all` match block. When the directory\nsurvived removal (the `warn!` branch), the summary line \"fallow:\nreclaimed N stale base-snapshot caches\" and the `tracing::info!` event\nboth over-counted by including entries whose on-disk content was NOT\nactually reclaimed. The git registration cleanup still happens in that\nbranch (via the preceding `remove_audit_worktree`), so `git worktree\nprune` remains correct; only the user-facing count was misleading.\n\nTrack dir-removal success and only bump the counter on Ok / NotFound.\n\nRefs #498\n\n* fix(audit): stamp sidecar on fresh-create so age is measured from creation\n\n`AuditConfig::cache_max_age_days`'s docstring contract reads\n\"Maximum age (in days since last reuse or fresh create)\". The shipped\ncode touched the sidecar on the cache-hit branch only, leaving every\nfreshly-created cache without a sidecar until the NEXT audit\ninvocation grace-seeded it. For one-off base SHAs the cache would\nsurvive the first stale sweep regardless of age; for users who run\naudit infrequently the documented 30-day window expanded into\n\"30 days starting from the next audit run\", silently doubling the\neffective lifespan.\n\nStamp the sidecar at the end of the fresh-create branch in\n`BaseWorktree::reuse_or_create`, mirroring what the cache-hit branch\nalready does. The sweep's sidecar-absent grace path is still\nload-bearing for pre-upgrade caches created before this feature\nshipped (it seeds them on first encounter rather than wiping).\n\nAdd a regression test that pins both halves of the contract: a fresh\n`reuse_or_create` writes a near-now sidecar AND backdating that\nsidecar causes the next sweep to actually remove the entry.\n\nRefs #498\n\n* docs(rules): drop em-dash on touched audit.rs bullet in cli-crate.md\n\nCLAUDE.md style rule forbids em-dashes in any output. My #498 edit\nappended an \"Age-based GC\" paragraph to the audit.rs bullet, which\nre-emits the bullet's leading \"audit.rs — Audit command:\" through git\ndiff. Swap that em-dash for a colon + parenthesis on the line I\ntouched so the diff is em-dash-clean. Other untouched bullets in the\nsame file retain their em-dashes (drive-by reformatting is out of\nscope for this PR).",
-          "timestamp": "2026-05-21T14:45:20+01:00",
-          "tree_id": "361bacc1b8750cb701ca6ac8f280b6d04b45776c",
-          "url": "https://github.com/fallow-rs/fallow/commit/7755f3637f5f5420f87c0ae37a99c18daf93e77e"
-        },
-        "date": 1779371346853,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 20,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 19,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 298,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 676,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/61a391d392dd1485fb56625cd8fcf33bf6eceb25"
         },
         "date": 1779807804047,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 314,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 722,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3f54a2d2656a3ae0fde8693486e738f2a66d75fa",
+          "message": "feat(plugins): parse ng-packagr ng-package.json lib.entryFile as Angular library public API (#703)\n\nThe Angular plugin now reads lib.entryFile from ng-package.json /\nng-package.prod.json and treats it as a package entry point, resolved\nrelative to the config directory. ng-packagr, not the app graph, consumes\nthat file, so previously the public-api entry file surfaced as unused-file\nand its re-exported symbols as unused-export.\n\nWhen lib.entryFile is omitted it falls back to ng-packagr's schema default\nsrc/public_api.ts (underscore, per ng-package.schema.json; hyphenated\npublic-api.ts libraries set entryFile explicitly). Nested\nsecondary-entry-point configs in the package subtree are scanned too\n(bounded depth, skipping node_modules/dist/out/tmp/coverage/hidden dirs;\nsame-directory siblings left to config discovery). The plugin also\nactivates on a ng-packagr dependency in addition to @angular/core;\nenabler detection reads peerDependencies.\n\nVerified on unjs/unhead packages/angular: the primary entry plus the\nclient/server secondary entries (12 angular findings) flip from unused to\nused with zero collateral elsewhere. Benchmark counts unchanged on all\nfixtures (the path is gated behind Angular enablers + ng-package*.json).\n\nFixes #606",
+          "timestamp": "2026-05-26T16:17:52+01:00",
+          "tree_id": "c902536473f52db8fb02af22cf0db13168b4f331",
+          "url": "https://github.com/fallow-rs/fallow/commit/3f54a2d2656a3ae0fde8693486e738f2a66d75fa"
+        },
+        "date": 1779808736952,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
