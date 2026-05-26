@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779816568272,
+  "lastUpdate": 1779819810639,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "fed4b483dd1cbba8c1f55dcfe5b9599c389f95a8",
-          "message": "chore: release v2.77.0",
-          "timestamp": "2026-05-21T19:42:46+02:00",
-          "tree_id": "1f9b319f425e05d1da67a05a3cdf791363e2fc06",
-          "url": "https://github.com/fallow-rs/fallow/commit/fed4b483dd1cbba8c1f55dcfe5b9599c389f95a8"
-        },
-        "date": 1779385781043,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b00e97c1253cf5fbf986dbf11baea64d4c8f9236"
         },
         "date": 1779816565801,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0aecb80c6f7f7346cc46d4dd45790b2852d73c7f",
+          "message": "fix(npm): swallow EPIPE on wrapper stdout so piped --version exits clean\n\nThe bin wrapper writes a trailing `verified:` status line to stdout after the\nchild binary exits. When stdout is piped to a reader that closes early (e.g.\n`fallow --version | head`), that write surfaced as an unhandled EPIPE 'error'\nevent and dumped a Node stack trace.\n\nEPIPE arrives asynchronously as an 'error' event on the stdout stream, not as a\nthrow, so a try/catch around the write cannot catch it. Install a stdout 'error'\nhandler that exits cleanly on EPIPE and rethrows every other code. Scoped to\nstdout so a genuine verification-failure write to stderr still exits 1.",
+          "timestamp": "2026-05-26T20:20:37+02:00",
+          "tree_id": "4783db8ace9868a519ed52b2180c9ed2cad55225",
+          "url": "https://github.com/fallow-rs/fallow/commit/0aecb80c6f7f7346cc46d4dd45790b2852d73c7f"
+        },
+        "date": 1779819808888,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
