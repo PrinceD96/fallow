@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779866344362,
+  "lastUpdate": 1779867135117,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ab27bcfbf1607f145649d52ed95777f50221710a",
-          "message": "fix(audit): strip Windows verbatim prefix at git_toplevel for --changed-since + audit\n\nThe real Windows-only bug behind #561 (the dunce::simplified fix in\n40b000f8 was a real correctness improvement but not load-bearing for\nthis issue): `resolve_git_toplevel` in `crates/core/src/changed_files.rs`\nused `std::fs::canonicalize`, which on Windows adds the `\\\\?\\`\nverbatim prefix to its result. Every path from `git diff --name-only`\ngot joined onto this verbatim-prefixed toplevel, producing\nchanged-files paths shaped like `\\\\?\\C:\\Users\\...\\Temp\\test\\src\\foo.ts`.\n\nDownstream `strip_prefix` comparisons against `opts.root` (the CLI's\nproject root from clap, which carries NO verbatim prefix) walk the\ncomponent graph and see `Prefix(VerbatimDisk('C'))` against\n`Prefix(Disk('C'))`. They are not equal. Every entry in the\nchanged-files set silently failed the prefix check, the focus filter\ndropped EVERY finding before the audit attribution pass ran, and\naudit reported 0 pre-existing findings.\n\nThat's the root cause of the 8 audit integration tests in\n`crates/cli/tests/audit_tests.rs` that report\n`expected at least 5 pre-existing unused exports, got 0` on Windows.\nThree sites switch from `std::fs::canonicalize` to\n`dunce::canonicalize`:\n\n- `crates/core/src/changed_files.rs::resolve_git_toplevel`\n- `crates/cli/src/audit.rs::git_toplevel`\n- `crates/cli/src/audit.rs::base_analysis_root` (current_root)\n\n`dunce::canonicalize` strips the `\\\\?\\` prefix on Windows and is\nidentical to `std::fs::canonicalize` on POSIX, so behaviour off\nWindows is unchanged.\n\nRefs #561, #447, #545.",
-          "timestamp": "2026-05-21T23:06:17+01:00",
-          "tree_id": "35c4d13c1fcdbff03c98af73fb387f21669ce563",
-          "url": "https://github.com/fallow-rs/fallow/commit/ab27bcfbf1607f145649d52ed95777f50221710a"
-        },
-        "date": 1779401641101,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 42384,
-            "range": "± 1495",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3675001,
-            "range": "± 144546",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 4940754,
-            "range": "± 159753",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 22606766,
-            "range": "± 338974",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 110589,
-            "range": "± 1133",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2308,
-            "range": "± 34",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 184221,
-            "range": "± 9886",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 815777,
-            "range": "± 3270",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1308100,
-            "range": "± 19490",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 527999,
-            "range": "± 16774",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3281796,
-            "range": "± 36457",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 3325948,
-            "range": "± 30981",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2225803,
-            "range": "± 14197",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2964751,
             "range": "± 7850",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "abba841bd3bf1aa319a0c82726365cb55314511a",
+          "message": "feat: add Contentlayer plugin\n\nAdd a built-in Contentlayer plugin that activates from Contentlayer and next-contentlayer packages or a root config file. The plugin keeps Contentlayer config files, generated .contentlayer modules, and static content roots reachable without requiring users to hand-maintain entry globs.\n\nThe config resolver credits imported packages and extracts static contentDirPath plus same-file defineDocumentType filePathPattern literals. Dynamic config execution and cross-file document type evaluation stay out of scope so the plugin avoids broad over-crediting.\n\nFixes #610.",
+          "timestamp": "2026-05-27T08:27:32+01:00",
+          "tree_id": "01b5ccc9ec41a775ec7d38ec34713f362432777b",
+          "url": "https://github.com/fallow-rs/fallow/commit/abba841bd3bf1aa319a0c82726365cb55314511a"
+        },
+        "date": 1779867132872,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 35121,
+            "range": "± 1118",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3127620,
+            "range": "± 99640",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 4560195,
+            "range": "± 110141",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 23229744,
+            "range": "± 567579",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 84653,
+            "range": "± 1515",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 1793,
+            "range": "± 39",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 143416,
+            "range": "± 8921",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 638183,
+            "range": "± 8387",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1027185,
+            "range": "± 29223",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 423514,
+            "range": "± 28340",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 2577881,
+            "range": "± 61909",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 2589628,
+            "range": "± 54741",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 1734408,
+            "range": "± 24913",
             "unit": "ns/iter"
           }
         ]
