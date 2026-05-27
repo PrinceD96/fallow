@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779866183839,
+  "lastUpdate": 1779867005967,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "fed4b483dd1cbba8c1f55dcfe5b9599c389f95a8",
-          "message": "chore: release v2.77.0",
-          "timestamp": "2026-05-21T19:42:46+02:00",
-          "tree_id": "1f9b319f425e05d1da67a05a3cdf791363e2fc06",
-          "url": "https://github.com/fallow-rs/fallow/commit/fed4b483dd1cbba8c1f55dcfe5b9599c389f95a8"
-        },
-        "date": 1779385769057,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5091802,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27580,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 711059,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6796,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6539,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "abba841bd3bf1aa319a0c82726365cb55314511a",
+          "message": "feat: add Contentlayer plugin\n\nAdd a built-in Contentlayer plugin that activates from Contentlayer and next-contentlayer packages or a root config file. The plugin keeps Contentlayer config files, generated .contentlayer modules, and static content roots reachable without requiring users to hand-maintain entry globs.\n\nThe config resolver credits imported packages and extracts static contentDirPath plus same-file defineDocumentType filePathPattern literals. Dynamic config execution and cross-file document type evaluation stay out of scope so the plugin avoids broad over-crediting.\n\nFixes #610.",
+          "timestamp": "2026-05-27T08:27:32+01:00",
+          "tree_id": "01b5ccc9ec41a775ec7d38ec34713f362432777b",
+          "url": "https://github.com/fallow-rs/fallow/commit/abba841bd3bf1aa319a0c82726365cb55314511a"
+        },
+        "date": 1779867003107,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5345644,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30162,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 700103,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6536,
             "unit": "allocations"
           }
         ]
