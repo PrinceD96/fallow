@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779867005967,
+  "lastUpdate": 1779868498977,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b16f3cdf097edf08def56aef0584d12160135067",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.77.0",
-          "timestamp": "2026-05-21T21:07:36+02:00",
-          "tree_id": "9e30bd688dac06bc66a225b18893caf378beb1fd",
-          "url": "https://github.com/fallow-rs/fallow/commit/b16f3cdf097edf08def56aef0584d12160135067"
-        },
-        "date": 1779390583086,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5104426,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27576,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 710595,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6794,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6536,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "041b717044b03317649fdedb2c21681f340cca2c",
+          "message": "fix(health): sort file scores by triage concern and tag the driver\n\nSort file health scores by risk-aware triage concern instead of bare Maintainability Index, tag each human-table row with the signal that placed it, and break equal-concern ties by raw CRAP so the visible Risk column reads top-down.\n\nFixes #554.",
+          "timestamp": "2026-05-27T08:52:18+01:00",
+          "tree_id": "9ee977478dd6ebd1c8d2f77d2da6d558cd874a12",
+          "url": "https://github.com/fallow-rs/fallow/commit/041b717044b03317649fdedb2c21681f340cca2c"
+        },
+        "date": 1779868496668,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5350956,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30173,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 699819,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6535,
             "unit": "allocations"
           }
         ]
