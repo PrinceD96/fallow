@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779869842312,
+  "lastUpdate": 1779872507942,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b3b1ae8a68f99860c2304953c362e0b7ec749e10",
-          "message": "chore(cli): route dupes + health file headers through format_display_path\n\nFollow-up to #547. Two human-output sites (`dupes.rs:240`,\n`health.rs:861`) still rendered file paths via\n`relative_path(...).display().to_string()` without forward-slash\nnormalisation, so on Windows the dupes section and the complexity\nfindings file header emitted backslashes while the four #547 sites\nemitted forward slashes within the same combined run. Routing both\nsites through the shared `format_display_path` helper closes the\ncross-line inconsistency without changing macOS or Linux output. No\nJSON / SARIF / CodeClimate / MCP shape changes.\n\nSurfaced by the cli-output-reviewer pass on #547 as a non-blocking\nfollow-up.",
-          "timestamp": "2026-05-21T23:09:41+01:00",
-          "tree_id": "4ac2d1de841155d0fc85ff14d210933dc66ab3bf",
-          "url": "https://github.com/fallow-rs/fallow/commit/b3b1ae8a68f99860c2304953c362e0b7ec749e10"
-        },
-        "date": 1779401673309,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b98ab0c3d4ff232a87857241b491e29b63d121f4"
         },
         "date": 1779869840894,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "580ffd209ec33d6d8bd9dcbb746d7180091e2ef4",
+          "message": "feat(action): configure artifact paths\n\n* chore: open issue #735 implementation branch\n\n* feat(action): configure artifact paths",
+          "timestamp": "2026-05-27T09:59:05+01:00",
+          "tree_id": "7feb0317c89b7c45383a31941519e0076259f55c",
+          "url": "https://github.com/fallow-rs/fallow/commit/580ffd209ec33d6d8bd9dcbb746d7180091e2ef4"
+        },
+        "date": 1779872505585,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
