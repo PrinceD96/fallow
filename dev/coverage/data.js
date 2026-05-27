@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779866212352,
+  "lastUpdate": 1779866767419,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "936fee7235c98eb460b9726c90ca418cdce6fe03",
-          "message": "fix(cli): group top-level help commands",
-          "timestamp": "2026-05-21T23:45:56+02:00",
-          "tree_id": "8334c179a9f5e820c0ea25d8959ad8c474100b87",
-          "url": "https://github.com/fallow-rs/fallow/commit/936fee7235c98eb460b9726c90ca418cdce6fe03"
-        },
-        "date": 1779400132088,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/26635fbe5f2fcc92badc4a78c48d135d35874e8f"
         },
         "date": 1779866210357,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "33806186d4bb583820240153132fd00dbfe14b11",
+          "message": "feat: add public Fallow config corpus\n\n* chore: open issue 603 implementation branch\n\n* feat: add public config corpus tooling\n\n* fix(corpus): bound public config search subprocess\n\nAdd a timeout for the GitHub code-search subprocess so corpus generation cannot hang before raw config fetches begin. Surface search failures as a concise exit-2 error instead of a Python traceback.\n\nCover timeout validation in the offline fixture harness and document the live-run timeout flags.",
+          "timestamp": "2026-05-27T08:23:26+01:00",
+          "tree_id": "50b68b43f78151cb87f152c3858ca58c99f7e38a",
+          "url": "https://github.com/fallow-rs/fallow/commit/33806186d4bb583820240153132fd00dbfe14b11"
+        },
+        "date": 1779866765913,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
