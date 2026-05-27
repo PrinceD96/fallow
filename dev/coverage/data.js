@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779832681248,
+  "lastUpdate": 1779860363259,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "429b178122f56c4feea4fd173318547b67118d78",
-          "message": "fix(extract): strip @layer/@import preludes before CSS Modules class scan\n\n* fix(extract): strip @layer/@import preludes before CSS Modules class scan\n\nFixes #540. CSS Modules files using nested cascade-layer syntax\n(`@layer foo.bar { ... }`) previously reported phantom `unused-export`\nfindings on every sub-segment of the layer name because the class scanner\ntokenised every `.<ident>` pattern as a class selector regardless of\nsyntactic context.\n\nThe fix introduces a narrow at-rule prelude strip that runs after string\nand url() removal but before the class regex. The regex\n`@(?:layer|import)\\b[^;{]*` matches the keyword plus the prelude\n(everything up to `;` or `{`) so block bodies are preserved. Only\n`@layer` and `@import` are in the allowlist: their preludes carry\ndot-separated layer names (`@layer foo.bar`, `@import url(x.css)\nlayer(theme.button)`) with no selector semantics. `@scope (.foo) to\n(.bar)` and every other at-rule keep today's behavior, because their\nprelude classes ARE genuine selector references.\n\nCACHE_VERSION bumps 89 to 90 so warm caches do not return the phantom\nexports after upgrade.\n\nTests cover the bug (statement / list / block / nested @media variants),\nthe no-regression contract (`@media`, `@scope`, `@-webkit-keyframes`,\nmulti-line preludes, class-then-at-rule on same line, `@keyframes` with\nnumeric `.5` literal), and the integration-level reproduction from the\nissue body verbatim.\n\nCloses #540\n\n* test(extract): add multiline @layer prelude test, clarify @media test comment\n\nTwo amendments from rust-reviewer on the #540 fix:\n\n1. `classes_inside_multi_line_media_query` previously claimed to validate the\n   new at-rule prelude regex's newline handling, but `@media` is not in the\n   allowlist so the new regex never fires on it. Rewrote the comment to make\n   clear that test guards the pre-existing scanner behavior.\n\n2. Added `at_layer_multiline_prelude_keeps_body_classes` to actually exercise\n   the new regex's multi-line behavior with a layer name split across lines.\n\nRefs #540\n\n* docs(changelog): add CSS Modules @layer prelude fix entry under Unreleased (#540)\n\n* docs(rules): add detection.md bullet for @layer/@import prelude strip (#540)",
-          "timestamp": "2026-05-21T21:29:25+01:00",
-          "tree_id": "19185e0d04e38ec8e424493aa3d0cd9bb9f97d8e",
-          "url": "https://github.com/fallow-rs/fallow/commit/429b178122f56c4feea4fd173318547b67118d78"
-        },
-        "date": 1779395513990,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d8c40a1ab4032ae94dc415f72031ddc8fa528210"
         },
         "date": 1779832678871,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a2ece98c46f8e93d64e1f9f821211117e28f7282",
+          "message": "feat: add WXT plugin\n\n* chore: open issue #612 implementation branch\n\n* feat: add WXT plugin",
+          "timestamp": "2026-05-27T06:34:14+01:00",
+          "tree_id": "90eb1bd388bbf7fb26f8d1cdb5d367d93c5eee01",
+          "url": "https://github.com/fallow-rs/fallow/commit/a2ece98c46f8e93d64e1f9f821211117e28f7282"
+        },
+        "date": 1779860361767,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
