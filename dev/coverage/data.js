@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779862292297,
+  "lastUpdate": 1779866212352,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9cdae3051c30dcd052453fd2595f4e312dd4bf0a",
-          "message": "fix(ci): bump Windows fallow binary main-thread stack from 1 MiB to 16 MiB\n\nThe push-to-main Windows CI matrix from #447 surfaced 22+ audit\nintegration tests in `crates/cli/tests/audit_tests.rs` crashing with\n`STATUS_STACK_OVERFLOW` (exit `-1073741571`) when invoking the fallow\nbinary as a subprocess on `windows-latest`. Some recursive code path\ninside `fallow audit` (graph traversal, AST visitor, glob matching,\ngit worktree orchestration) exceeds the Windows default 1 MiB main\nthread stack but stays under the POSIX default 8 MiB.\n\n`.cargo/config.toml` now sets `link-arg=/STACK:16777216` for both\n`x86_64-pc-windows-msvc` and `aarch64-pc-windows-msvc` targets,\nmatching the 16 MiB ceiling that `crates/cli/src/rayon_pool.rs::WORKER_STACK_SIZE`\nalready enforces on rayon worker threads. `/STACK` reserves virtual\naddress space lazily so there is no runtime memory cost until the\nstack actually grows.\n\n`.gitignore` was rewritten from `.cargo/` to `.cargo/* + !.cargo/config.toml`\nso the committed config ships with the repo while local credentials\nunder `.cargo/credentials.toml` stay ignored.\n\nIdentifying and flattening the specific recursive offender is a\nfollow-up; this PR is the unblock-Windows-CI quick fix.\n\nFixes #556.\nRefs #447.",
-          "timestamp": "2026-05-21T22:24:30+01:00",
-          "tree_id": "9303fed54d79091cb144460d8c76caa71e751bd1",
-          "url": "https://github.com/fallow-rs/fallow/commit/9cdae3051c30dcd052453fd2595f4e312dd4bf0a"
-        },
-        "date": 1779398813528,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0c90dbf8e14973c113698f5c210d587249a2defe"
         },
         "date": 1779862290906,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "26635fbe5f2fcc92badc4a78c48d135d35874e8f",
+          "message": "fix(graph): resolve no-exports workspace packages to source\n\nResolve workspace packages without exports back to source when legacy package fields point at missing prebuild output.\n\nAdd a focused workspace regression fixture for #725 and keep exports-blocked package map behavior unchanged. Gate an existing cwd-dependent path test under Miri isolation after CI exposed the unrelated failure on this PR.\n\nFixes #725.",
+          "timestamp": "2026-05-27T08:14:09+01:00",
+          "tree_id": "c7390dff1bdcb28499451c7f4bd73346d94dcd5d",
+          "url": "https://github.com/fallow-rs/fallow/commit/26635fbe5f2fcc92badc4a78c48d135d35874e8f"
+        },
+        "date": 1779866210357,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
