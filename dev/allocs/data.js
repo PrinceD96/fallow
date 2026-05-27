@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779876367366,
+  "lastUpdate": 1779877676742,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "936fee7235c98eb460b9726c90ca418cdce6fe03",
-          "message": "fix(cli): group top-level help commands",
-          "timestamp": "2026-05-21T23:45:56+02:00",
-          "tree_id": "8334c179a9f5e820c0ea25d8959ad8c474100b87",
-          "url": "https://github.com/fallow-rs/fallow/commit/936fee7235c98eb460b9726c90ca418cdce6fe03"
-        },
-        "date": 1779400119320,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5112666,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27587,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 711075,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6797,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4394,6 +4350,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Memory",
             "value": 700239,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e581961b5f8f1a63708017c4aeeb8beb299e855a",
+          "message": "docs(coverage): correct stable_id cross-surface framing\n\nA thorough end-to-end smoke (real published 0.3.0 sidecar) showed stable_id is NOT immune to a function moving lines: function_identity_id hashes start_line, so a moved function gets a new stable_id (verified: coldFn fallow:fn:de5223fd@2 -> fallow:fn:62a6be2a@5, and the finding resurfaced against a saved baseline).\n\nThe shipped #506 docs claimed stable_id 'survives line moves' and that baselines keyed on it 'keep suppressing after a function moves lines'. That is false. Correct the framing in CHANGELOG, the --explain text (explain.rs), the baseline.rs writer/reader comments, and the RuntimeCoverageFinding.stable_id doc to describe the ACTUAL property: stable_id is a cross-surface (one value across findings/hot-paths/blast-radius/importance; the per-finding id uses a per-surface salt) and cross-producer (V8/Istanbul/oxc agree, columns excluded) join key. Like id, it changes when file/name/start_line change.\n\nCode behavior is unchanged; this is a documentation accuracy fix. Schema + VS Code/npm TS contracts regenerated. Refs #506.",
+          "timestamp": "2026-05-27T11:24:58+01:00",
+          "tree_id": "86df69d5fb7e0554fe4b088aefa40da42b530ecf",
+          "url": "https://github.com/fallow-rs/fallow/commit/e581961b5f8f1a63708017c4aeeb8beb299e855a"
+        },
+        "date": 1779877674110,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5295196,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30110,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 698115,
             "unit": "bytes"
           },
           {
