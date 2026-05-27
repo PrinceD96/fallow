@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779868498977,
+  "lastUpdate": 1779869701758,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6303864bf02c45bd1f9b7c3dceae7f6b4d89533d",
-          "message": "fix(cli): classify POSIX-style absolute paths as absolute on Windows\n\n* fix(cli): classify POSIX-style absolute paths as absolute on Windows\n\n`Path::is_absolute()` returns false on Windows for POSIX-style paths\nlike `/project/foo.ts` (Windows requires `C:\\foo` or a UNC root). Five\ncall sites in `crates/cli/src/` gated on `Path::is_absolute()` directly,\nso cross-platform user-supplied paths (CiIssue.path deserialized from\nJSON output on a Unix host, --diff-file/--file CLI flags in a CI config\nshared across runners, audit baseline path in .fallowrc.json, source\nmap content authored on any OS) leaked through as \"relative\" on Windows\nand downstream logic produced wrong results. Surfaced by 13 test\nfailures on the new push-to-main Windows CI matrix leg from #447.\n\nNew crates/cli/src/path_util.rs exposes is_absolute_path_any_platform\nwhich recognises host absolute (via Path::is_absolute), POSIX-style\nroot (via Component::RootDir which matches `/foo` on both platforms),\nand Windows-style drive prefix (via byte-level scan of OsStr encoding\nso Unix hosts classify `C:/foo` source-map content correctly too). The\nexisting looks_like_windows_absolute_path helper in coverage.rs is\nlifted into the same module.\n\nWired into relative_to_diff_path (the original 13-test root cause),\nresolve_audit_baseline_path, resolve_source_map_base, the --file\nfilter in check/mod.rs, and supersedes the local helper in coverage.rs.\nrelative_to_diff_path now strip_prefix-first regardless of platform,\nfalling back on the helper only for the outside-root early-return.\n\nSix new path_util unit tests cover POSIX root, Windows drive, relative\nshapes, host absolute via current_dir, the &str variant, and a\nPathBuf round-trip from a Windows drive-prefixed string. All 13\npreviously-failing Windows tests pass under the new logic; Ubuntu and\nmacOS behaviour is unchanged.\n\nFixes #545.\nRefs #447.\n\n* chore(cli): replace 'mis-classify' with 'misclassify' to satisfy typos\n\nThe previous fix(cli) commit lost the typos-fix Edits between Edit-buffer\nand stash-pop merge during the pre-commit cycle. typos rejects `mis` as\nan unknown word when separated by hyphen; the merged form passes the\ngate.",
-          "timestamp": "2026-05-21T21:10:02+01:00",
-          "tree_id": "e7013f68a0750b755d34cea8aed92290268786fc",
-          "url": "https://github.com/fallow-rs/fallow/commit/6303864bf02c45bd1f9b7c3dceae7f6b4d89533d"
-        },
-        "date": 1779394335758,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5103466,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27595,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 708883,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6796,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6535,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "102022084+Hal-Spidernight@users.noreply.github.com",
+            "name": "Hal",
+            "username": "Hal-Spidernight"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fea97b1fa7cb64ea86fd14a37cfc0864648ef5e3",
+          "message": "fix(audit): symlink Nuxt/Astro generated dirs into base worktree\n\nExtend the audit base worktree's host-symlink mechanism (previously node_modules only) to also cover the gitignored `.nuxt/` and `.astro/` meta-framework generated directories, driven by a shared MATERIALIZED_CONTEXT_DIRS constant. Without them, `git worktree add --detach` left the base pass unable to resolve tsconfig `references` chains into the generated tsconfigs, emitting spurious \"missing .nuxt/tsconfig.json\" / \"missing .astro/\" warnings and falling back to resolver-less resolution. The trade-off matches node_modules: the symlinked dir is HEAD-shaped, not base-shaped, but the recovered alias-resolution accuracy outweighs the residual drift.\n\nIncludes a cross-reference between MATERIALIZED_CONTEXT_DIRS and the plugin registry's meta-framework prerequisite list so the two sets cannot silently drift, plus unit tests covering symlink creation, the skip-when-absent and preserve-real-dir branches, and per-dir independence.",
+          "timestamp": "2026-05-27T09:12:40+01:00",
+          "tree_id": "0cc6fb34d385b66bb70c7e7f99ba1e5d24880bd2",
+          "url": "https://github.com/fallow-rs/fallow/commit/fea97b1fa7cb64ea86fd14a37cfc0864648ef5e3"
+        },
+        "date": 1779869700080,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5333884,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30152,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 693959,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6528,
             "unit": "allocations"
           }
         ]
