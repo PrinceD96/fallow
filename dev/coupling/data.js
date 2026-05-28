@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779968589263,
+  "lastUpdate": 1779970644293,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4a3268f9785fdf864dedb7acc16eda9d58bdfb8c",
-          "message": "feat(cli): plumb --explain through human + combined JSON output\n\nIn human format, --explain now prints a Description: line under each\nsection header for check, dupes, and health (standalone, grouped, and\ncombined). Previously the flag was JSON-only and the human reference\ntables claimed descriptions were always shown, which was never true.\n\nIn combined JSON, --explain emits a sectioned _meta block with check,\ndupes, and health keys carrying their per-analysis rules, metrics, and\nfield definitions. The standalone _meta shapes are unchanged; combined\nmode just nests them under one analysis-keyed envelope so a single\nfetch covers every analysis the run produced.\n\nRegression coverage in crates/cli/tests/exit_code_tests.rs covers the\ncombined human path, the standalone human path, the --group-by human\npath, and the combined JSON _meta shape. Generated output contract +\ndocs/output-schema.json updated to match.\n\nFixes #559.",
-          "timestamp": "2026-05-22T07:51:20+01:00",
-          "tree_id": "8826fa30fd074c9299828cf0405dca953e961a84",
-          "url": "https://github.com/fallow-rs/fallow/commit/4a3268f9785fdf864dedb7acc16eda9d58bdfb8c"
-        },
-        "date": 1779432749353,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 20,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 19,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 300,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 682,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1fe7ae6722408aa817501c164933637a57af56a9"
         },
         "date": 1779968587730,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 321,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 743,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "739840a0fe4afd3744d7429774fae0aca3f0d236",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.84.0",
+          "timestamp": "2026-05-28T14:16:12+02:00",
+          "tree_id": "d1d920151f1c89d1d76d5fab046517e4d4794223",
+          "url": "https://github.com/fallow-rs/fallow/commit/739840a0fe4afd3744d7429774fae0aca3f0d236"
+        },
+        "date": 1779970642811,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
