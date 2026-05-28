@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780005244692,
+  "lastUpdate": 1780006100826,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b726cbe0d2e3edf4303bc71c4f4ff7d2d64eb5e4",
-          "message": "fix(cli): type combined explain metadata",
-          "timestamp": "2026-05-22T08:57:51+02:00",
-          "tree_id": "ee305331a668cf42d9d8647374b7367ec9b0c670",
-          "url": "https://github.com/fallow-rs/fallow/commit/b726cbe0d2e3edf4303bc71c4f4ff7d2d64eb5e4"
-        },
-        "date": 1779433226574,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5115990,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27346,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697779,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6537,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6616,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a48fa7e875adb5cbf80fd7e003319568ca4a5e06",
+          "message": "test(cli): guard credential redaction paths\n\nAdds regression guards for authenticated ureq paths that must pass transport errors through sanitize_network_error.\n\nAdds source-level guards that known credential-bearing CLI argument and request structs keep manual Debug implementations that redact token fields.\n\nRefs #476.",
+          "timestamp": "2026-05-28T23:05:58+01:00",
+          "tree_id": "aa3336e2d564054eb917ffa26e76ad6fe7b69708",
+          "url": "https://github.com/fallow-rs/fallow/commit/a48fa7e875adb5cbf80fd7e003319568ca4a5e06"
+        },
+        "date": 1780006098812,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5336172,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30138,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 703476,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6617,
             "unit": "allocations"
           }
         ]
