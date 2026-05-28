@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779894106069,
+  "lastUpdate": 1779967389933,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b200f528d8be062ab3b1f057bd83a2b48ea40453",
-          "message": "refactor(core): single persistent progress spinner\n\nReplace the per-stage MultiProgress + ephemeral ProgressBar pattern in\nAnalysisProgress with a single ProgressBar constructed at new() and\nupdated in place via set_stage(). Each pipeline stage previously created\nand finished its own bar, producing visible flicker between stages and\ngaps for stages without an explicit spinner call.\n\nThe new template \"{spinner:.cyan} fallow: {msg} ({elapsed})\" adds the\n\"fallow:\" prefix and an elapsed timer that runs across the whole\npipeline at 30 Hz via stderr_with_hz(30). Twelve call sites in\nanalyze_with_parse_result + analyze_full migrate from\nlet pb = progress.stage_spinner(msg); ...; pb.finish_and_clear();\nto a single progress.set_stage(msg); line. Stage labels are lowercased\nto fit the template. TTY suppression still short-circuits via the\nOption<ProgressBar>::None path; non-tty invocations remain\nallocation-free.\n\nCloses #560.",
-          "timestamp": "2026-05-22T07:41:53+01:00",
-          "tree_id": "19f91889fab9aac61c3dc430cb17bc78a9b351a8",
-          "url": "https://github.com/fallow-rs/fallow/commit/b200f528d8be062ab3b1f057bd83a2b48ea40453"
-        },
-        "date": 1779432240979,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 20,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 19,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 300,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 682,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 741,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9475785bd2600544b6d20161623e8655574f40d0",
+          "message": "feat(plugins): add @sanity/pkg-utils build-config plugin (#749)\n\nProjects built with @sanity/pkg-utils discover their build configs by\nfilename convention rather than importing them from source, so each\npackage.config.* and package.bundle.* surfaced as an unused-file and had\nto be listed manually in the entry config.\n\nAdds a dedicated pkg-utils plugin that activates only on an exact\n@sanity/pkg-utils dependency (not the broad @sanity/ prefix the CMS\nsanity plugin uses, so plain @sanity/client consumers are unaffected). It\nmarks package.config.{ts,js,mts,mjs,cts,cjs} and package.bundle.* as\nalways-used at the repo root and in every workspace package (each pattern\nin bare and **/-prefixed form, since always_used matching uses\nliteral_separator with no auto prefix), and credits @sanity/pkg-utils as\na tooling dependency. No config parsing: the exports.source condition\nplus the workspace-package fallback already keep src/** reachable, so\nseeding package.bundle.ts's lib.entry would be redundant.\n\nThe credit is scoped to the two build-config filenames, so an\nunreferenced ordinary source file still reports. pkg-utils monorepos can\nnow drop the package.config.ts / package.bundle.ts lines from their entry\nconfig entirely.",
+          "timestamp": "2026-05-28T12:22:03+01:00",
+          "tree_id": "fcbc946a292393aed772a150f9885f7c4cd38704",
+          "url": "https://github.com/fallow-rs/fallow/commit/9475785bd2600544b6d20161623e8655574f40d0"
+        },
+        "date": 1779967388529,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 321,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 743,
             "unit": "count"
           }
         ]
