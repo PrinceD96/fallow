@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780000253036,
+  "lastUpdate": 1780001288747,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7cd0a8655e814d0e0f82c54443d6b9af037a3577",
-          "message": "chore(types): align schemars optional fields with serde(default) + add drift gate\n\nThe wire shape and the JSON schema disagreed for fields marked\n`#[serde(skip_serializing_if = \"Vec::is_empty\"|\"Option::is_none\")]`\nwithout a matching `serde(default)`: producers stripped the field\nfrom JSON output, but the schema kept it in `required[]`. Consumers\nvalidating against the published schema would reject otherwise-valid\nfallow output.\n\nAdds `serde(default)` to 33 such fields across the health_types\nmodules, output_envelope, config boundaries, types results, and the\n`SuppressionOrigin::Comment.issue_kind` enum variant. Regenerates\n`docs/output-schema.json` plus the VS Code and npm TS contracts so\n`FeatureFlag.guarded_dead_exports` and `TargetEvidence.{unused_exports,\ncomplex_functions, cycle_path}` are now properly optional on the wire.\n\nAdds a syn-based drift gate in `crates/cli/tests/schema_tests.rs` that\nwalks every `JsonSchema`-deriving struct AND enum struct-variant, flags\nany `Vec<T>`/`Option<T>` field that uses `skip_serializing_if` without\n`default`, and prints the canonical fix-hint inline. New dev-deps\n`proc-macro2` (with `span-locations`) and `syn` (full) drive the AST\nwalk. Three unit tests pin the gate's behavior on synthetic offenders,\nincluding the enum-variant branch.",
-          "timestamp": "2026-05-22T07:47:16+01:00",
-          "tree_id": "ebfe0bfbf6877403572ee285b3764d22ef95c7dd",
-          "url": "https://github.com/fallow-rs/fallow/commit/7cd0a8655e814d0e0f82c54443d6b9af037a3577"
-        },
-        "date": 1779432576400,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5110814,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27313,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 699783,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6538,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6533,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d22ba3781fb7c0588c7a62acd6fc242b41ff8ce2",
+          "message": "fix(extract): credit class members used via typed destructure bindings (#762)\n\nClass methods/properties called as `<local>.<method>(...)` where `<local>`\nis a typed destructured binding (`let { resultState }: Props = $props()` with\n`interface Props { resultState: ResultState }`, or an inline type literal, or a\ndestructured function parameter) were reported as `unused-class-member`. The\nvisitor only seeded `binding_target_names` for `new`-expression instances,\nsingle-identifier typed bindings, formal params, and class properties, never\nfor destructured bindings, so neither script-level calls nor Svelte/Vue\ntemplate member access credited the class members.\n\nTyped destructure bindings now populate `binding_target_names`: inline type\nliterals resolve in place; named interface / object-type-alias references defer\nto a finalize step that resolves through a module-scope property-type map\n(source-order-independent, since interfaces hoist). Wired into the SFC path\nbefore the template scan reads the targets. Resolution is type-driven, so it\nalso covers plain TypeScript and Vue. Conservative: only bare single-name\nproperty types resolve; genuinely unused members are still reported.\n\nBumps the extract CACHE_VERSION (102 -> 103) because the resulting\nmember_accesses change.\n\nFixes #752",
+          "timestamp": "2026-05-28T20:45:49Z",
+          "tree_id": "d51918e2852f050046c6d27013648ee06ecfc900",
+          "url": "https://github.com/fallow-rs/fallow/commit/d22ba3781fb7c0588c7a62acd6fc242b41ff8ce2"
+        },
+        "date": 1780001287183,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5330860,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30134,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 700539,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6538,
             "unit": "allocations"
           }
         ]
