@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779970887936,
+  "lastUpdate": 1779971951402,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b49aeec7cdaaa3b235a3e80e5daebd5fbdbb6860",
-          "message": "test(core): normalise path separators in glimmer-path-aliases test (#581)\n\nglimmer_typescript_imports_use_tsconfig_path_aliases collected unused file paths without the .replace('\\\\', \"/\") normalisation that the sibling rootdirs_relative_imports_resolve_under_broken_extends_chain test applies. On Windows the stored paths use backslash separators, so the path.ends_with(\"app/services/unused-service.ts\") check returned false even though the path was present, and the assertion panicked. Add the same normalisation.\n\nPure test fix; no production change.\n\nRefs #561",
-          "timestamp": "2026-05-22T08:40:00+01:00",
-          "tree_id": "95ba0eab2ee0e37be484e56d364a7f8c10ec0a6f",
-          "url": "https://github.com/fallow-rs/fallow/commit/b49aeec7cdaaa3b235a3e80e5daebd5fbdbb6860"
-        },
-        "date": 1779435909197,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 59556,
-            "range": "± 1312",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3934493,
-            "range": "± 179628",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 5234347,
-            "range": "± 168609",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 23134723,
-            "range": "± 578821",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 117355,
-            "range": "± 1179",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2203,
-            "range": "± 9",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 238189,
-            "range": "± 5624",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 1077071,
-            "range": "± 21146",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1525098,
-            "range": "± 14440",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 602834,
-            "range": "± 27813",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4389410,
-            "range": "± 69293",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 4384729,
-            "range": "± 117760",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 3023081,
-            "range": "± 35602",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 1974070,
             "range": "± 30664",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "38a0387a8baa0d127f5ff341d7f57586034da0c7",
+          "message": "fix: catch baseline drift on config-only PRs\n\n* chore: open issue 746 implementation branch\n\n* fix: disable auto PR scoping for baseline config changes",
+          "timestamp": "2026-05-28T13:34:02+01:00",
+          "tree_id": "44cee84a34eba33a025983ec540196f096177a06",
+          "url": "https://github.com/fallow-rs/fallow/commit/38a0387a8baa0d127f5ff341d7f57586034da0c7"
+        },
+        "date": 1779971948905,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 46302,
+            "range": "± 1052",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3791641,
+            "range": "± 146492",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5688146,
+            "range": "± 144326",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 29146635,
+            "range": "± 552890",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 121078,
+            "range": "± 3646",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2362,
+            "range": "± 11",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 186146,
+            "range": "± 6217",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 824373,
+            "range": "± 8031",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1317664,
+            "range": "± 25541",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 519528,
+            "range": "± 35508",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3285976,
+            "range": "± 32465",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3295959,
+            "range": "± 45337",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2221823,
+            "range": "± 14298",
             "unit": "ns/iter"
           }
         ]
