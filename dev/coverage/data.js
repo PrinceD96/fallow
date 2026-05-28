@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779967484431,
+  "lastUpdate": 1779968674752,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ab27dc47ed26981eeacabf2540c688ac8f948d77",
-          "message": "fix(config): drop is_absolute gate from existing-entry dedup (#576)\n\nrecord_existing_file in crates/config/src/config_writer.rs skipped the dir-relative dedup key whenever the existing entry was not Path::is_absolute. On Windows that gate rejects POSIX-rooted paths like /project/src/a.ts because Windows requires a drive letter or UNC prefix for is_absolute, so a Linux-CI-written config silently lost its dedup signal on Windows and the writer appended a relative duplicate of every entry on every run.\n\nstrip_prefix already returns Err for entries that do not start with config_dir, so the absoluteness pre-gate is redundant. Drop it.\n\nSame class of fix as PR #574 (validate_coverage_root_absolute). Existing dedupes_existing_absolute_paths_against_relative_emissions tests are the regression coverage.\n\nRefs #561",
-          "timestamp": "2026-05-22T07:53:04+01:00",
-          "tree_id": "946d981ac402c01c1711f9297919d09691c0e5b1",
-          "url": "https://github.com/fallow-rs/fallow/commit/ab27dc47ed26981eeacabf2540c688ac8f948d77"
-        },
-        "date": 1779432964742,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9475785bd2600544b6d20161623e8655574f40d0"
         },
         "date": 1779967482844,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "1fe7ae6722408aa817501c164933637a57af56a9",
+          "message": "chore: release v2.84.0",
+          "timestamp": "2026-05-28T13:39:56+02:00",
+          "tree_id": "f3d04772b3909376c77bee6e263d3ce2115b6aed",
+          "url": "https://github.com/fallow-rs/fallow/commit/1fe7ae6722408aa817501c164933637a57af56a9"
+        },
+        "date": 1779968673253,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
