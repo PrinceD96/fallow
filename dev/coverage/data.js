@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779999086234,
+  "lastUpdate": 1780000271253,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "949013ad769c933b751d05d7726f68069b621be0",
-          "message": "fix(cli): silence Windows-only clippy lints that Rust 1.95 surfaced (#587)\n\ncargo clippy --workspace --all-targets -- -D warnings on the Windows runner failed with 6 errors that POSIX clippy never sees because the offending code is #[cfg(windows)]-gated:\n\naudit.rs:1644 - match_same_arms: named ERROR_ACCESS_DENIED arm documents the cross-session protected-process case; add #[expect(clippy::match_same_arms)].\nsignal/registry.rs:108,140 - unsafe_code on Win32 FFI blocks (OpenProcess/TerminateProcess/WaitForSingleObject/CloseHandle); add #[expect(unsafe_code)] to each enclosing function, mirroring the existing pattern around mod windows_process in audit.rs.\nsignal/windows.rs:38 - unsafe_code on the unsafe extern \"system\" fn handler PHANDLER_ROUTINE callback declaration; add #[expect(unsafe_code)] and rewrite the leading /// SAFETY: doc as a # Safety heading so unnecessary_safety_comment also clears.\nsignal/windows.rs:53 - unsafe_code on the SetConsoleCtrlHandler FFI call inside install().\n\nAll annotations use #[expect] (preferred over #[allow] per project convention) because the lint reliably fires whenever the gated code is compiled. POSIX clippy keeps green because the items are excluded.\n\nRefs #561",
-          "timestamp": "2026-05-22T12:35:32+01:00",
-          "tree_id": "fbd90a186af489a21671e25b341ca4c3b343c839",
-          "url": "https://github.com/fallow-rs/fallow/commit/949013ad769c933b751d05d7726f68069b621be0"
-        },
-        "date": 1779449897622,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/bfb1e43410644b1d0376c62a8b9cf0661b4cd796"
         },
         "date": 1779999084538,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7d66ae525b5387a8bf41378a9fa42aaa286df16e",
+          "message": "fix: resolve workspace imports when tsconfig paths point at unbuilt dist (#763)\n\nA common monorepo convention maps a sibling-package specifier to compiled\noutput in tsconfig (`\"@scope/*\": [\"../*/dist/index.d.ts\"]`). The TypeScript\nplugin registers `@scope/` as a path alias, so a `@scope/pkg` import matches\n`matches_plugin_alias`. When the project is analyzed pre-build, the dist target\ndoes not exist, `try_path_alias_fallback` returns None, and `resolve_specifier`\nreturned `Unresolvable` without trying the workspace-package fallback. Every\nconsumer reported `unresolved-import` and the package reported\n`unused-dependency`.\n\nIn the Failed branch's `is_alias || matches_plugin_alias` arm, fall through to\n`try_workspace_package_fallback` for a valid bare package specifier when the\nalias fallback fails, before reporting `Unresolvable`. The workspace fallback\nalready maps `dist`->`src`, so the import resolves against the package source.\n\nPre-build clone of graphql-markdown/graphql-markdown: 264 false\n`unresolved-import` findings and the matching `unused-dependency` reports clear.\nBenchmark deltas are directionally correct (astro/next.js/vite unresolved down,\nunused deps down; a small unlisted increase is correct reclassification of\npreviously-unresolved workspace imports).\n\nFixes #757",
+          "timestamp": "2026-05-28T21:28:18+01:00",
+          "tree_id": "345d36a26d1b63b2da6a09fdf2465a92efe39dfc",
+          "url": "https://github.com/fallow-rs/fallow/commit/7d66ae525b5387a8bf41378a9fa42aaa286df16e"
+        },
+        "date": 1780000269064,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
