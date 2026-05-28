@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779970743859,
+  "lastUpdate": 1779971563829,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "8c74aefb490f2d8eda3f972f59d3eea93c7cfc04",
-          "message": "test(core): canonicalise init_repo via dunce so test fixtures match production toplevel (#580)\n\ninit_repo and resolve_git_toplevel_returns_canonical_path called std::fs::canonicalize, which on Windows returns the \\\\?\\ verbatim form. Production resolve_git_toplevel was swapped to dunce::canonicalize in PR #566 so it strips that prefix. The test-side verbatim path then diverged from the production-side non-verbatim path and every changed.contains(&expected) assertion silently failed. Swap both test-side call sites to dunce::canonicalize; POSIX behaviour is identical.\n\nAlso marks proc-macro2 as cargo-shear-ignored in crates/cli/Cargo.toml. The dep was added in 7cd0a865 as a dev-dependency without an explicit import, but its span-locations feature is what makes syn-returned .span().start().line report real source positions inside the schema-drift gate. Removing the dep would silently collapse the gate; ignore it via [package.metadata.cargo-shear].ignored instead, matching the established miette precedent.\n\nCloses #561",
-          "timestamp": "2026-05-22T08:22:08+01:00",
-          "tree_id": "3acf5705597fab9507fa731599a02078c78d3681",
-          "url": "https://github.com/fallow-rs/fallow/commit/8c74aefb490f2d8eda3f972f59d3eea93c7cfc04"
-        },
-        "date": 1779434646779,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/739840a0fe4afd3744d7429774fae0aca3f0d236"
         },
         "date": 1779970741460,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c1e389f2bee8a7ef185dd4b6ff641cdf5f5a4dac",
+          "message": "chore(skills): re-vendor npm/fallow/skills from canonical fallow-skills (#750)\n\nThe npm package ships npm/fallow/skills/ verbatim (it is listed in\npackage.json#files), but nothing ever re-vendored it from the canonical\nfallow-skills repo: release.yml has no sync step and the release flow only\nspot-checked for specific format-name tokens. It had silently drifted to\n\"97 framework plugins\" with a stale capability description while canonical\nwas at 114, so every recent release bundled outdated agent guidance.\n\nRe-vendors all four files (SKILL.md + the three references) so the bundled\ncopy is byte-identical to canonical fallow-skills (114 plugins, v2.84.0).",
+          "timestamp": "2026-05-28T13:30:07+01:00",
+          "tree_id": "aa1b09d539974d95738dbf18c39a148cfe5f30f0",
+          "url": "https://github.com/fallow-rs/fallow/commit/c1e389f2bee8a7ef185dd4b6ff641cdf5f5a4dac"
+        },
+        "date": 1779971562320,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
