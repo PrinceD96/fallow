@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780086253508,
+  "lastUpdate": 1780086601188,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9a142be9494a3779f06db016f54080a84010c652",
-          "message": "fix(jsx): ignore generic JSX resource attributes as side-effect imports\n\nBefore, lowercase intrinsic `<script src=\"...\">` and\n`<link rel=\"stylesheet|modulepreload\" href=\"...\">` literals inside JSX\nand TSX files emitted synthetic `SideEffect` imports via the AST\nvisitor, so SSR-style serializer tests (notably Hono's JSX layout\ntests) produced large false `unresolved-imports` clusters for runtime\nHTML metadata that is not bundler-resolved.\n\nAfter, the JSX visitor path that recorded those attributes is removed.\nHTML files keep their dedicated asset scanner, and bare `html` tagged\ntemplates in JS/TS continue to extract asset references via the\nregex-based HTML scanner. The web-root-relative resolver still applies\nto JS/TS-family files for the tagged-template case. Framework-specific\nJSX asset semantics can be reintroduced later as constrained opt-in\nlogic rather than broad attribute extraction.\n\nExtraction `CACHE_VERSION` is bumped to 96 so warm caches drop the\nstale JSX resource edges on first run after upgrade. Tests are\nrestructured: the unit suite in `tests/js_ts/jsx_assets.rs` asserts the\nnew no-emission behavior, and the integration test renames the fixture\nfrom a static-folder layout to a JSDoc-consumer shape that exercises\nthe remaining JSDoc and `html` tagged-template paths.\n\nFixes #640.",
-          "timestamp": "2026-05-22T21:58:29+01:00",
-          "tree_id": "cc5eb1a3ab7a022a28240272893cd3489117b688",
-          "url": "https://github.com/fallow-rs/fallow/commit/9a142be9494a3779f06db016f54080a84010c652"
-        },
-        "date": 1779483819444,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5106586,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27339,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 695175,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6534,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6570,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "2280b31dabf6cbb8a31ec083de967a43dc3276b2",
+          "message": "fix(core): preserve workspace class members and scss include paths through merge (#783)\n\nThe run_plugins workspace-merge loop cleared used_class_members and\nscss_include_paths on each workspace result before folding it into the\nroot aggregate, silently dropping every workspace package's framework\ncontributions. In a monorepo where a framework is active only in a\nworkspace package (Lit/Lexical/Ember class-member allowlists, or\nAngular/Nx stylePreprocessorOptions.includePaths), the package's\nheritage-scoped class-member allowlist was dropped (false\nunused-class-member findings) and its SCSS include paths were dropped\n(false unresolved-import for @use/@import resolving via includePaths).\n\nBoth fields are prefix-agnostic (member names and absolute directories),\nso apply_workspace_prefix leaves them untouched and merge_into unions\nthem as-is. config_patterns stays cleared (inert post-merge) and\nscript_used_packages stays cleared (never populated by\nrun_workspace_fast). Single-package projects were never affected.\n\nAdds a monorepo fixture activating Lit only in packages/elements and\nAngular only in packages/ng-styles, with integration tests asserting the\npackage's Lit firstUpdated() survives the merge (with a genuinely-unused\ncontrol still flagged) and its SCSS @import 'variables' resolves.\n\nFixes #772",
+          "timestamp": "2026-05-29T20:14:19Z",
+          "tree_id": "8d004752700c6f1f2bf62b0fc8c791f4c8098a29",
+          "url": "https://github.com/fallow-rs/fallow/commit/2280b31dabf6cbb8a31ec083de967a43dc3276b2"
+        },
+        "date": 1780086598821,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5341368,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30178,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 702243,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6535,
             "unit": "allocations"
           }
         ]
