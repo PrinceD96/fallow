@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780046999633,
+  "lastUpdate": 1780051113182,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9a142be9494a3779f06db016f54080a84010c652",
-          "message": "fix(jsx): ignore generic JSX resource attributes as side-effect imports\n\nBefore, lowercase intrinsic `<script src=\"...\">` and\n`<link rel=\"stylesheet|modulepreload\" href=\"...\">` literals inside JSX\nand TSX files emitted synthetic `SideEffect` imports via the AST\nvisitor, so SSR-style serializer tests (notably Hono's JSX layout\ntests) produced large false `unresolved-imports` clusters for runtime\nHTML metadata that is not bundler-resolved.\n\nAfter, the JSX visitor path that recorded those attributes is removed.\nHTML files keep their dedicated asset scanner, and bare `html` tagged\ntemplates in JS/TS continue to extract asset references via the\nregex-based HTML scanner. The web-root-relative resolver still applies\nto JS/TS-family files for the tagged-template case. Framework-specific\nJSX asset semantics can be reintroduced later as constrained opt-in\nlogic rather than broad attribute extraction.\n\nExtraction `CACHE_VERSION` is bumped to 96 so warm caches drop the\nstale JSX resource edges on first run after upgrade. Tests are\nrestructured: the unit suite in `tests/js_ts/jsx_assets.rs` asserts the\nnew no-emission behavior, and the integration test renames the fixture\nfrom a static-folder layout to a JSDoc-consumer shape that exercises\nthe remaining JSDoc and `html` tagged-template paths.\n\nFixes #640.",
-          "timestamp": "2026-05-22T21:58:29+01:00",
-          "tree_id": "cc5eb1a3ab7a022a28240272893cd3489117b688",
-          "url": "https://github.com/fallow-rs/fallow/commit/9a142be9494a3779f06db016f54080a84010c652"
-        },
-        "date": 1779483731218,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 91.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "93d5321c9b087817e6504468eeb2b929bd35275c",
+          "message": "docs(security): add signing-key rotation and compromise-response runbook (#781)\n\nDocuments how to rotate the Ed25519 binary-signing keypair and what to do if\nthe private key leaks. Covers the split surfaces (the\nED25519_BINARY_SIGNING_PRIVATE_KEY release secret vs the raw public key\nhardcoded in editors/vscode/src/download.ts + npm/fallow/scripts/verify-binary.js\nand the fingerprint in this file, kept in sync by hand since no CI parity job\nasserts it), why rotation is a clean per-version cutover that needs no dual-key\ngrace window (each consumer pins one key and only fetches its own version's\nbinary), the scheduled-rotation steps, and the compromise-response sequence\n(rotate-first patch release, GHSA advisory, deprecate exposed versions without\nforce-rewriting tags, rotate co-located secrets).",
+          "timestamp": "2026-05-29T10:25:48Z",
+          "tree_id": "912dc0f2bf12731e5dad928401d767b00a7eca51",
+          "url": "https://github.com/fallow-rs/fallow/commit/93d5321c9b087817e6504468eeb2b929bd35275c"
+        },
+        "date": 1780051111632,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
             "unit": "%"
           }
         ]
