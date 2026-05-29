@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1779965782339,
+  "lastUpdate": 1780051744423,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -3263,6 +3263,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 7401,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "9af2175229a48f92e08f38e0a03eddbe47792a25",
+          "message": "feat(config): warn when multiple config files coexist in one directory (#780)\n\nfind_and_load picks the first of .fallowrc.json > .fallowrc.jsonc >\nfallow.toml > .fallow.toml per directory. Previously a stale lower-precedence\nconfig (left over from a migration or a partial fallow init) was silently\nshadowed, so output looked correct but came from the wrong source.\n\nNow config discovery emits a deduped tracing::warn! (visible on stderr at the\ndefault level) naming the loaded file and the lower-precedence file(s) it\nignored, mirroring the existing warn_on_unknown_rule_keys path (process-wide\nOnceLock dedupe keyed on the canonical directory, thread-local test capture\nwith capture-before-dedupe). It fires once per directory per run; an explicit\n--config <path> performs no discovery and never warns.\n\nDocs and the fallow config help text now state that .fallowrc.json accepts\nJSONC and .fallowrc.jsonc is identical (the extension is only an editor hint),\nand document the first-match-wins precedence ladder.\n\nCloses #458",
+          "timestamp": "2026-05-29T10:35:55Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/9af2175229a48f92e08f38e0a03eddbe47792a25"
+        },
+        "date": 1780051741808,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 144,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 146,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 278,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 251,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 151,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 136,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 459,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 405,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1265,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1137,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 947,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1017,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 821,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 757,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 8375,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 7656,
             "unit": "ms"
           }
         ]
