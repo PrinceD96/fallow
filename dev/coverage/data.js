@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780044248966,
+  "lastUpdate": 1780045039575,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4e7eecf09fdb817b09e0d4654cf6f1f962f4d8d4",
-          "message": "fix(tanstack): suppress generated route tree imports\n\nTanStack Router and Start projects commonly import the generated\nroute tree as ./routeTree.gen before src/routeTree.gen.ts exists in a\nclean checkout. That framework artifact was reported as an unresolved\nimport even though TanStack tooling creates it during codegen.\n\nRegister /routeTree.gen as a TanStack Router generated import suffix\nthrough the existing plugin hook. The suppression stays plugin-gated,\nso non-TanStack projects still report the same missing import.\n\nAdd a regression fixture with an active TanStack Router project, no\ngenerated route tree file, and a separate missing import control. The\ntest locks in both the false-positive fix and the ordinary unresolved\nimport behavior.\n\nFixes #646.",
-          "timestamp": "2026-05-22T21:17:01+01:00",
-          "tree_id": "2063a9403501a471813b45358e0f121025b00554",
-          "url": "https://github.com/fallow-rs/fallow/commit/4e7eecf09fdb817b09e0d4654cf6f1f962f4d8d4"
-        },
-        "date": 1779481195552,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8b537dc9a3430d465338b223793b5905e8bf0a78"
         },
         "date": 1780044247399,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "54e50793b2ee8797dee43c049aec3a3378da5279",
+          "message": "chore(ci): trigger required workflows on merge_group for merge queue (#778)\n\nPrepares for enabling GitHub's merge queue on main. A merge queue runs\nrequired status checks against a synthetic merge_group ref; any required\ncheck whose workflow does not trigger on merge_group never reports, which\nstalls the queue permanently.\n\n- Add merge_group: to the on: triggers of ci.yml and commitlint.yml (the\n  only two workflows that own required checks).\n- Add '|| github.event_name == merge_group' to every path-gated required\n  job in ci.yml (check, doc, npm-package, fallow-self-analyze, vscode,\n  windows-arm64, test-gitlab-ci, audit, deny, shear, zizmor). On a\n  merge_group event the paths-filter base-ref differs and the existing\n  '== push' escape does not fire, so without this the jobs skip and a\n  skipped required check stalls the queue.\n- miri runs on merge_group too (previously pull_request-only).\n- zed and msrv are intentionally left unwired: neither is a required\n  check (msrv is if:false and was removed from required checks separately),\n  so skipping them in the queue is harmless and saves CI time.\n\nThese triggers are inert until the merge queue is enabled on main, so this\nis safe to land ahead of that switch. No runtime or output change.\n\nRefs #444.",
+          "timestamp": "2026-05-29T08:54:35Z",
+          "tree_id": "1eeece7c4ed14eb00697e363e92e4c3abfce9962",
+          "url": "https://github.com/fallow-rs/fallow/commit/54e50793b2ee8797dee43c049aec3a3378da5279"
+        },
+        "date": 1780045037340,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
