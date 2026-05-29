@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780042368903,
+  "lastUpdate": 1780043558377,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "07b784a4b81c774ed3367b04678a2fa9c907ee05",
-          "message": "fix(unused-class-members): credit Playwright helper fixtures\n\nPlaywright users can wrap base.extend in exported helper functions that do local setup before returning the extended test. The extractor previously only recognized helper bodies whose sole statement was return base.extend, so nested fixture page-object methods could be reported as unused.\n\nThis updates helper-function extraction to inspect the final returned call while preserving the existing direct-return and alias-chain behavior. The extraction cache is bumped because cached modules from older builds can miss the fixture definition sentinels.\n\nRegression coverage adds an extractor unit test plus an integration fixture that checks both the local-setup helper path and a direct-return control path, while still reporting genuinely unused methods.\n\nFixes #586.",
-          "timestamp": "2026-05-22T20:46:21+01:00",
-          "tree_id": "91b82ce3b832350e276d7a95c4ea2e3fd676077e",
-          "url": "https://github.com/fallow-rs/fallow/commit/07b784a4b81c774ed3367b04678a2fa9c907ee05"
-        },
-        "date": 1779479346986,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/56a30b5f529fbbfa40871b6e783548c75f0d84a9"
         },
         "date": 1780042366122,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "88f5eb3d1cc3f82f4cef07c23615a52157d0debc",
+          "message": "chore(ci): pass --ignore-scripts on dev-dependency installs (#775)\n\nThe CI dev-dependency installs ran lifecycle scripts of transitive\ndependencies (a supply-chain execution surface). Adds --ignore-scripts to\nthe four installs that lacked it: the NAPI npm ci (debug build + Windows\nARM64), the root npm ci (oxlint/oxfmt tooling), and the editors/vscode\npnpm install. Verified each consuming build still works with scripts\ndisabled: root oxlint + oxfmt resolve their platform binaries, the\n@napi-rs/cli binary resolves, and the editors/vscode rolldown build\ncompletes. None of these dependencies needs an install lifecycle script\n(all use lazy platform-binary resolution), so there is no exception to\ndocument. The published-package install test at ci.yml already asserts\nzero-script install; this extends the same posture to the dev installs.",
+          "timestamp": "2026-05-29T10:29:45+02:00",
+          "tree_id": "5b3cde6bc95b02bdfec6998b25a0ae4c14ddd031",
+          "url": "https://github.com/fallow-rs/fallow/commit/88f5eb3d1cc3f82f4cef07c23615a52157d0debc"
+        },
+        "date": 1780043555380,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
