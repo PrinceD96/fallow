@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780043558377,
+  "lastUpdate": 1780043722063,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "325a409eef77c7686d2405500073fc662848da44",
-          "message": "docs(readme): improve CI integration docs\n\nExpand the README CI section around the current GitHub Action and GitLab template capabilities.\n\nDocument audit as the PR gate, richer Action modes, GitLab review envelope v2 behavior, Code Quality output, diff filtering, monorepo scoping, and runtime-backed health examples.",
-          "timestamp": "2026-05-22T21:50:23+02:00",
-          "tree_id": "3221affaf0e1d4267bc9d0167aafaf93426b30d7",
-          "url": "https://github.com/fallow-rs/fallow/commit/325a409eef77c7686d2405500073fc662848da44"
-        },
-        "date": 1779479577639,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/88f5eb3d1cc3f82f4cef07c23615a52157d0debc"
         },
         "date": 1780043555380,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2c2ddebfbb90052cdc166a1bd714c587577f1016",
+          "message": "chore(telemetry): changelog entry, retention wording, cross-repo allowlist drift checker\n\nAdds the [Unreleased] telemetry CHANGELOG entry, corrects retention wording to match the server, and adds a release-time cross-repo agent-source allowlist drift checker.",
+          "timestamp": "2026-05-29T08:32:39Z",
+          "tree_id": "9f37cc740460319c359ff5c8df208c2e1cf72590",
+          "url": "https://github.com/fallow-rs/fallow/commit/2c2ddebfbb90052cdc166a1bd714c587577f1016"
+        },
+        "date": 1780043719455,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
