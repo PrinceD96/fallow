@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780051852156,
+  "lastUpdate": 1780052184879,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d7f0b1bab714f1781a84f0455d5e5a242ac177cb",
-          "message": "docs(skill): bring remaining vendored plugin counts to 97\n\nBumps the four other 94/95-counted lines in npm/fallow/skills/fallow/SKILL.md to 97 to match the bump landed in #369. Mirrors canonical fallow-skills b371366 + docs c8591e3.",
-          "timestamp": "2026-05-22T22:11:24+01:00",
-          "tree_id": "b6ccc9e8d759185c125b99d21158cd209ab0651f",
-          "url": "https://github.com/fallow-rs/fallow/commit/d7f0b1bab714f1781a84f0455d5e5a242ac177cb"
-        },
-        "date": 1779484433855,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9af2175229a48f92e08f38e0a03eddbe47792a25"
         },
         "date": 1780051850649,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "30ff077a594b83512a38679bf7f61da59eab3202",
+          "message": "chore(release): pass --ignore-scripts on release-pipeline dev installs (#782)\n\nExtends the ci.yml --ignore-scripts posture (#775) to release.yml's four\ndependency installs: the NAPI npm ci in the build matrix and npm-prep jobs,\nand the editors/vscode pnpm install in the vscode-prep and vscode-publish-prep\njobs. These run in prep jobs that carry no publish tokens (the prep/publish\nsplit is the primary supply-chain guard); --ignore-scripts is belt-and-suspenders\non top of it.\n\nVerified locally that the consuming builds still work with scripts disabled:\nthe full release-shape NAPI build (npm ci --omit=optional --ignore-scripts\nthen napi build --release --platform) produces the native addon, and the\neditors/vscode rolldown build runs after pnpm install --ignore-scripts. The\nnpm-prep comment that claimed @napi-rs/cli needs its install scripts is\nreconciled: napi build does not need them.\n\nVerified on darwin-arm64; the release matrix also builds linux / windows /\nmac-x64, where napi build is equally script-independent. actionlint clean;\nzizmor introduces zero new findings vs origin/main.",
+          "timestamp": "2026-05-29T10:41:32Z",
+          "tree_id": "067963ca9e7f96def9145b5b3c4b15e1c42167b0",
+          "url": "https://github.com/fallow-rs/fallow/commit/30ff077a594b83512a38679bf7f61da59eab3202"
+        },
+        "date": 1780052183314,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
