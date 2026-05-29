@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780059430470,
+  "lastUpdate": 1780060014188,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "raihassanraza10@gmail.com",
-            "name": "Muhammad Hassan Raza",
-            "username": "M-Hassan-Raza"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "57110c3385106100bd0b3bc431632db66c1fab18",
-          "message": "fix: reduce Wrangler, Content Collections, and loader false positives (#596)\n\nReduces false positives across three framework / runtime conventions:\n\n* Cloudflare Workers: read `wrangler.{toml,json,jsonc}` for the `main:`\n  worker entry plus `env.<name>.main` overrides, and widen the static\n  glob to `src/{index,worker}.{ts,tsx,js,jsx,mts,mjs}` so JSX worker\n  entries (rwsdk, React Router worker, Hono on Workers) stay reachable.\n\n* Node `module.register()`: credit loader-hook exports (`initialize`,\n  `resolve`, `load`, `globalPreload`, plus the legacy `getFormat`,\n  `getSource`, `transformSource` for projects still on older Node) on\n  the resolved loader target so they survive `unused-export` detection.\n  Resolves both literal-string and `new URL(...)`-bound specifiers,\n  including the conditional `condition ? srcUrl : distUrl` shape.\n\n* Content Collections: new plugin marking\n  `content-collections.{ts,tsx,js,jsx,mts,mjs,cts,cjs}` as a framework\n  entry and crediting the `@content-collections/*` tooling. Activates on\n  any of `@content-collections/{core,vite,next,solid-start,remix-vite,qwik,vinxi}`\n  so projects that only list a framework integration at the top level\n  (the common case) are still detected.\n\nBumps the extraction cache version so users on warm caches pick up the\nloader-hook credit on first run after upgrading.\n\nCloses #588\nCloses #589\nCloses #590",
-          "timestamp": "2026-05-22T19:53:19+01:00",
-          "tree_id": "3c6695a333e7ae1ea11cd865ccef53dbd3e2019f",
-          "url": "https://github.com/fallow-rs/fallow/commit/57110c3385106100bd0b3bc431632db66c1fab18"
-        },
-        "date": 1779476186398,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5104686,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27334,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 691499,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6527,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 30171,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 702731,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6539,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "3afc7256c1d353fc9c3331a637c944e887373902",
+          "message": "feat(cli): make fallow health a usable CI gate (--min-score authoritative, --report-only) (#790)\n\nfallow health previously exited 1 whenever any above-threshold function\nexisted, regardless of the health score, so --min-score only added a second\nfail condition and 'fallow health --min-score 0' still exited 1. Health could\nonly ever be advisory.\n\nWhen --min-score N is set it is now the authoritative complexity gate: the run\nexits 0 when score >= N (so --min-score 0 always passes) and complexity findings\nare demoted to informational while still printed. --min-severity composes with\n--min-score (fail if either gate trips). Plain 'fallow health' with no gate flag\nkeeps the back-compatible behavior of exiting 1 on any finding.\n\nNew --report-only flag prints the score and findings but never fails CI (always\nexit 0); it is mutually exclusive with --min-score / --min-severity (exit 2). The\nruntime-coverage and coverage-gap gates stay independent explicit opt-ins. The\n--min-score help text now signposts 'fallow audit --gate new-only' for gating on\nnewly-introduced complexity.\n\nFixes #786",
+          "timestamp": "2026-05-29T12:52:02Z",
+          "tree_id": "78bbc7818c0d50a844deed514ced3644453ff49e",
+          "url": "https://github.com/fallow-rs/fallow/commit/3afc7256c1d353fc9c3331a637c944e887373902"
+        },
+        "date": 1780060011899,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5339808,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30173,
             "unit": "allocations"
           },
           {
