@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780051842266,
+  "lastUpdate": 1780055998130,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b467e04c1377424747107ce1554a82bf64687a22",
-          "message": "fix(ci): silence two more Windows-only clippy regressions on `main`\n\nSibling to PR #587 and the v2.78.0 release commit's mcp tests fix. Rust 1.95's\nstrict `-D warnings` surfaced two more Windows-only paths on the post-release\nci.yml run for main:\n\n- `crates/cli/src/ci_template.rs::set_executable` Windows stub returns\n  `std::io::Result<()>` to match the Unix signature so the unconditional\n  caller can `?`-propagate without `#[cfg]` branching. The Windows body is\n  trivially `Ok(())`, so clippy's `unnecessary_wraps` fires. Suppress via\n  `#[expect(clippy::unnecessary_wraps, reason = \"...\")]` on the Windows\n  stub; matching the Unix signature is load-bearing for the caller.\n\n- `crates/cli/src/signal/scoped_child.rs::assert_deregistered` test helper\n  is only called from two `#[cfg(unix)]` tests in the same module. Gating\n  the helper itself with `#[cfg(unix)]` aligns it with its callers and\n  silences the `dead-code` lint on Windows.\n\nBoth are post-release CI fixes; v2.78.0 binaries are unaffected. Refs #447.",
-          "timestamp": "2026-05-22T16:15:53+02:00",
-          "tree_id": "05dfc715ccb9403790a2796c1247b4c3dd63fee6",
-          "url": "https://github.com/fallow-rs/fallow/commit/b467e04c1377424747107ce1554a82bf64687a22"
-        },
-        "date": 1779459485127,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5052806,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27263,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697367,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6535,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6536,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "4ff2796af4fe081fbe4aad2a25363c67df1cd359",
+          "message": "refactor(v8-coverage): document oxc_coverage_v8 boundary, drop dead emitter (#784)\n\nfallow-v8-coverage and oxc_coverage_v8 solve inverse problems in opposite\nunit spaces: fallow maps real Node V8 dumps in UTF-16-code-unit space, while\noxc_coverage_v8 fills an AST-built Istanbul FileCoverage in byte space. They\nare intentionally not consolidated; record the rationale in ADR-010.\n\nReal Node (v22) emits coverage offsets in UTF-16 code units (a function\npreceded by an emoji on the same line is reported at the UTF-16 offset, not\nthe byte offset), so fallow's LineOffsetTable is correct and a byte model is\nnot. Harden the UTF-16 conformance test to assert a within-line column, where\nthat distinction is observable, instead of a line start.\n\nRemove the crate's never-consumed forward emitter (normalize_script and its\nIstanbulFileCoverage / IstanbulFunction / IstanbulRange output types). The CLI\nbuilds its own remapped output from the input structs plus LineOffsetTable, and\nCRAP scoring uses a separate local IstanbulFileCoverage, so these were dead\nwithin fallow. Keep IstanbulPosition (LineOffsetTable::position's return type)\nand retarget the null-column regression test onto it directly.\n\nNo change to the CLI's behavior, output, or the runtime-coverage wire format.\n\nFixes #509",
+          "timestamp": "2026-05-29T11:45:24Z",
+          "tree_id": "7c4986fe87eb66113ccf89c785b01da185440a8c",
+          "url": "https://github.com/fallow-rs/fallow/commit/4ff2796af4fe081fbe4aad2a25363c67df1cd359"
+        },
+        "date": 1780055995412,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5368504,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30186,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 706875,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6541,
             "unit": "allocations"
           }
         ]
