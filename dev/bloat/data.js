@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780038927584,
+  "lastUpdate": 1780040664038,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b3b1ae8a68f99860c2304953c362e0b7ec749e10",
-          "message": "chore(cli): route dupes + health file headers through format_display_path\n\nFollow-up to #547. Two human-output sites (`dupes.rs:240`,\n`health.rs:861`) still rendered file paths via\n`relative_path(...).display().to_string()` without forward-slash\nnormalisation, so on Windows the dupes section and the complexity\nfindings file header emitted backslashes while the four #547 sites\nemitted forward slashes within the same combined run. Routing both\nsites through the shared `format_display_path` helper closes the\ncross-line inconsistency without changing macOS or Linux output. No\nJSON / SARIF / CodeClimate / MCP shape changes.\n\nSurfaced by the cli-output-reviewer pass on #547 as a non-blocking\nfollow-up.",
-          "timestamp": "2026-05-21T23:09:41+01:00",
-          "tree_id": "4ac2d1de841155d0fc85ff14d210933dc66ab3bf",
-          "url": "https://github.com/fallow-rs/fallow/commit/b3b1ae8a68f99860c2304953c362e0b7ec749e10"
-        },
-        "date": 1779401869787,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 234841152,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 247510168,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "de3503081b23a8ba6d0962a47424ed74174eec42",
+          "message": "feat(telemetry): opt-in agent and CI workflow telemetry\n\nOpt-in, off-by-default product telemetry for improving agent, CI, MCP, and editor workflows.\n\nAdds `fallow telemetry status|enable|disable|inspect`, coarse allowlisted workflow events (never code, paths, names, config, or raw env), `FALLOW_AGENT_SOURCE` attribution, and a non-blocking best-effort upload that never affects command output or exit code. DO_NOT_TRACK honored. Docs and drift-guard tests included.",
+          "timestamp": "2026-05-29T07:37:47Z",
+          "tree_id": "292f3789fda0ba9eda79e82b87d2a0470cec1e0b",
+          "url": "https://github.com/fallow-rs/fallow/commit/de3503081b23a8ba6d0962a47424ed74174eec42"
+        },
+        "date": 1780040662533,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 248292224,
             "unit": "bytes"
           }
         ]
