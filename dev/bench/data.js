@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780056523783,
+  "lastUpdate": 1780057626751,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "mike@mike-engel.com",
-            "name": "Mike Engel",
-            "username": "mike-engel"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "2cdc1f078a43b692b968ea393adcea07f4f14c06",
-          "message": "feat(glimmer): add support for strict-mode glimmer/ember\n\nAdds native support for Ember strict-mode glimmer components (.gts, .gjs):\n\n- New ember.js / glimmer / embroider plugin (97 total framework plugins)\n- Scan glimmer <template> blocks for imported-binding usage, including triple-stash helpers\n- Resolve .ts/.js imports to sibling .gts/.gjs files\n- Skip template-placeholder specifiers in HTML asset scanner\n- ember-classic integration fixture\n- CACHE_VERSION 95\n\nCloses #369.",
-          "timestamp": "2026-05-22T21:51:29+01:00",
-          "tree_id": "63434c0b9548677a685b7478d1a9257c8a102e90",
-          "url": "https://github.com/fallow-rs/fallow/commit/2cdc1f078a43b692b968ea393adcea07f4f14c06"
-        },
-        "date": 1779483384652,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 50032,
-            "range": "± 425",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3437769,
-            "range": "± 180328",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 4461622,
-            "range": "± 120726",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 18870021,
-            "range": "± 394866",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 108589,
-            "range": "± 1957",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 3053,
-            "range": "± 5",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 156220,
-            "range": "± 4179",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 715390,
-            "range": "± 16226",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1189064,
-            "range": "± 23331",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 486727,
-            "range": "± 12022",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 2967729,
-            "range": "± 31527",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 2993777,
-            "range": "± 32029",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 1963235,
-            "range": "± 65126",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2230663,
             "range": "± 9117",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5e73fdd8b0b06b973203ee55c3f404e37e56459e",
+          "message": "fix(plugins): add rspress plugin crediting @theme virtual module (#787)\n\nrspress exposes its theme layer through the `@theme` build-time virtual\nmodule (and `@theme/<component>` subpaths), the same convention as\nDocusaurus. fallow had no rspress plugin, so importing `@theme` from docs\nor source surfaced as an unlisted-dependency. A new minimal rspress plugin\nactivates on `rspress` or any `@rspress/`-scoped dependency and contributes\n`@theme/` and `@theme-original/` as virtual_module_prefixes(), covering both\nunlisted-dependency and unresolved-import for the bare specifier and its\nsubpaths. Real scoped packages like `@theme-ui/core` are unaffected.\nDocusaurus already covered bare `@theme` via the existing `@theme/` entry.\n\nFixes #756",
+          "timestamp": "2026-05-29T12:09:59Z",
+          "tree_id": "f025e6d85827d5ffb7abb89b5e90e040676928f1",
+          "url": "https://github.com/fallow-rs/fallow/commit/5e73fdd8b0b06b973203ee55c3f404e37e56459e"
+        },
+        "date": 1780057624522,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 63301,
+            "range": "± 995",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 4071191,
+            "range": "± 193171",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5911098,
+            "range": "± 196471",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 27574531,
+            "range": "± 425617",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 119216,
+            "range": "± 689",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2234,
+            "range": "± 8",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 236748,
+            "range": "± 3497",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 1074390,
+            "range": "± 9150",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1522690,
+            "range": "± 24142",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 577514,
+            "range": "± 8810",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4349144,
+            "range": "± 28906",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 4386288,
+            "range": "± 41785",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2982856,
+            "range": "± 6251",
             "unit": "ns/iter"
           }
         ]
