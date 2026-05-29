@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780060261826,
+  "lastUpdate": 1780081058483,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "fa3bd8a38156acd544c5a50475e715fa3fe8d79c",
-          "message": "fix(cli): route fallow list paths through format_display_path on all four emission sites\n\n`fallow list --files` and `fallow list --entry-points` previously\nemitted forward-slashed paths via `--format json` but raw\n`relative.display()` via plain-text stdout. On Windows the JSON\nsurface was POSIX-shaped while the human surface leaked backslashes,\ninconsistent for CI consumers that xargs/grep the plain output.\n\nRoute all four list emission sites (JSON files + entry_points,\nplain-text files + entry_points) through the canonical\n`report::format_display_path` helper so Windows backslashes never\nreach stdout regardless of format.\n\nTighten the two existing list_json regression tests with\n`assert!(!path.contains('\\\\'))` and replace the lenient\n`starts_with(\\\"src/\\\") || starts_with(\\\"src\\\\\\\\\\\")` clause with strict\n`starts_with(\\\"src/\\\")` so a backslashed path now fails CI on the\nWindows leg pre-fix and passes post-fix.\n\nRefs #561",
-          "timestamp": "2026-05-22T08:40:03+01:00",
-          "tree_id": "f69d8cc949cf1d758a29db68066ef5a944640b70",
-          "url": "https://github.com/fallow-rs/fallow/commit/fa3bd8a38156acd544c5a50475e715fa3fe8d79c"
-        },
-        "date": 1779436028566,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 235164360,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 249650120,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "3297be51072765aab0cdd9bf6fab7acd88bf152e",
+          "message": "fix(impact): gitignore the store on enable; reject unsupported formats (#795)\n\nTwo gaps found smoke-testing `fallow impact`:\n\n`fallow impact enable` created `.fallow/impact.json` but did not ensure\n`.fallow/` was gitignored. In a project that had not run `fallow init` (which\ndoes add the entry), a routine `git add -A` would stage and push the store,\ncontradicting the feature's local-only / \"never uploaded\" promise that the\nenable message itself prints. `enable` now appends `.fallow/` to `.gitignore`\nbest-effort (idempotent, and a no-op when the entry already exists), so the\nguarantee holds at the moment the store is created regardless of caller. The\nhelper is self-contained in impact.rs because that module is in the library\ncrate while setup_hooks (which has the equivalent) is binary-only.\n\n`fallow impact --format sarif|compact|codeclimate|badge|...` silently fell back\nto the human report, so a CI step requesting a machine format got human text it\ncould not parse. The format dispatch is now exhaustive and rejects unsupported\nformats with exit 2 and a clear message, matching `fallow explain`. The\nsupported set (human, json, markdown) is unchanged.\n\nBoth paths are covered by a new unit test (enable gitignores, idempotent) and\nverified end-to-end.",
+          "timestamp": "2026-05-29T18:37:19Z",
+          "tree_id": "3ac9d81a9ade3541eb09725e8f4907755df04a24",
+          "url": "https://github.com/fallow-rs/fallow/commit/3297be51072765aab0cdd9bf6fab7acd88bf152e"
+        },
+        "date": 1780081056898,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 249673992,
             "unit": "bytes"
           }
         ]
