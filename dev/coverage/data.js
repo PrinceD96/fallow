@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780060022890,
+  "lastUpdate": 1780079102941,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f92318a75a2aee0732382d8069d8366931f01572",
-          "message": "fix(tanstack): suppress Start virtual modules\n\nTanStack Start imports manifest and injected-head script modules through framework-provided virtual specifiers with a :v suffix. Those specifiers are not npm packages, but the TanStack plugin did not register them as virtual modules, so dead-code analysis reported them as unlisted dependencies.\n\nRegister the colon-suffixed TanStack Start virtual module prefixes through the existing plugin virtual-prefix hook. Add plugin-gated positive and negative coverage, including unresolved-import suppression and end-to-end analysis fixtures for static and dynamic imports.\n\nFixes #636.",
-          "timestamp": "2026-05-23T08:33:06+01:00",
-          "tree_id": "f8c31997a7b57f6ab66e7a20f46bd0f0e039a531",
-          "url": "https://github.com/fallow-rs/fallow/commit/f92318a75a2aee0732382d8069d8366931f01572"
-        },
-        "date": 1779521768208,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3afc7256c1d353fc9c3331a637c944e887373902"
         },
         "date": 1780060020584,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "618fd5263cf20b4ae91e6c8c06878ee73aa5bacf",
+          "message": "chore(security): re-bless agent-file baseline for cli-crate rule (#793)\n\nThe cli-crate.md health-gate documentation edit from #790 changed the\nfile's content hash without refreshing the blessed manifest, so the\nSessionStart agent-file guard flags it as drift. Re-bless to match.",
+          "timestamp": "2026-05-29T18:12:20Z",
+          "tree_id": "0d350dc9416c8bd2ccc7c9c0a54aeef49a5c8d4f",
+          "url": "https://github.com/fallow-rs/fallow/commit/618fd5263cf20b4ae91e6c8c06878ee73aa5bacf"
+        },
+        "date": 1780079100091,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
