@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780043722063,
+  "lastUpdate": 1780044248966,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e63fbe4d1783276468f87bd81ca022fe8d7a5d48",
-          "message": "fix(cli): polish human summary output\n\nCombined human summary output now lets the combined renderer own the section headings while the per-analysis summary renderers suppress their duplicate titles. The report context carries that choice through dead-code, duplication, and health output without changing JSON or CI formats.\n\nExplain accepts issue labels split across words, so commands like `fallow explain unused files` resolve to the same rule metadata as the hyphenated form. Config-loaded notices are deduped by canonical config path so combined runs do not repeat the same line while separate configs still report independently.",
-          "timestamp": "2026-05-22T21:05:15+01:00",
-          "tree_id": "dcca61d3d8ed640dbc187769c5032fa093b32c53",
-          "url": "https://github.com/fallow-rs/fallow/commit/e63fbe4d1783276468f87bd81ca022fe8d7a5d48"
-        },
-        "date": 1779480458964,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 90.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2c2ddebfbb90052cdc166a1bd714c587577f1016"
         },
         "date": 1780043719455,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8b537dc9a3430d465338b223793b5905e8bf0a78",
+          "message": "chore(security): guard against hidden-unicode and agent-file poisoning (#779)\n\nAdds scripts/scan-hidden-unicode.py, a stdlib scanner shared by two\ndefense-in-depth guards against the agent-context-poisoning supply-chain\nclass:\n\nT2 (committed surface, blocking): the pre-commit hook scans staged text\nfiles and a CI step (the Typos job) scans the tracked surface for\nzero-width and bidirectional-override code points. Emoji ZWJ sequences are\nallowlisted so family/profession emoji pass. A hit fails the commit / CI;\nthese characters have no legitimate place in source.\n\nT1' (local agent surface, advisory): a Claude Code SessionStart hook scans\nthe agent-instruction allowlist (AGENTS.md, .codex/**, .claude/**,\n.cursorrules, *.mcp.json) INCLUDING untracked / gitignored files that never\nreach a pull request. Hidden code points are reported; shell-exec injection\nshapes (curl | sh, base64 -d, eval, node -e) are warn-only and only on the\nun-reviewed (untracked) files, since tracked reviewer prompts legitimately\ndiscuss those commands and blocking on a bypassable heuristic is theater; a\nscripts/agent-files.sha256 baseline warns (never blocks) when a tracked\nagent file changed since it was last blessed. The hook never hard-blocks a\nsession.\n\nscripts/test-scan-hidden-unicode.sh drives the scanner over a fixture tree\n(clean / zero-width / bidi / family-emoji / keyword / drift) and asserts the\nexit codes; it runs in CI alongside the scan. SECURITY.md documents the\nagent-instruction surface.",
+          "timestamp": "2026-05-29T08:41:30Z",
+          "tree_id": "7e29e3ee4c1efb98fd158b412a3c9eecca9ed8f4",
+          "url": "https://github.com/fallow-rs/fallow/commit/8b537dc9a3430d465338b223793b5905e8bf0a78"
+        },
+        "date": 1780044247399,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
