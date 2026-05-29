@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780083246515,
+  "lastUpdate": 1780083678129,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e4bb70d946e9481c738f8857c15df5a2ba01b648",
-          "message": "fix(plugins): suppress React Router route type imports\n\nReact Router v7 and Remix generate sibling ./+types route modules during typegen, and clean checkouts can omit those files. Thread a plugin-provided generated type-import prefix through aggregation and unresolved-import filtering so type-only imports under that prefix do not report as missing.\n\nKeep the suppression narrow: it is plugin-gated, exact-prefix based, and only applies to type-only imports. Runtime imports under ./+types/ continue to report as unresolved, and projects without the React Router or Remix plugins keep the normal missing-import behavior.\n\nAdd unit coverage for the type-only filter, plugin-gated behavior, and runtime negative case, plus React Router and Remix integration fixture coverage.\n\nFixes #645.",
-          "timestamp": "2026-05-23T07:45:49+01:00",
-          "tree_id": "b0f0c1bc46d749073991cdc2944d731ca925574b",
-          "url": "https://github.com/fallow-rs/fallow/commit/e4bb70d946e9481c738f8857c15df5a2ba01b648"
-        },
-        "date": 1779519132309,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 43101,
-            "range": "± 928",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3708101,
-            "range": "± 188147",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 5455964,
-            "range": "± 156304",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 28002997,
-            "range": "± 522547",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 109480,
-            "range": "± 3020",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2312,
-            "range": "± 20",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 185181,
-            "range": "± 2022",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 818108,
-            "range": "± 16918",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1331175,
-            "range": "± 23573",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 535912,
-            "range": "± 21751",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3341885,
-            "range": "± 132459",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 3348812,
-            "range": "± 31728",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2226069,
-            "range": "± 3847",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 1748255,
             "range": "± 14963",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1eb8b5d7deeedbcf3697421ac5fba0150c227b8f",
+          "message": "fix(impact): apply post-merge review polish (#798)\n\n* fix(impact): apply post-merge review polish\n\nSix findings from the post-merge team review of the (unreleased) impact\nfeature:\n\n1. ImpactReport now carries a required schema_version on the JSON wire, typed\n   as its own ImpactReportSchemaVersion discriminator (serializes as \"1\"),\n   matching the other independently-versioned envelopes. This is decoupled from\n   the on-disk store version (renamed to STORE_SCHEMA_VERSION) and from the\n   global SchemaVersion, so the store shape and the report wire shape can evolve\n   on their own cadences. Regenerated docs/output-schema.json and both TS\n   contracts.\n2. latest_git_sha is documented as an abbreviated SHA (it flows from audit's\n   short head_sha); consumers joining against a full 40-char SHA are warned in\n   the schema description rather than misled. Full-SHA emission is deferred.\n3. Human and markdown footers show the first-recorded date only (2026-05-29)\n   instead of a raw ISO timestamp, and markdown now shows it for parity with the\n   human renderer.\n4. load() emits a tracing::warn when a store's schema_version is newer than this\n   build understands, mirroring the corrupt-store warning.\n5. TREND_TOLERANCE's comment now matches its zero value.\n6. The .gitignore write in enable() goes through atomic_write, matching the\n   store write's durability.\n\nNew unit tests cover schema_version presence (enabled and disabled), the\ndate-only trim, and best-effort load of a future-version store.\n\n* docs(impact): fix rustdoc intra-doc links on ImpactReportSchemaVersion\n\nThe doc comment used `[crate::output_envelope::SchemaVersion]` (unresolved\npath) and `[STORE_SCHEMA_VERSION]` (a public item linking to a private const),\nboth of which fail under the Documentation CI job's RUSTDOCFLAGS=-D warnings\n(broken-intra-doc-links and private-intra-doc-links). Drop the intra-doc links\nto plain code spans; the references are descriptive, not navigational.",
+          "timestamp": "2026-05-29T19:24:29Z",
+          "tree_id": "b662a8c54e5fe30f5e06689222d5ecdfffa7e4c3",
+          "url": "https://github.com/fallow-rs/fallow/commit/1eb8b5d7deeedbcf3697421ac5fba0150c227b8f"
+        },
+        "date": 1780083676047,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 36856,
+            "range": "± 139",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3196356,
+            "range": "± 173128",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 4731780,
+            "range": "± 152578",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 22758842,
+            "range": "± 331688",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 86038,
+            "range": "± 4673",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 1790,
+            "range": "± 10",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 143264,
+            "range": "± 6307",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 639680,
+            "range": "± 4228",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1019780,
+            "range": "± 18844",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 414864,
+            "range": "± 8235",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 2564623,
+            "range": "± 45307",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 2582281,
+            "range": "± 18886",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 1732478,
+            "range": "± 14343",
             "unit": "ns/iter"
           }
         ]
