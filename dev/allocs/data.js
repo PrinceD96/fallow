@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780037129372,
+  "lastUpdate": 1780037958284,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "239f75a6d9704fadfe1db30ab14665a355ee673a",
-          "message": "fix(core): normalise path separators in trace::path_matches (#584)\n\npath_matches did byte-level string comparison between the filesystem-shaped module_path (backslash-separated on Windows) and the forward-slash-shaped user_path (the convention every cross-platform consumer uses, including the MCP server's trace_export / trace_file tools which pass src/utils.ts literally). On Windows the four comparisons all silently missed even when the file was in the graph, so fallow dead-code --trace src/utils.ts:foo returned \"no module found\" instead of the trace payload.\n\nNormalise both sides to forward slashes before each comparison; POSIX is a no-op. Two regression tests pin the fix using PathBuf::from(r\"D:\\\\a\\\\...\") raw-string Windows-shaped literals that work cross-platform.\n\nFixes the MCP e2e e2e_trace_export_returns_json and e2e_trace_file_returns_json failures.\n\nRefs #561",
-          "timestamp": "2026-05-22T09:18:24+01:00",
-          "tree_id": "cf4323d1cf6175e7c975e5e1f150d4aa803af4b2",
-          "url": "https://github.com/fallow-rs/fallow/commit/239f75a6d9704fadfe1db30ab14665a355ee673a"
-        },
-        "date": 1779438030935,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5110766,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27329,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 698602,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6559,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 30151,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 702731,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6539,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "51e5aa2199c98611d72f84f7506e61e655b2b75c",
+          "message": "test(cli): snapshot coverage-intelligence render + drop stale dead_code allow (#771)\n\n* chore(health): drop stale dead_code allow on includes_crap\n\nExceededThreshold::includes_crap carried an #[allow(dead_code)] whose doc\ncomment claimed \"the binary target has no direct caller today\". That is no\nlonger true: baseline.rs, finding.rs, health/mod.rs, and the new\ncoverage_intelligence.rs all call it on the binary side, so the lint cannot\nfire. Remove the attribute and the stale rationale, aligning the doc comment\nwith its includes_cyclomatic / includes_cognitive siblings. Clippy stays\nclean with -D warnings.\n\n* test(cli): snapshot coverage-intelligence render across formats\n\nAdd a HealthReport fixture that carries a populated coverage_intelligence\nblock (a risky changed hot path plus a high-confidence delete candidate, with\none ambiguous match skipped) alongside runtime coverage, then render it\nthrough the public build_health_json / build_health_markdown /\nbuild_health_sarif / build_health_codeclimate entry points and snapshot each.\n\nPreviously the coverage-intelligence rendering was exercised only by\nper-format helper unit tests; these committed snapshots lock the live combined\nwire format across all four string-returning formats so future changes to the\nblock surface as reviewable snapshot diffs. The compact path keeps its\nexisting dedicated unit test (it prints to stdout rather than returning a\nstring).",
+          "timestamp": "2026-05-29T06:56:51Z",
+          "tree_id": "f11e27302b06d0014a2552c15df217e69c5287da",
+          "url": "https://github.com/fallow-rs/fallow/commit/51e5aa2199c98611d72f84f7506e61e655b2b75c"
+        },
+        "date": 1780037956735,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5334604,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30139,
             "unit": "allocations"
           },
           {
