@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780006100826,
+  "lastUpdate": 1780034629243,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "8c74aefb490f2d8eda3f972f59d3eea93c7cfc04",
-          "message": "test(core): canonicalise init_repo via dunce so test fixtures match production toplevel (#580)\n\ninit_repo and resolve_git_toplevel_returns_canonical_path called std::fs::canonicalize, which on Windows returns the \\\\?\\ verbatim form. Production resolve_git_toplevel was swapped to dunce::canonicalize in PR #566 so it strips that prefix. The test-side verbatim path then diverged from the production-side non-verbatim path and every changed.contains(&expected) assertion silently failed. Swap both test-side call sites to dunce::canonicalize; POSIX behaviour is identical.\n\nAlso marks proc-macro2 as cargo-shear-ignored in crates/cli/Cargo.toml. The dep was added in 7cd0a865 as a dev-dependency without an explicit import, but its span-locations feature is what makes syn-returned .span().start().line report real source positions inside the schema-drift gate. Removing the dep would silently collapse the gate; ignore it via [package.metadata.cargo-shear].ignored instead, matching the established miette precedent.\n\nCloses #561",
-          "timestamp": "2026-05-22T08:22:08+01:00",
-          "tree_id": "3acf5705597fab9507fa731599a02078c78d3681",
-          "url": "https://github.com/fallow-rs/fallow/commit/8c74aefb490f2d8eda3f972f59d3eea93c7cfc04"
-        },
-        "date": 1779434647661,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5066334,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27292,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697231,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6533,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6617,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7a1efb9bfce7a5e177c6a1bd008ce4365056a365",
+          "message": "feat(health): add coverage intelligence verdict (#768)\n\n* chore: open issue #507 implementation branch\n\n* feat: add coverage intelligence verdict\n\n* fix: tighten coverage intelligence output",
+          "timestamp": "2026-05-29T07:01:29+01:00",
+          "tree_id": "9045cdfa4e17ce2e66c0b4ce5ca3d3f0d8073fbb",
+          "url": "https://github.com/fallow-rs/fallow/commit/7a1efb9bfce7a5e177c6a1bd008ce4365056a365"
+        },
+        "date": 1780034627696,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5366500,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30146,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 709825,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6572,
             "unit": "allocations"
           }
         ]
