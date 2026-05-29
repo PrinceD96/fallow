@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780088729477,
+  "lastUpdate": 1780093199129,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "raihassanraza10@gmail.com",
-            "name": "Muhammad Hassan Raza",
-            "username": "M-Hassan-Raza"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "0ba5cf0b0d03c821b244625fa24fcce4c9c61a6e",
-          "message": "fix: handle re-export resolver source edges (#666)\n\nFixes resolver source edges that were only handled for imports.\n\nUnresolved named and star re-export sources now use the same source-edge contract as imports, so they are reported instead of being skipped.\n\nPackage imports and exports array targets now preserve fallback order. Package imports also credit external package targets, which avoids false unlisted dependency reports for package import aliases.",
-          "timestamp": "2026-05-25T13:26:13+01:00",
-          "tree_id": "0c56b912166f6340edb225166aeb0458a9ee8dd9",
-          "url": "https://github.com/fallow-rs/fallow/commit/0ba5cf0b0d03c821b244625fa24fcce4c9c61a6e"
-        },
-        "date": 1779712078049,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/db4a8cc6b595d04a2d8f946da8b1770d766a06d6"
         },
         "date": 1780088726770,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b0cb61ab23a37e0189decdfcc344eeaf676050f7",
+          "message": "fix(plugins): credit @nuxt/content content.config.ts as a default-export entry (#801)\n\n* fix(plugins): credit @nuxt/content content.config.ts as a default-export entry\n\n@nuxt/content v3 reads a root content.config.ts (export default\ndefineContentConfig(...)) at build time; nothing in app source imports it,\nso fallow reported it as unused-file plus unused-export. When @nuxt/content\nis registered in the nuxt.config modules: array, credit\ncontent.config.{ts,js,mts,mjs,cts,cjs} (config-dir-relative) as a\ndefault-export entry via the existing push_used_export_rule path.\n\nGated on module registration rather than mere package.json presence: an\ninstalled-but-unregistered @nuxt/content leaves a genuinely-orphan\ncontent.config correctly flagged. Scoped to the first-party @nuxt/content\nonly (per #138).\n\nFixes #792\n\n* docs(plugins): document @nuxt/content content.config crediting (#792)\n\ndetection.md bullet + plugins.md Nuxt line + CHANGELOG [Unreleased] entry,\nand re-bless scripts/agent-files.sha256 for the detection.md/plugins.md edits.",
+          "timestamp": "2026-05-29T22:04:38Z",
+          "tree_id": "312dd6e5be2e8c222e31c4c0b4adc6429bb955ad",
+          "url": "https://github.com/fallow-rs/fallow/commit/b0cb61ab23a37e0189decdfcc344eeaf676050f7"
+        },
+        "date": 1780093197535,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
