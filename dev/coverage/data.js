@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780057488073,
+  "lastUpdate": 1780059144399,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4a4873a732459e727c9cba9b37152be367648227",
-          "message": "fix(graph): resolve prebuild package maps to source\n\nResolve package.json imports and workspace/root package exports that point at missing prebuild output back to tracked source files. The resolver now loads root and workspace package manifests, evaluates package maps in manifest order, and keeps blocked or unmatched subpaths unresolved instead of turning them into dependency noise.\n\nPreserve dependency accounting by carrying package usage metadata alongside internal file resolution, so self/workspace package imports can still feed unused and unlisted dependency analysis while participating in the module graph.\n\nAdds regression fixtures for Nitro-style package imports and Redux Toolkit-style workspace exports, including blocked, missing, unexported, declared, and undeclared workspace import cases.\n\nFixes #641.",
-          "timestamp": "2026-05-23T07:40:46+01:00",
-          "tree_id": "91e435d207290ee63851ccaa878a435209f235e9",
-          "url": "https://github.com/fallow-rs/fallow/commit/4a4873a732459e727c9cba9b37152be367648227"
-        },
-        "date": 1779518600628,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/5e73fdd8b0b06b973203ee55c3f404e37e56459e"
         },
         "date": 1780057486064,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "63d9af9d5142ead85bff9195555427345e14f708",
+          "message": "chore(security): re-bless agent-file baseline for detection and plugins rules (#789)\n\n`.claude/rules/detection.md` and `.claude/rules/plugins.md` were edited on\nmain without updating their blessed hashes in scripts/agent-files.sha256, so\nthe agent-file hidden-unicode guard reported drift on every session start.\nRe-bless both to their current content. No content change to the rule files\nthemselves; this only syncs the integrity baseline.",
+          "timestamp": "2026-05-29T12:38:14Z",
+          "tree_id": "08bedfac7ac0aa36b794c0ba66eb59be44368ec8",
+          "url": "https://github.com/fallow-rs/fallow/commit/63d9af9d5142ead85bff9195555427345e14f708"
+        },
+        "date": 1780059142866,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
