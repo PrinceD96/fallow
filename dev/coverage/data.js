@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780079102941,
+  "lastUpdate": 1780079984664,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a13ec35cec22c6edab315ed472cd634d218f6451",
-          "message": "fix(extract): credit Node script runner entrypoints\n\nResolve extensionless package-script paths through directory index files after exact and extension fallback.\n\nCredit statically resolvable local child_process.fork runner targets from proven Node child_process imports and requires, including path.resolve(fileURLToPath(import.meta.url), ...).\n\nFixes #638.",
-          "timestamp": "2026-05-23T15:25:08+01:00",
-          "tree_id": "cc2a64b75e2862a036c38750f4687a0c2e105a93",
-          "url": "https://github.com/fallow-rs/fallow/commit/a13ec35cec22c6edab315ed472cd634d218f6451"
-        },
-        "date": 1779546612579,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/618fd5263cf20b4ae91e6c8c06878ee73aa5bacf"
         },
         "date": 1780079100091,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "65147e21f6b7f33d43900cd2ec66b86981d67d9d",
+          "message": "chore(security): gate agent-file baseline drift in CI (#794)\n\nThe agent-file integrity baseline (scripts/agent-files.sha256) had no\nenforcement: editing a tracked agent-instruction file (.claude/rules/**,\n.claude/agents/**, CLAUDE.md, .claude/settings.json) without re-blessing left\nthe baseline stale, and the only signal was the warn-only SessionStart guard,\nwhich fires on every later session until someone notices. Stale drift\naccumulated on main as feature PRs touched rule docs in passing.\n\nAdd a blocking CI gate. scan-hidden-unicode.py gains a `--mode check-manifest`\nthat exits nonzero when any blessed file differs from its hash or a tracked\nagent file has no entry at all, and ci.yml runs it in the typos job alongside\nthe existing committed-surface scan. This makes a PR that edits a tracked agent\nfile re-bless the manifest in the same change. The SessionStart drift check\nstays warn-only so an in-progress edit never hard-blocks a session.\n\nRe-bless the one outstanding drift (.claude/rules/cli-crate.md) so the gate is\ngreen, extend the scanner self-test with block/clean/unblessed cases, and\ndocument the new surface in SECURITY.md.",
+          "timestamp": "2026-05-29T18:20:35Z",
+          "tree_id": "23601d4733f422a8ad7cf890c7d1caddd4ffd012",
+          "url": "https://github.com/fallow-rs/fallow/commit/65147e21f6b7f33d43900cd2ec66b86981d67d9d"
+        },
+        "date": 1780079981748,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
