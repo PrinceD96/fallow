@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780083461070,
+  "lastUpdate": 1780086186822,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4a4873a732459e727c9cba9b37152be367648227",
-          "message": "fix(graph): resolve prebuild package maps to source\n\nResolve package.json imports and workspace/root package exports that point at missing prebuild output back to tracked source files. The resolver now loads root and workspace package manifests, evaluates package maps in manifest order, and keeps blocked or unmatched subpaths unresolved instead of turning them into dependency noise.\n\nPreserve dependency accounting by carrying package usage metadata alongside internal file resolution, so self/workspace package imports can still feed unused and unlisted dependency analysis while participating in the module graph.\n\nAdds regression fixtures for Nitro-style package imports and Redux Toolkit-style workspace exports, including blocked, missing, unexported, declared, and undeclared workspace import cases.\n\nFixes #641.",
-          "timestamp": "2026-05-23T07:40:46+01:00",
-          "tree_id": "91e435d207290ee63851ccaa878a435209f235e9",
-          "url": "https://github.com/fallow-rs/fallow/commit/4a4873a732459e727c9cba9b37152be367648227"
-        },
-        "date": 1779518541716,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 20,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 19,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 303,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 691,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1eb8b5d7deeedbcf3697421ac5fba0150c227b8f"
         },
         "date": 1780083458710,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 327,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 767,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "69acf17bcd03460535d3739b5b6459add545c395",
+          "message": "fix(plugins): recognize SvelteKit layout-reset routes as entry points (#797)\n\n* fix(plugins): recognize SvelteKit layout-reset routes as entry points\n\nThe SvelteKit plugin matched +page.svelte / +layout.svelte literally but\nnot the @-suffixed layout-reset variants (+page@.svelte, +page@named.svelte,\n+layout@.svelte, +layout@named.svelte), so routes using SvelteKit's\nbreak-out-of-layout convention were reported as unused-file.\n\nAdd src/routes/**/+page@*.svelte and src/routes/**/+layout@*.svelte as entry\npatterns plus matching used_exports rules crediting the default export. The *\ncovers both the empty (@.svelte) and named (@named.svelte) forms;\nliteral_separator(true) keeps the match within one path segment. Only .svelte\ncomponent files take the suffix: SvelteKit throws on @ in .ts/.js route files,\nso the co-located load files are unaffected.\n\nFixes #791\n\n* test(plugins): cover SvelteKit layout-reset group form\n\nAdd a +page@(checkout).svelte fixture and assertion to\nsveltekit_layout_reset_routes_are_entry_points so the parenthesized\ngroup form of the layout-reset segment is exercised end to end. This is\nthe riskiest assumption in the +page@*.svelte entry glob: globset treats\n( and ) as literal characters, not metacharacters, so * must match the\n(group) form. Neither the existing unit nor integration test covered it.\n\nRefs #791.\n\n* chore(security): re-bless agent-file baseline for detection.md\n\nThe SvelteKit layout-reset bullet added to .claude/rules/detection.md\nchanged the file's hash; re-bless scripts/agent-files.sha256 so the\nagent-file drift gate passes. No content concern (no hidden unicode;\nplain ASCII bullet).\n\nRefs #791.",
+          "timestamp": "2026-05-29T20:02:22Z",
+          "tree_id": "9574d7d24c2d7e94b8ede54d7f4c431bfdcf1dd4",
+          "url": "https://github.com/fallow-rs/fallow/commit/69acf17bcd03460535d3739b5b6459add545c395"
+        },
+        "date": 1780086184464,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
