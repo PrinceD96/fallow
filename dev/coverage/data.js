@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780083537845,
+  "lastUpdate": 1780085072892,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "017658ea7af7473dcc87c921a092f0bd507457fd",
-          "message": "chore: release v2.80.0",
-          "timestamp": "2026-05-24T09:38:07+02:00",
-          "tree_id": "46bd21cb4f96e15a0d4a8dce8b03a8d51af3ba2a",
-          "url": "https://github.com/fallow-rs/fallow/commit/017658ea7af7473dcc87c921a092f0bd507457fd"
-        },
-        "date": 1779608474632,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1eb8b5d7deeedbcf3697421ac5fba0150c227b8f"
         },
         "date": 1780083535435,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "47f7233f413a094af63fffb3806a41cedf761cbe",
+          "message": "ci: add windows-latest smoke for audit orphan-sweep and process_is_alive (#800)\n\nRun the three audit lifecycle tests on windows-latest so the orphan-sweep,\nprocess_is_alive, and reusable-worktree-lock code paths execute against real\nWin32 OpenProcess / WaitForSingleObject and NTFS LockFileEx semantics rather\nthan just compiling. The check matrix only runs the full suite on Windows for\npush and merge_group, so PRs never exercised these paths on Windows before.\n\nThe new windows-audit-smoke job is gated on the rust changes filter (plus push\nand merge_group), mirroring the check and windows-arm64 convention, and runs\nexactly the three named tests via cargo test --lib -- --exact. It is wired into\nci-ok needs so a Windows lifecycle regression blocks merge; ci-ok treats skipped\nas success, so non-Rust PRs do not deadlock the merge queue. Narrower than the\nfull Windows matrix tracked in #447.\n\nFixes #497.",
+          "timestamp": "2026-05-29T19:47:42Z",
+          "tree_id": "8850ea58263c41b1b4b66faca7ebfd413352fe1a",
+          "url": "https://github.com/fallow-rs/fallow/commit/47f7233f413a094af63fffb3806a41cedf761cbe"
+        },
+        "date": 1780085071348,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
