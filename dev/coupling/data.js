@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780080716550,
+  "lastUpdate": 1780081754365,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "62bed8d6298ba5e83a178f4fcbee05ee7ae548d1",
-          "message": "fix(unused-class-members): preserve public package APIs\n\nTreat class members on classes exported from non-private package entry points as part of the public package API, including transitive star barrels and source-first package entry fallbacks. This keeps library builder APIs from being reported as removable internals while still reporting genuinely unused internal members and enum members.\n\nResolve package entry paths that point at missing root build artifacts back to source indexes, and recognize exportless source subpath indexes when no exports map exists. Package manifests also ignore non-boolean private values instead of aborting analysis on permissive real-world package.json data.\n\nFixes #643.",
-          "timestamp": "2026-05-22T22:04:17+01:00",
-          "tree_id": "da1796a0cbdf1cd2c9b6b88b6351b1ad7f71817a",
-          "url": "https://github.com/fallow-rs/fallow/commit/62bed8d6298ba5e83a178f4fcbee05ee7ae548d1"
-        },
-        "date": 1779483927967,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 20,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 19,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 303,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 691,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3297be51072765aab0cdd9bf6fab7acd88bf152e"
         },
         "date": 1780080713713,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 327,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 767,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "7f9cda0deff535e29c3fadb2521a802e8ab8ac3b",
+          "message": "feat(cli): upload-static-findings subcommand for the source-evidence viewer (#796)\n\n* feat(cli): upload-static-findings subcommand for source-evidence viewer\n\nAdd `fallow coverage upload-static-findings`, the CLI emit for the\nPOST /v1/coverage/:repo/static-findings cloud endpoint (ADR 024). Runs\nfallow static analysis and uploads unused_export + dead_file verdicts\nkeyed to a git SHA, mirroring upload-inventory's structure.\n\nFindings are replace-by-SHA: each run sends the complete set for the\nSHA, so an empty set is a valid clearing (no empty-result rejection,\nunlike upload-inventory). filePath is repo-relative POSIX so it lines\nup with source-map sources in the viewer. The error classifier maps\nHTTP 413 (not 400) to PayloadTooLarge for the 200,000-finding cap.\nAuth uses a live FALLOW_API_KEY; the unauthorized hint calls out that\na publishable ingest key is rejected here.\n\n* style(cli): rustfmt upload-static-findings",
+          "timestamp": "2026-05-29T18:49:39Z",
+          "tree_id": "bb13b89cd7711e5c0a5cea454fe3f3d814cae1ab",
+          "url": "https://github.com/fallow-rs/fallow/commit/7f9cda0deff535e29c3fadb2521a802e8ab8ac3b"
+        },
+        "date": 1780081752596,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
