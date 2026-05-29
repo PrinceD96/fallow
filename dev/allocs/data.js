@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780057447790,
+  "lastUpdate": 1780059430470,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "8604f89c14304bd43d3394782b736ffc983bce9a",
-          "message": "fix(cli): gate scoped_child::tests module behind cfg(unix) (#599)\n\nAfter PR #595 and the v2.78.1 follow-up release made assert_deregistered cfg(unix), every test inside scoped_child::tests is cfg(unix) (they all exec /bin/sh / true / echo). On Windows the module reduces to just use super::*;, which Rust 1.95's -D unused-imports flags.\n\nGate the module itself with #[cfg(all(test, unix))] so the whole suite (and its imports) only compile when the bodies have a chance to run. No Windows test loss because there were no Windows tests in this module to begin with.\n\nRefs #561",
-          "timestamp": "2026-05-22T18:40:15+01:00",
-          "tree_id": "498d8a4c02a390681e72aafa4e36372e6f4547e1",
-          "url": "https://github.com/fallow-rs/fallow/commit/8604f89c14304bd43d3394782b736ffc983bce9a"
-        },
-        "date": 1779471764714,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5098718,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27321,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 704269,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6601,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6537,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "7c3bbc09fd78a9393826abbb548855e21137f94f",
+          "message": "feat(impact): add `fallow impact` value report (v1: surfacing, trend, containment) (#788)\n\n* feat(impact): add `fallow impact` value report (v1: surfacing, trend, containment)\n\nAdds an opt-in, local-only `fallow impact` command reporting what fallow has\ndone for you: how many issues it is surfacing, the trend since the last\nrecorded run, and how many commits its pre-commit gate blocked then cleared.\n\nHistory accrues in a single rolling .fallow/impact.json (gitignored) on\n`fallow audit` runs, once enabled via `fallow impact enable`. Writes are\nbest-effort and never change a command's exit code or output. The generated\npre-commit hook now tags gate runs with --gate-marker pre-commit so\nblocked-then-fixed commits are recorded as contained.\n\nPer-finding resolved/suppressed/moved attribution is intentionally deferred\nuntil active-suppression state can be captured, so a suppressed finding is\nnever miscounted as a win.\n\n* fix(impact): address review (top-level help, JSON schema surface, lint hygiene, docs)\n\nResolves the pre-ship and parallel review findings on the impact v1 feature:\n\n- Add `impact` to the top-level --help command listing + extend the\n  help-grouping test, so the new stable command is discoverable.\n- Register the `fallow impact --format json` shape in the published output\n  schema: a FallowOutput::Impact variant plus JsonSchema-derived ImpactReport,\n  ImpactCounts, TrendSummary, ImpactTrendDirection, and ContainmentEvent\n  definitions, wired into schema-emit. Regenerated docs/output-schema.json and\n  the VS Code + npm TypeScript contracts; drift and path-field gates pass.\n- Swap the three new lint suppressions from #[allow] to #[expect] (the\n  expectations are fulfilled under -D warnings).\n- Document the command in CHANGELOG, README, CLAUDE.md, and the cli-crate rules.\n\n* fix(impact): atomic store writes, scope-honest labels, unified trend vocab, latest sha\n\nAddresses the post-implementation panel review:\n\n- Persist the rolling store with `fallow_config::atomic_write` (tempfile +\n  rename) instead of plain `fs::write`, so a crash or concurrent writer can no\n  longer leave a torn file that the next load treats as corrupt and silently\n  disables tracking on. A present-but-unparsable store now warns (once) and\n  degrades, rather than silently resetting; the corrupt file is left on disk.\n- Relabel the report: the per-run counts are CHANGED-FILE scoped (each record\n  comes from a `fallow audit` run whose default new-only gate counts only\n  changed files), so 'SURFACING N issues you can act on' becomes\n  'LATEST RUN (changed files): N flagged', and the trend is qualified as\n  changed-file scope across the last two runs. Avoids presenting a per-diff\n  number as a project total.\n- Use one human-facing trend vocabulary (down/up/flat) in both the text and\n  markdown renderers via a shared `trend_arrow`; the JSON enum stays the\n  machine form.\n- Add `latest_git_sha` to the JSON report so a consumer can tell which commit\n  the counts belong to. Schema and TS contracts regenerated.\n\n* chore(security): re-bless agent-file baseline for impact docs\n\nThe impact feature added an `impact.rs` entry to `.claude/rules/cli-crate.md`\nand registered the module in `CLAUDE.md`'s crate map. Update the blessed\nhashes in scripts/agent-files.sha256 so the agent-file hidden-unicode guard\nstops flagging these two legitimate edits as drift once they land on main.",
+          "timestamp": "2026-05-29T12:41:59Z",
+          "tree_id": "5fb455fbfe6441394218714ca33b920cf64cd900",
+          "url": "https://github.com/fallow-rs/fallow/commit/7c3bbc09fd78a9393826abbb548855e21137f94f"
+        },
+        "date": 1780059428845,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5330168,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30171,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 702731,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6539,
             "unit": "allocations"
           }
         ]
