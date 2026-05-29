@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780087465576,
+  "lastUpdate": 1780088866400,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a13ec35cec22c6edab315ed472cd634d218f6451",
-          "message": "fix(extract): credit Node script runner entrypoints\n\nResolve extensionless package-script paths through directory index files after exact and extension fallback.\n\nCredit statically resolvable local child_process.fork runner targets from proven Node child_process imports and requires, including path.resolve(fileURLToPath(import.meta.url), ...).\n\nFixes #638.",
-          "timestamp": "2026-05-23T15:25:08+01:00",
-          "tree_id": "cc2a64b75e2862a036c38750f4687a0c2e105a93",
-          "url": "https://github.com/fallow-rs/fallow/commit/a13ec35cec22c6edab315ed472cd634d218f6451"
-        },
-        "date": 1779546645771,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 45668,
-            "range": "± 3649",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3692164,
-            "range": "± 145792",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 5428283,
-            "range": "± 134408",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 27380846,
-            "range": "± 349166",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 111717,
-            "range": "± 643",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2283,
-            "range": "± 32",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 184848,
-            "range": "± 4057",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 817890,
-            "range": "± 29891",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1305759,
-            "range": "± 56092",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 532179,
-            "range": "± 19398",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3295575,
-            "range": "± 79417",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 3347872,
-            "range": "± 34274",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2228764,
-            "range": "± 3722",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2975193,
             "range": "± 15791",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "db4a8cc6b595d04a2d8f946da8b1770d766a06d6",
+          "message": "feat(mcp): expose fallow impact as a read-only MCP tool (#804)\n\n* feat(mcp): expose fallow impact as a read-only MCP tool\n\nAdd an \"impact\" tool wrapping \"fallow impact --format json\" so AI agents\ncan read the local value report (surfacing, trend, gate containment, and\nv1.5 resolved/suppressed attribution) the same way they query check_health\nand audit. Impact was the only first-class CLI surface with no MCP tool.\n\nThe tool is read-only and root-only: it runs no analysis and reads only\n.fallow/impact.json, so the config / no_cache / threads knobs the analysis\ntools expose are omitted as inert. The mutating enable / disable lifecycle\nis intentionally not exposed; on an enabled:false report the agent should\nrecommend the user run \"fallow impact enable\", not toggle it. Annotated\nread_only_hint=true, idempotent_hint=true, open_world_hint=false (a single\nclosed-world local file read, like fallow_explain).\n\n* docs(mcp): document the impact MCP tool\n\nBump the fallow-mcp tool count to 21 and add an impact entry in\n.claude/rules/mcp-server.md, add a CHANGELOG [Unreleased] note, and\nre-bless scripts/agent-files.sha256 for the rules-file edit (CI drift gate).",
+          "timestamp": "2026-05-29T20:52:35Z",
+          "tree_id": "01a38e3a6c5c5c1bc97576d9265737b97887e250",
+          "url": "https://github.com/fallow-rs/fallow/commit/db4a8cc6b595d04a2d8f946da8b1770d766a06d6"
+        },
+        "date": 1780088864686,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 48151,
+            "range": "± 2948",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3707867,
+            "range": "± 131786",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5777492,
+            "range": "± 169121",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 29652488,
+            "range": "± 578152",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 118671,
+            "range": "± 1567",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2301,
+            "range": "± 17",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 185927,
+            "range": "± 14727",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 820926,
+            "range": "± 5275",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1320697,
+            "range": "± 29922",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 539471,
+            "range": "± 11220",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3328303,
+            "range": "± 40825",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3380613,
+            "range": "± 32396",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2229929,
+            "range": "± 4238",
             "unit": "ns/iter"
           }
         ]
