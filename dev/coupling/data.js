@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780040332943,
+  "lastUpdate": 1780041105446,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7f89de4fc78789364b4d35df1a7e647ed783e316",
-          "message": "chore: release v2.78.1",
-          "timestamp": "2026-05-22T19:06:03+02:00",
-          "tree_id": "35d64bc4b79b7ac57ab36da1c73cfc80ecd3f260",
-          "url": "https://github.com/fallow-rs/fallow/commit/7f89de4fc78789364b4d35df1a7e647ed783e316"
-        },
-        "date": 1779469645474,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 20,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 19,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 300,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 685,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 761,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2221f056c19880ef70edad19a5b0c3f1262fded3",
+          "message": "feat(plugins): add Velite plugin (#774)\n\n* feat(plugins): add Velite plugin\n\nDetect Velite content-pipeline projects (velite dependency or\nvelite.config.{ts,mts,cts,js,mjs,cjs}). Keep the config and generated\n.velite output reachable, traverse the hidden .velite dir, and parse\ndefineConfig/defineCollection to mark content roots (root default\ncontent, joined with each collection pattern) as support entry points\nso Velite-managed markdown/MDX content is not reported as unused.\nCredit velite as a tooling dependency.\n\nRefs #609\n\n* test(plugins): add Velite integration fixture (#609)\n\npetersen-pack-shaped fixture: velite.config.ts, content/blog content,\nand generated .velite output stay credited; an MDX file outside the\ncontent root and a plain orphan stay reported; left-pad stays an\nunused dev dependency. Verified regression-strength (fails when the\nplugin registration is removed).\n\n* fix(plugins): refine Velite output-data + negation handling; document\n\nAddress review of the Velite plugin: fall back to the content-root glob\nwhen only negation patterns survive (not just when no pattern parses),\nand compare the raw output.data value against the default before\nnormalizing so a monorepo config that spells out the default .velite\ndoes not add a redundant always-used entry. Add tests for negation-only\nfallback, default output.data in a workspace, and config-relative custom\noutput.data.\n\nDocument the plugin in detection.md and plugins.md (rich-config count\n25 to 26, total 110 to 115), bump the README plugin count to 115, and\nadd a CHANGELOG entry.\n\nVerified on BlakePetersen/petersen-pack: velite.config.ts and 43\ncontent MDX files flip from unused to credited, zero new findings.\n\nRefs #609",
+          "timestamp": "2026-05-29T07:50:40Z",
+          "tree_id": "1e782fab9918555ff9e31de0753774745fddcc47",
+          "url": "https://github.com/fallow-rs/fallow/commit/2221f056c19880ef70edad19a5b0c3f1262fded3"
+        },
+        "date": 1780041103951,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 20,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 327,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 764,
             "unit": "count"
           }
         ]
