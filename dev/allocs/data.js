@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780086601188,
+  "lastUpdate": 1780087313566,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "62bed8d6298ba5e83a178f4fcbee05ee7ae548d1",
-          "message": "fix(unused-class-members): preserve public package APIs\n\nTreat class members on classes exported from non-private package entry points as part of the public package API, including transitive star barrels and source-first package entry fallbacks. This keeps library builder APIs from being reported as removable internals while still reporting genuinely unused internal members and enum members.\n\nResolve package entry paths that point at missing root build artifacts back to source indexes, and recognize exportless source subpath indexes when no exports map exists. Package manifests also ignore non-boolean private values instead of aborting analysis on permissive real-world package.json data.\n\nFixes #643.",
-          "timestamp": "2026-05-22T22:04:17+01:00",
-          "tree_id": "da1796a0cbdf1cd2c9b6b88b6351b1ad7f71817a",
-          "url": "https://github.com/fallow-rs/fallow/commit/62bed8d6298ba5e83a178f4fcbee05ee7ae548d1"
-        },
-        "date": 1779484004614,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5146840,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27572,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 701547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6538,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6535,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "132771e3fb63bd67405870ba64b06b3d87b6971d",
+          "message": "feat(impact): per-finding attribution crediting resolved findings (v1.5) (#803)\n\nTeach `fallow impact` to credit genuinely resolved findings while never\ncounting a `fallow-ignore` suppression as a win. Captures present-suppression\nstate during analysis (AnalysisResults.active_suppressions, an internal\nserde-skip field populated from SuppressionContext) and adds a per-file\nfrontier plus a fingerprint-keyed clone frontier to the store (bumped to\nSTORE_SCHEMA_VERSION 2, forward-compatible read of v1 stores) that audit diffs\neach run for the files it re-analyzed. Each disappearance is classified\nresolved, suppressed (conservative: a covering suppression that newly appeared\nis never a win), or moved (within-run cross-file cancellation plus a\ncross-run un-credit when a prior resolution's symbol reappears elsewhere;\nwithin-file line moves are free since the identity excludes line). Covers\ndead code, complexity, and duplication.\n\nSurfaces resolved_total, suppressed_total, and a recent-resolutions list\n(ResolutionEvent) in human, json (schema-registered), and markdown, with\nneutral \"marked intentional\" wording, an always-present RESOLVED section, an\nhonest empty state, a bounded recent list, and on-disk frontier pruning.\nAttribution is documented as a local-developer signal that accrues only where\n.fallow/impact.json persists across runs. Boundary-violation identities are\nforward-slash normalized for cross-platform stability.\n\nBuilds on the unreleased impact v1 (surfacing/trend/containment) and its\n#795/#798 follow-ups (gitignore-on-enable, format rejection, report wire\nschema_version). No MCP/LSP/CI surface in this change.",
+          "timestamp": "2026-05-29T20:22:07Z",
+          "tree_id": "22bdd109bddfdc98624bbe9daaf5e64d67af7e33",
+          "url": "https://github.com/fallow-rs/fallow/commit/132771e3fb63bd67405870ba64b06b3d87b6971d"
+        },
+        "date": 1780087311076,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5389208,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30208,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 706875,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6541,
             "unit": "allocations"
           }
         ]
