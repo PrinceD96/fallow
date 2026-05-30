@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780174061007,
+  "lastUpdate": 1780174606169,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7f225736d007ddfa3a0959f71c274cc0ba3d144c",
-          "message": "fix: treat scaffold templates as used assets\n\n* chore: open issue #635 implementation branch\n\n* fix: treat scaffold templates as used assets",
-          "timestamp": "2026-05-25T22:07:46+01:00",
-          "tree_id": "f2c36b50d7864fa21033a8a0bb305726d775117a",
-          "url": "https://github.com/fallow-rs/fallow/commit/7f225736d007ddfa3a0959f71c274cc0ba3d144c"
-        },
-        "date": 1779743464109,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/238ca291e95bdf9b70018a132bb52ec9b437b1ee"
         },
         "date": 1780174058973,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "03f5f19cd2d87423878c95cf8f6ec4ff08153dc0",
+          "message": "chore: move ADRs to private repo, symlink locally (#814)\n\n* chore: move ADRs to private repo, symlink locally\n\nThe decisions/ ADRs (001-010 + README + template) now live in the private\nfallow-cloud repo and are symlinked back into the working tree (gitignored),\nmatching the existing .internal/ pattern. Forward-only: existing public history\nis unchanged. De-linked the now-private ADR references in CLAUDE.md and\nCONTEXT.md so they no longer 404.\n\n* chore: re-bless agent-file manifest for CLAUDE.md edit",
+          "timestamp": "2026-05-30T20:44:10Z",
+          "tree_id": "731d0c77ff462d7eed334d646e83a2a73b475652",
+          "url": "https://github.com/fallow-rs/fallow/commit/03f5f19cd2d87423878c95cf8f6ec4ff08153dc0"
+        },
+        "date": 1780174604563,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
