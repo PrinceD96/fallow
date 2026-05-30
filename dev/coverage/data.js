@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780174606169,
+  "lastUpdate": 1780177055619,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "10c5ec717d3b09c0c151dec306f458555fdd7ebc",
-          "message": "fix: normalize coverage lock path assertion",
-          "timestamp": "2026-05-25T23:16:13+02:00",
-          "tree_id": "8ccaf38c7ef9e7167bc3dbde0a1bcd868f5a43c6",
-          "url": "https://github.com/fallow-rs/fallow/commit/10c5ec717d3b09c0c151dec306f458555fdd7ebc"
-        },
-        "date": 1779743928031,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/03f5f19cd2d87423878c95cf8f6ec4ff08153dc0"
         },
         "date": 1780174604563,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b1f7da57699cd3a92a409967f2d8460a6f306f2a",
+          "message": "chore: release v2.85.0 (#815)",
+          "timestamp": "2026-05-30T21:22:21Z",
+          "tree_id": "7a381898583ee1ee23f233c7e3191d86da6ab105",
+          "url": "https://github.com/fallow-rs/fallow/commit/b1f7da57699cd3a92a409967f2d8460a6f306f2a"
+        },
+        "date": 1780177053752,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
