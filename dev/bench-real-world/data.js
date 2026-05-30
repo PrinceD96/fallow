@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780051744423,
+  "lastUpdate": 1780132764726,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -3365,6 +3365,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 7656,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "005462b33c2696e8a810721f3fdd4a92495498d0",
+          "message": "fix(plugins): credit oxlint CLI tooling packages (oxlint-tsgolint) as used (#802)\n\n* fix(plugins): credit oxlint CLI tooling packages (oxlint-tsgolint) as used\n\noxlint-tsgolint is the type-aware companion package the oxlint binary loads\nat runtime (via --type-aware / options.typeAware). It is never imported in\nsource nor listed in an .oxlintrc.json jsPlugins array, so the #607 jsPlugins\ncredit does not cover it. When declared in prod dependencies (where the general\ntooling-prefix credit does not apply, that only covers devDependencies), it was\nfalsely reported as unused.\n\nAdd oxlint-tsgolint to the oxlint plugin's tooling_dependencies, which is honored\nfor both prod and dev categories and is gated on the oxlint plugin being active.\nExact-name credit, not an oxlint- prefix, so an unrelated oxlint-prefixed prod\ndependency still reports.\n\nFixes #753\n\n* docs(plugins): document oxlint CLI tooling credit (oxlint-tsgolint)\n\ndetection.md + plugins.md note the exact-name oxlint-tsgolint tooling credit,\nCHANGELOG [Unreleased] gets the user-facing entry, and the agent-file baseline\nis re-blessed for the two edited rule files.\n\nRefs #753",
+          "timestamp": "2026-05-30T05:37:34Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/005462b33c2696e8a810721f3fdd4a92495498d0"
+        },
+        "date": 1780132763233,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 165,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 154,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 257,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 258,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 144,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 130,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 453,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 384,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1302,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1158,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 929,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 900,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 816,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 741,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 7534,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 6797,
             "unit": "ms"
           }
         ]
