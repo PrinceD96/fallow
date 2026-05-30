@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780094784324,
+  "lastUpdate": 1780120349406,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ba8a3d97556bc3271fdc634c333dcc2b19992970",
-          "message": "fix(ci): dogfood JS and TS surfaces\n\n* chore: open issue #483 implementation branch\n\n* fix(ci): dogfood JS and TS surfaces\n\nAdd a fallow-self-analyze CI job that builds the local fallow binary and runs dead-code analysis against the VS Code extension and npm wrapper package on relevant PRs and every push to main.\n\nConfigure each JavaScript and TypeScript surface with explicit entry points and warning-level intentional findings, preserve the existing VS Code package handling, and stop exporting the unused npm fetchReleaseDigest helper.\n\nWire npm wrapper unit tests into CI and document the self-analysis gate in the README and changelog.\n\nFixes #483.",
-          "timestamp": "2026-05-25T14:39:27+01:00",
-          "tree_id": "84ebfff940bc806dafd107d5d52cddd3ddf2423b",
-          "url": "https://github.com/fallow-rs/fallow/commit/ba8a3d97556bc3271fdc634c333dcc2b19992970"
-        },
-        "date": 1779716660477,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8a483c3144b8641acdee3d6c967358a99ada205b"
         },
         "date": 1780094781691,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "005462b33c2696e8a810721f3fdd4a92495498d0",
+          "message": "fix(plugins): credit oxlint CLI tooling packages (oxlint-tsgolint) as used (#802)\n\n* fix(plugins): credit oxlint CLI tooling packages (oxlint-tsgolint) as used\n\noxlint-tsgolint is the type-aware companion package the oxlint binary loads\nat runtime (via --type-aware / options.typeAware). It is never imported in\nsource nor listed in an .oxlintrc.json jsPlugins array, so the #607 jsPlugins\ncredit does not cover it. When declared in prod dependencies (where the general\ntooling-prefix credit does not apply, that only covers devDependencies), it was\nfalsely reported as unused.\n\nAdd oxlint-tsgolint to the oxlint plugin's tooling_dependencies, which is honored\nfor both prod and dev categories and is gated on the oxlint plugin being active.\nExact-name credit, not an oxlint- prefix, so an unrelated oxlint-prefixed prod\ndependency still reports.\n\nFixes #753\n\n* docs(plugins): document oxlint CLI tooling credit (oxlint-tsgolint)\n\ndetection.md + plugins.md note the exact-name oxlint-tsgolint tooling credit,\nCHANGELOG [Unreleased] gets the user-facing entry, and the agent-file baseline\nis re-blessed for the two edited rule files.\n\nRefs #753",
+          "timestamp": "2026-05-30T05:37:34Z",
+          "tree_id": "0eec03b87d2697abd80008cd7eeddb698138cbac",
+          "url": "https://github.com/fallow-rs/fallow/commit/005462b33c2696e8a810721f3fdd4a92495498d0"
+        },
+        "date": 1780120346787,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
