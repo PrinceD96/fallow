@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780298626786,
+  "lastUpdate": 1780300563001,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e32cc0a415dcfddc776e9ec032eed6de218e0135",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.80.0",
-          "timestamp": "2026-05-24T10:10:02+02:00",
-          "tree_id": "c1be6b2b1dc4f2a25c95e6b5029c47cca05d7dd2",
-          "url": "https://github.com/fallow-rs/fallow/commit/e32cc0a415dcfddc776e9ec032eed6de218e0135"
-        },
-        "date": 1779610329294,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5170871,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27733,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 708442,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6603,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6531,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "niels@ment.ink",
+            "name": "Niels Mentink",
+            "username": "V1RE"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "618e24ac0555a3e627905720fdb1f83323252b28",
+          "message": "fix: credit package.json prettier string configs (#819)",
+          "timestamp": "2026-06-01T07:41:00Z",
+          "tree_id": "305062407a449d44c95f2e968191496aec0ca03e",
+          "url": "https://github.com/fallow-rs/fallow/commit/618e24ac0555a3e627905720fdb1f83323252b28"
+        },
+        "date": 1780300561390,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5355968,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30197,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 702731,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6539,
             "unit": "allocations"
           }
         ]
