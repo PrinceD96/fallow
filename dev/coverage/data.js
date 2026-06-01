@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780327763963,
+  "lastUpdate": 1780328619841,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1c1fb174f8209ec69e14a383be743f068278cb4a",
-          "message": "fix(plugins): evaluate path-helper calls in bundler entry config (#700)\n\n* fix(plugins): evaluate path-helper calls in bundler entry config\n\nbuild.rollupOptions.input and build.lib.entry values written as\npath-helper calls (resolve(__dirname, \"src/app.ts\"), path.resolve(...),\njoin(...), and the import.meta.dirname equivalents) were CallExpressions\nthat the leaf evaluator dropped, so files declared only via path helpers\nwere reported as unused until the user duplicated the entry list into\n.fallowrc.\n\nexpression_to_string_or_array now evaluates leaf values through\nexpression_to_path_string (a superset of expression_to_string that\nfalls through to it for string/template literals), so the change is\nadditive: it only adds previously-dropped path-helper entries, never\nchanging string-literal behavior. call_expression_to_path_string also\ntreats import.meta.dirname as a current-directory anchor alongside\n__dirname, which improves alias resolution for every config sharing the\nhelper. CSS inputs are preserved like any other entry.\n\nFixes #604\n\n* docs(changelog): note path-helper evaluation in bundler entry config\n\nDocument issue #604 fix in CHANGELOG [Unreleased], detection.md, and\nplugins.md (Vite entry/input now evaluates resolve/path.resolve/join +\nimport.meta.dirname path-helper calls via the shared extractor).",
-          "timestamp": "2026-05-26T15:54:23+01:00",
-          "tree_id": "ac1b51f51694d7d886c85ad53553519f200713c4",
-          "url": "https://github.com/fallow-rs/fallow/commit/1c1fb174f8209ec69e14a383be743f068278cb4a"
-        },
-        "date": 1779807418584,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 91.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ee7c5c2b3e57845140a898905a7e035ab6cab02d",
+          "message": "feat(security): add client-server leak scan\n\nAdd an opt-in fallow security command for local security candidates. The MVP enables a single graph-structural client-server-leak rule that starts at React client boundaries and reports direct or transitive access to non-public process.env values.\n\nWire the command through human, JSON, and SARIF output with typed root envelopes, suppress actions, schema/codegen updates, cache versioning, and CI flag parity. Security candidates stay outside bare fallow and audit, and the findings remain framed for human or agent verification rather than as confirmed vulnerabilities.\n\nKeep incremental CI filtering trace-aware so a changed secret-source module on an existing client import path is not silently dropped.",
+          "timestamp": "2026-06-01T17:35:14+02:00",
+          "tree_id": "db995891fb2707ad112c1df529324bb0f3eb439e",
+          "url": "https://github.com/fallow-rs/fallow/commit/ee7c5c2b3e57845140a898905a7e035ab6cab02d"
+        },
+        "date": 1780328617266,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.4,
             "unit": "%"
           }
         ]
