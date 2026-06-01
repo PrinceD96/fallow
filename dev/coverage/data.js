@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780312054572,
+  "lastUpdate": 1780313668833,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "04add82a217ad0dfcc1c0d7c23f85daeca764eb6",
-          "message": "feat: add k6 runtime entry surfaces\n\n* chore: open issue #625 implementation branch\n\n* feat: add k6 runtime entry support",
-          "timestamp": "2026-05-26T09:44:13+01:00",
-          "tree_id": "05f3191da24e2d895d697156bb1206798f3abd75",
-          "url": "https://github.com/fallow-rs/fallow/commit/04add82a217ad0dfcc1c0d7c23f85daeca764eb6"
-        },
-        "date": 1779785198587,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b54c3be7ea7af3c6dd49932de28d8b35941e744d"
         },
         "date": 1780312052047,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "8267f91ed4654e4105e61d65fa583417c5968edb",
+          "message": "chore(release): use trusted publishing for crate publishes\n\nSwitch the Rust crate publish job from the long-lived crates.io token secret to GitHub Actions OIDC via rust-lang/crates-io-auth-action. The publish job now requests id-token permission and every cargo publish step consumes the action's short-lived token.\n\nThis keeps the existing nine-crate publish order and index waits unchanged, while removing the secret dependency that zizmor flagged for trusted publishing.\n\nFixes #519.",
+          "timestamp": "2026-06-01T13:31:17+02:00",
+          "tree_id": "1f27fe1c71502ad36a30a49bb3e39eeb7ec63f0a",
+          "url": "https://github.com/fallow-rs/fallow/commit/8267f91ed4654e4105e61d65fa583417c5968edb"
+        },
+        "date": 1780313666170,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
