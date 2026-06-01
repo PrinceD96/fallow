@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780328592463,
+  "lastUpdate": 1780330367568,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "6e9b848395bcb0199dbfffc2c65df00fff5d7ffc",
-          "message": "test: reject rooted package asset entries",
-          "timestamp": "2026-05-25T23:49:27+02:00",
-          "tree_id": "1064d747d2f58c1f3938b4376e52a928f5a24c99",
-          "url": "https://github.com/fallow-rs/fallow/commit/6e9b848395bcb0199dbfffc2c65df00fff5d7ffc"
-        },
-        "date": 1779745902805,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5138769,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27743,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 699583,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6529,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6535,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a0fec05ac5d4a8ffdaf975c2c62780d8c15d83e8",
+          "message": "fix(coverage): use srcmap offset lookup for remapping\n\nUpdate the direct CLI source-map consumer to srcmap v0.3.7 so runtime coverage remapping can use GeneratedOffsetLookup for generated-source position lookup.\n\nKeep the dependency aliased because oxc_coverage_instrument still exact-pins the registry srcmap v0.3.6 packages. The remapper preserves the existing V8 UTF-16 offset contract by converting those offsets to generated-source byte offsets before calling the new srcmap lookup helper.",
+          "timestamp": "2026-06-01T18:09:54+02:00",
+          "tree_id": "b77099d317d2d7cdaba6381dcd7f800071e741e4",
+          "url": "https://github.com/fallow-rs/fallow/commit/a0fec05ac5d4a8ffdaf975c2c62780d8c15d83e8"
+        },
+        "date": 1780330365407,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7137435,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31184,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 704642,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6536,
             "unit": "allocations"
           }
         ]
