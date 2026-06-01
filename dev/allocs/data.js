@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780319262282,
+  "lastUpdate": 1780319951707,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1eafebd46c6c3aa7d88ddf7504aea857402c117d",
-          "message": "feat: add RedwoodSDK worker entrypoints\n\nAdd a built-in RedwoodSDK plugin activated by `rwsdk` that marks `src/worker.*` as a runtime entrypoint within the active workspace. Keep Vite config ownership with the existing Vite plugin so `rwsdk/vite` apps do not trigger config-pattern collisions.\n\nFixes #632.",
-          "timestamp": "2026-05-25T22:20:23+01:00",
-          "tree_id": "5e45b3ed56c62e94eb0e97d9f84c2fcc43767891",
-          "url": "https://github.com/fallow-rs/fallow/commit/1eafebd46c6c3aa7d88ddf7504aea857402c117d"
-        },
-        "date": 1779744185911,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5115751,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27704,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697395,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6535,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6560,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b888a0bd7b5db2d4698cf64ca414bc0041d76309",
+          "message": "feat(health): expose CRAP source consistency\n\nCRAP health findings now keep their coverage provenance visible across the JSON contract. The health report summary and grouped health buckets expose coverage_source_consistency so agents can distinguish uniform source data from mixed Istanbul and estimated inputs.\n\nThe scoring path now centralizes CRAP coverage source precedence: Angular template inheritance wins first, Istanbul data wins next, and static estimates remain the fallback. Istanbul path canonicalization stays inside the Istanbul branch so ordinary static scoring does not add filesystem work.\n\nThe secondary CRAP refactor action also moves from a fixed internal constant to health.crapRefactorBand, with config schema, output schema, generated TypeScript contracts, MCP prose, and tests updated around the new contract.\n\nFixes #474.",
+          "timestamp": "2026-06-01T15:16:04+02:00",
+          "tree_id": "9a9a38239174b0ac0d0362dbdadd2dd912c89864",
+          "url": "https://github.com/fallow-rs/fallow/commit/b888a0bd7b5db2d4698cf64ca414bc0041d76309"
+        },
+        "date": 1780319949976,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7092091,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31151,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 702818,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6540,
             "unit": "allocations"
           }
         ]
