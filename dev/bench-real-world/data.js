@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780221157886,
+  "lastUpdate": 1780317513999,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -3569,6 +3569,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 7631,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "d57b9ba37630c6b5f9cf748b6a25ae3bb9a6c6bb",
+          "message": "refactor(plugins): type config path parsing\n\nPath-shaped values extracted from JavaScript and TypeScript config files now flow through typed PathBuf helpers instead of plain strings. The parser keeps plugin output in forward-slash string form at the boundary, while webpack, Nuxt, Vite, SvelteKit, TypeScript, Wrangler, and Docusaurus consume filesystem paths internally where appropriate.\n\nThis keeps package-style alias semantics out of scope and preserves the existing PluginResult contract. Regression coverage now exercises mixed separators, project-root-style leading slashes, imported alias spread kind preservation, webpack context entries, and Nuxt srcDir normalization.\n\nFixes #448.",
+          "timestamp": "2026-06-01T11:39:26Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/d57b9ba37630c6b5f9cf748b6a25ae3bb9a6c6bb"
+        },
+        "date": 1780317511063,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 140,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 137,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 264,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 238,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 148,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 133,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 426,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 379,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1277,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1058,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 930,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1028,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 802,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 729,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 7875,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 7701,
             "unit": "ms"
           }
         ]
