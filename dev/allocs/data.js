@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780311086262,
+  "lastUpdate": 1780312036614,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "32ba9d5bed686d80322176eebd695868c8061590",
-          "message": "fix: make coverage setup resumable\n\nPersist coverage setup progress in `.fallow/setup.json`, guard human setup runs with `.fallow/setup.lock`, and validate resume state against current project artifacts before skipping work.\n\nFixes #460.",
-          "timestamp": "2026-05-25T19:15:09+01:00",
-          "tree_id": "e9570c8b648845afc03c142805cdb7d5bc93d878",
-          "url": "https://github.com/fallow-rs/fallow/commit/32ba9d5bed686d80322176eebd695868c8061590"
-        },
-        "date": 1779733093161,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5188015,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27761,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 701411,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6536,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6534,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b54c3be7ea7af3c6dd49932de28d8b35941e744d",
+          "message": "test(schema): allow schema drift expects\n\nThe schema-emit CI path runs clippy against the test build of fallow-schema-emit with the schema-emit feature enabled. Its drift tests intentionally use expect calls for invariant checks over the committed schema.\n\nAdd the same test-only unwrap and expect allowance used by other test entry points so production schema generation remains covered while CI can compile the drift checks under the workspace lint ratchet.",
+          "timestamp": "2026-06-01T13:04:43+02:00",
+          "tree_id": "9b72c8141951b37314efc21f1d99072365c6df91",
+          "url": "https://github.com/fallow-rs/fallow/commit/b54c3be7ea7af3c6dd49932de28d8b35941e744d"
+        },
+        "date": 1780312034959,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5372512,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30185,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 706251,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6535,
             "unit": "allocations"
           }
         ]
