@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780301853407,
+  "lastUpdate": 1780302243219,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "3d93824183baf1a797d8fa4baf36edd9a168bc16",
-          "message": "fix: skip platform builtins in unresolved imports\n\nSkip unresolved-import findings when an unresolvable specifier is accepted by is_builtin_module.\n\nAdd regression coverage for current Node, Bun, Cloudflare, Sass, and Deno builtin forms, while keeping builtin-like package names and fake node subpaths reportable.\n\nFixes #634.",
-          "timestamp": "2026-05-25T12:26:22+01:00",
-          "tree_id": "518433c3eacf3d2fcf6ff740632d20956da63b76",
-          "url": "https://github.com/fallow-rs/fallow/commit/3d93824183baf1a797d8fa4baf36edd9a168bc16"
-        },
-        "date": 1779708510669,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5114303,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27711,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697539,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6538,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6539,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e4f488b6130e5514e00850cc64bc7aa00baa846a",
+          "message": "refactor(plugins): drop json from alias sibling extension probe\n\nJSON parses as a bare expression with no export, so find_exported_init can\nnever recover an alias literal from it; probing .json was dead I/O.",
+          "timestamp": "2026-06-01T10:18:01+02:00",
+          "tree_id": "b4d0a3021ad4cc9173d55c05e3d5a40e9e0c19f6",
+          "url": "https://github.com/fallow-rs/fallow/commit/e4f488b6130e5514e00850cc64bc7aa00baa846a"
+        },
+        "date": 1780302240513,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5348528,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30187,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 701618,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6551,
             "unit": "allocations"
           }
         ]
