@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780317891226,
+  "lastUpdate": 1780319262282,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "10c5ec717d3b09c0c151dec306f458555fdd7ebc",
-          "message": "fix: normalize coverage lock path assertion",
-          "timestamp": "2026-05-25T23:16:13+02:00",
-          "tree_id": "8ccaf38c7ef9e7167bc3dbde0a1bcd868f5a43c6",
-          "url": "https://github.com/fallow-rs/fallow/commit/10c5ec717d3b09c0c151dec306f458555fdd7ebc"
-        },
-        "date": 1779743906003,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5147767,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27741,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 691535,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6528,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6540,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "c72736fbf9c7df6cdf0c09541e0f68cc12e87e81",
+          "message": "feat(schema): add JSON kind discriminator\n\nFallow's object-shaped JSON roots previously required consumers to infer report type from field presence. That was fragile for generated contracts and agent integrations, especially while the legacy check command continues as an alias.\n\nSerialize typed FallowOutput roots with canonical kind values, add --legacy-envelope to remove only the document-root discriminator for one cycle, and keep check deprecated with dead-code wire names. Schema emission now rewrites the FallowOutput union into draft-07 allOf intersections so validators and TypeScript codegen see the discriminator.\n\nRefresh generated schemas, snapshots, N-API option docs and tests, and packaged agent guidance. Helper roots such as flags, non-boundary list, SARIF, and CodeClimate stay outside this migration.\n\nFixes #413.",
+          "timestamp": "2026-06-01T15:04:35+02:00",
+          "tree_id": "5fb71993fcc679c4bff5815cdcd83ef12bcb2e73",
+          "url": "https://github.com/fallow-rs/fallow/commit/c72736fbf9c7df6cdf0c09541e0f68cc12e87e81"
+        },
+        "date": 1780319259246,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7185995,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31222,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 708327,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6560,
             "unit": "allocations"
           }
         ]
