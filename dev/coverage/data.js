@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780298654325,
+  "lastUpdate": 1780300233026,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "295e2904232c41f81b021716955278d72c059e6b",
-          "message": "feat: add OpenCode plugin support\n\nAdds built-in OpenCode plugin support so OpenCode project plugin files and opencode.json plugin dependencies are treated as reachable.\n\nFixes #629.",
-          "timestamp": "2026-05-25T22:37:32+01:00",
-          "tree_id": "7794b0b1c5573b7148375d0a8fc6d6b0970773cd",
-          "url": "https://github.com/fallow-rs/fallow/commit/295e2904232c41f81b021716955278d72c059e6b"
-        },
-        "date": 1779745214723,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/5a157e80af66838463fde5c0a21d5c470dd76635"
         },
         "date": 1780298651501,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "d744deb080d0c434046eadeefe61c0e97cb99ecc",
+          "message": "fix(action): upload SARIF on public repos (Code Scanning is free without GHAS) (#825)\n\nThe Code Scanning availability check probed the code-scanning/alerts\nendpoint, which returns 404 on a public repo that has never initialized\nCode Scanning, so the SARIF upload was skipped even though public repos\nget Code Scanning for free (no GitHub Advanced Security). The first\nupload is what initializes it, so the probe could never pass on a\nnot-yet-set-up public repo.\n\nGate on repository visibility instead: visibility == \"public\" is\navailable directly; private and internal repos fall back to the alerts\nprobe as a GHAS-availability proxy. Internal enterprise repos report\nprivate:false but still require GHAS, so the check keys on visibility,\nnot private. The inline step is extracted into a tested\naction/scripts/check-code-scanning.sh with mocked-gh unit tests covering\npublic, private/internal with and without GHAS, and the unreadable\nvisibility fallback.\n\nOn a public repo the upload step now runs unconditionally, so a workflow\nmissing permissions: security-events: write fails the upload step rather\nthan skipping silently; documented in the action README and CHANGELOG.\n\nCloses #817",
+          "timestamp": "2026-06-01T07:36:50Z",
+          "tree_id": "e84cbc816fd91eb89635a597c50bf9885bf9d8e6",
+          "url": "https://github.com/fallow-rs/fallow/commit/d744deb080d0c434046eadeefe61c0e97cb99ecc"
+        },
+        "date": 1780300230582,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
