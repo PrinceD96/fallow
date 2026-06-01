@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780302243219,
+  "lastUpdate": 1780303490271,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "77008265+pasTa4667@users.noreply.github.com",
-            "name": "pasTa",
-            "username": "pasTa4667"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "683ccdedea393f00b2ca6b7b57852b0db671d3e1",
-          "message": "fix(plugins): parse jsPlugins for oxlint config (#667)\n\nParse jsPlugins from .oxlintrc.json, oxlint.json, and oxlint.config.ts: credit string entries, alias-object specifier values, and tuple first-elements as npm dependencies; record relative/absolute plugin paths as setup files; ignore built-in plugin names.\n\nThanks @pasTa4667.\n\nCloses #607",
-          "timestamp": "2026-05-25T13:04:26+01:00",
-          "tree_id": "eff4e67a238a89e5c503cc2b6eeb43759e02b2a1",
-          "url": "https://github.com/fallow-rs/fallow/commit/683ccdedea393f00b2ca6b7b57852b0db671d3e1"
-        },
-        "date": 1779710862866,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5132991,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27726,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 705250,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6616,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6551,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "2005da8df9f06501189cb65d2c7c9a664abc96cc",
+          "message": "chore(vscode): regenerate output-contract TS after output-schema change\n\nThe output schema was regenerated when doc comments were cleaned up, but\nthe dependent TypeScript contracts (`editors/vscode/src/generated/` and\n`npm/fallow/types/`) were not, so the VS Code Extension `check:codegen`\ngate failed with the generated files out of date with\n`docs/output-schema.json`. Regenerated via `codegen:types` so the\ncontracts match the current schema.",
+          "timestamp": "2026-06-01T10:42:14+02:00",
+          "tree_id": "76f30ef02ac879a25004c6d4524d7810a3ee7c5d",
+          "url": "https://github.com/fallow-rs/fallow/commit/2005da8df9f06501189cb65d2c7c9a664abc96cc"
+        },
+        "date": 1780303487907,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5356680,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30198,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 702715,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6538,
             "unit": "allocations"
           }
         ]
