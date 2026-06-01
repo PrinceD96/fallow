@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780307522072,
+  "lastUpdate": 1780308194415,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "06a8a5766c29eae21ddd6a3b667f92fc79e6d23c",
-          "message": "chore(hooks): gate oxlint + oxfmt --check on staged JS/TS\n\nAdds a pre-commit branch that runs `npm run lint:js` and\n`npm run fmt:js:check` when this commit touches a `.js|.ts|.mjs|.cjs|\n.jsx|.tsx` file inside one of the lintable scopes (`npm/`, `benchmarks/`,\n`crates/napi/`, `.github/scripts/`, `editors/vscode/src/`,\n`commitlint.config.mjs`). Pure-Rust commits skip the JS gate so the\nhook stays fast.\n\nThis is the local pre-commit safety net that catches `freshEnv`-style\ndead code, single-vs-double quote drift, and `.sort()` misuse before\nthey reach CI. CodeQL already catches these post-merge; the hook moves\nthe catch one step earlier so users do not need to wait for CI.\n\nIf `node_modules/` is missing the hook aborts with an `npm install`\nhint rather than skipping silently, so the gate cannot be bypassed by\nforgetting to install.",
-          "timestamp": "2026-05-26T08:22:38+01:00",
-          "tree_id": "0fccec8eb0b910df9cab9cc9930a48b0daca927e",
-          "url": "https://github.com/fallow-rs/fallow/commit/06a8a5766c29eae21ddd6a3b667f92fc79e6d23c"
-        },
-        "date": 1779780309370,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/40f7519af2a9039ba344867231791991e4b7f953"
         },
         "date": 1780307520379,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4989d5e09f35689a525c2d9bc30f2ca4763d09a3",
+          "message": "chore(lints): require unwrap and expect justifications\n\nEnable the workspace clippy unwrap_used and expect_used lints so new panic-prone calls need an explicit local reason instead of slipping into production code unnoticed.\n\nProduction sites now either avoid the panic path or carry scoped expectations for analyzer invariants such as validated glob patterns, infallible string formatting, hard-coded regexes, and guarded graph traversal state. Test and benchmark entry points get cfg/test allowances so fixture setup can stay concise without weakening release builds.\n\nThis is limited to the lint ratchet and required mechanical cleanup. It does not change CLI output contracts or analysis semantics.\n\nFixes #446.",
+          "timestamp": "2026-06-01T11:59:58+02:00",
+          "tree_id": "f697278aa4080de1b6f479c2330b3c839b23c76f",
+          "url": "https://github.com/fallow-rs/fallow/commit/4989d5e09f35689a525c2d9bc30f2ca4763d09a3"
+        },
+        "date": 1780308192449,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
