@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780304775874,
+  "lastUpdate": 1780306984696,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a48e02fed77f1ec08347e771a8c6e72d465801ef",
-          "message": "fix(health): clarify ownership state\n\nFixes #478.",
-          "timestamp": "2026-05-25T14:46:04+01:00",
-          "tree_id": "4649914d7218365d935d0c06bc54813332c0733a",
-          "url": "https://github.com/fallow-rs/fallow/commit/a48e02fed77f1ec08347e771a8c6e72d465801ef"
-        },
-        "date": 1779716912944,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5136263,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27728,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697823,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6538,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "d36365a6311919213b6d38b89d6084e67855c263",
+          "message": "fix(health): clarify CRAP coverage hints\n\nHuman health output now explains whether CRAP scores come from Istanbul coverage or fallow's export-reference estimate. Mixed Istanbul runs also call out that unmatched functions fall back to estimates, so the high-complexity section no longer shows CRAP values without provenance.\n\nThe top-level parser now catches the common bare --coverage typo before clap suggests unrelated global flags. The regular subcommand error path is preserved for commands that do not support coverage, and focused tests cover both paths plus the human-output coverage notes.\n\nRefs #474.",
+          "timestamp": "2026-06-01T11:40:49+02:00",
+          "tree_id": "22d6824dfa78c51215e0d2705f405b0775311e85",
+          "url": "https://github.com/fallow-rs/fallow/commit/d36365a6311919213b6d38b89d6084e67855c263"
+        },
+        "date": 1780306982242,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5324304,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30141,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 706815,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6540,
             "unit": "allocations"
           }
         ]
