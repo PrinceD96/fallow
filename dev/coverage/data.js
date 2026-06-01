@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780303940991,
+  "lastUpdate": 1780304797136,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "0cb62e061e432433830463469e31d089b44ef5f9",
-          "message": "feat(npm): move binary verification from postinstall to lazy first-run\n\n* feat(npm): move binary verification from postinstall to lazy first-run\n\nPhase 2 of npm RFC 868 (npm/cli#9360) will block postinstall hooks by\ndefault unless consumers explicitly add fallow to their package.json\nallowScripts. The current postinstall path runs the Ed25519 signature\nand SHA-256 digest verification fallow has shipped since v2.65; under\nPhase 2 it would silently no-op for every consumer that has not opted\nin, regressing the security property without surfacing a warning.\n\nThis commit retires the postinstall hook and moves verification into\nthe bin wrappers via a new ensureVerified() entry point that runs on\nthe first invocation of fallow, fallow-lsp, or fallow-mcp after install\nor upgrade. A small JSON sentinel next to the platform binary (or in\nthe user cache dir when the platform pkg dir is read-only, e.g. yarn\nPnP / Docker layered images) caches the verified state so subsequent\ninvocations skip verification on a cache hit. fallow --version now\nprints a trailing \"verified: yes (<sentinel-path>)\" line that vendor\nquestionnaires can grep for.\n\nThe cryptographic property is preserved bit-for-bit. Same hardcoded\npublic key, same offline fallowDigests lookup, same fail-closed\nbehavior on tamper. The GitHub Action installer runs its own\nindependent verification step that is unaffected.\n\nNew env vars (all opt-in):\n- FALLOW_VERIFY_CACHE_DIR overrides where the sentinel lives.\n- FALLOW_VERIFY_LOG=1 emits one structured stderr line per outcome.\n\nFALLOW_SKIP_BINARY_VERIFY remains the documented operator escape.\n\nFiles:\n- npm/fallow/scripts/lazy-verify.js (new)\n- npm/fallow/scripts/sentinel-path.js (new)\n- npm/fallow/scripts/run-binary.js (new shared bin launcher)\n- npm/fallow/scripts/verify-binary.js (sync codepath added)\n- npm/fallow/bin/* (collapsed to one-line require of run-binary)\n- npm/fallow/scripts/postinstall.js (deleted)\n- npm/fallow/package.json (postinstall removed)\n- SECURITY.md (verification-surfaces table revised)\n- CHANGELOG.md (entry under [Unreleased])\n- .github/workflows/ci.yml (smoke that no postinstall ran)\n\n73 of 74 npm wrapper tests pass; one warn-once test is skipped because\nit requires a homedir-override knob the resolver does not expose. The\nwarn-once path itself is covered by sentinel-path tests.\n\nRefs the plan at .plans/rfc-868-lazy-binary-verify.md (post panel-review\nv2; resolves BLOCK 1 (Yusuf) plus six CONCERNs).\n\n* fix(npm): address review feedback on lazy-verify\n\nThree fixes from team review (a727dc0b8d4):\n\n1. verify-binary.js binaryTargetsForPlatform now derives the `.exe`\n   suffix from the platformId argument instead of process.platform.\n   Production callers always pass a platformId that encodes\n   windows-ness (\"win32-x64-msvc\", \"win32-arm64-msvc\"), and tests\n   can now exercise the Windows binary-name path without running\n   on Windows. No production behavior change.\n\n2. ci.yml smoke step grep tightened from substring \"postinstall\"\n   to \"^> fallow@[0-9].*(postinstall|preinstall|install)\". The old\n   pattern would false-positive on any transitive dep whose npm\n   install log line mentions \"postinstall\"; the new pattern matches\n   only npm's own lifecycle-script announcement for fallow itself.\n\n3. ci.yml smoke step now uses `--omit=optional` and a defensive\n   bash array for tarball discovery (avoids the leading-space issue\n   that bit the local zsh run). Skipping the optional platform\n   binary fetch eliminates an unnecessary network round-trip to the\n   npm registry and reduces rate-limit risk under burst CI load.\n\nAlso bumped `test -f` -> `test -x` on the bin wrapper assertions\nso a future package.json `\"bin\"` misconfiguration that loses the\nexecutable bit fails the smoke instead of shipping silently.\n\n* refactor(npm): reduce cyclomatic + clean up dead exports\n\nPost-audit cleanup pass on the lazy-verify implementation:\n\n1. Split high-cyclomatic functions into flat helper chains.\n   - resolveSentinelPath cc=19 -> cc=10: extracted tryPlatformPkgDir,\n     tryCacheDirEnv, tryXdgFallback, xdgLocationLabel.\n   - ensureVerified cc=18 -> cc=12: extracted buildVerifyOptions and\n     persistSentinel.\n   - isSentinelValid cc=17 -> three helpers (readSentinelFile,\n     sentinelStructureMatches, sentinelMtimesMatch).\n   - verifyInstalled cc=13 cognitive=18 -> cc=9 cognitive=9: extracted\n     verifyOneBinary (shared between async + sync paths).\n   - verifyInstalledSync cc=15 cognitive=21 -> cc=9 cognitive=9:\n     extracted verifyOneBinarySync.\n   - runBinary cc=12: extracted resolvePlatformPaths, printVerifyError,\n     writeVerifiedLineIfVersionQuery.\n   - resolvePlatformPackageForVerify cc=12: extracted\n     currentPlatformPackageName and readManifestForPackage.\n\n2. Drop dead test-only exports.\n   - sentinel-path.js no longer exports _ensureDirExists and\n     _xdgCacheRoot (covered indirectly via _isWritable + integration).\n   - lazy-verify.js no longer re-exports SENTINEL_FILENAME (duplicate\n     of sentinel-path.js export). Test imports it from sentinel-path\n     directly.\n\n3. Convert bin wrapper requires from chained method call to destructured\n   form so fallow's analyzer traces the import edge cleanly:\n     -require('../scripts/run-binary').runBinary('fallow');\n     +const { runBinary } = require('../scripts/run-binary');\n     +runBinary('fallow');\n\n4. Update npm/fallow/.fallowrc.json entry list: drop stale\n   scripts/postinstall.js, add scripts/run-binary.js so the wrapper is\n   a documented entry rather than relying on bin-file require tracing.\n\n5. Exempt npm/fallow/scripts/** from health + duplicates analysis in\n   the workspace .fallowrc.json. The npm wrapper is glue code, not\n   fallow's primary analysis surface; per the implement-skill rule on\n   CRAP-on-test-free-helpers, this is the documented escape valve.\n\nAfter the refactor: 0 complexity findings introduced (was 14),\n0 duplication findings introduced (was 20), 0 unused exports\nintroduced (was 3). The remaining 9 dead-code findings under\nfallow dead-code --root npm/fallow are pre-existing (8 platform\npackages resolved at runtime by getPlatformPackage, plus\n@tanstack/intent).\n\nBehavior unchanged: 73 of 74 npm wrapper tests pass; one warn-once\ntest is skipped on hosts with a real homedir. End-to-end smoke\nagainst a real packed tarball still passes (cache miss writes\nsentinel, cache hit skips verify, tamper detection fail-closed,\nall three env vars honored).\n\n* fix(npm): bind sentinel to install dir + binary SHA-256 (BLOCK from Codex review)\n\nTwo security findings from Codex's parallel review:\n\n1. BLOCK: cross-install sentinel reuse in the shared $XDG fallback cache.\n   The previous sentinel was keyed only by package name + version + per-\n   binary mtimeMs. Two installs of the same fallow version on the same\n   host (e.g. one read-only / yarn-PnP / Docker-layered, the other\n   tampered with mtime-preservation) shared the same sentinel file. The\n   second install's verify() would return ok cached:true based on the\n   first install's verified state without re-reading bytes. Reproducer:\n   install A clean + sentinel in $XDG; install B with tampered fallow\n   binary + mtimes copied from A; install B sees cache hit, executes\n   tampered binary.\n\n   Fix: the sentinel now records (a) the absolute platform-pkg-dir of\n   the install that wrote it AND (b) a hex SHA-256 of each binary's\n   bytes. The cache-hit path requires both to match. Schema version\n   bumped to 2 so older sentinels are invalidated automatically. mtime\n   stays as a cheap pre-filter; SHA-256 is the load-bearing integrity\n   gate. Added regression test that exercises the exact cross-install\n   reproducer Codex described, plus a same-dir tamper-with-mtime-preserved\n   test for the byte-binding property.\n\n2. CONCERN: FALLOW_SKIP_BINARY_VERIFY=1 was silent on normal command\n   execution despite SECURITY.md claiming \"emits a warning so the skip\n   is visible in CI logs\". Only the FALLOW_VERIFY_LOG=1 path emitted\n   anything, and only fallow --version surfaced the skip via the\n   verified: skipped line.\n\n   Fix: ensureVerified() now emits a warn-once stderr line on every\n   invocation where the skip is active. Documented in SECURITY.md +\n   CHANGELOG. Regression test asserts the warning fires exactly once\n   per process.\n\nVerification:\n- 76 of 77 npm wrapper tests pass (1 skipped is the existing warn-once\n  test that requires a homedir-override knob).\n- End-to-end smoke against a real packed tarball: cache miss writes\n  schema-v2 sentinel with sha256 + platformPkgDir, cache hit honors\n  both bindings, mtime-preserved tamper fails closed with sig-invalid,\n  FALLOW_SKIP_BINARY_VERIFY=1 prints the warning to stderr.\n- cargo clippy --workspace --all-targets clean.\n- Action tests 249/0; GitLab CI tests 230/0 (unchanged).",
-          "timestamp": "2026-05-26T07:41:22+01:00",
-          "tree_id": "f9cecafe1e66d82ebedb9d62cd3b4ea6f92cb98b",
-          "url": "https://github.com/fallow-rs/fallow/commit/0cb62e061e432433830463469e31d089b44ef5f9"
-        },
-        "date": 1779777830031,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1b747ddcc3e2b1d00a60a27212b43e0c8bc02513"
         },
         "date": 1780303938545,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f84edcc82320d3cb3caa861bdba10e1d9114e505",
+          "message": "fix(plugins): suppress built-in-only config_patterns collision warning\n\nThe silent-fail plugin diagnostic (#479) warned about config_patterns\ncollisions between two built-in plugins, e.g. vite and tanstack-router\nboth claiming vite.config.{ts,js,mts,mjs} (tanstack-router parses the\ntanstackRouter({...}) call there to find a custom generatedRouteTree\npath). The collision is benign: Phase 3a config matching runs every\nmatching plugin's resolve_config independently, so there is no data\nloss. The warning is also un-actionable for a built-in: its advice to\nrename the pattern or remove the duplicate plugin cannot be followed.\n\ndetect_pattern_collisions now emits a finding only when at least one\nowner is NOT a built-in plugin. Keying suppression on the built-in name\nset (rather than the external set) is robust even if a user-authored\nexternal plugin shares a built-in's name: the built-in owner alone never\nre-enables the warning. Built-in-vs-external and external-vs-external\ncollisions still warn. Regression tests use the real vite +\ntanstack-router pair (silent), a built-in-vs-external pair (warns), and a\nname-shadowing external (still silent).\n\nCloses #808",
+          "timestamp": "2026-06-01T11:03:01+02:00",
+          "tree_id": "e3b6c4124792f74ce5962ef320151b8ddac65f0b",
+          "url": "https://github.com/fallow-rs/fallow/commit/f84edcc82320d3cb3caa861bdba10e1d9114e505"
+        },
+        "date": 1780304795220,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
