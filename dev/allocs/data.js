@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780327739778,
+  "lastUpdate": 1780328592463,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "295e2904232c41f81b021716955278d72c059e6b",
-          "message": "feat: add OpenCode plugin support\n\nAdds built-in OpenCode plugin support so OpenCode project plugin files and opencode.json plugin dependencies are treated as reachable.\n\nFixes #629.",
-          "timestamp": "2026-05-25T22:37:32+01:00",
-          "tree_id": "7794b0b1c5573b7148375d0a8fc6d6b0970773cd",
-          "url": "https://github.com/fallow-rs/fallow/commit/295e2904232c41f81b021716955278d72c059e6b"
-        },
-        "date": 1779745204514,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5112209,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27716,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697267,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6534,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6540,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ee7c5c2b3e57845140a898905a7e035ab6cab02d",
+          "message": "feat(security): add client-server leak scan\n\nAdd an opt-in fallow security command for local security candidates. The MVP enables a single graph-structural client-server-leak rule that starts at React client boundaries and reports direct or transitive access to non-public process.env values.\n\nWire the command through human, JSON, and SARIF output with typed root envelopes, suppress actions, schema/codegen updates, cache versioning, and CI flag parity. Security candidates stay outside bare fallow and audit, and the findings remain framed for human or agent verification rather than as confirmed vulnerabilities.\n\nKeep incremental CI filtering trace-aware so a changed secret-source module on an existing client import path is not silently dropped.",
+          "timestamp": "2026-06-01T17:35:14+02:00",
+          "tree_id": "db995891fb2707ad112c1df529324bb0f3eb439e",
+          "url": "https://github.com/fallow-rs/fallow/commit/ee7c5c2b3e57845140a898905a7e035ab6cab02d"
+        },
+        "date": 1780328589647,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7138347,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31171,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 702450,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6535,
             "unit": "allocations"
           }
         ]
