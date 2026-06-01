@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780308170044,
+  "lastUpdate": 1780311086262,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "de21eb76e285ceb042bfb24a08cae294c60200fa",
-          "message": "fix: harden reconcile-review apply\n\n* chore: open issue #459 implementation branch\n\n* fix: make reconcile review apply fail fast",
-          "timestamp": "2026-05-25T19:08:44+01:00",
-          "tree_id": "6ac8bcc88c718f5e1778035edd064d95cba0bcf0",
-          "url": "https://github.com/fallow-rs/fallow/commit/de21eb76e285ceb042bfb24a08cae294c60200fa"
-        },
-        "date": 1779732646181,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5148775,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27745,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697259,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6533,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6539,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "5340c6912fab59e9a963c66d50e52306e1203ee7",
+          "message": "test(coverage): isolate git fixture signing\n\nCoverage upload tests create temporary git repositories to exercise dirty-worktree validation. Those repos should not inherit global commit signing settings from the developer machine or agent environment.\n\nDisable commit.gpgsign inside the fixture repositories while keeping the local author identity explicit. This keeps the tests focused on worktree state instead of host GPG availability.",
+          "timestamp": "2026-06-01T12:47:59+02:00",
+          "tree_id": "88403513b28353735f2cfc005de037a57ef73db8",
+          "url": "https://github.com/fallow-rs/fallow/commit/5340c6912fab59e9a963c66d50e52306e1203ee7"
+        },
+        "date": 1780311084109,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5370344,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30194,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 706123,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6534,
             "unit": "allocations"
           }
         ]
