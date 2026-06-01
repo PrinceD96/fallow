@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780304797136,
+  "lastUpdate": 1780307020677,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b0321eeb487e67bce831ce9f7d5aeb3cd1cfcd9c",
-          "message": "chore(npm): remove unused freshEnv test helper\n\nCodeQL flagged freshEnv as dead code in\nnpm/fallow/scripts/lazy-verify.test.js (defined at line 70, zero\ncallsites). Drop the three-line helper.",
-          "timestamp": "2026-05-26T08:03:05+01:00",
-          "tree_id": "27b63fe564eb5ca29e27e0cdb40700282645faa8",
-          "url": "https://github.com/fallow-rs/fallow/commit/b0321eeb487e67bce831ce9f7d5aeb3cd1cfcd9c"
-        },
-        "date": 1779779133660,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f84edcc82320d3cb3caa861bdba10e1d9114e505"
         },
         "date": 1780304795220,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "d36365a6311919213b6d38b89d6084e67855c263",
+          "message": "fix(health): clarify CRAP coverage hints\n\nHuman health output now explains whether CRAP scores come from Istanbul coverage or fallow's export-reference estimate. Mixed Istanbul runs also call out that unmatched functions fall back to estimates, so the high-complexity section no longer shows CRAP values without provenance.\n\nThe top-level parser now catches the common bare --coverage typo before clap suggests unrelated global flags. The regular subcommand error path is preserved for commands that do not support coverage, and focused tests cover both paths plus the human-output coverage notes.\n\nRefs #474.",
+          "timestamp": "2026-06-01T11:40:49+02:00",
+          "tree_id": "22d6824dfa78c51215e0d2705f405b0775311e85",
+          "url": "https://github.com/fallow-rs/fallow/commit/d36365a6311919213b6d38b89d6084e67855c263"
+        },
+        "date": 1780307019029,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
