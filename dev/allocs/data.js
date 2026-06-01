@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780300563001,
+  "lastUpdate": 1780301853407,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "04fc48077af977a27894861d8db1a7c4243c4640",
-          "message": "fix: recognize Danger and Stryker tooling configs\n\n* chore: open issue #618 implementation branch\n\n* fix: recognize Danger and Stryker tooling configs",
-          "timestamp": "2026-05-25T12:08:53+01:00",
-          "tree_id": "ebcbe56176684396b09e661625d1befe40aaa2c8",
-          "url": "https://github.com/fallow-rs/fallow/commit/04fc48077af977a27894861d8db1a7c4243c4640"
-        },
-        "date": 1779707511671,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5149983,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27750,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697131,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6532,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 30197,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 702731,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6539,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a8e5d02f872a8aca8fb4eaf14d02693fd28ed848",
+          "message": "Merge pull request #822 from fallow-rs/comment-cleanup\n\nfix(mcp): restore schema descriptions and regenerate schema",
+          "timestamp": "2026-06-01T10:14:12+02:00",
+          "tree_id": "1ae10301813b78020b2ddc76cf4427858637cb1f",
+          "url": "https://github.com/fallow-rs/fallow/commit/a8e5d02f872a8aca8fb4eaf14d02693fd28ed848"
+        },
+        "date": 1780301851311,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5299896,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30138,
             "unit": "allocations"
           },
           {
