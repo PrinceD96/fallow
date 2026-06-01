@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780179580029,
+  "lastUpdate": 1780298626786,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "017658ea7af7473dcc87c921a092f0bd507457fd",
-          "message": "chore: release v2.80.0",
-          "timestamp": "2026-05-24T09:38:07+02:00",
-          "tree_id": "46bd21cb4f96e15a0d4a8dce8b03a8d51af3ba2a",
-          "url": "https://github.com/fallow-rs/fallow/commit/017658ea7af7473dcc87c921a092f0bd507457fd"
-        },
-        "date": 1779608466904,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5107119,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27702,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697267,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6534,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6541,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "niels.mentink@gmail.com",
+            "name": "Niels Mentink",
+            "username": "V1RE"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5a157e80af66838463fde5c0a21d5c470dd76635",
+          "message": "fix: mark vercel.ts config as used (#821)\n\n* fix: mark vercel ts config as used\n\n* chore: address Vercel plugin review follow-ups\n\nUpdate the documented built-in plugin count after adding the Vercel plugin and list deployment-oriented plugins separately in the README table.\n\nRename the Vercel regression fixture and integration test from issue 819 to issue 820 so the test history matches the bug this PR closes.\n\nRefs #820.\n\n---------\n\nCo-authored-by: Bart Waardenburg <bart@waardenburg.dev>",
+          "timestamp": "2026-06-01T07:11:29Z",
+          "tree_id": "066feaed586c60e2529c090c00c9bae5c17cab9c",
+          "url": "https://github.com/fallow-rs/fallow/commit/5a157e80af66838463fde5c0a21d5c470dd76635"
+        },
+        "date": 1780298624435,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5335264,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30169,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 701799,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6531,
             "unit": "allocations"
           }
         ]
