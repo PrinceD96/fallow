@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780330367568,
+  "lastUpdate": 1780334856088,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "9c7a564b9b65a6bde49dc60d4e1e8c1b1d26e8c1",
-          "message": "test: scope unix-only coverage imports",
-          "timestamp": "2026-05-26T00:06:57+02:00",
-          "tree_id": "90a117df701ad5cdaef388717b14e74e55827a0f",
-          "url": "https://github.com/fallow-rs/fallow/commit/9c7a564b9b65a6bde49dc60d4e1e8c1b1d26e8c1"
-        },
-        "date": 1779746950654,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5132505,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27738,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 691535,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6528,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6536,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b75aa9f9e05fe6d713ba436cfa68855761f1d2f2",
+          "message": "fix(coverage): use registry srcmap dependencies\n\nMove fallow onto oxc_coverage_instrument 0.7.6, which depends on the registry-published srcmap 0.3.7 crates. This removes the temporary git source alias while keeping the GeneratedOffsetLookup remapping path in place.\n\nUpdate the CLI fixture construction for the newer FileCoverage shape, refresh the stale agent-file manifest that was already failing CI, and align VS Code test fixtures with the generated output contract.",
+          "timestamp": "2026-06-01T19:14:01+02:00",
+          "tree_id": "cd845142b8b04970956f63d85fea28c675b48ca4",
+          "url": "https://github.com/fallow-rs/fallow/commit/b75aa9f9e05fe6d713ba436cfa68855761f1d2f2"
+        },
+        "date": 1780334854461,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7126867,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31169,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 705258,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6541,
             "unit": "allocations"
           }
         ]
