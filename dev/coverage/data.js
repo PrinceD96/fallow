@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780300233026,
+  "lastUpdate": 1780300640988,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "6e9b848395bcb0199dbfffc2c65df00fff5d7ffc",
-          "message": "test: reject rooted package asset entries",
-          "timestamp": "2026-05-25T23:49:27+02:00",
-          "tree_id": "1064d747d2f58c1f3938b4376e52a928f5a24c99",
-          "url": "https://github.com/fallow-rs/fallow/commit/6e9b848395bcb0199dbfffc2c65df00fff5d7ffc"
-        },
-        "date": 1779745916322,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d744deb080d0c434046eadeefe61c0e97cb99ecc"
         },
         "date": 1780300230582,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 91.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "niels@ment.ink",
+            "name": "Niels Mentink",
+            "username": "V1RE"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "618e24ac0555a3e627905720fdb1f83323252b28",
+          "message": "fix: credit package.json prettier string configs (#819)",
+          "timestamp": "2026-06-01T07:41:00Z",
+          "tree_id": "305062407a449d44c95f2e968191496aec0ca03e",
+          "url": "https://github.com/fallow-rs/fallow/commit/618e24ac0555a3e627905720fdb1f83323252b28"
+        },
+        "date": 1780300639379,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
