@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780303964173,
+  "lastUpdate": 1780304775874,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "2f4a8313def90099019820c3e03ba0d571c5bdae",
-          "message": "fix: guard CachedModule cache shape\n\n* chore: open issue 443 implementation branch\n\n* fix: guard cached module shape",
-          "timestamp": "2026-05-25T13:57:59+01:00",
-          "tree_id": "a414603807ce9de5bc42c3bc5f3a639ecb8b0a68",
-          "url": "https://github.com/fallow-rs/fallow/commit/2f4a8313def90099019820c3e03ba0d571c5bdae"
-        },
-        "date": 1779714009046,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5154263,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27731,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 695679,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6530,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6539,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f84edcc82320d3cb3caa861bdba10e1d9114e505",
+          "message": "fix(plugins): suppress built-in-only config_patterns collision warning\n\nThe silent-fail plugin diagnostic (#479) warned about config_patterns\ncollisions between two built-in plugins, e.g. vite and tanstack-router\nboth claiming vite.config.{ts,js,mts,mjs} (tanstack-router parses the\ntanstackRouter({...}) call there to find a custom generatedRouteTree\npath). The collision is benign: Phase 3a config matching runs every\nmatching plugin's resolve_config independently, so there is no data\nloss. The warning is also un-actionable for a built-in: its advice to\nrename the pattern or remove the duplicate plugin cannot be followed.\n\ndetect_pattern_collisions now emits a finding only when at least one\nowner is NOT a built-in plugin. Keying suppression on the built-in name\nset (rather than the external set) is robust even if a user-authored\nexternal plugin shares a built-in's name: the built-in owner alone never\nre-enables the warning. Built-in-vs-external and external-vs-external\ncollisions still warn. Regression tests use the real vite +\ntanstack-router pair (silent), a built-in-vs-external pair (warns), and a\nname-shadowing external (still silent).\n\nCloses #808",
+          "timestamp": "2026-06-01T11:03:01+02:00",
+          "tree_id": "e3b6c4124792f74ce5962ef320151b8ddac65f0b",
+          "url": "https://github.com/fallow-rs/fallow/commit/f84edcc82320d3cb3caa861bdba10e1d9114e505"
+        },
+        "date": 1780304774133,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 5307024,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 30159,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 700539,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6538,
             "unit": "allocations"
           }
         ]
