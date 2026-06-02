@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780432987280,
+  "lastUpdate": 1780440680025,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b00e97c1253cf5fbf986dbf11baea64d4c8f9236",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.82.0",
-          "timestamp": "2026-05-26T19:26:31+02:00",
-          "tree_id": "cc4819276aa7c621ee7fa3fbeadc3d54c2fd1e47",
-          "url": "https://github.com/fallow-rs/fallow/commit/b00e97c1253cf5fbf986dbf11baea64d4c8f9236"
-        },
-        "date": 1779816532061,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5274054,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 28866,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 700255,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6539,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6691,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b1d9593b4341ff105f424cffd6a8dc89aa8f9c5f",
+          "message": "fix(security): suppress sanitized sink candidates\n\nTeach the extraction pipeline to carry sanitizer metadata for URL and path security sink candidates without changing the security output contract.\n\nURL suppression is limited to fail-closed guards backed by literal local const arrays or Sets. Path suppression is limited to path.resolve, path.normalize, or path.join values tied to path.relative containment checks. Mutated allowlists, reassigned guarded values, helper predicates, post-use guards, and wrong-domain sanitizer use remain candidates.\n\nThe analyzer applies each sanitizer scope only to matching catalogue categories, and the extraction cache version is bumped so warm caches re-extract affected files.\n\nFixes #863.",
+          "timestamp": "2026-06-03T00:48:10+02:00",
+          "tree_id": "9ab3ecae27aff89ac1aa5eabd45f2f8bb0fe10d5",
+          "url": "https://github.com/fallow-rs/fallow/commit/b1d9593b4341ff105f424cffd6a8dc89aa8f9c5f"
+        },
+        "date": 1780440678215,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7297837,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33452,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 713832,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6664,
             "unit": "allocations"
           }
         ]
