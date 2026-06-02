@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780347182956,
+  "lastUpdate": 1780391442195,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7c2888f05cc6ef87c40e24a384083b78a87229af",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.81.0",
-          "timestamp": "2026-05-26T07:22:59+02:00",
-          "tree_id": "253ee97ac5f1b60662600a187c0ba573a67fa3f6",
-          "url": "https://github.com/fallow-rs/fallow/commit/7c2888f05cc6ef87c40e24a384083b78a87229af"
-        },
-        "date": 1779773110810,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5097945,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27706,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 704688,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6589,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6538,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "89f1fa216afdc45088beedf6b433d07e6934ef8c",
+          "message": "docs: changelog and detection notes for #838-#848 fixes\n\nRecords the nine shipped fixes (issues #838, #839, #840, #841, #843, #845, #846, #847, #848) in CHANGELOG, with detection.md / plugins.md capability notes and the agent-file manifest re-bless.",
+          "timestamp": "2026-06-02T11:05:07+02:00",
+          "tree_id": "a1ca9716b0015e1c6b8a21a12709bc55088cba7f",
+          "url": "https://github.com/fallow-rs/fallow/commit/89f1fa216afdc45088beedf6b433d07e6934ef8c"
+        },
+        "date": 1780391440524,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7107091,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31151,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 703006,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6539,
             "unit": "allocations"
           }
         ]
