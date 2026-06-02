@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780398251897,
+  "lastUpdate": 1780400372359,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "116332ae2e92de62f07e1bf246f29ce66791cad3",
-          "message": "feat(plugins): add Mintlify plugin (#689)\n\n* feat: add Mintlify plugin\n\nModel Mintlify documentation sites driven by docs.json / mint.json and\nthe mint / mintlify CLI. The plugin activates on the mint / mintlify\ndependency or the presence of docs.json / mint.json, keeps the config\nfile always-used, credits the CLI as tooling, and marks {md,mdx} under\nthe config file's directory as runtime-used so docs content no longer\nneeds manual dynamicallyLoaded entries. The content pattern is scoped\nto the docs root so non-Mintlify MDX stays governed by other plugins.\n\nFixes #626\n\n* docs: document Mintlify plugin\n\nAdd the Mintlify plugin to detection.md, plugins.md, the README plugin\ncount (now 105 with Lexical and Mintlify), and the CHANGELOG.\n\nRefs #626",
-          "timestamp": "2026-05-26T09:17:34+01:00",
-          "tree_id": "a66f2bffe4ee871013deb89e945107a92fed8499",
-          "url": "https://github.com/fallow-rs/fallow/commit/116332ae2e92de62f07e1bf246f29ce66791cad3"
-        },
-        "date": 1779783588559,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5164173,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27753,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 699835,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6540,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6588,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a6b63f1e411fcaf1f217779f7353f395eade348c",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.86.0",
+          "timestamp": "2026-06-02T13:36:55+02:00",
+          "tree_id": "8f8002300c66d5dec673e5c2b211d209070064e5",
+          "url": "https://github.com/fallow-rs/fallow/commit/a6b63f1e411fcaf1f217779f7353f395eade348c"
+        },
+        "date": 1780400370382,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7163593,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31383,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 711532,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6591,
             "unit": "allocations"
           }
         ]
