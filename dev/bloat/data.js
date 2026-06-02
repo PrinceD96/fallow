@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780402052717,
+  "lastUpdate": 1780408799486,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7c2888f05cc6ef87c40e24a384083b78a87229af",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.81.0",
-          "timestamp": "2026-05-26T07:22:59+02:00",
-          "tree_id": "253ee97ac5f1b60662600a187c0ba573a67fa3f6",
-          "url": "https://github.com/fallow-rs/fallow/commit/7c2888f05cc6ef87c40e24a384083b78a87229af"
-        },
-        "date": 1779773344571,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 240168144,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 257150728,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0c58d98394040e3e68c3d15ea8469fe9a4f640a7",
+          "message": "feat(security): model untrusted sources for source-to-sink precision (#859)",
+          "timestamp": "2026-06-02T15:52:02+02:00",
+          "tree_id": "05e9c2a49722d8a5379fa6f643e8a088e961da10",
+          "url": "https://github.com/fallow-rs/fallow/commit/0c58d98394040e3e68c3d15ea8469fe9a4f640a7"
+        },
+        "date": 1780408797532,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 257789728,
             "unit": "bytes"
           }
         ]
