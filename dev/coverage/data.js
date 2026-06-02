@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780415295804,
+  "lastUpdate": 1780415556595,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b98ab0c3d4ff232a87857241b491e29b63d121f4",
-          "message": "docs(changelog): note audit Nuxt/Astro base-worktree symlink fix",
-          "timestamp": "2026-05-27T09:14:26+01:00",
-          "tree_id": "22ae48c58ab6c7eb236023d64d7fafa736120fd8",
-          "url": "https://github.com/fallow-rs/fallow/commit/b98ab0c3d4ff232a87857241b491e29b63d121f4"
-        },
-        "date": 1779869840894,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e42434c587183f584c10d9b362c1ebbd8053802e"
         },
         "date": 1780415293456,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "766aeafafe109ee223af9deee98276f4ca34ac52",
+          "message": "docs(security): fix redundant explicit doc link in tainted_sink\n\nThe catalogue detector module doc used an explicit [`SinkSite`](path)\ntarget; the bare label already resolves, so rustdoc's\n`redundant-explicit-links` lint failed the Documentation CI job (the\nlocal pre-push hook only runs fmt+clippy, so it slipped through).",
+          "timestamp": "2026-06-02T17:49:35+02:00",
+          "tree_id": "13e45472566f94188acf68c5a12e0b1407f500b5",
+          "url": "https://github.com/fallow-rs/fallow/commit/766aeafafe109ee223af9deee98276f4ca34ac52"
+        },
+        "date": 1780415554278,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
