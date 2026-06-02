@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780408180538,
+  "lastUpdate": 1780408521121,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b4305cbb928b7af0f5295456654248f7423277a3",
-          "message": "fix: credit class members reached via new Class().method() receivers (#692)\n\nMethods called on a freshly-constructed instance were not traced, so they\nsurfaced as unused-class-member false positives. Two public adoption PRs had\nto add inline fallow-ignore comments / usedClassMembers entries for exactly\nthis gap (everr#144, graphql-markdown#2949).\n\nExtends the #387 static-factory chain credit to constructor roots:\n\n- static_member_object_name gains a NewExpression arm (bare Identifier callee,\n  builtin-guarded), so direct new Repo(client).search(data) and the first\n  method off any constructor chain credit Class.member through the existing\n  local_to_export_keys path.\n- try_record_fluent_chain_access recognizes a NewExpression root and emits a\n  distinct FLUENT_CHAIN_NEW_SENTINEL ({class}:{chain}, no root method).\n- propagate_fluent_chain_new_accesses resolves the class, walks re-export\n  origins, and credits downstream members only when every chain step is a\n  self-returning ClassMethod, preserving the #387 safety check.\n\nCACHE_VERSION 98 -> 99 (extraction output changes for these patterns).\n\nFixes #605",
-          "timestamp": "2026-05-26T11:32:17+01:00",
-          "tree_id": "bed51ce8cd4b059d40344977ced3fd9f37d47f43",
-          "url": "https://github.com/fallow-rs/fallow/commit/b4305cbb928b7af0f5295456654248f7423277a3"
-        },
-        "date": 1779791673718,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5259225,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 28859,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 698962,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6552,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6640,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0c58d98394040e3e68c3d15ea8469fe9a4f640a7",
+          "message": "feat(security): model untrusted sources for source-to-sink precision (#859)",
+          "timestamp": "2026-06-02T15:52:02+02:00",
+          "tree_id": "05e9c2a49722d8a5379fa6f643e8a088e961da10",
+          "url": "https://github.com/fallow-rs/fallow/commit/0c58d98394040e3e68c3d15ea8469fe9a4f640a7"
+        },
+        "date": 1780408519399,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7205653,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31484,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 724828,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6693,
             "unit": "allocations"
           }
         ]
