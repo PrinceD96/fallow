@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780408197795,
+  "lastUpdate": 1780408561825,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "33806186d4bb583820240153132fd00dbfe14b11",
-          "message": "feat: add public Fallow config corpus\n\n* chore: open issue 603 implementation branch\n\n* feat: add public config corpus tooling\n\n* fix(corpus): bound public config search subprocess\n\nAdd a timeout for the GitHub code-search subprocess so corpus generation cannot hang before raw config fetches begin. Surface search failures as a concise exit-2 error instead of a Python traceback.\n\nCover timeout validation in the offline fixture harness and document the live-run timeout flags.",
-          "timestamp": "2026-05-27T08:23:26+01:00",
-          "tree_id": "50b68b43f78151cb87f152c3858ca58c99f7e38a",
-          "url": "https://github.com/fallow-rs/fallow/commit/33806186d4bb583820240153132fd00dbfe14b11"
-        },
-        "date": 1779866765913,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/85eb70dd15a1a1adcf2ec2a0af13c2616a2e13e6"
         },
         "date": 1780408196028,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0c58d98394040e3e68c3d15ea8469fe9a4f640a7",
+          "message": "feat(security): model untrusted sources for source-to-sink precision (#859)",
+          "timestamp": "2026-06-02T15:52:02+02:00",
+          "tree_id": "05e9c2a49722d8a5379fa6f643e8a088e961da10",
+          "url": "https://github.com/fallow-rs/fallow/commit/0c58d98394040e3e68c3d15ea8469fe9a4f640a7"
+        },
+        "date": 1780408558841,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
