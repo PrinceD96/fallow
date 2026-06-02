@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780414969949,
+  "lastUpdate": 1780415539237,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b460904c42446648518f40584d3a74109fb2ecf2",
-          "message": "test(types): property-test the forward-slash path serializer\n\nThe example tests only exercise a local normalize() proxy; the real\nserde_path::serialize / serialize_vec functions were never driven through\na Serializer. Add proptests over arbitrary mixed-separator paths that run\nthe real functions through serde_json:\n\n- output never contains a backslash and equals input with every backslash\n  rewritten to a forward slash (the cross-platform JSON/SARIF invariant)\n- a serialized path reads back as its normalized form\n- serialization is idempotent over already-normalized input\n- the vec serializer agrees element-for-element with the scalar one\n\nproptest reads its failure-persistence file via env::current_dir() at\nstartup, which aborts under Miri isolation (getcwd unsupported), so skip\nproptests in the fallow-types Miri job to match the fallow-graph job.",
-          "timestamp": "2026-05-26T15:37:54+02:00",
-          "tree_id": "0743f723d9b4539f622ae499f06d5465f8b27e49",
-          "url": "https://github.com/fallow-rs/fallow/commit/b460904c42446648518f40584d3a74109fb2ecf2"
-        },
-        "date": 1779803043357,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5276302,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 28878,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697627,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6534,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6693,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "766aeafafe109ee223af9deee98276f4ca34ac52",
+          "message": "docs(security): fix redundant explicit doc link in tainted_sink\n\nThe catalogue detector module doc used an explicit [`SinkSite`](path)\ntarget; the bare label already resolves, so rustdoc's\n`redundant-explicit-links` lint failed the Documentation CI job (the\nlocal pre-push hook only runs fmt+clippy, so it slipped through).",
+          "timestamp": "2026-06-02T17:49:35+02:00",
+          "tree_id": "13e45472566f94188acf68c5a12e0b1407f500b5",
+          "url": "https://github.com/fallow-rs/fallow/commit/766aeafafe109ee223af9deee98276f4ca34ac52"
+        },
+        "date": 1780415536553,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7199901,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31488,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 676916,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6193,
             "unit": "allocations"
           }
         ]
