@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780408066829,
+  "lastUpdate": 1780408400842,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "27f7ae06183552e141e47ead1141e11bbfa176f4",
-          "message": "feat(plugins): parse Playwright webServer.command for CLI deps and script entries\n\nParse webServer.command (object and array forms) from playwright.config.* and run\neach command through the shared package.json script parser: invoked npm binaries are\ncredited as referenced dependencies and local file arguments are seeded as reachable\nsetup files. File paths (and globalSetup/globalTeardown) resolve relative to the\nconfig file's directory, matching Playwright's webServer.cwd default; an explicit cwd\noverrides that base. Package-manager delegations (npm run start) credit nothing.\n\nFixes #621.",
-          "timestamp": "2026-05-26T16:00:09+01:00",
-          "tree_id": "ca3b44127b7cf2062ee473d5bfbfda9ed97f042f",
-          "url": "https://github.com/fallow-rs/fallow/commit/27f7ae06183552e141e47ead1141e11bbfa176f4"
-        },
-        "date": 1779807988196,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 52026,
-            "range": "± 472",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3275791,
-            "range": "± 114717",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 4641325,
-            "range": "± 96767",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 21877184,
-            "range": "± 434207",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 111727,
-            "range": "± 3038",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2997,
-            "range": "± 16",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 159556,
-            "range": "± 2843",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 723509,
-            "range": "± 8388",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1201343,
-            "range": "± 26589",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 492163,
-            "range": "± 25979",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 2964531,
-            "range": "± 39119",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 2992940,
-            "range": "± 49115",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 1991149,
-            "range": "± 16957",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2234292,
             "range": "± 6762",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "85eb70dd15a1a1adcf2ec2a0af13c2616a2e13e6",
+          "message": "feat(security): framework-aware sinks via the plugin system (#861)",
+          "timestamp": "2026-06-02T15:43:29+02:00",
+          "tree_id": "6a30e96efa35758e0c4c60816feb33396cb62114",
+          "url": "https://github.com/fallow-rs/fallow/commit/85eb70dd15a1a1adcf2ec2a0af13c2616a2e13e6"
+        },
+        "date": 1780408397761,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 68672,
+            "range": "± 1477",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 4266083,
+            "range": "± 131064",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 6113625,
+            "range": "± 182582",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 29282111,
+            "range": "± 518427",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 114086,
+            "range": "± 639",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2457,
+            "range": "± 37",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 234468,
+            "range": "± 5885",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 1062800,
+            "range": "± 4766",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1512571,
+            "range": "± 22363",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 570274,
+            "range": "± 18666",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4333414,
+            "range": "± 25720",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 4379443,
+            "range": "± 27293",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2960470,
+            "range": "± 9930",
             "unit": "ns/iter"
           }
         ]
