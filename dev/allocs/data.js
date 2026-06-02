@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780407904098,
+  "lastUpdate": 1780408180538,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9c4b1d0a00a7e599a27cde0d6dc895f640fb67da",
-          "message": "fix(fix): withhold low-confidence unused-export rewrites when consumers may be off-graph\n\n`fallow fix --yes` stripped the export keyword from every export reported\nas unused, including symbols consumed only through paths fallow's graph\ncannot see (Vitest mock aliases, off-workspace e2e suites, fixture/golden\nbuild steps). That turned an analysis false positive into a source-level\nbreak.\n\nThe export fixer now withholds removals in two low-confidence cases:\nfiles under an off-graph consumer directory (__mocks__, __fixtures__,\nfixtures, e2e, e2e-tests, cypress, playwright, examples, evals, golden)\nand files that themselves have an unresolved import. Both surface as\nintentional skips: new SkipReason::LowConfidenceOffGraph /\nLowConfidenceUnresolvedImports, a combined skipped_low_confidence_exports\nenvelope counter, per-record skip_reason, and a human summary line. The\nskip does not change the exit code; the export stays reported by\n`fallow check` for manual review. High-confidence exports are removed\nunchanged.\n\nFixes #602",
-          "timestamp": "2026-05-26T11:15:25+01:00",
-          "tree_id": "6ffdc2b3f12f9bea40378a1572ed0d2e3dbb0b8c",
-          "url": "https://github.com/fallow-rs/fallow/commit/9c4b1d0a00a7e599a27cde0d6dc895f640fb67da"
-        },
-        "date": 1779790688709,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5153233,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27775,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697131,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6532,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6592,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "85eb70dd15a1a1adcf2ec2a0af13c2616a2e13e6",
+          "message": "feat(security): framework-aware sinks via the plugin system (#861)",
+          "timestamp": "2026-06-02T15:43:29+02:00",
+          "tree_id": "6a30e96efa35758e0c4c60816feb33396cb62114",
+          "url": "https://github.com/fallow-rs/fallow/commit/85eb70dd15a1a1adcf2ec2a0af13c2616a2e13e6"
+        },
+        "date": 1780408178603,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7169121,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31400,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 716197,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6640,
             "unit": "allocations"
           }
         ]
