@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780400399404,
+  "lastUpdate": 1780400930980,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d8c40a1ab4032ae94dc415f72031ddc8fa528210",
-          "message": "fix: share cross-platform absolute path helper\n\nMove the cross-platform absolute path helper into fallow-types while preserving the existing CLI re-export.\n\nUse the shared helper in the config extends resolver, plugin setup-file resolver, and health coverage path resolver so Windows-drive and POSIX-rooted absolute paths are not root-joined on the wrong host.\n\nFixes #614.",
-          "timestamp": "2026-05-26T22:54:03+01:00",
-          "tree_id": "5b9057774c29f26c4c41ed41e819c44d32ea5618",
-          "url": "https://github.com/fallow-rs/fallow/commit/d8c40a1ab4032ae94dc415f72031ddc8fa528210"
-        },
-        "date": 1779832678871,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a6b63f1e411fcaf1f217779f7353f395eade348c"
         },
         "date": 1780400397424,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "166ba93edb2d95ef47f3125f241bd7daf67d44f1",
+          "message": "docs: sync plugin count to 118, vendor security catalogue into bundled skill",
+          "timestamp": "2026-06-02T13:46:00+02:00",
+          "tree_id": "a855a625241bb9b22162c7e34666e83f3e8238bc",
+          "url": "https://github.com/fallow-rs/fallow/commit/166ba93edb2d95ef47f3125f241bd7daf67d44f1"
+        },
+        "date": 1780400929010,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
