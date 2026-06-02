@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780401754960,
+  "lastUpdate": 1780407904098,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4f150680c3140e2ded8314447cfaefdcee310149",
-          "message": "fix: handle Deno jsr/npm/url imports and Supabase Edge Function roots (#690)\n\nTreat jsr: and URL specifiers as external runtime imports and normalize\nnpm:<pkg>@version to its npm package so Deno/Supabase Edge Function imports\nno longer report as unresolved-import or bogus unlisted dependencies. A\npackage imported only via npm: is self-declaring and not reported as\nunlisted (mirrors the per-file bun: carve-out). Add a built-in supabase\nplugin that marks supabase/functions/*/index.* as runtime entry roots and\ncredits the supabase CLI as tooling; _shared code stays reachable via\nrelative imports.\n\nCloses #624",
-          "timestamp": "2026-05-26T10:12:40+01:00",
-          "tree_id": "734d030720646d638895e03bca2e2e0634880a53",
-          "url": "https://github.com/fallow-rs/fallow/commit/4f150680c3140e2ded8314447cfaefdcee310149"
-        },
-        "date": 1779786905113,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5136921,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27755,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 695623,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6537,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6588,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "eecb1d601bf131e0c3fa59d63496cea1749f9ed9",
+          "message": "feat(security): reachability-weighted ranking from entry points (#860)",
+          "timestamp": "2026-06-02T15:22:50+02:00",
+          "tree_id": "8d32c1089005507044774d50ed6c92fea03ee3de",
+          "url": "https://github.com/fallow-rs/fallow/commit/eecb1d601bf131e0c3fa59d63496cea1749f9ed9"
+        },
+        "date": 1780407902184,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7159593,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31386,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 711600,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6592,
             "unit": "allocations"
           }
         ]
