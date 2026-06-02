@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780433005048,
+  "lastUpdate": 1780434076106,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "92b245db9bd6eecc588360f0df8159251a39a215",
-          "message": "fix: recognize tsdown mts and cts configs\n\n* chore: open issue #744 implementation branch\n\n* fix: recognize tsdown mts and cts configs\n\n* docs: correct plugin notes count",
-          "timestamp": "2026-05-27T14:45:47+01:00",
-          "tree_id": "45ca3f519f2924e2db1255edd572f9b3fb5f87d9",
-          "url": "https://github.com/fallow-rs/fallow/commit/92b245db9bd6eecc588360f0df8159251a39a215"
-        },
-        "date": 1779889706556,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/011ab0d125ddc254e3c76ecaac775e21912e1124"
         },
         "date": 1780433003181,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0f6182a64db705a4c0f09ce30b14a0cf5af52c77",
+          "message": "fix(vscode): clarify reload action\n\nVS Code command icons are static in package.json, so the sidebar action needs separate contributed commands for the first run and post-analysis states.\n\nThis keeps fallow.analyze as the search action before results exist, adds fallow.reloadAnalysis with the refresh codicon for the analyzed state, and hides the reload command from the command palette while delegating both commands to the same CLI analysis path.\n\nManifest and integration tests cover the command contribution, menu visibility conditions, and command registration.\n\nFixes #869.",
+          "timestamp": "2026-06-02T22:57:55+02:00",
+          "tree_id": "1080c1bc918b8019fc224e480abebabaaa77f550",
+          "url": "https://github.com/fallow-rs/fallow/commit/0f6182a64db705a4c0f09ce30b14a0cf5af52c77"
+        },
+        "date": 1780434074308,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
