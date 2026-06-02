@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780414986189,
+  "lastUpdate": 1780415295804,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "041b717044b03317649fdedb2c21681f340cca2c",
-          "message": "fix(health): sort file scores by triage concern and tag the driver\n\nSort file health scores by risk-aware triage concern instead of bare Maintainability Index, tag each human-table row with the signal that placed it, and break equal-concern ties by raw CRAP so the visible Risk column reads top-down.\n\nFixes #554.",
-          "timestamp": "2026-05-27T08:52:18+01:00",
-          "tree_id": "9ee977478dd6ebd1c8d2f77d2da6d558cd874a12",
-          "url": "https://github.com/fallow-rs/fallow/commit/041b717044b03317649fdedb2c21681f340cca2c"
-        },
-        "date": 1779868553291,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1243f9893f5852ace2f7804e5ec27ba34580fe7a"
         },
         "date": 1780414983790,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e42434c587183f584c10d9b362c1ebbd8053802e",
+          "message": "fix(action): trim marketplace description under 125 chars\n\nGitHub Marketplace rejects action.yml descriptions of 125+ characters.\nTrim to 123 while keeping the deterministic positioning and canonical\npillar order (quality, PR risk, hotspots, duplication, architecture).",
+          "timestamp": "2026-06-02T17:44:36+02:00",
+          "tree_id": "604324bf5e201af387bbb1b7645a9b7dac060946",
+          "url": "https://github.com/fallow-rs/fallow/commit/e42434c587183f584c10d9b362c1ebbd8053802e"
+        },
+        "date": 1780415293456,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
