@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780347218111,
+  "lastUpdate": 1780391477522,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0aecb80c6f7f7346cc46d4dd45790b2852d73c7f",
-          "message": "fix(npm): swallow EPIPE on wrapper stdout so piped --version exits clean\n\nThe bin wrapper writes a trailing `verified:` status line to stdout after the\nchild binary exits. When stdout is piped to a reader that closes early (e.g.\n`fallow --version | head`), that write surfaced as an unhandled EPIPE 'error'\nevent and dumped a Node stack trace.\n\nEPIPE arrives asynchronously as an 'error' event on the stdout stream, not as a\nthrow, so a try/catch around the write cannot catch it. Install a stdout 'error'\nhandler that exits cleanly on EPIPE and rethrows every other code. Scoped to\nstdout so a genuine verification-failure write to stderr still exits 1.",
-          "timestamp": "2026-05-26T20:20:37+02:00",
-          "tree_id": "4783db8ace9868a519ed52b2180c9ed2cad55225",
-          "url": "https://github.com/fallow-rs/fallow/commit/0aecb80c6f7f7346cc46d4dd45790b2852d73c7f"
-        },
-        "date": 1779819808888,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/5efa81c680e8f5a0af1d7cede4d34c68acac572e"
         },
         "date": 1780347215375,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "89f1fa216afdc45088beedf6b433d07e6934ef8c",
+          "message": "docs: changelog and detection notes for #838-#848 fixes\n\nRecords the nine shipped fixes (issues #838, #839, #840, #841, #843, #845, #846, #847, #848) in CHANGELOG, with detection.md / plugins.md capability notes and the agent-file manifest re-bless.",
+          "timestamp": "2026-06-02T11:05:07+02:00",
+          "tree_id": "a1ca9716b0015e1c6b8a21a12709bc55088cba7f",
+          "url": "https://github.com/fallow-rs/fallow/commit/89f1fa216afdc45088beedf6b433d07e6934ef8c"
+        },
+        "date": 1780391474526,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
