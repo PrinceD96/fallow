@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780400372359,
+  "lastUpdate": 1780401754960,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "04add82a217ad0dfcc1c0d7c23f85daeca764eb6",
-          "message": "feat: add k6 runtime entry surfaces\n\n* chore: open issue #625 implementation branch\n\n* feat: add k6 runtime entry support",
-          "timestamp": "2026-05-26T09:44:13+01:00",
-          "tree_id": "05f3191da24e2d895d697156bb1206798f3abd75",
-          "url": "https://github.com/fallow-rs/fallow/commit/04add82a217ad0dfcc1c0d7c23f85daeca764eb6"
-        },
-        "date": 1779785195595,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5104077,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 27708,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 691535,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6528,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6591,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ae240a0a375ac6fb691cd611c055f223c9826a49",
+          "message": "fix(extract): bind useMemo-returned class instances for member crediting\n\nA service instantiated through useMemo (const svc = useMemo(() => new Svc(), [])) left its methods reported as unused-class-member, because only the array-destructured useState form was tracked. useMemo returns the factory's product directly, so the non-destructured identifier is now bound to the constructed class. Scoped to useMemo / React.useMemo: useState (tuple-returning) and arbitrary wrappers are not bound from the non-destructured form. Bumps the extraction CACHE_VERSION.\n\nFixes #844",
+          "timestamp": "2026-06-02T13:57:50+02:00",
+          "tree_id": "66eea1ea710fbd6e6d265fe94ef6d4692384e5d4",
+          "url": "https://github.com/fallow-rs/fallow/commit/ae240a0a375ac6fb691cd611c055f223c9826a49"
+        },
+        "date": 1780401752375,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7154241,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 31361,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 712936,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6588,
             "unit": "allocations"
           }
         ]
