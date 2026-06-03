@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780494205365,
+  "lastUpdate": 1780497571165,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "51e5aa2199c98611d72f84f7506e61e655b2b75c",
-          "message": "test(cli): snapshot coverage-intelligence render + drop stale dead_code allow (#771)\n\n* chore(health): drop stale dead_code allow on includes_crap\n\nExceededThreshold::includes_crap carried an #[allow(dead_code)] whose doc\ncomment claimed \"the binary target has no direct caller today\". That is no\nlonger true: baseline.rs, finding.rs, health/mod.rs, and the new\ncoverage_intelligence.rs all call it on the binary side, so the lint cannot\nfire. Remove the attribute and the stale rationale, aligning the doc comment\nwith its includes_cyclomatic / includes_cognitive siblings. Clippy stays\nclean with -D warnings.\n\n* test(cli): snapshot coverage-intelligence render across formats\n\nAdd a HealthReport fixture that carries a populated coverage_intelligence\nblock (a risky changed hot path plus a high-confidence delete candidate, with\none ambiguous match skipped) alongside runtime coverage, then render it\nthrough the public build_health_json / build_health_markdown /\nbuild_health_sarif / build_health_codeclimate entry points and snapshot each.\n\nPreviously the coverage-intelligence rendering was exercised only by\nper-format helper unit tests; these committed snapshots lock the live combined\nwire format across all four string-returning formats so future changes to the\nblock surface as reviewable snapshot diffs. The compact path keeps its\nexisting dedicated unit test (it prints to stdout rather than returning a\nstring).",
-          "timestamp": "2026-05-29T06:56:51Z",
-          "tree_id": "f11e27302b06d0014a2552c15df217e69c5287da",
-          "url": "https://github.com/fallow-rs/fallow/commit/51e5aa2199c98611d72f84f7506e61e655b2b75c"
-        },
-        "date": 1780037961771,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2b077f76c560fa11399796a662ee6f31b984f7e7"
         },
         "date": 1780494202244,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bbba0610829a3db4cf38f9f54df436aa53570269",
+          "message": "fix(vscode): don't fail analysis against a CLI missing newer flags (#925)\n\nA newer extension can resolve an older fallow CLI (PATH, node_modules/.bin, managed download, or a pinned binary). The sidebar unconditionally passed --dupes-min-occurrences (CLI v2.88.0+), so an older binary aborted the whole analysis with a clap \"unexpected argument\" error. The extension default (2) equals the CLI default, so the flag was a no-op that broke older binaries for no benefit.\n\nbuildAnalysisArgs omits the flag at the floor and gates emission on a once-per-session cached --version probe; execAnalysisTolerant strips a known version-gated flag and retries on a clap unexpected-argument failure (both modern and legacy wording) while rethrowing genuine errors; a shared binary-skew module shows one toast per session across the LSP and CLI paths with per-run output-channel detail.\n\nRegression reported in #894.",
+          "timestamp": "2026-06-03T16:36:29+02:00",
+          "tree_id": "51f0265619be07f329798369dbfd8e60f9e660ef",
+          "url": "https://github.com/fallow-rs/fallow/commit/bbba0610829a3db4cf38f9f54df436aa53570269"
+        },
+        "date": 1780497569163,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
