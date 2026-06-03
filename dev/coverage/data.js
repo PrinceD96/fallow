@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780474483969,
+  "lastUpdate": 1780476809023,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c1e389f2bee8a7ef185dd4b6ff641cdf5f5a4dac",
-          "message": "chore(skills): re-vendor npm/fallow/skills from canonical fallow-skills (#750)\n\nThe npm package ships npm/fallow/skills/ verbatim (it is listed in\npackage.json#files), but nothing ever re-vendored it from the canonical\nfallow-skills repo: release.yml has no sync step and the release flow only\nspot-checked for specific format-name tokens. It had silently drifted to\n\"97 framework plugins\" with a stale capability description while canonical\nwas at 114, so every recent release bundled outdated agent guidance.\n\nRe-vendors all four files (SKILL.md + the three references) so the bundled\ncopy is byte-identical to canonical fallow-skills (114 plugins, v2.84.0).",
-          "timestamp": "2026-05-28T13:30:07+01:00",
-          "tree_id": "aa1b09d539974d95738dbf18c39a148cfe5f30f0",
-          "url": "https://github.com/fallow-rs/fallow/commit/c1e389f2bee8a7ef185dd4b6ff641cdf5f5a4dac"
-        },
-        "date": 1779971562320,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/99a609e15c468ff0f0c70cbda10ab191d841e161"
         },
         "date": 1780474481248,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ceb814de08396de70d02b393f54be8b358dba1cb",
+          "message": "chore: remove agent-file bless/manifest drift gate\n\nThe sha256 baseline gate forced an unconditional re-bless on every edit to a\ntracked agent file, with no review of the change itself, so it functioned as a\nCI speed-bump rather than a real control. Drop the check-manifest CI step, the\n--update-manifest / --mode check-manifest script paths, the agent-mode drift\nwarning, the scripts/agent-files.sha256 baseline, and its self-test cases.\n\nThe hidden-unicode / bidi codepoint scan (committed + agent modes) and the\nagent-mode shell-exec keyword warnings are kept; those guard the real surface.",
+          "timestamp": "2026-06-03T10:50:20+02:00",
+          "tree_id": "406c90d074965768276b345e35b820d333807d1f",
+          "url": "https://github.com/fallow-rs/fallow/commit/ceb814de08396de70d02b393f54be8b358dba1cb"
+        },
+        "date": 1780476806817,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
