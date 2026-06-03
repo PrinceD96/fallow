@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780489486165,
+  "lastUpdate": 1780490579670,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ae4801953a1bf07f585b5795592671c4840f7451",
-          "message": "fix: activate Danger plugin from dangerfiles\n\n* chore: open issue 758 implementation branch\n\n* fix: activate Danger plugin from dangerfiles",
-          "timestamp": "2026-05-28T22:51:43+01:00",
-          "tree_id": "7022d2bd7cf381aa7dca43696f7c41cd6ceb31d9",
-          "url": "https://github.com/fallow-rs/fallow/commit/ae4801953a1bf07f585b5795592671c4840f7451"
-        },
-        "date": 1780005253694,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/12826416e24acfe1fe2bfc4e233372a11fa4b9f5"
         },
         "date": 1780489483216,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "7627d76282e41742b38e84b2d6bad3c2f925bd55",
+          "message": "fix(vscode): satisfy oxlint promise/always-return and oxfmt\n\nThe managed-CLI-backfill change left extension.ts with a .then() callback\nthat does not return on all paths (oxlint promise/always-return) and\ndownload.ts unformatted (oxfmt), turning main CI red. Rewrite the callback\nas an awaited async IIFE (matching the codebase's async/await-over-.then\nconvention) and reformat. Behavior is unchanged.",
+          "timestamp": "2026-06-03T14:39:32+02:00",
+          "tree_id": "6fc4637360eca6bec3c00b91486abcf176a177f8",
+          "url": "https://github.com/fallow-rs/fallow/commit/7627d76282e41742b38e84b2d6bad3c2f925bd55"
+        },
+        "date": 1780490577863,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
