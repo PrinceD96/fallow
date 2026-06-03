@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780471789621,
+  "lastUpdate": 1780473043051,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1fe7ae6722408aa817501c164933637a57af56a9",
-          "message": "chore: release v2.84.0",
-          "timestamp": "2026-05-28T13:39:56+02:00",
-          "tree_id": "f3d04772b3909376c77bee6e263d3ce2115b6aed",
-          "url": "https://github.com/fallow-rs/fallow/commit/1fe7ae6722408aa817501c164933637a57af56a9"
-        },
-        "date": 1779968673253,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/448010cc9bcfc38c40eea9afefd00d134ee00a61"
         },
         "date": 1780471786590,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "d4c7888d66426e071a1238e005c4aac5cd6d4a45",
+          "message": "fix(vscode): clamp duplication minOccurrences to the CLI minimum\n\nA hand-edited settings.json can set fallow.duplication.minOccurrences\nbelow the schema minimum of 2. The CLI rejects values under 2, so an\nunclamped value would fail the entire sidebar analysis with a non-zero\nexit and an error toast. Clamp the value in the getter so it degrades to\nthe floor instead.\n\nThe clamp is extracted into a pure clampMinOccurrences helper (truncates\nnon-integers, falls back to the floor for non-finite values) with vitest\nunit coverage, since config.ts imports vscode and cannot be unit-tested\ndirectly. Follow-up to #894.",
+          "timestamp": "2026-06-03T09:47:42+02:00",
+          "tree_id": "f11dcfae1a2e3202c780e0376c8f4390cf886f88",
+          "url": "https://github.com/fallow-rs/fallow/commit/d4c7888d66426e071a1238e005c4aac5cd6d4a45"
+        },
+        "date": 1780473040874,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
