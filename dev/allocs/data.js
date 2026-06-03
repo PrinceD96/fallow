@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780469015738,
+  "lastUpdate": 1780471096625,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1b91ccf1e04dc7dfb411d8fcca35315107b2f224",
-          "message": "chore(deps): bump sha2 from 0.10.9 to 0.11.0 (#717)\n\nBumps [sha2](https://github.com/RustCrypto/hashes) from 0.10.9 to 0.11.0.\n- [Commits](https://github.com/RustCrypto/hashes/compare/sha2-v0.10.9...sha2-v0.11.0)\n\n---\nupdated-dependencies:\n- dependency-name: sha2\n  dependency-version: 0.11.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
-          "timestamp": "2026-05-26T22:15:04+01:00",
-          "tree_id": "a7a37cbd2cd3e785e7ff52e0233f8e56515d48d1",
-          "url": "https://github.com/fallow-rs/fallow/commit/1b91ccf1e04dc7dfb411d8fcca35315107b2f224"
-        },
-        "date": 1779830358634,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5308038,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 28881,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 704399,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6541,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6688,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "423f294107bf5e29eb8e30e8740ede36cf66ce29",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.87.0",
+          "timestamp": "2026-06-03T09:15:48+02:00",
+          "tree_id": "b63977ad16375415cb575923f4d794efc98ce773",
+          "url": "https://github.com/fallow-rs/fallow/commit/423f294107bf5e29eb8e30e8740ede36cf66ce29"
+        },
+        "date": 1780471094061,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7291870,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33462,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 727268,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6694,
             "unit": "allocations"
           }
         ]
