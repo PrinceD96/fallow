@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780497571165,
+  "lastUpdate": 1780499844352,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "0a3791a07ff9d064cd7bf2f568e06c982ccb62cc",
-          "message": "fix: harden dupes deep-dive handles (#769)\n\nReport-scoped dupes fingerprint assignment preserves short dup:<8hex> handles by default and widens only colliding groups, routed through human output, JSON wrappers, grouped output, clone-family nested groups, and trace lookup so ambiguous short handles never resolve to the wrong group.\n\nTightens suggested_name selection with deterministic scoring, structured-name preference, near-tie abstention, and stronger margins for plain single-token names. Updates MCP/README/CHANGELOG/schema/generated TypeScript contract wording for widened fingerprints.\n\nCloses #759",
-          "timestamp": "2026-05-29T07:08:55Z",
-          "tree_id": "18a37376184019ab08a7bae032649f590f718d3d",
-          "url": "https://github.com/fallow-rs/fallow/commit/0a3791a07ff9d064cd7bf2f568e06c982ccb62cc"
-        },
-        "date": 1780038694972,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/bbba0610829a3db4cf38f9f54df436aa53570269"
         },
         "date": 1780497569163,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "157f6bd4d53c0c7ad3bb8293dec6c6c1bc366571",
+          "message": "chore: release v2.88.1",
+          "timestamp": "2026-06-03T17:13:41+02:00",
+          "tree_id": "847a5172bc2fbda88d8994035de8cb55ae6f7c1e",
+          "url": "https://github.com/fallow-rs/fallow/commit/157f6bd4d53c0c7ad3bb8293dec6c6c1bc366571"
+        },
+        "date": 1780499842410,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
