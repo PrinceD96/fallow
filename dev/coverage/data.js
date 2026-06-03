@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780509183818,
+  "lastUpdate": 1780511235183,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "88f5eb3d1cc3f82f4cef07c23615a52157d0debc",
-          "message": "chore(ci): pass --ignore-scripts on dev-dependency installs (#775)\n\nThe CI dev-dependency installs ran lifecycle scripts of transitive\ndependencies (a supply-chain execution surface). Adds --ignore-scripts to\nthe four installs that lacked it: the NAPI npm ci (debug build + Windows\nARM64), the root npm ci (oxlint/oxfmt tooling), and the editors/vscode\npnpm install. Verified each consuming build still works with scripts\ndisabled: root oxlint + oxfmt resolve their platform binaries, the\n@napi-rs/cli binary resolves, and the editors/vscode rolldown build\ncompletes. None of these dependencies needs an install lifecycle script\n(all use lazy platform-binary resolution), so there is no exception to\ndocument. The published-package install test at ci.yml already asserts\nzero-script install; this extends the same posture to the dev installs.",
-          "timestamp": "2026-05-29T10:29:45+02:00",
-          "tree_id": "5b3cde6bc95b02bdfec6998b25a0ae4c14ddd031",
-          "url": "https://github.com/fallow-rs/fallow/commit/88f5eb3d1cc3f82f4cef07c23615a52157d0debc"
-        },
-        "date": 1780043555380,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9492a4d98b5c4ca95670716fced39029cc28f375"
         },
         "date": 1780509181809,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "45f8c17eed7cf602ffff88ff8b9b8e8d648838aa",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.88.2",
+          "timestamp": "2026-06-03T20:24:13+02:00",
+          "tree_id": "2546e14eba7661a574b0460f9d12efc8a4c98534",
+          "url": "https://github.com/fallow-rs/fallow/commit/45f8c17eed7cf602ffff88ff8b9b8e8d648838aa"
+        },
+        "date": 1780511233196,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
