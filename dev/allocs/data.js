@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780484553511,
+  "lastUpdate": 1780489044772,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "0c90dbf8e14973c113698f5c210d587249a2defe",
-          "message": "feat: add Obsidian plugin support\n\n* chore: open issue 617 implementation branch\n\n* feat: add Obsidian plugin support",
-          "timestamp": "2026-05-27T07:09:05+01:00",
-          "tree_id": "31ac4e0e89f47d3f1492e3b53aee638584a4fa76",
-          "url": "https://github.com/fallow-rs/fallow/commit/0c90dbf8e14973c113698f5c210d587249a2defe"
-        },
-        "date": 1779862281786,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5285084,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30074,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 698099,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6537,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6692,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5a7ea079cf47bdc2dd22426693ce151c3e2190cf",
+          "message": "feat(cli): accept -v as a version flag alias\n\nMake -v, -V, and --version all print the version. Previously clap's\ndefault exposed only -V/--version. Lowercase -v is the version flag in\nthe TS/JS toolchain fallow's users run (node, npm, pnpm, yarn, bun, tsc,\neslint, prettier), so it becomes the primary short form; -V is kept for\nback-compat (matching knip, oxlint, biome).\n\nDisables clap's auto version flag and adds a custom version arg with\nshort = 'v', visible_short_alias = 'V', and long = version, keeping the\ncrate version string set so ArgAction::Version has a value to print.\n\nFixes #916.",
+          "timestamp": "2026-06-03T14:14:58+02:00",
+          "tree_id": "a6379be25bc14a82ca7b6b091761903b8cd2ba92",
+          "url": "https://github.com/fallow-rs/fallow/commit/5a7ea079cf47bdc2dd22426693ce151c3e2190cf"
+        },
+        "date": 1780489042597,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7326095,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33513,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 675128,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6190,
             "unit": "allocations"
           }
         ]
