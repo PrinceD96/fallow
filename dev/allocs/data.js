@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780478898951,
+  "lastUpdate": 1780484553511,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a2ece98c46f8e93d64e1f9f821211117e28f7282",
-          "message": "feat: add WXT plugin\n\n* chore: open issue #612 implementation branch\n\n* feat: add WXT plugin",
-          "timestamp": "2026-05-27T06:34:14+01:00",
-          "tree_id": "90eb1bd388bbf7fb26f8d1cdb5d367d93c5eee01",
-          "url": "https://github.com/fallow-rs/fallow/commit/a2ece98c46f8e93d64e1f9f821211117e28f7282"
-        },
-        "date": 1779860207614,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5299730,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 29501,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 700291,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6538,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6639,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a45deb010be1b521c33ab78f8e3be4106658c183",
+          "message": "fix: credit bare pnpm script binaries\n\nCredit dependency usage for package scripts, workspace scripts, and CI run blocks that invoke a declared package binary through bare `pnpm <binary>`. The parser keeps its syntax-only public path conservative, while the analysis path now receives dependency and script-name context before crediting pnpm implicit execution.\n\nKeep pnpm script delegation and built-in commands out of dependency credit, including local script names that were filtered out of production-mode analysis. This avoids trading the envinfo false positive for new false negatives around `pnpm build`, `pnpm lint`, `pnpm test`, `pnpm start`, `pnpm install`, `pnpm audit`, and `pnpm add`.\n\nFixes #914.",
+          "timestamp": "2026-06-03T12:59:58+02:00",
+          "tree_id": "aa78ad8e40397ea78ab35ac1f18779dcc68133d8",
+          "url": "https://github.com/fallow-rs/fallow/commit/a45deb010be1b521c33ab78f8e3be4106658c183"
+        },
+        "date": 1780484550572,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7267567,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33466,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 723124,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6692,
             "unit": "allocations"
           }
         ]
