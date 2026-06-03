@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780489266901,
+  "lastUpdate": 1780489486165,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d22ba3781fb7c0588c7a62acd6fc242b41ff8ce2",
-          "message": "fix(extract): credit class members used via typed destructure bindings (#762)\n\nClass methods/properties called as `<local>.<method>(...)` where `<local>`\nis a typed destructured binding (`let { resultState }: Props = $props()` with\n`interface Props { resultState: ResultState }`, or an inline type literal, or a\ndestructured function parameter) were reported as `unused-class-member`. The\nvisitor only seeded `binding_target_names` for `new`-expression instances,\nsingle-identifier typed bindings, formal params, and class properties, never\nfor destructured bindings, so neither script-level calls nor Svelte/Vue\ntemplate member access credited the class members.\n\nTyped destructure bindings now populate `binding_target_names`: inline type\nliterals resolve in place; named interface / object-type-alias references defer\nto a finalize step that resolves through a module-scope property-type map\n(source-order-independent, since interfaces hoist). Wired into the SFC path\nbefore the template scan reads the targets. Resolution is type-driven, so it\nalso covers plain TypeScript and Vue. Conservative: only bare single-name\nproperty types resolve; genuinely unused members are still reported.\n\nBumps the extract CACHE_VERSION (102 -> 103) because the resulting\nmember_accesses change.\n\nFixes #752",
-          "timestamp": "2026-05-28T20:45:49Z",
-          "tree_id": "d51918e2852f050046c6d27013648ee06ecfc900",
-          "url": "https://github.com/fallow-rs/fallow/commit/d22ba3781fb7c0588c7a62acd6fc242b41ff8ce2"
-        },
-        "date": 1780001298236,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e55a2e99465680156af180a0ce5732672a633a09"
         },
         "date": 1780489265309,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "12826416e24acfe1fe2bfc4e233372a11fa4b9f5",
+          "message": "fix(vscode): backfill managed CLI download\n\nThe VS Code extension now treats managed binary acquisition as a pair of runtime dependencies: `fallow-lsp` for diagnostics and `fallow` for sidebar analysis and fix commands. First-run download targets the release tag matching the extension version, writes that tag as the managed marker, and keeps CLI acquisition retryable if the LSP is already usable.\n\nCLI resolution now preserves explicit user intent before automation: configured LSP sibling, workspace binary, PATH, managed storage, then auto-download. Managed CLI backfill rejects stale binaries by checking the binary version when available, while still allowing marker-based reuse for binaries that cannot report a parseable version.\n\nThe extension docs, setting text, walkthrough copy, changelog, tests, and generated VS Code bundle were updated with the new managed-binary behavior.\n\nFixes #917.",
+          "timestamp": "2026-06-03T14:21:43+02:00",
+          "tree_id": "d6ed61d4a13ce2228bd42977face8c2ed6c83c15",
+          "url": "https://github.com/fallow-rs/fallow/commit/12826416e24acfe1fe2bfc4e233372a11fa4b9f5"
+        },
+        "date": 1780489483216,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
