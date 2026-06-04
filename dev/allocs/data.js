@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780565682896,
+  "lastUpdate": 1780566070998,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1fe7ae6722408aa817501c164933637a57af56a9",
-          "message": "chore: release v2.84.0",
-          "timestamp": "2026-05-28T13:39:56+02:00",
-          "tree_id": "f3d04772b3909376c77bee6e263d3ce2115b6aed",
-          "url": "https://github.com/fallow-rs/fallow/commit/1fe7ae6722408aa817501c164933637a57af56a9"
-        },
-        "date": 1779968663170,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5290036,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30092,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 702251,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6536,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6691,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "88fd8c96b801e150e85353f6e28fa34c594d2838",
+          "message": "fix: resolve relative package root source entries\n\nRelative imports that point at the package root could be reported unresolved when the package only has source files and package metadata points at an unbuilt entry. This affected source-first packages such as preact, where tests import ../../ and the generated dist entry is absent from the fixture.\n\nThis adds a narrow fallback for relative imports that land exactly on a known package root. The fallback resolves through safe package source entries and existing source-index conventions, with regression coverage for non-standard source entry paths.",
+          "timestamp": "2026-06-04T11:34:55+02:00",
+          "tree_id": "a54e3bf530bc2e27a636ea3ee62cc8211a54100f",
+          "url": "https://github.com/fallow-rs/fallow/commit/88fd8c96b801e150e85353f6e28fa34c594d2838"
+        },
+        "date": 1780566068768,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7345213,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33532,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 726762,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6707,
             "unit": "allocations"
           }
         ]
