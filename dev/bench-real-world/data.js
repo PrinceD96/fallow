@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780488009553,
+  "lastUpdate": 1780569899443,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -3875,6 +3875,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 6824,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "b740cf1a817c8d9bc8a7498f61e0e404f71a4ba4",
+          "message": "fix(vscode): align provider and duplication behavior\n\nAdd a VS Code plugin that credits provider interface methods when a class implements the matching VS Code provider interface.\n\nForward VS Code duplication settings into LSP initialization options so live diagnostics match sidebar CLI analysis.\n\nHarden VS Code LSP restart handling for rapid config changes during client startup.\n\nFixes #948.\nFixes #905.",
+          "timestamp": "2026-06-04T10:33:57Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/b740cf1a817c8d9bc8a7498f61e0e404f71a4ba4"
+        },
+        "date": 1780569897643,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 151,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 144,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 272,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 154,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 142,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 486,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 408,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1366,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1274,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1003,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 955,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 946,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 829,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 8766,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 8067,
             "unit": "ms"
           }
         ]
