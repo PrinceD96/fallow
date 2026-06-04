@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780560227913,
+  "lastUpdate": 1780562452222,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "54e50793b2ee8797dee43c049aec3a3378da5279",
-          "message": "chore(ci): trigger required workflows on merge_group for merge queue (#778)\n\nPrepares for enabling GitHub's merge queue on main. A merge queue runs\nrequired status checks against a synthetic merge_group ref; any required\ncheck whose workflow does not trigger on merge_group never reports, which\nstalls the queue permanently.\n\n- Add merge_group: to the on: triggers of ci.yml and commitlint.yml (the\n  only two workflows that own required checks).\n- Add '|| github.event_name == merge_group' to every path-gated required\n  job in ci.yml (check, doc, npm-package, fallow-self-analyze, vscode,\n  windows-arm64, test-gitlab-ci, audit, deny, shear, zizmor). On a\n  merge_group event the paths-filter base-ref differs and the existing\n  '== push' escape does not fire, so without this the jobs skip and a\n  skipped required check stalls the queue.\n- miri runs on merge_group too (previously pull_request-only).\n- zed and msrv are intentionally left unwired: neither is a required\n  check (msrv is if:false and was removed from required checks separately),\n  so skipping them in the queue is harmless and saves CI time.\n\nThese triggers are inert until the merge queue is enabled on main, so this\nis safe to land ahead of that switch. No runtime or output change.\n\nRefs #444.",
-          "timestamp": "2026-05-29T08:54:35Z",
-          "tree_id": "1eeece7c4ed14eb00697e363e92e4c3abfce9962",
-          "url": "https://github.com/fallow-rs/fallow/commit/54e50793b2ee8797dee43c049aec3a3378da5279"
-        },
-        "date": 1780045037340,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1538abc809b602b590228081507b026903f34988"
         },
         "date": 1780560225087,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7d70933eff835bf06247e0bb6735aa0ff6ac8220",
+          "message": "fix(release): verify packed tarballs are complete and signed (#946)\n\nA published @fallow-cli/<platform> npm package could ship without its fallow.sig siblings: npm silently drops a files whitelist entry with no matching file on disk, and the npm-prep pack step only checked that a tarball was produced, not that its contents satisfied the declared contract. The GitHub Action installer then hard-failed every install resolving to such a package with sig-missing (the 2.76.0 tarballs that predate signed binaries are the live trigger).\n\nA release-time gate (verify-pack-contents.mjs, run in the token-free npm-prep job before upload) now asserts each packed tarball contains every file its own package.json declares, and independently requires every binary in a CLI platform package to have a .sig sibling so a future regression that drops sigs from both files and disk cannot pass self-consistently.\n\nBinary verification is version-aware: signed binaries ship from 2.77.0, so the verifier distinguishes a pre-signing resolved CLI (bump the fallow dependency in package.json) from a 2.77.0+ package whose signature is unexpectedly absent (possible tampering, reinstall). The bypass env is no longer surfaced inline. The Action installer also names which version knob to turn on failure, and fallow --version reports the resolved version's signing status. SECURITY.md documents the 2.77.0 epoch. Verification still fails closed.\n\nFixes #944.",
+          "timestamp": "2026-06-04T10:37:39+02:00",
+          "tree_id": "ec457da96ab7fb46c34de5ec7946289efdf3a066",
+          "url": "https://github.com/fallow-rs/fallow/commit/7d70933eff835bf06247e0bb6735aa0ff6ac8220"
+        },
+        "date": 1780562449691,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
