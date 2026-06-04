@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780566124508,
+  "lastUpdate": 1780566569813,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "30ff077a594b83512a38679bf7f61da59eab3202",
-          "message": "chore(release): pass --ignore-scripts on release-pipeline dev installs (#782)\n\nExtends the ci.yml --ignore-scripts posture (#775) to release.yml's four\ndependency installs: the NAPI npm ci in the build matrix and npm-prep jobs,\nand the editors/vscode pnpm install in the vscode-prep and vscode-publish-prep\njobs. These run in prep jobs that carry no publish tokens (the prep/publish\nsplit is the primary supply-chain guard); --ignore-scripts is belt-and-suspenders\non top of it.\n\nVerified locally that the consuming builds still work with scripts disabled:\nthe full release-shape NAPI build (npm ci --omit=optional --ignore-scripts\nthen napi build --release --platform) produces the native addon, and the\neditors/vscode rolldown build runs after pnpm install --ignore-scripts. The\nnpm-prep comment that claimed @napi-rs/cli needs its install scripts is\nreconciled: napi build does not need them.\n\nVerified on darwin-arm64; the release matrix also builds linux / windows /\nmac-x64, where napi build is equally script-independent. actionlint clean;\nzizmor introduces zero new findings vs origin/main.",
-          "timestamp": "2026-05-29T10:41:32Z",
-          "tree_id": "067963ca9e7f96def9145b5b3c4b15e1c42167b0",
-          "url": "https://github.com/fallow-rs/fallow/commit/30ff077a594b83512a38679bf7f61da59eab3202"
-        },
-        "date": 1780052183314,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/88fd8c96b801e150e85353f6e28fa34c594d2838"
         },
         "date": 1780566122728,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e0c6e2171bba529b632a2e7f54e52513a951a796",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.88.3",
+          "timestamp": "2026-06-04T11:46:20+02:00",
+          "tree_id": "5c5fc2e17ff7c88bd7f62cdb5c51e2c5257ed554",
+          "url": "https://github.com/fallow-rs/fallow/commit/e0c6e2171bba529b632a2e7f54e52513a951a796"
+        },
+        "date": 1780566568003,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
