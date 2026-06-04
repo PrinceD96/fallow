@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780594140112,
+  "lastUpdate": 1780594523827,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "47f7233f413a094af63fffb3806a41cedf761cbe",
-          "message": "ci: add windows-latest smoke for audit orphan-sweep and process_is_alive (#800)\n\nRun the three audit lifecycle tests on windows-latest so the orphan-sweep,\nprocess_is_alive, and reusable-worktree-lock code paths execute against real\nWin32 OpenProcess / WaitForSingleObject and NTFS LockFileEx semantics rather\nthan just compiling. The check matrix only runs the full suite on Windows for\npush and merge_group, so PRs never exercised these paths on Windows before.\n\nThe new windows-audit-smoke job is gated on the rust changes filter (plus push\nand merge_group), mirroring the check and windows-arm64 convention, and runs\nexactly the three named tests via cargo test --lib -- --exact. It is wired into\nci-ok needs so a Windows lifecycle regression blocks merge; ci-ok treats skipped\nas success, so non-Rust PRs do not deadlock the merge queue. Narrower than the\nfull Windows matrix tracked in #447.\n\nFixes #497.",
-          "timestamp": "2026-05-29T19:47:42Z",
-          "tree_id": "8850ea58263c41b1b4b66faca7ebfd413352fe1a",
-          "url": "https://github.com/fallow-rs/fallow/commit/47f7233f413a094af63fffb3806a41cedf761cbe"
-        },
-        "date": 1780085071348,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f1e80bb57e1b71aed26e46a56f7472b923fa05b2"
         },
         "date": 1780594138668,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "08c11441fe165b62dd27696c4d05bcc22ed4c7f0",
+          "message": "fix(cli): reclaim audit base-snapshot worktrees orphaned by external dir removal\n\nWhen an external cleanup process (a `$TMPDIR` reaper, a container restart, a CI cache eviction) removes a reusable base-snapshot worktree directory but leaves git's admin entry behind, the entry lingered indefinitely as a `prunable` row in `git worktree list`. The age-based sweep keyed only on the `.last-used` sidecar, which survives next to the deleted directory, so it re-touched a fresh sidecar and never reclaimed these orphans.\n\n`sweep_old_reusable_caches` now takes `Option<Duration>` and runs on every audit invocation. It reclaims any reusable entry whose directory is gone before the age branch: lock-guarded, re-checked under the lock against a concurrent rebuild, removing the git admin entry and the stale sidecar. The reclaim runs even when age-based GC is disabled, so dead admin entries no longer accumulate. Adds two regression tests covering enabled and disabled GC thresholds.",
+          "timestamp": "2026-06-04T19:31:16+02:00",
+          "tree_id": "dd1a2244fdad94a53a96fea1f9de12f06e4e3176",
+          "url": "https://github.com/fallow-rs/fallow/commit/08c11441fe165b62dd27696c4d05bcc22ed4c7f0"
+        },
+        "date": 1780594520779,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
