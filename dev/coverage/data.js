@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780609777260,
+  "lastUpdate": 1780610769770,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": false,
-          "id": "986651adbe6817842da67fdd126eca359e33bbd5",
-          "message": "feat(coverage): upload each source map's repo-relative path for monorepo source resolution (#810)\n\nupload-source-maps now sends the map file's path relative to the repo\nroot (e.g. dashboard/dist/assets/X.js.map) alongside the existing\nfileName, as a new optional mapPath field. The fallow.cloud\nsource-evidence viewer uses it to resolve a map's relative sources[]\n(../../src/components/X.tsx) against the map's directory, recovering the\npackage-prefixed path dashboard/src/components/X.tsx so it matches the\nmonorepo-relative runtime coverage path. Previously only the basename\nwas known, so the cloud collapsed ../../src/X to src/X and the viewer\nreported source_not_in_maps for monorepo sub-packages.\n\nThe field is omitted when a map is not under the repo root (an absolute\n--dir outside it); the cloud then falls back to its prior root-anchored\nnormalization, so the change is backwards compatible and a no-op for\nsingle-package projects. fileName and --strip-path are unchanged.\n\nCloses fallow-rs/fallow-cloud#260.",
-          "timestamp": "2026-05-30T17:00:19Z",
-          "tree_id": "425d5323b3ea41b2261ecc8e87f99e94abf893dc",
-          "url": "https://github.com/fallow-rs/fallow/commit/986651adbe6817842da67fdd126eca359e33bbd5"
-        },
-        "date": 1780161305432,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d0e29acf8b4b495952032e7890c4239dc0d978e9"
         },
         "date": 1780609775554,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ee45f691c689e0e14f5ed4eb7d4c5372506e5ef4",
+          "message": "docs(changelog): record security catalogue batch additions\n\nAdd an Unreleased entry covering the catalogue-only tainted-sink rows\nlanded for #882 and #897 (dynamic-module-load, header-injection,\nmass-assignment, path-traversal, deprecated-cipher, insecure-randomness,\ntemplate-escape-bypass, xpath-injection, unsafe-buffer-alloc,\nwebview-injection, and the extended SSRF / raw-SQL rows), so the next\nrelease notes reflect them. Surfaced only under `fallow security`.",
+          "timestamp": "2026-06-05T00:03:14+02:00",
+          "tree_id": "0b72dcb674be9115c5d23c42b57944c37bc764fe",
+          "url": "https://github.com/fallow-rs/fallow/commit/ee45f691c689e0e14f5ed4eb7d4c5372506e5ef4"
+        },
+        "date": 1780610767988,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
