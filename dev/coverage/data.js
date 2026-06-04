@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780589634235,
+  "lastUpdate": 1780589973495,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": false,
-          "id": "65147e21f6b7f33d43900cd2ec66b86981d67d9d",
-          "message": "chore(security): gate agent-file baseline drift in CI (#794)\n\nThe agent-file integrity baseline (scripts/agent-files.sha256) had no\nenforcement: editing a tracked agent-instruction file (.claude/rules/**,\n.claude/agents/**, CLAUDE.md, .claude/settings.json) without re-blessing left\nthe baseline stale, and the only signal was the warn-only SessionStart guard,\nwhich fires on every later session until someone notices. Stale drift\naccumulated on main as feature PRs touched rule docs in passing.\n\nAdd a blocking CI gate. scan-hidden-unicode.py gains a `--mode check-manifest`\nthat exits nonzero when any blessed file differs from its hash or a tracked\nagent file has no entry at all, and ci.yml runs it in the typos job alongside\nthe existing committed-surface scan. This makes a PR that edits a tracked agent\nfile re-bless the manifest in the same change. The SessionStart drift check\nstays warn-only so an in-progress edit never hard-blocks a session.\n\nRe-bless the one outstanding drift (.claude/rules/cli-crate.md) so the gate is\ngreen, extend the scanner self-test with block/clean/unblessed cases, and\ndocument the new surface in SECURITY.md.",
-          "timestamp": "2026-05-29T18:20:35Z",
-          "tree_id": "23601d4733f422a8ad7cf890c7d1caddd4ffd012",
-          "url": "https://github.com/fallow-rs/fallow/commit/65147e21f6b7f33d43900cd2ec66b86981d67d9d"
-        },
-        "date": 1780079981748,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/867be226a77380a8b89de8edd4489ca36763d723"
         },
         "date": 1780589631834,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d85c07a9b940a6025bf5466e7867ab293efc4493",
+          "message": "feat(vscode): manage the fallow license from the editor (#904)\n\nCloses #904",
+          "timestamp": "2026-06-04T18:16:32+02:00",
+          "tree_id": "fa105078eda95c7b0b0d2ec3b3d67a17b0955e4e",
+          "url": "https://github.com/fallow-rs/fallow/commit/d85c07a9b940a6025bf5466e7867ab293efc4493"
+        },
+        "date": 1780589970607,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
