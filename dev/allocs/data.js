@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780550382429,
+  "lastUpdate": 1780564122420,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "8c5618273a1c514abede395ba9cc1de37a158425",
-          "message": "chore: release v2.83.0",
-          "timestamp": "2026-05-27T16:24:18+02:00",
-          "tree_id": "9e1a43f8439c7726bbaa8769f0db662382aaa357",
-          "url": "https://github.com/fallow-rs/fallow/commit/8c5618273a1c514abede395ba9cc1de37a158425"
-        },
-        "date": 1779892070419,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5354068,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30158,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 702107,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6533,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6191,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "6e1a3db21cdeed9e0a83376e283d7adb4a4c9805",
+          "message": "chore: release v2.88.3\n\nShips the #944 packaging integrity gate (declared-files + every-binary-signed),\nthe version-aware sig-missing error, the Action dual-knob failure context, the\nfallow --version signing annotation, and the SECURITY.md signing-epoch section.\nAlso includes two fixes that landed since v2.88.2: fallow -v through the npm\nlauncher now prints the verified line, and the VS Code extension self-heals\nwhen the resolved CLI predates the extension.\n\nBundles an oxfmt 0.52.0 reformat of run-binary.test.js (one wrapped assert line)\nto keep main CI green after the oxfmt dependency bump.",
+          "timestamp": "2026-06-04T11:04:52+02:00",
+          "tree_id": "eefa33722cc29adcf00f1b95b192341a653aea0f",
+          "url": "https://github.com/fallow-rs/fallow/commit/6e1a3db21cdeed9e0a83376e283d7adb4a4c9805"
+        },
+        "date": 1780564119687,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7328981,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33506,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 728470,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6745,
             "unit": "allocations"
           }
         ]
