@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780566542748,
+  "lastUpdate": 1780568208202,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "38a0387a8baa0d127f5ff341d7f57586034da0c7",
-          "message": "fix: catch baseline drift on config-only PRs\n\n* chore: open issue 746 implementation branch\n\n* fix: disable auto PR scoping for baseline config changes",
-          "timestamp": "2026-05-28T13:34:02+01:00",
-          "tree_id": "44cee84a34eba33a025983ec540196f096177a06",
-          "url": "https://github.com/fallow-rs/fallow/commit/38a0387a8baa0d127f5ff341d7f57586034da0c7"
-        },
-        "date": 1779971786641,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5370348,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30146,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 706875,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6541,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6775,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "219211dbfd1021a75f88d95fbc2b359569e3596b",
+          "message": "test(conformance): harden source fallback coverage\n\nAdd explicit positive and negative coverage for package source path handling so relative package source entries stay accepted while unsafe paths remain rejected.\n\nUpdate the conformance comparison script to tolerate BOM-prefixed JSON, normalize relative and absolute path shapes, and report real tool execution errors separately from JSON parse failures.",
+          "timestamp": "2026-06-04T12:13:18+02:00",
+          "tree_id": "aceebf2a049587839b01f91433ddfb00582b3074",
+          "url": "https://github.com/fallow-rs/fallow/commit/219211dbfd1021a75f88d95fbc2b359569e3596b"
+        },
+        "date": 1780568206137,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7313277,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33496,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 725548,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6692,
             "unit": "allocations"
           }
         ]
