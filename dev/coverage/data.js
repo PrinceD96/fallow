@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780569409770,
+  "lastUpdate": 1780570955255,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": false,
-          "id": "63d9af9d5142ead85bff9195555427345e14f708",
-          "message": "chore(security): re-bless agent-file baseline for detection and plugins rules (#789)\n\n`.claude/rules/detection.md` and `.claude/rules/plugins.md` were edited on\nmain without updating their blessed hashes in scripts/agent-files.sha256, so\nthe agent-file hidden-unicode guard reported drift on every session start.\nRe-bless both to their current content. No content change to the rule files\nthemselves; this only syncs the integrity baseline.",
-          "timestamp": "2026-05-29T12:38:14Z",
-          "tree_id": "08bedfac7ac0aa36b794c0ba66eb59be44368ec8",
-          "url": "https://github.com/fallow-rs/fallow/commit/63d9af9d5142ead85bff9195555427345e14f708"
-        },
-        "date": 1780059142866,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b740cf1a817c8d9bc8a7498f61e0e404f71a4ba4"
         },
         "date": 1780569407962,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "88f048b7af1acc3200cd32b7f3ef2b1adc27e0ab",
+          "message": "fix(vscode): honor explicit duplication overrides\n\nRead VS Code duplication settings as explicit overrides instead of effective package defaults, so project config remains the source of truth unless the user configured a setting.\n\nSidebar analysis now forwards only configured duplication CLI flags. LSP initialization sends the same optional override payload and applies explicit boolean values after project config. The client restart path also waits through startup so config restarts do not race stale clients.",
+          "timestamp": "2026-06-04T12:57:14+02:00",
+          "tree_id": "ef5a596290ed50c15cdba45db7db027bd36ae973",
+          "url": "https://github.com/fallow-rs/fallow/commit/88f048b7af1acc3200cd32b7f3ef2b1adc27e0ab"
+        },
+        "date": 1780570953348,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
