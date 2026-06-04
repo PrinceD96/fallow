@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780511235183,
+  "lastUpdate": 1780550416732,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "2c2ddebfbb90052cdc166a1bd714c587577f1016",
-          "message": "chore(telemetry): changelog entry, retention wording, cross-repo allowlist drift checker\n\nAdds the [Unreleased] telemetry CHANGELOG entry, corrects retention wording to match the server, and adds a release-time cross-repo agent-source allowlist drift checker.",
-          "timestamp": "2026-05-29T08:32:39Z",
-          "tree_id": "9f37cc740460319c359ff5c8df208c2e1cf72590",
-          "url": "https://github.com/fallow-rs/fallow/commit/2c2ddebfbb90052cdc166a1bd714c587577f1016"
-        },
-        "date": 1780043719455,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/45f8c17eed7cf602ffff88ff8b9b8e8d648838aa"
         },
         "date": 1780511233196,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "56b0a0da804d1b6824d54c0a6ffbe1b7e592ce27",
+          "message": "fix(npm): treat -v as a version query in the launcher shim\n\nThe native binaries now answer -v (alongside --version and -V), but the npm\nlauncher's isVersionQuery only matched --version and -V, so `fallow -v` through\nthe npm package skipped the appended `verified:` integrity line. Match -v too\nso all three version flags behave identically. Ships with the next release.",
+          "timestamp": "2026-06-04T07:14:33+02:00",
+          "tree_id": "27f15522353eeb8e279e4b7e41fd9ffd4e1ef202",
+          "url": "https://github.com/fallow-rs/fallow/commit/56b0a0da804d1b6824d54c0a6ffbe1b7e592ce27"
+        },
+        "date": 1780550415002,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
