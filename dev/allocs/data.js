@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780564122420,
+  "lastUpdate": 1780565244476,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "bcd212c555565601468535fb59a364a4f5bec638",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.83.0",
-          "timestamp": "2026-05-27T17:00:27+02:00",
-          "tree_id": "387d451daa0c0b8edf83c7aa30aafeb29165fb5a",
-          "url": "https://github.com/fallow-rs/fallow/commit/bcd212c555565601468535fb59a364a4f5bec638"
-        },
-        "date": 1779894159918,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5380620,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30153,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 706875,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6541,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6745,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a9763c24cf7ddbf973bf71e0edb6fe08e70c5a4d",
+          "message": "feat(vscode): expose duplication settings\n\nExpose the remaining duplication settings in VS Code and pass them through the sidebar combined analysis run.\n\nAdd matching combined-mode duplication flags in the CLI so the extension can apply those settings without creating a temporary config file. Keep stale resolved CLIs on the existing version-gated degradation path.\n\nFixes #909.",
+          "timestamp": "2026-06-04T11:24:25+02:00",
+          "tree_id": "1434758cb1bb4758f24aab67aec052a9a492bf4f",
+          "url": "https://github.com/fallow-rs/fallow/commit/a9763c24cf7ddbf973bf71e0edb6fe08e70c5a4d"
+        },
+        "date": 1780565242718,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7338981,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33529,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 725548,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6692,
             "unit": "allocations"
           }
         ]
