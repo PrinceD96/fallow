@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780564166010,
+  "lastUpdate": 1780565247560,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "93d5321c9b087817e6504468eeb2b929bd35275c",
-          "message": "docs(security): add signing-key rotation and compromise-response runbook (#781)\n\nDocuments how to rotate the Ed25519 binary-signing keypair and what to do if\nthe private key leaks. Covers the split surfaces (the\nED25519_BINARY_SIGNING_PRIVATE_KEY release secret vs the raw public key\nhardcoded in editors/vscode/src/download.ts + npm/fallow/scripts/verify-binary.js\nand the fingerprint in this file, kept in sync by hand since no CI parity job\nasserts it), why rotation is a clean per-version cutover that needs no dual-key\ngrace window (each consumer pins one key and only fetches its own version's\nbinary), the scheduled-rotation steps, and the compromise-response sequence\n(rotate-first patch release, GHSA advisory, deprecate exposed versions without\nforce-rewriting tags, rotate co-located secrets).",
-          "timestamp": "2026-05-29T10:25:48Z",
-          "tree_id": "912dc0f2bf12731e5dad928401d767b00a7eca51",
-          "url": "https://github.com/fallow-rs/fallow/commit/93d5321c9b087817e6504468eeb2b929bd35275c"
-        },
-        "date": 1780051111632,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6e1a3db21cdeed9e0a83376e283d7adb4a4c9805"
         },
         "date": 1780564163438,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a9763c24cf7ddbf973bf71e0edb6fe08e70c5a4d",
+          "message": "feat(vscode): expose duplication settings\n\nExpose the remaining duplication settings in VS Code and pass them through the sidebar combined analysis run.\n\nAdd matching combined-mode duplication flags in the CLI so the extension can apply those settings without creating a temporary config file. Keep stale resolved CLIs on the existing version-gated degradation path.\n\nFixes #909.",
+          "timestamp": "2026-06-04T11:24:25+02:00",
+          "tree_id": "1434758cb1bb4758f24aab67aec052a9a492bf4f",
+          "url": "https://github.com/fallow-rs/fallow/commit/a9763c24cf7ddbf973bf71e0edb6fe08e70c5a4d"
+        },
+        "date": 1780565245805,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
