@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780594523827,
+  "lastUpdate": 1780594936306,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": false,
-          "id": "69acf17bcd03460535d3739b5b6459add545c395",
-          "message": "fix(plugins): recognize SvelteKit layout-reset routes as entry points (#797)\n\n* fix(plugins): recognize SvelteKit layout-reset routes as entry points\n\nThe SvelteKit plugin matched +page.svelte / +layout.svelte literally but\nnot the @-suffixed layout-reset variants (+page@.svelte, +page@named.svelte,\n+layout@.svelte, +layout@named.svelte), so routes using SvelteKit's\nbreak-out-of-layout convention were reported as unused-file.\n\nAdd src/routes/**/+page@*.svelte and src/routes/**/+layout@*.svelte as entry\npatterns plus matching used_exports rules crediting the default export. The *\ncovers both the empty (@.svelte) and named (@named.svelte) forms;\nliteral_separator(true) keeps the match within one path segment. Only .svelte\ncomponent files take the suffix: SvelteKit throws on @ in .ts/.js route files,\nso the co-located load files are unaffected.\n\nFixes #791\n\n* test(plugins): cover SvelteKit layout-reset group form\n\nAdd a +page@(checkout).svelte fixture and assertion to\nsveltekit_layout_reset_routes_are_entry_points so the parenthesized\ngroup form of the layout-reset segment is exercised end to end. This is\nthe riskiest assumption in the +page@*.svelte entry glob: globset treats\n( and ) as literal characters, not metacharacters, so * must match the\n(group) form. Neither the existing unit nor integration test covered it.\n\nRefs #791.\n\n* chore(security): re-bless agent-file baseline for detection.md\n\nThe SvelteKit layout-reset bullet added to .claude/rules/detection.md\nchanged the file's hash; re-bless scripts/agent-files.sha256 so the\nagent-file drift gate passes. No content concern (no hidden unicode;\nplain ASCII bullet).\n\nRefs #791.",
-          "timestamp": "2026-05-29T20:02:22Z",
-          "tree_id": "9574d7d24c2d7e94b8ede54d7f4c431bfdcf1dd4",
-          "url": "https://github.com/fallow-rs/fallow/commit/69acf17bcd03460535d3739b5b6459add545c395"
-        },
-        "date": 1780086275461,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/08c11441fe165b62dd27696c4d05bcc22ed4c7f0"
         },
         "date": 1780594520779,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5caaed089d100472aae1c317cd9f5ef2ddd4d986",
+          "message": "fix(vscode): review follow-ups for #903 (security-candidates)\n\nSecurity Candidates view review follow-ups:\n\n- Only paint the \"No security candidates found\" all-clear after a\n  genuinely completed scan. runSecurityAnalysis now returns a\n  discriminated SecurityScanResult; a failed/older-CLI scan no longer\n  flips fallow.hasAnalyzedSecurity, so the actionable enable/scan welcome\n  stays in place instead of a false clean bill on a security surface.\n- Add syncSecurityEnabledContext() (mirroring health) and split the\n  welcome into a \"scanning is off, enable it\" state and an\n  \"enabled, run the scan\" state; the dead retry-on-failure latch in\n  onSecurityViewVisible is now genuinely live (transient failures reset\n  it, non-retryable ones hold it).\n- Hide the scan toolbar button while fallow.security.enabled is off\n  instead of nagging to enable on click.\n- Cover the runtime info toast and per-finding tooltip framing strings in\n  the framing-guard test, plus the welcome-split and scan-button gate.\n- Add a CI dist-drift gate (check:dist) that rebuilds the bundle and\n  fails on a stale committed dist, tolerant of cross-environment rolldown\n  minifier jitter so it does not flake.\n- Document the Security Candidates view, command, and setting in the\n  extension README.",
+          "timestamp": "2026-06-04T19:39:15+02:00",
+          "tree_id": "1b20e25b1366ffcb386dcbc0f96fe8201ff764c3",
+          "url": "https://github.com/fallow-rs/fallow/commit/5caaed089d100472aae1c317cd9f5ef2ddd4d986"
+        },
+        "date": 1780594932653,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
