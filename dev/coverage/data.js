@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780597754807,
+  "lastUpdate": 1780599983879,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "db4a8cc6b595d04a2d8f946da8b1770d766a06d6",
-          "message": "feat(mcp): expose fallow impact as a read-only MCP tool (#804)\n\n* feat(mcp): expose fallow impact as a read-only MCP tool\n\nAdd an \"impact\" tool wrapping \"fallow impact --format json\" so AI agents\ncan read the local value report (surfacing, trend, gate containment, and\nv1.5 resolved/suppressed attribution) the same way they query check_health\nand audit. Impact was the only first-class CLI surface with no MCP tool.\n\nThe tool is read-only and root-only: it runs no analysis and reads only\n.fallow/impact.json, so the config / no_cache / threads knobs the analysis\ntools expose are omitted as inert. The mutating enable / disable lifecycle\nis intentionally not exposed; on an enabled:false report the agent should\nrecommend the user run \"fallow impact enable\", not toggle it. Annotated\nread_only_hint=true, idempotent_hint=true, open_world_hint=false (a single\nclosed-world local file read, like fallow_explain).\n\n* docs(mcp): document the impact MCP tool\n\nBump the fallow-mcp tool count to 21 and add an impact entry in\n.claude/rules/mcp-server.md, add a CHANGELOG [Unreleased] note, and\nre-bless scripts/agent-files.sha256 for the rules-file edit (CI drift gate).",
-          "timestamp": "2026-05-29T20:52:35Z",
-          "tree_id": "01a38e3a6c5c5c1bc97576d9265737b97887e250",
-          "url": "https://github.com/fallow-rs/fallow/commit/db4a8cc6b595d04a2d8f946da8b1770d766a06d6"
-        },
-        "date": 1780088726770,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/89e76ab006ca8f09293b36b692eefb5ec70cf085"
         },
         "date": 1780597752117,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7b73603e9f6d4e9fa3192aa074d78f840bd1da7f",
+          "message": "fix(vscode): address runtime coverage follow-ups\n\n* fix(vscode): address review follow-ups for #907\n\n- Surface coverage gate errors: execFallow now rejects with a\n  FallowExecError carrying exitCode + stdout, so the runtime-coverage\n  path recovers the structured {error,message,exit_code} JSON envelope\n  instead of a bare 'exited with code N'. Exit 3 (license) and exit 4/5\n  (sidecar) are special-cased with concrete next steps (fallow license\n  activate / fallow coverage setup).\n- Disclose the sidecar/license prerequisite in the Runtime Coverage\n  welcome state and the fallow.coverage.capturePath setting description.\n- Surface the license grace/trial watermark as a one-time warning on\n  load so 'Safe to Delete' candidates produced under a stale license are\n  not treated as authoritative.\n- Pin COVERAGE_ANALYZE_MIN_VERSION to 2.57.0 (when local coverage\n  analyze --format json shipped); 2.77.0 needlessly rejected valid CLIs.\n- Humanize the snake_case confidence enum in leaf tooltips.\n- Document the Runtime Coverage view, commands, and settings in the\n  extension README.\n- Extend coverage-utils and package-manifest unit tests.\n\n* fix(vscode): clear #907 follow-up CI gates\n\n* chore(vscode): apply JS formatter",
+          "timestamp": "2026-06-04T21:03:16+02:00",
+          "tree_id": "9afaa576fe25f275f3f976e71d0cf0ba0b5db52f",
+          "url": "https://github.com/fallow-rs/fallow/commit/7b73603e9f6d4e9fa3192aa074d78f840bd1da7f"
+        },
+        "date": 1780599980935,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
