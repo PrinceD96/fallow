@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780589135036,
+  "lastUpdate": 1780589634235,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": false,
-          "id": "618fd5263cf20b4ae91e6c8c06878ee73aa5bacf",
-          "message": "chore(security): re-bless agent-file baseline for cli-crate rule (#793)\n\nThe cli-crate.md health-gate documentation edit from #790 changed the\nfile's content hash without refreshing the blessed manifest, so the\nSessionStart agent-file guard flags it as drift. Re-bless to match.",
-          "timestamp": "2026-05-29T18:12:20Z",
-          "tree_id": "0d350dc9416c8bd2ccc7c9c0a54aeef49a5c8d4f",
-          "url": "https://github.com/fallow-rs/fallow/commit/618fd5263cf20b4ae91e6c8c06878ee73aa5bacf"
-        },
-        "date": 1780079100091,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b6c7d13492232cca3c8b3cb6703b5e1f936aef93"
         },
         "date": 1780589132144,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "867be226a77380a8b89de8edd4489ca36763d723",
+          "message": "feat(vscode): surface security candidates in the editor (#903)\n\nCloses #903\n\nExtension-only TypeScript slice, no Rust/LSP changes. Adds an opt-in Security Candidates sidebar view that shells out to fallow security --format json --quiet as a separate, lazy, view-gated process and renders local client-server-leak / tainted-sink candidates from the committed SecurityOutput JSON contract.",
+          "timestamp": "2026-06-04T18:10:59+02:00",
+          "tree_id": "3bf773e7783ea3dbbe9e860f4cd9964eff1e2623",
+          "url": "https://github.com/fallow-rs/fallow/commit/867be226a77380a8b89de8edd4489ca36763d723"
+        },
+        "date": 1780589631834,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
