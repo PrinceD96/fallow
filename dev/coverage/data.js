@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780550416732,
+  "lastUpdate": 1780560227913,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "8b537dc9a3430d465338b223793b5905e8bf0a78",
-          "message": "chore(security): guard against hidden-unicode and agent-file poisoning (#779)\n\nAdds scripts/scan-hidden-unicode.py, a stdlib scanner shared by two\ndefense-in-depth guards against the agent-context-poisoning supply-chain\nclass:\n\nT2 (committed surface, blocking): the pre-commit hook scans staged text\nfiles and a CI step (the Typos job) scans the tracked surface for\nzero-width and bidirectional-override code points. Emoji ZWJ sequences are\nallowlisted so family/profession emoji pass. A hit fails the commit / CI;\nthese characters have no legitimate place in source.\n\nT1' (local agent surface, advisory): a Claude Code SessionStart hook scans\nthe agent-instruction allowlist (AGENTS.md, .codex/**, .claude/**,\n.cursorrules, *.mcp.json) INCLUDING untracked / gitignored files that never\nreach a pull request. Hidden code points are reported; shell-exec injection\nshapes (curl | sh, base64 -d, eval, node -e) are warn-only and only on the\nun-reviewed (untracked) files, since tracked reviewer prompts legitimately\ndiscuss those commands and blocking on a bypassable heuristic is theater; a\nscripts/agent-files.sha256 baseline warns (never blocks) when a tracked\nagent file changed since it was last blessed. The hook never hard-blocks a\nsession.\n\nscripts/test-scan-hidden-unicode.sh drives the scanner over a fixture tree\n(clean / zero-width / bidi / family-emoji / keyword / drift) and asserts the\nexit codes; it runs in CI alongside the scan. SECURITY.md documents the\nagent-instruction surface.",
-          "timestamp": "2026-05-29T08:41:30Z",
-          "tree_id": "7e29e3ee4c1efb98fd158b412a3c9eecca9ed8f4",
-          "url": "https://github.com/fallow-rs/fallow/commit/8b537dc9a3430d465338b223793b5905e8bf0a78"
-        },
-        "date": 1780044247399,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/56b0a0da804d1b6824d54c0a6ffbe1b7e592ce27"
         },
         "date": 1780550415002,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1538abc809b602b590228081507b026903f34988",
+          "message": "Merge pull request #934 from fallow-rs/dependabot/github_actions/crate-ci/typos-1.47.0\n\nchore(deps): bump crate-ci/typos from 1.46.2 to 1.47.0",
+          "timestamp": "2026-06-04T10:00:53+02:00",
+          "tree_id": "02550bd88b8cff1d5e19a165292e2ff2a3aa4aeb",
+          "url": "https://github.com/fallow-rs/fallow/commit/1538abc809b602b590228081507b026903f34988"
+        },
+        "date": 1780560225087,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
