@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780608650268,
+  "lastUpdate": 1780609411502,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6d5c5a722b0bf86c9c3c5169c96d1ea3ccf7d9bd",
-          "message": "fix(dupes): forward-slash normalize paths in human output on Windows (#807)\n\nThe clone-group, clone-family, and grouped-bucket listings in\nreport/human/dupes.rs rendered file paths via raw relative_path().display(),\nwhich emits backslashes on Windows (src\\copy1.ts) instead of the forward\nslashes used everywhere else in fallow output. The directory/filename split\nkeys on '/', so it also misfired on those paths. This made the\ndupes_human_output snapshot test fail on windows-latest CI.\n\nRoute all four sites through crate::report::format_display_path (the same\nhelper the family-names branch already uses), which appends .replace('\\\\',\n\"/\"). No change on Unix (no backslashes to replace); Windows output now\nmatches the committed forward-slash snapshot.",
-          "timestamp": "2026-05-30T12:13:00Z",
-          "tree_id": "47f9d1faeb684c74d0d49cc528e38472bd994ff3",
-          "url": "https://github.com/fallow-rs/fallow/commit/6d5c5a722b0bf86c9c3c5169c96d1ea3ccf7d9bd"
-        },
-        "date": 1780143948705,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2f0d8893b41e3987151c16573c84a576b03716bc"
         },
         "date": 1780608648523,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1d98bedcff81047c60f087f6085d7069a9e36295",
+          "message": "fix(vscode): review follow-ups for #906 + #908 (#989)\n\n* fix(vscode): address review follow-ups for #906 (workspace-picker)\n\n- Add fallow.workspace to REANALYSIS_CONFIG_KEYS so a pinned-setting change\n  re-runs the dead-code/dupes sidebar + status bar (not RESTART_CONFIG_KEYS;\n  the LSP is not workspace-scoped) [C1].\n- Thread the selected workspace into the Health and Security views via a new\n  optional workspace field on HealthArgsOptions/SecurityArgsOptions, forwarded\n  as --workspace when non-empty [C2].\n- Disclose in the picker tooltip and select/clear toasts that scoping drives the\n  Unused Code, Duplicates, Health, and Security views while editor diagnostics\n  stay project-wide [C3].\n- Fix the clear/select asymmetry: the toast now reports the actual residual\n  scope (a still-pinned fallow.workspace setting) instead of always claiming\n  whole-project [C4].\n- Hide the picker status-bar item on single-package repos via a lazy, silent\n  workspaces probe after the first sidebar analysis [n2].\n- Add an integration test asserting --workspace <name> is forwarded to the\n  spawn [n4].\n\nDefers the schema-gated workspaces output (n3): requires Rust schemars +\ncodegen, not a TS-only change.\n\n* fix(vscode): address review follow-ups for #908 (audit-verdict)\n\n- Forward the active workspace scope into runAudit via a new workspace field on\n  AuditArgsOptions, emitted as --workspace when non-empty so a monorepo audit\n  verdict honors the selected package [C1].\n- Show the gating-candidate count suffix for any non-zero count (extracted as\n  auditGatingSuffix), not just fail, so a warn verdict's glance matches the\n  tooltip [C2].\n- Make fallow.audit.statusBar.enabled live: create/dispose the status-bar item\n  on config change (mirroring the health status bar) and read the surface live\n  in reportAuditVerdict and the runOnSave path, so toggling needs no window\n  reload [C3].\n- Document the Audit Changed Files command, the three fallow.audit.* settings,\n  and the audit verdict status bar in the README [C4].\n- Extract the duplicated escapeMarkdownText / normalizeInlineText helpers into a\n  shared markdown-utils module imported by both statusBar-utils and audit-utils\n  [n2].\n- Add change-set scope context to the disabled-status-bar info message via\n  auditScopeSummary [n3].\n- Reset the status bar to idle (not an error state) when an audit is skipped for\n  no-workspace with no prior verdict [n4].",
+          "timestamp": "2026-06-04T23:40:41+02:00",
+          "tree_id": "eb06df8a4c00860dbb15f8d8f117ffdbdcf77a3c",
+          "url": "https://github.com/fallow-rs/fallow/commit/1d98bedcff81047c60f087f6085d7069a9e36295"
+        },
+        "date": 1780609408570,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
