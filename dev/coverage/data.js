@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780591416136,
+  "lastUpdate": 1780594140112,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1eb8b5d7deeedbcf3697421ac5fba0150c227b8f",
-          "message": "fix(impact): apply post-merge review polish (#798)\n\n* fix(impact): apply post-merge review polish\n\nSix findings from the post-merge team review of the (unreleased) impact\nfeature:\n\n1. ImpactReport now carries a required schema_version on the JSON wire, typed\n   as its own ImpactReportSchemaVersion discriminator (serializes as \"1\"),\n   matching the other independently-versioned envelopes. This is decoupled from\n   the on-disk store version (renamed to STORE_SCHEMA_VERSION) and from the\n   global SchemaVersion, so the store shape and the report wire shape can evolve\n   on their own cadences. Regenerated docs/output-schema.json and both TS\n   contracts.\n2. latest_git_sha is documented as an abbreviated SHA (it flows from audit's\n   short head_sha); consumers joining against a full 40-char SHA are warned in\n   the schema description rather than misled. Full-SHA emission is deferred.\n3. Human and markdown footers show the first-recorded date only (2026-05-29)\n   instead of a raw ISO timestamp, and markdown now shows it for parity with the\n   human renderer.\n4. load() emits a tracing::warn when a store's schema_version is newer than this\n   build understands, mirroring the corrupt-store warning.\n5. TREND_TOLERANCE's comment now matches its zero value.\n6. The .gitignore write in enable() goes through atomic_write, matching the\n   store write's durability.\n\nNew unit tests cover schema_version presence (enabled and disabled), the\ndate-only trim, and best-effort load of a future-version store.\n\n* docs(impact): fix rustdoc intra-doc links on ImpactReportSchemaVersion\n\nThe doc comment used `[crate::output_envelope::SchemaVersion]` (unresolved\npath) and `[STORE_SCHEMA_VERSION]` (a public item linking to a private const),\nboth of which fail under the Documentation CI job's RUSTDOCFLAGS=-D warnings\n(broken-intra-doc-links and private-intra-doc-links). Drop the intra-doc links\nto plain code spans; the references are descriptive, not navigational.",
-          "timestamp": "2026-05-29T19:24:29Z",
-          "tree_id": "b662a8c54e5fe30f5e06689222d5ecdfffa7e4c3",
-          "url": "https://github.com/fallow-rs/fallow/commit/1eb8b5d7deeedbcf3697421ac5fba0150c227b8f"
-        },
-        "date": 1780083535435,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f1e80bb57e1b71aed26e46a56f7472b923fa05b2",
+          "message": "fix(vscode): review follow-ups for #902 (health-complexity)\n\n* fix(vscode): address review follow-ups for #902 health view\n\n- Stop re-spawning fallow health and repeating toasts on every Health-view\n  re-reveal: triggerHealthAnalysis now returns whether the run COMPLETED\n  (not whether it has data), mirroring Security's unconditional-true\n  contract, so a null report from a non-retryable outcome (no workspace,\n  empty output, older CLI) latches instead of resetting the latch.\n- Gate the \"no workspace folder open\" warning to once per session.\n- Add an older-CLI degradation path to runHealthAnalysis, mirroring\n  runSecurityAnalysis: warn once to update the CLI rather than surfacing a\n  raw clap stderr blob.\n- Escape user-controlled strings before interpolating them into trusted\n  Health MarkdownString tooltips.\n- Align the score-tooltip header precision with the tree row.\n- Clarify the status-bar health segment label.\n- Guard penalty-label drift against the generated HealthScorePenalties\n  wire contract.\n\nAdds unit coverage for the no-workspace once-gate, the older-CLI guard, the\nmarkdown escape, and the penalty key-parity drift test.\n\n* docs(vscode): document the Health view, command, and settings in the README\n\nThe Health view, the `Fallow: Reload Health` command, the optional status-bar\nhealth segment, and the four `fallow.health.*` settings were undocumented in\nthe extension README. Add a Features bullet, a Commands-table row, and the\nsettings-table rows so the in-repo docs cover the shipped #902 surface.",
+          "timestamp": "2026-06-04T19:26:27+02:00",
+          "tree_id": "81857315a498ecf4102904c7b4e24d0d6782b2db",
+          "url": "https://github.com/fallow-rs/fallow/commit/f1e80bb57e1b71aed26e46a56f7472b923fa05b2"
+        },
+        "date": 1780594138668,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
             "unit": "%"
           }
         ]
