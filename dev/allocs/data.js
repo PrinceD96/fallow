@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780603111419,
+  "lastUpdate": 1780603475243,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "0a3791a07ff9d064cd7bf2f568e06c982ccb62cc",
-          "message": "fix: harden dupes deep-dive handles (#769)\n\nReport-scoped dupes fingerprint assignment preserves short dup:<8hex> handles by default and widens only colliding groups, routed through human output, JSON wrappers, grouped output, clone-family nested groups, and trace lookup so ambiguous short handles never resolve to the wrong group.\n\nTightens suggested_name selection with deterministic scoring, structured-name preference, near-tie abstention, and stronger margins for plain single-token names. Updates MCP/README/CHANGELOG/schema/generated TypeScript contract wording for widened fingerprints.\n\nCloses #759",
-          "timestamp": "2026-05-29T07:08:55Z",
-          "tree_id": "18a37376184019ab08a7bae032649f590f718d3d",
-          "url": "https://github.com/fallow-rs/fallow/commit/0a3791a07ff9d064cd7bf2f568e06c982ccb62cc"
-        },
-        "date": 1780038655781,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5326868,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30104,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 704203,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6537,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6692,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c3f3bbdf4f699ffb35abb56d6785ed5a9d4b0eb8",
+          "message": "feat(security): add catalogue sink rows\n\nAdd catalogue-only security sink rows for issue #882, covering dynamic CommonJS module loading, node:fs path sinks, response header injection, raw SQL escape hatches, DOM navigation, source-backed mass assignment, and additional SSRF clients.\n\nAdd a small source-required matcher gate for broad sinks such as `Object.assign`, keeping that category tied to the existing untrusted-source model instead of reporting source-free non-literal objects. Refresh the security command reference text and keep the VS Code self-analysis configuration clean after the rebase onto current main.\n\nFixes #882.",
+          "timestamp": "2026-06-04T22:02:07+02:00",
+          "tree_id": "64c59213a59e2d5a5ea137fe944f9f1f058cdbb1",
+          "url": "https://github.com/fallow-rs/fallow/commit/c3f3bbdf4f699ffb35abb56d6785ed5a9d4b0eb8"
+        },
+        "date": 1780603473420,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7322717,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33520,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 723012,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6690,
             "unit": "allocations"
           }
         ]
