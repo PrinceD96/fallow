@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780603475243,
+  "lastUpdate": 1780608635227,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "de3503081b23a8ba6d0962a47424ed74174eec42",
-          "message": "feat(telemetry): opt-in agent and CI workflow telemetry\n\nOpt-in, off-by-default product telemetry for improving agent, CI, MCP, and editor workflows.\n\nAdds `fallow telemetry status|enable|disable|inspect`, coarse allowlisted workflow events (never code, paths, names, config, or raw env), `FALLOW_AGENT_SOURCE` attribution, and a non-blocking best-effort upload that never affects command output or exit code. DO_NOT_TRACK honored. Docs and drift-guard tests included.",
-          "timestamp": "2026-05-29T07:37:47Z",
-          "tree_id": "292f3789fda0ba9eda79e82b87d2a0470cec1e0b",
-          "url": "https://github.com/fallow-rs/fallow/commit/de3503081b23a8ba6d0962a47424ed74174eec42"
-        },
-        "date": 1780040411259,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5360796,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30148,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 706859,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6540,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6690,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2f0d8893b41e3987151c16573c84a576b03716bc",
+          "message": "fix(cli): name the upgrade-nudge opt-out inline (#988)\n\nThe #978 upgrade nudge repeats on every interactive run until you upgrade,\nunlike the one-time telemetry opt-in note, but it was the only unsolicited\nstderr line with no self-described way to silence it: FALLOW_UPDATE_CHECK=off\nwas undiscoverable from the output itself.\n\nAppend \"(silence: FALLOW_UPDATE_CHECK=off)\" to the printed line, interpolating\nthe existing env-var const so the name stays single-sourced. CHANGELOG\n[Unreleased] entry updated. No gating or logic change.\n\nRefs #978.",
+          "timestamp": "2026-06-04T23:28:05+02:00",
+          "tree_id": "78867aeb6c5398d2443ca4acbb5076dc62b54903",
+          "url": "https://github.com/fallow-rs/fallow/commit/2f0d8893b41e3987151c16573c84a576b03716bc"
+        },
+        "date": 1780608632096,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7333133,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33515,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 724932,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6687,
             "unit": "allocations"
           }
         ]
