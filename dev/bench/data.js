@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780566690733,
+  "lastUpdate": 1780568363828,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d789bba393152501e4083c326a73bb67786dde3c",
-          "message": "fix(plugins): credit babel-plugin-react-compiler via reactCompilerPreset() (#764)\n\nThe #623 react-compiler detection only recognised the dependency when it\nwas wired through a Babel `plugins` array. The documented @vitejs/plugin-react\n6.x setup enables React Compiler through the `reactCompilerPreset()` preset\nhelper instead (`babel({ presets: [reactCompilerPreset()] })` via the\nstandalone @rolldown/plugin-babel), so the dependency kept surfacing as an\nunused dev-dependency and projects worked around it with ignoreDependencies.\n\nExtracts the react-compiler crediting logic out of vite.rs into a shared\ncrates/core/src/plugins/react_compiler.rs module used by both the Vite and\nElectron plugins. The Vite plugin scans the top-level `plugins` array; the\nElectron plugin scans each electron-vite section (main/preload/renderer)\n`<section>.plugins` array, since the Vite plugin never sees\nelectron.vite.config.*. Plugin-name strings/tuples are credited on `plugins`\npaths (the #623 shape); the provenance-checked `reactCompilerPreset()` helper\ncall is credited only inside `presets`/`babel.presets` arrays. A preset call\nin a `plugins` slot, the namespace-import form, and the variable-indirection\nform are deliberately not credited.\n\nFixes #751.",
-          "timestamp": "2026-05-28T20:26:08Z",
-          "tree_id": "06ad0cc1fc277de483a1f23e2fb90f26a663b523",
-          "url": "https://github.com/fallow-rs/fallow/commit/d789bba393152501e4083c326a73bb67786dde3c"
-        },
-        "date": 1780000272967,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 45937,
-            "range": "± 507",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3797248,
-            "range": "± 137762",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 5749049,
-            "range": "± 154759",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 29139859,
-            "range": "± 378626",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 116245,
-            "range": "± 283",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2297,
-            "range": "± 5",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 184306,
-            "range": "± 2068",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 819453,
-            "range": "± 10672",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1320742,
-            "range": "± 17481",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 526254,
-            "range": "± 18397",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3300191,
-            "range": "± 68892",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 3318868,
-            "range": "± 40771",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2224388,
-            "range": "± 18577",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2957934,
             "range": "± 4861",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "219211dbfd1021a75f88d95fbc2b359569e3596b",
+          "message": "test(conformance): harden source fallback coverage\n\nAdd explicit positive and negative coverage for package source path handling so relative package source entries stay accepted while unsafe paths remain rejected.\n\nUpdate the conformance comparison script to tolerate BOM-prefixed JSON, normalize relative and absolute path shapes, and report real tool execution errors separately from JSON parse failures.",
+          "timestamp": "2026-06-04T12:13:18+02:00",
+          "tree_id": "aceebf2a049587839b01f91433ddfb00582b3074",
+          "url": "https://github.com/fallow-rs/fallow/commit/219211dbfd1021a75f88d95fbc2b359569e3596b"
+        },
+        "date": 1780568361082,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 62877,
+            "range": "± 2692",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3896841,
+            "range": "± 156266",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5944805,
+            "range": "± 185837",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 30995891,
+            "range": "± 690445",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 120208,
+            "range": "± 2078",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2421,
+            "range": "± 35",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 185938,
+            "range": "± 2150",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 825064,
+            "range": "± 83600",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1320030,
+            "range": "± 27923",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 538698,
+            "range": "± 6903",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3352549,
+            "range": "± 31227",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3383046,
+            "range": "± 29224",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2255554,
+            "range": "± 25642",
             "unit": "ns/iter"
           }
         ]
