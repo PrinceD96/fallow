@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780665336620,
+  "lastUpdate": 1780670539606,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "56a30b5f529fbbfa40871b6e783548c75f0d84a9",
-          "message": "feat(core): enforce git-only process spawning on the analysis path (#773)\n\n* feat(core): enforce git-only process spawning on the analysis path\n\nfallow's static analysis never executes the analyzed project's code; the\nonly external program the analysis path runs is git. This makes that\ninvariant machine-checkable instead of a prose promise.\n\nAdds fallow_core::spawn::git, the single sanctioned caller of\nstd::process::Command::new in fallow-core/extract/graph, and routes the\nexisting changed_files and churn git invocations through it. A new\n.clippy.toml disallowed-methods ban on std::process::Command::new is set\nto allow workspace-wide (the CLI and MCP crates legitimately spawn git\nworktrees, the coverage sidecar, and subprocesses off the analysis path)\nand re-denied at the crate root of fallow-core/extract/graph via\ncfg_attr(not(test)), so any new process spawn on the analysis path fails\nthe build and the author is pointed at the wrapper. Test helpers that\nshell out to git to build fixtures stay exempt.\n\nA new safe_analysis integration test is the runtime backstop: it runs\nanalysis on a project whose package.json declares preinstall/postinstall/\nprepare scripts that would write a sentinel file, and asserts the sentinel\nnever appears (fallow reads package.json as data, it never invokes a\npackage manager).\n\n* chore(security): harden build-time supply chain and document the trust boundary\n\nSets `yanked = \"deny\"` in deny.toml so a yanked crate (an early signal of\na withdrawn or compromised release) fails the cargo-deny gate, alongside the\nexisting advisories-deny-by-default, wildcard ban, and unknown-source ban.\nCargo build scripts and proc-macros run arbitrary code at build time on the\nrunner that signs fallow's binaries, and npm --ignore-scripts does nothing\nfor that Cargo-side vector, so cargo-deny is the gate for it.\n\nDocuments the build-time trust boundary in SECURITY.md as a section distinct\nfrom the existing runtime threat model, and notes that the runtime\n\"does not execute user code\" property is now compile-time enforced via the\nanalysis-crate Command::new ban introduced in the preceding commit.\n\n* test(core): make the safe-analysis non-vacuity assertion graph-dependent\n\nMake index.ts the package `main` so it is an entry point, then assert\nused.ts is reachable (NOT unused) in addition to orphan.ts being unused.\nThe used.ts assertion specifically requires the import graph to have been\ntraversed; the prior orphan-only assertion passed even with no entry points\n(all files unreachable), so it did not actually prove the pipeline ran.\n\n* docs(core): document the spawn::git process-spawn boundary in the crate rule\n\n* refactor(core): use #[expect] over #[allow] on the spawn::git guard suppression\n\nThe lint fires (Command::new is actually called), so #[expect] is fulfilled\nin both the non-test deny config and the test allow config. Per\n.claude/rules/code-quality.md, #[allow] is reserved for cases where #[expect]\nwould be unfulfilled; this is not one.\n\n* docs(core): use a colon separator in the spawn.rs rule entry (no em-dash)",
-          "timestamp": "2026-05-29T08:10:09Z",
-          "tree_id": "6989cc0986a9e5b9b9333ddb9ebd1f83dfc876a4",
-          "url": "https://github.com/fallow-rs/fallow/commit/56a30b5f529fbbfa40871b6e783548c75f0d84a9"
-        },
-        "date": 1780042616045,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 248751680,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 262585752,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "95c6ff90a9054864e6ef76d3937cb6833d469eca",
+          "message": "test: improve coverage for trace reporting",
+          "timestamp": "2026-06-05T16:34:39+02:00",
+          "tree_id": "20dfd3803b865bfa267c58c2c124e1d2ef5cc5c1",
+          "url": "https://github.com/fallow-rs/fallow/commit/95c6ff90a9054864e6ef76d3937cb6833d469eca"
+        },
+        "date": 1780670537859,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 262612632,
             "unit": "bytes"
           }
         ]
