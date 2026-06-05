@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780661572899,
+  "lastUpdate": 1780662253475,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7da3687a8b7e182bfb92572b084fa09ce7e3e9b3",
-          "message": "fix(action): validate SARIF file instead of exit code in fallback (#827)\n\nThe fallback SARIF generation block in action/scripts/analyze.sh gated\nits '::warning::SARIF generation failed' on the fallow exit code. But\nexit 1 means 'issues found' (normal); only exit code 2 and above is a\nreal error. So 'command: health' on any repo with complexity findings\n(which exits 1 whenever findings exist) logged the warning on every run\neven though a valid SARIF file was written. health never gets\n--sarif-file support, so the fallback block always runs for it.\n\nThe block now validates the produced file (non-empty and valid JSON via\njq -e) instead of gating on the exit code, matching the block's own\nentry condition and fallow's exit-code semantics. A regression test in\naction/tests/run.sh covers the valid-SARIF-on-exit-1 path (no warning,\nfile written) and the empty/invalid path (warning still fires).\n\nFixes #813.",
-          "timestamp": "2026-06-01T08:05:42Z",
-          "tree_id": "4340b0060885d4869233d7c914e8f413b7da7e69",
-          "url": "https://github.com/fallow-rs/fallow/commit/7da3687a8b7e182bfb92572b084fa09ce7e3e9b3"
-        },
-        "date": 1780301310541,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b473402c34747e00e9f897cb1ee43d8447ba1cba",
+          "message": "fix(dead-code): credit package path resolution deps\n\nRecord statically recoverable package path resolution references during JS and TS extraction, then credit those package names in the dependency graph. The detection is limited to package roots and package manifest lookups so arbitrary dynamic strings and unrelated subpaths do not hide unused dependencies.\n\nAdd a regression fixture for build-script package roots and static font package tables, including the real issue shape where a package name flows into require.resolve of package.json. Bump the extract cache version because cached modules now carry the new reference list.\n\nFixes #952.",
+          "timestamp": "2026-06-05T14:20:00+02:00",
+          "tree_id": "fff8d11f2760fc028721ebf67bf6498ea79953d2",
+          "url": "https://github.com/fallow-rs/fallow/commit/b473402c34747e00e9f897cb1ee43d8447ba1cba"
+        },
+        "date": 1780662251180,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
             "unit": "%"
           }
         ]
