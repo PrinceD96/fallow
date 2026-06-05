@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780612443406,
+  "lastUpdate": 1780642475839,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": false,
-          "id": "4ff2796af4fe081fbe4aad2a25363c67df1cd359",
-          "message": "refactor(v8-coverage): document oxc_coverage_v8 boundary, drop dead emitter (#784)\n\nfallow-v8-coverage and oxc_coverage_v8 solve inverse problems in opposite\nunit spaces: fallow maps real Node V8 dumps in UTF-16-code-unit space, while\noxc_coverage_v8 fills an AST-built Istanbul FileCoverage in byte space. They\nare intentionally not consolidated; record the rationale in ADR-010.\n\nReal Node (v22) emits coverage offsets in UTF-16 code units (a function\npreceded by an emoji on the same line is reported at the UTF-16 offset, not\nthe byte offset), so fallow's LineOffsetTable is correct and a byte model is\nnot. Harden the UTF-16 conformance test to assert a within-line column, where\nthat distinction is observable, instead of a line start.\n\nRemove the crate's never-consumed forward emitter (normalize_script and its\nIstanbulFileCoverage / IstanbulFunction / IstanbulRange output types). The CLI\nbuilds its own remapped output from the input structs plus LineOffsetTable, and\nCRAP scoring uses a separate local IstanbulFileCoverage, so these were dead\nwithin fallow. Keep IstanbulPosition (LineOffsetTable::position's return type)\nand retarget the null-column regression test onto it directly.\n\nNo change to the CLI's behavior, output, or the runtime-coverage wire format.\n\nFixes #509",
-          "timestamp": "2026-05-29T11:45:24Z",
-          "tree_id": "7c4986fe87eb66113ccf89c785b01da185440a8c",
-          "url": "https://github.com/fallow-rs/fallow/commit/4ff2796af4fe081fbe4aad2a25363c67df1cd359"
-        },
-        "date": 1780056155808,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 63547,
-            "range": "± 613",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 4075735,
-            "range": "± 210839",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 5957613,
-            "range": "± 230627",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 28558333,
-            "range": "± 661555",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 119336,
-            "range": "± 1449",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2273,
-            "range": "± 55",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 237220,
-            "range": "± 3514",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 1075686,
-            "range": "± 17863",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1530232,
-            "range": "± 102044",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 574799,
-            "range": "± 27921",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4389648,
-            "range": "± 38608",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 4368965,
-            "range": "± 49346",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2999727,
-            "range": "± 6850",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2961569,
             "range": "± 29848",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ddde044d2c739ac260aa9c425d9c664c82c4e8c9",
+          "message": "feat(health): import VCS churn via --churn-file for non-git hotspots (#996)\n\nAdd a global --churn-file flag accepting a fallow-churn/v1 JSON document so\nprojects on a non-git VCS (Yandex Arc, Mercurial, Perforce) get hotspots,\nownership, and bus-factor. fallow runs all existing recency-weighting, trend,\nand ownership logic on the imported events unchanged (imported and git churn\naggregate identically). The file is authoritative for the window, so --since\nonly labels output; a malformed file is a loud up-front error (exit 2). No JSON\noutput shape change. Exposed on the MCP check_health tool as churn_file.\n\nScope: powers the churn-backed health signals only; audit, impact, and\n--changed-since still require git.\n\nCloses #980.",
+          "timestamp": "2026-06-05T08:45:42+02:00",
+          "tree_id": "e217f7a01e254e27b2ccf93898aace1be59f38dc",
+          "url": "https://github.com/fallow-rs/fallow/commit/ddde044d2c739ac260aa9c425d9c664c82c4e8c9"
+        },
+        "date": 1780642473013,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 53714,
+            "range": "± 2341",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3630316,
+            "range": "± 147681",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5424403,
+            "range": "± 204114",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 27497837,
+            "range": "± 764358",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 97448,
+            "range": "± 1725",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2144,
+            "range": "± 39",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 165407,
+            "range": "± 7012",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 733851,
+            "range": "± 12990",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1192744,
+            "range": "± 45601",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 495618,
+            "range": "± 14547",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 2980812,
+            "range": "± 78023",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 2963093,
+            "range": "± 71900",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 1935831,
+            "range": "± 37477",
             "unit": "ns/iter"
           }
         ]
