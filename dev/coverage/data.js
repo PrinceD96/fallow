@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780655295888,
+  "lastUpdate": 1780657448812,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": false,
-          "id": "d744deb080d0c434046eadeefe61c0e97cb99ecc",
-          "message": "fix(action): upload SARIF on public repos (Code Scanning is free without GHAS) (#825)\n\nThe Code Scanning availability check probed the code-scanning/alerts\nendpoint, which returns 404 on a public repo that has never initialized\nCode Scanning, so the SARIF upload was skipped even though public repos\nget Code Scanning for free (no GitHub Advanced Security). The first\nupload is what initializes it, so the probe could never pass on a\nnot-yet-set-up public repo.\n\nGate on repository visibility instead: visibility == \"public\" is\navailable directly; private and internal repos fall back to the alerts\nprobe as a GHAS-availability proxy. Internal enterprise repos report\nprivate:false but still require GHAS, so the check keys on visibility,\nnot private. The inline step is extracted into a tested\naction/scripts/check-code-scanning.sh with mocked-gh unit tests covering\npublic, private/internal with and without GHAS, and the unreadable\nvisibility fallback.\n\nOn a public repo the upload step now runs unconditionally, so a workflow\nmissing permissions: security-events: write fails the upload step rather\nthan skipping silently; documented in the action README and CHANGELOG.\n\nCloses #817",
-          "timestamp": "2026-06-01T07:36:50Z",
-          "tree_id": "e84cbc816fd91eb89635a597c50bf9885bf9d8e6",
-          "url": "https://github.com/fallow-rs/fallow/commit/d744deb080d0c434046eadeefe61c0e97cb99ecc"
-        },
-        "date": 1780300230582,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3fa9bc58bde716adda65d24bd66cdfb4af886d23"
         },
         "date": 1780655293733,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "557f39501c8054a0d90686e6d83f866bf7295d84",
+          "message": "fix(vscode): clarify clean analysis results\n\nClarify the VS Code all-clear path so a clean run says it applies to analyzed JS/TS files and records a short dead-code plus duplication summary in the Fallow output channel.\n\nRoute duplicate-code-only results to the duplicate-code sidebar instead of the all-clear path, and expose the existing diagnostic mute manager from the Fallow analysis view title bars.",
+          "timestamp": "2026-06-05T13:01:20+02:00",
+          "tree_id": "5ebf645d438eaad99438ffd8f31ace0bd50c4286",
+          "url": "https://github.com/fallow-rs/fallow/commit/557f39501c8054a0d90686e6d83f866bf7295d84"
+        },
+        "date": 1780657446975,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
