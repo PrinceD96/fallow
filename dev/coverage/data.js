@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780657448812,
+  "lastUpdate": 1780661572899,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "niels@ment.ink",
-            "name": "Niels Mentink",
-            "username": "V1RE"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "618e24ac0555a3e627905720fdb1f83323252b28",
-          "message": "fix: credit package.json prettier string configs (#819)",
-          "timestamp": "2026-06-01T07:41:00Z",
-          "tree_id": "305062407a449d44c95f2e968191496aec0ca03e",
-          "url": "https://github.com/fallow-rs/fallow/commit/618e24ac0555a3e627905720fdb1f83323252b28"
-        },
-        "date": 1780300639379,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/557f39501c8054a0d90686e6d83f866bf7295d84"
         },
         "date": 1780657446975,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d6efaabdbc2c0978588eb4645c3b6c473e65c26e",
+          "message": "fix(unused-deps): credit pino transport targets\n\nFixes #954.",
+          "timestamp": "2026-06-05T14:10:24+02:00",
+          "tree_id": "012eae776a0410fed85611554992d3dacc8f3f5e",
+          "url": "https://github.com/fallow-rs/fallow/commit/d6efaabdbc2c0978588eb4645c3b6c473e65c26e"
+        },
+        "date": 1780661571086,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
