@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780612290852,
+  "lastUpdate": 1780642154734,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "03f5f19cd2d87423878c95cf8f6ec4ff08153dc0",
-          "message": "chore: move ADRs to private repo, symlink locally (#814)\n\n* chore: move ADRs to private repo, symlink locally\n\nThe decisions/ ADRs (001-010 + README + template) now live in the private\nfallow-cloud repo and are symlinked back into the working tree (gitignored),\nmatching the existing .internal/ pattern. Forward-only: existing public history\nis unchanged. De-linked the now-private ADR references in CLAUDE.md and\nCONTEXT.md so they no longer 404.\n\n* chore: re-bless agent-file manifest for CLAUDE.md edit",
-          "timestamp": "2026-05-30T20:44:10Z",
-          "tree_id": "731d0c77ff462d7eed334d646e83a2a73b475652",
-          "url": "https://github.com/fallow-rs/fallow/commit/03f5f19cd2d87423878c95cf8f6ec4ff08153dc0"
-        },
-        "date": 1780174604563,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ddde044d2c739ac260aa9c425d9c664c82c4e8c9",
+          "message": "feat(health): import VCS churn via --churn-file for non-git hotspots (#996)\n\nAdd a global --churn-file flag accepting a fallow-churn/v1 JSON document so\nprojects on a non-git VCS (Yandex Arc, Mercurial, Perforce) get hotspots,\nownership, and bus-factor. fallow runs all existing recency-weighting, trend,\nand ownership logic on the imported events unchanged (imported and git churn\naggregate identically). The file is authoritative for the window, so --since\nonly labels output; a malformed file is a loud up-front error (exit 2). No JSON\noutput shape change. Exposed on the MCP check_health tool as churn_file.\n\nScope: powers the churn-backed health signals only; audit, impact, and\n--changed-since still require git.\n\nCloses #980.",
+          "timestamp": "2026-06-05T08:45:42+02:00",
+          "tree_id": "e217f7a01e254e27b2ccf93898aace1be59f38dc",
+          "url": "https://github.com/fallow-rs/fallow/commit/ddde044d2c739ac260aa9c425d9c664c82c4e8c9"
+        },
+        "date": 1780642152222,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
             "unit": "%"
           }
         ]
