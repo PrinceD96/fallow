@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780642125444,
+  "lastUpdate": 1780652315212,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b5bc8c5c64989d04f1c2310f8bdfc7a62a6de312",
-          "message": "feat(flags): surface configuration hint on empty fallow flags output (#785)\n\nWhen `fallow flags` finds nothing, the human-output empty line now appends\na discovery hint: the built-in env prefixes and SDK providers fallow scanned\nfor (sourced from crates/extract/src/flags.rs, not hardcoded), plus pointers\nto flags.sdkPatterns / flags.configObjectHeuristics and the docs URL. Users\nwho already configured custom flags.* patterns get a single terse line\nacknowledging their config instead of the discovery block.\n\nJSON / SARIF / compact / markdown / codeclimate output is unchanged; no\nschema bump. --quiet still suppresses the whole block.\n\nRefs #562",
-          "timestamp": "2026-05-29T11:48:11Z",
-          "tree_id": "1959f593bce693e2dc1dbc4c581554ba6f70ddc9",
-          "url": "https://github.com/fallow-rs/fallow/commit/b5bc8c5c64989d04f1c2310f8bdfc7a62a6de312"
-        },
-        "date": 1780056122531,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 20,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 19,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 325,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 763,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ddde044d2c739ac260aa9c425d9c664c82c4e8c9"
         },
         "date": 1780642123660,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 21,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 19,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 338,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 796,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "927fb614f5eb5779b74cccf5b6be82e12d127b1b",
+          "message": "fix(bun): discover default test files\n\nModel Bun's documented test file discovery patterns as plugin entry roots so projects do not need manual entry workarounds for bun test files.\n\nWhen bunfig.toml declares [test].root, replace the unscoped Bun defaults with root-scoped patterns while preserving top-level and test preload entries. Add regression coverage for scoped discovery and non-test helpers under the test root.\n\nFixes #951.",
+          "timestamp": "2026-06-05T11:34:35+02:00",
+          "tree_id": "f982df1a28bb4f6107d52bc9cd1c261a0f9f191c",
+          "url": "https://github.com/fallow-rs/fallow/commit/927fb614f5eb5779b74cccf5b6be82e12d127b1b"
+        },
+        "date": 1780652312636,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
