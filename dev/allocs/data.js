@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780673487654,
+  "lastUpdate": 1780676924063,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": false,
-          "id": "20fe77f83733dc5e3bbf36135f7e0c2b4522a668",
-          "message": "fix(health): surface churn-hotspot window in metrics line and markdown vital signs (#799)\n\nThe hotspot analysis window (default 6m, --since) only appeared in the\n'Hotspots (N files, since 6 months)' section header, which is omitted\nentirely at zero hotspots. The orientation 'Metrics:' line read\n'0 churn hotspots' with no anchor, so a reader could not tell zero in the\nwindow from zero ever, and the window vanished on healthy repos.\n\nAppend '(since <window>)' to the hotspot segment of the human Metrics line\nand to the markdown Vital Signs row label, sourced from\nreport.hotspot_summary.since. Falls back to no suffix when the churn\npipeline did not run (hotspot_summary absent). Human and markdown output\nonly; JSON/SARIF/compact/CodeClimate unchanged.\n\nCloses #552",
-          "timestamp": "2026-05-29T19:14:07Z",
-          "tree_id": "9120782b369f89f05711c11777286a4e7dd7477a",
-          "url": "https://github.com/fallow-rs/fallow/commit/20fe77f83733dc5e3bbf36135f7e0c2b4522a668"
-        },
-        "date": 1780083096010,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5321960,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30157,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 702251,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6536,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4394,6 +4350,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Memory",
             "value": 730344,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6692,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "647fe2d90f7316b9a95ccd690481224e9a95333b",
+          "message": "chore: release v2.89.0",
+          "timestamp": "2026-06-05T18:13:59+02:00",
+          "tree_id": "4ff254848515b9a263a51bfdaa0160e2ea19f29e",
+          "url": "https://github.com/fallow-rs/fallow/commit/647fe2d90f7316b9a95ccd690481224e9a95333b"
+        },
+        "date": 1780676921850,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7346205,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33507,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 730396,
             "unit": "bytes"
           },
           {
