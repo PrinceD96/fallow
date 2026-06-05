@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780673492959,
+  "lastUpdate": 1780674526258,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f84edcc82320d3cb3caa861bdba10e1d9114e505",
-          "message": "fix(plugins): suppress built-in-only config_patterns collision warning\n\nThe silent-fail plugin diagnostic (#479) warned about config_patterns\ncollisions between two built-in plugins, e.g. vite and tanstack-router\nboth claiming vite.config.{ts,js,mts,mjs} (tanstack-router parses the\ntanstackRouter({...}) call there to find a custom generatedRouteTree\npath). The collision is benign: Phase 3a config matching runs every\nmatching plugin's resolve_config independently, so there is no data\nloss. The warning is also un-actionable for a built-in: its advice to\nrename the pattern or remove the duplicate plugin cannot be followed.\n\ndetect_pattern_collisions now emits a finding only when at least one\nowner is NOT a built-in plugin. Keying suppression on the built-in name\nset (rather than the external set) is robust even if a user-authored\nexternal plugin shares a built-in's name: the built-in owner alone never\nre-enables the warning. Built-in-vs-external and external-vs-external\ncollisions still warn. Regression tests use the real vite +\ntanstack-router pair (silent), a built-in-vs-external pair (warns), and a\nname-shadowing external (still silent).\n\nCloses #808",
-          "timestamp": "2026-06-01T11:03:01+02:00",
-          "tree_id": "e3b6c4124792f74ce5962ef320151b8ddac65f0b",
-          "url": "https://github.com/fallow-rs/fallow/commit/f84edcc82320d3cb3caa861bdba10e1d9114e505"
-        },
-        "date": 1780304795220,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4770ce5dca328f47d52d6eb4f9d4a65fd38c0613"
         },
         "date": 1780673491158,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "2d0fefdba351051f818e8766e719f4057320094d",
+          "message": "fix(vscode): satisfy oxlint/oxfmt and the dead-code self-analysis gate\n\nFixes three CI failures the editor-intelligence batch (#1009) introduced:\n\n- oxlint unicorn(no-array-sort): sortCloneGroupsBySize used `[...groups].sort()`;\n  switched to `groups.toSorted()` (non-mutating, drops the redundant spread).\n- oxfmt drift in health-utils.ts, healthTreeView.ts, and statusBar-utils.ts\n  (the prior commits were authored without root oxfmt run).\n- Fallow self-analysis flagged ComplexityDecorationController.dispose as an\n  unused class member: it is invoked by VS Code's Disposable contract (the\n  controller is pushed to context.subscriptions), which fallow cannot see;\n  suppressed with an inline comment and a rationale.\n\nRebuilt editors/vscode/dist. No user-facing behavior change.",
+          "timestamp": "2026-06-05T17:45:50+02:00",
+          "tree_id": "6f72d6dd394ebce45021ee0a7ac0b16d5a8408a6",
+          "url": "https://github.com/fallow-rs/fallow/commit/2d0fefdba351051f818e8766e719f4057320094d"
+        },
+        "date": 1780674524444,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
