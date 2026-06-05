@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780566761291,
+  "lastUpdate": 1780652527848,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -2643,6 +2643,88 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e0c6e2171bba529b632a2e7f54e52513a951a796"
         },
         "date": 1780566759486,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 2,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 630,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30402,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2028,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 6.1,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.8,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.2,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 6.9,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 24.3,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 2.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "76ca098b6ec76019f7a1039d2255f82a026a1c39",
+          "message": "fix(tanstack): skip route contract duplicate exports\n\nTanStack Router route modules are allowed to repeat framework contract exports such as Route. The duplicate-export detector now applies TanStack route used-export rules to duplicate grouping, and also recognizes Route exports imported by generated routeTree.gen files from nested route directories.\n\nOrdinary duplicate Route exports outside TanStack route files still report. Regression coverage includes the OpenWaggle-shaped generated route tree plus configured route directories, lazy routes, ignore prefixes, and virtual route config.\n\nFixes #947.",
+          "timestamp": "2026-06-05T09:39:40Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/76ca098b6ec76019f7a1039d2255f82a026a1c39"
+        },
+        "date": 1780652524759,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
