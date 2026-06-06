@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780774912847,
+  "lastUpdate": 1780775183161,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e4f488b6130e5514e00850cc64bc7aa00baa846a",
-          "message": "refactor(plugins): drop json from alias sibling extension probe\n\nJSON parses as a bare expression with no export, so find_exported_init can\nnever recover an alias literal from it; probing .json was dead I/O.",
-          "timestamp": "2026-06-01T10:18:01+02:00",
-          "tree_id": "b4d0a3021ad4cc9173d55c05e3d5a40e9e0c19f6",
-          "url": "https://github.com/fallow-rs/fallow/commit/e4f488b6130e5514e00850cc64bc7aa00baa846a"
-        },
-        "date": 1780302240513,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5348528,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30187,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 701618,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6551,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6693,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "33935030597a35f5f33577d8988584b78c3aacaa",
+          "message": "feat(security): add opt-in hardcoded secret candidates\n\nAdd an opt-in hardcoded-secret security category for first-party literal credentials.\n\nDetect known provider credential prefixes first, and only use entropy when the surrounding binding or property name is secret-shaped. Evidence stays redacted and the category remains explicitly scoped through security category configuration.\n\nFixes #892.",
+          "timestamp": "2026-06-06T21:42:46+02:00",
+          "tree_id": "1e600c86eb4e70f2bf63f4fab7a6f73288785559",
+          "url": "https://github.com/fallow-rs/fallow/commit/33935030597a35f5f33577d8988584b78c3aacaa"
+        },
+        "date": 1780775180154,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7376773,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33701,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 692688,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6192,
             "unit": "allocations"
           }
         ]
