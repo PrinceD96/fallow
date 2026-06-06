@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780747837373,
+  "lastUpdate": 1780748350479,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "8267f91ed4654e4105e61d65fa583417c5968edb",
-          "message": "chore(release): use trusted publishing for crate publishes\n\nSwitch the Rust crate publish job from the long-lived crates.io token secret to GitHub Actions OIDC via rust-lang/crates-io-auth-action. The publish job now requests id-token permission and every cargo publish step consumes the action's short-lived token.\n\nThis keeps the existing nine-crate publish order and index waits unchanged, while removing the secret dependency that zizmor flagged for trusted publishing.\n\nFixes #519.",
-          "timestamp": "2026-06-01T13:31:17+02:00",
-          "tree_id": "1f27fe1c71502ad36a30a49bb3e39eeb7ec63f0a",
-          "url": "https://github.com/fallow-rs/fallow/commit/8267f91ed4654e4105e61d65fa583417c5968edb"
-        },
-        "date": 1780313666170,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "c575f84da75c61b276392aa443edd7b0ff20fef1",
+          "message": "test: improve coverage for node bindings",
+          "timestamp": "2026-06-06T14:15:39+02:00",
+          "tree_id": "6a5f80c40cd215682f88104f5a73eac5f8a85b9c",
+          "url": "https://github.com/fallow-rs/fallow/commit/c575f84da75c61b276392aa443edd7b0ff20fef1"
+        },
+        "date": 1780748348391,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
             "unit": "%"
           }
         ]
