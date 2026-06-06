@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780770279724,
+  "lastUpdate": 1780774912847,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a8e5d02f872a8aca8fb4eaf14d02693fd28ed848",
-          "message": "Merge pull request #822 from fallow-rs/comment-cleanup\n\nfix(mcp): restore schema descriptions and regenerate schema",
-          "timestamp": "2026-06-01T10:14:12+02:00",
-          "tree_id": "1ae10301813b78020b2ddc76cf4427858637cb1f",
-          "url": "https://github.com/fallow-rs/fallow/commit/a8e5d02f872a8aca8fb4eaf14d02693fd28ed848"
-        },
-        "date": 1780301851311,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5299896,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30138,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 702731,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6539,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6690,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "871a76504fc4878f2bad7208740639724d9d91e0",
+          "message": "feat(mcp): scope security candidates by path\n\nAdd a file scope to the existing security_candidates MCP tool by forwarding path filters through fallow security.\n\nExpose the same scope as a repeated --file flag on the security command so agents can ask for candidates anchored in or traced through recently edited files without scanning unrelated findings.\n\nFixes #889.",
+          "timestamp": "2026-06-06T21:36:57+02:00",
+          "tree_id": "ae00436b2d8df65bfb833e1ff96a2fbe611dd0f2",
+          "url": "https://github.com/fallow-rs/fallow/commit/871a76504fc4878f2bad7208740639724d9d91e0"
+        },
+        "date": 1780774910384,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7394117,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33715,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 740616,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6693,
             "unit": "allocations"
           }
         ]
