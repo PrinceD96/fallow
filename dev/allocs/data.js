@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780766945544,
+  "lastUpdate": 1780767662889,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b1f7da57699cd3a92a409967f2d8460a6f306f2a",
-          "message": "chore: release v2.85.0 (#815)",
-          "timestamp": "2026-05-30T21:22:21Z",
-          "tree_id": "7a381898583ee1ee23f233c7e3191d86da6ab105",
-          "url": "https://github.com/fallow-rs/fallow/commit/b1f7da57699cd3a92a409967f2d8460a6f306f2a"
-        },
-        "date": 1780177030666,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5344168,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30184,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 648455,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6027,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6691,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "de853cace5d58bff04fc6eb43a544c45e3fa735e",
+          "message": "fix(security): flag jwt verify without algorithms\n\nDetect jsonwebtoken verify calls that omit an explicit algorithms option while keeping safe allowlisted calls and unprovenanced lookalikes quiet.\n\nFixes #898.",
+          "timestamp": "2026-06-06T19:34:54+02:00",
+          "tree_id": "ba5dffa33fbcb4f7baab9387f4bb9461e1d66ebe",
+          "url": "https://github.com/fallow-rs/fallow/commit/de853cace5d58bff04fc6eb43a544c45e3fa735e"
+        },
+        "date": 1780767660117,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7380373,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33702,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 740340,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6693,
             "unit": "allocations"
           }
         ]
