@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780769156623,
+  "lastUpdate": 1780770279724,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "niels@ment.ink",
-            "name": "Niels Mentink",
-            "username": "V1RE"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "618e24ac0555a3e627905720fdb1f83323252b28",
-          "message": "fix: credit package.json prettier string configs (#819)",
-          "timestamp": "2026-06-01T07:41:00Z",
-          "tree_id": "305062407a449d44c95f2e968191496aec0ca03e",
-          "url": "https://github.com/fallow-rs/fallow/commit/618e24ac0555a3e627905720fdb1f83323252b28"
-        },
-        "date": 1780300561390,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5355968,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30197,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 702731,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6539,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6692,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "09a2417e6705c7363f9aa36ff579b2b7eab35b29",
+          "message": "refactor: split report builders",
+          "timestamp": "2026-06-06T20:20:58+02:00",
+          "tree_id": "615bb33e420aa18850ffa048d4b5043f1631886a",
+          "url": "https://github.com/fallow-rs/fallow/commit/09a2417e6705c7363f9aa36ff579b2b7eab35b29"
+        },
+        "date": 1780770277948,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7299933,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33664,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 734280,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6690,
             "unit": "allocations"
           }
         ]
