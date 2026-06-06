@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780774963610,
+  "lastUpdate": 1780775257429,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "166ba93edb2d95ef47f3125f241bd7daf67d44f1",
-          "message": "docs: sync plugin count to 118, vendor security catalogue into bundled skill",
-          "timestamp": "2026-06-02T13:46:00+02:00",
-          "tree_id": "a855a625241bb9b22162c7e34666e83f3e8238bc",
-          "url": "https://github.com/fallow-rs/fallow/commit/166ba93edb2d95ef47f3125f241bd7daf67d44f1"
-        },
-        "date": 1780400929010,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/871a76504fc4878f2bad7208740639724d9d91e0"
         },
         "date": 1780774961283,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "33935030597a35f5f33577d8988584b78c3aacaa",
+          "message": "feat(security): add opt-in hardcoded secret candidates\n\nAdd an opt-in hardcoded-secret security category for first-party literal credentials.\n\nDetect known provider credential prefixes first, and only use entropy when the surrounding binding or property name is secret-shaped. Evidence stays redacted and the category remains explicitly scoped through security category configuration.\n\nFixes #892.",
+          "timestamp": "2026-06-06T21:42:46+02:00",
+          "tree_id": "1e600c86eb4e70f2bf63f4fab7a6f73288785559",
+          "url": "https://github.com/fallow-rs/fallow/commit/33935030597a35f5f33577d8988584b78c3aacaa"
+        },
+        "date": 1780775255069,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
