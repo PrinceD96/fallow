@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780750313921,
+  "lastUpdate": 1780750921634,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b888a0bd7b5db2d4698cf64ca414bc0041d76309",
-          "message": "feat(health): expose CRAP source consistency\n\nCRAP health findings now keep their coverage provenance visible across the JSON contract. The health report summary and grouped health buckets expose coverage_source_consistency so agents can distinguish uniform source data from mixed Istanbul and estimated inputs.\n\nThe scoring path now centralizes CRAP coverage source precedence: Angular template inheritance wins first, Istanbul data wins next, and static estimates remain the fallback. Istanbul path canonicalization stays inside the Istanbul branch so ordinary static scoring does not add filesystem work.\n\nThe secondary CRAP refactor action also moves from a fixed internal constant to health.crapRefactorBand, with config schema, output schema, generated TypeScript contracts, MCP prose, and tests updated around the new contract.\n\nFixes #474.",
-          "timestamp": "2026-06-01T15:16:04+02:00",
-          "tree_id": "9a9a38239174b0ac0d0362dbdadd2dd912c89864",
-          "url": "https://github.com/fallow-rs/fallow/commit/b888a0bd7b5db2d4698cf64ca414bc0041d76309"
-        },
-        "date": 1780319958669,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 91.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2c48dd5128ed461cc0255dd030dc7101d55774d2"
         },
         "date": 1780750311305,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f2e6275866ea64043cc4f6e673a3026400b57ca4",
+          "message": "fix(vscode): group security candidates\n\nGroup the VS Code Security Candidates tree by kind and CWE/category with collapsible parent nodes and counts.\n\nSurface non-zero unresolved import-edge and sink-site counters as an informational row in the populated view while keeping the badge count scoped to candidates.\n\nFixes #993.",
+          "timestamp": "2026-06-06T14:58:27+02:00",
+          "tree_id": "3b84d28587bf2289ba23be9c2f2bebcb617d1200",
+          "url": "https://github.com/fallow-rs/fallow/commit/f2e6275866ea64043cc4f6e673a3026400b57ca4"
+        },
+        "date": 1780750919901,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
