@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780767662889,
+  "lastUpdate": 1780768123344,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "cab4ab3dacdefa41a43f2172801f189ea42b5df4",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.85.0 (#816)\n\n* chore(napi): sync package.json / package-lock / index.js to v2.85.0\n\n* docs(telemetry): bump payload example version to 2.85.0",
-          "timestamp": "2026-05-30T22:04:25Z",
-          "tree_id": "be9ac7e6e6fde965133ae6e9402ecafe207cc518",
-          "url": "https://github.com/fallow-rs/fallow/commit/cab4ab3dacdefa41a43f2172801f189ea42b5df4"
-        },
-        "date": 1780179578159,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5352968,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30165,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 706875,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6541,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6693,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3de5f84b8817c0284d6808a17c4483db3c96e1ca",
+          "message": "fix(security): flag disabled TLS validation\n\nAdd a security catalogue candidate for disabled TLS certificate validation in Node HTTPS and TLS option objects. The detector captures rejectUnauthorized: false only on provenance-gated HTTPS/TLS call shapes, plus the exact NODE_TLS_REJECT_UNAUTHORIZED = \"0\" assignment.\n\nThis keeps same-named local helpers and safe rejectUnauthorized values quiet, while preserving the opt-in candidate framing for agent verification.\n\nFixes #895.",
+          "timestamp": "2026-06-06T19:45:52+02:00",
+          "tree_id": "5d36c12045a52275207ed6730647eee70a1ff587",
+          "url": "https://github.com/fallow-rs/fallow/commit/3de5f84b8817c0284d6808a17c4483db3c96e1ca"
+        },
+        "date": 1780768121480,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7299525,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33675,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 735924,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6687,
             "unit": "allocations"
           }
         ]
