@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780768123344,
+  "lastUpdate": 1780769156623,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "niels.mentink@gmail.com",
-            "name": "Niels Mentink",
-            "username": "V1RE"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "5a157e80af66838463fde5c0a21d5c470dd76635",
-          "message": "fix: mark vercel.ts config as used (#821)\n\n* fix: mark vercel ts config as used\n\n* chore: address Vercel plugin review follow-ups\n\nUpdate the documented built-in plugin count after adding the Vercel plugin and list deployment-oriented plugins separately in the README table.\n\nRename the Vercel regression fixture and integration test from issue 819 to issue 820 so the test history matches the bug this PR closes.\n\nRefs #820.\n\n---------\n\nCo-authored-by: Bart Waardenburg <bart@waardenburg.dev>",
-          "timestamp": "2026-06-01T07:11:29Z",
-          "tree_id": "066feaed586c60e2529c090c00c9bae5c17cab9c",
-          "url": "https://github.com/fallow-rs/fallow/commit/5a157e80af66838463fde5c0a21d5c470dd76635"
-        },
-        "date": 1780298624435,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5335264,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30169,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 701799,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6531,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6687,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fd60baab71a41f62fa4c0d10a50dac5d09d4501f",
+          "message": "fix(security): unwrap static option objects for jwt checks\n\nFix a review-found gap in the JWT missing-algorithms candidate. Object-key metadata now unwraps static TypeScript wrappers such as `as const`, matching the existing literal and object-property capture behavior.\n\nThe regression fixture covers missing options, missing algorithm keys, static-wrapped missing keys, and static-wrapped safe allowlists.\n\nFollow-up to #898.",
+          "timestamp": "2026-06-06T20:02:59+02:00",
+          "tree_id": "7304af88a0c0aa7a60520ee2acdb57a6ec04c5f4",
+          "url": "https://github.com/fallow-rs/fallow/commit/fd60baab71a41f62fa4c0d10a50dac5d09d4501f"
+        },
+        "date": 1780769153867,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7291237,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33655,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 736540,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6692,
             "unit": "allocations"
           }
         ]
