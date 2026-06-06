@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780766624644,
+  "lastUpdate": 1780766945544,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": false,
-          "id": "238ca291e95bdf9b70018a132bb52ec9b437b1ee",
-          "message": "feat(impact): whole-project value track credited from full fallow runs (#812)\n\nAdd a separate whole-project Impact track recorded best-effort at the\nend of a full fallow run, kept apart from the changed-file audit track\nso the two scopes never share a trend. A full run also credits\nduplication and whole-repo cleanups fixed outside a changed-file audit.\n\nThe writer is gated airtight so it records only on a true whole-repo run\n(check + dupes + health, no scope-narrowing flags, no diff filter, no\nproduction mode). A reshaped clone still duplicated under a new\nfingerprint is not falsely credited resolved. ImpactReport gains\noptional project_surfacing and project_trend (report schema_version\nstays 1); human and markdown render an understated whole-project\nsection labelled context, not a to-do.",
-          "timestamp": "2026-05-30T20:32:55Z",
-          "tree_id": "f3c5e7b2ca700bfbfe3aa87d0b8f9f08744b5d8d",
-          "url": "https://github.com/fallow-rs/fallow/commit/238ca291e95bdf9b70018a132bb52ec9b437b1ee"
-        },
-        "date": 1780174041070,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5347432,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30192,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 696383,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6528,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6191,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5dd55c2a9948a8969a604d88b1864e1e4a94beda",
+          "message": "feat(security): detect source-backed log exposure\n\nAdd a source-backed logging sink category for fallow security. The catalogue now flags common console, logger, and log calls only when their first argument traces to process.env or request input, so ordinary literal and source-free logging remains quiet.\n\nStore direct source paths on captured sink arguments so expressions such as process.env.SECRET can be matched without an intermediate local binding. Bump the extraction cache version and add focused extraction plus integration coverage.\n\nFixes #876.",
+          "timestamp": "2026-06-06T19:25:24+02:00",
+          "tree_id": "c99ebadad92fab011c844eabc8a8f5b62736d2e8",
+          "url": "https://github.com/fallow-rs/fallow/commit/5dd55c2a9948a8969a604d88b1864e1e4a94beda"
+        },
+        "date": 1780766943152,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7351069,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 33702,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 734944,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6691,
             "unit": "allocations"
           }
         ]
