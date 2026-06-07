@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780820972453,
+  "lastUpdate": 1780821989015,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6d5c5a722b0bf86c9c3c5169c96d1ea3ccf7d9bd",
-          "message": "fix(dupes): forward-slash normalize paths in human output on Windows (#807)\n\nThe clone-group, clone-family, and grouped-bucket listings in\nreport/human/dupes.rs rendered file paths via raw relative_path().display(),\nwhich emits backslashes on Windows (src\\copy1.ts) instead of the forward\nslashes used everywhere else in fallow output. The directory/filename split\nkeys on '/', so it also misfired on those paths. This made the\ndupes_human_output snapshot test fail on windows-latest CI.\n\nRoute all four sites through crate::report::format_display_path (the same\nhelper the family-names branch already uses), which appends .replace('\\\\',\n\"/\"). No change on Unix (no backslashes to replace); Windows output now\nmatches the committed forward-slash snapshot.",
-          "timestamp": "2026-05-30T12:13:00Z",
-          "tree_id": "47f9d1faeb684c74d0d49cc528e38472bd994ff3",
-          "url": "https://github.com/fallow-rs/fallow/commit/6d5c5a722b0bf86c9c3c5169c96d1ea3ccf7d9bd"
-        },
-        "date": 1780144201320,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 252570912,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 264977528,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "08912ff4b864e56e5e2f1439292338c12feb3207",
+          "message": "fix(security): flag source-backed redos regex sinks\n\nCapture risky literal regex applications as source-backed security sink candidates. The extractor records the risky regex fragment for literal regexes and constant RegExp strings, then the existing catalogue emits redos-regex CWE-1333 findings only when the input traces to an untrusted source.\n\nSafe literal patterns, mutable regex bindings, and source-free inputs stay quiet. The extraction cache version is bumped because security_sinks now carries the optional regex fragment metadata.\n\nFixes #928.",
+          "timestamp": "2026-06-07T10:38:38+02:00",
+          "tree_id": "a4a3e3df008bb9c95870e97a515a18cd4009fd34",
+          "url": "https://github.com/fallow-rs/fallow/commit/08912ff4b864e56e5e2f1439292338c12feb3207"
+        },
+        "date": 1780821986495,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 265280008,
             "unit": "bytes"
           }
         ]
