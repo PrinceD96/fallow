@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780831300600,
+  "lastUpdate": 1780841703886,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b54c3be7ea7af3c6dd49932de28d8b35941e744d",
-          "message": "test(schema): allow schema drift expects\n\nThe schema-emit CI path runs clippy against the test build of fallow-schema-emit with the schema-emit feature enabled. Its drift tests intentionally use expect calls for invariant checks over the committed schema.\n\nAdd the same test-only unwrap and expect allowance used by other test entry points so production schema generation remains covered while CI can compile the drift checks under the workspace lint ratchet.",
-          "timestamp": "2026-06-01T13:04:43+02:00",
-          "tree_id": "9b72c8141951b37314efc21f1d99072365c6df91",
-          "url": "https://github.com/fallow-rs/fallow/commit/b54c3be7ea7af3c6dd49932de28d8b35941e744d"
-        },
-        "date": 1780312034959,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5372512,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30185,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 706251,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6535,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6690,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0c0b0205780338c7db2742fb39ce0a548972cb96",
+          "message": "refactor: group health snapshot inputs",
+          "timestamp": "2026-06-07T13:53:56+02:00",
+          "tree_id": "dbb08a2244f2d7815b6a8a006e6647c51718e376",
+          "url": "https://github.com/fallow-rs/fallow/commit/0c0b0205780338c7db2742fb39ce0a548972cb96"
+        },
+        "date": 1780841701496,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7447363,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34383,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 735872,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6683,
             "unit": "allocations"
           }
         ]
