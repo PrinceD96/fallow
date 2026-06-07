@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780826945379,
+  "lastUpdate": 1780831300600,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "5340c6912fab59e9a963c66d50e52306e1203ee7",
-          "message": "test(coverage): isolate git fixture signing\n\nCoverage upload tests create temporary git repositories to exercise dirty-worktree validation. Those repos should not inherit global commit signing settings from the developer machine or agent environment.\n\nDisable commit.gpgsign inside the fixture repositories while keeping the local author identity explicit. This keeps the tests focused on worktree state instead of host GPG availability.",
-          "timestamp": "2026-06-01T12:47:59+02:00",
-          "tree_id": "88403513b28353735f2cfc005de037a57ef73db8",
-          "url": "https://github.com/fallow-rs/fallow/commit/5340c6912fab59e9a963c66d50e52306e1203ee7"
-        },
-        "date": 1780311084109,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5370344,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30194,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 706123,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6534,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4394,6 +4350,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Memory",
             "value": 735816,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6690,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "122a6fc5f4d96af9f131ff844780461637cd27f3",
+          "message": "refactor: group large function inputs",
+          "timestamp": "2026-06-07T12:33:17+02:00",
+          "tree_id": "01280b9464e868236493ac18cbe2d933fbdc62a0",
+          "url": "https://github.com/fallow-rs/fallow/commit/122a6fc5f4d96af9f131ff844780461637cd27f3"
+        },
+        "date": 1780831298363,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7400355,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34354,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 737724,
             "unit": "bytes"
           },
           {
