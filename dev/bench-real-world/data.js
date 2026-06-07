@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780738161960,
+  "lastUpdate": 1780826724843,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -4181,6 +4181,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 7451,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "f7161395e92145f1e673fa5b9d99bf52e60ec28e",
+          "message": "fix: tighten security source matching\n\nTighten framework-source detection and package-subpath provenance for the security catalogue follow-up.",
+          "timestamp": "2026-06-07T09:20:22Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/f7161395e92145f1e673fa5b9d99bf52e60ec28e"
+        },
+        "date": 1780826722483,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 196,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 175,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 315,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 256,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 162,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 139,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 501,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 428,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1360,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1327,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 973,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 931,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 896,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 802,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 7998,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 7173,
             "unit": "ms"
           }
         ]
