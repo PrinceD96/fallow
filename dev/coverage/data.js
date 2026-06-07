@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780817889461,
+  "lastUpdate": 1780818760284,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "85eb70dd15a1a1adcf2ec2a0af13c2616a2e13e6",
-          "message": "feat(security): framework-aware sinks via the plugin system (#861)",
-          "timestamp": "2026-06-02T15:43:29+02:00",
-          "tree_id": "6a30e96efa35758e0c4c60816feb33396cb62114",
-          "url": "https://github.com/fallow-rs/fallow/commit/85eb70dd15a1a1adcf2ec2a0af13c2616a2e13e6"
-        },
-        "date": 1780408196028,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e36a9875896e61b54045da0e711c3023e8eaf317"
         },
         "date": 1780817887589,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "c8d99fed2020c7892332e41c9d1c73afa5a15cf7",
+          "message": "docs: sync security candidate notes",
+          "timestamp": "2026-06-07T09:48:42+02:00",
+          "tree_id": "b7a34b0f9882e84eee595cc40784979f62b44864",
+          "url": "https://github.com/fallow-rs/fallow/commit/c8d99fed2020c7892332e41c9d1c73afa5a15cf7"
+        },
+        "date": 1780818758388,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
