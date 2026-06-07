@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780780789079,
+  "lastUpdate": 1780817889461,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "eecb1d601bf131e0c3fa59d63496cea1749f9ed9",
-          "message": "feat(security): reachability-weighted ranking from entry points (#860)",
-          "timestamp": "2026-06-02T15:22:50+02:00",
-          "tree_id": "8d32c1089005507044774d50ed6c92fea03ee3de",
-          "url": "https://github.com/fallow-rs/fallow/commit/eecb1d601bf131e0c3fa59d63496cea1749f9ed9"
-        },
-        "date": 1780407924664,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/aeaa9768a40b4ff8f5d0930b2ac1e99a7a870754"
         },
         "date": 1780780786466,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e36a9875896e61b54045da0e711c3023e8eaf317",
+          "message": "docs: tidy readme badges",
+          "timestamp": "2026-06-07T09:35:09+02:00",
+          "tree_id": "c31c649cba6d2907c86f14b732837c255e65c22f",
+          "url": "https://github.com/fallow-rs/fallow/commit/e36a9875896e61b54045da0e711c3023e8eaf317"
+        },
+        "date": 1780817887589,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
