@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780841703886,
+  "lastUpdate": 1780869587972,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d57b9ba37630c6b5f9cf748b6a25ae3bb9a6c6bb",
-          "message": "refactor(plugins): type config path parsing\n\nPath-shaped values extracted from JavaScript and TypeScript config files now flow through typed PathBuf helpers instead of plain strings. The parser keeps plugin output in forward-slash string form at the boundary, while webpack, Nuxt, Vite, SvelteKit, TypeScript, Wrangler, and Docusaurus consume filesystem paths internally where appropriate.\n\nThis keeps package-style alias semantics out of scope and preserves the existing PluginResult contract. Regression coverage now exercises mixed separators, project-root-style leading slashes, imported alias spread kind preservation, webpack context entries, and Nuxt srcDir normalization.\n\nFixes #448.",
-          "timestamp": "2026-06-01T13:39:26+02:00",
-          "tree_id": "456a9d8b8de6820a54b1563bfcdfcb55adc71c94",
-          "url": "https://github.com/fallow-rs/fallow/commit/d57b9ba37630c6b5f9cf748b6a25ae3bb9a6c6bb"
-        },
-        "date": 1780314135876,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 5361496,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 30208,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 702715,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6538,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6683,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "65fcdcbe2e999e45fc3246ea8453aa314d5bb49b",
+          "message": "fix: restore literal security tracking after rebase",
+          "timestamp": "2026-06-07T23:54:53+02:00",
+          "tree_id": "933a81834d1aa340d2108d5f1dfb5e509f47b2f7",
+          "url": "https://github.com/fallow-rs/fallow/commit/65fcdcbe2e999e45fc3246ea8453aa314d5bb49b"
+        },
+        "date": 1780869585880,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7402027,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34357,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 738060,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6691,
             "unit": "allocations"
           }
         ]
