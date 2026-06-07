@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780820748011,
+  "lastUpdate": 1780821380172,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e42434c587183f584c10d9b362c1ebbd8053802e",
-          "message": "fix(action): trim marketplace description under 125 chars\n\nGitHub Marketplace rejects action.yml descriptions of 125+ characters.\nTrim to 123 while keeping the deterministic positioning and canonical\npillar order (quality, PR risk, hotspots, duplication, architecture).",
-          "timestamp": "2026-06-02T17:44:36+02:00",
-          "tree_id": "604324bf5e201af387bbb1b7645a9b7dac060946",
-          "url": "https://github.com/fallow-rs/fallow/commit/e42434c587183f584c10d9b362c1ebbd8053802e"
-        },
-        "date": 1780415293456,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/beb99e87d7e6d777f40639c07441d391cc2c0af7"
         },
         "date": 1780820746044,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "71394a249e57846fca99797a9a48c06876cb79c5",
+          "message": "fix(security): add issue 901 literal rows\n\nFixes #901.\n\nAdds the remaining literal-tier security catalogue rows for Electron unsafe BrowserWindow preferences, world-writable chmod modes, predictable temp-file writes, and mysql/mysql2 multipleStatements options.\n\nVerification passed locally:\n- cargo check --workspace\n- cargo test --workspace --all-targets\n- cargo clippy --workspace --all-targets -- -D warnings\n- cargo fmt --all -- --check\n- git diff --check\n- typos .\n- rustdoc with warnings denied\n- fallow audit JSON\n- real-project fallow security JSON smoke",
+          "timestamp": "2026-06-07T10:31:01+02:00",
+          "tree_id": "3d41dc604ae831b9e2577c74d0a182546c6d2b15",
+          "url": "https://github.com/fallow-rs/fallow/commit/71394a249e57846fca99797a9a48c06876cb79c5"
+        },
+        "date": 1780821378047,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
