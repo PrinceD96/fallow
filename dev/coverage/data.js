@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780909227435,
+  "lastUpdate": 1780909461677,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ceb814de08396de70d02b393f54be8b358dba1cb",
-          "message": "chore: remove agent-file bless/manifest drift gate\n\nThe sha256 baseline gate forced an unconditional re-bless on every edit to a\ntracked agent file, with no review of the change itself, so it functioned as a\nCI speed-bump rather than a real control. Drop the check-manifest CI step, the\n--update-manifest / --mode check-manifest script paths, the agent-mode drift\nwarning, the scripts/agent-files.sha256 baseline, and its self-test cases.\n\nThe hidden-unicode / bidi codepoint scan (committed + agent modes) and the\nagent-mode shell-exec keyword warnings are kept; those guard the real surface.",
-          "timestamp": "2026-06-03T10:50:20+02:00",
-          "tree_id": "406c90d074965768276b345e35b820d333807d1f",
-          "url": "https://github.com/fallow-rs/fallow/commit/ceb814de08396de70d02b393f54be8b358dba1cb"
-        },
-        "date": 1780476806817,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7f8615170f7c3585b12f61e14a65f5b5ea62db90"
         },
         "date": 1780909225423,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "baec513f7210dde8a55a774c6dbd256309531021",
+          "message": "feat(security): detect resource amplification sinks (CWE-400) (#1034)\n\nAdd a source-backed resource-amplification (CWE-400) category to the opt-in\nfallow security tainted-sink catalogue. Untrusted request input that reaches\nArray(n) / new Array(n), Buffer.alloc / allocUnsafe / allocUnsafeSlow, or\nString.prototype.repeat / padStart / padEnd now surfaces as a candidate for\nagent verification, so an attacker-controlled size that drives an unbounded\nallocation no longer looks clean.\n\nThe extract visitor skips size arguments that are directly clamped with\nMath.min(input, literalCap) (or a nested Math.max(..., Math.min(...))) before\ncatalogue matching, keeping the rule false-negative-biased. The matcher set\nlives in crates/core/data/security_matchers.toml; the clamp pruning lives in\ncrates/extract/src/visitor/visit_impl.rs; CACHE_VERSION bumps 134 to 135\nbecause warm caches predate the clamp pruning. The category reuses the existing\ntainted-sink finding kind, so there is no new IssueKind, CLI flag, or output\nformat, and findings never appear under bare fallow or audit.\n\nFixes #929.",
+          "timestamp": "2026-06-08T11:00:57+02:00",
+          "tree_id": "c44966ba91d36f3fe0fc7aa20e0e77c2805f1042",
+          "url": "https://github.com/fallow-rs/fallow/commit/baec513f7210dde8a55a774c6dbd256309531021"
+        },
+        "date": 1780909459688,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
