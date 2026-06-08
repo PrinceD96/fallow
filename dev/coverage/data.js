@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780897299939,
+  "lastUpdate": 1780897848056,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b1d9593b4341ff105f424cffd6a8dc89aa8f9c5f",
-          "message": "fix(security): suppress sanitized sink candidates\n\nTeach the extraction pipeline to carry sanitizer metadata for URL and path security sink candidates without changing the security output contract.\n\nURL suppression is limited to fail-closed guards backed by literal local const arrays or Sets. Path suppression is limited to path.resolve, path.normalize, or path.join values tied to path.relative containment checks. Mutated allowlists, reassigned guarded values, helper predicates, post-use guards, and wrong-domain sanitizer use remain candidates.\n\nThe analyzer applies each sanitizer scope only to matching catalogue categories, and the extraction cache version is bumped so warm caches re-extract affected files.\n\nFixes #863.",
-          "timestamp": "2026-06-03T00:48:10+02:00",
-          "tree_id": "9ab3ecae27aff89ac1aa5eabd45f2f8bb0fe10d5",
-          "url": "https://github.com/fallow-rs/fallow/commit/b1d9593b4341ff105f424cffd6a8dc89aa8f9c5f"
-        },
-        "date": 1780440703805,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/24a5b4ad426c3683a4ebad174ff3ef34c63e6ce4"
         },
         "date": 1780897297726,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1115f6667e18ad8f929366ee1432c9878ab3caf5",
+          "message": "feat(vscode): always-visible status-bar toggle to hide/show diagnostics\n\nAdds an always-visible $(eye) Fallow status-bar button that hides or shows all\nFallow diagnostics in the editor with one click (it then reads $(eye-closed)\nFallow: hidden). Previously the only on/off control appeared after something was\nalready muted, so a first-time user had no visible way to silence the squiggles.\nThe button reuses the existing toggle command and the shared DiagnosticFilter,\nso it stays in sync with the right-gutter status item and the Manage quick pick.\nEditor-only: CI and fallow check still report every finding. Gated by the new\nfallow.diagnostics.statusBar setting (default on); created/disposed live on the\nsetting change, mirroring the audit status-bar item.\n\nAlso renames the diagnostic-visibility commands, quick pick, code action, and\nstatus messages to a consistent hide/show verb (command IDs and internal API\nunchanged).\n\nCloses #1035",
+          "timestamp": "2026-06-08T07:47:57+02:00",
+          "tree_id": "e8e3a89a9d3b5dbd2945d9e73f99ff4a1db83b00",
+          "url": "https://github.com/fallow-rs/fallow/commit/1115f6667e18ad8f929366ee1432c9878ab3caf5"
+        },
+        "date": 1780897846167,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
