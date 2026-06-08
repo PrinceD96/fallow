@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780942663371,
+  "lastUpdate": 1780944817717,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "a6b63f1e411fcaf1f217779f7353f395eade348c",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.86.0",
-          "timestamp": "2026-06-02T13:36:55+02:00",
-          "tree_id": "8f8002300c66d5dec673e5c2b211d209070064e5",
-          "url": "https://github.com/fallow-rs/fallow/commit/a6b63f1e411fcaf1f217779f7353f395eade348c"
-        },
-        "date": 1780400370382,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7163593,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 31383,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 711532,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6591,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6691,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "22158ab9fd6601b6c00885558585df7e0dfd3577",
+          "message": "feat(security): rank sink candidates with runtime coverage\n\nAdd opt-in runtime coverage enrichment to `fallow security` for tainted-sink candidates. The security output now records whether a candidate is runtime hot, runtime cold, never executed, or unknown when runtime evidence is supplied.\n\nUse the runtime state as an additive ranking signal: hot candidates move up, cold and never-executed candidates move down, and static reachability remains the fallback when no runtime evidence is available.\n\nFixes #887.",
+          "timestamp": "2026-06-08T20:49:38+02:00",
+          "tree_id": "c38248471c5de5f1794a4f80a492870f0b24ba49",
+          "url": "https://github.com/fallow-rs/fallow/commit/22158ab9fd6601b6c00885558585df7e0dfd3577"
+        },
+        "date": 1780944815281,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7402113,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34238,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 721612,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6611,
             "unit": "allocations"
           }
         ]
