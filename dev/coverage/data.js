@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780897848056,
+  "lastUpdate": 1780906756905,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d9d22a3d447bf9581594d0cced31796cd294d9e2",
-          "message": "chore: release v2.87.0",
-          "timestamp": "2026-06-03T08:39:52+02:00",
-          "tree_id": "815db7248a43c7e4143447b82a5460727d8b5229",
-          "url": "https://github.com/fallow-rs/fallow/commit/d9d22a3d447bf9581594d0cced31796cd294d9e2"
-        },
-        "date": 1780469038701,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1115f6667e18ad8f929366ee1432c9878ab3caf5"
         },
         "date": 1780897846167,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a0775db69a3e6d8f571015c96b69238815240cb3",
+          "message": "feat(vscode): add diagnostic mute baseline setting\n\nAdd a resource-scoped `fallow.diagnostics.mutedCategories` setting so teams can commit a shared editor mute baseline in `.vscode/settings.json`.\n\nCompose that baseline with the existing per-machine mute controls, including local overrides that can hide more categories or show a baseline-hidden category. Refresh the baseline after live diagnostic categories load so newly reported rule codes can be recognized without restarting.\n\nFixes #1039.",
+          "timestamp": "2026-06-08T10:12:45+02:00",
+          "tree_id": "a7f22d3f4cec83abe96ff1d85f1c16da2df3aea6",
+          "url": "https://github.com/fallow-rs/fallow/commit/a0775db69a3e6d8f571015c96b69238815240cb3"
+        },
+        "date": 1780906754924,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
