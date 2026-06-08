@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780908024794,
+  "lastUpdate": 1780908819509,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d4c7888d66426e071a1238e005c4aac5cd6d4a45",
-          "message": "fix(vscode): clamp duplication minOccurrences to the CLI minimum\n\nA hand-edited settings.json can set fallow.duplication.minOccurrences\nbelow the schema minimum of 2. The CLI rejects values under 2, so an\nunclamped value would fail the entire sidebar analysis with a non-zero\nexit and an error toast. Clamp the value in the getter so it degrades to\nthe floor instead.\n\nThe clamp is extracted into a pure clampMinOccurrences helper (truncates\nnon-integers, falls back to the floor for non-finite values) with vitest\nunit coverage, since config.ts imports vscode and cannot be unit-tested\ndirectly. Follow-up to #894.",
-          "timestamp": "2026-06-03T09:47:42+02:00",
-          "tree_id": "f11dcfae1a2e3202c780e0376c8f4390cf886f88",
-          "url": "https://github.com/fallow-rs/fallow/commit/d4c7888d66426e071a1238e005c4aac5cd6d4a45"
-        },
-        "date": 1780473040874,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/db88c3d2cf5cfb5451e37df043467a0567a500e1"
         },
         "date": 1780908022772,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fd52fb8b248ce9bc1ec31e22ebcc7fec609a2d03",
+          "message": "Merge pull request #1049 from fallow-rs/chore/license-team-to-pro-doc\n\nchore(license): reflect team -> pro tier rename in claims doc and fixtures",
+          "timestamp": "2026-06-08T10:50:34+02:00",
+          "tree_id": "136bc7b503f3d3268a87d2e2c08fc0baa7281511",
+          "url": "https://github.com/fallow-rs/fallow/commit/fd52fb8b248ce9bc1ec31e22ebcc7fec609a2d03"
+        },
+        "date": 1780908817106,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
