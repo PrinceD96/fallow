@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780944817717,
+  "lastUpdate": 1780945264188,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ae240a0a375ac6fb691cd611c055f223c9826a49",
-          "message": "fix(extract): bind useMemo-returned class instances for member crediting\n\nA service instantiated through useMemo (const svc = useMemo(() => new Svc(), [])) left its methods reported as unused-class-member, because only the array-destructured useState form was tracked. useMemo returns the factory's product directly, so the non-destructured identifier is now bound to the constructed class. Scoped to useMemo / React.useMemo: useState (tuple-returning) and arbitrary wrappers are not bound from the non-destructured form. Bumps the extraction CACHE_VERSION.\n\nFixes #844",
-          "timestamp": "2026-06-02T13:57:50+02:00",
-          "tree_id": "66eea1ea710fbd6e6d265fe94ef6d4692384e5d4",
-          "url": "https://github.com/fallow-rs/fallow/commit/ae240a0a375ac6fb691cd611c055f223c9826a49"
-        },
-        "date": 1780401752375,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7154241,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 31361,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 712936,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6588,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6611,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6215accdd197743fd176646afaad0c0d8139a0a2",
+          "message": "feat(security): add attack surface inventory\n\nAdd an opt-in `fallow security --surface` JSON inventory that maps untrusted entry points to reachable sink candidates. The output is agent-facing and keeps defensive-boundary context as a verification prompt, not a human-facing missing-guard verdict.\n\nExpose the surface flag through MCP and keep the generated JSON schema and TypeScript contracts aligned with the new security output shape.\n\nFixes #888.",
+          "timestamp": "2026-06-08T20:58:20+02:00",
+          "tree_id": "1bb4928bc1a9e866aa2dff34bde53186d74a8a6e",
+          "url": "https://github.com/fallow-rs/fallow/commit/6215accdd197743fd176646afaad0c0d8139a0a2"
+        },
+        "date": 1780945262180,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7414218,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34417,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 737692,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6686,
             "unit": "allocations"
           }
         ]
