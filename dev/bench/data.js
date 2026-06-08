@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780906781767,
+  "lastUpdate": 1780907358004,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "5efa81c680e8f5a0af1d7cede4d34c68acac572e",
-          "message": "test: cover runtime-coverage pure helpers (sidecar, source-map, utf16)\n\nAdd unit tests for the deterministic, network-free helpers in the\nruntime-coverage module that the fixture-heavy integration tests don't\nreach directly: parse_sidecar_version_key, sidecar_package_version_key,\nnormalize_package_manager_path, project_local_sidecar_names,\nsidecar_missing_message (generic + pnpm project root),\nutf16_source_offset_to_byte_offset (surrogate-pair and out-of-range\ncases), file_url_to_path, resolve_source_map_base (inline/relative/\nremote), virtual_source_candidates, resolve_virtual_source_path scheme\nguard, and location_precedes ordering.",
-          "timestamp": "2026-06-01T22:50:21+02:00",
-          "tree_id": "a828eb16f0330b929a70baf020cdc0be6bc3f39c",
-          "url": "https://github.com/fallow-rs/fallow/commit/5efa81c680e8f5a0af1d7cede4d34c68acac572e"
-        },
-        "date": 1780347346782,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 48491,
-            "range": "± 2164",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3920051,
-            "range": "± 161360",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 5942010,
-            "range": "± 176331",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 29831299,
-            "range": "± 443685",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 119471,
-            "range": "± 917",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2304,
-            "range": "± 9",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 184614,
-            "range": "± 2870",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 822249,
-            "range": "± 15312",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1317065,
-            "range": "± 20625",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 529998,
-            "range": "± 15101",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3325272,
-            "range": "± 44315",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 3338647,
-            "range": "± 38605",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2216879,
-            "range": "± 8892",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2237753,
             "range": "± 10019",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "485fc8030389e7b4dfc848e1ce44c3f3d6cb0df1",
+          "message": "feat(config): add configurable cache directory\n\nAdd `cache.dir` and `FALLOW_CACHE_DIR` so teams can relocate fallow's persistent extraction and audit snapshot caches outside the default `.fallow/` directory.\n\nKeep the default project-local cache path for compatibility, but print a one-time human first-run note when the default cache directory is newly created. Quiet runs, machine formats, CI, non-TTY paths, and `--no-cache` stay silent.\n\nFixes #1036.",
+          "timestamp": "2026-06-08T10:23:39+02:00",
+          "tree_id": "5704779c02e1e25d238fb58f7e800e31bd32499e",
+          "url": "https://github.com/fallow-rs/fallow/commit/485fc8030389e7b4dfc848e1ce44c3f3d6cb0df1"
+        },
+        "date": 1780907355276,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 95738,
+            "range": "± 2462",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 4356826,
+            "range": "± 188228",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 6288524,
+            "range": "± 260229",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 31823786,
+            "range": "± 1319514",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 119494,
+            "range": "± 517",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2323,
+            "range": "± 9",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 237469,
+            "range": "± 7425",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 1069238,
+            "range": "± 13254",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1512035,
+            "range": "± 22220",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 580450,
+            "range": "± 21842",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4485269,
+            "range": "± 102420",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 4387077,
+            "range": "± 117461",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 3002996,
+            "range": "± 50624",
             "unit": "ns/iter"
           }
         ]
