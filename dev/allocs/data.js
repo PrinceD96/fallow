@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780906443984,
+  "lastUpdate": 1780907177676,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b888a0bd7b5db2d4698cf64ca414bc0041d76309",
-          "message": "feat(health): expose CRAP source consistency\n\nCRAP health findings now keep their coverage provenance visible across the JSON contract. The health report summary and grouped health buckets expose coverage_source_consistency so agents can distinguish uniform source data from mixed Istanbul and estimated inputs.\n\nThe scoring path now centralizes CRAP coverage source precedence: Angular template inheritance wins first, Istanbul data wins next, and static estimates remain the fallback. Istanbul path canonicalization stays inside the Istanbul branch so ordinary static scoring does not add filesystem work.\n\nThe secondary CRAP refactor action also moves from a fixed internal constant to health.crapRefactorBand, with config schema, output schema, generated TypeScript contracts, MCP prose, and tests updated around the new contract.\n\nFixes #474.",
-          "timestamp": "2026-06-01T15:16:04+02:00",
-          "tree_id": "9a9a38239174b0ac0d0362dbdadd2dd912c89864",
-          "url": "https://github.com/fallow-rs/fallow/commit/b888a0bd7b5db2d4698cf64ca414bc0041d76309"
-        },
-        "date": 1780319949976,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7092091,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 31151,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 702818,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6540,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6694,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "485fc8030389e7b4dfc848e1ce44c3f3d6cb0df1",
+          "message": "feat(config): add configurable cache directory\n\nAdd `cache.dir` and `FALLOW_CACHE_DIR` so teams can relocate fallow's persistent extraction and audit snapshot caches outside the default `.fallow/` directory.\n\nKeep the default project-local cache path for compatibility, but print a one-time human first-run note when the default cache directory is newly created. Quiet runs, machine formats, CI, non-TTY paths, and `--no-cache` stay silent.\n\nFixes #1036.",
+          "timestamp": "2026-06-08T10:23:39+02:00",
+          "tree_id": "5704779c02e1e25d238fb58f7e800e31bd32499e",
+          "url": "https://github.com/fallow-rs/fallow/commit/485fc8030389e7b4dfc848e1ce44c3f3d6cb0df1"
+        },
+        "date": 1780907172824,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7409387,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34373,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 737460,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6687,
             "unit": "allocations"
           }
         ]
