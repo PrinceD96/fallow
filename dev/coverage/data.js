@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780869589535,
+  "lastUpdate": 1780897299939,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0f6182a64db705a4c0f09ce30b14a0cf5af52c77",
-          "message": "fix(vscode): clarify reload action\n\nVS Code command icons are static in package.json, so the sidebar action needs separate contributed commands for the first run and post-analysis states.\n\nThis keeps fallow.analyze as the search action before results exist, adds fallow.reloadAnalysis with the refresh codicon for the analyzed state, and hides the reload command from the command palette while delegating both commands to the same CLI analysis path.\n\nManifest and integration tests cover the command contribution, menu visibility conditions, and command registration.\n\nFixes #869.",
-          "timestamp": "2026-06-02T22:57:55+02:00",
-          "tree_id": "1080c1bc918b8019fc224e480abebabaaa77f550",
-          "url": "https://github.com/fallow-rs/fallow/commit/0f6182a64db705a4c0f09ce30b14a0cf5af52c77"
-        },
-        "date": 1780434074308,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/65fcdcbe2e999e45fc3246ea8453aa314d5bb49b"
         },
         "date": 1780869585912,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "tris203@gmail.com",
+            "name": "Tristan Knight",
+            "username": "tris203"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "24a5b4ad426c3683a4ebad174ff3ef34c63e6ce4",
+          "message": "feat(lsp): modernize diagnostics and add Neovim integration docs (#1033)\n\nMigrates the LSP server from tower-lsp/lsp-types to the maintained tower-lsp-server + ls-types, adds LSP 3.17 pull diagnostics with workspace/diagnostic/refresh, and documents Neovim integration.\n\nDiagnostic delivery keys on whether a client actually pulls (a real textDocument/diagnostic), not on the advertised refreshSupport, so push-only clients like the VS Code extension keep receiving open-file diagnostics while pull clients (Neovim, Zed, Helix) avoid duplicate push/pull namespaces. Diagnostic and code-lens refreshes are fire-and-forget so a slow client cannot stall analysis. Includes a Server::serve-level integration test and allows the MIT-0 license for the new dependency chain.",
+          "timestamp": "2026-06-08T07:38:38+02:00",
+          "tree_id": "b0f13f1e032cb209944a995f717de7bd1424ffe4",
+          "url": "https://github.com/fallow-rs/fallow/commit/24a5b4ad426c3683a4ebad174ff3ef34c63e6ce4"
+        },
+        "date": 1780897297726,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
