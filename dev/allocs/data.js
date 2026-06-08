@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780869587972,
+  "lastUpdate": 1780897268350,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "351f2cd34cf7abe42f57a5053e7852e61eb2b307",
-          "message": "feat(nuxt): resolve script auto-import providers\n\nNuxt composables and utils can be referenced from scripts without explicit imports, so fallow now records unresolved value identifiers during JS, TS, and SFC script extraction and resolves them through the plugin auto-import table during graph build.\n\nThe Nuxt plugin scans convention script providers, including recursive shared utils and shared types, emits named and default export rules, and keeps custom imports configs on the fallback entry-pattern path. The resolver skips known JS, Web, Vue, and Nuxt built-ins so framework globals do not credit user files by accident.\n\nRegression fixtures cover zero-import script setup usage, normal TS files, default basename exports, collisions, explicit imports, local shadowing, built-ins, type-only references, and custom imports config fallbacks.\n\nFixes #739.",
-          "timestamp": "2026-06-01T14:42:18+02:00",
-          "tree_id": "4fad3bc5f4b9d1dbde527d7675d4ef1cc474ce63",
-          "url": "https://github.com/fallow-rs/fallow/commit/351f2cd34cf7abe42f57a5053e7852e61eb2b307"
-        },
-        "date": 1780317888349,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7177219,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 31208,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 706498,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6540,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6691,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "tris203@gmail.com",
+            "name": "Tristan Knight",
+            "username": "tris203"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "24a5b4ad426c3683a4ebad174ff3ef34c63e6ce4",
+          "message": "feat(lsp): modernize diagnostics and add Neovim integration docs (#1033)\n\nMigrates the LSP server from tower-lsp/lsp-types to the maintained tower-lsp-server + ls-types, adds LSP 3.17 pull diagnostics with workspace/diagnostic/refresh, and documents Neovim integration.\n\nDiagnostic delivery keys on whether a client actually pulls (a real textDocument/diagnostic), not on the advertised refreshSupport, so push-only clients like the VS Code extension keep receiving open-file diagnostics while pull clients (Neovim, Zed, Helix) avoid duplicate push/pull namespaces. Diagnostic and code-lens refreshes are fire-and-forget so a slow client cannot stall analysis. Includes a Server::serve-level integration test and allows the MIT-0 license for the new dependency chain.",
+          "timestamp": "2026-06-08T07:38:38+02:00",
+          "tree_id": "b0f13f1e032cb209944a995f717de7bd1424ffe4",
+          "url": "https://github.com/fallow-rs/fallow/commit/24a5b4ad426c3683a4ebad174ff3ef34c63e6ce4"
+        },
+        "date": 1780897266353,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7391763,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34350,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 731728,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6681,
             "unit": "allocations"
           }
         ]
