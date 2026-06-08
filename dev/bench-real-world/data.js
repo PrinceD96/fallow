@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780826724843,
+  "lastUpdate": 1780919970329,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -4283,6 +4283,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 7173,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "b6abad014ce375ed88a80cb57b0479dea588fa41",
+          "message": "fix(security): keep source reachability diff matches\n\nShared diff filtering already retained security candidates when the sink anchor or detector trace matched the changed lines. Source reachability added a second trace under reachability, but that trace was not included in the diff predicate, so diff-scoped runs could hide a candidate introduced by an untrusted-source path change.\n\nInclude reachability.untrusted_source_trace in the shared diff filter, add regression coverage for that path, and update nearby comments so the ranking and SARIF docs describe the current source-reachability contract.\n\nFollow-up to #1050.",
+          "timestamp": "2026-06-08T10:03:23Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/b6abad014ce375ed88a80cb57b0479dea588fa41"
+        },
+        "date": 1780919967278,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 162,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 158,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 369,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 316,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 185,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 162,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 613,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 556,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1156,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1009,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 898,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 897,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 757,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 685,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 8180,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 7550,
             "unit": "ms"
           }
         ]
