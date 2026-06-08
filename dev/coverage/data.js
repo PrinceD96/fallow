@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780908819509,
+  "lastUpdate": 1780909227435,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "99a609e15c468ff0f0c70cbda10ab191d841e161",
-          "message": "chore: re-bless agent-file baseline after vscode-extension.md edit",
-          "timestamp": "2026-06-03T10:10:38+02:00",
-          "tree_id": "34ee24a9cee03d4b3993959b8681046bef16b605",
-          "url": "https://github.com/fallow-rs/fallow/commit/99a609e15c468ff0f0c70cbda10ab191d841e161"
-        },
-        "date": 1780474481248,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/fd52fb8b248ce9bc1ec31e22ebcc7fec609a2d03"
         },
         "date": 1780908817106,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7f8615170f7c3585b12f61e14a65f5b5ea62db90",
+          "message": "ci: skip benchmark targets in Windows check\n\nKeep the Windows push check focused on library, binary, and integration test targets. This avoids executing benchmark binaries inside the timed Windows check job while benchmark execution remains covered by dedicated benchmark workflows.",
+          "timestamp": "2026-06-08T10:57:31+02:00",
+          "tree_id": "e8e63bf32244c58fad63150158768cde76325db0",
+          "url": "https://github.com/fallow-rs/fallow/commit/7f8615170f7c3585b12f61e14a65f5b5ea62db90"
+        },
+        "date": 1780909225423,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
