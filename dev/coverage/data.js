@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780925995851,
+  "lastUpdate": 1780929341564,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7627d76282e41742b38e84b2d6bad3c2f925bd55",
-          "message": "fix(vscode): satisfy oxlint promise/always-return and oxfmt\n\nThe managed-CLI-backfill change left extension.ts with a .then() callback\nthat does not return on all paths (oxlint promise/always-return) and\ndownload.ts unformatted (oxfmt), turning main CI red. Rewrite the callback\nas an awaited async IIFE (matching the codebase's async/await-over-.then\nconvention) and reformat. Behavior is unchanged.",
-          "timestamp": "2026-06-03T14:39:32+02:00",
-          "tree_id": "6fc4637360eca6bec3c00b91486abcf176a177f8",
-          "url": "https://github.com/fallow-rs/fallow/commit/7627d76282e41742b38e84b2d6bad3c2f925bd55"
-        },
-        "date": 1780490577863,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ea6e3daf3df99a5a3c637ab673f47abaa15c7269",
+          "message": "fix(vscode,lsp): keep production mode in sync across editor surfaces (#1059)\n\n`fallow.production` reached the CLI-driven sidebar (`--production`) but was never forwarded to the `fallow-lsp` server, so the sidebar tree and the editor diagnostics disagreed on dead-code findings whenever production mode was on.\n\nThe setting is now forwarded to both surfaces and becomes a tri-state `auto` / `on` / `off` (default `auto`): `auto` defers to the project `.fallowrc.json`, `on` forces production on, `off` forces it off on both surfaces. A new global `--no-production` flag (conflicts with `--production`) gives the CLI sidebar the force-off the LSP override already has. `fallow.production` and the `fallow.duplication.*` settings now use `resource` scope so a stale global value no longer overrides a project's committed config.\n\nEditor-only: CI, `fallow dead-code`, and `fallow audit` are unchanged.\n\nFixes #1055.",
+          "timestamp": "2026-06-08T16:28:34+02:00",
+          "tree_id": "3e42f47c483e44bfdbbbe20c8f918b225be8ad6a",
+          "url": "https://github.com/fallow-rs/fallow/commit/ea6e3daf3df99a5a3c637ab673f47abaa15c7269"
+        },
+        "date": 1780929339165,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
             "unit": "%"
           }
         ]
