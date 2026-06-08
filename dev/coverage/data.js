@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780924074780,
+  "lastUpdate": 1780925995851,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "12826416e24acfe1fe2bfc4e233372a11fa4b9f5",
-          "message": "fix(vscode): backfill managed CLI download\n\nThe VS Code extension now treats managed binary acquisition as a pair of runtime dependencies: `fallow-lsp` for diagnostics and `fallow` for sidebar analysis and fix commands. First-run download targets the release tag matching the extension version, writes that tag as the managed marker, and keeps CLI acquisition retryable if the LSP is already usable.\n\nCLI resolution now preserves explicit user intent before automation: configured LSP sibling, workspace binary, PATH, managed storage, then auto-download. Managed CLI backfill rejects stale binaries by checking the binary version when available, while still allowing marker-based reuse for binaries that cannot report a parseable version.\n\nThe extension docs, setting text, walkthrough copy, changelog, tests, and generated VS Code bundle were updated with the new managed-binary behavior.\n\nFixes #917.",
-          "timestamp": "2026-06-03T14:21:43+02:00",
-          "tree_id": "d6ed61d4a13ce2228bd42977face8c2ed6c83c15",
-          "url": "https://github.com/fallow-rs/fallow/commit/12826416e24acfe1fe2bfc4e233372a11fa4b9f5"
-        },
-        "date": 1780489483216,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a5bf70c7b630218ab4b514f2d184670377374292"
         },
         "date": 1780924072848,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "606aac909e8d2f0c64b9e9259bc98ae1a84687a8",
+          "message": "feat(security): regression gate for new sinks in changed lines (#886)\n\nTier 1 of the security regression gate (#886). fallow security --gate new reports ONLY security-sink candidates introduced on a CHANGED line and exits 8 if any exist, so a PR can be gated on new exposure without gating on the whole candidate backlog. A refactor that merely touches a file already containing a sink passes; a diff the gate cannot compute is a loud exit 2, never a green gate.\n\nThe gate predicate is a separate, stricter pass than the advisory diff filter: it keeps a new sink anchor on an added line or an UntrustedSource/Sink trace hop on an added line, and drops the SecretSource file-level exception and pass-through hops. Exit 8 is dedicated and pure; the gate supersedes --fail-on-issues. Findings stay unverified candidates (REVIEW REQUIRED human output, SARIF level note with the verdict in run.properties.fallowGate, additive gate JSON block).\n\nTier 2 (newly-reachable reachability delta) is deferred and tracked in #1056.\n\nRefs #886.",
+          "timestamp": "2026-06-08T15:36:55+02:00",
+          "tree_id": "8f0b98e576157bf0833e26eb5727e9b23004b9c0",
+          "url": "https://github.com/fallow-rs/fallow/commit/606aac909e8d2f0c64b9e9259bc98ae1a84687a8"
+        },
+        "date": 1780925993515,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
