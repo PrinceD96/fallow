@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780897184540,
+  "lastUpdate": 1780905983620,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ee7c5c2b3e57845140a898905a7e035ab6cab02d",
-          "message": "feat(security): add client-server leak scan\n\nAdd an opt-in fallow security command for local security candidates. The MVP enables a single graph-structural client-server-leak rule that starts at React client boundaries and reports direct or transitive access to non-public process.env values.\n\nWire the command through human, JSON, and SARIF output with typed root envelopes, suppress actions, schema/codegen updates, cache versioning, and CI flag parity. Security candidates stay outside bare fallow and audit, and the findings remain framed for human or agent verification rather than as confirmed vulnerabilities.\n\nKeep incremental CI filtering trace-aware so a changed secret-source module on an existing client import path is not silently dropped.",
-          "timestamp": "2026-06-01T17:35:14+02:00",
-          "tree_id": "db995891fb2707ad112c1df529324bb0f3eb439e",
-          "url": "https://github.com/fallow-rs/fallow/commit/ee7c5c2b3e57845140a898905a7e035ab6cab02d"
-        },
-        "date": 1780328508132,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 21,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 19,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.3,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 330,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 778,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/24a5b4ad426c3683a4ebad174ff3ef34c63e6ce4"
         },
         "date": 1780897182160,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 25,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 21,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.29,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 349,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 835,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a89af3aaad692a74ab9c95c5c18f13f735f4b347",
+          "message": "fix(vscode): remove redundant pull diagnostic plumbing\n\nRemove the VS Code pull-disable override now that the LSP server uses observed pull requests, not advertised refresh support, to decide when push diagnostics should be suppressed.\n\nWire the existing diagnostic filter into pull diagnostics so editor mutes apply consistently across push and pull delivery. Refresh the LSP comments and rule prose to describe the observed-pull invariant without relying on the old VS Code-specific workaround.\n\nFixes #1041.",
+          "timestamp": "2026-06-08T10:05:03+02:00",
+          "tree_id": "3657139c14056a04cf96c3067dafd022d831406c",
+          "url": "https://github.com/fallow-rs/fallow/commit/a89af3aaad692a74ab9c95c5c18f13f735f4b347"
+        },
+        "date": 1780905981371,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
