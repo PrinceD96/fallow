@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780908054222,
+  "lastUpdate": 1780908790285,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ee7c5c2b3e57845140a898905a7e035ab6cab02d",
-          "message": "feat(security): add client-server leak scan\n\nAdd an opt-in fallow security command for local security candidates. The MVP enables a single graph-structural client-server-leak rule that starts at React client boundaries and reports direct or transitive access to non-public process.env values.\n\nWire the command through human, JSON, and SARIF output with typed root envelopes, suppress actions, schema/codegen updates, cache versioning, and CI flag parity. Security candidates stay outside bare fallow and audit, and the findings remain framed for human or agent verification rather than as confirmed vulnerabilities.\n\nKeep incremental CI filtering trace-aware so a changed secret-source module on an existing client import path is not silently dropped.",
-          "timestamp": "2026-06-01T17:35:14+02:00",
-          "tree_id": "db995891fb2707ad112c1df529324bb0f3eb439e",
-          "url": "https://github.com/fallow-rs/fallow/commit/ee7c5c2b3e57845140a898905a7e035ab6cab02d"
-        },
-        "date": 1780328589647,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7138347,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 31171,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 702450,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6535,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6691,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fd52fb8b248ce9bc1ec31e22ebcc7fec609a2d03",
+          "message": "Merge pull request #1049 from fallow-rs/chore/license-team-to-pro-doc\n\nchore(license): reflect team -> pro tier rename in claims doc and fixtures",
+          "timestamp": "2026-06-08T10:50:34+02:00",
+          "tree_id": "136bc7b503f3d3268a87d2e2c08fc0baa7281511",
+          "url": "https://github.com/fallow-rs/fallow/commit/fd52fb8b248ce9bc1ec31e22ebcc7fec609a2d03"
+        },
+        "date": 1780908788248,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7394451,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34361,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 736089,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6761,
             "unit": "allocations"
           }
         ]
