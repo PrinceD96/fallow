@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780944440101,
+  "lastUpdate": 1780944798114,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "bbba0610829a3db4cf38f9f54df436aa53570269",
-          "message": "fix(vscode): don't fail analysis against a CLI missing newer flags (#925)\n\nA newer extension can resolve an older fallow CLI (PATH, node_modules/.bin, managed download, or a pinned binary). The sidebar unconditionally passed --dupes-min-occurrences (CLI v2.88.0+), so an older binary aborted the whole analysis with a clap \"unexpected argument\" error. The extension default (2) equals the CLI default, so the flag was a no-op that broke older binaries for no benefit.\n\nbuildAnalysisArgs omits the flag at the floor and gates emission on a once-per-session cached --version probe; execAnalysisTolerant strips a known version-gated flag and retries on a clap unexpected-argument failure (both modern and legacy wording) while rethrowing genuine errors; a shared binary-skew module shows one toast per session across the LSP and CLI paths with per-run output-channel detail.\n\nRegression reported in #894.",
-          "timestamp": "2026-06-03T16:36:29+02:00",
-          "tree_id": "51f0265619be07f329798369dbfd8e60f9e660ef",
-          "url": "https://github.com/fallow-rs/fallow/commit/bbba0610829a3db4cf38f9f54df436aa53570269"
-        },
-        "date": 1780497569163,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "22158ab9fd6601b6c00885558585df7e0dfd3577",
+          "message": "feat(security): rank sink candidates with runtime coverage\n\nAdd opt-in runtime coverage enrichment to `fallow security` for tainted-sink candidates. The security output now records whether a candidate is runtime hot, runtime cold, never executed, or unknown when runtime evidence is supplied.\n\nUse the runtime state as an additive ranking signal: hot candidates move up, cold and never-executed candidates move down, and static reachability remains the fallback when no runtime evidence is available.\n\nFixes #887.",
+          "timestamp": "2026-06-08T20:49:38+02:00",
+          "tree_id": "c38248471c5de5f1794a4f80a492870f0b24ba49",
+          "url": "https://github.com/fallow-rs/fallow/commit/22158ab9fd6601b6c00885558585df7e0dfd3577"
+        },
+        "date": 1780944796092,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
             "unit": "%"
           }
         ]
