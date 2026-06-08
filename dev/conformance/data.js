@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780822472144,
+  "lastUpdate": 1780914473122,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -2889,6 +2889,88 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/08912ff4b864e56e5e2f1439292338c12feb3207"
         },
         "date": 1780822470344,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 1.9,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 593,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30363,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2028,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 6.1,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.7,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.2,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 6.9,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 24.3,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 2.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "b6abad014ce375ed88a80cb57b0479dea588fa41",
+          "message": "fix(security): keep source reachability diff matches\n\nShared diff filtering already retained security candidates when the sink anchor or detector trace matched the changed lines. Source reachability added a second trace under reachability, but that trace was not included in the diff predicate, so diff-scoped runs could hide a candidate introduced by an untrusted-source path change.\n\nInclude reachability.untrusted_source_trace in the shared diff filter, add regression coverage for that path, and update nearby comments so the ranking and SARIF docs describe the current source-reachability contract.\n\nFollow-up to #1050.",
+          "timestamp": "2026-06-08T10:03:23Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/b6abad014ce375ed88a80cb57b0479dea588fa41"
+        },
+        "date": 1780914470780,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
