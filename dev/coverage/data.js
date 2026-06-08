@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780907213008,
+  "lastUpdate": 1780908024794,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "448010cc9bcfc38c40eea9afefd00d134ee00a61",
-          "message": "docs(changelog): note minOccurrences in combined mode and VS Code (#894)",
-          "timestamp": "2026-06-03T09:26:31+02:00",
-          "tree_id": "ab959e669b6ed9a6e97b96bda634503b8d6fd1a6",
-          "url": "https://github.com/fallow-rs/fallow/commit/448010cc9bcfc38c40eea9afefd00d134ee00a61"
-        },
-        "date": 1780471786590,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/485fc8030389e7b4dfc848e1ce44c3f3d6cb0df1"
         },
         "date": 1780907211079,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "db88c3d2cf5cfb5451e37df043467a0567a500e1",
+          "message": "test(cli): make cache remap tests platform-neutral\n\nMake the cache remap tests build platform-native absolute paths from a temporary directory so they pass on Windows as well as Unix.",
+          "timestamp": "2026-06-08T10:36:09+02:00",
+          "tree_id": "1c59e514a9c420241c811ce14814e100c9e3f8cb",
+          "url": "https://github.com/fallow-rs/fallow/commit/db88c3d2cf5cfb5451e37df043467a0567a500e1"
+        },
+        "date": 1780908022772,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
