@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780942589876,
+  "lastUpdate": 1780944440101,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "2b077f76c560fa11399796a662ee6f31b984f7e7",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.88.0",
-          "timestamp": "2026-06-03T15:40:02+02:00",
-          "tree_id": "033007ff69aeaaa1dbce82d40beacffafdbeb337",
-          "url": "https://github.com/fallow-rs/fallow/commit/2b077f76c560fa11399796a662ee6f31b984f7e7"
-        },
-        "date": 1780494202244,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/171d49a4c1acc707f3b08d19a7da20d27557fc31"
         },
         "date": 1780942581764,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3817259bae4480f42e261b14dd89ed2bfe642653",
+          "message": "fix(vscode): restore security test contract\n\nUpdate VS Code security test fixtures for the current SecurityFinding wire contract by supplying stable finding ids and candidate records in shared helpers.\n\nApply the repository JS formatter to the touched VS Code sources and rename a shadowing parameter so the JS lint and format job passes again.",
+          "timestamp": "2026-06-08T20:44:10+02:00",
+          "tree_id": "ee129460a5374c5d5efce12c829d7bd83a7b17ff",
+          "url": "https://github.com/fallow-rs/fallow/commit/3817259bae4480f42e261b14dd89ed2bfe642653"
+        },
+        "date": 1780944437716,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
