@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780999859094,
+  "lastUpdate": 1781000966004,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "423f294107bf5e29eb8e30e8740ede36cf66ce29",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.87.0",
-          "timestamp": "2026-06-03T09:15:48+02:00",
-          "tree_id": "b63977ad16375415cb575923f4d794efc98ce773",
-          "url": "https://github.com/fallow-rs/fallow/commit/423f294107bf5e29eb8e30e8740ede36cf66ce29"
-        },
-        "date": 1780471270681,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 80595,
-            "range": "± 1628",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3871423,
-            "range": "± 206721",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 5772074,
-            "range": "± 222859",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 29203424,
-            "range": "± 451476",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 119802,
-            "range": "± 1250",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2263,
-            "range": "± 34",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 235323,
-            "range": "± 1643",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 1068721,
-            "range": "± 23718",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1522146,
-            "range": "± 16419",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 567392,
-            "range": "± 25436",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4347808,
-            "range": "± 29719",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 4243544,
-            "range": "± 30385",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2972864,
-            "range": "± 58082",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2229813,
             "range": "± 18876",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "da9fe17065e5c736eb0b8da6e5077503095e8806",
+          "message": "perf(telemetry): spool events and upload on the next run to remove the hot-path block\n\nTelemetry was recorded at process exit and the upload blocked the main thread up to 200ms (about 50ms on a healthy network) to let the POST land before exit, adding latency to every telemetry-enabled run and contradicting the module's never-add-latency contract. Warm dead-code on zod went from 33ms to 105ms.\n\nAppend the serialized event to a local spool (telemetry-spool.jsonl, next to telemetry.json) at exit, which is sub-millisecond and network-free, and drain plus POST it on a detached thread at the start of the next run where it overlaps analysis. The spool is bounded on the write path (a single fstat against SPOOL_MAX_BYTES, trim to the newest SPOOL_MAX_EVENTS) rather than by the drain finishing, because on a fast command the detached drain is abandoned mid-POST and its own cap never runs. The drain is flock-guarded, POSTs oldest-first, stops at the first failure, drops corrupt lines, and atomically rewrites the undelivered tail. Inspect and disabled modes write and upload nothing; the payload is unchanged.\n\nWarm dead-code on zod with telemetry enabled drops from ~105ms to ~35ms, matching telemetry-off.",
+          "timestamp": "2026-06-09T12:22:12+02:00",
+          "tree_id": "d05a9eff4bc92a1fd820090728b25c92a99f539f",
+          "url": "https://github.com/fallow-rs/fallow/commit/da9fe17065e5c736eb0b8da6e5077503095e8806"
+        },
+        "date": 1781000964096,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 76034,
+            "range": "± 3015",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3790482,
+            "range": "± 135875",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5895192,
+            "range": "± 163267",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 30577674,
+            "range": "± 625914",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 120416,
+            "range": "± 533",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2446,
+            "range": "± 30",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 184116,
+            "range": "± 9252",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 818513,
+            "range": "± 4944",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1320762,
+            "range": "± 29919",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 533746,
+            "range": "± 13622",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3297346,
+            "range": "± 28455",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3330493,
+            "range": "± 43383",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2224824,
+            "range": "± 4265",
             "unit": "ns/iter"
           }
         ]
