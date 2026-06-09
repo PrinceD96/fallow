@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781037408690,
+  "lastUpdate": 1781038123769,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "52b3fad63010251a6b812bf1526c42eedd630618",
-          "message": "test(vscode): cover exec error stdout handoff\n\nAdd a regression test for execFallow using a real temporary Node script that writes structured JSON to stdout, writes a plain stderr message, and exits with a coverage gate code.\n\nThis proves the VS Code runtime coverage path keeps the CLI JSON envelope available through FallowExecError instead of only testing the later message formatter.",
-          "timestamp": "2026-06-04T22:53:21+02:00",
-          "tree_id": "14317d9c03440d2d7d4e311e79667d28be1c7fb3",
-          "url": "https://github.com/fallow-rs/fallow/commit/52b3fad63010251a6b812bf1526c42eedd630618"
-        },
-        "date": 1780606569816,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4491deceee75ff2766a3a2ce2db68b2fc1a2d17f"
         },
         "date": 1781037406311,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bac297f6ded5ea0481b58a2add428b7ea80e438c",
+          "message": "feat(security): configure request receivers\n\nAdd `security.requestReceivers` so projects can register local HTTP request object names that should participate in tainted input detection.\n\nThe config stays additive to the built-in receiver list and is validated through the config schema. The detector now uses the configured receivers for local source tracking, direct sink arguments, and the ranking pass that marks findings as reachable from untrusted input.\n\nThe fixture covers configured, built-in, and unconfigured receiver behavior, including the expected arg-level reachability for configured request receivers.\n\nFixes #1125.",
+          "timestamp": "2026-06-09T22:42:39+02:00",
+          "tree_id": "9a41c09830b597b4e7bb293c2fa1f96b97ca69de",
+          "url": "https://github.com/fallow-rs/fallow/commit/bac297f6ded5ea0481b58a2add428b7ea80e438c"
+        },
+        "date": 1781038121735,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
