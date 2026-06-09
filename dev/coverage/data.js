@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780996036036,
+  "lastUpdate": 1780998298799,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1538abc809b602b590228081507b026903f34988",
-          "message": "Merge pull request #934 from fallow-rs/dependabot/github_actions/crate-ci/typos-1.47.0\n\nchore(deps): bump crate-ci/typos from 1.46.2 to 1.47.0",
-          "timestamp": "2026-06-04T10:00:53+02:00",
-          "tree_id": "02550bd88b8cff1d5e19a165292e2ff2a3aa4aeb",
-          "url": "https://github.com/fallow-rs/fallow/commit/1538abc809b602b590228081507b026903f34988"
-        },
-        "date": 1780560225087,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b5868dd2d6ef5cd8f3c7f025bcc125f203e303d4"
         },
         "date": 1780996033720,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3d2577419d553a28adceb0b3a045c76e43182272",
+          "message": "test(core): cover issue 1032 multi-entry workspaces\n\nExtend the issue 1032 regression fixture so the workspace tsconfig case matches the reporter's follow-up shape: no root tsconfig, multiple runtime entry modules, and per-module path mappings into a sibling package src tree.\n\nThe assertions now prove App, Backend, Event, and the aliased Firlefanz source file remain reachable while unrelated sibling source still reports unused. This is test-only coverage for the already released fix.\n\nFollow-up to #1032.",
+          "timestamp": "2026-06-09T11:40:26+02:00",
+          "tree_id": "742392e37006d00e20a6547b7e51024124b31e06",
+          "url": "https://github.com/fallow-rs/fallow/commit/3d2577419d553a28adceb0b3a045c76e43182272"
+        },
+        "date": 1780998296208,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
