@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781039725565,
+  "lastUpdate": 1781040879097,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1d98bedcff81047c60f087f6085d7069a9e36295",
-          "message": "fix(vscode): review follow-ups for #906 + #908 (#989)\n\n* fix(vscode): address review follow-ups for #906 (workspace-picker)\n\n- Add fallow.workspace to REANALYSIS_CONFIG_KEYS so a pinned-setting change\n  re-runs the dead-code/dupes sidebar + status bar (not RESTART_CONFIG_KEYS;\n  the LSP is not workspace-scoped) [C1].\n- Thread the selected workspace into the Health and Security views via a new\n  optional workspace field on HealthArgsOptions/SecurityArgsOptions, forwarded\n  as --workspace when non-empty [C2].\n- Disclose in the picker tooltip and select/clear toasts that scoping drives the\n  Unused Code, Duplicates, Health, and Security views while editor diagnostics\n  stay project-wide [C3].\n- Fix the clear/select asymmetry: the toast now reports the actual residual\n  scope (a still-pinned fallow.workspace setting) instead of always claiming\n  whole-project [C4].\n- Hide the picker status-bar item on single-package repos via a lazy, silent\n  workspaces probe after the first sidebar analysis [n2].\n- Add an integration test asserting --workspace <name> is forwarded to the\n  spawn [n4].\n\nDefers the schema-gated workspaces output (n3): requires Rust schemars +\ncodegen, not a TS-only change.\n\n* fix(vscode): address review follow-ups for #908 (audit-verdict)\n\n- Forward the active workspace scope into runAudit via a new workspace field on\n  AuditArgsOptions, emitted as --workspace when non-empty so a monorepo audit\n  verdict honors the selected package [C1].\n- Show the gating-candidate count suffix for any non-zero count (extracted as\n  auditGatingSuffix), not just fail, so a warn verdict's glance matches the\n  tooltip [C2].\n- Make fallow.audit.statusBar.enabled live: create/dispose the status-bar item\n  on config change (mirroring the health status bar) and read the surface live\n  in reportAuditVerdict and the runOnSave path, so toggling needs no window\n  reload [C3].\n- Document the Audit Changed Files command, the three fallow.audit.* settings,\n  and the audit verdict status bar in the README [C4].\n- Extract the duplicated escapeMarkdownText / normalizeInlineText helpers into a\n  shared markdown-utils module imported by both statusBar-utils and audit-utils\n  [n2].\n- Add change-set scope context to the disabled-status-bar info message via\n  auditScopeSummary [n3].\n- Reset the status bar to idle (not an error state) when an audit is skipped for\n  no-workspace with no prior verdict [n4].",
-          "timestamp": "2026-06-04T23:40:41+02:00",
-          "tree_id": "eb06df8a4c00860dbb15f8d8f117ffdbdcf77a3c",
-          "url": "https://github.com/fallow-rs/fallow/commit/1d98bedcff81047c60f087f6085d7069a9e36295"
-        },
-        "date": 1780609408570,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1b5eee77f7f249a31be86fb211096eb7bfb8f2ef"
         },
         "date": 1781039722743,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "54ffd5d7adc99fa0d4f02e8710e9b3ce2a4d9c49",
+          "message": "feat(security): gate newly reachable candidates\n\nAdd a newly-reachable mode for the security gate so CI and agents can catch existing sink candidates that become reachable from entry points. The mode compares the head tree with a materialized base tree from --changed-since and keeps the existing changed-line gate behavior unchanged.\n\nShare the base worktree helper with audit, wire the gate through CLI JSON and human output, and expose the parameter through the MCP security_candidates tool. Regenerate the published schema and TypeScript contracts.\n\nFixes #1056.",
+          "timestamp": "2026-06-09T23:30:48+02:00",
+          "tree_id": "9abd249d9c17118cea9123d2a6e905bd7fdc05cf",
+          "url": "https://github.com/fallow-rs/fallow/commit/54ffd5d7adc99fa0d4f02e8710e9b3ce2a4d9c49"
+        },
+        "date": 1781040875542,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
