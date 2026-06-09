@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781012910124,
+  "lastUpdate": 1781015536686,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "9a3dc7dafe169bb807b17c73211c516ec807895f",
-          "message": "chore: release v2.88.0",
-          "timestamp": "2026-06-03T15:04:14+02:00",
-          "tree_id": "b5e28a237500fdb4e688a46330759930b4a12e81",
-          "url": "https://github.com/fallow-rs/fallow/commit/9a3dc7dafe169bb807b17c73211c516ec807895f"
-        },
-        "date": 1780492098695,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7312527,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33506,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 723056,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6691,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6636,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "32499248e30eebfc284ebfc71e99c8ecd0fcd84c",
+          "message": "feat(security): surface severity tiers\n\nDerive high, medium, and low review-priority tiers for security candidates from runtime, reachability, boundary, and source-backed signals. Surface the tier in JSON, human output, SARIF levels, generated schemas, TypeScript contracts, and editor fixtures while keeping candidates unverified and gates unchanged.\n\nFixes #1096.",
+          "timestamp": "2026-06-09T16:29:46+02:00",
+          "tree_id": "98b5c7639f800f699b5d9f3cab5bc2a3dcbb44e7",
+          "url": "https://github.com/fallow-rs/fallow/commit/32499248e30eebfc284ebfc71e99c8ecd0fcd84c"
+        },
+        "date": 1781015534669,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7423093,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34612,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 740333,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6638,
             "unit": "allocations"
           }
         ]
