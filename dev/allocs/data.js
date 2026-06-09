@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781044071624,
+  "lastUpdate": 1781045601840,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "88fd8c96b801e150e85353f6e28fa34c594d2838",
-          "message": "fix: resolve relative package root source entries\n\nRelative imports that point at the package root could be reported unresolved when the package only has source files and package metadata points at an unbuilt entry. This affected source-first packages such as preact, where tests import ../../ and the generated dist entry is absent from the fixture.\n\nThis adds a narrow fallback for relative imports that land exactly on a known package root. The fallback resolves through safe package source entries and existing source-index conventions, with regression coverage for non-standard source entry paths.",
-          "timestamp": "2026-06-04T11:34:55+02:00",
-          "tree_id": "a54e3bf530bc2e27a636ea3ee62cc8211a54100f",
-          "url": "https://github.com/fallow-rs/fallow/commit/88fd8c96b801e150e85353f6e28fa34c594d2838"
-        },
-        "date": 1780566068768,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7345213,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33532,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 726762,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6707,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6724,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "93aa49fc19329a3d901505b7c5e43a5a97d04e98",
+          "message": "feat: add security JSON metadata\n\nAdd version, elapsed time, and privacy-safe config metadata to the security JSON envelope. The config block records configured and effective security rule severities plus category include and exclude filters without raw paths or config contents.\n\nEnable --explain for fallow security --format json and emit security-specific _meta through the shared typed metadata path so telemetry metadata remains compatible.\n\nFixes #1135.",
+          "timestamp": "2026-06-10T00:50:39+02:00",
+          "tree_id": "d1c581310fa904d7849d73b9b4b3780059e7f631",
+          "url": "https://github.com/fallow-rs/fallow/commit/93aa49fc19329a3d901505b7c5e43a5a97d04e98"
+        },
+        "date": 1781045597831,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7429621,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34635,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 740393,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6639,
             "unit": "allocations"
           }
         ]
