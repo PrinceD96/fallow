@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781037467516,
+  "lastUpdate": 1781037945287,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "9492a4d98b5c4ca95670716fced39029cc28f375",
-          "message": "chore: release v2.88.2",
-          "timestamp": "2026-06-03T19:49:51+02:00",
-          "tree_id": "1cc38f272b3a33b077eb84d47342f2f7469e5327",
-          "url": "https://github.com/fallow-rs/fallow/commit/9492a4d98b5c4ca95670716fced39029cc28f375"
-        },
-        "date": 1780509163483,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7319407,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33511,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 725068,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6689,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6688,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bac297f6ded5ea0481b58a2add428b7ea80e438c",
+          "message": "feat(security): configure request receivers\n\nAdd `security.requestReceivers` so projects can register local HTTP request object names that should participate in tainted input detection.\n\nThe config stays additive to the built-in receiver list and is validated through the config schema. The detector now uses the configured receivers for local source tracking, direct sink arguments, and the ranking pass that marks findings as reachable from untrusted input.\n\nThe fixture covers configured, built-in, and unconfigured receiver behavior, including the expected arg-level reachability for configured request receivers.\n\nFixes #1125.",
+          "timestamp": "2026-06-09T22:42:39+02:00",
+          "tree_id": "9a41c09830b597b4e7bb293c2fa1f96b97ca69de",
+          "url": "https://github.com/fallow-rs/fallow/commit/bac297f6ded5ea0481b58a2add428b7ea80e438c"
+        },
+        "date": 1781037942414,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7420221,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34607,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 747974,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6728,
             "unit": "allocations"
           }
         ]
