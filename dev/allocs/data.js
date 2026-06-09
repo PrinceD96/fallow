@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781006840975,
+  "lastUpdate": 1781007952147,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ce102d0bd0315b0f52f96d003c268fd44f574899",
-          "message": "feat(dupes): surface minOccurrences in combined mode and VS Code\n\nThe duplication minOccurrences threshold (rule-of-three control) was\nonly reachable via the config file or the standalone `fallow dupes`\nsubcommand, so users who drive fallow through the bare combined command\nor the VS Code extension could not raise it. Add a global\n`--dupes-min-occurrences` flag (combined mode), validated `>= 2` through\nthe shared `parse_min_occurrences` parser and threaded through\nCombinedOptions into the dupes options with a config-value fallback, and\na matching `fallow.duplication.minOccurrences` extension setting\nforwarded to the CLI in commands.ts.\n\nWhile surfacing it, fix a pre-existing mislabel on the neighbouring\n`fallow.duplication.threshold` setting: it forwards `--dupes-threshold`\n(a duplication-percentage failure cap where 0 means no limit), not a\nminimum line count, and it defaulted to 5, silently imposing a 5%\nfailure ceiling that diverged from the CLI default. Correct the\ndescription and align the default to 0.\n\nLive LSP diagnostics continue to read the config file directly, matching\nhow the existing mode and threshold settings behave; that path is out of\nscope here. Docs and the settings enumeration are updated to match.\n\nFixes #894.",
-          "timestamp": "2026-06-03T09:25:13+02:00",
-          "tree_id": "10db92e160e4dc1dfd6ea19a0490631de3b8415e",
-          "url": "https://github.com/fallow-rs/fallow/commit/ce102d0bd0315b0f52f96d003c268fd44f574899"
-        },
-        "date": 1780471679436,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7294598,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33487,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 722636,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6688,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6683,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6996b9675e53accd9048c0e0769daea6b4d7999d",
+          "message": "fix(security): emit SARIF code flows and CWE metadata\n\nFixes #1097.",
+          "timestamp": "2026-06-09T14:23:21+02:00",
+          "tree_id": "fa5b26ae1b6b67576123e50322bc9e1f6475f4d0",
+          "url": "https://github.com/fallow-rs/fallow/commit/6996b9675e53accd9048c0e0769daea6b4d7999d"
+        },
+        "date": 1781007949837,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7399306,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34411,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 742036,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6692,
             "unit": "allocations"
           }
         ]
