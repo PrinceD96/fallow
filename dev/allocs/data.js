@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781045601840,
+  "lastUpdate": 1781047543121,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e0c6e2171bba529b632a2e7f54e52513a951a796",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.88.3",
-          "timestamp": "2026-06-04T11:46:20+02:00",
-          "tree_id": "5c5fc2e17ff7c88bd7f62cdb5c51e2c5257ed554",
-          "url": "https://github.com/fallow-rs/fallow/commit/e0c6e2171bba529b632a2e7f54e52513a951a796"
-        },
-        "date": 1780566540011,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7320797,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33505,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 724506,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6775,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 34635,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 740393,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6639,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dd4285e9bdc35772909fdad8095a00e4378b9c6b",
+          "message": "fix: align security help with supported globals\n\nHide inherited global flags from the `fallow security` help surface when that command still rejects them through its structured validation path. This keeps `security --help` and `help security` aligned with runtime behavior without changing how unsupported flags are parsed or reported.\n\nKeep `--explain` visible and supported for security after the metadata work, and add regression coverage for the filtered help forms plus the validator contract for hidden globals.\n\nFixes #1131.",
+          "timestamp": "2026-06-10T01:23:05+02:00",
+          "tree_id": "dfc667ef5bae0f34aeec0a32512fde35718e58a8",
+          "url": "https://github.com/fallow-rs/fallow/commit/dd4285e9bdc35772909fdad8095a00e4378b9c6b"
+        },
+        "date": 1781047540207,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7420325,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34623,
             "unit": "allocations"
           },
           {
