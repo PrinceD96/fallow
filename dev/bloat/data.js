@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781011186877,
+  "lastUpdate": 1781013353598,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0c58d98394040e3e68c3d15ea8469fe9a4f640a7",
-          "message": "feat(security): model untrusted sources for source-to-sink precision (#859)",
-          "timestamp": "2026-06-02T15:52:02+02:00",
-          "tree_id": "05e9c2a49722d8a5379fa6f643e8a088e961da10",
-          "url": "https://github.com/fallow-rs/fallow/commit/0c58d98394040e3e68c3d15ea8469fe9a4f640a7"
-        },
-        "date": 1780408797532,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 257789728,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 269588264,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0de37afb42cb9e8d5694ecd5d8dc8721abb611ee",
+          "message": "feat(security): receiver-gate HTTP sources, tier arg-vs-module taint (#1092, #1093)\n\nReceiver-gate the global HTTP-input source patterns (*.query/*.params/*.body) by a request-object allowlist so ORM receivers (db.query, prisma.query, knex) no longer classify their module as an untrusted source (#1092). Add a structured taint_confidence (arg-level | module-level) tier, a ModuleSource trace role for honest module-level labeling, and anchor the arg-level trace source node at the real source-read line via TaintedBinding.source_span_start (#1093). Ranking and gating behavior unchanged.\n\nCloses #1092.\nCloses #1093.",
+          "timestamp": "2026-06-09T15:45:39+02:00",
+          "tree_id": "c99c920981f97a03d4dadde9630e0062a1f74bd0",
+          "url": "https://github.com/fallow-rs/fallow/commit/0de37afb42cb9e8d5694ecd5d8dc8721abb611ee"
+        },
+        "date": 1781013351084,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 269623224,
             "unit": "bytes"
           }
         ]
