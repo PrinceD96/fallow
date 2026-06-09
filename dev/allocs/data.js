@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781008744195,
+  "lastUpdate": 1781010104742,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "5a6884f0ae6526884aff0b17024a3786b44fe399",
-          "message": "fix(extract): credit structural class member calls\n\nTrack local typed function calls that receive concrete class instances and credit only the class members read through the matching typed parameter. The extractor keeps this scoped to local callees, exact argument positions, direct constructor arguments, and constructor-bound identifiers.\n\nRespect block-scoped shadows of the typed parameter name so unrelated local objects do not credit the concrete class argument. The change adds extractor and core regressions, updates detection notes, bumps the extraction cache for the new member-access semantics, and aligns the CODEOWNERS smoke test with the current scoped owner file.\n\nFixes #910.",
-          "timestamp": "2026-06-03T11:25:35+02:00",
-          "tree_id": "58212b3a8868620e346dafbf2e92f33f4072b0fb",
-          "url": "https://github.com/fallow-rs/fallow/commit/5a6884f0ae6526884aff0b17024a3786b44fe399"
-        },
-        "date": 1780478896418,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7317980,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33419,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 713276,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6639,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6691,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "86401d73c8451a47b76250779e34f6b82f3de78f",
+          "message": "feat(security): recognize declarative validation controls\n\nFixes #1094.",
+          "timestamp": "2026-06-09T14:59:10+02:00",
+          "tree_id": "8de7afdfc3992f82ea5dc2282ee735a1c965280c",
+          "url": "https://github.com/fallow-rs/fallow/commit/86401d73c8451a47b76250779e34f6b82f3de78f"
+        },
+        "date": 1781010101669,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7442165,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34639,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 741420,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6687,
             "unit": "allocations"
           }
         ]
