@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781006828708,
+  "lastUpdate": 1781007980272,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b6c7d13492232cca3c8b3cb6703b5e1f936aef93",
-          "message": "feat(vscode): surface health and complexity in the editor (#902)\n\nCloses #902",
-          "timestamp": "2026-06-04T18:02:33+02:00",
-          "tree_id": "42ec977a94fac29dee79658861396c1376ded901",
-          "url": "https://github.com/fallow-rs/fallow/commit/b6c7d13492232cca3c8b3cb6703b5e1f936aef93"
-        },
-        "date": 1780589132144,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/cd4f982b7ee8249dc6e2207d206142069b74987c"
         },
         "date": 1781006826378,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6996b9675e53accd9048c0e0769daea6b4d7999d",
+          "message": "fix(security): emit SARIF code flows and CWE metadata\n\nFixes #1097.",
+          "timestamp": "2026-06-09T14:23:21+02:00",
+          "tree_id": "fa5b26ae1b6b67576123e50322bc9e1f6475f4d0",
+          "url": "https://github.com/fallow-rs/fallow/commit/6996b9675e53accd9048c0e0769daea6b4d7999d"
+        },
+        "date": 1781007978280,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
