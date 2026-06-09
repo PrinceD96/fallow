@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781029374055,
+  "lastUpdate": 1781035230006,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "dfecf5f20c9971519820c658f6c9b935187f8e98",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.88.1",
-          "timestamp": "2026-06-03T18:45:42+02:00",
-          "tree_id": "15e23789422a41b3a03ba44ec7d8de4f2cdbb154",
-          "url": "https://github.com/fallow-rs/fallow/commit/dfecf5f20c9971519820c658f6c9b935187f8e98"
-        },
-        "date": 1780505296405,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7335119,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33504,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 729340,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6692,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6673,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a97fb2d4635557aa5896d086fa3822698edce25d",
+          "message": "docs: correct npm README knip speed multipliers to match benchmarks",
+          "timestamp": "2026-06-09T21:57:34+02:00",
+          "tree_id": "e0f31cb68e00d79e7f37e0c889c61876352a9986",
+          "url": "https://github.com/fallow-rs/fallow/commit/a97fb2d4635557aa5896d086fa3822698edce25d"
+        },
+        "date": 1781035226793,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7432381,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34639,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 740041,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6637,
             "unit": "allocations"
           }
         ]
