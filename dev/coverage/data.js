@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781003158395,
+  "lastUpdate": 1781005008660,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "88f048b7af1acc3200cd32b7f3ef2b1adc27e0ab",
-          "message": "fix(vscode): honor explicit duplication overrides\n\nRead VS Code duplication settings as explicit overrides instead of effective package defaults, so project config remains the source of truth unless the user configured a setting.\n\nSidebar analysis now forwards only configured duplication CLI flags. LSP initialization sends the same optional override payload and applies explicit boolean values after project config. The client restart path also waits through startup so config restarts do not race stale clients.",
-          "timestamp": "2026-06-04T12:57:14+02:00",
-          "tree_id": "ef5a596290ed50c15cdba45db7db027bd36ae973",
-          "url": "https://github.com/fallow-rs/fallow/commit/88f048b7af1acc3200cd32b7f3ef2b1adc27e0ab"
-        },
-        "date": 1780570953348,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b69e2ead08540bdf26e99716e355b8db3d6b30b8"
         },
         "date": 1781003155759,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "adeb88f58a8bfe3b2efbaac65be5d27cdf06f2f2",
+          "message": "docs(telemetry): clarify scale bucket privacy wording\n\nClarify the changelog entry for the new telemetry scale buckets. The previous wording said structural metrics were kept out of the payload, which was too broad because avg_fan_out_bucket is intentionally a coarse graph-counter bucket.\n\nThe updated text keeps the same privacy contract while distinguishing exact dependency graph shape and expensive structural metrics from the shipped allowlisted bucket.",
+          "timestamp": "2026-06-09T13:33:42+02:00",
+          "tree_id": "5918370b9d8872a7f5b759ac590a736bf8e3b828",
+          "url": "https://github.com/fallow-rs/fallow/commit/adeb88f58a8bfe3b2efbaac65be5d27cdf06f2f2"
+        },
+        "date": 1781005006400,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
