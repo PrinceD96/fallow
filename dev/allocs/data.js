@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781000825548,
+  "lastUpdate": 1781001036604,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "92fbd74399bc6138a771c51a9dde7c8dbd83ae95",
-          "message": "fix(unused-class-members): credit Ionic lifecycle hooks\n\nIonic Angular invokes page lifecycle methods by name through its router outlet, with the TypeScript interfaces acting as optional compile-time structure rather than the runtime dispatch boundary. Treat the documented Ionic page hooks as framework-used whenever the Ionic Angular plugin is active.\n\nAdd a built-in Ionic plugin that activates on @ionic/angular, keeps ionic.config.json reachable, and credits common Ionic tooling dependencies. The regression fixture keeps the real lifecycle names quiet while preserving a same-prefix typo as an unused class member.\n\nFixes #868.",
-          "timestamp": "2026-06-02T21:46:24+02:00",
-          "tree_id": "0e0ad03b4b8e40a540f04161c387088fa5fa503b",
-          "url": "https://github.com/fallow-rs/fallow/commit/92fbd74399bc6138a771c51a9dde7c8dbd83ae95"
-        },
-        "date": 1780429798531,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7256875,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 32003,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 720920,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6683,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6774,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "aceeecd930028947fd21302a3fa83b59cfb671c0",
+          "message": "feat(telemetry): add outcome buckets\n\nRecord coarse result-count buckets and review/report truncation fields in workflow telemetry without exposing exact counts, paths, rule ids, finding names, or snippets.\n\nWire the bucket helpers from final command results, preserve the existing findings_present and failure_reason contracts, and document the inspect-mode payload.\n\nFixes #1080.",
+          "timestamp": "2026-06-09T12:27:46+02:00",
+          "tree_id": "80875a5447f76a36f50e2783c77413048eea30a5",
+          "url": "https://github.com/fallow-rs/fallow/commit/aceeecd930028947fd21302a3fa83b59cfb671c0"
+        },
+        "date": 1781001033928,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7420634,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34427,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 741556,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6689,
             "unit": "allocations"
           }
         ]
