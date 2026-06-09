@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780999325544,
+  "lastUpdate": 1780999859094,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d9d22a3d447bf9581594d0cced31796cd294d9e2",
-          "message": "chore: release v2.87.0",
-          "timestamp": "2026-06-03T08:39:52+02:00",
-          "tree_id": "815db7248a43c7e4143447b82a5460727d8b5229",
-          "url": "https://github.com/fallow-rs/fallow/commit/d9d22a3d447bf9581594d0cced31796cd294d9e2"
-        },
-        "date": 1780469174443,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 61541,
-            "range": "± 1252",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3709467,
-            "range": "± 147455",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 5988648,
-            "range": "± 172033",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 31117158,
-            "range": "± 468031",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 121365,
-            "range": "± 429",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2359,
-            "range": "± 26",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 185713,
-            "range": "± 7115",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 824137,
-            "range": "± 8910",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1322499,
-            "range": "± 22014",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 533685,
-            "range": "± 46298",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3292136,
-            "range": "± 28814",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 3350696,
-            "range": "± 37241",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2228663,
-            "range": "± 11866",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2238963,
             "range": "± 46297",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "705379c845d566deb9e557809aa8f74c30b99ac5",
+          "message": "feat(telemetry): add failure reason\n\nRecord a coarse allowlisted failure_reason on failed workflow telemetry events. Known post-parse validation, diff setup, and unsupported-format failures are tagged at explicit failure boundaries, while unclassified failures stay unknown instead of parsing error text.\n\nSuccessful workflow events continue to omit the field. The inspect-mode tests, telemetry docs, and packaged skill reference cover the new allowlist and omission behavior.\n\nFixes #1063.",
+          "timestamp": "2026-06-09T12:05:20+02:00",
+          "tree_id": "a5a257027c1195ead5daadcb6139f63ffff570e0",
+          "url": "https://github.com/fallow-rs/fallow/commit/705379c845d566deb9e557809aa8f74c30b99ac5"
+        },
+        "date": 1780999857032,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 77437,
+            "range": "± 1168",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3861710,
+            "range": "± 187015",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 6097796,
+            "range": "± 187743",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 31306121,
+            "range": "± 1085157",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 116973,
+            "range": "± 597",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2380,
+            "range": "± 5",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 184810,
+            "range": "± 5842",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 819864,
+            "range": "± 5655",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1320978,
+            "range": "± 15834",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 531662,
+            "range": "± 17558",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3342526,
+            "range": "± 58505",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3337507,
+            "range": "± 69268",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2229813,
+            "range": "± 18876",
             "unit": "ns/iter"
           }
         ]
