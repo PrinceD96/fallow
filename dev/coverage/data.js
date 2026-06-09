@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781030157869,
+  "lastUpdate": 1781033811414,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7b73603e9f6d4e9fa3192aa074d78f840bd1da7f",
-          "message": "fix(vscode): address runtime coverage follow-ups\n\n* fix(vscode): address review follow-ups for #907\n\n- Surface coverage gate errors: execFallow now rejects with a\n  FallowExecError carrying exitCode + stdout, so the runtime-coverage\n  path recovers the structured {error,message,exit_code} JSON envelope\n  instead of a bare 'exited with code N'. Exit 3 (license) and exit 4/5\n  (sidecar) are special-cased with concrete next steps (fallow license\n  activate / fallow coverage setup).\n- Disclose the sidecar/license prerequisite in the Runtime Coverage\n  welcome state and the fallow.coverage.capturePath setting description.\n- Surface the license grace/trial watermark as a one-time warning on\n  load so 'Safe to Delete' candidates produced under a stale license are\n  not treated as authoritative.\n- Pin COVERAGE_ANALYZE_MIN_VERSION to 2.57.0 (when local coverage\n  analyze --format json shipped); 2.77.0 needlessly rejected valid CLIs.\n- Humanize the snake_case confidence enum in leaf tooltips.\n- Document the Runtime Coverage view, commands, and settings in the\n  extension README.\n- Extend coverage-utils and package-manifest unit tests.\n\n* fix(vscode): clear #907 follow-up CI gates\n\n* chore(vscode): apply JS formatter",
-          "timestamp": "2026-06-04T21:03:16+02:00",
-          "tree_id": "9afaa576fe25f275f3f976e71d0cf0ba0b5db52f",
-          "url": "https://github.com/fallow-rs/fallow/commit/7b73603e9f6d4e9fa3192aa074d78f840bd1da7f"
-        },
-        "date": 1780599980935,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0ccedb4c3076ea3e0303135bc43f2af4e9b01d12"
         },
         "date": 1781030155846,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9e888ff282ac362059db6b90ce09ff63812a3b9a",
+          "message": "docs: correct plugin count to 121 across README, npm package, and rules",
+          "timestamp": "2026-06-09T21:33:45+02:00",
+          "tree_id": "0217df60a40df8394059839e1414a6c2087d768b",
+          "url": "https://github.com/fallow-rs/fallow/commit/9e888ff282ac362059db6b90ce09ff63812a3b9a"
+        },
+        "date": 1781033809329,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
