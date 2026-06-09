@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781015572064,
+  "lastUpdate": 1781018509266,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f1e80bb57e1b71aed26e46a56f7472b923fa05b2",
-          "message": "fix(vscode): review follow-ups for #902 (health-complexity)\n\n* fix(vscode): address review follow-ups for #902 health view\n\n- Stop re-spawning fallow health and repeating toasts on every Health-view\n  re-reveal: triggerHealthAnalysis now returns whether the run COMPLETED\n  (not whether it has data), mirroring Security's unconditional-true\n  contract, so a null report from a non-retryable outcome (no workspace,\n  empty output, older CLI) latches instead of resetting the latch.\n- Gate the \"no workspace folder open\" warning to once per session.\n- Add an older-CLI degradation path to runHealthAnalysis, mirroring\n  runSecurityAnalysis: warn once to update the CLI rather than surfacing a\n  raw clap stderr blob.\n- Escape user-controlled strings before interpolating them into trusted\n  Health MarkdownString tooltips.\n- Align the score-tooltip header precision with the tree row.\n- Clarify the status-bar health segment label.\n- Guard penalty-label drift against the generated HealthScorePenalties\n  wire contract.\n\nAdds unit coverage for the no-workspace once-gate, the older-CLI guard, the\nmarkdown escape, and the penalty key-parity drift test.\n\n* docs(vscode): document the Health view, command, and settings in the README\n\nThe Health view, the `Fallow: Reload Health` command, the optional status-bar\nhealth segment, and the four `fallow.health.*` settings were undocumented in\nthe extension README. Add a Features bullet, a Commands-table row, and the\nsettings-table rows so the in-repo docs cover the shipped #902 surface.",
-          "timestamp": "2026-06-04T19:26:27+02:00",
-          "tree_id": "81857315a498ecf4102904c7b4e24d0d6782b2db",
-          "url": "https://github.com/fallow-rs/fallow/commit/f1e80bb57e1b71aed26e46a56f7472b923fa05b2"
-        },
-        "date": 1780594138668,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/32499248e30eebfc284ebfc71e99c8ecd0fcd84c"
         },
         "date": 1781015569584,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "340a1d11c5a82864bc58a610f6a17e834737340a",
+          "message": "fix: align security candidate severity contract",
+          "timestamp": "2026-06-09T17:17:45+02:00",
+          "tree_id": "c57698d52272a66ee3d8d6654c464866f74be90e",
+          "url": "https://github.com/fallow-rs/fallow/commit/340a1d11c5a82864bc58a610f6a17e834737340a"
+        },
+        "date": 1781018506275,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
