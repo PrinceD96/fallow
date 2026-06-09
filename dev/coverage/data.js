@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780998298799,
+  "lastUpdate": 1780999209583,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7d70933eff835bf06247e0bb6735aa0ff6ac8220",
-          "message": "fix(release): verify packed tarballs are complete and signed (#946)\n\nA published @fallow-cli/<platform> npm package could ship without its fallow.sig siblings: npm silently drops a files whitelist entry with no matching file on disk, and the npm-prep pack step only checked that a tarball was produced, not that its contents satisfied the declared contract. The GitHub Action installer then hard-failed every install resolving to such a package with sig-missing (the 2.76.0 tarballs that predate signed binaries are the live trigger).\n\nA release-time gate (verify-pack-contents.mjs, run in the token-free npm-prep job before upload) now asserts each packed tarball contains every file its own package.json declares, and independently requires every binary in a CLI platform package to have a .sig sibling so a future regression that drops sigs from both files and disk cannot pass self-consistently.\n\nBinary verification is version-aware: signed binaries ship from 2.77.0, so the verifier distinguishes a pre-signing resolved CLI (bump the fallow dependency in package.json) from a 2.77.0+ package whose signature is unexpectedly absent (possible tampering, reinstall). The bypass env is no longer surfaced inline. The Action installer also names which version knob to turn on failure, and fallow --version reports the resolved version's signing status. SECURITY.md documents the 2.77.0 epoch. Verification still fails closed.\n\nFixes #944.",
-          "timestamp": "2026-06-04T10:37:39+02:00",
-          "tree_id": "ec457da96ab7fb46c34de5ec7946289efdf3a066",
-          "url": "https://github.com/fallow-rs/fallow/commit/7d70933eff835bf06247e0bb6735aa0ff6ac8220"
-        },
-        "date": 1780562449691,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4ed32a0de76079a62b8102696b8b4c7b4a0b2819",
+          "message": "feat(telemetry): split admin workflow buckets\n\nTelemetry now labels project inventory, setup, and license command families with coarse workflow values instead of collapsing them into unknown. Watch remains grouped with code quality review because it continuously reruns analysis.\n\nThe regression tests cover routing, inspect-mode payloads, and the absence of findings_present for non-analysis commands. The telemetry docs and changelog describe the allowlisted buckets and privacy boundary.\n\nFixes #1061.",
+          "timestamp": "2026-06-09T11:55:30+02:00",
+          "tree_id": "37b923db945eb8d35ccbe877c5f8f342d4904085",
+          "url": "https://github.com/fallow-rs/fallow/commit/4ed32a0de76079a62b8102696b8b4c7b4a0b2819"
+        },
+        "date": 1780999207556,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
             "unit": "%"
           }
         ]
