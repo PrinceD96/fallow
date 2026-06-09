@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781001036604,
+  "lastUpdate": 1781001796970,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "011ab0d125ddc254e3c76ecaac775e21912e1124",
-          "message": "fix(sass): resolve package entrypoint imports\n\nSass package roots can resolve through package export conditions such as `sass` and `style`, but fallow only applied the style resolver to package subpaths that already looked like stylesheet files. This left Angular Material theming imports reported as unresolved and cascaded into unused dependency findings.\n\nThis wires the Sass condition into the style resolver, preserves resolved package stylesheets as external style files, and lets the external style scanner follow package-local relative Sass imports with partial and index lookup. Synthetic package credits are limited to packages declared by the importing root or workspace, so dependency internals do not create new unlisted dependency findings.\n\nFixes #871.",
-          "timestamp": "2026-06-02T22:40:27+02:00",
-          "tree_id": "87709ce8bb0467c3c2a1047338d6e4fb13900076",
-          "url": "https://github.com/fallow-rs/fallow/commit/011ab0d125ddc254e3c76ecaac775e21912e1124"
-        },
-        "date": 1780432983808,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7234188,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 32024,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 723108,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6691,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6689,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "57b444fab427b1b8ed98377e85ddf24c7a4c0c14",
+          "message": "feat(telemetry): expose safe follow-up dimensions\n\nCloses #1078.\n\nAdds privacy-safe parent-run follow-up dimensions to telemetry events, keeps raw parent-run tokens out of event properties, and uses sanitized correlation only as private upload metadata.",
+          "timestamp": "2026-06-09T12:40:24+02:00",
+          "tree_id": "e0a90a49ed6066aadc6c6713da12fe2b5c2edf7d",
+          "url": "https://github.com/fallow-rs/fallow/commit/57b444fab427b1b8ed98377e85ddf24c7a4c0c14"
+        },
+        "date": 1781001793862,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7396386,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34373,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 746180,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6694,
             "unit": "allocations"
           }
         ]
