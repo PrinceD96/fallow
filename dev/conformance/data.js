@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780914473122,
+  "lastUpdate": 1780997672249,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -2971,6 +2971,88 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b6abad014ce375ed88a80cb57b0479dea588fa41"
         },
         "date": 1780914470780,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 1.9,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 593,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30363,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2028,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 6.1,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.7,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.2,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 6.9,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 24.3,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 2.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "b5868dd2d6ef5cd8f3c7f025bcc125f203e303d4",
+          "message": "fix(vscode): open dynamic route paths\n\nRoute VS Code sidebar tree opens through an internal `fallow.openFile` command so bracketed filesystem paths remain decoded until the extension host calls `Uri.file(...)`.\n\nApply the same open-path handling across unused-code, duplicates, health, security, and coverage tree items, with unit coverage for decoded Next.js dynamic route paths and the command handler.\n\nFixes #1071.",
+          "timestamp": "2026-06-09T09:04:17Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/b5868dd2d6ef5cd8f3c7f025bcc125f203e303d4"
+        },
+        "date": 1780997670323,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
