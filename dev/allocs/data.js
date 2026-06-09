@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781010571302,
+  "lastUpdate": 1781011515824,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "5a7ea079cf47bdc2dd22426693ce151c3e2190cf",
-          "message": "feat(cli): accept -v as a version flag alias\n\nMake -v, -V, and --version all print the version. Previously clap's\ndefault exposed only -V/--version. Lowercase -v is the version flag in\nthe TS/JS toolchain fallow's users run (node, npm, pnpm, yarn, bun, tsc,\neslint, prettier), so it becomes the primary short form; -V is kept for\nback-compat (matching knip, oxlint, biome).\n\nDisables clap's auto version flag and adds a custom version arg with\nshort = 'v', visible_short_alias = 'V', and long = version, keeping the\ncrate version string set so ArgAction::Version has a value to print.\n\nFixes #916.",
-          "timestamp": "2026-06-03T14:14:58+02:00",
-          "tree_id": "a6379be25bc14a82ca7b6b091761903b8cd2ba92",
-          "url": "https://github.com/fallow-rs/fallow/commit/5a7ea079cf47bdc2dd22426693ce151c3e2190cf"
-        },
-        "date": 1780489042597,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7326095,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33513,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 675128,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6190,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6719,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a3eb38a2d942345236c4deba2f9488c3cf2dcbe9",
+          "message": "fix(core): release graph-only parse payloads\n\nRelease extraction vectors that resolution and graph construction have already consumed, while keeping the module data needed by analysis, health, security, LSP, coverage, and fix drift checks.\n\nAdd focused unit coverage for the ModuleInfo compaction boundary and an integration regression that proves retained modules are compacted after analysis without losing line offsets or complexity data.\n\nFixes #1104.",
+          "timestamp": "2026-06-09T15:10:55+02:00",
+          "tree_id": "971c5f1f7f27428a9b056bad3472be2fa4fc89e6",
+          "url": "https://github.com/fallow-rs/fallow/commit/a3eb38a2d942345236c4deba2f9488c3cf2dcbe9"
+        },
+        "date": 1781011513222,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7433325,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34607,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 741865,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6637,
             "unit": "allocations"
           }
         ]
