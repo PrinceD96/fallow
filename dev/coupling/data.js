@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780998400583,
+  "lastUpdate": 1780999028878,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "92fbd74399bc6138a771c51a9dde7c8dbd83ae95",
-          "message": "fix(unused-class-members): credit Ionic lifecycle hooks\n\nIonic Angular invokes page lifecycle methods by name through its router outlet, with the TypeScript interfaces acting as optional compile-time structure rather than the runtime dispatch boundary. Treat the documented Ionic page hooks as framework-used whenever the Ionic Angular plugin is active.\n\nAdd a built-in Ionic plugin that activates on @ionic/angular, keeps ionic.config.json reachable, and credits common Ionic tooling dependencies. The regression fixture keeps the real lifecycle names quiet while preserving a same-prefix typo as an unused class member.\n\nFixes #868.",
-          "timestamp": "2026-06-02T21:46:24+02:00",
-          "tree_id": "0e0ad03b4b8e40a540f04161c387088fa5fa503b",
-          "url": "https://github.com/fallow-rs/fallow/commit/92fbd74399bc6138a771c51a9dde7c8dbd83ae95"
-        },
-        "date": 1780429720413,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 21,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 19,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.3,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 335,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 791,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3d2577419d553a28adceb0b3a045c76e43182272"
         },
         "date": 1780998397605,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 25,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 21,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.29,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 349,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 838,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4ed32a0de76079a62b8102696b8b4c7b4a0b2819",
+          "message": "feat(telemetry): split admin workflow buckets\n\nTelemetry now labels project inventory, setup, and license command families with coarse workflow values instead of collapsing them into unknown. Watch remains grouped with code quality review because it continuously reruns analysis.\n\nThe regression tests cover routing, inspect-mode payloads, and the absence of findings_present for non-analysis commands. The telemetry docs and changelog describe the allowlisted buckets and privacy boundary.\n\nFixes #1061.",
+          "timestamp": "2026-06-09T11:55:30+02:00",
+          "tree_id": "37b923db945eb8d35ccbe877c5f8f342d4904085",
+          "url": "https://github.com/fallow-rs/fallow/commit/4ed32a0de76079a62b8102696b8b4c7b4a0b2819"
+        },
+        "date": 1780999026896,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
