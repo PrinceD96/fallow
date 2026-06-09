@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781041420106,
+  "lastUpdate": 1781042589987,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ee45f691c689e0e14f5ed4eb7d4c5372506e5ef4",
-          "message": "docs(changelog): record security catalogue batch additions\n\nAdd an Unreleased entry covering the catalogue-only tainted-sink rows\nlanded for #882 and #897 (dynamic-module-load, header-injection,\nmass-assignment, path-traversal, deprecated-cipher, insecure-randomness,\ntemplate-escape-bypass, xpath-injection, unsafe-buffer-alloc,\nwebview-injection, and the extended SSRF / raw-SQL rows), so the next\nrelease notes reflect them. Surfaced only under `fallow security`.",
-          "timestamp": "2026-06-05T00:03:14+02:00",
-          "tree_id": "0b72dcb674be9115c5d23c42b57944c37bc764fe",
-          "url": "https://github.com/fallow-rs/fallow/commit/ee45f691c689e0e14f5ed4eb7d4c5372506e5ef4"
-        },
-        "date": 1780610767988,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/208434a8ced4bbc3162153202858fcf956f5faf7"
         },
         "date": 1781041418129,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "643080188c563ea9294448624d951f1d6b49603f",
+          "message": "fix: emit telemetry run ids in json output",
+          "timestamp": "2026-06-09T23:59:31+02:00",
+          "tree_id": "a88baa8c6952b6384840dc7f107a398477ecd81d",
+          "url": "https://github.com/fallow-rs/fallow/commit/643080188c563ea9294448624d951f1d6b49603f"
+        },
+        "date": 1781042587966,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
