@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781041342474,
+  "lastUpdate": 1781042626186,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a9763c24cf7ddbf973bf71e0edb6fe08e70c5a4d",
-          "message": "feat(vscode): expose duplication settings\n\nExpose the remaining duplication settings in VS Code and pass them through the sidebar combined analysis run.\n\nAdd matching combined-mode duplication flags in the CLI so the extension can apply those settings without creating a temporary config file. Keep stale resolved CLIs on the existing version-gated degradation path.\n\nFixes #909.",
-          "timestamp": "2026-06-04T11:24:25+02:00",
-          "tree_id": "1434758cb1bb4758f24aab67aec052a9a492bf4f",
-          "url": "https://github.com/fallow-rs/fallow/commit/a9763c24cf7ddbf973bf71e0edb6fe08e70c5a4d"
-        },
-        "date": 1780565242718,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7338981,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33529,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 725548,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6692,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6639,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "643080188c563ea9294448624d951f1d6b49603f",
+          "message": "fix: emit telemetry run ids in json output",
+          "timestamp": "2026-06-09T23:59:31+02:00",
+          "tree_id": "a88baa8c6952b6384840dc7f107a398477ecd81d",
+          "url": "https://github.com/fallow-rs/fallow/commit/643080188c563ea9294448624d951f1d6b49603f"
+        },
+        "date": 1781042623464,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7424165,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34602,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 693665,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6132,
             "unit": "allocations"
           }
         ]
