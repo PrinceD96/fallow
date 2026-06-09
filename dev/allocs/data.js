@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781002748163,
+  "lastUpdate": 1781003160279,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d9d22a3d447bf9581594d0cced31796cd294d9e2",
-          "message": "chore: release v2.87.0",
-          "timestamp": "2026-06-03T08:39:52+02:00",
-          "tree_id": "815db7248a43c7e4143447b82a5460727d8b5229",
-          "url": "https://github.com/fallow-rs/fallow/commit/d9d22a3d447bf9581594d0cced31796cd294d9e2"
-        },
-        "date": 1780469014069,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7333366,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33528,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 720452,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6688,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6188,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b69e2ead08540bdf26e99716e355b8db3d6b30b8",
+          "message": "feat(telemetry): add scale buckets\n\nOpt-in telemetry now records coarse file-count, function-count, and average fan-out buckets for eligible analysis workflows.\n\nThe values are derived only from counts and graph counters that the workflow already computed, so exact counts, paths, dependency names, graph diameter, depth, and coupling metrics stay out of the payload.\n\nFixes #1064.",
+          "timestamp": "2026-06-09T13:02:12+02:00",
+          "tree_id": "d78ebcea9f0ffda82428112510cc6a229a05e343",
+          "url": "https://github.com/fallow-rs/fallow/commit/b69e2ead08540bdf26e99716e355b8db3d6b30b8"
+        },
+        "date": 1781003156994,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7363426,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34378,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 694108,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6191,
             "unit": "allocations"
           }
         ]
