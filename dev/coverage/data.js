@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781001986440,
+  "lastUpdate": 1781002237505,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e0c6e2171bba529b632a2e7f54e52513a951a796",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.88.3",
-          "timestamp": "2026-06-04T11:46:20+02:00",
-          "tree_id": "5c5fc2e17ff7c88bd7f62cdb5c51e2c5257ed554",
-          "url": "https://github.com/fallow-rs/fallow/commit/e0c6e2171bba529b632a2e7f54e52513a951a796"
-        },
-        "date": 1780566568003,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/57b444fab427b1b8ed98377e85ddf24c7a4c0c14"
         },
         "date": 1781001984207,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e10ddd5b4a0df3e4acdcadae99d3457450669b30",
+          "message": "feat(telemetry): add cache context to code quality review\n\nAdd a privacy-safe cache_state dimension for combined code_quality_review telemetry events. Values are allowlisted to cold, warm, partial, or unknown, and raw cache paths, directories, counts, timings, and repository identifiers stay out of the payload.\n\nPreserve the existing telemetry dimensions from current main, including admin workflow buckets, failure reason, outcome buckets, result count and truncation fields, spooled delivery, and safe follow-up dimensions.\n\nFixes #1062.",
+          "timestamp": "2026-06-09T12:47:19+02:00",
+          "tree_id": "910a85f6e77f27f144158d94ea187114e5b64869",
+          "url": "https://github.com/fallow-rs/fallow/commit/e10ddd5b4a0df3e4acdcadae99d3457450669b30"
+        },
+        "date": 1781002235596,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
