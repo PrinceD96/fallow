@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781039657364,
+  "lastUpdate": 1781040825227,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d1521c271ae0eb77482c7b211ec07532742b616b",
-          "message": "test(core): cover Vite array aliases\n\nThe issue report used Vite's resolve.alias array form with an @ shortcut that maps to src via path.resolve. Existing resolver support handled this shape, but there was no fixture matching the reported config, so future resolver changes could regress it silently.\n\nAdd a dedicated Vite fixture with array aliases and an integration assertion that @/auth.js is resolved, src/auth.js is not treated as unused, and unused exports inside the reachable module still report normally.\n\nRefs #915.",
-          "timestamp": "2026-06-04T07:14:07+02:00",
-          "tree_id": "a44361b5ce5c700a35521112460f9371aee1f199",
-          "url": "https://github.com/fallow-rs/fallow/commit/d1521c271ae0eb77482c7b211ec07532742b616b"
-        },
-        "date": 1780550379993,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7307021,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33487,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 677620,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6191,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6641,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "54ffd5d7adc99fa0d4f02e8710e9b3ce2a4d9c49",
+          "message": "feat(security): gate newly reachable candidates\n\nAdd a newly-reachable mode for the security gate so CI and agents can catch existing sink candidates that become reachable from entry points. The mode compares the head tree with a materialized base tree from --changed-since and keeps the existing changed-line gate behavior unchanged.\n\nShare the base worktree helper with audit, wire the gate through CLI JSON and human output, and expose the parameter through the MCP security_candidates tool. Regenerate the published schema and TypeScript contracts.\n\nFixes #1056.",
+          "timestamp": "2026-06-09T23:30:48+02:00",
+          "tree_id": "9abd249d9c17118cea9123d2a6e905bd7fdc05cf",
+          "url": "https://github.com/fallow-rs/fallow/commit/54ffd5d7adc99fa0d4f02e8710e9b3ce2a4d9c49"
+        },
+        "date": 1781040822256,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7447997,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34645,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 739913,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6636,
             "unit": "allocations"
           }
         ]
