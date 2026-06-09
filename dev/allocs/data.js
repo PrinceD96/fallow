@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781003160279,
+  "lastUpdate": 1781006840975,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "423f294107bf5e29eb8e30e8740ede36cf66ce29",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.87.0",
-          "timestamp": "2026-06-03T09:15:48+02:00",
-          "tree_id": "b63977ad16375415cb575923f4d794efc98ce773",
-          "url": "https://github.com/fallow-rs/fallow/commit/423f294107bf5e29eb8e30e8740ede36cf66ce29"
-        },
-        "date": 1780471094061,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7291870,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33462,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 727268,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6694,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6191,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cd4f982b7ee8249dc6e2207d206142069b74987c",
+          "message": "feat(security): propagate taint through local bindings\n\nRecord source-backed local bindings when template literals, string concatenation, or object literals embed recognized untrusted source member paths. This keeps fallow security in the existing advisory candidate model while improving rank and evidence for common injection shapes.\n\nThe extractor keeps propagation one-hop and same-module, bumps the extraction cache version, and adds focused visitor plus integration coverage for the new binding forms.\n\nFixes #1095.",
+          "timestamp": "2026-06-09T14:03:34+02:00",
+          "tree_id": "c59e3a586828feb13337fc683e91d8d5511c42bb",
+          "url": "https://github.com/fallow-rs/fallow/commit/cd4f982b7ee8249dc6e2207d206142069b74987c"
+        },
+        "date": 1781006837935,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7465898,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34439,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 739832,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6683,
             "unit": "allocations"
           }
         ]
