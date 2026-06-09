@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781018509266,
+  "lastUpdate": 1781019763277,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "08c11441fe165b62dd27696c4d05bcc22ed4c7f0",
-          "message": "fix(cli): reclaim audit base-snapshot worktrees orphaned by external dir removal\n\nWhen an external cleanup process (a `$TMPDIR` reaper, a container restart, a CI cache eviction) removes a reusable base-snapshot worktree directory but leaves git's admin entry behind, the entry lingered indefinitely as a `prunable` row in `git worktree list`. The age-based sweep keyed only on the `.last-used` sidecar, which survives next to the deleted directory, so it re-touched a fresh sidecar and never reclaimed these orphans.\n\n`sweep_old_reusable_caches` now takes `Option<Duration>` and runs on every audit invocation. It reclaims any reusable entry whose directory is gone before the age branch: lock-guarded, re-checked under the lock against a concurrent rebuild, removing the git admin entry and the stale sidecar. The reclaim runs even when age-based GC is disabled, so dead admin entries no longer accumulate. Adds two regression tests covering enabled and disabled GC thresholds.",
-          "timestamp": "2026-06-04T19:31:16+02:00",
-          "tree_id": "dd1a2244fdad94a53a96fea1f9de12f06e4e3176",
-          "url": "https://github.com/fallow-rs/fallow/commit/08c11441fe165b62dd27696c4d05bcc22ed4c7f0"
-        },
-        "date": 1780594520779,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/340a1d11c5a82864bc58a610f6a17e834737340a"
         },
         "date": 1781018506275,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9fbd0584d0da852012c61730a9b824b17a583ba2",
+          "message": "chore(deps-dev): bump ovsx from 0.10.12 to 1.0.0 in /editors/vscode\n\nBumps [ovsx](https://github.com/eclipse-openvsx/openvsx/tree/HEAD/cli) from 0.10.12 to 1.0.0.\n- [Release notes](https://github.com/eclipse-openvsx/openvsx/releases)\n- [Changelog](https://github.com/eclipse-openvsx/openvsx/blob/main/cli/CHANGELOG.md)\n- [Commits](https://github.com/eclipse-openvsx/openvsx/commits/v1.0.0/cli)\n\n---\nupdated-dependencies:\n- dependency-name: ovsx\n  dependency-version: 1.0.0\n  dependency-type: direct:development\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nCo-authored-by: Bart Waardenburg <bart@waardenburg.dev>",
+          "timestamp": "2026-06-09T15:39:33Z",
+          "tree_id": "76a78a12bc1e6ddae4bc38d4067fc4d6c5abe03f",
+          "url": "https://github.com/fallow-rs/fallow/commit/9fbd0584d0da852012c61730a9b824b17a583ba2"
+        },
+        "date": 1781019761266,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
