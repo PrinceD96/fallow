@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780992862349,
+  "lastUpdate": 1780996036036,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "56b0a0da804d1b6824d54c0a6ffbe1b7e592ce27",
-          "message": "fix(npm): treat -v as a version query in the launcher shim\n\nThe native binaries now answer -v (alongside --version and -V), but the npm\nlauncher's isVersionQuery only matched --version and -V, so `fallow -v` through\nthe npm package skipped the appended `verified:` integrity line. Match -v too\nso all three version flags behave identically. Ships with the next release.",
-          "timestamp": "2026-06-04T07:14:33+02:00",
-          "tree_id": "27f15522353eeb8e279e4b7e41fd9ffd4e1ef202",
-          "url": "https://github.com/fallow-rs/fallow/commit/56b0a0da804d1b6824d54c0a6ffbe1b7e592ce27"
-        },
-        "date": 1780550415002,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b6aaa2eefeb3a8148f0164a029cf03eda6f0a1d2"
         },
         "date": 1780992860358,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b5868dd2d6ef5cd8f3c7f025bcc125f203e303d4",
+          "message": "fix(vscode): open dynamic route paths\n\nRoute VS Code sidebar tree opens through an internal `fallow.openFile` command so bracketed filesystem paths remain decoded until the extension host calls `Uri.file(...)`.\n\nApply the same open-path handling across unused-code, duplicates, health, security, and coverage tree items, with unit coverage for decoded Next.js dynamic route paths and the command handler.\n\nFixes #1071.",
+          "timestamp": "2026-06-09T11:04:17+02:00",
+          "tree_id": "98242f4669e249b7a8778bb51df066a9bdb56f8e",
+          "url": "https://github.com/fallow-rs/fallow/commit/b5868dd2d6ef5cd8f3c7f025bcc125f203e303d4"
+        },
+        "date": 1780996033720,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
