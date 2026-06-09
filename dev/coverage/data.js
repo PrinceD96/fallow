@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781047676003,
+  "lastUpdate": 1781049248228,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "beaf8480f6d3b7884cdf8fd262787cb7ec932516",
-          "message": "fix(vscode): format audit status bar imports\n\nFormat the audit status bar import list so the root JS format check passes.",
-          "timestamp": "2026-06-05T12:08:39+02:00",
-          "tree_id": "d12b5fdbceadce58f80f93dffa98f987b8bec70d",
-          "url": "https://github.com/fallow-rs/fallow/commit/beaf8480f6d3b7884cdf8fd262787cb7ec932516"
-        },
-        "date": 1780654299857,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/dd4285e9bdc35772909fdad8095a00e4378b9c6b"
         },
         "date": 1781047673958,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2e00978bd13ace7f98ac1f9d0eb9782ad50c76aa",
+          "message": "fix: emit compact security summary json\n\nTeach security summary JSON to serialize a compact aggregate envelope instead of reusing the full candidate payload. The summary keeps the security discriminator, schema version, and gate state while exposing stable counts by severity, category, unresolved analysis limits, and attack-surface entries.\n\nThe summary path bypasses per-run telemetry metadata so repeated summary JSON is deterministic, and the output schema now documents both security JSON variants.\n\nFixes #1132.",
+          "timestamp": "2026-06-10T01:51:07+02:00",
+          "tree_id": "120795c89c4ce376708d622c31db2f641dfa43e4",
+          "url": "https://github.com/fallow-rs/fallow/commit/2e00978bd13ace7f98ac1f9d0eb9782ad50c76aa"
+        },
+        "date": 1781049245707,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
