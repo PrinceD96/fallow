@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781007869024,
+  "lastUpdate": 1781008852546,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a45deb010be1b521c33ab78f8e3be4106658c183",
-          "message": "fix: credit bare pnpm script binaries\n\nCredit dependency usage for package scripts, workspace scripts, and CI run blocks that invoke a declared package binary through bare `pnpm <binary>`. The parser keeps its syntax-only public path conservative, while the analysis path now receives dependency and script-name context before crediting pnpm implicit execution.\n\nKeep pnpm script delegation and built-in commands out of dependency credit, including local script names that were filtered out of production-mode analysis. This avoids trading the envinfo false positive for new false negatives around `pnpm build`, `pnpm lint`, `pnpm test`, `pnpm start`, `pnpm install`, `pnpm audit`, and `pnpm add`.\n\nFixes #914.",
-          "timestamp": "2026-06-03T12:59:58+02:00",
-          "tree_id": "aa78ad8e40397ea78ab35ac1f18779dcc68133d8",
-          "url": "https://github.com/fallow-rs/fallow/commit/a45deb010be1b521c33ab78f8e3be4106658c183"
-        },
-        "date": 1780484463714,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 21,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 19,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.3,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 336,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 792,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6996b9675e53accd9048c0e0769daea6b4d7999d"
         },
         "date": 1781007866553,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 25,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 21,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.29,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 349,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 839,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "70d5167074917d27e02531e8a669463bb52784c5",
+          "message": "fix(discover): skip oversized files to guard against large-repo OOM (#1107)\n\nRunning `fallow` at a large repository root read and parsed every discovered source file at once, so one multi-megabyte generated, vendored, or bundled file could exhaust all memory and hang before producing output.\n\nFallow now skips source files larger than a per-file limit (default 5 MB) at discovery, never reading, parsing, or analyzing them. Declaration files are exempt. The limit is set via `--max-file-size <MB>` or `FALLOW_MAX_FILE_SIZE` (`0` disables it). Skipped files surface in `workspace_diagnostics[]` (`kind: \"skipped-large-file\"`) and an aggregated stderr warn; a pre-parse note lists the largest files when the set or a single file is unusually large. Default ignores gain `*.bundle.js` and `*.min.cjs`.\n\nThe durable bounded-parse fix (#1104) and the VS Code backoff/memory ceiling (#1105) are tracked separately.\n\nRefs #1086.",
+          "timestamp": "2026-06-09T14:34:59+02:00",
+          "tree_id": "68aa2e0bba334fe16255fdcc9b6e63390532db3f",
+          "url": "https://github.com/fallow-rs/fallow/commit/70d5167074917d27e02531e8a669463bb52784c5"
+        },
+        "date": 1781008849779,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
