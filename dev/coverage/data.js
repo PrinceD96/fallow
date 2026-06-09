@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781019763277,
+  "lastUpdate": 1781027128849,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "5caaed089d100472aae1c317cd9f5ef2ddd4d986",
-          "message": "fix(vscode): review follow-ups for #903 (security-candidates)\n\nSecurity Candidates view review follow-ups:\n\n- Only paint the \"No security candidates found\" all-clear after a\n  genuinely completed scan. runSecurityAnalysis now returns a\n  discriminated SecurityScanResult; a failed/older-CLI scan no longer\n  flips fallow.hasAnalyzedSecurity, so the actionable enable/scan welcome\n  stays in place instead of a false clean bill on a security surface.\n- Add syncSecurityEnabledContext() (mirroring health) and split the\n  welcome into a \"scanning is off, enable it\" state and an\n  \"enabled, run the scan\" state; the dead retry-on-failure latch in\n  onSecurityViewVisible is now genuinely live (transient failures reset\n  it, non-retryable ones hold it).\n- Hide the scan toolbar button while fallow.security.enabled is off\n  instead of nagging to enable on click.\n- Cover the runtime info toast and per-finding tooltip framing strings in\n  the framing-guard test, plus the welcome-split and scan-button gate.\n- Add a CI dist-drift gate (check:dist) that rebuilds the bundle and\n  fails on a stale committed dist, tolerant of cross-environment rolldown\n  minifier jitter so it does not flake.\n- Document the Security Candidates view, command, and setting in the\n  extension README.",
-          "timestamp": "2026-06-04T19:39:15+02:00",
-          "tree_id": "1b20e25b1366ffcb386dcbc0f96fe8201ff764c3",
-          "url": "https://github.com/fallow-rs/fallow/commit/5caaed089d100472aae1c317cd9f5ef2ddd4d986"
-        },
-        "date": 1780594932653,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9fbd0584d0da852012c61730a9b824b17a583ba2"
         },
         "date": 1781019761266,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "6e87e12ff54a666badd1650aa191ededaad73237",
+          "message": "chore: release v2.91.0",
+          "timestamp": "2026-06-09T19:41:02+02:00",
+          "tree_id": "1fee3017d90914a5f4c943759438d5c04de082bb",
+          "url": "https://github.com/fallow-rs/fallow/commit/6e87e12ff54a666badd1650aa191ededaad73237"
+        },
+        "date": 1781027123458,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
