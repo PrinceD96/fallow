@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781047543121,
+  "lastUpdate": 1781049221958,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "219211dbfd1021a75f88d95fbc2b359569e3596b",
-          "message": "test(conformance): harden source fallback coverage\n\nAdd explicit positive and negative coverage for package source path handling so relative package source entries stay accepted while unsafe paths remain rejected.\n\nUpdate the conformance comparison script to tolerate BOM-prefixed JSON, normalize relative and absolute path shapes, and report real tool execution errors separately from JSON parse failures.",
-          "timestamp": "2026-06-04T12:13:18+02:00",
-          "tree_id": "aceebf2a049587839b01f91433ddfb00582b3074",
-          "url": "https://github.com/fallow-rs/fallow/commit/219211dbfd1021a75f88d95fbc2b359569e3596b"
-        },
-        "date": 1780568206137,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7313277,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33496,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 725548,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6692,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6639,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2e00978bd13ace7f98ac1f9d0eb9782ad50c76aa",
+          "message": "fix: emit compact security summary json\n\nTeach security summary JSON to serialize a compact aggregate envelope instead of reusing the full candidate payload. The summary keeps the security discriminator, schema version, and gate state while exposing stable counts by severity, category, unresolved analysis limits, and attack-surface entries.\n\nThe summary path bypasses per-run telemetry metadata so repeated summary JSON is deterministic, and the output schema now documents both security JSON variants.\n\nFixes #1132.",
+          "timestamp": "2026-06-10T01:51:07+02:00",
+          "tree_id": "120795c89c4ce376708d622c31db2f641dfa43e4",
+          "url": "https://github.com/fallow-rs/fallow/commit/2e00978bd13ace7f98ac1f9d0eb9782ad50c76aa"
+        },
+        "date": 1781049219906,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7444293,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34648,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 739641,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6632,
             "unit": "allocations"
           }
         ]
