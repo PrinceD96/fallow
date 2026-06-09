@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781010632547,
+  "lastUpdate": 1781010912264,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "47639d5696387e91aae7a9843b6ba8da7b375643",
-          "message": "feat(vscode): monorepo workspace picker (#906)\n\nCloses #906",
-          "timestamp": "2026-06-04T18:22:55+02:00",
-          "tree_id": "14315e3af74a9c45f541df5e0f1815111da0935a",
-          "url": "https://github.com/fallow-rs/fallow/commit/47639d5696387e91aae7a9843b6ba8da7b375643"
-        },
-        "date": 1780590352655,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e823fe3032315b7f69a3c29ee980d732626ca515"
         },
         "date": 1781010630442,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a3eb38a2d942345236c4deba2f9488c3cf2dcbe9",
+          "message": "fix(core): release graph-only parse payloads\n\nRelease extraction vectors that resolution and graph construction have already consumed, while keeping the module data needed by analysis, health, security, LSP, coverage, and fix drift checks.\n\nAdd focused unit coverage for the ModuleInfo compaction boundary and an integration regression that proves retained modules are compacted after analysis without losing line offsets or complexity data.\n\nFixes #1104.",
+          "timestamp": "2026-06-09T15:10:55+02:00",
+          "tree_id": "971c5f1f7f27428a9b056bad3472be2fa4fc89e6",
+          "url": "https://github.com/fallow-rs/fallow/commit/a3eb38a2d942345236c4deba2f9488c3cf2dcbe9"
+        },
+        "date": 1781010910269,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
