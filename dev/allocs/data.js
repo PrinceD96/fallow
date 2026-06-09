@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780998230466,
+  "lastUpdate": 1780999263643,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "a3adfa9fd45ac6440cd11202c2b00ddd507b921e",
-          "message": "test(security): pin prototype-pollution __proto__ matcher + cast blind spot\n\nThe catalogue had a `*.__proto__` member-assign matcher but the fixture\nonly exercised the recursive-merge row. Add a static `obj.__proto__ = x`\npositive (asserted by line so it is distinct from the merge candidate)\nand a TypeScript-cast `(obj as {...}).__proto__ = x` negative that pins\nthe documented flattening blind spot (cast object is a TSAsExpression,\nnot a bare identifier, so the callee path does not resolve). Also note\nthe blind spot in security_matchers.toml.",
-          "timestamp": "2026-06-02T18:14:33+02:00",
-          "tree_id": "002613256f3816c6016fcc9360a434ce3531d53a",
-          "url": "https://github.com/fallow-rs/fallow/commit/a3adfa9fd45ac6440cd11202c2b00ddd507b921e"
-        },
-        "date": 1780417030578,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7131933,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 31456,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 717576,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6683,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4394,6 +4350,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Memory",
             "value": 741692,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6691,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4ed32a0de76079a62b8102696b8b4c7b4a0b2819",
+          "message": "feat(telemetry): split admin workflow buckets\n\nTelemetry now labels project inventory, setup, and license command families with coarse workflow values instead of collapsing them into unknown. Watch remains grouped with code quality review because it continuously reruns analysis.\n\nThe regression tests cover routing, inspect-mode payloads, and the absence of findings_present for non-analysis commands. The telemetry docs and changelog describe the allowlisted buckets and privacy boundary.\n\nFixes #1061.",
+          "timestamp": "2026-06-09T11:55:30+02:00",
+          "tree_id": "37b923db945eb8d35ccbe877c5f8f342d4904085",
+          "url": "https://github.com/fallow-rs/fallow/commit/4ed32a0de76079a62b8102696b8b4c7b4a0b2819"
+        },
+        "date": 1780999261221,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7403442,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34397,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 741968,
             "unit": "bytes"
           },
           {
