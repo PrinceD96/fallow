@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781005008660,
+  "lastUpdate": 1781006828708,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ab87bea64aefbc16e0ebe227639b7f1de569b881",
-          "message": "test(vscode): cover starting-state LSP stop\n\nAdd unit coverage for stopping the VS Code LanguageClient while it is still starting.\n\nThe test waits for the mocked client to leave the Starting state and verifies stop is called only after it reaches Running.",
-          "timestamp": "2026-06-04T14:32:52+02:00",
-          "tree_id": "047050febc1a5050868c294f32d153f0cac16539",
-          "url": "https://github.com/fallow-rs/fallow/commit/ab87bea64aefbc16e0ebe227639b7f1de569b881"
-        },
-        "date": 1780576541571,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/adeb88f58a8bfe3b2efbaac65be5d27cdf06f2f2"
         },
         "date": 1781005006400,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cd4f982b7ee8249dc6e2207d206142069b74987c",
+          "message": "feat(security): propagate taint through local bindings\n\nRecord source-backed local bindings when template literals, string concatenation, or object literals embed recognized untrusted source member paths. This keeps fallow security in the existing advisory candidate model while improving rank and evidence for common injection shapes.\n\nThe extractor keeps propagation one-hop and same-module, bumps the extraction cache version, and adds focused visitor plus integration coverage for the new binding forms.\n\nFixes #1095.",
+          "timestamp": "2026-06-09T14:03:34+02:00",
+          "tree_id": "c59e3a586828feb13337fc683e91d8d5511c42bb",
+          "url": "https://github.com/fallow-rs/fallow/commit/cd4f982b7ee8249dc6e2207d206142069b74987c"
+        },
+        "date": 1781006826378,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
