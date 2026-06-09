@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780919970329,
+  "lastUpdate": 1781001615673,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -4385,6 +4385,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 7550,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "aceeecd930028947fd21302a3fa83b59cfb671c0",
+          "message": "feat(telemetry): add outcome buckets\n\nRecord coarse result-count buckets and review/report truncation fields in workflow telemetry without exposing exact counts, paths, rule ids, finding names, or snippets.\n\nWire the bucket helpers from final command results, preserve the existing findings_present and failure_reason contracts, and document the inspect-mode payload.\n\nFixes #1080.",
+          "timestamp": "2026-06-09T10:27:46Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/aceeecd930028947fd21302a3fa83b59cfb671c0"
+        },
+        "date": 1781001613723,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 182,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 175,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 282,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 257,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 162,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 144,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 500,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 397,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1383,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1218,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 977,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 959,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 904,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 818,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 7697,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 7229,
             "unit": "ms"
           }
         ]
