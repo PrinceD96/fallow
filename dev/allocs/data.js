@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781010104742,
+  "lastUpdate": 1781010571302,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a45deb010be1b521c33ab78f8e3be4106658c183",
-          "message": "fix: credit bare pnpm script binaries\n\nCredit dependency usage for package scripts, workspace scripts, and CI run blocks that invoke a declared package binary through bare `pnpm <binary>`. The parser keeps its syntax-only public path conservative, while the analysis path now receives dependency and script-name context before crediting pnpm implicit execution.\n\nKeep pnpm script delegation and built-in commands out of dependency credit, including local script names that were filtered out of production-mode analysis. This avoids trading the envinfo false positive for new false negatives around `pnpm build`, `pnpm lint`, `pnpm test`, `pnpm start`, `pnpm install`, `pnpm audit`, and `pnpm add`.\n\nFixes #914.",
-          "timestamp": "2026-06-03T12:59:58+02:00",
-          "tree_id": "aa78ad8e40397ea78ab35ac1f18779dcc68133d8",
-          "url": "https://github.com/fallow-rs/fallow/commit/a45deb010be1b521c33ab78f8e3be4106658c183"
-        },
-        "date": 1780484550572,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7267567,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33466,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 723124,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6692,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6687,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e823fe3032315b7f69a3c29ee980d732626ca515",
+          "message": "fix(cli): explain security categories\n\nAdd security rule metadata to the standalone explain command so users can inspect tainted-sink, client-server-leak, hardcoded-secret, and catalogue-backed security IDs without running a scan.\n\nThe implementation keeps security detection and output unchanged. It adds drift guards against the security matcher catalogue and CLI regression coverage for the required explain tokens.\n\nFixes #1098.",
+          "timestamp": "2026-06-09T15:06:44+02:00",
+          "tree_id": "298ef81a734eaae9f9791955eb5c4a55fa86ffb5",
+          "url": "https://github.com/fallow-rs/fallow/commit/e823fe3032315b7f69a3c29ee980d732626ca515"
+        },
+        "date": 1781010568507,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7429189,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34631,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 744716,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6719,
             "unit": "allocations"
           }
         ]
