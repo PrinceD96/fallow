@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781041553885,
+  "lastUpdate": 1781042728901,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "88f048b7af1acc3200cd32b7f3ef2b1adc27e0ab",
-          "message": "fix(vscode): honor explicit duplication overrides\n\nRead VS Code duplication settings as explicit overrides instead of effective package defaults, so project config remains the source of truth unless the user configured a setting.\n\nSidebar analysis now forwards only configured duplication CLI flags. LSP initialization sends the same optional override payload and applies explicit boolean values after project config. The client restart path also waits through startup so config restarts do not race stale clients.",
-          "timestamp": "2026-06-04T12:57:14+02:00",
-          "tree_id": "ef5a596290ed50c15cdba45db7db027bd36ae973",
-          "url": "https://github.com/fallow-rs/fallow/commit/88f048b7af1acc3200cd32b7f3ef2b1adc27e0ab"
-        },
-        "date": 1780570944394,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 83423,
-            "range": "± 903",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 4010605,
-            "range": "± 191618",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 6009844,
-            "range": "± 251678",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 28783686,
-            "range": "± 447315",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 112377,
-            "range": "± 816",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2503,
-            "range": "± 10",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 232587,
-            "range": "± 4888",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 1052088,
-            "range": "± 13364",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1504265,
-            "range": "± 14782",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 573253,
-            "range": "± 21742",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4280110,
-            "range": "± 23874",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 4315504,
-            "range": "± 28350",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2928369,
-            "range": "± 8273",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2965228,
             "range": "± 8496",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "643080188c563ea9294448624d951f1d6b49603f",
+          "message": "fix: emit telemetry run ids in json output",
+          "timestamp": "2026-06-09T23:59:31+02:00",
+          "tree_id": "a88baa8c6952b6384840dc7f107a398477ecd81d",
+          "url": "https://github.com/fallow-rs/fallow/commit/643080188c563ea9294448624d951f1d6b49603f"
+        },
+        "date": 1781042725599,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 104775,
+            "range": "± 763",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3970791,
+            "range": "± 220674",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5881945,
+            "range": "± 254413",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 33441393,
+            "range": "± 970268",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 120264,
+            "range": "± 502",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2361,
+            "range": "± 31",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 235191,
+            "range": "± 2643",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 1064873,
+            "range": "± 24931",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1510703,
+            "range": "± 16506",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 581931,
+            "range": "± 14096",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4379544,
+            "range": "± 125317",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 4330160,
+            "range": "± 60894",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2956413,
+            "range": "± 20442",
             "unit": "ns/iter"
           }
         ]
