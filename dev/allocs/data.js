@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780990402406,
+  "lastUpdate": 1780991371469,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0c58d98394040e3e68c3d15ea8469fe9a4f640a7",
-          "message": "feat(security): model untrusted sources for source-to-sink precision (#859)",
-          "timestamp": "2026-06-02T15:52:02+02:00",
-          "tree_id": "05e9c2a49722d8a5379fa6f643e8a088e961da10",
-          "url": "https://github.com/fallow-rs/fallow/commit/0c58d98394040e3e68c3d15ea8469fe9a4f640a7"
-        },
-        "date": 1780408519399,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7205653,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 31484,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 724828,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6693,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6688,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bd1ec11575519b16a32fa6da2d82dae72fa58e9d",
+          "message": "fix(telemetry): report findings presence for audit and security\n\nAudit and security now report findings_present from the final results that users and agents see. Audit records the OR of its sub-results, including the no-change path as false, while security records whether the final filtered security_findings list is non-empty.\n\nThe regression coverage exercises inspect-mode telemetry for positive and clean audit and security runs, keeps no-analysis commands omitting the field, and updates the telemetry docs and changelog to match the wire contract.\n\nFixes #1060.",
+          "timestamp": "2026-06-09T09:46:59+02:00",
+          "tree_id": "864a4dc3a49e10890771d10e501c8d935b80e8b9",
+          "url": "https://github.com/fallow-rs/fallow/commit/bd1ec11575519b16a32fa6da2d82dae72fa58e9d"
+        },
+        "date": 1780991369533,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7367138,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34388,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 742036,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6692,
             "unit": "allocations"
           }
         ]
