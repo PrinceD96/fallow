@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781037945287,
+  "lastUpdate": 1781039657364,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "45f8c17eed7cf602ffff88ff8b9b8e8d648838aa",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.88.2",
-          "timestamp": "2026-06-03T20:24:13+02:00",
-          "tree_id": "2546e14eba7661a574b0460f9d12efc8a4c98534",
-          "url": "https://github.com/fallow-rs/fallow/commit/45f8c17eed7cf602ffff88ff8b9b8e8d648838aa"
-        },
-        "date": 1780511214680,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7264455,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33461,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 724563,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6705,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6728,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1b5eee77f7f249a31be86fb211096eb7bfb8f2ef",
+          "message": "fix(cli): clarify security human output\n\nRework the fallow security human renderer so the first lines explain that findings are items to check, not confirmed vulnerabilities.\n\nUse plain-language labels for evidence, code paths, import traces, and blind spots. Keep the detailed candidate framing in place for JSON, SARIF, MCP, and downstream verifier workflows.",
+          "timestamp": "2026-06-09T23:09:27+02:00",
+          "tree_id": "813d64a4a72043bfd14f2a0cda453f9d9f15f208",
+          "url": "https://github.com/fallow-rs/fallow/commit/1b5eee77f7f249a31be86fb211096eb7bfb8f2ef"
+        },
+        "date": 1781039654071,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7477021,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34654,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 744537,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6641,
             "unit": "allocations"
           }
         ]
