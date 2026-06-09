@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781001796970,
+  "lastUpdate": 1781002748163,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b1d9593b4341ff105f424cffd6a8dc89aa8f9c5f",
-          "message": "fix(security): suppress sanitized sink candidates\n\nTeach the extraction pipeline to carry sanitizer metadata for URL and path security sink candidates without changing the security output contract.\n\nURL suppression is limited to fail-closed guards backed by literal local const arrays or Sets. Path suppression is limited to path.resolve, path.normalize, or path.join values tied to path.relative containment checks. Mutated allowlists, reassigned guarded values, helper predicates, post-use guards, and wrong-domain sanitizer use remain candidates.\n\nThe analyzer applies each sanitizer scope only to matching catalogue categories, and the extraction cache version is bumped so warm caches re-extract affected files.\n\nFixes #863.",
-          "timestamp": "2026-06-03T00:48:10+02:00",
-          "tree_id": "9ab3ecae27aff89ac1aa5eabd45f2f8bb0fe10d5",
-          "url": "https://github.com/fallow-rs/fallow/commit/b1d9593b4341ff105f424cffd6a8dc89aa8f9c5f"
-        },
-        "date": 1780440678215,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7297837,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33452,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 713832,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6664,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6694,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3290cd87a23554fdab424758851ec10c63d82d69",
+          "message": "feat(telemetry): add coarse run context dimensions\n\nAdd privacy-preserving workflow context fields for run scope, config shape, report destination, and analysis mode. The CLI derives them from parsed arguments and already-loaded config state, using fixed enum buckets only.\n\nExtend inspect-mode coverage and telemetry docs so agents and operators can verify the exact payload shape without sending events. The event contract avoids raw paths, workspace names, config file names, rule names, package names, command lines, and repository identifiers.\n\nFixes #1079.",
+          "timestamp": "2026-06-09T12:53:13+02:00",
+          "tree_id": "36eaa2de14cf47d05eb6c703f9db123ef4ce60ed",
+          "url": "https://github.com/fallow-rs/fallow/commit/3290cd87a23554fdab424758851ec10c63d82d69"
+        },
+        "date": 1781002746184,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7410570,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34403,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 693628,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6188,
             "unit": "allocations"
           }
         ]
