@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781075693321,
+  "lastUpdate": 1781077767339,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "89e76ab006ca8f09293b36b692eefb5ec70cf085",
-          "message": "perf(cli): avoid CI renderer JSON roundtrip\n\nKeep combined CodeClimate output as the same serialized array, but let the PR comment and review-envelope paths consume the typed CodeClimate issues directly. This removes the serialize-then-parse hop from combined CI renderers while preserving existing diff filtering and ordering.\n\nThe review envelope grouping now applies the comment cap during grouping so large reports stop building unused groups. Regression coverage pins typed severity parity and max-comment behavior, including zero comments and same-line merged findings.",
-          "timestamp": "2026-06-04T20:25:43+02:00",
-          "tree_id": "67bdfc2b26e0c2542f997bbfdc1bc94bd3255547",
-          "url": "https://github.com/fallow-rs/fallow/commit/89e76ab006ca8f09293b36b692eefb5ec70cf085"
-        },
-        "date": 1780597792241,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7261477,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33458,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 725204,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6691,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6639,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "30a3a0a10cfa8b252757bdd90ad230150b2ca825",
+          "message": "feat(init): scaffold agent guidance\n\nAdd an opt-in init mode that writes a starter AGENTS.md for project-specific coding-agent context. The scaffold refuses to overwrite existing guidance and avoids project readiness scoring language.\n\nCloses #1124",
+          "timestamp": "2026-06-10T09:46:55+02:00",
+          "tree_id": "7cf1814ef39f69a274cd7e99054412a006f3389a",
+          "url": "https://github.com/fallow-rs/fallow/commit/30a3a0a10cfa8b252757bdd90ad230150b2ca825"
+        },
+        "date": 1781077764985,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7430829,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34797,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 743269,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6638,
             "unit": "allocations"
           }
         ]
