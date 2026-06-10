@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781105215379,
+  "lastUpdate": 1781105558350,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "de853cace5d58bff04fc6eb43a544c45e3fa735e",
-          "message": "fix(security): flag jwt verify without algorithms\n\nDetect jsonwebtoken verify calls that omit an explicit algorithms option while keeping safe allowlisted calls and unprovenanced lookalikes quiet.\n\nFixes #898.",
-          "timestamp": "2026-06-06T19:34:54+02:00",
-          "tree_id": "ba5dffa33fbcb4f7baab9387f4bb9461e1d66ebe",
-          "url": "https://github.com/fallow-rs/fallow/commit/de853cace5d58bff04fc6eb43a544c45e3fa735e"
-        },
-        "date": 1780767725695,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d109daca4c675ea30d262c0ed77c5d0326f21341"
         },
         "date": 1781105212468,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f4a218ffd4dce788ff85f43dfe8a399883c17c39",
+          "message": "fix(vscode): consolidate markdown escaping and escape complexity hover names (#1176)\n\nThe extension carried three markdown-escape helpers with two different regexes, and the complexity hover interpolated finding.name (a function name from the analyzed repository) into markdown with no escaping at all, allowing tooltip content spoofing from analyzed-source data.\n\nmarkdown-utils.ts now hosts both canonical helpers (inline and multiline variants with cross-linked docs); escapeHealthMarkdown and escapeMarkdown become delegations pinned by referential-identity unit tests; functionHover escapes finding.name with the benign-name rendering behavior unit-tested. The tracked dist bundle is regenerated to match.",
+          "timestamp": "2026-06-10T17:29:11+02:00",
+          "tree_id": "9814c64dbafffac3f9ca68b03ec8b4f72bcc5dba",
+          "url": "https://github.com/fallow-rs/fallow/commit/f4a218ffd4dce788ff85f43dfe8a399883c17c39"
+        },
+        "date": 1781105556262,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
