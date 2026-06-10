@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781093791897,
+  "lastUpdate": 1781094702567,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d6efaabdbc2c0978588eb4645c3b6c473e65c26e",
-          "message": "fix(unused-deps): credit pino transport targets\n\nFixes #954.",
-          "timestamp": "2026-06-05T14:10:24+02:00",
-          "tree_id": "012eae776a0410fed85611554992d3dacc8f3f5e",
-          "url": "https://github.com/fallow-rs/fallow/commit/d6efaabdbc2c0978588eb4645c3b6c473e65c26e"
-        },
-        "date": 1780661572788,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7274309,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33458,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 727492,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6689,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4394,6 +4350,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Memory",
             "value": 740793,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6637,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "61ec8e856ef43245aaf6a13f33e1c9778d87f49d",
+          "message": "feat(security): chain tainted local bindings through up to three hops (#1171)\n\nfallow security now traces untrusted input through chained same-module local bindings, up to three hops. Injection shapes that route a request value through one or two intermediate variables (alias, template literal, string concat, or object-literal initializers) are upgraded to arg-level confidence with the trace anchored at the original untrusted read instead of staying module-level.\n\nChaining stays conservative: call, conditional, and property-read initializers do not chain, and a flow that exceeds the hop limit degrades to module-level rather than claiming arg-level confidence. RUST_LOG=debug logs when a chain is dropped for exceeding the limit. Integration fixtures cover two-hop, three-hop, and over-limit four-hop flows, and the detection docs describe the bounded chaining behavior.\n\nFixes #1146.",
+          "timestamp": "2026-06-10T14:28:47+02:00",
+          "tree_id": "b487b2283c2f3f8109eb541c1cf7932003c64d87",
+          "url": "https://github.com/fallow-rs/fallow/commit/61ec8e856ef43245aaf6a13f33e1c9778d87f49d"
+        },
+        "date": 1781094700459,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7440429,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34810,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 742977,
             "unit": "bytes"
           },
           {
