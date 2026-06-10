@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781079379405,
+  "lastUpdate": 1781079873306,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "65e53f7f3a21226a1a36f2289d3c2be080b5037f",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.89.0",
-          "timestamp": "2026-06-05T19:03:16+02:00",
-          "tree_id": "eead14fa45ebe37658e426c37439f9e3ce986ddd",
-          "url": "https://github.com/fallow-rs/fallow/commit/65e53f7f3a21226a1a36f2289d3c2be080b5037f"
-        },
-        "date": 1780679175714,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "99dc0ce058d89ecd530b91d3040a82f281a86439",
+          "message": "feat(boundaries): require zone coverage for files\n\nAdd `boundaries.coverage.requireAllFiles` and `boundaries.coverage.allowUnmatched` so teams can require analyzed source files to match a configured boundary zone.\n\nReport unmatched files as boundary coverage findings across CLI output, JSON/SARIF/CodeClimate, LSP diagnostics, baselines, regression counts, CI summaries, and generated schemas.\n\nRefs #1147.",
+          "timestamp": "2026-06-10T10:17:17+02:00",
+          "tree_id": "6daa8bc542250f84922aab1276c6870378ee6df9",
+          "url": "https://github.com/fallow-rs/fallow/commit/99dc0ce058d89ecd530b91d3040a82f281a86439"
+        },
+        "date": 1781079870771,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
             "unit": "%"
           }
         ]
