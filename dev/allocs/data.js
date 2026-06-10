@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781105436718,
+  "lastUpdate": 1781106657842,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "65e53f7f3a21226a1a36f2289d3c2be080b5037f",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.89.0",
-          "timestamp": "2026-06-05T19:03:16+02:00",
-          "tree_id": "eead14fa45ebe37658e426c37439f9e3ce986ddd",
-          "url": "https://github.com/fallow-rs/fallow/commit/65e53f7f3a21226a1a36f2289d3c2be080b5037f"
-        },
-        "date": 1780679129069,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7320125,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33479,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 733916,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6688,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6640,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a9994097865b74302c423eabd590ef8e258541b4",
+          "message": "feat(init): prefill AGENTS.md scaffold from detected project info (#1177)\n\nfallow init --agents previously wrote a static template with empty placeholders even though run_init already calls detect_project and uses the result to tailor the generated config. The agents guide now prefills the lines detection can answer reliably and leaves everything else blank.\n\nPrefill rules are deliberately conservative, since a confidently wrong line in an agent-consumed file is worse than a blank one: Primary app stays blank, Module boundaries fills for monorepos only, no UI-framework or Storybook lines, a provenance comment appears only when something was prefilled, Install derives from packageManager or pnpm-workspace.yaml and never from lockfile sniffing, Test only when exactly one framework is detected, Typecheck only for TypeScript. Empty-project output stays byte-identical to the previous template, pinned by a regression test.",
+          "timestamp": "2026-06-10T17:45:16+02:00",
+          "tree_id": "99272bd11bebd7d311f7b770268eb8934156cc10",
+          "url": "https://github.com/fallow-rs/fallow/commit/a9994097865b74302c423eabd590ef8e258541b4"
+        },
+        "date": 1781106654484,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7448310,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34966,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 743285,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6617,
             "unit": "allocations"
           }
         ]
