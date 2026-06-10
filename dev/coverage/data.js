@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781052565660,
+  "lastUpdate": 1781071131970,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "557f39501c8054a0d90686e6d83f866bf7295d84",
-          "message": "fix(vscode): clarify clean analysis results\n\nClarify the VS Code all-clear path so a clean run says it applies to analyzed JS/TS files and records a short dead-code plus duplication summary in the Fallow output channel.\n\nRoute duplicate-code-only results to the duplicate-code sidebar instead of the all-clear path, and expose the existing diagnostic mute manager from the Fallow analysis view title bars.",
-          "timestamp": "2026-06-05T13:01:20+02:00",
-          "tree_id": "5ebf645d438eaad99438ffd8f31ace0bd50c4286",
-          "url": "https://github.com/fallow-rs/fallow/commit/557f39501c8054a0d90686e6d83f866bf7295d84"
-        },
-        "date": 1780657446975,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e2d2dae4bc670c88a458b836f6946f53cb888ff8"
         },
         "date": 1781052562846,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7be005b9b27684c19b06a22691716ee8e2b08005",
+          "message": "fix(plugins): hard error invalid plugin regexes\n\nInvalid regexes extracted from plugin path-rule exclusions now aggregate into a config-load error instead of being stripped from the rule with a warning. The core analysis path and list plugins path both surface the error as exit code 2 with the existing JSON error envelope.\n\nThe unchanged plugin-system silent-fail diagnostics for config pattern collisions and external enabler typos remain warnings. Regression coverage now pins core aggregation, CLI JSON behavior, list plugins behavior, and the TanStack Router config path.\n\nFixes #513.",
+          "timestamp": "2026-06-10T07:48:00+02:00",
+          "tree_id": "42b08c7466afbf1cd810ce98d2437bb766f63f65",
+          "url": "https://github.com/fallow-rs/fallow/commit/7be005b9b27684c19b06a22691716ee8e2b08005"
+        },
+        "date": 1781071129851,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
