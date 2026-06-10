@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781086533771,
+  "lastUpdate": 1781086957753,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "7969561+jsgoldman@users.noreply.github.com",
-            "name": "jsgoldman",
-            "username": "jsgoldman"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "45b3d87f7686009c8429b20a3d6270beb01845d4",
-          "message": "fix(extract): ignore prose JSDoc import examples\n\nTighten JSDoc import-type extraction so prose examples do not create false unresolved-import findings. The extractor now only follows import(\"...\") references inside type-bearing JSDoc brace groups, while preserving real annotations including @type, @returns, @satisfies, @template, and @enum.\n\nThanks @jsgoldman for the original patch in #1010.",
-          "timestamp": "2026-06-06T14:20:02+02:00",
-          "tree_id": "6ea5757997558fa23ff4b04d63294b50a79f7e50",
-          "url": "https://github.com/fallow-rs/fallow/commit/45b3d87f7686009c8429b20a3d6270beb01845d4"
-        },
-        "date": 1780748568171,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/943b3671a293c9e7b853ecb08f6035028f8cea7d"
         },
         "date": 1781086531680,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "73bac370d02877bb88c84bab906eeebd9ce3373b",
+          "message": "docs: sync fallow skill metadata",
+          "timestamp": "2026-06-10T12:18:42+02:00",
+          "tree_id": "2d3487c781ab02f7752830f971d568f60eb1aacd",
+          "url": "https://github.com/fallow-rs/fallow/commit/73bac370d02877bb88c84bab906eeebd9ce3373b"
+        },
+        "date": 1781086954893,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
