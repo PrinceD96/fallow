@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781052506946,
+  "lastUpdate": 1781070990992,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "88f048b7af1acc3200cd32b7f3ef2b1adc27e0ab",
-          "message": "fix(vscode): honor explicit duplication overrides\n\nRead VS Code duplication settings as explicit overrides instead of effective package defaults, so project config remains the source of truth unless the user configured a setting.\n\nSidebar analysis now forwards only configured duplication CLI flags. LSP initialization sends the same optional override payload and applies explicit boolean values after project config. The client restart path also waits through startup so config restarts do not race stale clients.",
-          "timestamp": "2026-06-04T12:57:14+02:00",
-          "tree_id": "ef5a596290ed50c15cdba45db7db027bd36ae973",
-          "url": "https://github.com/fallow-rs/fallow/commit/88f048b7af1acc3200cd32b7f3ef2b1adc27e0ab"
-        },
-        "date": 1780570894091,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7298397,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33484,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 724796,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6685,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6640,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7be005b9b27684c19b06a22691716ee8e2b08005",
+          "message": "fix(plugins): hard error invalid plugin regexes\n\nInvalid regexes extracted from plugin path-rule exclusions now aggregate into a config-load error instead of being stripped from the rule with a warning. The core analysis path and list plugins path both surface the error as exit code 2 with the existing JSON error envelope.\n\nThe unchanged plugin-system silent-fail diagnostics for config pattern collisions and external enabler typos remain warnings. Regression coverage now pins core aggregation, CLI JSON behavior, list plugins behavior, and the TanStack Router config path.\n\nFixes #513.",
+          "timestamp": "2026-06-10T07:48:00+02:00",
+          "tree_id": "42b08c7466afbf1cd810ce98d2437bb766f63f65",
+          "url": "https://github.com/fallow-rs/fallow/commit/7be005b9b27684c19b06a22691716ee8e2b08005"
+        },
+        "date": 1781070988385,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7440517,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34617,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 742473,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6638,
             "unit": "allocations"
           }
         ]
