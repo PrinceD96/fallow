@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781082972335,
+  "lastUpdate": 1781086923020,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6898a24b96248c0eed09d9b8a88c57125d851b62",
-          "message": "feat(telemetry): findings_present, workflow split, MCP surface tagging (#994)\n\nThree telemetry accuracy gaps, all telemetry-only (no analysis output, exit codes, or user-facing behavior change; payload stays off-by-default and allowlisted).\n\n#972 adds an optional findings_present field set from each analysis's real result, decoupled from the exit-code outcome gate (default-config dupes never gates, so outcome=success was the only signal). #974 routes Command::Impact/Security/Fix/Explain to their own Workflow variants. #973 tags MCP-spawned CLI runs as integration_surface=mcp with a per-tool mcp_tool dimension via FALLOW_INTEGRATION_SURFACE / FALLOW_MCP_TOOL, so one correctly-labeled event is emitted with the same privacy posture.\n\nCloses #972.\nCloses #973.\nCloses #974.",
-          "timestamp": "2026-06-05T00:28:03+02:00",
-          "tree_id": "946f7c8e86e4aab83898fa8b6b5081035b573788",
-          "url": "https://github.com/fallow-rs/fallow/commit/6898a24b96248c0eed09d9b8a88c57125d851b62"
-        },
-        "date": 1780612247310,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7359997,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33522,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 727020,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6690,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6639,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "73bac370d02877bb88c84bab906eeebd9ce3373b",
+          "message": "docs: sync fallow skill metadata",
+          "timestamp": "2026-06-10T12:18:42+02:00",
+          "tree_id": "2d3487c781ab02f7752830f971d568f60eb1aacd",
+          "url": "https://github.com/fallow-rs/fallow/commit/73bac370d02877bb88c84bab906eeebd9ce3373b"
+        },
+        "date": 1781086920171,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7464789,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34817,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 695401,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6138,
             "unit": "allocations"
           }
         ]
