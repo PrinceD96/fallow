@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781101895184,
+  "lastUpdate": 1781104688830,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "95c6ff90a9054864e6ef76d3937cb6833d469eca",
-          "message": "test: improve coverage for trace reporting",
-          "timestamp": "2026-06-05T16:34:39+02:00",
-          "tree_id": "20dfd3803b865bfa267c58c2c124e1d2ef5cc5c1",
-          "url": "https://github.com/fallow-rs/fallow/commit/95c6ff90a9054864e6ef76d3937cb6833d469eca"
-        },
-        "date": 1780670258356,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7354509,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33516,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 730396,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6692,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6641,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "56335efcfd5183d325c65fa396b38b2e98bb0cda",
+          "message": "refactor(audit): make new-finding wiring exhaustive at filter and key sites (#1174)\n\nAdding a new finding collection to AnalysisResults previously required remembering to hand-wire it into the changed-files filter and the audit key and attribution sites; a miss silently dropped the new findings from --changed-since runs or audit verdicts. filter_results_by_changed_files, dead_code_keys, and retain_introduced_dead_code now destructure AnalysisResults exhaustively with no rest pattern, so a new field fails compilation exactly where a wiring decision is required.\n\nretain_introduced_dead_code now computes the introduced key set before the three fast-path retains instead of after (borrow-checker requirement); the set is provably identical, and behavior parity was verified against release binaries on real projects. The rebase folded in boundary_call_violations from #1173, which exercised the guard exactly as intended.",
+          "timestamp": "2026-06-10T17:13:42+02:00",
+          "tree_id": "23b4d148e2143c4388382817a675adc244a9257f",
+          "url": "https://github.com/fallow-rs/fallow/commit/56335efcfd5183d325c65fa396b38b2e98bb0cda"
+        },
+        "date": 1781104686650,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7452031,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 35006,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 739549,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6630,
             "unit": "allocations"
           }
         ]
