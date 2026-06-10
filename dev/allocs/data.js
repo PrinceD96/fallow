@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781092755234,
+  "lastUpdate": 1781093791897,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "3fa9bc58bde716adda65d24bd66cdfb4af886d23",
-          "message": "fix(mcp): gate unix-only test helpers",
-          "timestamp": "2026-06-05T12:24:48+02:00",
-          "tree_id": "7992326077e722733c6ee2427c7a80ea32bc77f2",
-          "url": "https://github.com/fallow-rs/fallow/commit/3fa9bc58bde716adda65d24bd66cdfb4af886d23"
-        },
-        "date": 1780655268466,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7280741,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33469,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 725728,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6691,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4394,6 +4350,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Memory",
             "value": 742977,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6637,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "adbd09776e877b539ff5777a44e131aea9d21e9e",
+          "message": "test(audit): cover FALLOW_AUDIT_BASE precedence and validation (#1170)\n\nSubprocess integration tests for the audit base env override (#1169): env value honored with provenance when no flag, explicit --base wins, malformed value exits 2. Test-only. Refs #1168.",
+          "timestamp": "2026-06-10T14:12:36+02:00",
+          "tree_id": "cafa827006e3a9b898d2d2ef7f7eca81ac15e908",
+          "url": "https://github.com/fallow-rs/fallow/commit/adbd09776e877b539ff5777a44e131aea9d21e9e"
+        },
+        "date": 1781093789831,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7466333,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34828,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 740793,
             "unit": "bytes"
           },
           {
