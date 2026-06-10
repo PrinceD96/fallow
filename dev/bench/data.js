@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781102057597,
+  "lastUpdate": 1781104798956,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c575f84da75c61b276392aa443edd7b0ff20fef1",
-          "message": "test: improve coverage for node bindings",
-          "timestamp": "2026-06-06T14:15:39+02:00",
-          "tree_id": "6a5f80c40cd215682f88104f5a73eac5f8a85b9c",
-          "url": "https://github.com/fallow-rs/fallow/commit/c575f84da75c61b276392aa443edd7b0ff20fef1"
-        },
-        "date": 1780748488405,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 85447,
-            "range": "± 931",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 4051214,
-            "range": "± 245036",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 5955613,
-            "range": "± 221381",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 29586068,
-            "range": "± 477318",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 117259,
-            "range": "± 1455",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2371,
-            "range": "± 67",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 232661,
-            "range": "± 5496",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 1049994,
-            "range": "± 10849",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1498939,
-            "range": "± 21505",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 572116,
-            "range": "± 19179",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4267057,
-            "range": "± 29292",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 4294550,
-            "range": "± 39995",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2937622,
-            "range": "± 6969",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 1932111,
             "range": "± 4931",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "56335efcfd5183d325c65fa396b38b2e98bb0cda",
+          "message": "refactor(audit): make new-finding wiring exhaustive at filter and key sites (#1174)\n\nAdding a new finding collection to AnalysisResults previously required remembering to hand-wire it into the changed-files filter and the audit key and attribution sites; a miss silently dropped the new findings from --changed-since runs or audit verdicts. filter_results_by_changed_files, dead_code_keys, and retain_introduced_dead_code now destructure AnalysisResults exhaustively with no rest pattern, so a new field fails compilation exactly where a wiring decision is required.\n\nretain_introduced_dead_code now computes the introduced key set before the three fast-path retains instead of after (borrow-checker requirement); the set is provably identical, and behavior parity was verified against release binaries on real projects. The rebase folded in boundary_call_violations from #1173, which exercised the guard exactly as intended.",
+          "timestamp": "2026-06-10T17:13:42+02:00",
+          "tree_id": "23b4d148e2143c4388382817a675adc244a9257f",
+          "url": "https://github.com/fallow-rs/fallow/commit/56335efcfd5183d325c65fa396b38b2e98bb0cda"
+        },
+        "date": 1781104796992,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 85357,
+            "range": "± 1596",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3700149,
+            "range": "± 125118",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5805149,
+            "range": "± 122146",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 32865027,
+            "range": "± 648549",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 109525,
+            "range": "± 1340",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2407,
+            "range": "± 12",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 185290,
+            "range": "± 5036",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 819868,
+            "range": "± 9868",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1317686,
+            "range": "± 21390",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 534438,
+            "range": "± 9264",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3297515,
+            "range": "± 37860",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3353275,
+            "range": "± 38747",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2231851,
+            "range": "± 8163",
             "unit": "ns/iter"
           }
         ]
