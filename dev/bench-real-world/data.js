@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781001615673,
+  "lastUpdate": 1781089213643,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -4487,6 +4487,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 7229,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "47a0e4cfd291e8203480fba8ae1dc6edda00f906",
+          "message": "fix: credit napi-rs optional prebuild packages\n\nnapi-rs packages declare generated platform prebuilds as optionalDependencies, but their runtime loader selects them dynamically instead of through static imports. Fallow now reads package.json napi metadata and credits only exact generated package names listed in the same optionalDependencies map.\n\nThe plugin registry now has a package.json metadata hook that runs for both root and workspace packages. These credits are scoped to the declaring package.json, so unrelated sibling workspace dependencies remain reportable.\n\nFixes #1164.",
+          "timestamp": "2026-06-10T10:24:02Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/47a0e4cfd291e8203480fba8ae1dc6edda00f906"
+        },
+        "date": 1781089210859,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 237,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 222,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 425,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 398,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 262,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 231,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 1096,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 715,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1730,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1600,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1222,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1118,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1037,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 946,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 12431,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 11954,
             "unit": "ms"
           }
         ]
