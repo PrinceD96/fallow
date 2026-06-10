@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781083014791,
+  "lastUpdate": 1781086533771,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c575f84da75c61b276392aa443edd7b0ff20fef1",
-          "message": "test: improve coverage for node bindings",
-          "timestamp": "2026-06-06T14:15:39+02:00",
-          "tree_id": "6a5f80c40cd215682f88104f5a73eac5f8a85b9c",
-          "url": "https://github.com/fallow-rs/fallow/commit/c575f84da75c61b276392aa443edd7b0ff20fef1"
-        },
-        "date": 1780748348391,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c22eb0680279b8c96a9f15189d46ca1929600c40"
         },
         "date": 1781083011261,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "943b3671a293c9e7b853ecb08f6035028f8cea7d",
+          "message": "chore(agents): drop a private maintainer path from json-output-reviewer\n\nThe plugin-count drift sweep named a private maintainer doc path that does\nnot exist in a public clone (it resolves through a gitignored symlink). Drop\nthe dead grep line and rephrase the guidance so it no longer points at the\nprivate surface.",
+          "timestamp": "2026-06-10T12:12:22+02:00",
+          "tree_id": "9cd81ad98149b732627bd8ab4c57e2986426d334",
+          "url": "https://github.com/fallow-rs/fallow/commit/943b3671a293c9e7b853ecb08f6035028f8cea7d"
+        },
+        "date": 1781086531680,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
