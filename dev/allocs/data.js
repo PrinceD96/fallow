@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781070990992,
+  "lastUpdate": 1781072003628,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d85c07a9b940a6025bf5466e7867ab293efc4493",
-          "message": "feat(vscode): manage the fallow license from the editor (#904)\n\nCloses #904",
-          "timestamp": "2026-06-04T18:16:32+02:00",
-          "tree_id": "fa105078eda95c7b0b0d2ec3b3d67a17b0955e4e",
-          "url": "https://github.com/fallow-rs/fallow/commit/d85c07a9b940a6025bf5466e7867ab293efc4493"
-        },
-        "date": 1780590074716,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7311229,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33496,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 725068,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6689,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 34617,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 742473,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6638,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "87e983e33813043ae1f0c3733d0ca86219daf399",
+          "message": "fix(security): align summary JSON metadata\n\nAlign the security command contract so advertised flags are supported consistently, JSON summary mode emits compact aggregate data, and machine consumers receive stable run metadata for comparisons.\n\nThe change also exposes capped unresolved-callee diagnostics and updates the generated output schema plus bundled agent reference so downstream consumers can rely on the new summary shape.\n\nFixes #1139.",
+          "timestamp": "2026-06-10T08:10:51+02:00",
+          "tree_id": "c83b7f5543d69b6599decac5915c05f3cf38fb42",
+          "url": "https://github.com/fallow-rs/fallow/commit/87e983e33813043ae1f0c3733d0ca86219daf399"
+        },
+        "date": 1781072001342,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7392549,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34600,
             "unit": "allocations"
           },
           {
