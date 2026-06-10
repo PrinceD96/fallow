@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781077767339,
+  "lastUpdate": 1781078139062,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "fd40652326c8c20e240b17537688a2a319d99e67",
-          "message": "feat(cli): nudge stale local installs\n\nAdds a cached, human-TTY-only upgrade nudge for stale local fallow installs. The nudge is displayed from a local cache so command startup never waits on the network, while a detached best-effort fetch refreshes the cache for later runs.\\n\\nAdds FALLOW_UPDATE_CHECK as the explicit opt-out and honors DO_NOT_TRACK, FALLOW_TELEMETRY_DISABLED, CI, quiet, non-TTY, and machine-format paths. The live api.fallow.cloud endpoint returns the latest stable version, and all failure paths stay silent.\\n\\nFixes #978.",
-          "timestamp": "2026-06-04T21:54:33+02:00",
-          "tree_id": "43b20d938c661a16ef1facd277b6432b8b890126",
-          "url": "https://github.com/fallow-rs/fallow/commit/fd40652326c8c20e240b17537688a2a319d99e67"
-        },
-        "date": 1780603109580,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7311861,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33490,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 725548,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6692,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6638,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f5f8944a679bab69f1ad4d9c0ee80beeeb1c9230",
+          "message": "fix(schema): include security summary root contract\n\nFollow-up from final review across #1152, #1153, #1154, and #1155.",
+          "timestamp": "2026-06-10T09:53:01+02:00",
+          "tree_id": "e3b8636f465f9254c151d10e4cf2f73be8bd5f17",
+          "url": "https://github.com/fallow-rs/fallow/commit/f5f8944a679bab69f1ad4d9c0ee80beeeb1c9230"
+        },
+        "date": 1781078136966,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7445229,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34817,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 750014,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6705,
             "unit": "allocations"
           }
         ]
