@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781092710000,
+  "lastUpdate": 1781093902126,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f2e6275866ea64043cc4f6e673a3026400b57ca4",
-          "message": "fix(vscode): group security candidates\n\nGroup the VS Code Security Candidates tree by kind and CWE/category with collapsible parent nodes and counts.\n\nSurface non-zero unresolved import-edge and sink-site counters as an informational row in the populated view while keeping the badge count scoped to candidates.\n\nFixes #993.",
-          "timestamp": "2026-06-06T14:58:27+02:00",
-          "tree_id": "3b84d28587bf2289ba23be9c2f2bebcb617d1200",
-          "url": "https://github.com/fallow-rs/fallow/commit/f2e6275866ea64043cc4f6e673a3026400b57ca4"
-        },
-        "date": 1780750919901,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1921037ffca9d142168919be36583403b3aad7e5"
         },
         "date": 1781092707344,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "adbd09776e877b539ff5777a44e131aea9d21e9e",
+          "message": "test(audit): cover FALLOW_AUDIT_BASE precedence and validation (#1170)\n\nSubprocess integration tests for the audit base env override (#1169): env value honored with provenance when no flag, explicit --base wins, malformed value exits 2. Test-only. Refs #1168.",
+          "timestamp": "2026-06-10T14:12:36+02:00",
+          "tree_id": "cafa827006e3a9b898d2d2ef7f7eca81ac15e908",
+          "url": "https://github.com/fallow-rs/fallow/commit/adbd09776e877b539ff5777a44e131aea9d21e9e"
+        },
+        "date": 1781093899700,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
