@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781049221958,
+  "lastUpdate": 1781052506946,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b740cf1a817c8d9bc8a7498f61e0e404f71a4ba4",
-          "message": "fix(vscode): align provider and duplication behavior\n\nAdd a VS Code plugin that credits provider interface methods when a class implements the matching VS Code provider interface.\n\nForward VS Code duplication settings into LSP initialization options so live diagnostics match sidebar CLI analysis.\n\nHarden VS Code LSP restart handling for rapid config changes during client startup.\n\nFixes #948.\nFixes #905.",
-          "timestamp": "2026-06-04T12:33:57+02:00",
-          "tree_id": "b6fe6d55376f03a7da643ad0d48ee9923d9e8d29",
-          "url": "https://github.com/fallow-rs/fallow/commit/b740cf1a817c8d9bc8a7498f61e0e404f71a4ba4"
-        },
-        "date": 1780569381347,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7324813,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33513,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 724796,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6685,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6632,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e2d2dae4bc670c88a458b836f6946f53cb888ff8",
+          "message": "feat: add unresolved callee diagnostics\n\n* chore: open issue 1134 implementation branch\n\n* feat: add unresolved callee diagnostics",
+          "timestamp": "2026-06-10T02:46:14+02:00",
+          "tree_id": "b26f9db14bc676a1f784b36db80ea6e2a6ad81e8",
+          "url": "https://github.com/fallow-rs/fallow/commit/e2d2dae4bc670c88a458b836f6946f53cb888ff8"
+        },
+        "date": 1781052504831,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7465477,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34629,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 746893,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6640,
             "unit": "allocations"
           }
         ]
