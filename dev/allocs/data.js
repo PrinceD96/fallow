@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781121474721,
+  "lastUpdate": 1781123783388,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "2ee51cbae9014a263c9d23ef230ef3ae21ad1baa",
-          "message": "fix(vscode): schema-gate workspaces output\n\nAdd a Rust-owned schema contract for `fallow workspaces --format json`, regenerate the JSON schema plus VS Code and npm declaration outputs, and route the VS Code workspace picker through the generated type surface.\n\nFixes #991.",
-          "timestamp": "2026-06-06T14:38:01+02:00",
-          "tree_id": "137305f275c65fbc7b1637f3baa0da1cb83f41e3",
-          "url": "https://github.com/fallow-rs/fallow/commit/2ee51cbae9014a263c9d23ef230ef3ae21ad1baa"
-        },
-        "date": 1780749949536,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7356061,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33526,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 728204,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6691,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6641,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e451a5be35445a18909739c4dcfd3aa9d8d5c2e1",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.92.1",
+          "timestamp": "2026-06-10T22:33:55+02:00",
+          "tree_id": "aea86598af7fd93199cbbeaee0328e92a58a02d7",
+          "url": "https://github.com/fallow-rs/fallow/commit/e451a5be35445a18909739c4dcfd3aa9d8d5c2e1"
+        },
+        "date": 1781123780486,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7515863,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 35045,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 743693,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6632,
             "unit": "allocations"
           }
         ]
