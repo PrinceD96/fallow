@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781116830533,
+  "lastUpdate": 1781117087463,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "aeaa9768a40b4ff8f5d0930b2ac1e99a7a870754",
-          "message": "docs: remove self analyzed badge",
-          "timestamp": "2026-06-06T23:16:29+02:00",
-          "tree_id": "b7490d6f69069a9459162a89a446523464b0534d",
-          "url": "https://github.com/fallow-rs/fallow/commit/aeaa9768a40b4ff8f5d0930b2ac1e99a7a870754"
-        },
-        "date": 1780780786466,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3e93fdde54879c92656b02bdffc7942531dbbdde"
         },
         "date": 1781116827059,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d4f42ab7c4a03bee3e44dd698aefb0c5ce529377",
+          "message": "chore: regenerate plugin schema and record vscode hover escaping fix (#1181)\n\nplugin-schema.json had drifted from the binary's plugin-schema output (usedClassMembers glob-pattern doc wording); regenerated from the current binary, with rule-pack-schema.json and schema.json verified in sync. Also records the VS Code hover escaping fix from #1176 in the unreleased changelog section.",
+          "timestamp": "2026-06-10T20:41:36+02:00",
+          "tree_id": "4592979d2c98f280c7ab29e2540c56d071963236",
+          "url": "https://github.com/fallow-rs/fallow/commit/d4f42ab7c4a03bee3e44dd698aefb0c5ce529377"
+        },
+        "date": 1781117085452,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
