@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781078172110,
+  "lastUpdate": 1781079379405,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "647fe2d90f7316b9a95ccd690481224e9a95333b",
-          "message": "chore: release v2.89.0",
-          "timestamp": "2026-06-05T18:13:59+02:00",
-          "tree_id": "4ff254848515b9a263a51bfdaa0160e2ea19f29e",
-          "url": "https://github.com/fallow-rs/fallow/commit/647fe2d90f7316b9a95ccd690481224e9a95333b"
-        },
-        "date": 1780676883352,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f5f8944a679bab69f1ad4d9c0ee80beeeb1c9230"
         },
         "date": 1781078170068,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "6a9b7d1600d9bacf4a79647b0f6dd5984b7ebc64",
+          "message": "chore(agents): avoid inline interpreter snippets",
+          "timestamp": "2026-06-10T10:07:52+02:00",
+          "tree_id": "038b13b7868698729609ea2d0128050f2f2ddb74",
+          "url": "https://github.com/fallow-rs/fallow/commit/6a9b7d1600d9bacf4a79647b0f6dd5984b7ebc64"
+        },
+        "date": 1781079377407,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
