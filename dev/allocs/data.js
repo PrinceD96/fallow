@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781118888548,
+  "lastUpdate": 1781121474721,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "7969561+jsgoldman@users.noreply.github.com",
-            "name": "jsgoldman",
-            "username": "jsgoldman"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "45b3d87f7686009c8429b20a3d6270beb01845d4",
-          "message": "fix(extract): ignore prose JSDoc import examples\n\nTighten JSDoc import-type extraction so prose examples do not create false unresolved-import findings. The extractor now only follows import(\"...\") references inside type-bearing JSDoc brace groups, while preserving real annotations including @type, @returns, @satisfies, @template, and @enum.\n\nThanks @jsgoldman for the original patch in #1010.",
-          "timestamp": "2026-06-06T14:20:02+02:00",
-          "tree_id": "6ea5757997558fa23ff4b04d63294b50a79f7e50",
-          "url": "https://github.com/fallow-rs/fallow/commit/45b3d87f7686009c8429b20a3d6270beb01845d4"
-        },
-        "date": 1780748553081,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7285925,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33470,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 730396,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6692,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6640,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "1f9aaac198a279b340f688bd4ee56655e43551f4",
+          "message": "chore: release v2.92.1",
+          "timestamp": "2026-06-10T21:54:40+02:00",
+          "tree_id": "9dc4f2ff03f6671976eaa53b0383036b88cd0904",
+          "url": "https://github.com/fallow-rs/fallow/commit/1f9aaac198a279b340f688bd4ee56655e43551f4"
+        },
+        "date": 1781121471449,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7425423,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34998,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 745897,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6641,
             "unit": "allocations"
           }
         ]
