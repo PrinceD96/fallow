@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781077936110,
+  "lastUpdate": 1781078172110,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "2d0fefdba351051f818e8766e719f4057320094d",
-          "message": "fix(vscode): satisfy oxlint/oxfmt and the dead-code self-analysis gate\n\nFixes three CI failures the editor-intelligence batch (#1009) introduced:\n\n- oxlint unicorn(no-array-sort): sortCloneGroupsBySize used `[...groups].sort()`;\n  switched to `groups.toSorted()` (non-mutating, drops the redundant spread).\n- oxfmt drift in health-utils.ts, healthTreeView.ts, and statusBar-utils.ts\n  (the prior commits were authored without root oxfmt run).\n- Fallow self-analysis flagged ComplexityDecorationController.dispose as an\n  unused class member: it is invoked by VS Code's Disposable contract (the\n  controller is pushed to context.subscriptions), which fallow cannot see;\n  suppressed with an inline comment and a rationale.\n\nRebuilt editors/vscode/dist. No user-facing behavior change.",
-          "timestamp": "2026-06-05T17:45:50+02:00",
-          "tree_id": "6f72d6dd394ebce45021ee0a7ac0b16d5a8408a6",
-          "url": "https://github.com/fallow-rs/fallow/commit/2d0fefdba351051f818e8766e719f4057320094d"
-        },
-        "date": 1780674524444,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/30a3a0a10cfa8b252757bdd90ad230150b2ca825"
         },
         "date": 1781077933952,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f5f8944a679bab69f1ad4d9c0ee80beeeb1c9230",
+          "message": "fix(schema): include security summary root contract\n\nFollow-up from final review across #1152, #1153, #1154, and #1155.",
+          "timestamp": "2026-06-10T09:53:01+02:00",
+          "tree_id": "e3b8636f465f9254c151d10e4cf2f73be8bd5f17",
+          "url": "https://github.com/fallow-rs/fallow/commit/f5f8944a679bab69f1ad4d9c0ee80beeeb1c9230"
+        },
+        "date": 1781078170068,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
