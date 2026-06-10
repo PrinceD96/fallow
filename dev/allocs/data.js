@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781099997214,
+  "lastUpdate": 1781101895184,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "dcb36bf9508bc94681cbf95a29b313424a6f397f",
-          "message": "fix(security): detect template html sinks\n\n* chore: open issue 883 implementation branch\n\n* fix(security): detect template html sinks",
-          "timestamp": "2026-06-05T15:08:38+02:00",
-          "tree_id": "337bb276097106d4d52713ce51e9acb1431a6e57",
-          "url": "https://github.com/fallow-rs/fallow/commit/dcb36bf9508bc94681cbf95a29b313424a6f397f"
-        },
-        "date": 1780665064354,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7336629,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33505,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 729772,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6686,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6633,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f9ab4d12427777e4f2e8ee9c4dd31b35b1660b2f",
+          "message": "refactor: extract health telemetry recording",
+          "timestamp": "2026-06-10T16:27:35+02:00",
+          "tree_id": "74d4d575464c0fcddc30cc3fd77efed1ca2778a9",
+          "url": "https://github.com/fallow-rs/fallow/commit/f9ab4d12427777e4f2e8ee9c4dd31b35b1660b2f"
+        },
+        "date": 1781101893117,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7467743,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 35033,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 745897,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6641,
             "unit": "allocations"
           }
         ]
