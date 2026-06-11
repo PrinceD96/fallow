@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781208118938,
+  "lastUpdate": 1781211691150,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c9a61199b79273e3aff6c43bd724ea781cef1c24",
-          "message": "refactor: group file report inputs",
-          "timestamp": "2026-06-07T11:44:44+02:00",
-          "tree_id": "c26304f47df0fe3645a647cb63d5a4ba8bb60be6",
-          "url": "https://github.com/fallow-rs/fallow/commit/c9a61199b79273e3aff6c43bd724ea781cef1c24"
-        },
-        "date": 1780826943456,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7408859,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34377,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 735816,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6690,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6643,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "6ba7c22124b08d103612444f9a65e3b76d263d02",
+          "message": "refactor(init): move the onboarding decline to fallow init --decline\n\nThe decline surfaced as a hidden impact subcommand because its storage\nlives in the Impact store, but storage is an implementation detail and\nthe command namespace is UX: declining setup has nothing to do with the\nImpact value report, and the setup hint now names the command in\nuser-facing output. init is the setup namespace, so the decline lives\nthere: fallow init --decline persists the decision (no config written,\nImpact stays untouched) and conflicts with the scaffolding flags. The\nimpact decline-onboarding subcommand is removed without an alias; it\nwas never released.",
+          "timestamp": "2026-06-11T22:58:40+02:00",
+          "tree_id": "32a26fb7a8dc66725564408a22a0eb780fa3857b",
+          "url": "https://github.com/fallow-rs/fallow/commit/6ba7c22124b08d103612444f9a65e3b76d263d02"
+        },
+        "date": 1781211687750,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7555287,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36123,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 745829,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6640,
             "unit": "allocations"
           }
         ]
