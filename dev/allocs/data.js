@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781219928446,
+  "lastUpdate": 1781220221547,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "485fc8030389e7b4dfc848e1ce44c3f3d6cb0df1",
-          "message": "feat(config): add configurable cache directory\n\nAdd `cache.dir` and `FALLOW_CACHE_DIR` so teams can relocate fallow's persistent extraction and audit snapshot caches outside the default `.fallow/` directory.\n\nKeep the default project-local cache path for compatibility, but print a one-time human first-run note when the default cache directory is newly created. Quiet runs, machine formats, CI, non-TTY paths, and `--no-cache` stay silent.\n\nFixes #1036.",
-          "timestamp": "2026-06-08T10:23:39+02:00",
-          "tree_id": "5704779c02e1e25d238fb58f7e800e31bd32499e",
-          "url": "https://github.com/fallow-rs/fallow/commit/485fc8030389e7b4dfc848e1ce44c3f3d6cb0df1"
-        },
-        "date": 1780907172824,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7409387,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34373,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 737460,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6687,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6641,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "rice@shawnrice.org",
+            "name": "Shawn Patrick Rice",
+            "username": "shawnrice"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4e35d2b50c84318d3bda4b1f634fc61695fe6beb",
+          "message": "fix(extract): skip multi-byte escapee in quoted attribute scanner\n\nThe quoted attribute scanner advanced a fixed byte count after a backslash, which could leave the cursor inside a multi-byte escaped character.\n\nAdvance past the backslash and then over one full UTF-8 character, matching the rest of the scanner and preventing char-boundary panics on Angular templates.",
+          "timestamp": "2026-06-12T01:20:20+02:00",
+          "tree_id": "6b3e5c5093658d4125e1c4735f7197328893cb87",
+          "url": "https://github.com/fallow-rs/fallow/commit/4e35d2b50c84318d3bda4b1f634fc61695fe6beb"
+        },
+        "date": 1781220219397,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7560615,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36102,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 748982,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6674,
             "unit": "allocations"
           }
         ]
