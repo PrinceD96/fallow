@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781168745088,
+  "lastUpdate": 1781170789275,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0c0b0205780338c7db2742fb39ce0a548972cb96",
-          "message": "refactor: group health snapshot inputs",
-          "timestamp": "2026-06-07T13:53:56+02:00",
-          "tree_id": "dbb08a2244f2d7815b6a8a006e6647c51718e376",
-          "url": "https://github.com/fallow-rs/fallow/commit/0c0b0205780338c7db2742fb39ce0a548972cb96"
-        },
-        "date": 1780841746128,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/be84f982ad20fbdf9c3b9b78c5bb4b09afff12a5"
         },
         "date": 1781168743095,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "68295fee174c9c64bcdb371aeeb37076fd44631f",
+          "message": "fix(ci): wrap GitLab before_script Bash blocks\n\nGitLab Runner can execute before_script entries with /bin/sh, while the template install, script prep, and runner writer blocks rely on Bash syntax. Alpine-based jobs installed Bash but still evaluated later setup lines through the runner shell.\n\nThe GitLab template now wraps the Bash-dependent setup blocks with explicit bash -eo pipefail heredocs after dependency installation. The CI harness extracts those blocks and runs them through /bin/sh, executes the generated runner with empty extra args, and keeps the symlinked CLI template in parity.\n\nFixes #1182.",
+          "timestamp": "2026-06-11T11:34:34+02:00",
+          "tree_id": "cf0113a568ed00baec08d8c94d4e034a2c7ff24f",
+          "url": "https://github.com/fallow-rs/fallow/commit/68295fee174c9c64bcdb371aeeb37076fd44631f"
+        },
+        "date": 1781170787109,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
