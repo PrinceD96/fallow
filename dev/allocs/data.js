@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781206887761,
+  "lastUpdate": 1781207971779,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "08912ff4b864e56e5e2f1439292338c12feb3207",
-          "message": "fix(security): flag source-backed redos regex sinks\n\nCapture risky literal regex applications as source-backed security sink candidates. The extractor records the risky regex fragment for literal regexes and constant RegExp strings, then the existing catalogue emits redos-regex CWE-1333 findings only when the input traces to an untrusted source.\n\nSafe literal patterns, mutable regex bindings, and source-free inputs stay quiet. The extraction cache version is bumped because security_sinks now carries the optional regex fragment metadata.\n\nFixes #928.",
-          "timestamp": "2026-06-07T10:38:38+02:00",
-          "tree_id": "a4a3e3df008bb9c95870e97a515a18cd4009fd34",
-          "url": "https://github.com/fallow-rs/fallow/commit/08912ff4b864e56e5e2f1439292338c12feb3207"
-        },
-        "date": 1780821741566,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7402483,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34363,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 735868,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6690,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6564,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f1b91c2c75aa0afbc2c4afa5ce47e1e2868e0a2f",
+          "message": "refactor: continue sig unit-size reductions",
+          "timestamp": "2026-06-11T21:55:07+02:00",
+          "tree_id": "18cd4616b415d735c5d867027c51305ec036334b",
+          "url": "https://github.com/fallow-rs/fallow/commit/f1b91c2c75aa0afbc2c4afa5ce47e1e2868e0a2f"
+        },
+        "date": 1781207969797,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7535447,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36095,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 745145,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6634,
             "unit": "allocations"
           }
         ]
