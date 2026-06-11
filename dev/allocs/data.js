@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781211691150,
+  "lastUpdate": 1781212308529,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "122a6fc5f4d96af9f131ff844780461637cd27f3",
-          "message": "refactor: group large function inputs",
-          "timestamp": "2026-06-07T12:33:17+02:00",
-          "tree_id": "01280b9464e868236493ac18cbe2d933fbdc62a0",
-          "url": "https://github.com/fallow-rs/fallow/commit/122a6fc5f4d96af9f131ff844780461637cd27f3"
-        },
-        "date": 1780831298363,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7400355,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34354,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 737724,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6690,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4394,6 +4350,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Memory",
             "value": 745829,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6640,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "c8e0ccc48e0b36c71088af5dd528384702bb3cd6",
+          "message": "fix(suggestions): print the setup hint after the failure summary\n\nIn the header position the hint scrolled away on any sizable first run;\nthe failure summary tail is what a human actually reads. The hint now\nfollows the Failed: line on stderr, sharing its quiet gate, so it is\nthe last line of a failing first-contact run.",
+          "timestamp": "2026-06-11T23:09:03+02:00",
+          "tree_id": "2ed0a91b24eb73cf5108268ad29ccb2a4bafe1ad",
+          "url": "https://github.com/fallow-rs/fallow/commit/c8e0ccc48e0b36c71088af5dd528384702bb3cd6"
+        },
+        "date": 1781212306365,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7569991,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36118,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 745881,
             "unit": "bytes"
           },
           {
