@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781195735436,
+  "lastUpdate": 1781196750896,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7a9db3ff4e37e9279b56e9ffa7133aed251db180",
-          "message": "feat(security): rank framework entry-point sources\n\nAdd dependency-gated source rows for framework handler inputs, Next.js handlers and server actions, queue job payloads, and MCP tool inputs.\n\nRecord recognizable framework callback parameters during extraction so existing security sink candidates can be ranked as source-backed. Direct request accessor paths still take precedence over broader handler-param bindings, keeping evidence specific when both sources are present.\n\nNestJS decorator-injected params remain out of scope because they need decorator parameter capture rather than member-path matching.\n\nFixes #879.",
-          "timestamp": "2026-06-07T10:15:44+02:00",
-          "tree_id": "05f61c32d5a79aeb01c0f8bfe527da426f40d08f",
-          "url": "https://github.com/fallow-rs/fallow/commit/7a9db3ff4e37e9279b56e9ffa7133aed251db180"
-        },
-        "date": 1780820301418,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7363605,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33870,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 736540,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6692,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6636,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "2feb62016515316b235bce1133be0a6ebe8bd731",
+          "message": "refactor: reduce oversized analysis helpers",
+          "timestamp": "2026-06-11T18:48:08+02:00",
+          "tree_id": "1c594f6f51249415fe15ff67dd041122ecd25837",
+          "url": "https://github.com/fallow-rs/fallow/commit/2feb62016515316b235bce1133be0a6ebe8bd731"
+        },
+        "date": 1781196748769,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7607855,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36126,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 749417,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6637,
             "unit": "allocations"
           }
         ]
