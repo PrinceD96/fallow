@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781170789275,
+  "lastUpdate": 1781171385213,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "65fcdcbe2e999e45fc3246ea8453aa314d5bb49b",
-          "message": "fix: restore literal security tracking after rebase",
-          "timestamp": "2026-06-07T23:54:53+02:00",
-          "tree_id": "933a81834d1aa340d2108d5f1dfb5e509f47b2f7",
-          "url": "https://github.com/fallow-rs/fallow/commit/65fcdcbe2e999e45fc3246ea8453aa314d5bb49b"
-        },
-        "date": 1780869585912,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/68295fee174c9c64bcdb371aeeb37076fd44631f"
         },
         "date": 1781170787109,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cf3d748a3c24805a01a420f3f1b38bde19aa70f8",
+          "message": "feat(scripts): generate agent skill tables from the fallow schema manifest\n\nThe SKILL.md commands, issue-types, and MCP-tools tables shipped in the npm package drifted behind the CLI by hand-maintenance. They are now marker-wrapped and rendered from the fallow schema capability manifest by a new zero-dependency generator (scripts/generate-agent-docs.mjs) with merge semantics: identity columns (row set, filter flags, fixable, parse-verified suppression comments, MCP kind/license/key params) always regenerate, while the curated explanation cells stay hand-owned and survive regeneration. New rows seed from the manifest; removed rows drop.\n\nThe first generation adds 9 previously undocumented commands and 14 issue-type rows, each with its exact copy-pasteable suppression comment, while preserving all existing curated prose. The release flow regenerates the canonical fallow-skills tables against the fresh release binary before re-vendoring, with --check as the drift gate; generator unit tests run in the js-lint CI job. The cli-reference.md flags tables are deferred to #1189.\n\nCloses #1188.",
+          "timestamp": "2026-06-11T11:44:24+02:00",
+          "tree_id": "5eaef183420cded827412f7ace424a2669b2959e",
+          "url": "https://github.com/fallow-rs/fallow/commit/cf3d748a3c24805a01a420f3f1b38bde19aa70f8"
+        },
+        "date": 1781171382949,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
