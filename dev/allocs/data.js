@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781190322706,
+  "lastUpdate": 1781192471073,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "871a76504fc4878f2bad7208740639724d9d91e0",
-          "message": "feat(mcp): scope security candidates by path\n\nAdd a file scope to the existing security_candidates MCP tool by forwarding path filters through fallow security.\n\nExpose the same scope as a repeated --file flag on the security command so agents can ask for candidates anchored in or traced through recently edited files without scanning unrelated findings.\n\nFixes #889.",
-          "timestamp": "2026-06-06T21:36:57+02:00",
-          "tree_id": "ae00436b2d8df65bfb833e1ff96a2fbe611dd0f2",
-          "url": "https://github.com/fallow-rs/fallow/commit/871a76504fc4878f2bad7208740639724d9d91e0"
-        },
-        "date": 1780774910384,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7394117,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33715,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 740616,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6693,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6725,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "af46158ac03683c59215ccdf0b697a6e31296865",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.93.0",
+          "timestamp": "2026-06-11T17:36:58+02:00",
+          "tree_id": "a416807dc2edb6726faa6522d8128e33d5af394d",
+          "url": "https://github.com/fallow-rs/fallow/commit/af46158ac03683c59215ccdf0b697a6e31296865"
+        },
+        "date": 1781192468809,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7546343,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36104,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 697489,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6137,
             "unit": "allocations"
           }
         ]
