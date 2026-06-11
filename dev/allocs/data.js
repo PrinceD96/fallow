@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781196750896,
+  "lastUpdate": 1781204963078,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "beb99e87d7e6d777f40639c07441d391cc2c0af7",
-          "message": "fix(security): rank one-hop source helper sinks\n\nRecord conservative same-module helper summaries for function declarations, const arrow helpers, and const function expressions that return source-backed parameter paths. Locals initialized from one helper call now inherit the source-backed ranking signal while aliases, cross-module calls, helper chains, and shadowed helper names stay unbacked.\n\nBump the extract cache version and cover the behavior with extract-layer and security catalogue regressions, including hoisted functions and negative shadowed or multi-hop cases.\n\nFixes #878.",
-          "timestamp": "2026-06-07T10:22:10+02:00",
-          "tree_id": "751529794f7f11307bfba82b43e3b770c4dceb5a",
-          "url": "https://github.com/fallow-rs/fallow/commit/beb99e87d7e6d777f40639c07441d391cc2c0af7"
-        },
-        "date": 1780820697199,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7303349,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33822,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 734348,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6691,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6637,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6afcaa987555292f319e8a7d70856afeaea7a82c",
+          "message": "feat(agent): add onboarding flow primitives\n\nAdd read-only hook status JSON for Git, Claude, and Codex surfaces so agents can inspect managed setup before mutating files. Mark agent gate audit runs with the existing hidden gate marker so Impact can record blocked-then-cleared containment events.\n\nPersist project-level onboarding declines in the existing Impact store and expose telemetry explicit-decision state so the skill can avoid repeat prompts and avoid asking users who already chose telemetry on or off.",
+          "timestamp": "2026-06-11T21:06:34+02:00",
+          "tree_id": "cb2fba2ffa59622ff0bcb8f0f5af09c89f9d8007",
+          "url": "https://github.com/fallow-rs/fallow/commit/6afcaa987555292f319e8a7d70856afeaea7a82c"
+        },
+        "date": 1781204959874,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7606327,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36149,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 745873,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6640,
             "unit": "allocations"
           }
         ]
