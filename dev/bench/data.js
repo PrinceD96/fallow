@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781167170348,
+  "lastUpdate": 1781168591788,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "09a2417e6705c7363f9aa36ff579b2b7eab35b29",
-          "message": "refactor: split report builders",
-          "timestamp": "2026-06-06T20:20:58+02:00",
-          "tree_id": "615bb33e420aa18850ffa048d4b5043f1631886a",
-          "url": "https://github.com/fallow-rs/fallow/commit/09a2417e6705c7363f9aa36ff579b2b7eab35b29"
-        },
-        "date": 1780770451433,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 69447,
-            "range": "± 901",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3767842,
-            "range": "± 130289",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 5859573,
-            "range": "± 153233",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 30292137,
-            "range": "± 842106",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 121229,
-            "range": "± 6707",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2681,
-            "range": "± 16",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 185224,
-            "range": "± 5135",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 820492,
-            "range": "± 6464",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1317777,
-            "range": "± 15469",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 534387,
-            "range": "± 32173",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3307081,
-            "range": "± 71219",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 3328849,
-            "range": "± 29965",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2220261,
-            "range": "± 4691",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2962158,
             "range": "± 5655",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1b8fb06993052b21424379e98c13d0956ce93eda",
+          "message": "feat(schema): complete capability manifest for agent introspection\n\nfallow schema previously documented 13 hand-maintained issue types and a fraction of the env vars, while the CLI exposed far more. The manifest is now derived from the code it describes: issue_types iterates the explain rule registry (one row per rule across dead-code, health, dupes, flags, and security) augmented with per-id metadata for filter flags, fixability, suppression comments, caveats, and free/freemium license markings. Every emitted suppress_comment is tested to round-trip through IssueKind::parse so agents cannot copy a no-op suppression.\n\nNew top-level blocks: manifest_version (\"1\"), mcp_tools (all 24 MCP server tools with kind grouping, key params, read-only and license markings, backed by a shared manifest in fallow-types that drift tests in crates/mcp keep in sync with the live tool router), plugins (count and names derived live from the builtin registry), and a completed user-facing environment_variables set with an exclusion guard for internal plumbing. The telemetry MCP tool allowlist now reads the shared manifest instead of its own hand-maintained copy, and the flags analysis gained its own explain rule so fallow explain feature-flag works.",
+          "timestamp": "2026-06-11T10:56:40+02:00",
+          "tree_id": "07db84fb901c060169dce698a642072938006254",
+          "url": "https://github.com/fallow-rs/fallow/commit/1b8fb06993052b21424379e98c13d0956ce93eda"
+        },
+        "date": 1781168589793,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 87673,
+            "range": "± 975",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 4022990,
+            "range": "± 164302",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 6138764,
+            "range": "± 177186",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 34813502,
+            "range": "± 788930",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 120373,
+            "range": "± 778",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2491,
+            "range": "± 69",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 186928,
+            "range": "± 3848",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 824136,
+            "range": "± 9583",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1321883,
+            "range": "± 18406",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 538577,
+            "range": "± 13839",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3344262,
+            "range": "± 32618",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3389624,
+            "range": "± 31447",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2252786,
+            "range": "± 9593",
             "unit": "ns/iter"
           }
         ]
