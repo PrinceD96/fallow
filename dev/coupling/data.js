@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781157567927,
+  "lastUpdate": 1781166552703,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d8d4f9fafe307febab0b98844c632d7fd83a71d3",
-          "message": "fix(security): detect dynamic regex construction\n\nDetect non-literal RegExp(pattern) and new RegExp(pattern) through the existing security-sink catalogue, with CWE-1333 metadata and candidate framing.\n\nLiteral regex patterns stay quiet, and literal regex catastrophic-backtracking analysis remains out of scope for the separate regex-complexity work.\n\nFixes #896.",
-          "timestamp": "2026-06-06T19:16:42+02:00",
-          "tree_id": "b966124e0e7584d154cca907fcaaf08bc69402e1",
-          "url": "https://github.com/fallow-rs/fallow/commit/d8d4f9fafe307febab0b98844c632d7fd83a71d3"
-        },
-        "date": 1780766515579,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 21,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 19,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.3,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 338,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 796,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 863,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "d0a3e7206b1e462bd3457ded727f34a9d1d72769",
+          "message": "refactor(cli): split combined.rs into orchestrator, output, orientation, impact modules\n\ncombined.rs concentrated analysis orchestration, the output-format printers,\nthe orientation header, entry-point display, and impact recording in a single\nlarge file, making it the repo's merge-conflict magnet.\n\nSplit it into a combined/ module: mod.rs keeps the orchestrator\n(CombinedOptions, resolve_analyses, run_combined, run_combined_dupes,\nbuild_health_opts); output.rs holds the format printers; orientation.rs the\nheader and entry-point display; impact.rs the telemetry recording. Pure code\nmotion with zero behavior change (visibility and use-paths only); the\nrayon::join parallelism and shared-parse threading are untouched. Test and\nsnapshot suites pass with no modifications.",
+          "timestamp": "2026-06-11T10:23:01+02:00",
+          "tree_id": "b3a40c57e6b9a6cf8c55554884d39ddf0b39fd9e",
+          "url": "https://github.com/fallow-rs/fallow/commit/d0a3e7206b1e462bd3457ded727f34a9d1d72769"
+        },
+        "date": 1781166550644,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 22,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.28,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 357,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 880,
             "unit": "count"
           }
         ]
