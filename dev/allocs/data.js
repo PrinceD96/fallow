@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781166602853,
+  "lastUpdate": 1781167013204,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9bf6bab61519f100b226c285e778114d04312df4",
-          "message": "feat(lsp): add opt-in inline complexity lenses\n\nAdd opt-in LSP code lenses for functions that exceed Fallow Health cyclomatic or cognitive thresholds.\n\nWire the VS Code setting fallow.health.inlineComplexity, defaulting to false, through LSP initialization. Keep existing export reference code lenses intact and document the setting in the VS Code extension README.\n\nFixes #992.",
-          "timestamp": "2026-06-06T15:16:41+02:00",
-          "tree_id": "40d764ed317efc1438afc71dd0cfa1cfc2231cbf",
-          "url": "https://github.com/fallow-rs/fallow/commit/9bf6bab61519f100b226c285e778114d04312df4"
-        },
-        "date": 1780751973584,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7368461,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33729,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 733452,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6691,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6640,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ba3580ac64d4458843366acda80376fb395c2047",
+          "message": "docs(combined): narrow the conflict-magnet rule to combined/mod.rs\n\ncombined.rs was split into a combined/ module, so the merge-conflict\nconcentration now lives in the orchestrator (combined/mod.rs); the output,\norientation, and impact submodules are independent files editable in\nparallel. Relax the CLAUDE.md serialization rule accordingly.",
+          "timestamp": "2026-06-11T10:33:05+02:00",
+          "tree_id": "4b8bc1e9dd931312c2ce9c51193904fac5da34cd",
+          "url": "https://github.com/fallow-rs/fallow/commit/ba3580ac64d4458843366acda80376fb395c2047"
+        },
+        "date": 1781167011222,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7425343,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 35004,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 739549,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6630,
             "unit": "allocations"
           }
         ]
