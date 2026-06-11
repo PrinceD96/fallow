@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781168762626,
+  "lastUpdate": 1781175701488,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d8d4f9fafe307febab0b98844c632d7fd83a71d3",
-          "message": "fix(security): detect dynamic regex construction\n\nDetect non-literal RegExp(pattern) and new RegExp(pattern) through the existing security-sink catalogue, with CWE-1333 metadata and candidate framing.\n\nLiteral regex patterns stay quiet, and literal regex catastrophic-backtracking analysis remains out of scope for the separate regex-complexity work.\n\nFixes #896.",
-          "timestamp": "2026-06-06T19:16:42+02:00",
-          "tree_id": "b966124e0e7584d154cca907fcaaf08bc69402e1",
-          "url": "https://github.com/fallow-rs/fallow/commit/d8d4f9fafe307febab0b98844c632d7fd83a71d3"
-        },
-        "date": 1780766622434,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7337941,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33691,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 685540,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6191,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6702,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1f2bf7070b2650dd2e613fe0b84df61f7363a741",
+          "message": "fix(cli): clear test-only-dependency findings under single-type filters (#1194)\n\nIssueFilters::apply() clears every issue category not selected by a single-type filter flag, but the --unused-deps clear arm omitted test_only_dependencies, so a focused run like `fallow dead-code --unused-files` on a project with a production dependency imported only from test files leaked that test-only finding alongside the requested issue type.\n\nThis groups test-only-dependency with the other dependency kinds under --unused-deps (matching type-only and the --file scope, which already cleared all five categories), sets filter_flag to --unused-deps for the test-only-dependency row in the capability manifest, regenerates the SKILL.md issue-types table, and adds a neuter-verified filter-parity regression test.\n\nFixes #1192.",
+          "timestamp": "2026-06-11T12:56:25+02:00",
+          "tree_id": "6b7edb8f5c3a17bc453260d61349ba1c2e906f76",
+          "url": "https://github.com/fallow-rs/fallow/commit/1f2bf7070b2650dd2e613fe0b84df61f7363a741"
+        },
+        "date": 1781175699203,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7484615,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 35036,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 744965,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6633,
             "unit": "allocations"
           }
         ]
