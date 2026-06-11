@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781155180147,
+  "lastUpdate": 1781157405320,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "13b5c322dac21fbbff9f575d221dc6395f39d83f",
-          "message": "fix(deps): credit pnpm workspace package imports\n\nCredit valid bare package imports when resolver canonicalization follows a pnpm workspace symlink outside the analyzed package root.\n\nKeep path aliases excluded from the fallback, so aliases like @/shared and #polyfill are not credited as dependencies. Add regression coverage for analyzing a consumer workspace package directly.\n\nFixes #1008.",
-          "timestamp": "2026-06-06T15:02:53+02:00",
-          "tree_id": "5074eb5757799ddcdc6bd800b4972a84bf6a0fcc",
-          "url": "https://github.com/fallow-rs/fallow/commit/13b5c322dac21fbbff9f575d221dc6395f39d83f"
-        },
-        "date": 1780751135573,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7285997,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33470,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 728152,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6691,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6715,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "3895e47fca699364537ff366377ffd078aedc44d",
+          "message": "refactor: split security human rendering",
+          "timestamp": "2026-06-11T07:51:26+02:00",
+          "tree_id": "92ffd20fe48592915a030ca8b4d6f133ed22bf92",
+          "url": "https://github.com/fallow-rs/fallow/commit/3895e47fca699364537ff366377ffd078aedc44d"
+        },
+        "date": 1781157402488,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7412695,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 34983,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 745545,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6639,
             "unit": "allocations"
           }
         ]
