@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781187135905,
+  "lastUpdate": 1781190016024,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "fd60baab71a41f62fa4c0d10a50dac5d09d4501f",
-          "message": "fix(security): unwrap static option objects for jwt checks\n\nFix a review-found gap in the JWT missing-algorithms candidate. Object-key metadata now unwraps static TypeScript wrappers such as `as const`, matching the existing literal and object-property capture behavior.\n\nThe regression fixture covers missing options, missing algorithm keys, static-wrapped missing keys, and static-wrapped safe allowlists.\n\nFollow-up to #898.",
-          "timestamp": "2026-06-06T20:02:59+02:00",
-          "tree_id": "7304af88a0c0aa7a60520ee2acdb57a6ec04c5f4",
-          "url": "https://github.com/fallow-rs/fallow/commit/fd60baab71a41f62fa4c0d10a50dac5d09d4501f"
-        },
-        "date": 1780769153867,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7291237,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33655,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 736540,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6692,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6733,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "27545232325f3d0e15faeafe87769da6b41963f3",
+          "message": "chore: release v2.93.0",
+          "timestamp": "2026-06-11T16:56:14+02:00",
+          "tree_id": "017d01940022a6810352a0fd0073ab4edb6a8672",
+          "url": "https://github.com/fallow-rs/fallow/commit/27545232325f3d0e15faeafe87769da6b41963f3"
+        },
+        "date": 1781190013434,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7543407,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36100,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 743705,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6640,
             "unit": "allocations"
           }
         ]
