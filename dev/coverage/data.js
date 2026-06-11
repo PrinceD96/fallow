@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781196820361,
+  "lastUpdate": 1781197263313,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b6abad014ce375ed88a80cb57b0479dea588fa41",
-          "message": "fix(security): keep source reachability diff matches\n\nShared diff filtering already retained security candidates when the sink anchor or detector trace matched the changed lines. Source reachability added a second trace under reachability, but that trace was not included in the diff predicate, so diff-scoped runs could hide a candidate introduced by an untrusted-source path change.\n\nInclude reachability.untrusted_source_trace in the shared diff filter, add regression coverage for that path, and update nearby comments so the ranking and SARIF docs describe the current source-reachability contract.\n\nFollow-up to #1050.",
-          "timestamp": "2026-06-08T12:03:23+02:00",
-          "tree_id": "3b3e8b4375605a49d7d50da1ab224a20e43afc17",
-          "url": "https://github.com/fallow-rs/fallow/commit/b6abad014ce375ed88a80cb57b0479dea588fa41"
-        },
-        "date": 1780913293235,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2feb62016515316b235bce1133be0a6ebe8bd731"
         },
         "date": 1781196817303,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9a1653d9e800809381928c8fdd5e41cf7e569575",
+          "message": "fix(ci): format generate-agent-docs.test.mjs and re-vendor the trimmed agent skill\n\nTwo CI failures surfaced on main once a full run completed (every\nearlier run was cancelled by a superseding push): the generator test\nfile landed unformatted (oxfmt --check), and the v2.93.0 release\nvendored a 564-line SKILL.md that trips the bundled-skill validator's\n500-line limit. The canonical fallow-skills SKILL.md is trimmed to 499\nlines (verbose workflow blocks tightened, Node.js bindings and\nconfiguration field notes moved to references/); this re-vendors that\nstate so the validator passes.",
+          "timestamp": "2026-06-11T18:57:29+02:00",
+          "tree_id": "428de942f8df7f5e0aa311aa5874ed52ab199038",
+          "url": "https://github.com/fallow-rs/fallow/commit/9a1653d9e800809381928c8fdd5e41cf7e569575"
+        },
+        "date": 1781197259472,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
