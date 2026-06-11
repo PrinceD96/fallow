@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781175733596,
+  "lastUpdate": 1781177841133,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1115f6667e18ad8f929366ee1432c9878ab3caf5",
-          "message": "feat(vscode): always-visible status-bar toggle to hide/show diagnostics\n\nAdds an always-visible $(eye) Fallow status-bar button that hides or shows all\nFallow diagnostics in the editor with one click (it then reads $(eye-closed)\nFallow: hidden). Previously the only on/off control appeared after something was\nalready muted, so a first-time user had no visible way to silence the squiggles.\nThe button reuses the existing toggle command and the shared DiagnosticFilter,\nso it stays in sync with the right-gutter status item and the Manage quick pick.\nEditor-only: CI and fallow check still report every finding. Gated by the new\nfallow.diagnostics.statusBar setting (default on); created/disposed live on the\nsetting change, mirroring the audit status-bar item.\n\nAlso renames the diagnostic-visibility commands, quick pick, code action, and\nstatus messages to a consistent hide/show verb (command IDs and internal API\nunchanged).\n\nCloses #1035",
-          "timestamp": "2026-06-08T07:47:57+02:00",
-          "tree_id": "e8e3a89a9d3b5dbd2945d9e73f99ff4a1db83b00",
-          "url": "https://github.com/fallow-rs/fallow/commit/1115f6667e18ad8f929366ee1432c9878ab3caf5"
-        },
-        "date": 1780897846167,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1f2bf7070b2650dd2e613fe0b84df61f7363a741"
         },
         "date": 1781175731092,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f1a5e17acccb3a01b2b7bc28e5775962f871ff54",
+          "message": "fix(unused-class-members): credit imported Playwright fixtures\n\nPlaywright fixture definitions can route setup through an orchestrator class while declaring the fixture shape through an imported object type alias. The unused class member analyzer previously correlated callback-side fixture uses only with locally collected fixture map aliases, so nested methods on the target POM class could still report unused.\n\nThis teaches extraction to emit fixture-type sentinel accesses for imported alias bindings and expands those aliases in core before correlating Playwright fixture definitions with uses. The regression fixture keeps an actually unused decorated method to ensure the fix credits only the used chain.\n\nOut of scope: recursive imported alias expansion across multiple imported alias hops remains conservative.\n\nFixes #1190.",
+          "timestamp": "2026-06-11T13:30:44+02:00",
+          "tree_id": "980204cbafc6467feb3ee53a41857e6efc8cda2f",
+          "url": "https://github.com/fallow-rs/fallow/commit/f1a5e17acccb3a01b2b7bc28e5775962f871ff54"
+        },
+        "date": 1781177838264,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
