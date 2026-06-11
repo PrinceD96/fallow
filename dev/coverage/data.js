@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781177841133,
+  "lastUpdate": 1781182261498,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a0775db69a3e6d8f571015c96b69238815240cb3",
-          "message": "feat(vscode): add diagnostic mute baseline setting\n\nAdd a resource-scoped `fallow.diagnostics.mutedCategories` setting so teams can commit a shared editor mute baseline in `.vscode/settings.json`.\n\nCompose that baseline with the existing per-machine mute controls, including local overrides that can hide more categories or show a baseline-hidden category. Refresh the baseline after live diagnostic categories load so newly reported rule codes can be recognized without restarting.\n\nFixes #1039.",
-          "timestamp": "2026-06-08T10:12:45+02:00",
-          "tree_id": "a7f22d3f4cec83abe96ff1d85f1c16da2df3aea6",
-          "url": "https://github.com/fallow-rs/fallow/commit/a0775db69a3e6d8f571015c96b69238815240cb3"
-        },
-        "date": 1780906754924,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f1a5e17acccb3a01b2b7bc28e5775962f871ff54"
         },
         "date": 1781177838264,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f3f2e8b5f51fe84c98f3450a6ab957c1a680822b",
+          "message": "feat(cli): add command-level next_steps[] to JSON envelopes\n\nAdds an optional top-level next_steps[] array to the dead-code, health, dupes, combined, audit, and grouped JSON envelopes, plus a TTY-only Next: hint on bare fallow's human output. Each entry is { id, command, reason }: a read-only, runnable follow-up command computed from the run's findings, pointing agents and humans at fallow's adjacent verification surface (trace, complexity breakdown, audit, workspace scoping) that telemetry shows agents rarely discover from the output alone.\n\nTwo contracts hold for every entry, enforced by a constructor debug-assert and unit tests: the command is never a fix or any other mutating command (fallow surfaces evidence; deciding and applying the change is the agent's job), and it is runnable as-is with no placeholders. The array is deduplicated, priority-ordered, capped at three, and omitted when empty; it never contributes to total_issues. FALLOW_SUGGESTIONS=off suppresses it.\n\nAdditive-optional field, no schema-version bump. Schema and both TS contracts regenerated; the field rides through the MCP tools unchanged.",
+          "timestamp": "2026-06-11T14:45:50+02:00",
+          "tree_id": "da335935bd9cda0b838465f75d830bab6bfd3c7e",
+          "url": "https://github.com/fallow-rs/fallow/commit/f3f2e8b5f51fe84c98f3450a6ab957c1a680822b"
+        },
+        "date": 1781182259349,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
