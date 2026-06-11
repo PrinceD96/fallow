@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781220228810,
+  "lastUpdate": 1781222154763,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "bd1ec11575519b16a32fa6da2d82dae72fa58e9d",
-          "message": "fix(telemetry): report findings presence for audit and security\n\nAudit and security now report findings_present from the final results that users and agents see. Audit records the OR of its sub-results, including the no-change path as false, while security records whether the final filtered security_findings list is non-empty.\n\nThe regression coverage exercises inspect-mode telemetry for positive and clean audit and security runs, keeps no-analysis commands omitting the field, and updates the telemetry docs and changelog to match the wire contract.\n\nFixes #1060.",
-          "timestamp": "2026-06-09T09:46:59+02:00",
-          "tree_id": "864a4dc3a49e10890771d10e501c8d935b80e8b9",
-          "url": "https://github.com/fallow-rs/fallow/commit/bd1ec11575519b16a32fa6da2d82dae72fa58e9d"
-        },
-        "date": 1780991394114,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4e35d2b50c84318d3bda4b1f634fc61695fe6beb"
         },
         "date": 1781220226660,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ad49086701b67af493502eb6f860ff0218d91bef",
+          "message": "feat: generate agent CLI flag tables\n\nGenerate the agent-facing CLI reference flag tables from the capability manifest alongside the existing SKILL.md generated sections. The generator now owns global flags, bare fallow combined-mode flags, command-local flags, and the dead-code issue filter table while preserving curated prose cells and visible aliases.\n\nThe release workflow now checks both the canonical fallow-skills tree and the vendored npm skill tree for generated-doc drift. The mapping for command-to-global references is explicit and fails loudly when it goes stale.\n\nFixes #1189.",
+          "timestamp": "2026-06-12T01:52:47+02:00",
+          "tree_id": "801f7bf6c77f66d61f5ea5b37b044414d1601fe3",
+          "url": "https://github.com/fallow-rs/fallow/commit/ad49086701b67af493502eb6f860ff0218d91bef"
+        },
+        "date": 1781222152624,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
