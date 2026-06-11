@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781204963078,
+  "lastUpdate": 1781206887761,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "71394a249e57846fca99797a9a48c06876cb79c5",
-          "message": "fix(security): add issue 901 literal rows\n\nFixes #901.\n\nAdds the remaining literal-tier security catalogue rows for Electron unsafe BrowserWindow preferences, world-writable chmod modes, predictable temp-file writes, and mysql/mysql2 multipleStatements options.\n\nVerification passed locally:\n- cargo check --workspace\n- cargo test --workspace --all-targets\n- cargo clippy --workspace --all-targets -- -D warnings\n- cargo fmt --all -- --check\n- git diff --check\n- typos .\n- rustdoc with warnings denied\n- fallow audit JSON\n- real-project fallow security JSON smoke",
-          "timestamp": "2026-06-07T10:31:01+02:00",
-          "tree_id": "3d41dc604ae831b9e2577c74d0a182546c6d2b15",
-          "url": "https://github.com/fallow-rs/fallow/commit/71394a249e57846fca99797a9a48c06876cb79c5"
-        },
-        "date": 1780821205197,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7368933,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33865,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 687996,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6186,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6640,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "291c4b22f6121b8ac7e442dac0dd2c50d3392a13",
+          "message": "fix(hooks): raise agent gate version floor to 2.85.0\n\nThe gate script now passes --gate-marker agent, a flag introduced in\nv2.85.0. A PATH binary between 2.46.0 and 2.84.x passed the old floor\ncheck but rejects the flag with a usage error, so every audit took the\nfail-open skip path and the gate silently stopped gating. Raising the\nfloor turns that combination into the designed hard block with an\nupgrade hint.",
+          "timestamp": "2026-06-11T21:39:13+02:00",
+          "tree_id": "cae9ecd0176487471c7e152a83a645db117742d7",
+          "url": "https://github.com/fallow-rs/fallow/commit/291c4b22f6121b8ac7e442dac0dd2c50d3392a13"
+        },
+        "date": 1781206885017,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7553124,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 35990,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 729429,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6564,
             "unit": "allocations"
           }
         ]
