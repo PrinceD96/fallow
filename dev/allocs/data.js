@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781212308529,
+  "lastUpdate": 1781213721422,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0c0b0205780338c7db2742fb39ce0a548972cb96",
-          "message": "refactor: group health snapshot inputs",
-          "timestamp": "2026-06-07T13:53:56+02:00",
-          "tree_id": "dbb08a2244f2d7815b6a8a006e6647c51718e376",
-          "url": "https://github.com/fallow-rs/fallow/commit/0c0b0205780338c7db2742fb39ce0a548972cb96"
-        },
-        "date": 1780841701496,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7447363,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34383,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 735872,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6683,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6640,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "290d639d13fd0cc357b4c155f3ed2d8781045dc2",
+          "message": "refactor: continue sig unit-size cleanup",
+          "timestamp": "2026-06-11T23:31:42+02:00",
+          "tree_id": "9ea5193723fd3f1e0c0e24202a955d1c2cdc48a6",
+          "url": "https://github.com/fallow-rs/fallow/commit/290d639d13fd0cc357b4c155f3ed2d8781045dc2"
+        },
+        "date": 1781213718130,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7592415,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36120,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 745897,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6641,
             "unit": "allocations"
           }
         ]
