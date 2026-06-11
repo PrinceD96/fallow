@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781168591788,
+  "lastUpdate": 1781169025916,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e605a07767baf5593829f1bdb07b9da14f865970",
-          "message": "feat(security): add cleartext and ECB candidates\n\nAdd cleartext-transport candidates for literal HTTP and FTP request URLs plus WebSocket constructors using ws URLs.\n\nExtend weak-crypto literal coverage to flag AES ECB cipher algorithm literals while keeping the rest of #901 queued for capture shapes that need separate work.\n\nRefs #901.",
-          "timestamp": "2026-06-06T21:34:23+02:00",
-          "tree_id": "284af1e59e05c5e8e67a8320a090dfc0b2d81323",
-          "url": "https://github.com/fallow-rs/fallow/commit/e605a07767baf5593829f1bdb07b9da14f865970"
-        },
-        "date": 1780774785293,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 92842,
-            "range": "± 1764",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 4133065,
-            "range": "± 164129",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 6079900,
-            "range": "± 177685",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 29794771,
-            "range": "± 444260",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 118236,
-            "range": "± 1008",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2330,
-            "range": "± 7",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 235605,
-            "range": "± 4593",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 1067765,
-            "range": "± 6318",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1512451,
-            "range": "± 15060",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 574045,
-            "range": "± 22990",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4366754,
-            "range": "± 30151",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 4422249,
-            "range": "± 66032",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2967492,
-            "range": "± 14832",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2252786,
             "range": "± 9593",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "be84f982ad20fbdf9c3b9b78c5bb4b09afff12a5",
+          "message": "docs(mcp): align runtime_coverage license prose with single-capture-free nuance\n\nThe check_health and audit tool descriptions said the runtime_coverage param is a paid feature / license-gated without the carve-out the five dedicated runtime-coverage tools document: a single local capture is free, only continuous or multi-capture monitoring requires a license. Wording now matches across all seven runtime-coverage surfaces.",
+          "timestamp": "2026-06-11T10:58:58+02:00",
+          "tree_id": "9b56c7b831623b022f430f05e5f04f6dae1b9e8e",
+          "url": "https://github.com/fallow-rs/fallow/commit/be84f982ad20fbdf9c3b9b78c5bb4b09afff12a5"
+        },
+        "date": 1781169023887,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 87116,
+            "range": "± 944",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3799350,
+            "range": "± 147870",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 5936275,
+            "range": "± 211628",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 33607128,
+            "range": "± 1418601",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 120645,
+            "range": "± 2790",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2409,
+            "range": "± 8",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 185536,
+            "range": "± 2657",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 821824,
+            "range": "± 4078",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1321671,
+            "range": "± 17340",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 537138,
+            "range": "± 22068",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3322230,
+            "range": "± 27717",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3341647,
+            "range": "± 102218",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2256462,
+            "range": "± 7142",
             "unit": "ns/iter"
           }
         ]
