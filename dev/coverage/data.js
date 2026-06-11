@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781187164511,
+  "lastUpdate": 1781190668758,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "db88c3d2cf5cfb5451e37df043467a0567a500e1",
-          "message": "test(cli): make cache remap tests platform-neutral\n\nMake the cache remap tests build platform-native absolute paths from a temporary directory so they pass on Windows as well as Unix.",
-          "timestamp": "2026-06-08T10:36:09+02:00",
-          "tree_id": "1c59e514a9c420241c811ce14814e100c9e3f8cb",
-          "url": "https://github.com/fallow-rs/fallow/commit/db88c3d2cf5cfb5451e37df043467a0567a500e1"
-        },
-        "date": 1780908022772,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4b63590037a81906054633c47cad1762809f8e42"
         },
         "date": 1781187161613,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "de21312ecc85637f2dea82b64489b1a10126642e",
+          "message": "docs(changelog): move post-release entries back to Unreleased\n\nThe v2.93.0 release was cut in a parallel session minutes before the\nagent-discoverability squash merge landed, and the server-side three-way\nmerge anchored the two new entries (telemetry install grouping token,\ntask-to-command matrix) inside the freshly created 2.93.0 section. Those\nfeatures are not in the v2.93.0 binaries; restore them under Unreleased.",
+          "timestamp": "2026-06-11T17:04:11+02:00",
+          "tree_id": "03e309603ffb5a33bfd0fc16dc0d08e11c4ab6f0",
+          "url": "https://github.com/fallow-rs/fallow/commit/de21312ecc85637f2dea82b64489b1a10126642e"
+        },
+        "date": 1781190665134,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
