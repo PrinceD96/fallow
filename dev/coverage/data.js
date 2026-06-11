@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781205019218,
+  "lastUpdate": 1781206966488,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a5bf70c7b630218ab4b514f2d184670377374292",
-          "message": "feat(vscode): progressive-disclosure complexity breakdown\n\nReworks the VS Code inline complexity breakdown into progressive disclosure: a compact lens sits above each complex function (fallow.health.inlineComplexity, now default on), and the dense per-line +N breakdown is revealed per function instead of all at once.\n\nThree ways to reveal a function's breakdown, sharing one unified expansion state the lens reflects: select its finding in the Health view (lens reads hide breakdown while selected), click the lens to expand/collapse, or hover the function/decision-point line (popup, via a new HoverProvider decoupled from the decoration so peek works with afterText off). fallow.complexity.afterText now defaults to false.\n\nThe lens is rendered by the extension (ComplexityLensProvider) so it can toggle; the extension no longer forwards health.inlineComplexity to the LSP, so the editor-agnostic LSP complexity lens stays available to other editors (Neovim/Zed/Helix) with no double-render in VS Code.\n\nRefs #992.",
-          "timestamp": "2026-06-08T15:04:52+02:00",
-          "tree_id": "2d8953c5481fe6f83ac71e93d2a19c16270c78ec",
-          "url": "https://github.com/fallow-rs/fallow/commit/a5bf70c7b630218ab4b514f2d184670377374292"
-        },
-        "date": 1780924072848,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6afcaa987555292f319e8a7d70856afeaea7a82c"
         },
         "date": 1781205017095,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "291c4b22f6121b8ac7e442dac0dd2c50d3392a13",
+          "message": "fix(hooks): raise agent gate version floor to 2.85.0\n\nThe gate script now passes --gate-marker agent, a flag introduced in\nv2.85.0. A PATH binary between 2.46.0 and 2.84.x passed the old floor\ncheck but rejects the flag with a usage error, so every audit took the\nfail-open skip path and the gate silently stopped gating. Raising the\nfloor turns that combination into the designed hard block with an\nupgrade hint.",
+          "timestamp": "2026-06-11T21:39:13+02:00",
+          "tree_id": "cae9ecd0176487471c7e152a83a645db117742d7",
+          "url": "https://github.com/fallow-rs/fallow/commit/291c4b22f6121b8ac7e442dac0dd2c50d3392a13"
+        },
+        "date": 1781206963033,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
