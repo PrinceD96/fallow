@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781215024562,
+  "lastUpdate": 1781219928446,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7a62ce34de8dd92f6635f71f0ffa122d6bc16c06",
-          "message": "feat(cli): add --output-file / -o to write the report to a file\n\nAdds a global --output-file <PATH> flag (short -o) that redirects the rendered\nreport to a file instead of stdout, for any --format (human, JSON, SARIF,\ncompact, markdown, CodeClimate, badge, PR/MR comment and review envelopes),\nincluding bare/combined mode and audit. The file never contains ANSI codes, even\nwhen run attached to a TTY; progress and a 'Report written to <path>'\nconfirmation stay on stderr (suppressed by --quiet and by a no-content-written\nguard).\n\nImplemented as an ambient process-global sink (report/sink.rs) read by new\noutln!/out! macros that replace println!/print! at every report-content site,\nset once in main before dispatch so no Options struct threads the path and the\nprogrammatic/NAPI consumers are unaffected. Valid with\ndead-code/dupes/health/security/audit/bare (mirrors --sarif-file's gate) and\ncomposes with --sarif-file.\n\nCloses #1037.",
-          "timestamp": "2026-06-08T10:09:54+02:00",
-          "tree_id": "50fdf94a2068ecae8f043d90a09bd3942532352a",
-          "url": "https://github.com/fallow-rs/fallow/commit/7a62ce34de8dd92f6635f71f0ffa122d6bc16c06"
-        },
-        "date": 1780906440820,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7394819,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34344,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 742220,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6694,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6137,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d04815b71bc795ed1c59fb45c031962600030934",
+          "message": "fix(docs): avoid private rustdoc links in impact digest\n\nThe periodic impact digest docs linked to a private interval constant from public items, which fails rustdoc with private intra-doc links denied.\n\nKeep the constant name visible as code text without making it an intra-doc link, so the documentation build passes under the workspace rustdoc gate.",
+          "timestamp": "2026-06-12T01:16:07+02:00",
+          "tree_id": "bd535c155d71504060aaf508a4edf041e5b9ebd1",
+          "url": "https://github.com/fallow-rs/fallow/commit/d04815b71bc795ed1c59fb45c031962600030934"
+        },
+        "date": 1781219925476,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7593719,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36123,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 745897,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6641,
             "unit": "allocations"
           }
         ]
