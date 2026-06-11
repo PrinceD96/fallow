@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781167013204,
+  "lastUpdate": 1781168762626,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "dfd782b22e296802e272206565174c4bb996f482",
-          "message": "fix(security): unwrap typed literal sink arguments",
-          "timestamp": "2026-06-06T19:00:16+02:00",
-          "tree_id": "64f7123415bde25d71d046623a72a2b2d74fc552",
-          "url": "https://github.com/fallow-rs/fallow/commit/dfd782b22e296802e272206565174c4bb996f482"
-        },
-        "date": 1780765377947,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7358581,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 33715,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 733116,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6690,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6630,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "be84f982ad20fbdf9c3b9b78c5bb4b09afff12a5",
+          "message": "docs(mcp): align runtime_coverage license prose with single-capture-free nuance\n\nThe check_health and audit tool descriptions said the runtime_coverage param is a paid feature / license-gated without the carve-out the five dedicated runtime-coverage tools document: a single local capture is free, only continuous or multi-capture monitoring requires a license. Wording now matches across all seven runtime-coverage surfaces.",
+          "timestamp": "2026-06-11T10:58:58+02:00",
+          "tree_id": "9b56c7b831623b022f430f05e5f04f6dae1b9e8e",
+          "url": "https://github.com/fallow-rs/fallow/commit/be84f982ad20fbdf9c3b9b78c5bb4b09afff12a5"
+        },
+        "date": 1781168760228,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7515798,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 35015,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 746178,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6702,
             "unit": "allocations"
           }
         ]
