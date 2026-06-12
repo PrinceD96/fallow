@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781274696493,
+  "lastUpdate": 1781276231320,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "606aac909e8d2f0c64b9e9259bc98ae1a84687a8",
-          "message": "feat(security): regression gate for new sinks in changed lines (#886)\n\nTier 1 of the security regression gate (#886). fallow security --gate new reports ONLY security-sink candidates introduced on a CHANGED line and exits 8 if any exist, so a PR can be gated on new exposure without gating on the whole candidate backlog. A refactor that merely touches a file already containing a sink passes; a diff the gate cannot compute is a loud exit 2, never a green gate.\n\nThe gate predicate is a separate, stricter pass than the advisory diff filter: it keeps a new sink anchor on an added line or an UntrustedSource/Sink trace hop on an added line, and drops the SecretSource file-level exception and pass-through hops. Exit 8 is dedicated and pure; the gate supersedes --fail-on-issues. Findings stay unverified candidates (REVIEW REQUIRED human output, SARIF level note with the verdict in run.properties.fallowGate, additive gate JSON block).\n\nTier 2 (newly-reachable reachability delta) is deferred and tracked in #1056.\n\nRefs #886.",
-          "timestamp": "2026-06-08T15:36:55+02:00",
-          "tree_id": "8f0b98e576157bf0833e26eb5727e9b23004b9c0",
-          "url": "https://github.com/fallow-rs/fallow/commit/606aac909e8d2f0c64b9e9259bc98ae1a84687a8"
-        },
-        "date": 1780926006655,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7398724,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34351,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 740891,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6721,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6637,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "7efec6de07a5aff41d8e047cab2734d69580d2fc",
+          "message": "chore: release v2.95.0",
+          "timestamp": "2026-06-12T16:53:10+02:00",
+          "tree_id": "856ce377e9c44f4e8f77d9976da5e9be6d427939",
+          "url": "https://github.com/fallow-rs/fallow/commit/7efec6de07a5aff41d8e047cab2734d69580d2fc"
+        },
+        "date": 1781276228111,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7552971,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36107,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 738729,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6630,
             "unit": "allocations"
           }
         ]
