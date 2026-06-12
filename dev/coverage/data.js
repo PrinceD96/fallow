@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781269299643,
+  "lastUpdate": 1781270443338,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4ed32a0de76079a62b8102696b8b4c7b4a0b2819",
-          "message": "feat(telemetry): split admin workflow buckets\n\nTelemetry now labels project inventory, setup, and license command families with coarse workflow values instead of collapsing them into unknown. Watch remains grouped with code quality review because it continuously reruns analysis.\n\nThe regression tests cover routing, inspect-mode payloads, and the absence of findings_present for non-analysis commands. The telemetry docs and changelog describe the allowlisted buckets and privacy boundary.\n\nFixes #1061.",
-          "timestamp": "2026-06-09T11:55:30+02:00",
-          "tree_id": "37b923db945eb8d35ccbe877c5f8f342d4904085",
-          "url": "https://github.com/fallow-rs/fallow/commit/4ed32a0de76079a62b8102696b8b4c7b4a0b2819"
-        },
-        "date": 1780999207556,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/969307e5d38b97cb7ef543d798f9a8098d916f78"
         },
         "date": 1781269296718,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1a8e7ac8d6141d389ba6b812cf7e9ee071d2f23b",
+          "message": "feat: add Docker support\n\nAdd a first-party Docker path for the Fallow CLI. The runtime image downloads the pinned musl release binary with checksum verification, runs from /workspace, and includes git plus Node.js, npm, and Corepack for mounted JavaScript projects.\n\nAdd a source-built contributor Dockerfile, a copyable Compose example, a path-gated Docker CI job, Dependabot coverage for Docker base images, README guidance, and changelog credit. The companion docs installation page is updated in fallow-rs/docs@b63cf5c.\n\nFixes #1205.",
+          "timestamp": "2026-06-12T15:17:20+02:00",
+          "tree_id": "0ca6c7a9ef1beac689793df2f0c61f3a8fbf11cd",
+          "url": "https://github.com/fallow-rs/fallow/commit/1a8e7ac8d6141d389ba6b812cf7e9ee071d2f23b"
+        },
+        "date": 1781270439833,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
