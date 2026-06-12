@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781223253810,
+  "lastUpdate": 1781225511803,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b5868dd2d6ef5cd8f3c7f025bcc125f203e303d4",
-          "message": "fix(vscode): open dynamic route paths\n\nRoute VS Code sidebar tree opens through an internal `fallow.openFile` command so bracketed filesystem paths remain decoded until the extension host calls `Uri.file(...)`.\n\nApply the same open-path handling across unused-code, duplicates, health, security, and coverage tree items, with unit coverage for decoded Next.js dynamic route paths and the command handler.\n\nFixes #1071.",
-          "timestamp": "2026-06-09T11:04:17+02:00",
-          "tree_id": "98242f4669e249b7a8778bb51df066a9bdb56f8e",
-          "url": "https://github.com/fallow-rs/fallow/commit/b5868dd2d6ef5cd8f3c7f025bcc125f203e303d4"
-        },
-        "date": 1780996033720,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1a5676dbb1146d079ee2ef977f152087d96d38e5"
         },
         "date": 1781223251701,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "8d811649ba1750b819d43474a374fe81cb8a447e",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.94.0",
+          "timestamp": "2026-06-12T02:48:45+02:00",
+          "tree_id": "e88d0481fa0852ccb409725a1a66af33fec62691",
+          "url": "https://github.com/fallow-rs/fallow/commit/8d811649ba1750b819d43474a374fe81cb8a447e"
+        },
+        "date": 1781225509753,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
