@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781220221547,
+  "lastUpdate": 1781223225998,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "db88c3d2cf5cfb5451e37df043467a0567a500e1",
-          "message": "test(cli): make cache remap tests platform-neutral\n\nMake the cache remap tests build platform-native absolute paths from a temporary directory so they pass on Windows as well as Unix.",
-          "timestamp": "2026-06-08T10:36:09+02:00",
-          "tree_id": "1c59e514a9c420241c811ce14814e100c9e3f8cb",
-          "url": "https://github.com/fallow-rs/fallow/commit/db88c3d2cf5cfb5451e37df043467a0567a500e1"
-        },
-        "date": 1780908052327,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7414083,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34390,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 735884,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6691,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6674,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "1a5676dbb1146d079ee2ef977f152087d96d38e5",
+          "message": "chore: release v2.94.0",
+          "timestamp": "2026-06-12T02:10:23+02:00",
+          "tree_id": "0778f413eb6272cc3a9f65a5a5be1d476e400367",
+          "url": "https://github.com/fallow-rs/fallow/commit/1a5676dbb1146d079ee2ef977f152087d96d38e5"
+        },
+        "date": 1781223223653,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7574183,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36120,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 745829,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6640,
             "unit": "allocations"
           }
         ]
