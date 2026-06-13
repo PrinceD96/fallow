@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781351678474,
+  "lastUpdate": 1781352382730,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0ccedb4c3076ea3e0303135bc43f2af4e9b01d12",
-          "message": "docs(skills): re-vendor skills with corrected plugin count (121)",
-          "timestamp": "2026-06-09T20:32:52+02:00",
-          "tree_id": "6834f711e3574ca0f2c85010fbae5d6b9fde5e81",
-          "url": "https://github.com/fallow-rs/fallow/commit/0ccedb4c3076ea3e0303135bc43f2af4e9b01d12"
-        },
-        "date": 1781030155846,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/af513438fe3f37b814718301d535b9fb4965da5e"
         },
         "date": 1781351676346,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b66864c5a7fb3ebbd2b3c7c751f0c71bb909c996",
+          "message": "fix(vscode): harden LSP client lifecycle and binary download (#1237)\n\nFive robustness fixes from a VS Code extension audit. Lifecycle: re-register the\nanalysisComplete handler per client (status bar no longer freezes after a\nrestart), serialize restartClient (no racing server processes), and make\nstopClient swallow start-timeouts and stop() rejections (no orphaned process or\npermanently-dead LSP). Download: guard httpsDownload's response stream (a\ndropped download no longer crashes the extension host) and purge only the\nmismatched binary on a version mismatch (no longer deletes the verified LSP).\n\nExtension-only; regression tests added; no schema/CLI/output change.",
+          "timestamp": "2026-06-13T14:02:51+02:00",
+          "tree_id": "a4044662b4609913529c691ee9456d972ad53e3e",
+          "url": "https://github.com/fallow-rs/fallow/commit/b66864c5a7fb3ebbd2b3c7c751f0c71bb909c996"
+        },
+        "date": 1781352379879,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
