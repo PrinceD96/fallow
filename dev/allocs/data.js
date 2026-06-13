@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781336927614,
+  "lastUpdate": 1781337735097,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6215accdd197743fd176646afaad0c0d8139a0a2",
-          "message": "feat(security): add attack surface inventory\n\nAdd an opt-in `fallow security --surface` JSON inventory that maps untrusted entry points to reachable sink candidates. The output is agent-facing and keeps defensive-boundary context as a verification prompt, not a human-facing missing-guard verdict.\n\nExpose the surface flag through MCP and keep the generated JSON schema and TypeScript contracts aligned with the new security output shape.\n\nFixes #888.",
-          "timestamp": "2026-06-08T20:58:20+02:00",
-          "tree_id": "1bb4928bc1a9e866aa2dff34bde53186d74a8a6e",
-          "url": "https://github.com/fallow-rs/fallow/commit/6215accdd197743fd176646afaad0c0d8139a0a2"
-        },
-        "date": 1780945262180,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7414218,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34417,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 737692,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6686,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6639,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "5d837a2353f383a7e576f8fe9c059813d12b8992",
+          "message": "docs(impact): drop intra-doc link to cfg(test)-only TEST_FORCE_CI\n\nrecord_gate_is_ci is compiled in non-test builds, so cargo doc resolves its\ndoc comment; the [`TEST_FORCE_CI`] intra-doc link pointed at a #[cfg(test)]\nitem absent from the doc build, failing the Documentation job under\n-D warnings. Render it as a plain inline code span instead.",
+          "timestamp": "2026-06-13T09:59:28+02:00",
+          "tree_id": "e8e78d8d5777d2402e9e2b690a09c02dbdb4c344",
+          "url": "https://github.com/fallow-rs/fallow/commit/5d837a2353f383a7e576f8fe9c059813d12b8992"
+        },
+        "date": 1781337731825,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7589291,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36129,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 744461,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6636,
             "unit": "allocations"
           }
         ]
