@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781350313691,
+  "lastUpdate": 1781351845526,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b69e2ead08540bdf26e99716e355b8db3d6b30b8",
-          "message": "feat(telemetry): add scale buckets\n\nOpt-in telemetry now records coarse file-count, function-count, and average fan-out buckets for eligible analysis workflows.\n\nThe values are derived only from counts and graph counters that the workflow already computed, so exact counts, paths, dependency names, graph diameter, depth, and coupling metrics stay out of the payload.\n\nFixes #1064.",
-          "timestamp": "2026-06-09T13:02:12+02:00",
-          "tree_id": "d78ebcea9f0ffda82428112510cc6a229a05e343",
-          "url": "https://github.com/fallow-rs/fallow/commit/b69e2ead08540bdf26e99716e355b8db3d6b30b8"
-        },
-        "date": 1781003392946,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 76944,
-            "range": "± 1236",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3840089,
-            "range": "± 147050",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 6214146,
-            "range": "± 252764",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 32508440,
-            "range": "± 611952",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 114387,
-            "range": "± 3264",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2394,
-            "range": "± 95",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 186025,
-            "range": "± 8514",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 825264,
-            "range": "± 12547",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1323639,
-            "range": "± 32794",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 542886,
-            "range": "± 17100",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 3340572,
-            "range": "± 32980",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 3382176,
-            "range": "± 205457",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2239438,
-            "range": "± 8146",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2977379,
             "range": "± 39112",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6f6714cceea62286efdbaa670ba63cfaa3816eb2",
+          "message": "feat(impact): harden store with advisory lock, age-based GC, and impact_all MCP tool (#1235)\n\nConcurrency: record paths take a blocking advisory lock (kernel flock on a\n<store>.lock sidecar) around their load-mutate-save window, so two worktrees of\none repo cannot lost-update each other; best-effort, sidecar never deleted.\n\nHousekeeping: FALLOW_IMPACT_STORE_MAX_AGE_DAYS makes a recorded run reclaim\nper-project stores older than the window, leaving the active store, lock\nsidecars, and global toggle untouched. Unset / 0 / invalid disable the sweep.\n\nMCP: new read-only impact_all tool wraps fallow impact --all (cross-repo\naggregate, hashed keys plus optional basename labels, never paths).",
+          "timestamp": "2026-06-13T13:49:42+02:00",
+          "tree_id": "133edb6fe3902ea86cb309f9fc8851942aef6ab0",
+          "url": "https://github.com/fallow-rs/fallow/commit/6f6714cceea62286efdbaa670ba63cfaa3816eb2"
+        },
+        "date": 1781351843426,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 86903,
+            "range": "± 484",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3866285,
+            "range": "± 187311",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 6008701,
+            "range": "± 156228",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 33552619,
+            "range": "± 481784",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 121106,
+            "range": "± 2530",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2437,
+            "range": "± 15",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 184792,
+            "range": "± 5671",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 820981,
+            "range": "± 61375",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1316692,
+            "range": "± 16198",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 531857,
+            "range": "± 8936",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3319501,
+            "range": "± 104503",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3340477,
+            "range": "± 43859",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2239244,
+            "range": "± 11007",
             "unit": "ns/iter"
           }
         ]
