@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781352382730,
+  "lastUpdate": 1781354099152,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "9e888ff282ac362059db6b90ce09ff63812a3b9a",
-          "message": "docs: correct plugin count to 121 across README, npm package, and rules",
-          "timestamp": "2026-06-09T21:33:45+02:00",
-          "tree_id": "0217df60a40df8394059839e1414a6c2087d768b",
-          "url": "https://github.com/fallow-rs/fallow/commit/9e888ff282ac362059db6b90ce09ff63812a3b9a"
-        },
-        "date": 1781033809329,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b66864c5a7fb3ebbd2b3c7c751f0c71bb909c996"
         },
         "date": 1781352379879,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2fb49f159e44b1ff34d1902e0d861cf442d6bf63",
+          "message": "docs(readme): mention mixed-barrel and misplaced-directive RSC checks (#1239)\n\nExtend the Architecture section's Next.js correctness blurb to also name the mixed-client-server-barrel and misplaced-directive checks that shipped alongside invalid-client-export.",
+          "timestamp": "2026-06-13T14:31:15+02:00",
+          "tree_id": "d1f5a1628f613dde5c1165ad44204dc2e3795f9d",
+          "url": "https://github.com/fallow-rs/fallow/commit/2fb49f159e44b1ff34d1902e0d861cf442d6bf63"
+        },
+        "date": 1781354096191,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
