@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781278450114,
+  "lastUpdate": 1781324546891,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b69e2ead08540bdf26e99716e355b8db3d6b30b8",
-          "message": "feat(telemetry): add scale buckets\n\nOpt-in telemetry now records coarse file-count, function-count, and average fan-out buckets for eligible analysis workflows.\n\nThe values are derived only from counts and graph counters that the workflow already computed, so exact counts, paths, dependency names, graph diameter, depth, and coupling metrics stay out of the payload.\n\nFixes #1064.",
-          "timestamp": "2026-06-09T13:02:12+02:00",
-          "tree_id": "d78ebcea9f0ffda82428112510cc6a229a05e343",
-          "url": "https://github.com/fallow-rs/fallow/commit/b69e2ead08540bdf26e99716e355b8db3d6b30b8"
-        },
-        "date": 1781003155759,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/12504f54b9332c3b7f6038d22c21c8c1c3ac3d28"
         },
         "date": 1781278447289,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0fee75b53ea35f1aef1cdd9dfc18e255392115cc",
+          "message": "docs(vscode): use canonical 'fallow dead-code' over legacy 'fallow check'",
+          "timestamp": "2026-06-13T06:19:29+02:00",
+          "tree_id": "98c0f44374984d62dfabbc70777dfe4f3342809d",
+          "url": "https://github.com/fallow-rs/fallow/commit/0fee75b53ea35f1aef1cdd9dfc18e255392115cc"
+        },
+        "date": 1781324544097,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
