@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781324546891,
+  "lastUpdate": 1781332796368,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "adeb88f58a8bfe3b2efbaac65be5d27cdf06f2f2",
-          "message": "docs(telemetry): clarify scale bucket privacy wording\n\nClarify the changelog entry for the new telemetry scale buckets. The previous wording said structural metrics were kept out of the payload, which was too broad because avg_fan_out_bucket is intentionally a coarse graph-counter bucket.\n\nThe updated text keeps the same privacy contract while distinguishing exact dependency graph shape and expensive structural metrics from the shipped allowlisted bucket.",
-          "timestamp": "2026-06-09T13:33:42+02:00",
-          "tree_id": "5918370b9d8872a7f5b759ac590a736bf8e3b828",
-          "url": "https://github.com/fallow-rs/fallow/commit/adeb88f58a8bfe3b2efbaac65be5d27cdf06f2f2"
-        },
-        "date": 1781005006400,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0fee75b53ea35f1aef1cdd9dfc18e255392115cc"
         },
         "date": 1781324544097,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4925a499e2f1696435eca1afd5e69bd5be98273b",
+          "message": "feat(dupes): make ignoreImports the default with opt-out (#1226)\n\nFlip `fallow dupes`'s `ignoreImports` from opt-in (shipped in 2.33.0) to default-`true`. Token-identical sorted import blocks are a formatting artifact, not copy-paste, so they no longer surface as clone groups on a first run.\n\nThe OR-merge could not express opt-out, so `DupesOptions.ignore_imports` (and the programmatic `DuplicationOptions`) became `Option<bool>` resolved by precedence (CLI override > config > default-true) at the single `build_dupes_config` chokepoint. New opt-out flags `--no-ignore-imports` (standalone) and `--dupes-no-ignore-imports` (combined), both `conflicts_with` their opt-in pair. MCP `find_dupes` / `trace_clone` emit `--no-ignore-imports` on `ignore_imports: false` and now name the default in their descriptions and param docs. The VS Code `fallow.duplication.ignoreImports` setting controls both directions (it previously no-op'd on `false`). A human-format-only stderr note points users at the opt-out when import blocks were excluded and clone groups were reported.\n\nScope is ES `import` declarations only; CommonJS `require()` calls and `export ... from` re-export blocks are still counted (extending coverage to those is queued as #1225). Upgraders with a tuned `duplicates.threshold` gate or saved duplication baselines/trends get explicit CHANGELOG notes (the measured percentage drops, so a tuned gate loosens and a one-time baseline/Impact step-down is expected).\n\nFixes #1224.",
+          "timestamp": "2026-06-13T08:36:36+02:00",
+          "tree_id": "c5247ba5afc62e720fb5de44dbfde1d03981a848",
+          "url": "https://github.com/fallow-rs/fallow/commit/4925a499e2f1696435eca1afd5e69bd5be98273b"
+        },
+        "date": 1781332793401,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
