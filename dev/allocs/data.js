@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781350147478,
+  "lastUpdate": 1781351774881,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "da9fe17065e5c736eb0b8da6e5077503095e8806",
-          "message": "perf(telemetry): spool events and upload on the next run to remove the hot-path block\n\nTelemetry was recorded at process exit and the upload blocked the main thread up to 200ms (about 50ms on a healthy network) to let the POST land before exit, adding latency to every telemetry-enabled run and contradicting the module's never-add-latency contract. Warm dead-code on zod went from 33ms to 105ms.\n\nAppend the serialized event to a local spool (telemetry-spool.jsonl, next to telemetry.json) at exit, which is sub-millisecond and network-free, and drain plus POST it on a detached thread at the start of the next run where it overlaps analysis. The spool is bounded on the write path (a single fstat against SPOOL_MAX_BYTES, trim to the newest SPOOL_MAX_EVENTS) rather than by the drain finishing, because on a fast command the detached drain is abandoned mid-POST and its own cap never runs. The drain is flock-guarded, POSTs oldest-first, stops at the first failure, drops corrupt lines, and atomically rewrites the undelivered tail. Inspect and disabled modes write and upload nothing; the payload is unchanged.\n\nWarm dead-code on zod with telemetry enabled drops from ~105ms to ~35ms, matching telemetry-off.",
-          "timestamp": "2026-06-09T12:22:12+02:00",
-          "tree_id": "d05a9eff4bc92a1fd820090728b25c92a99f539f",
-          "url": "https://github.com/fallow-rs/fallow/commit/da9fe17065e5c736eb0b8da6e5077503095e8806"
-        },
-        "date": 1781000823056,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7402242,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34400,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 749801,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6774,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6641,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "af513438fe3f37b814718301d535b9fb4965da5e",
+          "message": "feat(nextjs): flag misplaced use client / use server directives (#1236)\n\nAdds the misplaced-directive issue type (default warn): a \"use client\" / \"use server\" directive written below an import rather than in the leading prologue, which the parser silently ignores so the file is treated as a server module.\n\nA new extract pass scans program.body for the two RSC directive strings (CACHE_VERSION 151 to 152, CachedModule mirror + conversion both directions), gated on the project declaring next. No auto-fix; suppress hint only. Full plumbing across results, audit attribution, all six report formats, LSP diagnostics, schema, and TS contracts. Also wires the human-output footer + suppress hint for the three RSC siblings in the agent capability manifest.",
+          "timestamp": "2026-06-13T13:50:06+02:00",
+          "tree_id": "66416533b8e092e9cc52e65c81e02a2ad0a40442",
+          "url": "https://github.com/fallow-rs/fallow/commit/af513438fe3f37b814718301d535b9fb4965da5e"
+        },
+        "date": 1781351772792,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7570355,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36117,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 749857,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6640,
             "unit": "allocations"
           }
         ]
