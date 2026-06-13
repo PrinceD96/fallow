@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781354099152,
+  "lastUpdate": 1781364391301,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "a97fb2d4635557aa5896d086fa3822698edce25d",
-          "message": "docs: correct npm README knip speed multipliers to match benchmarks",
-          "timestamp": "2026-06-09T21:57:34+02:00",
-          "tree_id": "e0f31cb68e00d79e7f37e0c889c61876352a9986",
-          "url": "https://github.com/fallow-rs/fallow/commit/a97fb2d4635557aa5896d086fa3822698edce25d"
-        },
-        "date": 1781035248704,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2fb49f159e44b1ff34d1902e0d861cf442d6bf63"
         },
         "date": 1781354096191,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "19355177b187133a4a1855795972bdd117384bbf",
+          "message": "fix(vscode): harden diagnostics, lifecycle, download, and tree-view robustness (#1240)\n\nCompletes the adversarially-audited robustness batch for the VS Code extension across diagnostics filtering, LSP lifecycle, binary resolution, and tree/status UI.\n\n- Binary version probing runs off the activation/restart thread (promisify(execFile)); the per-binary --version probe stays authoritative, the shared marker is only a fallback.\n- Diagnostic mute filter recovers from corrupt persisted state, applies the manage-pick selection in one cycle, and drains the persist queue on deactivate.\n- Tree/status providers are tied to the extension lifetime and null their view on dispose.\n- empty_catalog_groups is counted (matching the CLI total) and rendered as a navigable Issues-tree category.\n- duplication.mode is validated against its enum before being forwarded as --dupes-mode.",
+          "timestamp": "2026-06-13T17:23:11+02:00",
+          "tree_id": "e9e28c07ab7e8da229ae02eba80d991e1d848eb2",
+          "url": "https://github.com/fallow-rs/fallow/commit/19355177b187133a4a1855795972bdd117384bbf"
+        },
+        "date": 1781364389152,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
