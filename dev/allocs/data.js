@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781340143194,
+  "lastUpdate": 1781341197447,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "bd1ec11575519b16a32fa6da2d82dae72fa58e9d",
-          "message": "fix(telemetry): report findings presence for audit and security\n\nAudit and security now report findings_present from the final results that users and agents see. Audit records the OR of its sub-results, including the no-change path as false, while security records whether the final filtered security_findings list is non-empty.\n\nThe regression coverage exercises inspect-mode telemetry for positive and clean audit and security runs, keeps no-analysis commands omitting the field, and updates the telemetry docs and changelog to match the wire contract.\n\nFixes #1060.",
-          "timestamp": "2026-06-09T09:46:59+02:00",
-          "tree_id": "864a4dc3a49e10890771d10e501c8d935b80e8b9",
-          "url": "https://github.com/fallow-rs/fallow/commit/bd1ec11575519b16a32fa6da2d82dae72fa58e9d"
-        },
-        "date": 1780991369533,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7367138,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34388,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 742036,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6692,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6634,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "3bcde2d9e7558740987a852a23ade52b23ddd09e",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.96.0",
+          "timestamp": "2026-06-13T10:56:53+02:00",
+          "tree_id": "0c52351e18f9df84d7997f72bc78ef33d075ed1f",
+          "url": "https://github.com/fallow-rs/fallow/commit/3bcde2d9e7558740987a852a23ade52b23ddd09e"
+        },
+        "date": 1781341194811,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7622963,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36152,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 748869,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6641,
             "unit": "allocations"
           }
         ]
