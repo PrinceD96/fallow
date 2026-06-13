@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781347338699,
+  "lastUpdate": 1781349682151,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9fbd0584d0da852012c61730a9b824b17a583ba2",
-          "message": "chore(deps-dev): bump ovsx from 0.10.12 to 1.0.0 in /editors/vscode\n\nBumps [ovsx](https://github.com/eclipse-openvsx/openvsx/tree/HEAD/cli) from 0.10.12 to 1.0.0.\n- [Release notes](https://github.com/eclipse-openvsx/openvsx/releases)\n- [Changelog](https://github.com/eclipse-openvsx/openvsx/blob/main/cli/CHANGELOG.md)\n- [Commits](https://github.com/eclipse-openvsx/openvsx/commits/v1.0.0/cli)\n\n---\nupdated-dependencies:\n- dependency-name: ovsx\n  dependency-version: 1.0.0\n  dependency-type: direct:development\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nCo-authored-by: Bart Waardenburg <bart@waardenburg.dev>",
-          "timestamp": "2026-06-09T15:39:33Z",
-          "tree_id": "76a78a12bc1e6ddae4bc38d4067fc4d6c5abe03f",
-          "url": "https://github.com/fallow-rs/fallow/commit/9fbd0584d0da852012c61730a9b824b17a583ba2"
-        },
-        "date": 1781019761266,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "81f5da2d2376ed00a92cb29ea9e6d93b66489a5c",
+          "message": "feat(impact): add cross-repo view (fallow impact --all)\n\nAggregate every project's Impact history into one roll-up: what has fallow done for me across all my repos. `fallow impact --all` reads the per-project stores in the user config dir (the substrate the v2.96 store relocation created); read-only, never writes.\n\n--all is a flag on the impact command (rejected with exit 2 alongside a mutating subcommand), with --sort {recent,resolved,contained,name} (default recent) and --limit N (totals always reflect every store). load_all enumerates the config dir, skipping corrupt files (counted, never defaulted); build_aggregate_report reuses build_report per store and sums totals over all tracked projects, excluding enabled-but-empty ones from the rows. New FallowOutput::ImpactCrossRepo(CrossRepoImpactReport) envelope (kind:\"impact-cross-repo\", independent schema version) embeds the per-project ImpactReport verbatim plus a stable project_key and a basename label; the single-project impact contract is byte-identical. Additive store field label (git-toplevel basename only, never a path; STORE_SCHEMA_VERSION 4 to 5) captured on record so rows are legible without reversing the opaque key. JSON/markdown leak zero paths.",
+          "timestamp": "2026-06-13T13:17:02+02:00",
+          "tree_id": "4b9a92b91e0837a61d99193ecbbdbe17bf04d279",
+          "url": "https://github.com/fallow-rs/fallow/commit/81f5da2d2376ed00a92cb29ea9e6d93b66489a5c"
+        },
+        "date": 1781349679350,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
             "unit": "%"
           }
         ]
