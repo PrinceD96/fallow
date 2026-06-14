@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781425368581,
+  "lastUpdate": 1781429648246,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a3eb38a2d942345236c4deba2f9488c3cf2dcbe9",
-          "message": "fix(core): release graph-only parse payloads\n\nRelease extraction vectors that resolution and graph construction have already consumed, while keeping the module data needed by analysis, health, security, LSP, coverage, and fix drift checks.\n\nAdd focused unit coverage for the ModuleInfo compaction boundary and an integration regression that proves retained modules are compacted after analysis without losing line offsets or complexity data.\n\nFixes #1104.",
-          "timestamp": "2026-06-09T15:10:55+02:00",
-          "tree_id": "971c5f1f7f27428a9b056bad3472be2fa4fc89e6",
-          "url": "https://github.com/fallow-rs/fallow/commit/a3eb38a2d942345236c4deba2f9488c3cf2dcbe9"
-        },
-        "date": 1781010866829,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 25,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 21,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.29,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 349,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 839,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f9b6926884113b997f08366df1474c236d81b46d"
         },
         "date": 1781425365624,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 22,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.54,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 367,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 914,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d0f5b42e4588b0452eb5859c3578500a5695d05d",
+          "message": "feat(nextjs): graduate route-collision to default error, keep dynamic-segment-name-conflict at warn\n\nroute-collision now defaults to error (it mirrors a next build failure, so a project hitting it was already red); dynamic-segment-name-conflict stays warn (a runtime crash next build does NOT catch) and graduates to error in a later release once field-proven.\n\nAlso corrects the dynamic-segment-name-conflict rustdoc (it wrongly claimed the build fails), rewrites the human and markdown conflict line to be crash-grade, and adds a monorepo-gate regression test proving the rule arms when next is declared only in a sub-app. Regenerated schema.json and re-accepted SARIF snapshots (route-collision rule level warning to error). No JSON schema or TS contract change.",
+          "timestamp": "2026-06-14T11:32:57+02:00",
+          "tree_id": "c8eca53852b845ab75dd48c5716d953b3b426a3e",
+          "url": "https://github.com/fallow-rs/fallow/commit/d0f5b42e4588b0452eb5859c3578500a5695d05d"
+        },
+        "date": 1781429645288,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
