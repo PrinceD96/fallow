@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781439171757,
+  "lastUpdate": 1781451619159,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e823fe3032315b7f69a3c29ee980d732626ca515",
-          "message": "fix(cli): explain security categories\n\nAdd security rule metadata to the standalone explain command so users can inspect tainted-sink, client-server-leak, hardcoded-secret, and catalogue-backed security IDs without running a scan.\n\nThe implementation keeps security detection and output unchanged. It adds drift guards against the security matcher catalogue and CLI regression coverage for the required explain tokens.\n\nFixes #1098.",
-          "timestamp": "2026-06-09T15:06:44+02:00",
-          "tree_id": "298ef81a734eaae9f9791955eb5c4a55fa86ffb5",
-          "url": "https://github.com/fallow-rs/fallow/commit/e823fe3032315b7f69a3c29ee980d732626ca515"
-        },
-        "date": 1781010568507,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7429189,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34631,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 744716,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6719,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6690,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "60d77438381022256ef51249f1f04dc35fe0484a",
+          "message": "feat(analyze): flag Vue defineProps props used nowhere in their component (#1251)\n\nNew unused-component-prop rule (default warn): a Vue <script setup> defineProps declared prop referenced by no code in its own SFC (script or template). Harvests inline TS / runtime object / withDefaults forms; credits script (destructured local / props.foo) and template usage. False-positive-safe abstains: $attrs/props fallthrough, whole-object props use, defineExpose, defineModel, renamed-destructure alias, v-bind forward, imported prop-type alias. Vue <script setup> only.\n\nReports through human/JSON/SARIF/CodeClimate/compact/markdown/LSP/MCP. Validated on a real corpus: 7 true positives (elk, vue-vben-admin, vuestic-admin, nuxt-ui), zero false positives.",
+          "timestamp": "2026-06-14T17:37:16+02:00",
+          "tree_id": "7daf23c242845ff61d3dac2545aa056f13284d0e",
+          "url": "https://github.com/fallow-rs/fallow/commit/60d77438381022256ef51249f1f04dc35fe0484a"
+        },
+        "date": 1781451616260,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7629727,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36182,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 758578,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6689,
             "unit": "allocations"
           }
         ]
