@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781415967520,
+  "lastUpdate": 1781417293964,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a3eb38a2d942345236c4deba2f9488c3cf2dcbe9",
-          "message": "fix(core): release graph-only parse payloads\n\nRelease extraction vectors that resolution and graph construction have already consumed, while keeping the module data needed by analysis, health, security, LSP, coverage, and fix drift checks.\n\nAdd focused unit coverage for the ModuleInfo compaction boundary and an integration regression that proves retained modules are compacted after analysis without losing line offsets or complexity data.\n\nFixes #1104.",
-          "timestamp": "2026-06-09T15:10:55+02:00",
-          "tree_id": "971c5f1f7f27428a9b056bad3472be2fa4fc89e6",
-          "url": "https://github.com/fallow-rs/fallow/commit/a3eb38a2d942345236c4deba2f9488c3cf2dcbe9"
-        },
-        "date": 1781011258919,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 103449,
-            "range": "± 803",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3991802,
-            "range": "± 170308",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 6061211,
-            "range": "± 171689",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 33435475,
-            "range": "± 726914",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 117731,
-            "range": "± 1671",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 2328,
-            "range": "± 72",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 236530,
-            "range": "± 39149",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 1072319,
-            "range": "± 17933",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1526194,
-            "range": "± 15030",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 573876,
-            "range": "± 17255",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 4408354,
-            "range": "± 43282",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 4314704,
-            "range": "± 66910",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 2980207,
-            "range": "± 18638",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10199,6 +10097,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2237447,
             "range": "± 66637",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "10a1f0031865874985b260706cca84299da073dc",
+          "message": "feat(nextjs): flag App Router route collisions and dynamic-segment name conflicts\n\nTwo next-gated, warn-default whole-project App Router checks built on a new path-only route-tree primitive (crates/core/src/analyze/route_tree.rs; no AST, no type system, no extraction).\n\nroute-collision flags two or more page/route files resolving to the same URL within one app-root (a next build failure, verified against Next 15.5.0, including the route.ts-vs-page.tsx same-segment case); fallow surfaces every colliding file where the build names only one. dynamic-segment-name-conflict flags sibling dynamic segments using different slug names ([id] vs [slug]); Next throws at dev/runtime and next build does NOT catch it, so CI passes while the route crashes.\n\nPer-app-root scoping on discovered workspace package roots is the load-bearing false-positive gate; parallel @slot siblings, private _folders, and intercepting markers are excluded. Wired through results/total_issues/sort, IssueKind, RulesConfig, all six report formats, LSP diagnostics, jq (action + ci), filters/baseline/audit, schemas + TS contracts, and docs. The primary action is manual guidance, not suppress.",
+          "timestamp": "2026-06-14T08:02:20+02:00",
+          "tree_id": "8a7480a3f3ea02a7d8866ea29384c60e4b303766",
+          "url": "https://github.com/fallow-rs/fallow/commit/10a1f0031865874985b260706cca84299da073dc"
+        },
+        "date": 1781417291822,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 88043,
+            "range": "± 3295",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 3796236,
+            "range": "± 155356",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 6036209,
+            "range": "± 187260",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 33337023,
+            "range": "± 821130",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 118515,
+            "range": "± 1949",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2512,
+            "range": "± 28",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 185359,
+            "range": "± 5786",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 821753,
+            "range": "± 7995",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1320644,
+            "range": "± 23020",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 533410,
+            "range": "± 13628",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 3317471,
+            "range": "± 37470",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 3331739,
+            "range": "± 33509",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 2242725,
+            "range": "± 3971",
             "unit": "ns/iter"
           }
         ]
