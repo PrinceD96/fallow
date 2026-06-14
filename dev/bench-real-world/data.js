@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781344955477,
+  "lastUpdate": 1781433039188,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -4895,6 +4895,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 11302,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "d0f5b42e4588b0452eb5859c3578500a5695d05d",
+          "message": "feat(nextjs): graduate route-collision to default error, keep dynamic-segment-name-conflict at warn\n\nroute-collision now defaults to error (it mirrors a next build failure, so a project hitting it was already red); dynamic-segment-name-conflict stays warn (a runtime crash next build does NOT catch) and graduates to error in a later release once field-proven.\n\nAlso corrects the dynamic-segment-name-conflict rustdoc (it wrongly claimed the build fails), rewrites the human and markdown conflict line to be crash-grade, and adds a monorepo-gate regression test proving the rule arms when next is declared only in a sub-app. Regenerated schema.json and re-accepted SARIF snapshots (route-collision rule level warning to error). No JSON schema or TS contract change.",
+          "timestamp": "2026-06-14T09:32:57Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/d0f5b42e4588b0452eb5859c3578500a5695d05d"
+        },
+        "date": 1781433036932,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 243,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 235,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 421,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 392,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 260,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 229,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 667,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 607,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1589,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1478,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1340,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1230,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1127,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 992,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 12214,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 11186,
             "unit": "ms"
           }
         ]
