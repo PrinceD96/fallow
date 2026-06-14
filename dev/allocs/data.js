@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781429751569,
+  "lastUpdate": 1781439171757,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "86401d73c8451a47b76250779e34f6b82f3de78f",
-          "message": "feat(security): recognize declarative validation controls\n\nFixes #1094.",
-          "timestamp": "2026-06-09T14:59:10+02:00",
-          "tree_id": "8de7afdfc3992f82ea5dc2282ee735a1c965280c",
-          "url": "https://github.com/fallow-rs/fallow/commit/86401d73c8451a47b76250779e34f6b82f3de78f"
-        },
-        "date": 1781010101669,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7442165,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34639,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 741420,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6687,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6644,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a53c744cf95aa09768c6e27e4b46d904d1409932",
+          "message": "feat(analyze): flag Vue/Svelte components reachable but rendered nowhere (#1249)\n\nNew unrendered-component rule (default warn): a Vue/Svelte SFC default export kept reachable by a barrel re-export but instantiated nowhere (no tag, :is/this, components/app.component, h()/auto-import, or value-read). unused-file and unused-export both miss it.\n\nReuses the module graph; only new persisted state is a derived ModuleInfo.referenced_import_bindings (uncached). Rendered set built liberally (barrel chains, Nuxt auto-imports, dynamic/side-effect imports). Abstains: dep-gate, entry-point components, and components re-exported through the full multi-hop chain from a non-private package entry point. Suppress-only.\n\nValidated on a 10-project real corpus: 11 true positives (bits-ui orphaned icons, vue-vben-admin shadcn context-menu variants), zero false positives. Reports through human/JSON/SARIF/CodeClimate/compact/markdown/LSP/MCP.",
+          "timestamp": "2026-06-14T14:05:43+02:00",
+          "tree_id": "466aca746cb18c809762697b4acd6bade58d439c",
+          "url": "https://github.com/fallow-rs/fallow/commit/a53c744cf95aa09768c6e27e4b46d904d1409932"
+        },
+        "date": 1781439169551,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7642287,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36175,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 760290,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6690,
             "unit": "allocations"
           }
         ]
