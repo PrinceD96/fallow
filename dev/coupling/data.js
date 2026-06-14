@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781451594730,
+  "lastUpdate": 1781459893376,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "340a1d11c5a82864bc58a610f6a17e834737340a",
-          "message": "fix: align security candidate severity contract",
-          "timestamp": "2026-06-09T17:17:45+02:00",
-          "tree_id": "c57698d52272a66ee3d8d6654c464866f74be90e",
-          "url": "https://github.com/fallow-rs/fallow/commit/340a1d11c5a82864bc58a610f6a17e834737340a"
-        },
-        "date": 1781018392711,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 25,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 21,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.29,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 349,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 840,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 918,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7fcff8f00a2362fdd7867c50a721b72948924d29",
+          "message": "feat(analyze): flag Vue defineEmits events emitted nowhere in their component (#1252)\n\nAdd an `unused-component-emit` rule (default severity `warn`): a Vue `<script setup>` `defineEmits` declared event emitted by no code in its own single-file component, neither through `emit('name')` in `<script>` nor `emit('name')` / `$emit('name')` in `<template>`. The emit-side sibling of `unused-component-prop` (#1251), the in-component dead-output direction vue-tsc / Volar do not cover.\n\nHarvests event names from the array, type / object, and bound (renamed-binding aware) forms; credits usage from the script call walk and the template; abstains on the whole component for dynamic emit, whole-object emit use, `defineModel`, or an imported emit-type alias. Full output wiring mirrors the prop sibling. Vue `<script setup>` only.\n\nValidated on a 10-project corpus: 6 true positives, zero false positives.",
+          "timestamp": "2026-06-14T19:57:01+02:00",
+          "tree_id": "97bfc823593160b1fb9a5f20b86623cb10ed6548",
+          "url": "https://github.com/fallow-rs/fallow/commit/7fcff8f00a2362fdd7867c50a721b72948924d29"
+        },
+        "date": 1781459891122,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 22,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.81,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 370,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 920,
             "unit": "count"
           }
         ]
