@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781536346515,
+  "lastUpdate": 1781537136746,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e6d7e8316474e27dcd4ba3f616c5ca494b8df92a",
-          "message": "fix(vscode): decode encoded route brackets\n\nTree-view paths can arrive with Next.js route brackets already percent-encoded, especially after an editor or cached result preserves the URI form. The VS Code extension now normalizes those route brackets before building the command payload, while keeping an existing literal percent-encoded filename unchanged.\n\nThis keeps sidebar navigation on decoded filesystem paths before the internal open-file command calls VS Code URI handling. Regression coverage exercises both encoded route inputs and literal percent filenames, and the extension bundle is regenerated.\n\nFixes #1160.",
-          "timestamp": "2026-06-10T10:38:51+02:00",
-          "tree_id": "b38ee986287ce8a08bd4435d1d97f2dd7bfde479",
-          "url": "https://github.com/fallow-rs/fallow/commit/e6d7e8316474e27dcd4ba3f616c5ca494b8df92a"
-        },
-        "date": 1781080921776,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/543a32ab70c35053316738f12c5248210c844e4e"
         },
         "date": 1781536343482,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d69830c3b1ee4387dc469c8ada7ce43dccd5befb",
+          "message": "feat(health): opt-in CSS analytics (fallow health --css) (#1230)\n\nOpt-in structural CSS analytics section for `fallow health --css`: specificity hotspots, !important density, complex selectors, deep nesting, empty rules, design-token sprawl, unreferenced custom properties / @keyframes, dead scoped classes, unused @property / @layer, undefined-keyframe references, duplicate declaration blocks, and Tailwind arbitrary-value bypasses. Candidate-framed, never gated, exit-code-neutral.",
+          "timestamp": "2026-06-15T17:20:59+02:00",
+          "tree_id": "b9b7556313c7f89ea012385589e648202d8af938",
+          "url": "https://github.com/fallow-rs/fallow/commit/d69830c3b1ee4387dc469c8ada7ce43dccd5befb"
+        },
+        "date": 1781537133087,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
