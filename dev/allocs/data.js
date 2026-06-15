@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781536324095,
+  "lastUpdate": 1781537167917,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b8495b2425a493247cc471921ae82a3fb534f71a",
-          "message": "fix: preserve security ranking within severity tiers\n\nKeep the final security candidate order grouped by high, medium, and low severity while preserving the existing within-tier priority signals. Runtime context, entry reachability, arg-level and module-level source reachability, blast radius, boundary crossing, and dead-code context now sort before path fallback when severity ties.\\n\\nThis keeps stronger same-severity candidates ahead of weaker ones without changing schema shape or treating candidates as verified vulnerabilities.\\n\\nFixes #1133.",
-          "timestamp": "2026-06-10T00:25:21+02:00",
-          "tree_id": "49678e41b94cfa0c0bf6335cc5b688dfb5afbda9",
-          "url": "https://github.com/fallow-rs/fallow/commit/b8495b2425a493247cc471921ae82a3fb534f71a"
-        },
-        "date": 1781044069248,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7385813,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34595,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 741671,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6724,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6693,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d69830c3b1ee4387dc469c8ada7ce43dccd5befb",
+          "message": "feat(health): opt-in CSS analytics (fallow health --css) (#1230)\n\nOpt-in structural CSS analytics section for `fallow health --css`: specificity hotspots, !important density, complex selectors, deep nesting, empty rules, design-token sprawl, unreferenced custom properties / @keyframes, dead scoped classes, unused @property / @layer, undefined-keyframe references, duplicate declaration blocks, and Tailwind arbitrary-value bypasses. Candidate-framed, never gated, exit-code-neutral.",
+          "timestamp": "2026-06-15T17:20:59+02:00",
+          "tree_id": "b9b7556313c7f89ea012385589e648202d8af938",
+          "url": "https://github.com/fallow-rs/fallow/commit/d69830c3b1ee4387dc469c8ada7ce43dccd5befb"
+        },
+        "date": 1781537165658,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7618735,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36173,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 764370,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6691,
             "unit": "allocations"
           }
         ]
