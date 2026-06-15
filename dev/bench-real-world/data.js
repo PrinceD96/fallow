@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781433039188,
+  "lastUpdate": 1781529178383,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -4997,6 +4997,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 11186,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "2f636206b0f16edd8cac2f493331f2e8ba8dc322",
+          "message": "fix: wire post-2.96.0 IssueKinds through LSP severity, VS Code, and CI summaries (#1262)\n\nThe cluster of new IssueKinds shipped since v2.96.0 was complete in the Rust output but under-wired in three surfaces outside the Rust drift gates.\n\nLSP: route-collision and dynamic-segment-name-conflict now emit ERROR severity to match their core default (were hardcoded WARNING), with regression tests. VS Code: the new kinds are now counted, rendered in the Issues tree, and filterable instead of silently dropped from the sidebar; dist rebuilt. CI: the five missing kinds plus route-collision and dynamic-segment-name-conflict now appear in the GitHub Action and GitLab CI summary, annotation, combined, and audit breakdowns, with jq tests added. A shared drift guard fails when a future dead-code IssueKind is absent from the summary scripts.",
+          "timestamp": "2026-06-15T12:57:12Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/2f636206b0f16edd8cac2f493331f2e8ba8dc322"
+        },
+        "date": 1781529175102,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 257,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 233,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 490,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 416,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 270,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 243,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 771,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 702,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1707,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1562,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1368,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1319,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1173,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1079,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 13305,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 12535,
             "unit": "ms"
           }
         ]
