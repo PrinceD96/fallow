@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781540772318,
+  "lastUpdate": 1781541996248,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "73bac370d02877bb88c84bab906eeebd9ce3373b",
-          "message": "docs: sync fallow skill metadata",
-          "timestamp": "2026-06-10T12:18:42+02:00",
-          "tree_id": "2d3487c781ab02f7752830f971d568f60eb1aacd",
-          "url": "https://github.com/fallow-rs/fallow/commit/73bac370d02877bb88c84bab906eeebd9ce3373b"
-        },
-        "date": 1781086954893,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a021530577d96f3a711a598612acafac8c0d6161"
         },
         "date": 1781540769939,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "16aa6a905beba4ea5d42ab65c1bf71af23ea11de",
+          "message": "fix(vscode): gate DIAGNOSTIC_CATEGORIES drift and wire policy-violation in the sidebar (#1268)\n\nCloses the last drift-coverage blind spot: the VS Code DIAGNOSTIC_CATEGORIES catalog was the one surface nothing gated against the schema, so a new LSP-emitted dead-code code that was never added there stayed uncounted and unfilterable in the editor.\n\nThe shared CI drift guard now asserts DIAGNOSTIC_CATEGORIES carries every canonical dead-code kind (derived from fallow schema), mapping each id to its diagnostic code so the boundary family is matched under the single boundary-violation editor code. The new gate immediately found a real gap: policy-violation is emitted by the LSP but was missing from every VS Code registry. It is now wired end to end (catalog, count, tree, labels, settings, config, schema, drift map, filterCheckResult toggle) so rule-pack policy violations are counted, rendered, and filterable like every other kind.",
+          "timestamp": "2026-06-15T18:40:41+02:00",
+          "tree_id": "29d34f4add51c927f07bf368809f9a465c7fab84",
+          "url": "https://github.com/fallow-rs/fallow/commit/16aa6a905beba4ea5d42ab65c1bf71af23ea11de"
+        },
+        "date": 1781541993992,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
