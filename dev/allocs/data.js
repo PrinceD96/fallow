@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781547153001,
+  "lastUpdate": 1781553615588,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e2d2dae4bc670c88a458b836f6946f53cb888ff8",
-          "message": "feat: add unresolved callee diagnostics\n\n* chore: open issue 1134 implementation branch\n\n* feat: add unresolved callee diagnostics",
-          "timestamp": "2026-06-10T02:46:14+02:00",
-          "tree_id": "b26f9db14bc676a1f784b36db80ea6e2a6ad81e8",
-          "url": "https://github.com/fallow-rs/fallow/commit/e2d2dae4bc670c88a458b836f6946f53cb888ff8"
-        },
-        "date": 1781052504831,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7465477,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34629,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 746893,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6640,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6694,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "34b66b8222ee811c12fbba09a437ec0fff12ebd4",
+          "message": "docs(health): clarify CSS preprocessor handling",
+          "timestamp": "2026-06-15T21:56:37+02:00",
+          "tree_id": "a7680b4c97c359f6dbb2ba48d50a6677bc501e86",
+          "url": "https://github.com/fallow-rs/fallow/commit/34b66b8222ee811c12fbba09a437ec0fff12ebd4"
+        },
+        "date": 1781553613372,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7717065,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36696,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 768514,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6693,
             "unit": "allocations"
           }
         ]
