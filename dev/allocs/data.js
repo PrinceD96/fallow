@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781528457146,
+  "lastUpdate": 1781529410739,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1b5eee77f7f249a31be86fb211096eb7bfb8f2ef",
-          "message": "fix(cli): clarify security human output\n\nRework the fallow security human renderer so the first lines explain that findings are items to check, not confirmed vulnerabilities.\n\nUse plain-language labels for evidence, code paths, import traces, and blind spots. Keep the detailed candidate framing in place for JSON, SARIF, MCP, and downstream verifier workflows.",
-          "timestamp": "2026-06-09T23:09:27+02:00",
-          "tree_id": "813d64a4a72043bfd14f2a0cda453f9d9f15f208",
-          "url": "https://github.com/fallow-rs/fallow/commit/1b5eee77f7f249a31be86fb211096eb7bfb8f2ef"
-        },
-        "date": 1781039654071,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7477021,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34654,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 744537,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6641,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6746,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "11d777118a0b23ddf36329c9415319a05398fef1",
+          "message": "refactor: group vue template tag inputs",
+          "timestamp": "2026-06-15T15:11:33+02:00",
+          "tree_id": "a61db4a756b9fa9e0e85a3bcd8421713233f6a02",
+          "url": "https://github.com/fallow-rs/fallow/commit/11d777118a0b23ddf36329c9415319a05398fef1"
+        },
+        "date": 1781529408168,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7602871,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36157,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 762426,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6694,
             "unit": "allocations"
           }
         ]
