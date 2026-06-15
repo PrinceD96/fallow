@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781538078672,
+  "lastUpdate": 1781540776216,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "dd4285e9bdc35772909fdad8095a00e4378b9c6b",
-          "message": "fix: align security help with supported globals\n\nHide inherited global flags from the `fallow security` help surface when that command still rejects them through its structured validation path. This keeps `security --help` and `help security` aligned with runtime behavior without changing how unsupported flags are parsed or reported.\n\nKeep `--explain` visible and supported for security after the metadata work, and add regression coverage for the filtered help forms plus the validator contract for hidden globals.\n\nFixes #1131.",
-          "timestamp": "2026-06-10T01:23:05+02:00",
-          "tree_id": "dfc667ef5bae0f34aeec0a32512fde35718e58a8",
-          "url": "https://github.com/fallow-rs/fallow/commit/dd4285e9bdc35772909fdad8095a00e4378b9c6b"
-        },
-        "date": 1781047540207,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7420325,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34623,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 740393,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6639,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6691,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a021530577d96f3a711a598612acafac8c0d6161",
+          "message": "feat(health): flag unused Tailwind v4 @theme design tokens (--css) (#1267)\n\nA `fallow health --css` candidate for Tailwind v4 `@theme` tokens whose generated utility no markup uses (cross-surface token reachability). Suffix-match against the documented v4 namespaces, published-library / plugin abstains, 0 FP / 21 TP smoke. Candidate-framed, opt-in, JSON `css_analytics.unused_theme_tokens`.",
+          "timestamp": "2026-06-15T18:21:37+02:00",
+          "tree_id": "f7b6aa043b45210b84e7adce4ca387abf9eca6a6",
+          "url": "https://github.com/fallow-rs/fallow/commit/a021530577d96f3a711a598612acafac8c0d6161"
+        },
+        "date": 1781540773897,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7680023,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36195,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 764798,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6694,
             "unit": "allocations"
           }
         ]
