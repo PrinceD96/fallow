@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781505787394,
+  "lastUpdate": 1781514547427,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "87e983e33813043ae1f0c3733d0ca86219daf399",
-          "message": "fix(security): align summary JSON metadata\n\nAlign the security command contract so advertised flags are supported consistently, JSON summary mode emits compact aggregate data, and machine consumers receive stable run metadata for comparisons.\n\nThe change also exposes capped unresolved-callee diagnostics and updates the generated output schema plus bundled agent reference so downstream consumers can rely on the new summary shape.\n\nFixes #1139.",
-          "timestamp": "2026-06-10T08:10:51+02:00",
-          "tree_id": "c83b7f5543d69b6599decac5915c05f3cf38fb42",
-          "url": "https://github.com/fallow-rs/fallow/commit/87e983e33813043ae1f0c3733d0ca86219daf399"
-        },
-        "date": 1781072031570,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1de4f0125e8d5d99dc13639ac579b546a060369d"
         },
         "date": 1781505785179,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b91a1d942ef2547f41a596d64f96815666c0ed07",
+          "message": "fix(ci): gate combined dupes on visible groups\n\nCombined CI mode previously used the raw duplication stats counter to decide whether the run had duplicate issues. That could fail a GitHub Action or GitLab CI run even when filtered output had no actionable `dupes.clone_groups[]` to render or annotate.\n\nThis changes the combined-mode GitHub Action and GitLab CI gates and summaries to count visible clone groups instead. Standalone `fallow dupes` keeps its existing stats behavior, while combined CI now matches the actionable result set users can inspect.\n\nFixes #1250.",
+          "timestamp": "2026-06-15T11:05:21+02:00",
+          "tree_id": "4271d89968418ef95a1cc53e285832dba7fed2e2",
+          "url": "https://github.com/fallow-rs/fallow/commit/b91a1d942ef2547f41a596d64f96815666c0ed07"
+        },
+        "date": 1781514543770,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
