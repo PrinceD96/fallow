@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781537079831,
+  "lastUpdate": 1781537932649,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e2d2dae4bc670c88a458b836f6946f53cb888ff8",
-          "message": "feat: add unresolved callee diagnostics\n\n* chore: open issue 1134 implementation branch\n\n* feat: add unresolved callee diagnostics",
-          "timestamp": "2026-06-10T02:46:14+02:00",
-          "tree_id": "b26f9db14bc676a1f784b36db80ea6e2a6ad81e8",
-          "url": "https://github.com/fallow-rs/fallow/commit/e2d2dae4bc670c88a458b836f6946f53cb888ff8"
-        },
-        "date": 1781052436194,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 25,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 21,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.29,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 349,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 840,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 929,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fa96043e4cad2034d9bf84fa88228642c35aea96",
+          "message": "feat(health): CSS class-reach candidates for `fallow health --css` (#1261)\n\nAdds four `fallow health --css` candidates: likely CSS class-name typos in markup (near-miss edit-distance), unreferenced global CSS classes, unused @font-face web fonts, and font-size scales mixed across length units. All candidate-framed, never gated, heavily FP-guarded and validated zero-FP across Bootstrap / Svelte / Excalidraw / reveal.js plus local projects. Reported in human, markdown, and JSON (css_analytics.unresolved_class_references / unreferenced_css_classes / unused_font_faces / font_size_unit_mix).",
+          "timestamp": "2026-06-15T17:36:58+02:00",
+          "tree_id": "93004955a94b36a068a6e0b3fa05b71a6d3d9799",
+          "url": "https://github.com/fallow-rs/fallow/commit/fa96043e4cad2034d9bf84fa88228642c35aea96"
+        },
+        "date": 1781537930494,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 22,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.8,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 376,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 930,
             "unit": "count"
           }
         ]
