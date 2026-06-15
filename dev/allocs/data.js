@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781519999562,
+  "lastUpdate": 1781521797329,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4491deceee75ff2766a3a2ce2db68b2fc1a2d17f",
-          "message": "fix(discovery): skip large minified JS assets\n\nVite-style generated assets can be smaller than the per-file byte limit while still expanding into very large parser and extraction payloads. Treat large one-line JS assets as generated output during source discovery while the max-file-size guard is enabled.\n\nThe discovery walk now records skipped minified assets as skipped-minified-file diagnostics, keeps --max-file-size 0 as the opt-out, and leaves declaration files plus large multiline JS in the analyzed set. The output schema, generated TypeScript contracts, and CLI reference now document the new diagnostic kind.\n\nFixes #1086.",
-          "timestamp": "2026-06-09T22:33:13+02:00",
-          "tree_id": "dc19f1e03e7c7a16aafe650497b07bbaa62c7ad3",
-          "url": "https://github.com/fallow-rs/fallow/commit/4491deceee75ff2766a3a2ce2db68b2fc1a2d17f"
-        },
-        "date": 1781037465499,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7415309,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34620,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 745006,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6688,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6778,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8593f955ae31647444ec6f6f679571339cefafec",
+          "message": "fix(dupes): ignore module wiring in imports filter\n\nExtend the existing ignoreImports duplicate filter beyond ES imports so re-export barrels and top-level static CommonJS require binding declarations no longer create clone groups by default.\n\nThe tokenizer now skips source-backed re-exports and whole top-level require-binding declarations while preserving runtime code, local exports, side-effect require calls, nested require calls, dynamic require arguments, and mixed declarations. The duplicate token cache version is bumped so warm caches do not reuse the old token stream.\n\nConfig schema, CLI help, changelog, agent rules, and shipped skill reference wording now describe the broader module-wiring scope.\n\nFixes #1225.",
+          "timestamp": "2026-06-15T13:06:02+02:00",
+          "tree_id": "34508a99dd9f5fca0403666dd7af6834922cb6dc",
+          "url": "https://github.com/fallow-rs/fallow/commit/8593f955ae31647444ec6f6f679571339cefafec"
+        },
+        "date": 1781521793913,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7676046,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36176,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 755312,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6666,
             "unit": "allocations"
           }
         ]
