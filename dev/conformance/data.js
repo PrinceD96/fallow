@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781429372770,
+  "lastUpdate": 1781524575129,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -3396,6 +3396,88 @@ window.BENCHMARK_DATA = {
           {
             "name": "Fallow Total",
             "value": 30362,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2028,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 6.1,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.7,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.2,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 6.9,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 24.3,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 2.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "8593f955ae31647444ec6f6f679571339cefafec",
+          "message": "fix(dupes): ignore module wiring in imports filter\n\nExtend the existing ignoreImports duplicate filter beyond ES imports so re-export barrels and top-level static CommonJS require binding declarations no longer create clone groups by default.\n\nThe tokenizer now skips source-backed re-exports and whole top-level require-binding declarations while preserving runtime code, local exports, side-effect require calls, nested require calls, dynamic require arguments, and mixed declarations. The duplicate token cache version is bumped so warm caches do not reuse the old token stream.\n\nConfig schema, CLI help, changelog, agent rules, and shipped skill reference wording now describe the broader module-wiring scope.\n\nFixes #1225.",
+          "timestamp": "2026-06-15T11:06:02Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/8593f955ae31647444ec6f6f679571339cefafec"
+        },
+        "date": 1781524571634,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 1.9,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 593,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30208,
             "unit": "issues"
           },
           {
