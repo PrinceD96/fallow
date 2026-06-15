@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781553615588,
+  "lastUpdate": 1781556415606,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7be005b9b27684c19b06a22691716ee8e2b08005",
-          "message": "fix(plugins): hard error invalid plugin regexes\n\nInvalid regexes extracted from plugin path-rule exclusions now aggregate into a config-load error instead of being stripped from the rule with a warning. The core analysis path and list plugins path both surface the error as exit code 2 with the existing JSON error envelope.\n\nThe unchanged plugin-system silent-fail diagnostics for config pattern collisions and external enabler typos remain warnings. Regression coverage now pins core aggregation, CLI JSON behavior, list plugins behavior, and the TanStack Router config path.\n\nFixes #513.",
-          "timestamp": "2026-06-10T07:48:00+02:00",
-          "tree_id": "42b08c7466afbf1cd810ce98d2437bb766f63f65",
-          "url": "https://github.com/fallow-rs/fallow/commit/7be005b9b27684c19b06a22691716ee8e2b08005"
-        },
-        "date": 1781070988385,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7440517,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34617,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 742473,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6638,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6693,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "871dab1c3b7ed6f532d952aee13d848fd23862b8",
+          "message": "docs(extract): document the lightningcss/regex hybrid in css.rs\n\nRecords why standard-CSS class membership is lightningcss-owned while the\nregex chain and the entire SCSS path stay regex-based: lightningcss does\nnot parse SCSS (@use, @forward, // comments, $variables), so the regex\nscanners are permanent infrastructure, not a transitional step toward an\nall-parser tokenizer.",
+          "timestamp": "2026-06-15T22:43:03+02:00",
+          "tree_id": "2782133763bdad7e90c2fa0ab74c93af19c05acd",
+          "url": "https://github.com/fallow-rs/fallow/commit/871dab1c3b7ed6f532d952aee13d848fd23862b8"
+        },
+        "date": 1781556413354,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7764393,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36714,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 768978,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6695,
             "unit": "allocations"
           }
         ]
