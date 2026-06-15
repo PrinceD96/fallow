@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781538143400,
+  "lastUpdate": 1781540772318,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "943b3671a293c9e7b853ecb08f6035028f8cea7d",
-          "message": "chore(agents): drop a private maintainer path from json-output-reviewer\n\nThe plugin-count drift sweep named a private maintainer doc path that does\nnot exist in a public clone (it resolves through a gitignored symlink). Drop\nthe dead grep line and rephrase the guidance so it no longer points at the\nprivate surface.",
-          "timestamp": "2026-06-10T12:12:22+02:00",
-          "tree_id": "9cd81ad98149b732627bd8ab4c57e2986426d334",
-          "url": "https://github.com/fallow-rs/fallow/commit/943b3671a293c9e7b853ecb08f6035028f8cea7d"
-        },
-        "date": 1781086531680,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/fa96043e4cad2034d9bf84fa88228642c35aea96"
         },
         "date": 1781538140683,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a021530577d96f3a711a598612acafac8c0d6161",
+          "message": "feat(health): flag unused Tailwind v4 @theme design tokens (--css) (#1267)\n\nA `fallow health --css` candidate for Tailwind v4 `@theme` tokens whose generated utility no markup uses (cross-surface token reachability). Suffix-match against the documented v4 namespaces, published-library / plugin abstains, 0 FP / 21 TP smoke. Candidate-framed, opt-in, JSON `css_analytics.unused_theme_tokens`.",
+          "timestamp": "2026-06-15T18:21:37+02:00",
+          "tree_id": "f7b6aa043b45210b84e7adce4ca387abf9eca6a6",
+          "url": "https://github.com/fallow-rs/fallow/commit/a021530577d96f3a711a598612acafac8c0d6161"
+        },
+        "date": 1781540769939,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
