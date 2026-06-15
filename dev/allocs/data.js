@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781516510881,
+  "lastUpdate": 1781517587452,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "84f2b2e8b10f48a66121f4c64d9bada29883fab4",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.91.0",
-          "timestamp": "2026-06-09T20:20:36+02:00",
-          "tree_id": "d6a31bd8377cf9b07e0cb17545aa04a06b8f3038",
-          "url": "https://github.com/fallow-rs/fallow/commit/84f2b2e8b10f48a66121f4c64d9bada29883fab4"
-        },
-        "date": 1781029371585,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7443653,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34615,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 745430,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6673,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6693,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "39d9ff2c8adddcb936ae0531ee923bf503d340e3",
+          "message": "feat(nextjs): graduate dynamic-segment-name-conflict to default error (#1259)\n\ndynamic-segment-name-conflict now defaults to error, joining route-collision in the error-runtime severity tier: a green next build that fallow fails because the route is a deterministic runtime crash on first request that next build lets through, so fallow is the only gate that catches it.\n\nThe detector is pure path arithmetic on the same route_tree primitive as route-collision (no AST, no heuristic to misfire), and its false-positive surface (route groups, parallel slots, per-app-root monorepo scoping) was exercised false-positive-free across a 22-project corpus, so the graduation rests on the path-deterministic primitive, not a zero-findings count. Human and markdown lines were already crash-grade, so no message change. Regenerated schema.json and re-accepted the default-derived SARIF snapshots (warning to error); the explicit sarif_mixed_severity fixture stays at warn. No JSON output schema or TS contract change.",
+          "timestamp": "2026-06-15T11:56:02+02:00",
+          "tree_id": "2178cc6c1393340cfa104fee6f3477efea1878b9",
+          "url": "https://github.com/fallow-rs/fallow/commit/39d9ff2c8adddcb936ae0531ee923bf503d340e3"
+        },
+        "date": 1781517585132,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7616711,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36168,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 761674,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6687,
             "unit": "allocations"
           }
         ]
