@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781642629074,
+  "lastUpdate": 1781646287474,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d4f42ab7c4a03bee3e44dd698aefb0c5ce529377",
-          "message": "chore: regenerate plugin schema and record vscode hover escaping fix (#1181)\n\nplugin-schema.json had drifted from the binary's plugin-schema output (usedClassMembers glob-pattern doc wording); regenerated from the current binary, with rule-pack-schema.json and schema.json verified in sync. Also records the VS Code hover escaping fix from #1176 in the unreleased changelog section.",
-          "timestamp": "2026-06-10T20:41:36+02:00",
-          "tree_id": "4592979d2c98f280c7ab29e2540c56d071963236",
-          "url": "https://github.com/fallow-rs/fallow/commit/d4f42ab7c4a03bee3e44dd698aefb0c5ce529377"
-        },
-        "date": 1781117085452,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/5275ec5945b195269797dfb9e45b190b61a86251"
         },
         "date": 1781642626198,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "687edc3286d61c90f9c13bcc3ce2173a7130c03e",
+          "message": "feat(analyze): extend unrendered-component to Angular (#1286)\n\nAdds an Angular arm to the existing unrendered-component rule (framework\nangular, no new IssueKind): an @Component whose element selector is used in no\ntemplate project-wide and that is not routed/bootstrapped/dynamically\nrendered. FP-safe abstains incl. the bare loadComponent default-export lazy\nform (default-export-referenced graph signal). CACHE_VERSION 174->175. Zero-FP\non angular-realworld. Wave 4 W4.2.",
+          "timestamp": "2026-06-16T23:36:53+02:00",
+          "tree_id": "58262c2d20a52583fa91c1d3f42b7c73256f9f46",
+          "url": "https://github.com/fallow-rs/fallow/commit/687edc3286d61c90f9c13bcc3ce2173a7130c03e"
+        },
+        "date": 1781646284142,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
