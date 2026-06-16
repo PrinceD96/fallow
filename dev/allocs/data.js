@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781626957205,
+  "lastUpdate": 1781642648141,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "99dc0ce058d89ecd530b91d3040a82f281a86439",
-          "message": "feat(boundaries): require zone coverage for files\n\nAdd `boundaries.coverage.requireAllFiles` and `boundaries.coverage.allowUnmatched` so teams can require analyzed source files to match a configured boundary zone.\n\nReport unmatched files as boundary coverage findings across CLI output, JSON/SARIF/CodeClimate, LSP diagnostics, baselines, regression counts, CI summaries, and generated schemas.\n\nRefs #1147.",
-          "timestamp": "2026-06-10T10:17:17+02:00",
-          "tree_id": "6daa8bc542250f84922aab1276c6870378ee6df9",
-          "url": "https://github.com/fallow-rs/fallow/commit/99dc0ce058d89ecd530b91d3040a82f281a86439"
-        },
-        "date": 1781079677938,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7424325,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34814,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 742849,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6636,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6695,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5275ec5945b195269797dfb9e45b190b61a86251",
+          "message": "feat(analyze): flag Svelte events dispatched but listened nowhere (#1283)\n\nNew default-warn IssueKind unused-svelte-event (gated on svelte): a Svelte\ncomponent dispatching a custom event via createEventDispatcher whose name is\nlistened to nowhere project-wide. Cross-file dead-output direction, no native\ncoverage. Two-pass set-difference detector (liberal listened set, flag the\ndisjoint). Abstains on dynamic/forwarded dispatch; DOM on:click excluded.\nCACHE_VERSION 173->174. Zero-FP on Budibase (6 true positives). Wave 2 W2.2.",
+          "timestamp": "2026-06-16T22:39:46+02:00",
+          "tree_id": "5790f221257bf3363db2b3cc870585d4dc87d585",
+          "url": "https://github.com/fallow-rs/fallow/commit/5275ec5945b195269797dfb9e45b190b61a86251"
+        },
+        "date": 1781642644766,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7689993,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36732,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 784242,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6694,
             "unit": "allocations"
           }
         ]
