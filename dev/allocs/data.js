@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781620298823,
+  "lastUpdate": 1781624735697,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "18c70b766e28138e5795dff81ad82c7432d980c9",
-          "message": "fix(security): classify fixed-origin URL sinks\n\nClassifies URL-like security sink candidates as fixed-origin dynamic paths or dynamic origins, carries `candidate.sink.url_shape` through JSON/schema/generated contracts, and keeps literal fixed URL destinations omitted from nonliteral open-redirect candidates.\n\nFixes #1137.",
-          "timestamp": "2026-06-10T09:11:16+02:00",
-          "tree_id": "f391a29633aef93f018776728e3f6a36e5a2072f",
-          "url": "https://github.com/fallow-rs/fallow/commit/18c70b766e28138e5795dff81ad82c7432d980c9"
-        },
-        "date": 1781075689886,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7445429,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34813,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 743329,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6639,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6184,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "6fb5ff7dc01193cf6cf7a90fd3a1a9b64d008f11",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.97.0",
+          "timestamp": "2026-06-16T17:41:30+02:00",
+          "tree_id": "0a852678ba08cef3e0d73eee156b754a9d24a8ea",
+          "url": "https://github.com/fallow-rs/fallow/commit/6fb5ff7dc01193cf6cf7a90fd3a1a9b64d008f11"
+        },
+        "date": 1781624733227,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7667505,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36769,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 778642,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6687,
             "unit": "allocations"
           }
         ]
