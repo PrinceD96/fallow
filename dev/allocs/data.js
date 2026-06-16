@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781617638846,
+  "lastUpdate": 1781620298823,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6a1dd0a772820b7ee1102384fb584a0b62d95ad5",
-          "message": "fix: trust local sanitizer flows\n\n* chore: open issue-1136 implementation branch\n\n* fix(security): trust local sanitizer flows",
-          "timestamp": "2026-06-10T09:01:53+02:00",
-          "tree_id": "2a3d78f3509f7bc139560d8c8edeb95d63c302bc",
-          "url": "https://github.com/fallow-rs/fallow/commit/6a1dd0a772820b7ee1102384fb584a0b62d95ad5"
-        },
-        "date": 1781075068973,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7450205,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34819,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 742817,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6639,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6689,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d1e3c7e0c1708ccc398575f1cecc6154fcba77f2",
+          "message": "feat(angular): unused-component-input / unused-component-output (#1278)\n\nTwo new default-warn IssueKinds gated on @angular/core: unused-component-input\n(@Input/input()/model() read nowhere in its own component, template or class)\nand unused-component-output (@Output/output() emitted nowhere). The\nin-component dead-input/output direction no Angular tooling covers. Direct\nanalogue of the Vue unused-component-prop/-emit rules; real-world validated on\nangular/components at zero false positives. Full surface wiring, fixtures,\nintegration tests, and docs. Wave 2 W2.1 of the framework-parity program.",
+          "timestamp": "2026-06-16T16:26:52+02:00",
+          "tree_id": "c69b52a30b2b542d893f4bce8c1f54084f194ad2",
+          "url": "https://github.com/fallow-rs/fallow/commit/d1e3c7e0c1708ccc398575f1cecc6154fcba77f2"
+        },
+        "date": 1781620295755,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7689081,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36748,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 729262,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6184,
             "unit": "allocations"
           }
         ]
