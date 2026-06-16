@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781611077102,
+  "lastUpdate": 1781615845873,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d109daca4c675ea30d262c0ed77c5d0326f21341",
-          "message": "test(health): pin complexity metric baselines (#1175)\n\nComplexity metrics are scoring data that users gate CI on (--max-crap, health score thresholds). The existing health tests are snapshot-shaped, so a visitor or formula change that shifts scores gets re-blessed together with the change and can ship silent drift that flips downstream CI gates.\n\nThis adds a pinned-value regression suite: five fixture functions, each asserting exact cyclomatic and cognitive values with the hand-count arithmetic in comments, plus a file header making clear that a diff here is a user-facing scoring change needing deliberate changelog treatment.",
-          "timestamp": "2026-06-10T17:21:06+02:00",
-          "tree_id": "4eef8bb4dfed22ad974266653c54984c90aca10f",
-          "url": "https://github.com/fallow-rs/fallow/commit/d109daca4c675ea30d262c0ed77c5d0326f21341"
-        },
-        "date": 1781105212468,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f2ac13530e8ae5d4c775c295b4d60e8d6567d14c"
         },
         "date": 1781611074558,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0157c64f4dee894f6e63cd16ee502e40f4a045d1",
+          "message": "fix(ci): classify React-health IssueKinds as advisory in the drift guard\n\nprop-drilling, thin-wrapper, and duplicate-prop-shape are command-tagged\ndead-code IssueKinds, but they are opt-in (default-off) React/Preact advisory\nhealth signals surfaced only in the CLI human report and raw JSON. The LSP does\nnot emit them as diagnostics and the PR-summary jq surfaces do not carry them,\nso the IssueKind drift guard now classifies them alongside complexity and\ncoverage-gaps (skipped, not gated for surface presence) rather than demanding a\nJSON-key mapping. Repairs the red \"Test GitLab CI scripts\" job on main.",
+          "timestamp": "2026-06-16T15:13:37+02:00",
+          "tree_id": "5588440fa2bd0aeaf51731d8427f5fce094bb54b",
+          "url": "https://github.com/fallow-rs/fallow/commit/0157c64f4dee894f6e63cd16ee502e40f4a045d1"
+        },
+        "date": 1781615843528,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
