@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781625260763,
+  "lastUpdate": 1781626957205,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f5f8944a679bab69f1ad4d9c0ee80beeeb1c9230",
-          "message": "fix(schema): include security summary root contract\n\nFollow-up from final review across #1152, #1153, #1154, and #1155.",
-          "timestamp": "2026-06-10T09:53:01+02:00",
-          "tree_id": "e3b8636f465f9254c151d10e4cf2f73be8bd5f17",
-          "url": "https://github.com/fallow-rs/fallow/commit/f5f8944a679bab69f1ad4d9c0ee80beeeb1c9230"
-        },
-        "date": 1781078136966,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7445229,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34817,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 750014,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6705,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6694,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dfaf4dc8d18b0ca7f29d49e3b800492bfe524661",
+          "message": "feat(extract): Svelte 5 runes extraction (script module + $props harvest) (#1280)\n\nRecognize bare <script module> (Svelte 5) as module context via\nSVELTE_MODULE_ATTR_RE (FP fix in Svelte unused-import/export detection), and\nharvest \\$props() destructure into declared prop names (reusing the Vue\nComponentProp IR + abstain flags) as groundwork for W2.2. Ships no Svelte prop\ndetector (prop-deadness is a non-goal). CACHE_VERSION 172->173. Wave 1 W1.1.",
+          "timestamp": "2026-06-16T18:19:06+02:00",
+          "tree_id": "6d41c92fbedd473cc9e480aad04477f7eedbf844",
+          "url": "https://github.com/fallow-rs/fallow/commit/dfaf4dc8d18b0ca7f29d49e3b800492bfe524661"
+        },
+        "date": 1781626954365,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7710129,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36792,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 783194,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6695,
             "unit": "allocations"
           }
         ]
