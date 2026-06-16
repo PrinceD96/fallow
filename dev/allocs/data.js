@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781648909689,
+  "lastUpdate": 1781650562165,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "73bac370d02877bb88c84bab906eeebd9ce3373b",
-          "message": "docs: sync fallow skill metadata",
-          "timestamp": "2026-06-10T12:18:42+02:00",
-          "tree_id": "2d3487c781ab02f7752830f971d568f60eb1aacd",
-          "url": "https://github.com/fallow-rs/fallow/commit/73bac370d02877bb88c84bab906eeebd9ce3373b"
-        },
-        "date": 1781086920171,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7464789,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34817,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 695401,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6138,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6693,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7537eccdf15dddfd7713b06a81587e0f266765dc",
+          "message": "feat(health): score Vue and Svelte SFC template complexity (#1288)\n\nVue and Svelte SFCs now contribute a synthetic <template> complexity entry to\nthe health complexity aggregate, mirroring Angular's path: template control flow\n(v-if/v-for; {#if}/{#each}/{#await}) plus bound-directive and interpolation\nexpressions fold into the file's complexity score, hotspots, and\nhealth --complexity findings. Reuses existing thresholds; no new rule or surface.\nThe JS-expression engine is factored into template_complexity/engine.rs and\nshared by all three scanners (Angular unchanged). Each SFC scanner masks\n<script>/<style> so script complexity is not double-counted. CACHE_VERSION 177.\nSFC render fan-in is a deliberate non-goal (module fan-in covers it). Validated\non vue-element-admin, svelte realworld, and bits-ui with no panics.",
+          "timestamp": "2026-06-17T00:52:18+02:00",
+          "tree_id": "2882ff7e8c6d8b4bf696a680baac15f609af8043",
+          "url": "https://github.com/fallow-rs/fallow/commit/7537eccdf15dddfd7713b06a81587e0f266765dc"
+        },
+        "date": 1781650559324,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7724313,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36764,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 747378,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6193,
             "unit": "allocations"
           }
         ]
