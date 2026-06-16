@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781624735697,
+  "lastUpdate": 1781625260763,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "30a3a0a10cfa8b252757bdd90ad230150b2ca825",
-          "message": "feat(init): scaffold agent guidance\n\nAdd an opt-in init mode that writes a starter AGENTS.md for project-specific coding-agent context. The scaffold refuses to overwrite existing guidance and avoids project readiness scoring language.\n\nCloses #1124",
-          "timestamp": "2026-06-10T09:46:55+02:00",
-          "tree_id": "7cf1814ef39f69a274cd7e99054412a006f3389a",
-          "url": "https://github.com/fallow-rs/fallow/commit/30a3a0a10cfa8b252757bdd90ad230150b2ca825"
-        },
-        "date": 1781077764985,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7430829,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34797,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 743269,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6638,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6687,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5eba61acd872199708efb426f460ae7710a87d80",
+          "message": "feat(extract): Vue Options-API coverage for unused-component-prop/-emit (#1279)\n\nExtends unused-component-prop / unused-component-emit (previously script-setup\nonly) to the Vue Options API: harvests props:/emits: from export default {} /\ndefineComponent({}) in non-setup <script>. this.<prop>/template usage credit\nfor props; this.\\$emit/template \\$emit for emits. Whole-component abstain on\nmixins:/extends:, dynamic access, unharvestable values, and setup(props,{emit}).\nNo new IssueKind; CACHE_VERSION 171->172. Wave 2 W2.3.",
+          "timestamp": "2026-06-16T17:50:57+02:00",
+          "tree_id": "69cbb06a58c196e3f88ab5f5033cfcf18aecf438",
+          "url": "https://github.com/fallow-rs/fallow/commit/5eba61acd872199708efb426f460ae7710a87d80"
+        },
+        "date": 1781625258472,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7702169,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36756,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 781330,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6694,
             "unit": "allocations"
           }
         ]
