@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781711660352,
+  "lastUpdate": 1781712377203,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "9a1653d9e800809381928c8fdd5e41cf7e569575",
-          "message": "fix(ci): format generate-agent-docs.test.mjs and re-vendor the trimmed agent skill\n\nTwo CI failures surfaced on main once a full run completed (every\nearlier run was cancelled by a superseding push): the generator test\nfile landed unformatted (oxfmt --check), and the v2.93.0 release\nvendored a 564-line SKILL.md that trips the bundled-skill validator's\n500-line limit. The canonical fallow-skills SKILL.md is trimmed to 499\nlines (verbose workflow blocks tightened, Node.js bindings and\nconfiguration field notes moved to references/); this re-vendors that\nstate so the validator passes.",
-          "timestamp": "2026-06-11T18:57:29+02:00",
-          "tree_id": "428de942f8df7f5e0aa311aa5874ed52ab199038",
-          "url": "https://github.com/fallow-rs/fallow/commit/9a1653d9e800809381928c8fdd5e41cf7e569575"
-        },
-        "date": 1781197259472,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4767347e04cdf0662e17a06027dd73a3cd35f496"
         },
         "date": 1781711657640,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e588428bc570a98397ea182e069e72b07bd52811",
+          "message": "chore(benchmarks): switch codspeed benches to criterion2\n\nReplace the Divan compatibility harness with criterion2 for the Rust benchmark suites while preserving CodSpeed simulation coverage.\n\nConvert the core analysis, large analysis, and programmatic command benches to Criterion-style groups so local benchmark output includes the statistical comparisons used by the Oxc ecosystem.\n\nWire the benchmark packages through a codspeed feature and update the benchmark workflow to build instrumented criterion2 harnesses before running the existing shards.",
+          "timestamp": "2026-06-17T17:58:33+02:00",
+          "tree_id": "976dc05fee60f9aba85853a2439c35430174792e",
+          "url": "https://github.com/fallow-rs/fallow/commit/e588428bc570a98397ea182e069e72b07bd52811"
+        },
+        "date": 1781712373605,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
