@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781713489383,
+  "lastUpdate": 1781714297632,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "3895e47fca699364537ff366377ffd078aedc44d",
-          "message": "refactor: split security human rendering",
-          "timestamp": "2026-06-11T07:51:26+02:00",
-          "tree_id": "92ffd20fe48592915a030ca8b4d6f133ed22bf92",
-          "url": "https://github.com/fallow-rs/fallow/commit/3895e47fca699364537ff366377ffd078aedc44d"
-        },
-        "date": 1781157402488,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7412695,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34983,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 745545,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6639,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6693,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "23d02bbac845ccf9fad1ce6b22de02590a8d5027",
+          "message": "fix(unused-exports): credit same-file schema value deps\n\nCredit same-file value exports when they are runtime dependencies of a reachable exported value. This handles Effect Schema patterns where an exported schema value and same-name type alias coexist, and another exported schema references the value locally.\n\nThe detector stays conservative: unrelated sibling schemas and schemas used only by unused parents remain reportable.\n\nFixes #1304.",
+          "timestamp": "2026-06-17T18:35:03+02:00",
+          "tree_id": "5f7624d49b21f3498e7254a0b885b289aa8495ac",
+          "url": "https://github.com/fallow-rs/fallow/commit/23d02bbac845ccf9fad1ce6b22de02590a8d5027"
+        },
+        "date": 1781714294141,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 8612937,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 37656,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 825948,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6688,
             "unit": "allocations"
           }
         ]
