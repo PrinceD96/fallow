@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781689456616,
+  "lastUpdate": 1781692555026,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "56335efcfd5183d325c65fa396b38b2e98bb0cda",
-          "message": "refactor(audit): make new-finding wiring exhaustive at filter and key sites (#1174)\n\nAdding a new finding collection to AnalysisResults previously required remembering to hand-wire it into the changed-files filter and the audit key and attribution sites; a miss silently dropped the new findings from --changed-since runs or audit verdicts. filter_results_by_changed_files, dead_code_keys, and retain_introduced_dead_code now destructure AnalysisResults exhaustively with no rest pattern, so a new field fails compilation exactly where a wiring decision is required.\n\nretain_introduced_dead_code now computes the introduced key set before the three fast-path retains instead of after (borrow-checker requirement); the set is provably identical, and behavior parity was verified against release binaries on real projects. The rebase folded in boundary_call_violations from #1173, which exercised the guard exactly as intended.",
-          "timestamp": "2026-06-10T17:13:42+02:00",
-          "tree_id": "23b4d148e2143c4388382817a675adc244a9257f",
-          "url": "https://github.com/fallow-rs/fallow/commit/56335efcfd5183d325c65fa396b38b2e98bb0cda"
-        },
-        "date": 1781104686650,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7452031,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 35006,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 739549,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6630,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6193,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9fb44aac4684f23967b73dcaaa30ca8598e2a4f1",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.98.0",
+          "timestamp": "2026-06-17T12:30:55+02:00",
+          "tree_id": "8f38b1deccdef7256fda48244739ac78d55046c3",
+          "url": "https://github.com/fallow-rs/fallow/commit/9fb44aac4684f23967b73dcaaa30ca8598e2a4f1"
+        },
+        "date": 1781692552683,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7695001,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36771,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 793886,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6694,
             "unit": "allocations"
           }
         ]
