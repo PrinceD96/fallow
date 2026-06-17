@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781696905984,
+  "lastUpdate": 1781699487188,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "de21312ecc85637f2dea82b64489b1a10126642e",
-          "message": "docs(changelog): move post-release entries back to Unreleased\n\nThe v2.93.0 release was cut in a parallel session minutes before the\nagent-discoverability squash merge landed, and the server-side three-way\nmerge anchored the two new entries (telemetry install grouping token,\ntask-to-command matrix) inside the freshly created 2.93.0 section. Those\nfeatures are not in the v2.93.0 binaries; restore them under Unreleased.",
-          "timestamp": "2026-06-11T17:04:11+02:00",
-          "tree_id": "03e309603ffb5a33bfd0fc16dc0d08e11c4ab6f0",
-          "url": "https://github.com/fallow-rs/fallow/commit/de21312ecc85637f2dea82b64489b1a10126642e"
-        },
-        "date": 1781190665134,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e99bd54613928a8d6908d9be35e1f445512f081b"
         },
         "date": 1781696903641,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a2f60564123faa767dd8775a16bc1dfafaf09f13",
+          "message": "feat(benchmarks): sharpen codspeed insights\n\nSplits the CodSpeed simulation workflow into separate matrix shards for core analysis and programmatic command profiles. This keeps reports grouped by benchmark family while preserving tokenless public-repository uploads and the existing fast PR budget.\n\nExpands the programmatic command benchmark fixtures so the CodSpeed report names the command and repo shape being exercised. The suite now distinguishes package exports, Next app-router segments, cross-package workspace imports, repeated route callback duplication, domain graph cycles, service complexity, Tailwind CSS health, and warm-cache analysis.\n\nLeaves true binary-level CLI benchmarking out of scope for this change because spawned-child Divan benches are not the right simulation target. A future walltime or codspeed exec path can measure the release binary directly.",
+          "timestamp": "2026-06-17T14:25:13+02:00",
+          "tree_id": "499fa20855a0ec10880f6df902eec3828cf8f2aa",
+          "url": "https://github.com/fallow-rs/fallow/commit/a2f60564123faa767dd8775a16bc1dfafaf09f13"
+        },
+        "date": 1781699484082,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
