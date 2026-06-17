@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781680905877,
+  "lastUpdate": 1781681255394,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ba3580ac64d4458843366acda80376fb395c2047",
-          "message": "docs(combined): narrow the conflict-magnet rule to combined/mod.rs\n\ncombined.rs was split into a combined/ module, so the merge-conflict\nconcentration now lives in the orchestrator (combined/mod.rs); the output,\norientation, and impact submodules are independent files editable in\nparallel. Relax the CLAUDE.md serialization rule accordingly.",
-          "timestamp": "2026-06-11T10:33:05+02:00",
-          "tree_id": "4b8bc1e9dd931312c2ce9c51193904fac5da34cd",
-          "url": "https://github.com/fallow-rs/fallow/commit/ba3580ac64d4458843366acda80376fb395c2047"
-        },
-        "date": 1781167044185,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f59a2d6417b597fc13b1d1872c8415924c7fcef8"
         },
         "date": 1781680903707,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "822d53caac16c115f9420a58606b266564391753",
+          "message": "chore(deps-dev): bump @vscode/test-electron in /editors/vscode\n\nBumps [@vscode/test-electron](https://github.com/Microsoft/vscode-test) from 2.5.2 to 3.0.0.\n- [Changelog](https://github.com/microsoft/vscode-test/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Microsoft/vscode-test/commits)\n\n---\nupdated-dependencies:\n- dependency-name: \"@vscode/test-electron\"\n  dependency-version: 3.0.0\n  dependency-type: direct:development\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-06-17T09:23:53+02:00",
+          "tree_id": "428c2930677f7583ce23aff7e30164a173d0cb19",
+          "url": "https://github.com/fallow-rs/fallow/commit/822d53caac16c115f9420a58606b266564391753"
+        },
+        "date": 1781681251995,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
