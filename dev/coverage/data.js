@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781652411558,
+  "lastUpdate": 1781678537352,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b1db5200de6ee324da58be5be7a9b0b612e3aad3",
-          "message": "test: improve coverage across cli workflows",
-          "timestamp": "2026-06-11T07:14:57+02:00",
-          "tree_id": "31b0001b1281d9963d5125c16c42e0ffdb92b920",
-          "url": "https://github.com/fallow-rs/fallow/commit/b1db5200de6ee324da58be5be7a9b0b612e3aad3"
-        },
-        "date": 1781155149745,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/362b93bf156231ce4e1096e8aa72d7e7fa82b26e"
         },
         "date": 1781652409097,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "aec4ed5ea2647241eae08f956818e4a2af639aac",
+          "message": "fix: credit Playwright fixture branch aliases\n\nPlaywright fixture callbacks now track simple local aliases that resolve to destructured fixture objects or dotted fixture paths. Ternaries, if/else assignments, and switch assignments credit every fixture target when all branches remain fixture-derived, while shadowing and unknown reassignments stay conservative.\n\nSame-file local base.extend<T>(...) fixture constants now participate in mergeTests(...) wrapper expansion through a Playwright-only internal key, so merged tests inherit local fixture targets without changing public export semantics. The extraction cache is bumped because warm caches can miss the new fixture-use sentinels.\n\nFixes #1270.",
+          "timestamp": "2026-06-17T08:32:58+02:00",
+          "tree_id": "9f9b935f4760f43cdb7f389c81697ccf5d66ccd2",
+          "url": "https://github.com/fallow-rs/fallow/commit/aec4ed5ea2647241eae08f956818e4a2af639aac"
+        },
+        "date": 1781678535088,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
