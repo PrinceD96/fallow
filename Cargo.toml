@@ -95,7 +95,10 @@ tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "io-st
 notify = "8"
 
 # Testing
-criterion = { version = "0.8", features = ["html_reports"] }
+# CodSpeed compatibility layer for Criterion: a drop-in replacement that keeps
+# the `criterion` import path and API while enabling CodSpeed instrumentation in
+# CI. Falls back to vanilla Criterion when run outside the CodSpeed runner.
+criterion = { package = "codspeed-criterion-compat", version = "4", features = ["html_reports"] }
 dhat = "0.3"
 insta = { version = "1", features = ["yaml"] }
 proptest = "1"
