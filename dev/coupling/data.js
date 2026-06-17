@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781711437303,
+  "lastUpdate": 1781712003657,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b1db5200de6ee324da58be5be7a9b0b612e3aad3",
-          "message": "test: improve coverage across cli workflows",
-          "timestamp": "2026-06-11T07:14:57+02:00",
-          "tree_id": "31b0001b1281d9963d5125c16c42e0ffdb92b920",
-          "url": "https://github.com/fallow-rs/fallow/commit/b1db5200de6ee324da58be5be7a9b0b612e3aad3"
-        },
-        "date": 1781155018782,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 25,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 22,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.28,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 354,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 858,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4767347e04cdf0662e17a06027dd73a3cd35f496"
         },
         "date": 1781711433523,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.02,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 391,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 958,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e588428bc570a98397ea182e069e72b07bd52811",
+          "message": "chore(benchmarks): switch codspeed benches to criterion2\n\nReplace the Divan compatibility harness with criterion2 for the Rust benchmark suites while preserving CodSpeed simulation coverage.\n\nConvert the core analysis, large analysis, and programmatic command benches to Criterion-style groups so local benchmark output includes the statistical comparisons used by the Oxc ecosystem.\n\nWire the benchmark packages through a codspeed feature and update the benchmark workflow to build instrumented criterion2 harnesses before running the existing shards.",
+          "timestamp": "2026-06-17T17:58:33+02:00",
+          "tree_id": "976dc05fee60f9aba85853a2439c35430174792e",
+          "url": "https://github.com/fallow-rs/fallow/commit/e588428bc570a98397ea182e069e72b07bd52811"
+        },
+        "date": 1781712000223,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
