@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781716727192,
+  "lastUpdate": 1781720113972,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ba3580ac64d4458843366acda80376fb395c2047",
-          "message": "docs(combined): narrow the conflict-magnet rule to combined/mod.rs\n\ncombined.rs was split into a combined/ module, so the merge-conflict\nconcentration now lives in the orchestrator (combined/mod.rs); the output,\norientation, and impact submodules are independent files editable in\nparallel. Relax the CLAUDE.md serialization rule accordingly.",
-          "timestamp": "2026-06-11T10:33:05+02:00",
-          "tree_id": "4b8bc1e9dd931312c2ce9c51193904fac5da34cd",
-          "url": "https://github.com/fallow-rs/fallow/commit/ba3580ac64d4458843366acda80376fb395c2047"
-        },
-        "date": 1781167011222,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7425343,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 35004,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 739549,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6630,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6696,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9b1f4546ebcfbc186352c60fe19231563cf06bf9",
+          "message": "chore: add analyzer follow-up tooling\n\n* chore: open post-pr-1300 followups branch\n\n* chore: add analyzer follow-up tooling\n\n* ci: skip bench targets in test job",
+          "timestamp": "2026-06-17T20:11:50+02:00",
+          "tree_id": "9170a63209b2faf0b28378f99b7f431744231b01",
+          "url": "https://github.com/fallow-rs/fallow/commit/9b1f4546ebcfbc186352c60fe19231563cf06bf9"
+        },
+        "date": 1781720111013,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 8589112,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 37681,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 822738,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6694,
             "unit": "allocations"
           }
         ]
