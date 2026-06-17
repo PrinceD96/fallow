@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781681255394,
+  "lastUpdate": 1781683784734,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "be84f982ad20fbdf9c3b9b78c5bb4b09afff12a5",
-          "message": "docs(mcp): align runtime_coverage license prose with single-capture-free nuance\n\nThe check_health and audit tool descriptions said the runtime_coverage param is a paid feature / license-gated without the carve-out the five dedicated runtime-coverage tools document: a single local capture is free, only continuous or multi-capture monitoring requires a license. Wording now matches across all seven runtime-coverage surfaces.",
-          "timestamp": "2026-06-11T10:58:58+02:00",
-          "tree_id": "9b56c7b831623b022f430f05e5f04f6dae1b9e8e",
-          "url": "https://github.com/fallow-rs/fallow/commit/be84f982ad20fbdf9c3b9b78c5bb4b09afff12a5"
-        },
-        "date": 1781168743095,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/822d53caac16c115f9420a58606b266564391753"
         },
         "date": 1781681251995,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "71af94a214c69cbd80165083bc1ef99f69c2826f",
+          "message": "chore(deps): bump docker node runtime to 26",
+          "timestamp": "2026-06-17T10:05:40+02:00",
+          "tree_id": "6c1dcb678a90afe87a75dfa2033848311d6191ec",
+          "url": "https://github.com/fallow-rs/fallow/commit/71af94a214c69cbd80165083bc1ef99f69c2826f"
+        },
+        "date": 1781683781118,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
