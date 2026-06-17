@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781612130652,
+  "lastUpdate": 1781696483368,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -5303,6 +5303,108 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 11412,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "a7c8bc7de7abfc05e695aa28edd921df410b83af",
+          "message": "test: improve coverage across CLI output helpers\n\nAdds focused coverage for CLI audit output, combined output helpers, cache notice lifecycle, and human report helper behavior.\n\nThe branch keeps production code unchanged and stops the coverage loop once the remaining gains became marginal.",
+          "timestamp": "2026-06-17T11:10:47Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/a7c8bc7de7abfc05e695aa28edd921df410b83af"
+        },
+        "date": 1781696480543,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 253,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 235,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 442,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 430,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 264,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 238,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 775,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 652,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1746,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1515,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1404,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1323,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1184,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1083,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (cold)",
+            "value": 13012,
+            "unit": "ms"
+          },
+          {
+            "name": "next.js (warm)",
+            "value": 11861,
             "unit": "ms"
           }
         ]
