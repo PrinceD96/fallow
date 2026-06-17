@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781709887448,
+  "lastUpdate": 1781711559706,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1f9aaac198a279b340f688bd4ee56655e43551f4",
-          "message": "chore: release v2.92.1",
-          "timestamp": "2026-06-10T21:54:40+02:00",
-          "tree_id": "9dc4f2ff03f6671976eaa53b0383036b88cd0904",
-          "url": "https://github.com/fallow-rs/fallow/commit/1f9aaac198a279b340f688bd4ee56655e43551f4"
-        },
-        "date": 1781121471449,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7425423,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34998,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 745897,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6641,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6696,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4767347e04cdf0662e17a06027dd73a3cd35f496",
+          "message": "fix(vscode): defer startup LSP analysis\n\nWait until the first document opens before triggering workspace analysis from the LSP server. VS Codium was showing stale startup totals because the extension consumed the initial analysis result before the workspace had published any open documents.\n\nSave-triggered analysis now waits behind the in-flight startup analysis instead of being dropped when the analysis guard is busy. The runner re-checks cancellation after acquiring the guard so shutdown still avoids publishing stale results.\n\nFixes #1303.",
+          "timestamp": "2026-06-17T17:49:10+02:00",
+          "tree_id": "2c09258df26a7172e19ed15329adabdf1535a88d",
+          "url": "https://github.com/fallow-rs/fallow/commit/4767347e04cdf0662e17a06027dd73a3cd35f496"
+        },
+        "date": 1781711557239,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7694281,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36748,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 798078,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6685,
             "unit": "allocations"
           }
         ]
