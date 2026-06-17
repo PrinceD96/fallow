@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781720273337,
+  "lastUpdate": 1781721526969,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c8e0ccc48e0b36c71088af5dd528384702bb3cd6",
-          "message": "fix(suggestions): print the setup hint after the failure summary\n\nIn the header position the hint scrolled away on any sizable first run;\nthe failure summary tail is what a human actually reads. The hint now\nfollows the Failed: line on stderr, sharing its quiet gate, so it is\nthe last line of a failing first-contact run.",
-          "timestamp": "2026-06-11T23:09:03+02:00",
-          "tree_id": "2ed0a91b24eb73cf5108268ad29ccb2a4bafe1ad",
-          "url": "https://github.com/fallow-rs/fallow/commit/c8e0ccc48e0b36c71088af5dd528384702bb3cd6"
-        },
-        "date": 1781212343198,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9b1f4546ebcfbc186352c60fe19231563cf06bf9"
         },
         "date": 1781720270976,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "67cc9032ab5eb85b4d0b515160a861ed34917e17",
+          "message": "ci: run full codspeed suite on main\n\nKeep pull request CodSpeed feedback focused on the existing fast shards while adding the slower large-analysis shard for main pushes and manual benchmark runs.\n\nThis keeps PR latency low, but gives CodSpeed a fuller current baseline for long-running benchmarks. Removed historical benchmark IDs still need CodSpeed archival after the updated main run lands.",
+          "timestamp": "2026-06-17T20:34:43+02:00",
+          "tree_id": "f5fafbe261558c891aa4b62fef94f45b384526d4",
+          "url": "https://github.com/fallow-rs/fallow/commit/67cc9032ab5eb85b4d0b515160a861ed34917e17"
+        },
+        "date": 1781721523404,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
