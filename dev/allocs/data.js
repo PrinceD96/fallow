@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781692555026,
+  "lastUpdate": 1781694862707,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d109daca4c675ea30d262c0ed77c5d0326f21341",
-          "message": "test(health): pin complexity metric baselines (#1175)\n\nComplexity metrics are scoring data that users gate CI on (--max-crap, health score thresholds). The existing health tests are snapshot-shaped, so a visitor or formula change that shifts scores gets re-blessed together with the change and can ship silent drift that flips downstream CI gates.\n\nThis adds a pinned-value regression suite: five fixture functions, each asserting exact cyclomatic and cognitive values with the hand-count arithmetic in comments, plus a file header making clear that a diff here is a user-facing scoring change needing deliberate changelog treatment.",
-          "timestamp": "2026-06-10T17:21:06+02:00",
-          "tree_id": "4eef8bb4dfed22ad974266653c54984c90aca10f",
-          "url": "https://github.com/fallow-rs/fallow/commit/d109daca4c675ea30d262c0ed77c5d0326f21341"
-        },
-        "date": 1781105117589,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7468351,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 35026,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 745281,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6636,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6694,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a7c8bc7de7abfc05e695aa28edd921df410b83af",
+          "message": "test: improve coverage across CLI output helpers\n\nAdds focused coverage for CLI audit output, combined output helpers, cache notice lifecycle, and human report helper behavior.\n\nThe branch keeps production code unchanged and stops the coverage loop once the remaining gains became marginal.",
+          "timestamp": "2026-06-17T13:10:47+02:00",
+          "tree_id": "4ae405990625b22a3186685e65385c6e4eeab2d7",
+          "url": "https://github.com/fallow-rs/fallow/commit/a7c8bc7de7abfc05e695aa28edd921df410b83af"
+        },
+        "date": 1781694859885,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7756665,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36790,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 798082,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6696,
             "unit": "allocations"
           }
         ]
