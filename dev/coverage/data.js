@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781683784734,
+  "lastUpdate": 1781685541432,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "68295fee174c9c64bcdb371aeeb37076fd44631f",
-          "message": "fix(ci): wrap GitLab before_script Bash blocks\n\nGitLab Runner can execute before_script entries with /bin/sh, while the template install, script prep, and runner writer blocks rely on Bash syntax. Alpine-based jobs installed Bash but still evaluated later setup lines through the runner shell.\n\nThe GitLab template now wraps the Bash-dependent setup blocks with explicit bash -eo pipefail heredocs after dependency installation. The CI harness extracts those blocks and runs them through /bin/sh, executes the generated runner with empty extra args, and keeps the symlinked CLI template in parity.\n\nFixes #1182.",
-          "timestamp": "2026-06-11T11:34:34+02:00",
-          "tree_id": "cf0113a568ed00baec08d8c94d4e034a2c7ff24f",
-          "url": "https://github.com/fallow-rs/fallow/commit/68295fee174c9c64bcdb371aeeb37076fd44631f"
-        },
-        "date": 1781170787109,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/71af94a214c69cbd80165083bc1ef99f69c2826f"
         },
         "date": 1781683781118,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b66c18ac23a61de62a4a192ac0ec90b5f573af86",
+          "message": "fix(output): add framework action guidance\n\nLead framework dead-code findings with manual fix actions before the suppress fallback. The new action discriminants cover server actions, injects, SvelteKit load keys, unrendered components, Vue props and emits, and Svelte events while keeping every path non-auto-fixable.\n\nClarify template and component complexity rows in human and markdown health output while keeping machine-readable names stable. Regenerate the output schema and published TypeScript contracts so structured consumers see the new action vocabulary.",
+          "timestamp": "2026-06-17T10:27:54+02:00",
+          "tree_id": "7897d210ecf44770fef884e9d41ea7fe742cac88",
+          "url": "https://github.com/fallow-rs/fallow/commit/b66c18ac23a61de62a4a192ac0ec90b5f573af86"
+        },
+        "date": 1781685538716,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
