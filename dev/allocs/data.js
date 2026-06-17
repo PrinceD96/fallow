@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781711559706,
+  "lastUpdate": 1781712270664,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e451a5be35445a18909739c4dcfd3aa9d8d5c2e1",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.92.1",
-          "timestamp": "2026-06-10T22:33:55+02:00",
-          "tree_id": "aea86598af7fd93199cbbeaee0328e92a58a02d7",
-          "url": "https://github.com/fallow-rs/fallow/commit/e451a5be35445a18909739c4dcfd3aa9d8d5c2e1"
-        },
-        "date": 1781123780486,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7515863,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 35045,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 743693,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6632,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6685,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e588428bc570a98397ea182e069e72b07bd52811",
+          "message": "chore(benchmarks): switch codspeed benches to criterion2\n\nReplace the Divan compatibility harness with criterion2 for the Rust benchmark suites while preserving CodSpeed simulation coverage.\n\nConvert the core analysis, large analysis, and programmatic command benches to Criterion-style groups so local benchmark output includes the statistical comparisons used by the Oxc ecosystem.\n\nWire the benchmark packages through a codspeed feature and update the benchmark workflow to build instrumented criterion2 harnesses before running the existing shards.",
+          "timestamp": "2026-06-17T17:58:33+02:00",
+          "tree_id": "976dc05fee60f9aba85853a2439c35430174792e",
+          "url": "https://github.com/fallow-rs/fallow/commit/e588428bc570a98397ea182e069e72b07bd52811"
+        },
+        "date": 1781712266642,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7705585,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36786,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 793312,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6688,
             "unit": "allocations"
           }
         ]
