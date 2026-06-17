@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781708610841,
+  "lastUpdate": 1781709887448,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "fd30d63408240c5dd6c02c435165262f0915012c",
-          "message": "chore: release v2.92.0",
-          "timestamp": "2026-06-10T21:10:32+02:00",
-          "tree_id": "67581680361bd1e91ce348dd6df8ab8162e08170",
-          "url": "https://github.com/fallow-rs/fallow/commit/fd30d63408240c5dd6c02c435165262f0915012c"
-        },
-        "date": 1781118885869,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7424007,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34998,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 745553,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6640,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6689,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c7bcdd3e516736bb9bd923db39303d4c5d20e11f",
+          "message": "refactor: reduce SIG unit interfacing\n\nReduce SIG unit-interfacing pressure by grouping long argument lists behind focused input structs while preserving existing analyzer and reporting behavior.\n\nKeep review fixes with the branch: CodeClimate severity handling stays guarded for empty output, benchmark-only dependencies live under dev-dependencies, and CI runs targeted extract Miri checks to stay within the runner budget.",
+          "timestamp": "2026-06-17T17:20:28+02:00",
+          "tree_id": "2a0d71aee037ba0023bd7743c9a3d249df61406a",
+          "url": "https://github.com/fallow-rs/fallow/commit/c7bcdd3e516736bb9bd923db39303d4c5d20e11f"
+        },
+        "date": 1781709884963,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7740593,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36744,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 798082,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6696,
             "unit": "allocations"
           }
         ]
