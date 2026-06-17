@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781678432258,
+  "lastUpdate": 1781678775710,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "447094fdf27a3518060479d411c53dac6ce6982f",
-          "message": "test(audit): characterize base-reuse predicate (#1172)\n\nPin the behavior of the audit base-reuse predicate (can_reuse_current_as_base and js_ts_tokens_equivalent) before any refactor of its internals. The predicate decides whether fallow audit can skip the base snapshot analysis when every changed file is non-behavioral, so a wrong answer silently produces a wrong CI verdict.\n\nUnit tests cover token equivalence across whitespace-only, comment-only, identifier-rename, string-literal, suppression-marker, and non-JS cases, plus the file classification helpers. Two tests pin a known soundness gap: TemplateLiteral and RegExpLiteral tokens carry no payload, so content changes inside template literals or regex literals are treated as equivalent today. Integration tests assert end-to-end audit attribution across the reuse decision.",
-          "timestamp": "2026-06-10T15:39:59+02:00",
-          "tree_id": "4bf97b4e8b9013a3843cfe2381b24b8cc0287ecb",
-          "url": "https://github.com/fallow-rs/fallow/commit/447094fdf27a3518060479d411c53dac6ce6982f"
-        },
-        "date": 1781098932451,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 25,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 21,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.28,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 351,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 846,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/aec4ed5ea2647241eae08f956818e4a2af639aac"
         },
         "date": 1781678429936,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.03,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 390,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 957,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fc51fe60a4420d96fe3ee74204b519795e14c0b3",
+          "message": "fix(health): score Svelte attribute-binding expressions in template complexity (#1291)\n\nThe Svelte SFC <template> complexity scanner skipped each HTML tag wholesale, so\nexpression complexity inside attribute bindings (class={cond ? a : b},\nonclick={x && y}, class:active={...}) was never counted, while Vue (:class) and\nAngular ([class]) scored it. scan_element now scans tag-interior { ... } bindings\nand scores each expression (quote-aware, reusing find_matching_curly). Text\ninterpolations and {#block} control flow unchanged (no double-counting). All five\ncross-framework calibration cases now score identically across Vue/Svelte/Angular.\nThe SFC template complexity feature is unreleased, so no published behavior changes.",
+          "timestamp": "2026-06-17T08:44:00+02:00",
+          "tree_id": "3319bc4f5000c3bee72d2283a8a8ccc075f9d183",
+          "url": "https://github.com/fallow-rs/fallow/commit/fc51fe60a4420d96fe3ee74204b519795e14c0b3"
+        },
+        "date": 1781678773120,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
