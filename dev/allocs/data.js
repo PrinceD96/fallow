@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781712270664,
+  "lastUpdate": 1781713489383,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b1db5200de6ee324da58be5be7a9b0b612e3aad3",
-          "message": "test: improve coverage across cli workflows",
-          "timestamp": "2026-06-11T07:14:57+02:00",
-          "tree_id": "31b0001b1281d9963d5125c16c42e0ffdb92b920",
-          "url": "https://github.com/fallow-rs/fallow/commit/b1db5200de6ee324da58be5be7a9b0b612e3aad3"
-        },
-        "date": 1781155177298,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7490319,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 35046,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 746372,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6715,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6688,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "770863eb7e314dc6fb2fee0a547f90eb51fa319c",
+          "message": "feat(suppressions): support suppression reasons\n\nParse optional reason text from fallow-ignore comments and @expected-unused tags, carry it through extraction, cache conversion, graph propagation, and stale-suppression reporting.\n\nAdd the opt-in rules.require-suppression-reason setting so teams can enforce documented suppressions without changing the default behavior. Regenerate schema artifacts and generated TypeScript contracts for the additive output and config fields.\n\nFixes #1302.",
+          "timestamp": "2026-06-17T18:16:38+02:00",
+          "tree_id": "1a7a244cf3f4784b54857c75be833a596feaadb3",
+          "url": "https://github.com/fallow-rs/fallow/commit/770863eb7e314dc6fb2fee0a547f90eb51fa319c"
+        },
+        "date": 1781713486728,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7714041,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36750,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 822670,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6693,
             "unit": "allocations"
           }
         ]
