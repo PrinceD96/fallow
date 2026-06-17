@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781720113972,
+  "lastUpdate": 1781727384266,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "be84f982ad20fbdf9c3b9b78c5bb4b09afff12a5",
-          "message": "docs(mcp): align runtime_coverage license prose with single-capture-free nuance\n\nThe check_health and audit tool descriptions said the runtime_coverage param is a paid feature / license-gated without the carve-out the five dedicated runtime-coverage tools document: a single local capture is free, only continuous or multi-capture monitoring requires a license. Wording now matches across all seven runtime-coverage surfaces.",
-          "timestamp": "2026-06-11T10:58:58+02:00",
-          "tree_id": "9b56c7b831623b022f430f05e5f04f6dae1b9e8e",
-          "url": "https://github.com/fallow-rs/fallow/commit/be84f982ad20fbdf9c3b9b78c5bb4b09afff12a5"
-        },
-        "date": 1781168760228,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7515798,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 35015,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 746178,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6702,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6694,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cf96273eb884bd06dacf16f37b9917591ff77900",
+          "message": "chore: harden CodSpeed benchmarks\n\nImprove benchmark isolation by replacing shared fixed temp paths with owned temporary directories.\n\nAdd a real-source CodSpeed shard that reuses the vendored Zod fixture, plus a bounded scaling shard for PR feedback. The slower full large-analysis suite remains limited to main and manual runs.",
+          "timestamp": "2026-06-17T22:12:57+02:00",
+          "tree_id": "0c930215c5dbb24c1aac3434340c59572bddca6c",
+          "url": "https://github.com/fallow-rs/fallow/commit/cf96273eb884bd06dacf16f37b9917591ff77900"
+        },
+        "date": 1781727381937,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 8660507,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 37680,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 791831,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6280,
             "unit": "allocations"
           }
         ]
