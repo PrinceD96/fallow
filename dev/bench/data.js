@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781652396431,
+  "lastUpdate": 1781678271117,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f9ab4d12427777e4f2e8ee9c4dd31b35b1660b2f",
-          "message": "refactor: extract health telemetry recording",
-          "timestamp": "2026-06-10T16:27:35+02:00",
-          "tree_id": "74d4d575464c0fcddc30cc3fd77efed1ca2778a9",
-          "url": "https://github.com/fallow-rs/fallow/commit/f9ab4d12427777e4f2e8ee9c4dd31b35b1660b2f"
-        },
-        "date": 1781102054322,
-        "tool": "cargo",
-        "benches": [
-          {
-            "name": "parse_single_file",
-            "value": 92887,
-            "range": "± 390",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_10_files",
-            "value": 3441706,
-            "range": "± 168706",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_100_files",
-            "value": 4865531,
-            "range": "± 94526",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "full_pipeline_1000_files",
-            "value": 25037175,
-            "range": "± 477646",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "resolve_re_export_chains",
-            "value": 109595,
-            "range": "± 3348",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "cache_round_trip",
-            "value": 3224,
-            "range": "± 22",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x500_identical",
-            "value": 156382,
-            "range": "± 2144",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x2000_identical",
-            "value": 709898,
-            "range": "± 6094",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_10x500_identical",
-            "value": 1188169,
-            "range": "± 19974",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_50x200_diverse",
-            "value": 466314,
-            "range": "± 10000",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed",
-            "value": 2883259,
-            "range": "± 20008",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_100x200_mixed_focused",
-            "value": 2924991,
-            "range": "± 25051",
-            "unit": "ns/iter"
-          },
-          {
-            "name": "dupe_detect_2x5000_identical",
-            "value": 1932111,
-            "range": "± 4931",
-            "unit": "ns/iter"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -10197,6 +10095,108 @@ window.BENCHMARK_DATA = {
             "name": "dupe_detect_2x5000_identical",
             "value": 2982766,
             "range": "± 16447",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d3e1c727cd39146c95bd1a8111971043e927f480",
+          "message": "fix(health): Vue template complexity nests by control flow, not markup (#1290)\n\nThe Vue SFC <template> complexity scanner incremented cognitive nesting on every\nopen HTML element, so a v-if buried under plain <div> wrappers scored as deeply\nnested control flow. It now tracks control-flow nesting depth via a per-element\ntag_stack (only v-if/v-else-if/v-else/v-for/v-show open a nesting level), matching\nthe Svelte and Angular scanners and the cognitive-complexity standard. Logic-free\ntemplates were never affected (they score 0 and drop). The SFC template complexity\nfeature is unreleased, so no published behavior changes.",
+          "timestamp": "2026-06-17T08:31:37+02:00",
+          "tree_id": "973e0ae5162138b798797b657c57d1090f7af782",
+          "url": "https://github.com/fallow-rs/fallow/commit/d3e1c727cd39146c95bd1a8111971043e927f480"
+        },
+        "date": 1781678267948,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "parse_single_file",
+            "value": 116955,
+            "range": "± 4608",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_10_files",
+            "value": 4169432,
+            "range": "± 226877",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_100_files",
+            "value": 6266508,
+            "range": "± 270537",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "full_pipeline_1000_files",
+            "value": 35198811,
+            "range": "± 480707",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "resolve_re_export_chains",
+            "value": 121523,
+            "range": "± 996",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "cache_round_trip",
+            "value": 2658,
+            "range": "± 9",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x500_identical",
+            "value": 237450,
+            "range": "± 4012",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x2000_identical",
+            "value": 1076962,
+            "range": "± 12137",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_10x500_identical",
+            "value": 1529295,
+            "range": "± 18414",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_50x200_diverse",
+            "value": 574769,
+            "range": "± 15341",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed",
+            "value": 4325925,
+            "range": "± 71264",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_100x200_mixed_focused",
+            "value": 4285536,
+            "range": "± 44897",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "dupe_detect_2x5000_identical",
+            "value": 3016949,
+            "range": "± 12059",
             "unit": "ns/iter"
           }
         ]
