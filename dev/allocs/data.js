@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781679377156,
+  "lastUpdate": 1781685408116,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "447094fdf27a3518060479d411c53dac6ce6982f",
-          "message": "test(audit): characterize base-reuse predicate (#1172)\n\nPin the behavior of the audit base-reuse predicate (can_reuse_current_as_base and js_ts_tokens_equivalent) before any refactor of its internals. The predicate decides whether fallow audit can skip the base snapshot analysis when every changed file is non-behavioral, so a wrong answer silently produces a wrong CI verdict.\n\nUnit tests cover token equivalence across whitespace-only, comment-only, identifier-rename, string-literal, suppression-marker, and non-JS cases, plus the file classification helpers. Two tests pin a known soundness gap: TemplateLiteral and RegExpLiteral tokens carry no payload, so content changes inside template literals or regex literals are treated as equivalent today. Integration tests assert end-to-end audit attribution across the reuse decision.",
-          "timestamp": "2026-06-10T15:39:59+02:00",
-          "tree_id": "4bf97b4e8b9013a3843cfe2381b24b8cc0287ecb",
-          "url": "https://github.com/fallow-rs/fallow/commit/447094fdf27a3518060479d411c53dac6ce6982f"
-        },
-        "date": 1781099098147,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7415941,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34788,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 743277,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6639,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6689,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b66c18ac23a61de62a4a192ac0ec90b5f573af86",
+          "message": "fix(output): add framework action guidance\n\nLead framework dead-code findings with manual fix actions before the suppress fallback. The new action discriminants cover server actions, injects, SvelteKit load keys, unrendered components, Vue props and emits, and Svelte events while keeping every path non-auto-fixable.\n\nClarify template and component complexity rows in human and markdown health output while keeping machine-readable names stable. Regenerate the output schema and published TypeScript contracts so structured consumers see the new action vocabulary.",
+          "timestamp": "2026-06-17T10:27:54+02:00",
+          "tree_id": "7897d210ecf44770fef884e9d41ea7fe742cac88",
+          "url": "https://github.com/fallow-rs/fallow/commit/b66c18ac23a61de62a4a192ac0ec90b5f573af86"
+        },
+        "date": 1781685405820,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7748905,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36788,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 750154,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6195,
             "unit": "allocations"
           }
         ]
