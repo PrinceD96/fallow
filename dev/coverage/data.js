@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781685541432,
+  "lastUpdate": 1781687450398,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "cf3d748a3c24805a01a420f3f1b38bde19aa70f8",
-          "message": "feat(scripts): generate agent skill tables from the fallow schema manifest\n\nThe SKILL.md commands, issue-types, and MCP-tools tables shipped in the npm package drifted behind the CLI by hand-maintenance. They are now marker-wrapped and rendered from the fallow schema capability manifest by a new zero-dependency generator (scripts/generate-agent-docs.mjs) with merge semantics: identity columns (row set, filter flags, fixable, parse-verified suppression comments, MCP kind/license/key params) always regenerate, while the curated explanation cells stay hand-owned and survive regeneration. New rows seed from the manifest; removed rows drop.\n\nThe first generation adds 9 previously undocumented commands and 14 issue-type rows, each with its exact copy-pasteable suppression comment, while preserving all existing curated prose. The release flow regenerates the canonical fallow-skills tables against the fresh release binary before re-vendoring, with --check as the drift gate; generator unit tests run in the js-lint CI job. The cli-reference.md flags tables are deferred to #1189.\n\nCloses #1188.",
-          "timestamp": "2026-06-11T11:44:24+02:00",
-          "tree_id": "5eaef183420cded827412f7ace424a2669b2959e",
-          "url": "https://github.com/fallow-rs/fallow/commit/cf3d748a3c24805a01a420f3f1b38bde19aa70f8"
-        },
-        "date": 1781171382949,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b66c18ac23a61de62a4a192ac0ec90b5f573af86"
         },
         "date": 1781685538716,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fcff566238d53f9a8b1a13d3364a80652fb9043b",
+          "message": "fix(pinia): credit inline storeToRefs members\n\nPinia consumers commonly destructure refs directly from an inline store factory call, for example `storeToRefs(usePermissionsStore())`. The store-member detector already credited `storeToRefs(storeLocal)` and direct `useStore()` destructures, but the inline refs-helper form left those members looking unused.\n\nThis adds a narrow refs-helper argument resolver for tracked store locals and bare store-factory identifier calls, then records the original destructured store key as a member access. Dynamic helper arguments, member callees, and refs-object locals remain out of scope.\n\nThe regression coverage includes extractor tests, a Vue SFC integration fixture, an aliased destructure case, a non-store control, and extraction cache invalidation for the new member-access semantics.\n\nFixes #1282.",
+          "timestamp": "2026-06-17T11:01:29+02:00",
+          "tree_id": "5105b112a28fba223fcebf490af6d61937637461",
+          "url": "https://github.com/fallow-rs/fallow/commit/fcff566238d53f9a8b1a13d3364a80652fb9043b"
+        },
+        "date": 1781687447659,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
