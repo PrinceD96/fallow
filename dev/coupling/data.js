@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781716595673,
+  "lastUpdate": 1781719989856,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1b8fb06993052b21424379e98c13d0956ce93eda",
-          "message": "feat(schema): complete capability manifest for agent introspection\n\nfallow schema previously documented 13 hand-maintained issue types and a fraction of the env vars, while the CLI exposed far more. The manifest is now derived from the code it describes: issue_types iterates the explain rule registry (one row per rule across dead-code, health, dupes, flags, and security) augmented with per-id metadata for filter flags, fixability, suppression comments, caveats, and free/freemium license markings. Every emitted suppress_comment is tested to round-trip through IssueKind::parse so agents cannot copy a no-op suppression.\n\nNew top-level blocks: manifest_version (\"1\"), mcp_tools (all 24 MCP server tools with kind grouping, key params, read-only and license markings, backed by a shared manifest in fallow-types that drift tests in crates/mcp keep in sync with the live tool router), plugins (count and names derived live from the builtin registry), and a completed user-facing environment_variables set with an exclusion guard for internal plumbing. The telemetry MCP tool allowlist now reads the shared manifest instead of its own hand-maintained copy, and the flags analysis gained its own explain rule so fallow explain feature-flag works.",
-          "timestamp": "2026-06-11T10:56:40+02:00",
-          "tree_id": "07db84fb901c060169dce698a642072938006254",
-          "url": "https://github.com/fallow-rs/fallow/commit/1b8fb06993052b21424379e98c13d0956ce93eda"
-        },
-        "date": 1781168274421,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 22,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.28,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 357,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 880,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4a5c2923929118c54bf8a1dca7c311b10d30d918"
         },
         "date": 1781716592981,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.02,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 391,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 958,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9b1f4546ebcfbc186352c60fe19231563cf06bf9",
+          "message": "chore: add analyzer follow-up tooling\n\n* chore: open post-pr-1300 followups branch\n\n* chore: add analyzer follow-up tooling\n\n* ci: skip bench targets in test job",
+          "timestamp": "2026-06-17T20:11:50+02:00",
+          "tree_id": "9170a63209b2faf0b28378f99b7f431744231b01",
+          "url": "https://github.com/fallow-rs/fallow/commit/9b1f4546ebcfbc186352c60fe19231563cf06bf9"
+        },
+        "date": 1781719987259,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
