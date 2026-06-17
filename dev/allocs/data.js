@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781678213540,
+  "lastUpdate": 1781678906908,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "adbd09776e877b539ff5777a44e131aea9d21e9e",
-          "message": "test(audit): cover FALLOW_AUDIT_BASE precedence and validation (#1170)\n\nSubprocess integration tests for the audit base env override (#1169): env value honored with provenance when no flag, explicit --base wins, malformed value exits 2. Test-only. Refs #1168.",
-          "timestamp": "2026-06-10T14:12:36+02:00",
-          "tree_id": "cafa827006e3a9b898d2d2ef7f7eca81ac15e908",
-          "url": "https://github.com/fallow-rs/fallow/commit/adbd09776e877b539ff5777a44e131aea9d21e9e"
-        },
-        "date": 1781093789831,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7466333,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 34828,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 740793,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6637,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6689,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fc51fe60a4420d96fe3ee74204b519795e14c0b3",
+          "message": "fix(health): score Svelte attribute-binding expressions in template complexity (#1291)\n\nThe Svelte SFC <template> complexity scanner skipped each HTML tag wholesale, so\nexpression complexity inside attribute bindings (class={cond ? a : b},\nonclick={x && y}, class:active={...}) was never counted, while Vue (:class) and\nAngular ([class]) scored it. scan_element now scans tag-interior { ... } bindings\nand scores each expression (quote-aware, reusing find_matching_curly). Text\ninterpolations and {#block} control flow unchanged (no double-counting). All five\ncross-framework calibration cases now score identically across Vue/Svelte/Angular.\nThe SFC template complexity feature is unreleased, so no published behavior changes.",
+          "timestamp": "2026-06-17T08:44:00+02:00",
+          "tree_id": "3319bc4f5000c3bee72d2283a8a8ccc075f9d183",
+          "url": "https://github.com/fallow-rs/fallow/commit/fc51fe60a4420d96fe3ee74204b519795e14c0b3"
+        },
+        "date": 1781678904265,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7754513,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36774,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 798082,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6696,
             "unit": "allocations"
           }
         ]
