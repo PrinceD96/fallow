@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781679408682,
+  "lastUpdate": 1781680905877,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d0a3e7206b1e462bd3457ded727f34a9d1d72769",
-          "message": "refactor(cli): split combined.rs into orchestrator, output, orientation, impact modules\n\ncombined.rs concentrated analysis orchestration, the output-format printers,\nthe orientation header, entry-point display, and impact recording in a single\nlarge file, making it the repo's merge-conflict magnet.\n\nSplit it into a combined/ module: mod.rs keeps the orchestrator\n(CombinedOptions, resolve_analyses, run_combined, run_combined_dupes,\nbuild_health_opts); output.rs holds the format printers; orientation.rs the\nheader and entry-point display; impact.rs the telemetry recording. Pure code\nmotion with zero behavior change (visibility and use-paths only); the\nrayon::join parallelism and shared-parse threading are untouched. Test and\nsnapshot suites pass with no modifications.",
-          "timestamp": "2026-06-11T10:23:01+02:00",
-          "tree_id": "b3a40c57e6b9a6cf8c55554884d39ddf0b39fd9e",
-          "url": "https://github.com/fallow-rs/fallow/commit/d0a3e7206b1e462bd3457ded727f34a9d1d72769"
-        },
-        "date": 1781166444672,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/29e69c21158eecf3578e21a9b353692e89e47f3c"
         },
         "date": 1781679406351,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f59a2d6417b597fc13b1d1872c8415924c7fcef8",
+          "message": "chore(vscode): stop committing dist bundle; build fresh in CI/release\n\nThe marketplace VSIX is built fresh from src by ci.yml and release.yml\n(vscode-prep runs pnpm build then pnpm package), so the committed\ndist/extension.js never reached users. Tracking it only produced\nrecurring stale-dist CI failures whenever a direct-to-main push touched\nsrc or the output schema without rebuilding the bundle.\n\nGitignore editors/vscode/dist/, untrack the bundle and its sourcemap,\nand drop the now-pointless check:dist drift guard (CI step + script).\nUpdate AGENTS.md and the vscode-reviewer checklist to match.",
+          "timestamp": "2026-06-17T09:17:50+02:00",
+          "tree_id": "c33c983d29f5490dce99ff0099607a792d919988",
+          "url": "https://github.com/fallow-rs/fallow/commit/f59a2d6417b597fc13b1d1872c8415924c7fcef8"
+        },
+        "date": 1781680903707,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
