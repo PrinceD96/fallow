@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781780187382,
+  "lastUpdate": 1781781426737,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "969307e5d38b97cb7ef543d798f9a8098d916f78",
-          "message": "refactor(unit-size): split oversized Rust functions\n\nContinue the SIG unit-size cleanup by extracting focused helpers from large CLI, config, core, extract, graph, LSP, and MCP functions.\n\nThe refactors keep behavior intact while reducing the share of function LOC in the high-risk unit-size buckets. Validation covered conflict-marker checks, em-dash checks, cargo build, and the workspace test suite before commit.",
-          "timestamp": "2026-06-12T14:57:29+02:00",
-          "tree_id": "ca9ebaaa7ee48b6c010664de4d4ff490543d8eaf",
-          "url": "https://github.com/fallow-rs/fallow/commit/969307e5d38b97cb7ef543d798f9a8098d916f78"
-        },
-        "date": 1781269296718,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/fb33eae157748852a26f05154c3152ce5568c0d6"
         },
         "date": 1781780184712,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "709fe1bf62bfc5da82d8462f4010a880ef94c642",
+          "message": "docs(benchmarks): refresh comparison tables\n\nRefresh the benchmark harness to compare dead-code runs against the current installed knip package instead of carrying legacy knip version columns. Align dead-code and dupes benchmark summaries around the same comparator and faster-tool fields, and keep the comparison helper from reporting n/a when knip has no comparable findings.\n\nUpdate the README performance section with current real-world benchmark medians from the refreshed harness, and keep benchmark scripts ASCII-clean for the repo style rules.",
+          "timestamp": "2026-06-18T13:13:30+02:00",
+          "tree_id": "b2bff590fda98c76d60ce8089781e58589350a94",
+          "url": "https://github.com/fallow-rs/fallow/commit/709fe1bf62bfc5da82d8462f4010a880ef94c642"
+        },
+        "date": 1781781424365,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
