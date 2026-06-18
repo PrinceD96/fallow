@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781763027781,
+  "lastUpdate": 1781764219700,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d04815b71bc795ed1c59fb45c031962600030934",
-          "message": "fix(docs): avoid private rustdoc links in impact digest\n\nThe periodic impact digest docs linked to a private interval constant from public items, which fails rustdoc with private intra-doc links denied.\n\nKeep the constant name visible as code text without making it an intra-doc link, so the documentation build passes under the workspace rustdoc gate.",
-          "timestamp": "2026-06-12T01:16:07+02:00",
-          "tree_id": "bd535c155d71504060aaf508a4edf041e5b9ebd1",
-          "url": "https://github.com/fallow-rs/fallow/commit/d04815b71bc795ed1c59fb45c031962600030934"
-        },
-        "date": 1781219966291,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a1c5876a9ff6facb052bce2e8eb28b01bbf6c33f"
         },
         "date": 1781763022594,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6f1803626b4b5f0dfae0aabe205ce5c16f470436",
+          "message": "ci(codspeed): harden benchmark workflow\n\nAligns the CodSpeed benchmark workflow with the working sibling-project setup while keeping the existing cargo-codspeed shard model.\n\nThe jobs now request OIDC only where CodSpeed uploads need it, avoid persisting checkout credentials, include setup-rust changes in workflow triggers, and build with debug metadata for better CodSpeed analysis input.",
+          "timestamp": "2026-06-18T08:26:30+02:00",
+          "tree_id": "4e2b8bbed0c31bdeffe896851ff046440ad96ad6",
+          "url": "https://github.com/fallow-rs/fallow/commit/6f1803626b4b5f0dfae0aabe205ce5c16f470436"
+        },
+        "date": 1781764217019,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
