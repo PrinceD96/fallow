@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781789665158,
+  "lastUpdate": 1781790420660,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0fee75b53ea35f1aef1cdd9dfc18e255392115cc",
-          "message": "docs(vscode): use canonical 'fallow dead-code' over legacy 'fallow check'",
-          "timestamp": "2026-06-13T06:19:29+02:00",
-          "tree_id": "98c0f44374984d62dfabbc70777dfe4f3342809d",
-          "url": "https://github.com/fallow-rs/fallow/commit/0fee75b53ea35f1aef1cdd9dfc18e255392115cc"
-        },
-        "date": 1781324544097,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f8efb2e131ec4ae132fe2a90476fdb5079319435"
         },
         "date": 1781789662552,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bbc4116ec005e9e96d892da45bc869800b5c3373",
+          "message": "ci: keep benchmark watchdog in script\n\nReplace the external timeout wrapper with a script-local PID watchdog so real-world benchmark timeouts produce normal diagnostics and artifacts.",
+          "timestamp": "2026-06-18T15:43:11+02:00",
+          "tree_id": "81dd11d159f54f7ea40135a2e9fa0138855231f8",
+          "url": "https://github.com/fallow-rs/fallow/commit/bbc4116ec005e9e96d892da45bc869800b5c3373"
+        },
+        "date": 1781790416854,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
