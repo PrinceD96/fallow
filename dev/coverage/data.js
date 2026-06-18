@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781764219700,
+  "lastUpdate": 1781764697735,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "rice@shawnrice.org",
-            "name": "Shawn Patrick Rice",
-            "username": "shawnrice"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4e35d2b50c84318d3bda4b1f634fc61695fe6beb",
-          "message": "fix(extract): skip multi-byte escapee in quoted attribute scanner\n\nThe quoted attribute scanner advanced a fixed byte count after a backslash, which could leave the cursor inside a multi-byte escaped character.\n\nAdvance past the backslash and then over one full UTF-8 character, matching the rest of the scanner and preventing char-boundary panics on Angular templates.",
-          "timestamp": "2026-06-12T01:20:20+02:00",
-          "tree_id": "6b3e5c5093658d4125e1c4735f7197328893cb87",
-          "url": "https://github.com/fallow-rs/fallow/commit/4e35d2b50c84318d3bda4b1f634fc61695fe6beb"
-        },
-        "date": 1781220226660,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6f1803626b4b5f0dfae0aabe205ce5c16f470436"
         },
         "date": 1781764217019,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "c2be0d597118a1366eeb4f62727dae4cffa5f75c",
+          "message": "chore: release v2.99.0",
+          "timestamp": "2026-06-18T08:33:53+02:00",
+          "tree_id": "357973101a685ee8ff7829e750558d99cb69b2a8",
+          "url": "https://github.com/fallow-rs/fallow/commit/c2be0d597118a1366eeb4f62727dae4cffa5f75c"
+        },
+        "date": 1781764694524,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
