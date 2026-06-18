@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781788821627,
+  "lastUpdate": 1781789557904,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f1b91c2c75aa0afbc2c4afa5ce47e1e2868e0a2f",
-          "message": "refactor: continue sig unit-size reductions",
-          "timestamp": "2026-06-11T21:55:07+02:00",
-          "tree_id": "18cd4616b415d735c5d867027c51305ec036334b",
-          "url": "https://github.com/fallow-rs/fallow/commit/f1b91c2c75aa0afbc2c4afa5ce47e1e2868e0a2f"
-        },
-        "date": 1781207969797,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7535447,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36095,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 745145,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6634,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6695,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f8efb2e131ec4ae132fe2a90476fdb5079319435",
+          "message": "fix(security): reject unsupported workflow flags\n\nKeep derived security workflow subcommands honest by rendering clap parse errors as JSON when requested and rejecting hidden parent flags instead of accepting no-op behavior.\n\nClarify verdict fields that fallow preserves versus harness-owned audit fields, and cover the review findings with focused workflow tests.",
+          "timestamp": "2026-06-18T15:28:35+02:00",
+          "tree_id": "923a69ab0c385e1758391fc40408a02f5bf3228f",
+          "url": "https://github.com/fallow-rs/fallow/commit/f8efb2e131ec4ae132fe2a90476fdb5079319435"
+        },
+        "date": 1781789555481,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 8672074,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 37664,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 831372,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6693,
             "unit": "allocations"
           }
         ]
