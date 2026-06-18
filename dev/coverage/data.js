@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781768043960,
+  "lastUpdate": 1781774227451,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1a5676dbb1146d079ee2ef977f152087d96d38e5",
-          "message": "chore: release v2.94.0",
-          "timestamp": "2026-06-12T02:10:23+02:00",
-          "tree_id": "0778f413eb6272cc3a9f65a5a5be1d476e400367",
-          "url": "https://github.com/fallow-rs/fallow/commit/1a5676dbb1146d079ee2ef977f152087d96d38e5"
-        },
-        "date": 1781223251701,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0eb7b4925fe623ee4eabec54eeeb42965fa1534f"
         },
         "date": 1781768040818,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "397b1b0e439885eb3adc28930840df7236138cc2",
+          "message": "docs: refresh jscpd v5 benchmark results\n\nUpdate the duplication benchmark harness to use jscpd v5 and refresh the README table from a new real-world run.\n\nKeep the benchmark output neutral by reporting the faster tool instead of treating fallow as the baseline. The README now states that jscpd v5 is faster for raw duplication scanning while fallow keeps duplication inside the broader audit flow.\n\nFixes #1316.",
+          "timestamp": "2026-06-18T11:13:12+02:00",
+          "tree_id": "758245eae85e8e813639e0bcbc4d3ed2378e29e1",
+          "url": "https://github.com/fallow-rs/fallow/commit/397b1b0e439885eb3adc28930840df7236138cc2"
+        },
+        "date": 1781774224402,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
