@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781763026067,
+  "lastUpdate": 1781764653677,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4b63590037a81906054633c47cad1762809f8e42",
-          "message": "fix(graph): keep tsconfig aliases out of dependency reports\n\nWhen a bare specifier matches compilerOptions.paths, a missing local alias target was falling through to NpmPackage and surfacing as an unlisted dependency. That made imports like @app/foo look like missing package.json entries even though they are project-local aliases.\n\nResolve local tsconfig path aliases before package fallback even outside the broken-tsconfig fallback path, and only mark an alias unresolved after package imports and workspace package fallbacks have had a chance to resolve it.\n\nThe regression covers the false positive, listed package credit, and a real unlisted scoped package in the same tsconfig-path project so the fix does not hide genuine dependency issues.",
-          "timestamp": "2026-06-11T16:09:03+02:00",
-          "tree_id": "ab41d7007fcc3318b88df34006f5c5a04f7ed43f",
-          "url": "https://github.com/fallow-rs/fallow/commit/4b63590037a81906054633c47cad1762809f8e42"
-        },
-        "date": 1781187133289,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7592319,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36137,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 754337,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6733,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6187,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "c2be0d597118a1366eeb4f62727dae4cffa5f75c",
+          "message": "chore: release v2.99.0",
+          "timestamp": "2026-06-18T08:33:53+02:00",
+          "tree_id": "357973101a685ee8ff7829e750558d99cb69b2a8",
+          "url": "https://github.com/fallow-rs/fallow/commit/c2be0d597118a1366eeb4f62727dae4cffa5f75c"
+        },
+        "date": 1781764651266,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 8629474,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 37659,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 827088,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6689,
             "unit": "allocations"
           }
         ]
