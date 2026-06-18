@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781696483368,
+  "lastUpdate": 1781797210886,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -5405,6 +5405,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "next.js (warm)",
             "value": 11861,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "88b0c6b8465dd6272d86f813f14e560e85430502",
+          "message": "fix(ci): skip timed out benchmark projects\n\nKeep real-world benchmark runs from failing the whole workflow when one project hits the per-project watchdog; partial benchmark JSON is still produced with skip diagnostics.",
+          "timestamp": "2026-06-18T15:28:02Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/88b0c6b8465dd6272d86f813f14e560e85430502"
+        },
+        "date": 1781797207840,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 306,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 512,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 510,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 306,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 306,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 817,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 714,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1738,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1433,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1532,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1329,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1230,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1124,
             "unit": "ms"
           }
         ]
