@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781796736285,
+  "lastUpdate": 1781804020532,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "3bcde2d9e7558740987a852a23ade52b23ddd09e",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.96.0",
-          "timestamp": "2026-06-13T10:56:53+02:00",
-          "tree_id": "0c52351e18f9df84d7997f72bc78ef33d075ed1f",
-          "url": "https://github.com/fallow-rs/fallow/commit/3bcde2d9e7558740987a852a23ade52b23ddd09e"
-        },
-        "date": 1781341217862,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/88b0c6b8465dd6272d86f813f14e560e85430502"
         },
         "date": 1781796733812,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ce9c16897b048a487804b0cb6429a5b897728663",
+          "message": "fix(vscode): forward inspect production opt-out\n\nForward the explicit VS Code production=false override to fallow inspect as --no-production so editor inspect matches the sidebar and project-level CLI behavior.\n\nAdd a focused argument-builder regression test for the false override.",
+          "timestamp": "2026-06-18T19:29:58+02:00",
+          "tree_id": "e9f055fbf1781e41d8221dd1b3ad4061e2b1b379",
+          "url": "https://github.com/fallow-rs/fallow/commit/ce9c16897b048a487804b0cb6429a5b897728663"
+        },
+        "date": 1781804018123,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
