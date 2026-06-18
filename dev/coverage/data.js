@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781764697735,
+  "lastUpdate": 1781768043960,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ad49086701b67af493502eb6f860ff0218d91bef",
-          "message": "feat: generate agent CLI flag tables\n\nGenerate the agent-facing CLI reference flag tables from the capability manifest alongside the existing SKILL.md generated sections. The generator now owns global flags, bare fallow combined-mode flags, command-local flags, and the dead-code issue filter table while preserving curated prose cells and visible aliases.\n\nThe release workflow now checks both the canonical fallow-skills tree and the vendored npm skill tree for generated-doc drift. The mapping for command-to-global references is explicit and fails loudly when it goes stale.\n\nFixes #1189.",
-          "timestamp": "2026-06-12T01:52:47+02:00",
-          "tree_id": "801f7bf6c77f66d61f5ea5b37b044414d1601fe3",
-          "url": "https://github.com/fallow-rs/fallow/commit/ad49086701b67af493502eb6f860ff0218d91bef"
-        },
-        "date": 1781222152624,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c2be0d597118a1366eeb4f62727dae4cffa5f75c"
         },
         "date": 1781764694524,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0eb7b4925fe623ee4eabec54eeeb42965fa1534f",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.99.0",
+          "timestamp": "2026-06-18T09:27:57+02:00",
+          "tree_id": "7e57a619a8e69d92ef62f92fc8e1899d3096a2a2",
+          "url": "https://github.com/fallow-rs/fallow/commit/0eb7b4925fe623ee4eabec54eeeb42965fa1534f"
+        },
+        "date": 1781768040818,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
