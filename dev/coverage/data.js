@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781781426737,
+  "lastUpdate": 1781782745497,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1a8e7ac8d6141d389ba6b812cf7e9ee071d2f23b",
-          "message": "feat: add Docker support\n\nAdd a first-party Docker path for the Fallow CLI. The runtime image downloads the pinned musl release binary with checksum verification, runs from /workspace, and includes git plus Node.js, npm, and Corepack for mounted JavaScript projects.\n\nAdd a source-built contributor Dockerfile, a copyable Compose example, a path-gated Docker CI job, Dependabot coverage for Docker base images, README guidance, and changelog credit. The companion docs installation page is updated in fallow-rs/docs@b63cf5c.\n\nFixes #1205.",
-          "timestamp": "2026-06-12T15:17:20+02:00",
-          "tree_id": "0ca6c7a9ef1beac689793df2f0c61f3a8fbf11cd",
-          "url": "https://github.com/fallow-rs/fallow/commit/1a8e7ac8d6141d389ba6b812cf7e9ee071d2f23b"
-        },
-        "date": 1781270439833,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/709fe1bf62bfc5da82d8462f4010a880ef94c642"
         },
         "date": 1781781424365,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "daf95918dcb3b4d2220372402b0ef93ad6493eb4",
+          "message": "feat: detect unused svelte component props\n\nExtends the existing unused-component-prop analyzer to consume Svelte 5 () harvest data alongside Vue and React prop findings.\\n\\nThe Svelte arm is dependency-gated on svelte or @sveltejs/kit, keeps the existing conservative abstains for opaque prop usage, and reports through the existing output shape and suppression token.\\n\\nUpdates generated contracts, SARIF snapshots, bundled docs, and integration fixtures for positive, usage-credit, abstain, and dependency-gate coverage.",
+          "timestamp": "2026-06-18T13:30:19+02:00",
+          "tree_id": "0e667e7780619f195eff4c8c60d333f88445fc6a",
+          "url": "https://github.com/fallow-rs/fallow/commit/daf95918dcb3b4d2220372402b0ef93ad6493eb4"
+        },
+        "date": 1781782742484,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
