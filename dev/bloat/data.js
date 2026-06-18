@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781765009232,
+  "lastUpdate": 1781768261936,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b1db5200de6ee324da58be5be7a9b0b612e3aad3",
-          "message": "test: improve coverage across cli workflows",
-          "timestamp": "2026-06-11T07:14:57+02:00",
-          "tree_id": "31b0001b1281d9963d5125c16c42e0ffdb92b920",
-          "url": "https://github.com/fallow-rs/fallow/commit/b1db5200de6ee324da58be5be7a9b0b612e3aad3"
-        },
-        "date": 1781155480478,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 279262992,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c2be0d597118a1366eeb4f62727dae4cffa5f75c"
         },
         "date": 1781765005882,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 346894448,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0eb7b4925fe623ee4eabec54eeeb42965fa1534f",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.99.0",
+          "timestamp": "2026-06-18T09:27:57+02:00",
+          "tree_id": "7e57a619a8e69d92ef62f92fc8e1899d3096a2a2",
+          "url": "https://github.com/fallow-rs/fallow/commit/0eb7b4925fe623ee4eabec54eeeb42965fa1534f"
+        },
+        "date": 1781768258628,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
