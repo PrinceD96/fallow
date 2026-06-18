@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781782745497,
+  "lastUpdate": 1781785095646,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9618e15c326f4202aa00b43e78a8c418c43edf84",
-          "message": "feat: scope policy rule suppressions\n\nRule-pack policy suppressions can now target a single policy identity with `policy-violation:<pack>/<rule-id>`, while the bare `policy-violation` token remains the broad family suppression.\n\nThe implementation preserves scoped targets through extraction and duplicate caches, stale suppression reporting, active suppression attribution, generated actions, human guidance, and generated output contracts. Rule-pack names and rule ids now reject ambiguous characters so scoped tokens do not need escaping.\n\nFixes #1180.",
-          "timestamp": "2026-06-12T15:36:32+02:00",
-          "tree_id": "d87f6771b0525c4658c236c6de644a6f466e2877",
-          "url": "https://github.com/fallow-rs/fallow/commit/9618e15c326f4202aa00b43e78a8c418c43edf84"
-        },
-        "date": 1781271816701,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/daf95918dcb3b4d2220372402b0ef93ad6493eb4"
         },
         "date": 1781782742484,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0a058b6912ef89ef22ac10afefdf3b18a7f18a3b",
+          "message": "feat(security): add verifier workflow outputs\n\nAdd security survivor rendering so externally verified verdict files can be joined with raw fallow security candidates without rewriting the candidate output.\n\nAdd blind-spot grouping for unresolved security callees, wire the new output contracts through schema generation and generated TypeScript types, and document the CLI verification flow.",
+          "timestamp": "2026-06-18T14:12:38+02:00",
+          "tree_id": "a7104d83678d25dd50f02940cc1cd89729b1626b",
+          "url": "https://github.com/fallow-rs/fallow/commit/0a058b6912ef89ef22ac10afefdf3b18a7f18a3b"
+        },
+        "date": 1781785093285,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
