@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781776224073,
+  "lastUpdate": 1781780160080,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "af46158ac03683c59215ccdf0b697a6e31296865",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.93.0",
-          "timestamp": "2026-06-11T17:36:58+02:00",
-          "tree_id": "a416807dc2edb6726faa6522d8128e33d5af394d",
-          "url": "https://github.com/fallow-rs/fallow/commit/af46158ac03683c59215ccdf0b697a6e31296865"
-        },
-        "date": 1781192468809,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7546343,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36104,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 697489,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6137,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6719,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fb33eae157748852a26f05154c3152ce5568c0d6",
+          "message": "feat: detect duplicate code in web format sections\n\nDetect duplicate code in CSS-family files and authored template/style regions in Vue, Svelte, and Astro files.",
+          "timestamp": "2026-06-18T12:52:39+02:00",
+          "tree_id": "f3cdd630ad8cf9e3efc1def1c57f1407e7ad89c3",
+          "url": "https://github.com/fallow-rs/fallow/commit/fb33eae157748852a26f05154c3152ce5568c0d6"
+        },
+        "date": 1781780157871,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 8626978,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 37681,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 828588,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6774,
             "unit": "allocations"
           }
         ]
