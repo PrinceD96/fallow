@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781793568578,
+  "lastUpdate": 1781796113505,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "6ba7c22124b08d103612444f9a65e3b76d263d02",
-          "message": "refactor(init): move the onboarding decline to fallow init --decline\n\nThe decline surfaced as a hidden impact subcommand because its storage\nlives in the Impact store, but storage is an implementation detail and\nthe command namespace is UX: declining setup has nothing to do with the\nImpact value report, and the setup hint now names the command in\nuser-facing output. init is the setup namespace, so the decline lives\nthere: fallow init --decline persists the decision (no config written,\nImpact stays untouched) and conflicts with the scaffolding flags. The\nimpact decline-onboarding subcommand is removed without an alias; it\nwas never released.",
-          "timestamp": "2026-06-11T22:58:40+02:00",
-          "tree_id": "32a26fb7a8dc66725564408a22a0eb780fa3857b",
-          "url": "https://github.com/fallow-rs/fallow/commit/6ba7c22124b08d103612444f9a65e3b76d263d02"
-        },
-        "date": 1781211687750,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7555287,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36123,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 745829,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6640,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6192,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a154759c88bf11a31bb1a8a721f2b1b3e16db686",
+          "message": "fix(inspect): satisfy CI follow-up gates\n\nAdjust inspect test helpers for the full clippy target set, make target normalization tests host-native for Windows, and preserve the caught VS Code inspect fallback error as the thrown cause.",
+          "timestamp": "2026-06-18T17:17:54+02:00",
+          "tree_id": "03123e8bd781c1f0215fcddf5444af4b284edcc9",
+          "url": "https://github.com/fallow-rs/fallow/commit/a154759c88bf11a31bb1a8a721f2b1b3e16db686"
+        },
+        "date": 1781796111168,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 8635234,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 37664,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 828986,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6779,
             "unit": "allocations"
           }
         ]
