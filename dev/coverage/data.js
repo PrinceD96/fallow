@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781791461987,
+  "lastUpdate": 1781792616401,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ee7768c4a2c6e781ca0381a80a8bead01b79326b",
-          "message": "fix(vscode): re-pull open documents on diagnostic mute toggle (#1228)\n\nAfter VS Code began consuming open-file diagnostics via the LSP 3.17 pull path,\nthe editor-mute machinery broke in three ways: refresh() only re-published the\npush collection (which the server keeps empty for open files once the client\npulls), so mute/severity/baseline toggles never updated open-file squiggles\nuntil the next edit and un-hiding appeared to do nothing; cached pull results\nwere re-published into the push collection, rendering open-file findings twice\nafter a toggle; and the Manage picker auto-checked every category under\nhide-all, so unchecking the global row silently re-hid every category.\n\nrefresh() now re-pulls open documents, pull results are no longer cached, and\nManage-picker category rows reflect their genuine per-category state.\n\nRefs discussion #287.",
-          "timestamp": "2026-06-13T09:15:48+02:00",
-          "tree_id": "6a025aa251c251605ce3f055196c4f53f458fe71",
-          "url": "https://github.com/fallow-rs/fallow/commit/ee7768c4a2c6e781ca0381a80a8bead01b79326b"
-        },
-        "date": 1781335140131,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4ee0c2e35aedea68cf6eadc87f7207ca71ec8142"
         },
         "date": 1781791459577,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "148f4cbc1137f63d2285322393a823c442cd6482",
+          "message": "ci: stream real-world benchmark progress\n\nStream real-world benchmark progress to Actions logs while preserving stderr artifacts, preventing silent benchmark steps from being terminated before diagnostics upload.",
+          "timestamp": "2026-06-18T16:19:37+02:00",
+          "tree_id": "cea8d7ac62b6cf9e7494d58f56c8849c181f8704",
+          "url": "https://github.com/fallow-rs/fallow/commit/148f4cbc1137f63d2285322393a823c442cd6482"
+        },
+        "date": 1781792614136,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
