@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781854008850,
+  "lastUpdate": 1781857168361,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "af513438fe3f37b814718301d535b9fb4965da5e",
-          "message": "feat(nextjs): flag misplaced use client / use server directives (#1236)\n\nAdds the misplaced-directive issue type (default warn): a \"use client\" / \"use server\" directive written below an import rather than in the leading prologue, which the parser silently ignores so the file is treated as a server module.\n\nA new extract pass scans program.body for the two RSC directive strings (CACHE_VERSION 151 to 152, CachedModule mirror + conversion both directions), gated on the project declaring next. No auto-fix; suppress hint only. Full plumbing across results, audit attribution, all six report formats, LSP diagnostics, schema, and TS contracts. Also wires the human-output footer + suppress hint for the three RSC siblings in the agent capability manifest.",
-          "timestamp": "2026-06-13T13:50:06+02:00",
-          "tree_id": "66416533b8e092e9cc52e65c81e02a2ad0a40442",
-          "url": "https://github.com/fallow-rs/fallow/commit/af513438fe3f37b814718301d535b9fb4965da5e"
-        },
-        "date": 1781351676346,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f4026a890c4239a65c62f236cb99628891697f24"
         },
         "date": 1781854006429,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f916fe3cc2036ed8b8e970738928d5e2dbcf673e",
+          "message": "docs(mcp): cover devDependency install for MCP server setup (#1344)\n\nThe MCP config example assumed fallow-mcp was on PATH (a global install). As a project devDependency the binary lives in node_modules/.bin/ and the server fails with ENOENT, so document launching it via the package manager runner (npx / pnpm exec / yarn / bunx) in the npm README's agents section, plus a Documentation CHANGELOG entry.\n\nThe matching MCP integration guide, quickstart, and mcp.mdx snippets are updated in the fallow-docs companion repo.\n\nCloses #1343.",
+          "timestamp": "2026-06-19T10:15:38+02:00",
+          "tree_id": "29eb6b76d72f6128e104fe698246a4e15b7d0c22",
+          "url": "https://github.com/fallow-rs/fallow/commit/f916fe3cc2036ed8b8e970738928d5e2dbcf673e"
+        },
+        "date": 1781857164842,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
