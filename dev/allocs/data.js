@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781882309233,
+  "lastUpdate": 1781884741037,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "969307e5d38b97cb7ef543d798f9a8098d916f78",
-          "message": "refactor(unit-size): split oversized Rust functions\n\nContinue the SIG unit-size cleanup by extracting focused helpers from large CLI, config, core, extract, graph, LSP, and MCP functions.\n\nThe refactors keep behavior intact while reducing the share of function LOC in the high-risk unit-size buckets. Validation covered conflict-marker checks, em-dash checks, cargo build, and the workspace test suite before commit.",
-          "timestamp": "2026-06-12T14:57:29+02:00",
-          "tree_id": "ca9ebaaa7ee48b6c010664de4d4ff490543d8eaf",
-          "url": "https://github.com/fallow-rs/fallow/commit/969307e5d38b97cb7ef543d798f9a8098d916f78"
-        },
-        "date": 1781269214865,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7610419,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36133,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 749169,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6643,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6691,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ca8dc6bfd241c6fc2dd43ca97f7162bd8ef82f4a",
+          "message": "refactor: decompose oversized functions to clear SIG unit-size very-high-risk band\n\nBehavior-preserving decomposition of oversized functions across the workspace, driven by a SIG maintainability audit. Reduces the Unit Size very-high-risk band (function LOC in units >60 lines) from 19.3% to 4.0%, under the 8.3% 4-star ceiling, by splitting large orchestration and detector functions into focused private helpers across core, extract, graph, config, lsp, mcp, and cli.\n\nIrreducible field-plumbing, lookup/match tables, and wide struct literals are left intact rather than split arbitrarily; the >30 and >15 size bands remain capped by the codebase's inherent function granularity and are intentionally not pursued. Pure extraction, no behavior change: full workspace build, clippy -D warnings, and the full test suite pass; no public signatures, output, schema, config, or API surface changed.",
+          "timestamp": "2026-06-19T17:55:33+02:00",
+          "tree_id": "c3e09601b00d6d9d9e6c7fadbd97fd3575904b5c",
+          "url": "https://github.com/fallow-rs/fallow/commit/ca8dc6bfd241c6fc2dd43ca97f7162bd8ef82f4a"
+        },
+        "date": 1781884737858,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7749396,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36861,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 827364,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6693,
             "unit": "allocations"
           }
         ]
