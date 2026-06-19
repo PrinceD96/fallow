@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781864673046,
+  "lastUpdate": 1781866331810,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "rice@shawnrice.org",
-            "name": "Shawn Patrick Rice",
-            "username": "shawnrice"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4e35d2b50c84318d3bda4b1f634fc61695fe6beb",
-          "message": "fix(extract): skip multi-byte escapee in quoted attribute scanner\n\nThe quoted attribute scanner advanced a fixed byte count after a backslash, which could leave the cursor inside a multi-byte escaped character.\n\nAdvance past the backslash and then over one full UTF-8 character, matching the rest of the scanner and preventing char-boundary panics on Angular templates.",
-          "timestamp": "2026-06-12T01:20:20+02:00",
-          "tree_id": "6b3e5c5093658d4125e1c4735f7197328893cb87",
-          "url": "https://github.com/fallow-rs/fallow/commit/4e35d2b50c84318d3bda4b1f634fc61695fe6beb"
-        },
-        "date": 1781220219397,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7560615,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36102,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 748982,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6674,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6689,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "eaeb0634af797a69bae7600d2020dd99b33402ad",
+          "message": "chore: release v2.100.0",
+          "timestamp": "2026-06-19T12:48:37+02:00",
+          "tree_id": "0edaa42c712274637bcb7868f99c47771043ce3a",
+          "url": "https://github.com/fallow-rs/fallow/commit/eaeb0634af797a69bae7600d2020dd99b33402ad"
+        },
+        "date": 1781866329123,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7778450,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36776,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 827656,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6694,
             "unit": "allocations"
           }
         ]
