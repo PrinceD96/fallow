@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781900680106,
+  "lastUpdate": 1781902998092,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "79727c19a63d502662438990750448bfd9f0ba24",
-          "message": "docs(types): fix mis-flagged typo in ModuleInfo abstain comments (#1253)\n\nReword the `has_unharvestable_props` / `has_unharvestable_emits` doc comments from \"mis-flagged\" (the `mis` token trips the typos check) to \"falsely flagged\". Doc-comment only, no behavior change.",
-          "timestamp": "2026-06-14T20:00:11+02:00",
-          "tree_id": "3e145a1ea62da8348dfebbd76b2d3ac8b76d1ee8",
-          "url": "https://github.com/fallow-rs/fallow/commit/79727c19a63d502662438990750448bfd9f0ba24"
-        },
-        "date": 1781460229141,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8d7c91573b893d9a67822de901165195397a4b3a"
         },
         "date": 1781900676986,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0dba8a87a0f9d2b7d5e122de05896af8bae5e886",
+          "message": "docs(benchmarks): refresh comparison numbers on current tooling\n\nRegenerate README + BENCHMARKS from one fresh run (fallow 2.100.0 vs knip 6.6.1 / jscpd 5.0.10 / madge 8.0.0). knip errors on next.js/vite/vue-core; jscpd 5.x faster for duplication. Refs #1316.",
+          "timestamp": "2026-06-19T22:59:29+02:00",
+          "tree_id": "f5d11d1633e8b9098499e5192d322178455be2c6",
+          "url": "https://github.com/fallow-rs/fallow/commit/0dba8a87a0f9d2b7d5e122de05896af8bae5e886"
+        },
+        "date": 1781902995745,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
