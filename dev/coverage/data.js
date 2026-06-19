@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781859760691,
+  "lastUpdate": 1781864687587,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "2fb49f159e44b1ff34d1902e0d861cf442d6bf63",
-          "message": "docs(readme): mention mixed-barrel and misplaced-directive RSC checks (#1239)\n\nExtend the Architecture section's Next.js correctness blurb to also name the mixed-client-server-barrel and misplaced-directive checks that shipped alongside invalid-client-export.",
-          "timestamp": "2026-06-13T14:31:15+02:00",
-          "tree_id": "d1f5a1628f613dde5c1165ad44204dc2e3795f9d",
-          "url": "https://github.com/fallow-rs/fallow/commit/2fb49f159e44b1ff34d1902e0d861cf442d6bf63"
-        },
-        "date": 1781354096191,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c637b0bdec7da180bdea27cb7d3bc5c07d301b46"
         },
         "date": 1781859757543,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "1779391d89029381f0ca8130c64fc37b2b6009ab",
+          "message": "test(audit): pin LF in shifted-duplicate test for Windows",
+          "timestamp": "2026-06-19T12:21:05+02:00",
+          "tree_id": "9ce75c125fa41e34c3dfa905939e0dd47d1454ab",
+          "url": "https://github.com/fallow-rs/fallow/commit/1779391d89029381f0ca8130c64fc37b2b6009ab"
+        },
+        "date": 1781864685288,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
