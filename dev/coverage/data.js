@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781857168361,
+  "lastUpdate": 1781859760691,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b66864c5a7fb3ebbd2b3c7c751f0c71bb909c996",
-          "message": "fix(vscode): harden LSP client lifecycle and binary download (#1237)\n\nFive robustness fixes from a VS Code extension audit. Lifecycle: re-register the\nanalysisComplete handler per client (status bar no longer freezes after a\nrestart), serialize restartClient (no racing server processes), and make\nstopClient swallow start-timeouts and stop() rejections (no orphaned process or\npermanently-dead LSP). Download: guard httpsDownload's response stream (a\ndropped download no longer crashes the extension host) and purge only the\nmismatched binary on a version mismatch (no longer deletes the verified LSP).\n\nExtension-only; regression tests added; no schema/CLI/output change.",
-          "timestamp": "2026-06-13T14:02:51+02:00",
-          "tree_id": "a4044662b4609913529c691ee9456d972ad53e3e",
-          "url": "https://github.com/fallow-rs/fallow/commit/b66864c5a7fb3ebbd2b3c7c751f0c71bb909c996"
-        },
-        "date": 1781352379879,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f916fe3cc2036ed8b8e970738928d5e2dbcf673e"
         },
         "date": 1781857164842,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c637b0bdec7da180bdea27cb7d3bc5c07d301b46",
+          "message": "fix: make dupes compact output traceable (#1345)\n\nDuplication compact output used an ordinal-only clone-group-N label with no stable identity. It now uses the canonical code-duplication issue tag and includes the stable dup:<id> fingerprint plus group, token, line, and instance metadata on each clone instance line, so agents can jump straight to fallow dupes --trace dup:<id> without scraping human output. The dup:<id> printed in compact output is byte-identical to the JSON clone_groups[].fingerprint.\n\nAlso includes an incidental clippy fix for format_push_string in audit_tests.rs, promoted to deny by clippy 1.95.0 under the workspace -D warnings gate.\n\nReplaces the stale draft #1318.",
+          "timestamp": "2026-06-19T10:57:47+02:00",
+          "tree_id": "4366f31820fcefae7e37f7e31a0ee4561f2ec312",
+          "url": "https://github.com/fallow-rs/fallow/commit/c637b0bdec7da180bdea27cb7d3bc5c07d301b46"
+        },
+        "date": 1781859757543,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
