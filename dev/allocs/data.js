@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781846963383,
+  "lastUpdate": 1781849400622,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "290d639d13fd0cc357b4c155f3ed2d8781045dc2",
-          "message": "refactor: continue sig unit-size cleanup",
-          "timestamp": "2026-06-11T23:31:42+02:00",
-          "tree_id": "9ea5193723fd3f1e0c0e24202a955d1c2cdc48a6",
-          "url": "https://github.com/fallow-rs/fallow/commit/290d639d13fd0cc357b4c155f3ed2d8781045dc2"
-        },
-        "date": 1781213718130,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7592415,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36120,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 745897,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6641,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6767,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b446f0068bc2729ccd7a6801722a2c5599012a6f",
+          "message": "fix(unused-exports): report local-only value exports\n\nReport value exports as unused when they have no reachable cross-file references, even if another same-file export still needs the local declaration.\n\nThe fix keeps the existing remove-export action semantics, consumes matching unused-export suppressions, and leaves ignoreExportsUsedInFile as the opt-in escape hatch for teams that want to keep local-only exports public.",
+          "timestamp": "2026-06-19T08:06:26+02:00",
+          "tree_id": "d8021d05086577d09470630ab83f230b434ecc92",
+          "url": "https://github.com/fallow-rs/fallow/commit/b446f0068bc2729ccd7a6801722a2c5599012a6f"
+        },
+        "date": 1781849398452,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7799906,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36769,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 829608,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6695,
             "unit": "allocations"
           }
         ]
