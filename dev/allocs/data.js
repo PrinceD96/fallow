@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781859995706,
+  "lastUpdate": 1781864673046,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d04815b71bc795ed1c59fb45c031962600030934",
-          "message": "fix(docs): avoid private rustdoc links in impact digest\n\nThe periodic impact digest docs linked to a private interval constant from public items, which fails rustdoc with private intra-doc links denied.\n\nKeep the constant name visible as code text without making it an intra-doc link, so the documentation build passes under the workspace rustdoc gate.",
-          "timestamp": "2026-06-12T01:16:07+02:00",
-          "tree_id": "bd535c155d71504060aaf508a4edf041e5b9ebd1",
-          "url": "https://github.com/fallow-rs/fallow/commit/d04815b71bc795ed1c59fb45c031962600030934"
-        },
-        "date": 1781219925476,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7593719,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36123,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 745897,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6641,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6693,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "1779391d89029381f0ca8130c64fc37b2b6009ab",
+          "message": "test(audit): pin LF in shifted-duplicate test for Windows",
+          "timestamp": "2026-06-19T12:21:05+02:00",
+          "tree_id": "9ce75c125fa41e34c3dfa905939e0dd47d1454ab",
+          "url": "https://github.com/fallow-rs/fallow/commit/1779391d89029381f0ca8130c64fc37b2b6009ab"
+        },
+        "date": 1781864669546,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 7789506,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 36786,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 831100,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6689,
             "unit": "allocations"
           }
         ]
