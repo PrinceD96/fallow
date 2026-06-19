@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781899593519,
+  "lastUpdate": 1781900680106,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "60d77438381022256ef51249f1f04dc35fe0484a",
-          "message": "feat(analyze): flag Vue defineProps props used nowhere in their component (#1251)\n\nNew unused-component-prop rule (default warn): a Vue <script setup> defineProps declared prop referenced by no code in its own SFC (script or template). Harvests inline TS / runtime object / withDefaults forms; credits script (destructured local / props.foo) and template usage. False-positive-safe abstains: $attrs/props fallthrough, whole-object props use, defineExpose, defineModel, renamed-destructure alias, v-bind forward, imported prop-type alias. Vue <script setup> only.\n\nReports through human/JSON/SARIF/CodeClimate/compact/markdown/LSP/MCP. Validated on a real corpus: 7 true positives (elk, vue-vben-admin, vuestic-admin, nuxt-ui), zero false positives.",
-          "timestamp": "2026-06-14T17:37:16+02:00",
-          "tree_id": "7daf23c242845ff61d3dac2545aa056f13284d0e",
-          "url": "https://github.com/fallow-rs/fallow/commit/60d77438381022256ef51249f1f04dc35fe0484a"
-        },
-        "date": 1781451788708,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/661fcd6261dc59595219496f255366ba3a0799c6"
         },
         "date": 1781899590492,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "8d7c91573b893d9a67822de901165195397a4b3a",
+          "message": "chore: remove stray plans/ research doc and ignore the path\n\nA research scratch doc was committed under an undotted plans/ directory.\nScratch plan/research docs belong in the gitignored .plans/ and should not\nship in the repo. Remove the file and add plans/ to .gitignore so git add -A\ncannot sweep one in again.",
+          "timestamp": "2026-06-19T22:20:35+02:00",
+          "tree_id": "5aebfecbf67775ca0b9d4c7398775497d1f4cf42",
+          "url": "https://github.com/fallow-rs/fallow/commit/8d7c91573b893d9a67822de901165195397a4b3a"
+        },
+        "date": 1781900676986,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
