@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781945442814,
+  "lastUpdate": 1781945974762,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "3bcde2d9e7558740987a852a23ade52b23ddd09e",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.96.0",
-          "timestamp": "2026-06-13T10:56:53+02:00",
-          "tree_id": "0c52351e18f9df84d7997f72bc78ef33d075ed1f",
-          "url": "https://github.com/fallow-rs/fallow/commit/3bcde2d9e7558740987a852a23ade52b23ddd09e"
-        },
-        "date": 1781341194811,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7622963,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36152,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 748869,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6641,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56525,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b8170c2ac3ca29e25febb48a8d9be0543d40eb44",
+          "message": "refactor: split pnpm catalog line scan",
+          "timestamp": "2026-06-20T10:55:52+02:00",
+          "tree_id": "b855585cfab2b0750bf6774675b90573cfcfa37d",
+          "url": "https://github.com/fallow-rs/fallow/commit/b8170c2ac3ca29e25febb48a8d9be0543d40eb44"
+        },
+        "date": 1781945972455,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10400739,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56531,
             "unit": "allocations"
           },
           {
