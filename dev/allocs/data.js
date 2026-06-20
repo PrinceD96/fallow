@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781969302354,
+  "lastUpdate": 1781969732058,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0b524021686cf1445b974ba9011b4c523de09363",
-          "message": "chore: release v2.97.0",
-          "timestamp": "2026-06-16T15:42:53+02:00",
-          "tree_id": "26809da2a6e86cf19736803421e1aae2dff5f71d",
-          "url": "https://github.com/fallow-rs/fallow/commit/0b524021686cf1445b974ba9011b4c523de09363"
-        },
-        "date": 1781617636106,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7681609,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36757,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 773930,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6689,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56579,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e8c584bb058c547d215603e5e5eb23f6046c5c98",
+          "message": "refactor: split extractor merge phases",
+          "timestamp": "2026-06-20T17:31:37+02:00",
+          "tree_id": "b9d2a207807e91dffc3ac8b93f838e3566965558",
+          "url": "https://github.com/fallow-rs/fallow/commit/e8c584bb058c547d215603e5e5eb23f6046c5c98"
+        },
+        "date": 1781969728628,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10421583,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56563,
             "unit": "allocations"
           },
           {
