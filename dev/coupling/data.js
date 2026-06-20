@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781953129800,
+  "lastUpdate": 1781953236141,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "cf96273eb884bd06dacf16f37b9917591ff77900",
-          "message": "chore: harden CodSpeed benchmarks\n\nImprove benchmark isolation by replacing shared fixed temp paths with owned temporary directories.\n\nAdd a real-source CodSpeed shard that reuses the vendored Zod fixture, plus a bounded scaling shard for PR feedback. The slower full large-analysis suite remains limited to main and manual runs.",
-          "timestamp": "2026-06-17T22:12:57+02:00",
-          "tree_id": "0c930215c5dbb24c1aac3434340c59572bddca6c",
-          "url": "https://github.com/fallow-rs/fallow/commit/cf96273eb884bd06dacf16f37b9917591ff77900"
-        },
-        "date": 1781727264564,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.02,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 391,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 958,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/aaeb8de2b7d21ed1c6155cbc03024288e008dd3d"
         },
         "date": 1781953127431,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 398,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 991,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b11b96e8913ab653baf2a237d49e8c3be638cda4",
+          "message": "refactor: split inject key abstain checks",
+          "timestamp": "2026-06-20T12:59:08+02:00",
+          "tree_id": "68fe08aa618df76922c92d51ab9f7f594e1823f3",
+          "url": "https://github.com/fallow-rs/fallow/commit/b11b96e8913ab653baf2a237d49e8c3be638cda4"
+        },
+        "date": 1781953233420,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
