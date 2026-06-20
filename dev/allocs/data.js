@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781993779200,
+  "lastUpdate": 1781996387709,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "5275ec5945b195269797dfb9e45b190b61a86251",
-          "message": "feat(analyze): flag Svelte events dispatched but listened nowhere (#1283)\n\nNew default-warn IssueKind unused-svelte-event (gated on svelte): a Svelte\ncomponent dispatching a custom event via createEventDispatcher whose name is\nlistened to nowhere project-wide. Cross-file dead-output direction, no native\ncoverage. Two-pass set-difference detector (liberal listened set, flag the\ndisjoint). Abstains on dynamic/forwarded dispatch; DOM on:click excluded.\nCACHE_VERSION 173->174. Zero-FP on Budibase (6 true positives). Wave 2 W2.2.",
-          "timestamp": "2026-06-16T22:39:46+02:00",
-          "tree_id": "5790f221257bf3363db2b3cc870585d4dc87d585",
-          "url": "https://github.com/fallow-rs/fallow/commit/5275ec5945b195269797dfb9e45b190b61a86251"
-        },
-        "date": 1781642644766,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7689993,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36732,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 784242,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6694,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56589,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "16ef25b141f81fc45db5809eee3a6abd725a9a16",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.101.0",
+          "timestamp": "2026-06-21T00:56:22+02:00",
+          "tree_id": "ca000e10f40d551ed0ec73addf20fae7c8f59c11",
+          "url": "https://github.com/fallow-rs/fallow/commit/16ef25b141f81fc45db5809eee3a6abd725a9a16"
+        },
+        "date": 1781996384585,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10436623,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56597,
             "unit": "allocations"
           },
           {
