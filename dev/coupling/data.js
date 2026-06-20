@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781955695629,
+  "lastUpdate": 1781955870929,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b3b936f277b6c2c99b584bab19799fdd30df7a5a",
-          "message": "feat: add catalogue-backed effect policy\n\nAdd `banned-effect` rule-pack support backed by the security catalogue effect taxonomy. Rule packs can now ban effect classes such as network, storage, shell, crypto, randomness, DOM, and database while preserving the existing `policy-violation` output family and scoped suppression model.\n\nThe implementation annotates every security matcher with an effect, validates kind-specific rule-pack fields, resolves effect matches through written and import-resolved callee paths, and carries the new rule kind through JSON, schemas, SARIF, MCP, VS Code, npm contracts, action summaries, docs, and fixtures.\n\nFixes #1143.",
-          "timestamp": "2026-06-19T07:25:44+02:00",
-          "tree_id": "13bd5ccd4170c5cdb8a8b72e3d04a08257721477",
-          "url": "https://github.com/fallow-rs/fallow/commit/b3b936f277b6c2c99b584bab19799fdd30df7a5a"
-        },
-        "date": 1781846958831,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.02,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 392,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 961,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0ba2fb4269b34b7a1f7f0c782edb4eca7279a809"
         },
         "date": 1781955692488,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 398,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 991,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a5fa07c42435d92773b9aaa26e691f5e613237c3",
+          "message": "refactor: split angular component finding collection",
+          "timestamp": "2026-06-20T13:43:20+02:00",
+          "tree_id": "a73d448a5881594769800647a71535ed231c3a4d",
+          "url": "https://github.com/fallow-rs/fallow/commit/a5fa07c42435d92773b9aaa26e691f5e613237c3"
+        },
+        "date": 1781955868440,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
