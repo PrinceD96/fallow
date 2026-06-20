@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781957292795,
+  "lastUpdate": 1781957499578,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "de74ee1c7f347a65a6965715436c9a259d540e99",
-          "message": "feat(sfc): flag missing static template asset refs via unresolved-import (#1246)\n\nVue / Svelte SFC markup is now scanned for static relative asset references (img/source/video/audio/track/embed src and poster). A reference that points to no file on disk surfaces as unresolved-import; an existing asset resolves with no finding.\n\nExtraction-only, reuses the existing unresolved-import category (no new rule, flag, or finding type). Conservative to stay false-positive-safe: only plain relative literals on genuine asset elements are checked; dynamic, aliased, root-relative, remote, interpolated, and query-suffixed values are skipped, custom-component src props are never read as assets, and refs inside script/style/comments are masked before scanning.\n\nCACHE_VERSION bumped 155 to 156 (SFC markup asset refs now emit SideEffect imports into the cached module shape).",
-          "timestamp": "2026-06-14T08:03:13+02:00",
-          "tree_id": "5af017763f8f3de7619ef25e7d51f2222d34b0d3",
-          "url": "https://github.com/fallow-rs/fallow/commit/de74ee1c7f347a65a6965715436c9a259d540e99"
-        },
-        "date": 1781417275126,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7619891,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36131,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 751990,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6640,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56610,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "82e69fc9b56153051749a81fa6bd5a5fd94b3967",
+          "message": "refactor: split check result completion",
+          "timestamp": "2026-06-20T14:08:06+02:00",
+          "tree_id": "dbe4ca8e8425adf1abe4332b9711f4b9853a38ba",
+          "url": "https://github.com/fallow-rs/fallow/commit/82e69fc9b56153051749a81fa6bd5a5fd94b3967"
+        },
+        "date": 1781957497039,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10453639,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56586,
             "unit": "allocations"
           },
           {
