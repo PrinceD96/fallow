@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781958124661,
+  "lastUpdate": 1781958248002,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b7055f6144038611012d5c0b78daa8feea72d061",
-          "message": "refactor: split render fan-in analyzer phases",
-          "timestamp": "2026-06-20T09:29:05+02:00",
-          "tree_id": "071d7e49b22c667f2b7cb0c3d667562370412d0a",
-          "url": "https://github.com/fallow-rs/fallow/commit/b7055f6144038611012d5c0b78daa8feea72d061"
-        },
-        "date": 1781940668660,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.02,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 394,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 981,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6a797f79b134cbc9fe7d6dd87def658965d816fd"
         },
         "date": 1781958121833,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 398,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 991,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "826806e4612ccdde63913473c9fa836c933dd1a0",
+          "message": "refactor: split angular decorator role scan",
+          "timestamp": "2026-06-20T14:22:42+02:00",
+          "tree_id": "a719242531625ecd797d4b3be6633fba3f71bf23",
+          "url": "https://github.com/fallow-rs/fallow/commit/826806e4612ccdde63913473c9fa836c933dd1a0"
+        },
+        "date": 1781958245101,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
