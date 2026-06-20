@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781957499578,
+  "lastUpdate": 1781958577171,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f9b6926884113b997f08366df1474c236d81b46d",
-          "message": "fix(extract): credit Vue components rendered after a nested template slot (#1247)\n\nThe Vue SFC template-usage scanner matched the root template against the first </template> (non-greedy capture), truncating the body at a nested <template #slot> close and dropping every component rendered after it, causing false unused-export findings.\n\nThe scanner now locates the root close with nesting depth tracking, byte-safe (CJK), with an unclosed-comment fall-through. Verified on a real corpus: vue-vben-admin layout-ui went from 4 false unused-exports to 0, no new FPs. CACHE_VERSION 156 to 157.",
-          "timestamp": "2026-06-14T10:16:14+02:00",
-          "tree_id": "4b2fb34d5bedf580400126865fb4529fab347508",
-          "url": "https://github.com/fallow-rs/fallow/commit/f9b6926884113b997f08366df1474c236d81b46d"
-        },
-        "date": 1781425281260,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7576835,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36113,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 752454,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6642,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56586,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "5bce473c4dc3c6d97cf8f761e4bf8127399503dc",
+          "message": "refactor: split agents guide prefill",
+          "timestamp": "2026-06-20T14:25:50+02:00",
+          "tree_id": "cef5fc6c5c60bb0881270ed0b83b041f0a3cddc9",
+          "url": "https://github.com/fallow-rs/fallow/commit/5bce473c4dc3c6d97cf8f761e4bf8127399503dc"
+        },
+        "date": 1781958574813,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10421567,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56603,
             "unit": "allocations"
           },
           {
