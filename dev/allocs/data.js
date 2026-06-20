@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781968425458,
+  "lastUpdate": 1781969042709,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c541c92cf270988b4b6dd7b75d03c2da812ac335",
-          "message": "refactor: reduce sig unit-size hotspots\n\nSplit large Rust units across CLI audit, health, reporting, LSP, MCP, config, extract, and core analysis paths into focused helpers.\n\nThis is a maintainability-only refactor. Output contracts, schemas, and user-facing behavior stay stable while the SIG unit-size pressure drops across the branch.",
-          "timestamp": "2026-06-16T12:40:25+02:00",
-          "tree_id": "88672e9442e3720880dabda08a43bbdeb38629c9",
-          "url": "https://github.com/fallow-rs/fallow/commit/c541c92cf270988b4b6dd7b75d03c2da812ac335"
-        },
-        "date": 1781606595077,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7734296,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36656,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 760046,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6669,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56605,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "086246b5e8c4b6706cce868d443c1201e42910c9",
+          "message": "refactor: split health report input assembly",
+          "timestamp": "2026-06-20T17:20:28+02:00",
+          "tree_id": "79151e178b642066489a6bdcf6639544eca218a2",
+          "url": "https://github.com/fallow-rs/fallow/commit/086246b5e8c4b6706cce868d443c1201e42910c9"
+        },
+        "date": 1781969040238,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10434591,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56596,
             "unit": "allocations"
           },
           {
