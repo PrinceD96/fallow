@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781969165997,
+  "lastUpdate": 1781969443658,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "2c43844115098901019684487f2395c4f9394225",
-          "message": "refactor: split rolling child extension",
-          "timestamp": "2026-06-20T11:52:50+02:00",
-          "tree_id": "99b85d904cd7ce6dec86460b15420274dc4c7f00",
-          "url": "https://github.com/fallow-rs/fallow/commit/2c43844115098901019684487f2395c4f9394225"
-        },
-        "date": 1781949251048,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/17f2f49aebd1fda430dbe1c521a7a86996246b46"
         },
         "date": 1781969163730,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 398,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 991,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a573bf1104136f4c7ef5fd5eb04f7fbe120cb5b0",
+          "message": "refactor: split analysis result merging",
+          "timestamp": "2026-06-20T17:29:19+02:00",
+          "tree_id": "86af10644c02c7af28ffa49a069430487397ebcf",
+          "url": "https://github.com/fallow-rs/fallow/commit/a573bf1104136f4c7ef5fd5eb04f7fbe120cb5b0"
+        },
+        "date": 1781969440514,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
