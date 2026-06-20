@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781967852205,
+  "lastUpdate": 1781968134438,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e52ae2dd339737f8e4f38cb487123050e70688ea",
-          "message": "refactor: split mixed barrel classification",
-          "timestamp": "2026-06-20T11:27:37+02:00",
-          "tree_id": "3e8890163bfb3ee9b22277b0e577f8cd69b2aba7",
-          "url": "https://github.com/fallow-rs/fallow/commit/e52ae2dd339737f8e4f38cb487123050e70688ea"
-        },
-        "date": 1781947746733,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a7b117a8e66538ddc2cfbe7e989bbd226fb87481"
         },
         "date": 1781967849889,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 398,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 991,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "12b5424124b0678b59abf5403af997afcd2e24d9",
+          "message": "refactor: split pnpm catalog parsing",
+          "timestamp": "2026-06-20T17:07:41+02:00",
+          "tree_id": "afb7f2e0261774e280769a8d1fd965da1b5900a1",
+          "url": "https://github.com/fallow-rs/fallow/commit/12b5424124b0678b59abf5403af997afcd2e24d9"
+        },
+        "date": 1781968131794,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
