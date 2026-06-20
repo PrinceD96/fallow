@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781967486674,
+  "lastUpdate": 1781967681253,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "2581bc7e0fc42859b84d013bdf43c845bb47db06",
-          "message": "refactor: split changed file path filtering",
-          "timestamp": "2026-06-20T11:22:00+02:00",
-          "tree_id": "58701afac8da5adc0c6aa93c399ca2c1b86d5aff",
-          "url": "https://github.com/fallow-rs/fallow/commit/2581bc7e0fc42859b84d013bdf43c845bb47db06"
-        },
-        "date": 1781947395818,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/bce1fddd704afc464e5381feb163398e0c6b84e7"
         },
         "date": 1781967483536,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 398,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 991,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "2adec9a5d9335d309a7be2c59b32a33cacb2594f",
+          "message": "refactor: split raw duplicate group filtering",
+          "timestamp": "2026-06-20T17:00:02+02:00",
+          "tree_id": "1ded55e5abeadf633eb168d53cb088d98595397e",
+          "url": "https://github.com/fallow-rs/fallow/commit/2adec9a5d9335d309a7be2c59b32a33cacb2594f"
+        },
+        "date": 1781967678368,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
