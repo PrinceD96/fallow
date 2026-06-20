@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781964149200,
+  "lastUpdate": 1781964535534,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "11d777118a0b23ddf36329c9415319a05398fef1",
-          "message": "refactor: group vue template tag inputs",
-          "timestamp": "2026-06-15T15:11:33+02:00",
-          "tree_id": "a61db4a756b9fa9e0e85a3bcd8421713233f6a02",
-          "url": "https://github.com/fallow-rs/fallow/commit/11d777118a0b23ddf36329c9415319a05398fef1"
-        },
-        "date": 1781529408168,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7602871,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36157,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 762426,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6694,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56584,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "edf288a8af526c09c2a0909dcef07ad2494cff6a",
+          "message": "refactor: split health shared analysis prep",
+          "timestamp": "2026-06-20T16:05:33+02:00",
+          "tree_id": "826dd61b4317fc7e4ef2515f2439410af4cd12d8",
+          "url": "https://github.com/fallow-rs/fallow/commit/edf288a8af526c09c2a0909dcef07ad2494cff6a"
+        },
+        "date": 1781964532875,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10440671,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56604,
             "unit": "allocations"
           },
           {
