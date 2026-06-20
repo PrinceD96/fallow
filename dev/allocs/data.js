@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781959876309,
+  "lastUpdate": 1781960208122,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7fcff8f00a2362fdd7867c50a721b72948924d29",
-          "message": "feat(analyze): flag Vue defineEmits events emitted nowhere in their component (#1252)\n\nAdd an `unused-component-emit` rule (default severity `warn`): a Vue `<script setup>` `defineEmits` declared event emitted by no code in its own single-file component, neither through `emit('name')` in `<script>` nor `emit('name')` / `$emit('name')` in `<template>`. The emit-side sibling of `unused-component-prop` (#1251), the in-component dead-output direction vue-tsc / Volar do not cover.\n\nHarvests event names from the array, type / object, and bound (renamed-binding aware) forms; credits usage from the script call walk and the template; abstains on the whole component for dynamic emit, whole-object emit use, `defineModel`, or an imported emit-type alias. Full output wiring mirrors the prop sibling. Vue `<script setup>` only.\n\nValidated on a 10-project corpus: 6 true positives, zero false positives.",
-          "timestamp": "2026-06-14T19:57:01+02:00",
-          "tree_id": "97bfc823593160b1fb9a5f20b86623cb10ed6548",
-          "url": "https://github.com/fallow-rs/fallow/commit/7fcff8f00a2362fdd7867c50a721b72948924d29"
-        },
-        "date": 1781459991438,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7655039,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36199,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 712306,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6192,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56594,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "7a7eb10f39beb057536bc12059bb2e9f9f2cd503",
+          "message": "refactor: split health core section prep",
+          "timestamp": "2026-06-20T14:53:19+02:00",
+          "tree_id": "f9e040addacdf7b2c5450745bca1474132bd717d",
+          "url": "https://github.com/fallow-rs/fallow/commit/7a7eb10f39beb057536bc12059bb2e9f9f2cd503"
+        },
+        "date": 1781960205770,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10393767,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56580,
             "unit": "allocations"
           },
           {
