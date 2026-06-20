@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781964801694,
+  "lastUpdate": 1781965021419,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0157c64f4dee894f6e63cd16ee502e40f4a045d1",
-          "message": "fix(ci): classify React-health IssueKinds as advisory in the drift guard\n\nprop-drilling, thin-wrapper, and duplicate-prop-shape are command-tagged\ndead-code IssueKinds, but they are opt-in (default-off) React/Preact advisory\nhealth signals surfaced only in the CLI human report and raw JSON. The LSP does\nnot emit them as diagnostics and the PR-summary jq surfaces do not carry them,\nso the IssueKind drift guard now classifies them alongside complexity and\ncoverage-gaps (skipped, not gated for surface presence) rather than demanding a\nJSON-key mapping. Repairs the red \"Test GitLab CI scripts\" job on main.",
-          "timestamp": "2026-06-16T15:13:37+02:00",
-          "tree_id": "5588440fa2bd0aeaf51731d8427f5fce094bb54b",
-          "url": "https://github.com/fallow-rs/fallow/commit/0157c64f4dee894f6e63cd16ee502e40f4a045d1"
-        },
-        "date": 1781615843528,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/16360a0025390b9ecca036ec07664d33a6bb5204"
         },
         "date": 1781964798360,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "97462e517bf3524c5309673b0770a43fc3b8816a",
+          "message": "refactor: split codeowners parse state",
+          "timestamp": "2026-06-20T16:13:39+02:00",
+          "tree_id": "ce3163fb68c09b91c4830799b4396ffa1ce469c7",
+          "url": "https://github.com/fallow-rs/fallow/commit/97462e517bf3524c5309673b0770a43fc3b8816a"
+        },
+        "date": 1781965019196,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
