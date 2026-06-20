@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781965306863,
+  "lastUpdate": 1781965512709,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d69830c3b1ee4387dc469c8ada7ce43dccd5befb",
-          "message": "feat(health): opt-in CSS analytics (fallow health --css) (#1230)\n\nOpt-in structural CSS analytics section for `fallow health --css`: specificity hotspots, !important density, complex selectors, deep nesting, empty rules, design-token sprawl, unreferenced custom properties / @keyframes, dead scoped classes, unused @property / @layer, undefined-keyframe references, duplicate declaration blocks, and Tailwind arbitrary-value bypasses. Candidate-framed, never gated, exit-code-neutral.",
-          "timestamp": "2026-06-15T17:20:59+02:00",
-          "tree_id": "b9b7556313c7f89ea012385589e648202d8af938",
-          "url": "https://github.com/fallow-rs/fallow/commit/d69830c3b1ee4387dc469c8ada7ce43dccd5befb"
-        },
-        "date": 1781537165658,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7618735,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36173,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 764370,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6691,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56592,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "71d4f8ed28ee53b34e3cbfa29846ec37ff532e45",
+          "message": "refactor: split health finding collection",
+          "timestamp": "2026-06-20T16:21:42+02:00",
+          "tree_id": "cb8c49f9c2adf662dad5984529820017707adcee",
+          "url": "https://github.com/fallow-rs/fallow/commit/71d4f8ed28ee53b34e3cbfa29846ec37ff532e45"
+        },
+        "date": 1781965509451,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10441655,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56597,
             "unit": "allocations"
           },
           {
