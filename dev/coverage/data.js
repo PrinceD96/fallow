@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781961469960,
+  "lastUpdate": 1781962832555,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "34b66b8222ee811c12fbba09a437ec0fff12ebd4",
-          "message": "docs(health): clarify CSS preprocessor handling",
-          "timestamp": "2026-06-15T21:56:37+02:00",
-          "tree_id": "a7680b4c97c359f6dbb2ba48d50a6677bc501e86",
-          "url": "https://github.com/fallow-rs/fallow/commit/34b66b8222ee811c12fbba09a437ec0fff12ebd4"
-        },
-        "date": 1781553678556,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "2e7473e679250855cc4827a1e2144a91e4d30735",
+          "message": "refactor: split prop drilling population",
+          "timestamp": "2026-06-20T15:36:10+02:00",
+          "tree_id": "6781048366d8bdf0b5534db06f8826f975162016",
+          "url": "https://github.com/fallow-rs/fallow/commit/2e7473e679250855cc4827a1e2144a91e4d30735"
+        },
+        "date": 1781962830194,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
             "unit": "%"
           }
         ]
