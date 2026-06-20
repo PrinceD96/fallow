@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781959895619,
+  "lastUpdate": 1781960733700,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b38b8b25c256577cab82f52ff9dab1222ef178ea",
-          "message": "chore(deps): bump crate-ci/typos to 1.47.2\n\nBumps [crate-ci/typos](https://github.com/crate-ci/typos) from 1.47.1 to 1.47.2.\n- [Release notes](https://github.com/crate-ci/typos/releases)\n- [Changelog](https://github.com/crate-ci/typos/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/crate-ci/typos/compare/44e2070e6017f834bf069503acb35ca0ca0b75f2...37bb98842b0d8c4ffebdb75301a13db0267cef89)\n\n---\nupdated-dependencies:\n- dependency-name: crate-ci/typos\n  dependency-version: 1.47.2\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
-          "timestamp": "2026-06-15T18:46:55+02:00",
-          "tree_id": "4c23506e8249257e6a993f6e61b6fedd5f3212e8",
-          "url": "https://github.com/fallow-rs/fallow/commit/b38b8b25c256577cab82f52ff9dab1222ef178ea"
-        },
-        "date": 1781542233756,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4e87a61b68123a9873ee70c7e38dc724756c09aa"
         },
         "date": 1781959892464,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "16fcfaf1d914e0aded6e0124e725594e08a3cad3",
+          "message": "refactor: split programmatic analysis options",
+          "timestamp": "2026-06-20T15:00:26+02:00",
+          "tree_id": "4aabe866b974a0ee759e63557528ac2f326bcd38",
+          "url": "https://github.com/fallow-rs/fallow/commit/16fcfaf1d914e0aded6e0124e725594e08a3cad3"
+        },
+        "date": 1781960731319,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
