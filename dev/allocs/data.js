@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781941303166,
+  "lastUpdate": 1781941682114,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "5d837a2353f383a7e576f8fe9c059813d12b8992",
-          "message": "docs(impact): drop intra-doc link to cfg(test)-only TEST_FORCE_CI\n\nrecord_gate_is_ci is compiled in non-test builds, so cargo doc resolves its\ndoc comment; the [`TEST_FORCE_CI`] intra-doc link pointed at a #[cfg(test)]\nitem absent from the doc build, failing the Documentation job under\n-D warnings. Render it as a plain inline code span instead.",
-          "timestamp": "2026-06-13T09:59:28+02:00",
-          "tree_id": "e8e78d8d5777d2402e9e2b690a09c02dbdb4c344",
-          "url": "https://github.com/fallow-rs/fallow/commit/5d837a2353f383a7e576f8fe9c059813d12b8992"
-        },
-        "date": 1781337731825,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7589291,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36129,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 744461,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6636,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56532,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "6b23aecb084923791a902d278c9808d119d20335",
+          "message": "refactor: split catalog dependency line scanner",
+          "timestamp": "2026-06-20T09:43:49+02:00",
+          "tree_id": "a75a6078eebd5744a31e360ef6026ce4e4e5151b",
+          "url": "https://github.com/fallow-rs/fallow/commit/6b23aecb084923791a902d278c9808d119d20335"
+        },
+        "date": 1781941678997,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10460187,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56546,
             "unit": "allocations"
           },
           {
