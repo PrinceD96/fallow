@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781960975015,
+  "lastUpdate": 1781961450420,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "05c25a03012b3bd728860b88f4effb9ee26b8335",
-          "message": "feat(extract): credit SvelteKit route data prop as template-visible (#1257)\n\nPrimitive B for unused-load-data-key: a SvelteKit route component now credits the `data` prop as a template-visible root, so `{data.x}` and `{#each data.items as i}` markup reads emit `data.<key>` member accesses for the cross-file load-data-key join.\n\nRoute-narrowed (not all `.svelte`): a non-route component's parent-passed `data` is a different binding, so crediting it as load data would be semantically wrong. The predicate matches `+page.svelte` / `+layout.svelte` AND their layout-reset variants, all of which still receive the `load()` data prop; `+error.svelte` and non-route `+pageHelper.svelte` are excluded by the grammar.\n\nInternal extraction primitive with zero finding delta, so no CHANGELOG/detection.md entry, mirroring Primitive A (#1255). CACHE_VERSION 162 to 163. Findings byte-identical on all 10 benchmark fixtures and 10 real SvelteKit apps; extract + core + full-workspace tests, clippy, fmt, and cargo doc all green.",
-          "timestamp": "2026-06-15T11:38:26+02:00",
-          "tree_id": "a58325f0f0ba3147687e6ff07640d036a71e36be",
-          "url": "https://github.com/fallow-rs/fallow/commit/05c25a03012b3bd728860b88f4effb9ee26b8335"
-        },
-        "date": 1781516508704,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7637087,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36184,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 760234,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6693,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56593,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0bae19fb9d15a6ef6433a0a8f99d6ceb68ba943f",
+          "message": "refactor: split config resolution phases",
+          "timestamp": "2026-06-20T15:13:55+02:00",
+          "tree_id": "28cd450ec00f55ddb9e5238f992cc8c0e56a10f4",
+          "url": "https://github.com/fallow-rs/fallow/commit/0bae19fb9d15a6ef6433a0a8f99d6ceb68ba943f"
+        },
+        "date": 1781961448079,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10395391,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56574,
             "unit": "allocations"
           },
           {
