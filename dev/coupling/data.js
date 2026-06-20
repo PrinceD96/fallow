@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781963589295,
+  "lastUpdate": 1781964012430,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "73d8cc568dac926d8c2ca8c67b43f84e64e33d30",
-          "message": "fix(ci): bundle gitlab_common.sh in vendored GitLab template\n\nea5a81155 extracted ci/scripts/gitlab_common.sh as a shared helper\nsourced by comment.sh and review.sh and added it to the gitlab-ci.yml\ncp loops, but did not register it in GITLAB_FILES or add the template\nsymlink. Vendored pipelines would source a missing file at runtime, and\nthe for-loop drift test (gitlab_ci_template_for_loops_match_vendored_files)\nturned main red.",
-          "timestamp": "2026-06-20T10:34:49+02:00",
-          "tree_id": "8b9ef22baadc12ca7b7e5d5263e4e057c0224979",
-          "url": "https://github.com/fallow-rs/fallow/commit/73d8cc568dac926d8c2ca8c67b43f84e64e33d30"
-        },
-        "date": 1781944590432,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6fff1cae115b97f486f779f140dbdec47521733e"
         },
         "date": 1781963586064,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 398,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 991,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "af5f0874d424d303b206caff92cf331cf317ca72",
+          "message": "refactor: split clone interval extraction",
+          "timestamp": "2026-06-20T15:58:47+02:00",
+          "tree_id": "c20c676283875666581ba148f4131f09d90e1d86",
+          "url": "https://github.com/fallow-rs/fallow/commit/af5f0874d424d303b206caff92cf331cf317ca72"
+        },
+        "date": 1781964009750,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
