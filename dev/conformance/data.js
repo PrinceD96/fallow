@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781864580629,
+  "lastUpdate": 1781945579631,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -3791,6 +3791,88 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1779391d89029381f0ca8130c64fc37b2b6009ab"
         },
         "date": 1781864577752,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 1.9,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 593,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30232,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2044,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 6.1,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.7,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.2,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 6.7,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 22.8,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 2.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "ba042b08ddcc69dedc3c4ad80b973c9fd58e14bb",
+          "message": "refactor: split thin wrapper classification",
+          "timestamp": "2026-06-20T08:51:05Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/ba042b08ddcc69dedc3c4ad80b973c9fd58e14bb"
+        },
+        "date": 1781945576493,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
