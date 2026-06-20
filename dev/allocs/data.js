@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781992117103,
+  "lastUpdate": 1781993779200,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "dfaf4dc8d18b0ca7f29d49e3b800492bfe524661",
-          "message": "feat(extract): Svelte 5 runes extraction (script module + $props harvest) (#1280)\n\nRecognize bare <script module> (Svelte 5) as module context via\nSVELTE_MODULE_ATTR_RE (FP fix in Svelte unused-import/export detection), and\nharvest \\$props() destructure into declared prop names (reusing the Vue\nComponentProp IR + abstain flags) as groundwork for W2.2. Ships no Svelte prop\ndetector (prop-deadness is a non-goal). CACHE_VERSION 172->173. Wave 1 W1.1.",
-          "timestamp": "2026-06-16T18:19:06+02:00",
-          "tree_id": "6d41c92fbedd473cc9e480aad04477f7eedbf844",
-          "url": "https://github.com/fallow-rs/fallow/commit/dfaf4dc8d18b0ca7f29d49e3b800492bfe524661"
-        },
-        "date": 1781626954365,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7710129,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36792,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 783194,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6695,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56580,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "5da5e73aba1b06bebe51be17f1d65c30c5a36ee7",
+          "message": "chore: release v2.101.0",
+          "timestamp": "2026-06-21T00:12:15+02:00",
+          "tree_id": "d912638b67ebf4779656a5082130ceba5dfcd5aa",
+          "url": "https://github.com/fallow-rs/fallow/commit/5da5e73aba1b06bebe51be17f1d65c30c5a36ee7"
+        },
+        "date": 1781993776311,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10430271,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56589,
             "unit": "allocations"
           },
           {
