@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781965031984,
+  "lastUpdate": 1781965306863,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "543a32ab70c35053316738f12c5248210c844e4e",
-          "message": "fix: extend IssueKind drift gates and close the surface gaps they found (#1266)\n\nExtends IssueKind drift coverage to every layer so a new dead-code finding cannot silently drop from a secondary surface, and closes the gaps it surfaced.\n\nCI: the shared guard asserts the schema-derived canonical dead-code set against every jq summary/annotation surface. VS Code: a new test chains DIAGNOSTIC_CATEGORIES to countCheckIssues, the tree, and labels with a keyof CheckOutput map (compile-time sync). LSP: a severity gate exhaustively destructures AnalysisResults so a new field must be classified to compile.\n\nGaps closed: test-only-dependency now gets a CI annotation and a correct --changed-since count; empty-catalog-group is filterable in VS Code; and the new SvelteKit unused-load-data-key finding (#1265) is wired across the CI summaries, the VS Code sidebar, and the LSP severity map. circular-dependency and the boundary-violation family stay editor-softer WARNING by recorded decision.",
-          "timestamp": "2026-06-15T17:09:00+02:00",
-          "tree_id": "e307ea00ac6000393bf52cbce7c1b37810b9b182",
-          "url": "https://github.com/fallow-rs/fallow/commit/543a32ab70c35053316738f12c5248210c844e4e"
-        },
-        "date": 1781536321727,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7648807,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36186,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 764834,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6693,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56595,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "498a0948fe7d39c27616b4f00e2ced6bb07e6a3d",
+          "message": "refactor: split analysis pipeline phases",
+          "timestamp": "2026-06-20T16:18:21+02:00",
+          "tree_id": "08778436dbf57fbb2910d800947d120bcac98055",
+          "url": "https://github.com/fallow-rs/fallow/commit/498a0948fe7d39c27616b4f00e2ced6bb07e6a3d"
+        },
+        "date": 1781965303655,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10472767,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56592,
             "unit": "allocations"
           },
           {
