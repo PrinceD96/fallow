@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781868394168,
+  "lastUpdate": 1781950113357,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -5589,6 +5589,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1232,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "64ead321071c8b461f7d479ab4a56f36eaa58ec1",
+          "message": "refactor: split react prop module scan",
+          "timestamp": "2026-06-20T10:06:20Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/64ead321071c8b461f7d479ab4a56f36eaa58ec1"
+        },
+        "date": 1781950110038,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 306,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 412,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 616,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 613,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1644,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1537,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1430,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1328,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1226,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1122,
             "unit": "ms"
           }
         ]
