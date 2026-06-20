@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781940768036,
+  "lastUpdate": 1781941303166,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7bed9e48bf7a27d3a1e78f1d0c29b3a64a10c36c",
-          "message": "fix(impact): isolate the CI record-gate in unit tests\n\nrecord_audit_run / record_combined_run short-circuit on telemetry::is_ci()\nso Impact never records on CI. The unit tests run on CI too (GitHub Actions\nsets CI / GITHUB_ACTIONS), so that gate made 16 record-dependent impact tests\nwrite nothing and fail on the Linux and Windows runners while passing on a\ndeveloper's machine where CI is unset.\n\nRoute the gate through a record_gate_is_ci() helper that, under #[cfg(test)],\nreads a per-test TEST_FORCE_CI thread-local (default false) instead of the\nambient env, mirroring the existing TEST_CONFIG_DIR isolation. Tests now record\ninto their isolated temp store regardless of the suite's CI environment, and a\nnew record_is_a_noop_in_ci test forces the override true to pin the production\ngate. The release binary is unchanged: under #[cfg(not(test))] the helper is\nexactly telemetry::is_ci(), so the feature's CI behavior is untouched.",
-          "timestamp": "2026-06-13T09:45:57+02:00",
-          "tree_id": "db3cd1b741a48d6c5a1d4a185c15580d4abc1042",
-          "url": "https://github.com/fallow-rs/fallow/commit/7bed9e48bf7a27d3a1e78f1d0c29b3a64a10c36c"
-        },
-        "date": 1781336925454,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7596091,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36140,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 744725,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6639,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4384,6 +4340,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Bytes Allocated",
             "value": 10463979,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56532,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ade73c11cccb7b8ee9cc14f008dede26bff8d84b",
+          "message": "refactor: split load data key analyzer phases",
+          "timestamp": "2026-06-20T09:37:29+02:00",
+          "tree_id": "6b24d8ce1cba64ba67371f35889bdb9ef80f2020",
+          "url": "https://github.com/fallow-rs/fallow/commit/ade73c11cccb7b8ee9cc14f008dede26bff8d84b"
+        },
+        "date": 1781941300769,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10427091,
             "unit": "bytes"
           },
           {
