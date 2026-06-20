@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781950276520,
+  "lastUpdate": 1781950401690,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "aec4ed5ea2647241eae08f956818e4a2af639aac",
-          "message": "fix: credit Playwright fixture branch aliases\n\nPlaywright fixture callbacks now track simple local aliases that resolve to destructured fixture objects or dotted fixture paths. Ternaries, if/else assignments, and switch assignments credit every fixture target when all branches remain fixture-derived, while shadowing and unknown reassignments stay conservative.\n\nSame-file local base.extend<T>(...) fixture constants now participate in mergeTests(...) wrapper expansion through a Playwright-only internal key, so merged tests inherit local fixture targets without changing public export semantics. The extraction cache is bumped because warm caches can miss the new fixture-use sentinels.\n\nFixes #1270.",
-          "timestamp": "2026-06-17T08:32:58+02:00",
-          "tree_id": "9f9b935f4760f43cdb7f389c81697ccf5d66ccd2",
-          "url": "https://github.com/fallow-rs/fallow/commit/aec4ed5ea2647241eae08f956818e4a2af639aac"
-        },
-        "date": 1781678429936,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.03,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 390,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 957,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8f24edd7475f0f23745839c9f50d829cadb58196"
         },
         "date": 1781950273937,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 398,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 991,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e807a6750de0e9f3faf2969674137402be4ce3ce",
+          "message": "refactor: split angular output module scan",
+          "timestamp": "2026-06-20T12:11:59+02:00",
+          "tree_id": "57e4872a22a51c2d452d5893676f083f5e625b00",
+          "url": "https://github.com/fallow-rs/fallow/commit/e807a6750de0e9f3faf2969674137402be4ce3ce"
+        },
+        "date": 1781950398994,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
