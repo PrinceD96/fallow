@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781942001286,
+  "lastUpdate": 1781942122022,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "df250ec9880b62786b61ed3a13b014fbe56dbc34",
-          "message": "docs(impact): fix stale store path and redundant intra-doc link (#1234)\n\nUpdate the README impact paragraph to reflect the relocated store: history\nnow lives in the user config directory, not a gitignored .fallow/impact.json\nin the repo, and add a pointer to the new fallow impact --all cross-repo view.\n\nAlso drop the redundant explicit target on the is_server_only_module intra-doc\nlink in the mixed-barrel detection module docs, which was tripping the\ncargo doc -D warnings Documentation CI check on main.",
-          "timestamp": "2026-06-13T13:26:11+02:00",
-          "tree_id": "502219210e3db1d45775f87cc66d1d4f66837d92",
-          "url": "https://github.com/fallow-rs/fallow/commit/df250ec9880b62786b61ed3a13b014fbe56dbc34"
-        },
-        "date": 1781350158833,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 22,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.55,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 362,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 901,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/fb58c31e06489f6dd9d25b62994d23c4b08ccff3"
         },
         "date": 1781941998922,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 396,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 985,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4fcfb37eca53a258389f78b933942ae364ceaa3b",
+          "message": "refactor: group tainted sink finding inputs",
+          "timestamp": "2026-06-20T09:53:13+02:00",
+          "tree_id": "e0b06acb330349365a5b13d60e4c0bcb60ff3398",
+          "url": "https://github.com/fallow-rs/fallow/commit/4fcfb37eca53a258389f78b933942ae364ceaa3b"
+        },
+        "date": 1781942119369,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
