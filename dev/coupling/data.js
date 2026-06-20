@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781952203994,
+  "lastUpdate": 1781952354718,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c7bcdd3e516736bb9bd923db39303d4c5d20e11f",
-          "message": "refactor: reduce SIG unit interfacing\n\nReduce SIG unit-interfacing pressure by grouping long argument lists behind focused input structs while preserving existing analyzer and reporting behavior.\n\nKeep review fixes with the branch: CodeClimate severity handling stays guarded for empty output, benchmark-only dependencies live under dev-dependencies, and CI runs targeted extract Miri checks to stay within the runner budget.",
-          "timestamp": "2026-06-17T17:20:28+02:00",
-          "tree_id": "2a0d71aee037ba0023bd7743c9a3d249df61406a",
-          "url": "https://github.com/fallow-rs/fallow/commit/c7bcdd3e516736bb9bd923db39303d4c5d20e11f"
-        },
-        "date": 1781709756689,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.02,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 391,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 958,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b6b25e88339b4d039b2571119b9aec9bbd6033ae"
         },
         "date": 1781952201723,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 398,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 991,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "c2e36394ac33e4cda7693f468a2d3dfd720c9517",
+          "message": "refactor: split render fan-in metric build",
+          "timestamp": "2026-06-20T12:44:28+02:00",
+          "tree_id": "ef5c37bde508b14afb2b0ec126a357d4e5cded47",
+          "url": "https://github.com/fallow-rs/fallow/commit/c2e36394ac33e4cda7693f468a2d3dfd720c9517"
+        },
+        "date": 1781952351592,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
