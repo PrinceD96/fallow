@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781948151685,
+  "lastUpdate": 1781949008066,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "df250ec9880b62786b61ed3a13b014fbe56dbc34",
-          "message": "docs(impact): fix stale store path and redundant intra-doc link (#1234)\n\nUpdate the README impact paragraph to reflect the relocated store: history\nnow lives in the user config directory, not a gitignored .fallow/impact.json\nin the repo, and add a pointer to the new fallow impact --all cross-repo view.\n\nAlso drop the redundant explicit target on the is_server_only_module intra-doc\nlink in the mixed-barrel detection module docs, which was tripping the\ncargo doc -D warnings Documentation CI check on main.",
-          "timestamp": "2026-06-13T13:26:11+02:00",
-          "tree_id": "502219210e3db1d45775f87cc66d1d4f66837d92",
-          "url": "https://github.com/fallow-rs/fallow/commit/df250ec9880b62786b61ed3a13b014fbe56dbc34"
-        },
-        "date": 1781350144289,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7577987,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36115,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 747501,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6641,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56522,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "48ab37ffff16b61bfe7ef72842ab5468c8750fdd",
+          "message": "refactor: split tainted sink matching",
+          "timestamp": "2026-06-20T11:46:13+02:00",
+          "tree_id": "c5884ee2fe56bcee65a5fc4b2b0a5ac7cb5fbaf2",
+          "url": "https://github.com/fallow-rs/fallow/commit/48ab37ffff16b61bfe7ef72842ab5468c8750fdd"
+        },
+        "date": 1781949004279,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10436695,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56534,
             "unit": "allocations"
           },
           {
