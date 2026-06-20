@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781952050010,
+  "lastUpdate": 1781954352938,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "5bd32d41321e69532655c72707b6e04f976d5f99",
-          "message": "feat(unprovided-inject): flag Vue inject / Svelte getContext with no provider\n\nAdd a new cross-graph `unprovided-inject` rule (default severity warn, suppress-only) that flags a Vue inject(KEY) or Svelte getContext(KEY) whose symbol key is provide()/setContext()'d nowhere in the analyzed project. At runtime a dead inject silently returns undefined, surfaced only when the affected path renders; no static tool in the Vue/Svelte/Nuxt ecosystems catches it.\n\nNew persisted ModuleInfo.di_key_sites + has_dynamic_provide (CACHE_VERSION 153 to 155) feed a two-pass set-difference detector keyed on the canonical defining-site ExportKey, so a direct-imported provide and a barrel-imported inject of the same key match. Zero-FP abstain ladder: dep-gated on vue/@vue/runtime-core/svelte; package-imported keys, string-literal-const keys, public-API keys, and any dynamic-keyed provide all abstain. Wired through every report format, LSP, MCP, napi, VS Code, schema.json, the JSON contract, and the jq summaries. Nuxt string-keyed provide and the provided-never-injected direction are out of scope.",
-          "timestamp": "2026-06-13T22:14:17+02:00",
-          "tree_id": "ca538b23960136b75dda32e29723cf2c7165bcf9",
-          "url": "https://github.com/fallow-rs/fallow/commit/5bd32d41321e69532655c72707b6e04f976d5f99"
-        },
-        "date": 1781381890792,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7638739,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36157,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 752402,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6642,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56513,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "051eff6da9c2adf3bfccb44960dc89027bea6c11",
+          "message": "refactor: split angular component scan target",
+          "timestamp": "2026-06-20T13:15:35+02:00",
+          "tree_id": "4e9d2a33bf90d1a3be647ca048d6fa7e1d58b7de",
+          "url": "https://github.com/fallow-rs/fallow/commit/051eff6da9c2adf3bfccb44960dc89027bea6c11"
+        },
+        "date": 1781954350355,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10416487,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56551,
             "unit": "allocations"
           },
           {
