@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781959377045,
+  "lastUpdate": 1781959895619,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "16aa6a905beba4ea5d42ab65c1bf71af23ea11de",
-          "message": "fix(vscode): gate DIAGNOSTIC_CATEGORIES drift and wire policy-violation in the sidebar (#1268)\n\nCloses the last drift-coverage blind spot: the VS Code DIAGNOSTIC_CATEGORIES catalog was the one surface nothing gated against the schema, so a new LSP-emitted dead-code code that was never added there stayed uncounted and unfilterable in the editor.\n\nThe shared CI drift guard now asserts DIAGNOSTIC_CATEGORIES carries every canonical dead-code kind (derived from fallow schema), mapping each id to its diagnostic code so the boundary family is matched under the single boundary-violation editor code. The new gate immediately found a real gap: policy-violation is emitted by the LSP but was missing from every VS Code registry. It is now wired end to end (catalog, count, tree, labels, settings, config, schema, drift map, filterCheckResult toggle) so rule-pack policy violations are counted, rendered, and filterable like every other kind.",
-          "timestamp": "2026-06-15T18:40:41+02:00",
-          "tree_id": "29d34f4add51c927f07bf368809f9a465c7fab84",
-          "url": "https://github.com/fallow-rs/fallow/commit/16aa6a905beba4ea5d42ab65c1bf71af23ea11de"
-        },
-        "date": 1781541993992,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/341c7a8d35a051fdacbe4cc1c8a63901adaa5f78"
         },
         "date": 1781959373627,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4e87a61b68123a9873ee70c7e38dc724756c09aa",
+          "message": "refactor: split health result assembly",
+          "timestamp": "2026-06-20T14:47:34+02:00",
+          "tree_id": "05741d294fde5f91d705dd16f33c88e6037a4140",
+          "url": "https://github.com/fallow-rs/fallow/commit/4e87a61b68123a9873ee70c7e38dc724756c09aa"
+        },
+        "date": 1781959892464,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
