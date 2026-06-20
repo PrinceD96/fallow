@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781940589684,
+  "lastUpdate": 1781940829022,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b91a1d942ef2547f41a596d64f96815666c0ed07",
-          "message": "fix(ci): gate combined dupes on visible groups\n\nCombined CI mode previously used the raw duplication stats counter to decide whether the run had duplicate issues. That could fail a GitHub Action or GitLab CI run even when filtered output had no actionable `dupes.clone_groups[]` to render or annotate.\n\nThis changes the combined-mode GitHub Action and GitLab CI gates and summaries to count visible clone groups instead. Standalone `fallow dupes` keeps its existing stats behavior, while combined CI now matches the actionable result set users can inspect.\n\nFixes #1250.",
-          "timestamp": "2026-06-15T11:05:21+02:00",
-          "tree_id": "4271d89968418ef95a1cc53e285832dba7fed2e2",
-          "url": "https://github.com/fallow-rs/fallow/commit/b91a1d942ef2547f41a596d64f96815666c0ed07"
-        },
-        "date": 1781514543770,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/595f8d0a1c15d9cc0d2128d6ae1c478d2112f02e"
         },
         "date": 1781940587358,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b7055f6144038611012d5c0b78daa8feea72d061",
+          "message": "refactor: split render fan-in analyzer phases",
+          "timestamp": "2026-06-20T09:29:05+02:00",
+          "tree_id": "071d7e49b22c667f2b7cb0c3d667562370412d0a",
+          "url": "https://github.com/fallow-rs/fallow/commit/b7055f6144038611012d5c0b78daa8feea72d061"
+        },
+        "date": 1781940826716,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
