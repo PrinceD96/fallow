@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781963121584,
+  "lastUpdate": 1781963714314,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "8f89a62931fc9dd062c3ee187b954292df2f0160",
-          "message": "docs(changelog): note the --cloud coverage runtime-context parse fix\n\nThe #1263 fix (tolerate null caller_count/cyclomatic/owner_count in the\ncloud runtime-context response) shipped without an Unreleased entry; add\nit under Fixed.",
-          "timestamp": "2026-06-16T00:00:47+02:00",
-          "tree_id": "7f753a1fd97c1bc5fafd9323078128466b028e1c",
-          "url": "https://github.com/fallow-rs/fallow/commit/8f89a62931fc9dd062c3ee187b954292df2f0160"
-        },
-        "date": 1781561067160,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "6fff1cae115b97f486f779f140dbdec47521733e",
+          "message": "refactor: split changed-file framework filtering",
+          "timestamp": "2026-06-20T15:51:41+02:00",
+          "tree_id": "b10248014363959ca182815ca6e009bf14ae86fa",
+          "url": "https://github.com/fallow-rs/fallow/commit/6fff1cae115b97f486f779f140dbdec47521733e"
+        },
+        "date": 1781963712105,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
             "unit": "%"
           }
         ]
