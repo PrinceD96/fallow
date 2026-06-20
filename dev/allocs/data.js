@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781968000792,
+  "lastUpdate": 1781968425458,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "871dab1c3b7ed6f532d952aee13d848fd23862b8",
-          "message": "docs(extract): document the lightningcss/regex hybrid in css.rs\n\nRecords why standard-CSS class membership is lightningcss-owned while the\nregex chain and the entire SCSS path stay regex-based: lightningcss does\nnot parse SCSS (@use, @forward, // comments, $variables), so the regex\nscanners are permanent infrastructure, not a transitional step toward an\nall-parser tokenizer.",
-          "timestamp": "2026-06-15T22:43:03+02:00",
-          "tree_id": "2782133763bdad7e90c2fa0ab74c93af19c05acd",
-          "url": "https://github.com/fallow-rs/fallow/commit/871dab1c3b7ed6f532d952aee13d848fd23862b8"
-        },
-        "date": 1781556413354,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7764393,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36714,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 768978,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6695,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56614,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9a154d2b0d82d2ec737efe64b87fc24b02764da9",
+          "message": "refactor: split member assignment sink capture",
+          "timestamp": "2026-06-20T17:10:09+02:00",
+          "tree_id": "172910a0cad58507db2c492adb9954fd0d94701f",
+          "url": "https://github.com/fallow-rs/fallow/commit/9a154d2b0d82d2ec737efe64b87fc24b02764da9"
+        },
+        "date": 1781968422798,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10441383,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56605,
             "unit": "allocations"
           },
           {
