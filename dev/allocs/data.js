@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781966788431,
+  "lastUpdate": 1781967038246,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "10ef245eadaa2d83105f0a85a98987d764a6a2b1",
-          "message": "fix(health): credit authored CSS classes in typo scan",
-          "timestamp": "2026-06-15T20:07:46+02:00",
-          "tree_id": "cb42b0f7543c999cb69e8205bbf1839efaa5982e",
-          "url": "https://github.com/fallow-rs/fallow/commit/10ef245eadaa2d83105f0a85a98987d764a6a2b1"
-        },
-        "date": 1781547150787,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7762081,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36710,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 766458,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6694,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56574,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "90312950b59f8a69f44b181283271c5748cd2fae",
+          "message": "refactor: split css property token collection",
+          "timestamp": "2026-06-20T16:47:00+02:00",
+          "tree_id": "861454345c1f383fc9b94131512ec3106759dc80",
+          "url": "https://github.com/fallow-rs/fallow/commit/90312950b59f8a69f44b181283271c5748cd2fae"
+        },
+        "date": 1781967035333,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10430063,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56576,
             "unit": "allocations"
           },
           {
