@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782067314371,
+  "lastUpdate": 1782074957001,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "822d53caac16c115f9420a58606b266564391753",
-          "message": "chore(deps-dev): bump @vscode/test-electron in /editors/vscode\n\nBumps [@vscode/test-electron](https://github.com/Microsoft/vscode-test) from 2.5.2 to 3.0.0.\n- [Changelog](https://github.com/microsoft/vscode-test/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Microsoft/vscode-test/commits)\n\n---\nupdated-dependencies:\n- dependency-name: \"@vscode/test-electron\"\n  dependency-version: 3.0.0\n  dependency-type: direct:development\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
-          "timestamp": "2026-06-17T09:23:53+02:00",
-          "tree_id": "428c2930677f7583ce23aff7e30164a173d0cb19",
-          "url": "https://github.com/fallow-rs/fallow/commit/822d53caac16c115f9420a58606b266564391753"
-        },
-        "date": 1781681251995,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/de828f7de4029d5b61344f15f82a9fb76b997877"
         },
         "date": 1782067311635,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9a46ab94fc51b6eed0fb663af2f201cc589b802d",
+          "message": "ci(zizmor): suppress adhoc-packages for ci.yml and release.yml\n\nzizmor v1.26.1 added the adhoc-packages audit, flagging four deliberate pinned --ignore-scripts installs (ci.yml tarball smoke test, release.yml two-step pinned npm bootstrap, pinned vsce/ovsx). All already hardened per the release-workflow boundary; ignore the audit for those two files, matching existing per-rule suppressions.",
+          "timestamp": "2026-06-21T22:45:21+02:00",
+          "tree_id": "35f9ff2cb1cecbb8fafa3223cb9b5fce7487a576",
+          "url": "https://github.com/fallow-rs/fallow/commit/9a46ab94fc51b6eed0fb663af2f201cc589b802d"
+        },
+        "date": 1782074953756,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
