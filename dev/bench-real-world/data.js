@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781950113357,
+  "lastUpdate": 1782038255085,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -5681,6 +5681,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1122,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "6fde7abc51cd3cc841cc981968bac245b22fce12",
+          "message": "refactor: ratchet unit-size/interfacing clippy gates and bundle param clusters\n\nTighten the project's SIG-aligned unit-size and unit-interfacing gates to their next ratchet step and eliminate the resulting outliers with genuine refactors.\n\n- .clippy.toml: too_many_lines 150 to 100, too_many_arguments 7 to 6. Every production function is now under 100 lines; the 7-parameter outliers drop from 25 to 4 (frozen public/deprecated APIs with reasoned #[expect]).\n- Over-100-line production functions are split into cohesive private helpers; private 7-param functions are bundled into input/context structs (SarifCtx, HealthScanCtx, SecurityRankingInput, LoadConfigArgs, and several *Input structs).\n- Test fixtures keep their length via reasoned #[expect] rather than being fragmented.\n\nBehavior is unchanged: clippy --all-targets -D warnings clean at the new thresholds, full test suite green, output byte-identical across all formats.",
+          "timestamp": "2026-06-21T09:55:42Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/6fde7abc51cd3cc841cc981968bac245b22fce12"
+        },
+        "date": 1782038251422,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 305,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 410,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 407,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 610,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 511,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1330,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1223,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1223,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1222,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1027,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 917,
             "unit": "ms"
           }
         ]
