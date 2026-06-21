@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782049928479,
+  "lastUpdate": 1782067314371,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f59a2d6417b597fc13b1d1872c8415924c7fcef8",
-          "message": "chore(vscode): stop committing dist bundle; build fresh in CI/release\n\nThe marketplace VSIX is built fresh from src by ci.yml and release.yml\n(vscode-prep runs pnpm build then pnpm package), so the committed\ndist/extension.js never reached users. Tracking it only produced\nrecurring stale-dist CI failures whenever a direct-to-main push touched\nsrc or the output schema without rebuilding the bundle.\n\nGitignore editors/vscode/dist/, untrack the bundle and its sourcemap,\nand drop the now-pointless check:dist drift guard (CI step + script).\nUpdate AGENTS.md and the vscode-reviewer checklist to match.",
-          "timestamp": "2026-06-17T09:17:50+02:00",
-          "tree_id": "c33c983d29f5490dce99ff0099607a792d919988",
-          "url": "https://github.com/fallow-rs/fallow/commit/f59a2d6417b597fc13b1d1872c8415924c7fcef8"
-        },
-        "date": 1781680903707,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "de828f7de4029d5b61344f15f82a9fb76b997877",
+          "message": "test: cover hardcoded-secret classification and import-resolution fallbacks",
+          "timestamp": "2026-06-21T20:37:49+02:00",
+          "tree_id": "253c25e92677f18774115490d78fef368c6086d5",
+          "url": "https://github.com/fallow-rs/fallow/commit/de828f7de4029d5b61344f15f82a9fb76b997877"
+        },
+        "date": 1782067311635,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.2,
             "unit": "%"
           }
         ]
