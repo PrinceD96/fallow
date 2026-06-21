@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782035985928,
+  "lastUpdate": 1782049928479,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "29e69c21158eecf3578e21a9b353692e89e47f3c",
-          "message": "fix: keep JSX depth descriptive\n\nKeep JSX nesting as descriptive React layout context instead of folding it into cognitive complexity. Presentational React and Preact components still report react_jsx_max_depth for hotspot context, but pure markup depth no longer emits jsx-depth contributions or deepens nested ternary weights.\n\nKeep the public jsx-depth contribution kind in the schema for compatibility, update MCP and docs wording, and bump the extract cache version so stale cached React complexity scores are refreshed.\n\nFixes #1281.",
-          "timestamp": "2026-06-17T08:52:41+02:00",
-          "tree_id": "9c3221f40dba9f2a3c7973fe8b23b8f9ae1e7c2d",
-          "url": "https://github.com/fallow-rs/fallow/commit/29e69c21158eecf3578e21a9b353692e89e47f3c"
-        },
-        "date": 1781679406351,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6fde7abc51cd3cc841cc981968bac245b22fce12"
         },
         "date": 1782035983572,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ecd9905bffc7e9c19fbc45833e05540253b88da1",
+          "message": "ci(coverage): enforce a hard 92% coverage floor\n\nCoverage was report-only; add a hard 92% floor to coverage.yml (current main ~92.7%). Ratchets upward only; closes the CRAP loop alongside the clippy complexity gate.",
+          "timestamp": "2026-06-21T15:48:06+02:00",
+          "tree_id": "c19fefc3efaf0a45fb3b56a6131e873189eb11c7",
+          "url": "https://github.com/fallow-rs/fallow/commit/ecd9905bffc7e9c19fbc45833e05540253b88da1"
+        },
+        "date": 1782049924762,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
