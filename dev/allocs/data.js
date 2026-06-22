@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782125855295,
+  "lastUpdate": 1782167236542,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b66c18ac23a61de62a4a192ac0ec90b5f573af86",
-          "message": "fix(output): add framework action guidance\n\nLead framework dead-code findings with manual fix actions before the suppress fallback. The new action discriminants cover server actions, injects, SvelteKit load keys, unrendered components, Vue props and emits, and Svelte events while keeping every path non-auto-fixable.\n\nClarify template and component complexity rows in human and markdown health output while keeping machine-readable names stable. Regenerate the output schema and published TypeScript contracts so structured consumers see the new action vocabulary.",
-          "timestamp": "2026-06-17T10:27:54+02:00",
-          "tree_id": "7897d210ecf44770fef884e9d41ea7fe742cac88",
-          "url": "https://github.com/fallow-rs/fallow/commit/b66c18ac23a61de62a4a192ac0ec90b5f573af86"
-        },
-        "date": 1781685405820,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7748905,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36788,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 750154,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6195,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56594,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d2ce880ffbb3ddd8ec62daee23e545c067584f4a",
+          "message": "perf(cli): speed up command-only surfaces\n\nReuse file discovery in fallow list so plugin and entry-point listing do not walk the same project twice.\n\nRun optional fallow inspect evidence queries concurrently while capping each child to a fair share of the requested thread budget. Skip dirty-worktree checks for coverage upload dry-runs because no SHA-keyed upload happens.\n\nBenchmarked the affected release-binary command paths with hyperfine and verified output equivalence for the changed JSON and text surfaces.",
+          "timestamp": "2026-06-23T00:22:47+02:00",
+          "tree_id": "7cffd6e4edff66653cc96f929df11b94f1f9506d",
+          "url": "https://github.com/fallow-rs/fallow/commit/d2ce880ffbb3ddd8ec62daee23e545c067584f4a"
+        },
+        "date": 1782167234068,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10435375,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56614,
             "unit": "allocations"
           },
           {
