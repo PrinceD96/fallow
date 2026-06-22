@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782074957001,
+  "lastUpdate": 1782115057186,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "71af94a214c69cbd80165083bc1ef99f69c2826f",
-          "message": "chore(deps): bump docker node runtime to 26",
-          "timestamp": "2026-06-17T10:05:40+02:00",
-          "tree_id": "6c1dcb678a90afe87a75dfa2033848311d6191ec",
-          "url": "https://github.com/fallow-rs/fallow/commit/71af94a214c69cbd80165083bc1ef99f69c2826f"
-        },
-        "date": 1781683781118,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9a46ab94fc51b6eed0fb663af2f201cc589b802d"
         },
         "date": 1782074953756,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b594834c097157dda41ea60229d9d4e193f1f8a9",
+          "message": "test(config,ci): make env-var tests deterministic on Windows CI\n\nurl_timeout and FALLOW_BOT_LOGIN tests raced on parallel env mutation (passed on macOS, failed windows-latest). config: pure url_timeout_from parser, no env mutation. ci: serialize the two FALLOW_BOT_LOGIN override tests behind a shared mutex.",
+          "timestamp": "2026-06-22T09:30:30+02:00",
+          "tree_id": "b8815aae5fca9fbdc9145db97ca9e3e92af85ffa",
+          "url": "https://github.com/fallow-rs/fallow/commit/b594834c097157dda41ea60229d9d4e193f1f8a9"
+        },
+        "date": 1782115053999,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
