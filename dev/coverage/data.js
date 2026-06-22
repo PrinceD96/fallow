@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782119739252,
+  "lastUpdate": 1782121144583,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "9fb44aac4684f23967b73dcaaa30ca8598e2a4f1",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.98.0",
-          "timestamp": "2026-06-17T12:30:55+02:00",
-          "tree_id": "8f38b1deccdef7256fda48244739ac78d55046c3",
-          "url": "https://github.com/fallow-rs/fallow/commit/9fb44aac4684f23967b73dcaaa30ca8598e2a4f1"
-        },
-        "date": 1781692625413,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/88fe8a03a5384d902d0ddc025bad03d29266b1ce"
         },
         "date": 1782119736820,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "182e269f7d2fd6e18666e3d3d30d60d1291a6e53",
+          "message": "test: raise RUST_MIN_STACK to 16 MiB so Windows test threads survive clap-tree construction\n\nlibtest spawns each test on a thread sized from RUST_MIN_STACK (default ~2 MiB),\nnot the main-thread /STACK reserve. Building the full Cli::command() clap tree\n(exercised by crates/cli/src/schema.rs tests) outgrew that on Windows as the CLI\nsurface expanded, aborting the whole test binary with STATUS_STACK_OVERFLOW. Pin\ntest threads to the same 16 MiB the main thread (/STACK) and rayon workers already\nuse, via .cargo/config.toml [env]. Harmless lazy virtual reserve on POSIX hosts.",
+          "timestamp": "2026-06-22T11:34:56+02:00",
+          "tree_id": "e5f397b646c06ad472d2d3ddad2ebc9e305274e3",
+          "url": "https://github.com/fallow-rs/fallow/commit/182e269f7d2fd6e18666e3d3d30d60d1291a6e53"
+        },
+        "date": 1782121141433,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
