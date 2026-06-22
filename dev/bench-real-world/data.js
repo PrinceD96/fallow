@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782038255085,
+  "lastUpdate": 1782132952543,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -5773,6 +5773,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 917,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "d65589eac55a4823d0f9cbf98990200f7c200e30",
+          "message": "fix(audit): make non-reusable base-worktree paths unique per call\n\nBaseWorktree::create built the non-reusable worktree path from pid plus a\nwall-clock nanos read. nanos is not monotonic and repeats across threads, so two\naudit runs in one process (parallel unit tests, or a future in-process batch)\ncould mint the same temp path and race on `git worktree add`; the loser failed\nand the audit aborted with a generic exit 2. It surfaced as a flaky\naudit::tests::audit_dupes_falls_back_to_own_discovery_when_health_off (and audit\nsiblings) under parallel test runs, exposed once the Windows schema stack\noverflow stopped aborting the suite before those tests ran.\n\nAppend a process-global monotonic counter so every path is distinct regardless\nof clock resolution; the pid stays the first segment so orphan-sweep parsing is\nunchanged. Adds deterministic uniqueness and pid-parse regression tests.",
+          "timestamp": "2026-06-22T10:52:17Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/d65589eac55a4823d0f9cbf98990200f7c200e30"
+        },
+        "date": 1782132949479,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 308,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 411,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 410,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 717,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 616,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1639,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1433,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1329,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1331,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1231,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1125,
             "unit": "ms"
           }
         ]
