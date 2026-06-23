@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782206049669,
+  "lastUpdate": 1782207165862,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e588428bc570a98397ea182e069e72b07bd52811",
-          "message": "chore(benchmarks): switch codspeed benches to criterion2\n\nReplace the Divan compatibility harness with criterion2 for the Rust benchmark suites while preserving CodSpeed simulation coverage.\n\nConvert the core analysis, large analysis, and programmatic command benches to Criterion-style groups so local benchmark output includes the statistical comparisons used by the Oxc ecosystem.\n\nWire the benchmark packages through a codspeed feature and update the benchmark workflow to build instrumented criterion2 harnesses before running the existing shards.",
-          "timestamp": "2026-06-17T17:58:33+02:00",
-          "tree_id": "976dc05fee60f9aba85853a2439c35430174792e",
-          "url": "https://github.com/fallow-rs/fallow/commit/e588428bc570a98397ea182e069e72b07bd52811"
-        },
-        "date": 1781712373605,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0ffd4caa625a79cdcc9bb233d73c6c69a5e51131"
         },
         "date": 1782206045911,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e585f058e59b78b2d64339c7d16e380fbbcfc484",
+          "message": "refactor(review-app): namespace persisted state under fallow-review instead of fre\n\nRenames the review app's terse `fre` storage/env prefix to the explicit `fallow-review` namespace and drops the stopgap _typos.toml allowlist. String-literal-only; no persisted-state migration needed.",
+          "timestamp": "2026-06-23T11:28:32+02:00",
+          "tree_id": "6f4fc465bd3ac4490e0f5d135b8a2d021034a3a0",
+          "url": "https://github.com/fallow-rs/fallow/commit/e585f058e59b78b2d64339c7d16e380fbbcfc484"
+        },
+        "date": 1782207162601,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
