@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782128870480,
+  "lastUpdate": 1782205650120,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -4057,6 +4057,88 @@ window.BENCHMARK_DATA = {
           {
             "name": "Knip Total",
             "value": 2044,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 6.1,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.7,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.2,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 6.7,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 22.8,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 2.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "b7691eeaa076d322f01e5a30cafc87b6b9b3b2b5",
+          "message": "chore(typos): allowlist the review app's fre prefix\n\nThe review app namespaces its persisted UI state and QA env under a `fre` (fallow review) prefix. typos read these as a misspelling of \"free\" and failed tree-wide, reddening the Typos CI job. Allowlist `fre`/`FRE` as intentional.",
+          "timestamp": "2026-06-23T09:03:36Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/b7691eeaa076d322f01e5a30cafc87b6b9b3b2b5"
+        },
+        "date": 1782205647239,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 1.9,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 593,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30232,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2036,
             "unit": "issues"
           },
           {
