@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782167060967,
+  "lastUpdate": 1782200316486,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "9a3595db940aa38fccb24b97432acdd290cadea6",
-          "message": "refactor: split route collision buckets",
-          "timestamp": "2026-06-20T12:34:16+02:00",
-          "tree_id": "5171a63cffbbb50581746167289c71f14796a1de",
-          "url": "https://github.com/fallow-rs/fallow/commit/9a3595db940aa38fccb24b97432acdd290cadea6"
-        },
-        "date": 1781951747397,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d2ce880ffbb3ddd8ec62daee23e545c067584f4a"
         },
         "date": 1782167057627,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.98,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 410,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1022,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a8c0f881df379523229daf23bef79db86d45e3fe",
+          "message": "fix(telemetry): classify CLI failure reasons\n\nRecord lower-level cloud runtime failures before they reach generic emit_error paths, and let the workflow epilogue use explicit, noted, or fallback failure reasons before telemetry is serialized.\n\nAdd a scheduled PostHog fail-rate gate for the published CLI version so regressions like the 2.101.0 spike are detected against a trailing baseline after enough telemetry is present.\n\nFixes fallow-rs/fallow-cloud#375.\nFixes fallow-rs/fallow-cloud#376.",
+          "timestamp": "2026-06-23T09:37:24+02:00",
+          "tree_id": "4f4f98c5bdc0f4547e3977b0632c1486af79f15a",
+          "url": "https://github.com/fallow-rs/fallow/commit/a8c0f881df379523229daf23bef79db86d45e3fe"
+        },
+        "date": 1782200314033,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
