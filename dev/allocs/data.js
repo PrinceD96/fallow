@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782203416530,
+  "lastUpdate": 1782205444017,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a7c8bc7de7abfc05e695aa28edd921df410b83af",
-          "message": "test: improve coverage across CLI output helpers\n\nAdds focused coverage for CLI audit output, combined output helpers, cache notice lifecycle, and human report helper behavior.\n\nThe branch keeps production code unchanged and stops the coverage loop once the remaining gains became marginal.",
-          "timestamp": "2026-06-17T13:10:47+02:00",
-          "tree_id": "4ae405990625b22a3186685e65385c6e4eeab2d7",
-          "url": "https://github.com/fallow-rs/fallow/commit/a7c8bc7de7abfc05e695aa28edd921df410b83af"
-        },
-        "date": 1781694859885,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7756665,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36790,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 798082,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6696,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 56582,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f893d59ec16b212fde2555f59411a30990579cd9",
+          "message": "feat(lsp): React component intelligence + deeper prop extraction\n\nSurface descriptive React/Preact component context in the editor with no new rule, finding, severity, or gating. A code lens above each component summarizes it (render fan-in, prop count, hook breakdown), and a per-prop hover shows whether the prop is read in the body and how many call sites pass it, plus a prop-drilling trace (`forwarded N levels: A > B > C`) when the prop is forwarded. The data is an in-process serde-skip carrier read only by the LSP, gated on the editor `collect_usages` path so bare `fallow` / `audit` never compute it.\n\nThe same change deepens the React prop harvest feeding the existing `unused-component-prop` rule: same-file typed-interface props (`(props: Props) => props.x`) and generic `forwardRef<Ref, Props>`, not only inline destructure, with the zero-false-positive abstain ladder intact. No new CLI / JSON / MCP / SARIF / CI / schema surface; `CACHE_VERSION` 185 to 188.",
+          "timestamp": "2026-06-23T10:59:52+02:00",
+          "tree_id": "d0a1609844973fbae671e3e15d7c4b82938278fb",
+          "url": "https://github.com/fallow-rs/fallow/commit/f893d59ec16b212fde2555f59411a30990579cd9"
+        },
+        "date": 1782205441484,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10454993,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56974,
             "unit": "allocations"
           },
           {
