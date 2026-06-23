@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782248099142,
+  "lastUpdate": 1782251748935,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9b1f4546ebcfbc186352c60fe19231563cf06bf9",
-          "message": "chore: add analyzer follow-up tooling\n\n* chore: open post-pr-1300 followups branch\n\n* chore: add analyzer follow-up tooling\n\n* ci: skip bench targets in test job",
-          "timestamp": "2026-06-17T20:11:50+02:00",
-          "tree_id": "9170a63209b2faf0b28378f99b7f431744231b01",
-          "url": "https://github.com/fallow-rs/fallow/commit/9b1f4546ebcfbc186352c60fe19231563cf06bf9"
-        },
-        "date": 1781720270976,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/bb16e3b6c725d214056e46b098dac56b46226d24"
         },
         "date": 1782248095749,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "235f9ce1be056885cbcada39fe438bd90e716874",
+          "message": "docs: tighten fallow trace example in README to match command help",
+          "timestamp": "2026-06-23T23:52:15+02:00",
+          "tree_id": "e110046965757b6b09b1e18be9116c026eb55704",
+          "url": "https://github.com/fallow-rs/fallow/commit/235f9ce1be056885cbcada39fe438bd90e716874"
+        },
+        "date": 1782251746646,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
