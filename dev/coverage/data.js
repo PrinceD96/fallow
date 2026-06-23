@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782200499638,
+  "lastUpdate": 1782201809727,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "cd157f0c02d8b1ed5d668eb9e4ae6409cc449351",
-          "message": "chore: add Cargo lint profile hygiene",
-          "timestamp": "2026-06-17T14:56:34+02:00",
-          "tree_id": "d738cf5900bd19a0bcad3f049ca8c92934400813",
-          "url": "https://github.com/fallow-rs/fallow/commit/cd157f0c02d8b1ed5d668eb9e4ae6409cc449351"
-        },
-        "date": 1781701283767,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a8c0f881df379523229daf23bef79db86d45e3fe"
         },
         "date": 1782200497141,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2ce37db1bfe3eb610ae094d7a4bd873eb9eeb1a7",
+          "message": "feat(review): the fallow review app (Electron) (#1366)\n\nNative Electron review app: author brief + decision surface + model-inferred trade-offs (fallow-validated via change_anchors) + diff with comment-back-to-the-agent. Spawns the workspace fallow build by default.",
+          "timestamp": "2026-06-23T09:59:19+02:00",
+          "tree_id": "b0cf7b7cb4f9ba7a34583562a9ed5feeb2d4a0ab",
+          "url": "https://github.com/fallow-rs/fallow/commit/2ce37db1bfe3eb610ae094d7a4bd873eb9eeb1a7"
+        },
+        "date": 1782201806300,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
