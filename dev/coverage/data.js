@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782202564321,
+  "lastUpdate": 1782203541669,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c7bcdd3e516736bb9bd923db39303d4c5d20e11f",
-          "message": "refactor: reduce SIG unit interfacing\n\nReduce SIG unit-interfacing pressure by grouping long argument lists behind focused input structs while preserving existing analyzer and reporting behavior.\n\nKeep review fixes with the branch: CodeClimate severity handling stays guarded for empty output, benchmark-only dependencies live under dev-dependencies, and CI runs targeted extract Miri checks to stay within the runner budget.",
-          "timestamp": "2026-06-17T17:20:28+02:00",
-          "tree_id": "2a0d71aee037ba0023bd7743c9a3d249df61406a",
-          "url": "https://github.com/fallow-rs/fallow/commit/c7bcdd3e516736bb9bd923db39303d4c5d20e11f"
-        },
-        "date": 1781710042440,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/5de6a978fd5fd97b5533d6710ab8228c5c108062"
         },
         "date": 1782202561857,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "95e55a7cd35a29eaa7b53b4973225a81982c9fff",
+          "message": "feat(cli): enrich decision surface with honest consumer count + trade-off clause\n\nThe human decision surface presented each removal or rename decision without two facts that change how a reviewer reads it: how many in-repo modules still import the symbol, and the structural trade-off the change makes. Deleting an export reads very differently when zero modules depend on it versus eight.\n\nThis computes an honest internal_consumer_count from the module graph per decision and renders a one-line trade-off clause in the human surface (audit_decision_surface.rs, audit_brief.rs, check/mod.rs). Both fields are added to the JSON contract and the generated TypeScript and JSON schemas, so the review surface and any agent read the same data. The clause keeps subject-verb agreement across singular and plural consumer counts.",
+          "timestamp": "2026-06-23T10:24:30+02:00",
+          "tree_id": "4f9301c0736bb915968055ec60b482f7054b7215",
+          "url": "https://github.com/fallow-rs/fallow/commit/95e55a7cd35a29eaa7b53b4973225a81982c9fff"
+        },
+        "date": 1782203539175,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
