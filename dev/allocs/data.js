@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782200455296,
+  "lastUpdate": 1782202518930,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "592deffc4a140d7d731ac43abf86975dbdd3ad60",
-          "message": "chore: release v2.98.0",
-          "timestamp": "2026-06-17T11:40:07+02:00",
-          "tree_id": "ee8fbef1ae61d66a1b2801cc0aa78d8ff701f0f7",
-          "url": "https://github.com/fallow-rs/fallow/commit/592deffc4a140d7d731ac43abf86975dbdd3ad60"
-        },
-        "date": 1781689454240,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 7693745,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 36751,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 746010,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6193,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4384,6 +4340,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Bytes Allocated",
             "value": 10405487,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 56602,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5de6a978fd5fd97b5533d6710ab8228c5c108062",
+          "message": "feat(review): change_anchors for the walkthrough guide + validator (#1367)\n\nPer-hunk content-addressed change_anchors in the walkthrough guide; the validator accepts signal_id OR change_anchor (anchor_kind), folded into the snapshot hash. Schema + .d.ts regenerated.",
+          "timestamp": "2026-06-23T10:10:30+02:00",
+          "tree_id": "c61803b365bdcefc84e1d1e4efe16e9dd42ae0b2",
+          "url": "https://github.com/fallow-rs/fallow/commit/5de6a978fd5fd97b5533d6710ab8228c5c108062"
+        },
+        "date": 1782202515326,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10424431,
             "unit": "bytes"
           },
           {
