@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782132952543,
+  "lastUpdate": 1782211205439,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -5865,6 +5865,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1125,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "e585f058e59b78b2d64339c7d16e380fbbcfc484",
+          "message": "refactor(review-app): namespace persisted state under fallow-review instead of fre\n\nRenames the review app's terse `fre` storage/env prefix to the explicit `fallow-review` namespace and drops the stopgap _typos.toml allowlist. String-literal-only; no persisted-state migration needed.",
+          "timestamp": "2026-06-23T09:28:32Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/e585f058e59b78b2d64339c7d16e380fbbcfc484"
+        },
+        "date": 1782211202514,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 311,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 308,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 514,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 409,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 615,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 614,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1642,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1433,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1332,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1333,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1227,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1128,
             "unit": "ms"
           }
         ]
