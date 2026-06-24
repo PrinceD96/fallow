@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782211205439,
+  "lastUpdate": 1782296801746,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -5957,6 +5957,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1128,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "7de6b4ee07eb2635621af39a10e120bd8b75db8b",
+          "message": "fix(config): normalize leading dot ignore patterns\n\nStrip a single leading ./ before compiling ignorePatterns and ignoreUnresolvedImports so user globs match the project-root-relative paths used by source discovery and unresolved-import filtering.\n\nAdd focused regression coverage for resolved matchers and the source walker so the silent no-match case stays fixed.\n\nFixes #1385.",
+          "timestamp": "2026-06-24T09:56:51Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/7de6b4ee07eb2635621af39a10e120bd8b75db8b"
+        },
+        "date": 1782296798153,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 311,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 411,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 409,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 718,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 612,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1639,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1431,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1431,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1329,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1226,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1127,
             "unit": "ms"
           }
         ]
