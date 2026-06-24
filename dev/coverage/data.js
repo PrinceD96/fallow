@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782295330411,
+  "lastUpdate": 1782303657955,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6f1803626b4b5f0dfae0aabe205ce5c16f470436",
-          "message": "ci(codspeed): harden benchmark workflow\n\nAligns the CodSpeed benchmark workflow with the working sibling-project setup while keeping the existing cargo-codspeed shard model.\n\nThe jobs now request OIDC only where CodSpeed uploads need it, avoid persisting checkout credentials, include setup-rust changes in workflow triggers, and build with debug metadata for better CodSpeed analysis input.",
-          "timestamp": "2026-06-18T08:26:30+02:00",
-          "tree_id": "4e2b8bbed0c31bdeffe896851ff046440ad96ad6",
-          "url": "https://github.com/fallow-rs/fallow/commit/6f1803626b4b5f0dfae0aabe205ce5c16f470436"
-        },
-        "date": 1781764217019,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7de6b4ee07eb2635621af39a10e120bd8b75db8b"
         },
         "date": 1782295327204,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c0a7fdd8e75cae2c130f6c9ba24e822f4ba8d13a",
+          "message": "feat(dupes): ignore tests by default\n\nAdd test and mock path defaults to duplicate detection while keeping duplicates.ignoreDefaults: false as the opt-out. Optimize merged ignore matching so default skip accounting does not add another glob pass per file.\\n\\nFixes #1386.",
+          "timestamp": "2026-06-24T14:16:50+02:00",
+          "tree_id": "a273c5ad4ad73933ad99e582f5d4e433a598ac4b",
+          "url": "https://github.com/fallow-rs/fallow/commit/c0a7fdd8e75cae2c130f6c9ba24e822f4ba8d13a"
+        },
+        "date": 1782303655507,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
