@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782251748935,
+  "lastUpdate": 1782283041086,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "67cc9032ab5eb85b4d0b515160a861ed34917e17",
-          "message": "ci: run full codspeed suite on main\n\nKeep pull request CodSpeed feedback focused on the existing fast shards while adding the slower large-analysis shard for main pushes and manual benchmark runs.\n\nThis keeps PR latency low, but gives CodSpeed a fuller current baseline for long-running benchmarks. Removed historical benchmark IDs still need CodSpeed archival after the updated main run lands.",
-          "timestamp": "2026-06-17T20:34:43+02:00",
-          "tree_id": "f5fafbe261558c891aa4b62fef94f45b384526d4",
-          "url": "https://github.com/fallow-rs/fallow/commit/67cc9032ab5eb85b4d0b515160a861ed34917e17"
-        },
-        "date": 1781721523404,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/235f9ce1be056885cbcada39fe438bd90e716874"
         },
         "date": 1782251746646,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "3a40fb927410b008aa0b454f3cbf1df293393a50",
+          "message": "docs(agent): generate trace + decision-surface cli-reference sections; re-vendor skills",
+          "timestamp": "2026-06-24T08:33:18+02:00",
+          "tree_id": "a84a7f05b1087c6f0e6032cfd3d8652472060bad",
+          "url": "https://github.com/fallow-rs/fallow/commit/3a40fb927410b008aa0b454f3cbf1df293393a50"
+        },
+        "date": 1782283038326,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
