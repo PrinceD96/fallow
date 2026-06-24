@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782248469736,
+  "lastUpdate": 1782295620924,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "de74ee1c7f347a65a6965715436c9a259d540e99",
-          "message": "feat(sfc): flag missing static template asset refs via unresolved-import (#1246)\n\nVue / Svelte SFC markup is now scanned for static relative asset references (img/source/video/audio/track/embed src and poster). A reference that points to no file on disk surfaces as unresolved-import; an existing asset resolves with no finding.\n\nExtraction-only, reuses the existing unresolved-import category (no new rule, flag, or finding type). Conservative to stay false-positive-safe: only plain relative literals on genuine asset elements are checked; dynamic, aliased, root-relative, remote, interpolated, and query-suffixed values are skipped, custom-component src props are never read as assets, and refs inside script/style/comments are masked before scanning.\n\nCACHE_VERSION bumped 155 to 156 (SFC markup asset refs now emit SideEffect imports into the cached module shape).",
-          "timestamp": "2026-06-14T08:03:13+02:00",
-          "tree_id": "5af017763f8f3de7619ef25e7d51f2222d34b0d3",
-          "url": "https://github.com/fallow-rs/fallow/commit/de74ee1c7f347a65a6965715436c9a259d540e99"
-        },
-        "date": 1781417652078,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 289796952,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 362086056,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7de6b4ee07eb2635621af39a10e120bd8b75db8b",
+          "message": "fix(config): normalize leading dot ignore patterns\n\nStrip a single leading ./ before compiling ignorePatterns and ignoreUnresolvedImports so user globs match the project-root-relative paths used by source discovery and unresolved-import filtering.\n\nAdd focused regression coverage for resolved matchers and the source walker so the silent no-match case stays fixed.\n\nFixes #1385.",
+          "timestamp": "2026-06-24T11:56:51+02:00",
+          "tree_id": "4076857b89fbc8bc694e5149f0acaf8a8de66a4f",
+          "url": "https://github.com/fallow-rs/fallow/commit/7de6b4ee07eb2635621af39a10e120bd8b75db8b"
+        },
+        "date": 1782295617318,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 362089120,
             "unit": "bytes"
           }
         ]
