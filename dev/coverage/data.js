@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782284980022,
+  "lastUpdate": 1782285713495,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "df6ab207a72fff23987a64615dd2d740c99d7ed8",
-          "message": "fix: track CodSpeed benchmark fixture\n\nReplace the benchmark shard's machine-local real-world corpus path with a crate-local tracked representative TypeScript fixture.\n\nRename the shard to representative sources so clean checkouts build the bench target and the workflow label matches the measured input.",
-          "timestamp": "2026-06-17T22:21:03+02:00",
-          "tree_id": "df60b281c36fab653d0fa8866ae0b82b47e39db3",
-          "url": "https://github.com/fallow-rs/fallow/commit/df6ab207a72fff23987a64615dd2d740c99d7ed8"
-        },
-        "date": 1781728063682,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/fd94cfd999c583c3a924a42ce365b3db647f1d4b"
         },
         "date": 1782284976466,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "446714f8c8f9b5008f04454b92e896d0c9c3d06d",
+          "message": "docs(npm): replace em-dash in platform package READMEs",
+          "timestamp": "2026-06-24T09:17:36+02:00",
+          "tree_id": "f8c90f0b22686134d950cd0c6152d7265dfa07b5",
+          "url": "https://github.com/fallow-rs/fallow/commit/446714f8c8f9b5008f04454b92e896d0c9c3d06d"
+        },
+        "date": 1782285709627,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
