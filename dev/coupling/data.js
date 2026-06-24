@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782295081519,
+  "lastUpdate": 1782303400365,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "2519202ec8a2e5d236782635b5102f16a78948fc",
-          "message": "refactor: split tainted sink candidate build",
-          "timestamp": "2026-06-20T12:55:49+02:00",
-          "tree_id": "40ae6641c4a0d4951b9708659c7774393fc0cffb",
-          "url": "https://github.com/fallow-rs/fallow/commit/2519202ec8a2e5d236782635b5102f16a78948fc"
-        },
-        "date": 1781953030097,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7de6b4ee07eb2635621af39a10e120bd8b75db8b"
         },
         "date": 1782295078680,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 29,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.97,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 411,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1030,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "54cefdca3fb5620fb0a4c27ce9d6d68901e4184d",
+          "message": "refactor: harden issue contract registry\n\n* chore: open issue contract registry foundation branch\n\n* refactor: harden issue contract registry\n\n* fix: address issue contract review gaps",
+          "timestamp": "2026-06-24T14:15:30+02:00",
+          "tree_id": "87fb317b893a2ff45312f53c1061b83039482f3e",
+          "url": "https://github.com/fallow-rs/fallow/commit/54cefdca3fb5620fb0a4c27ce9d6d68901e4184d"
+        },
+        "date": 1782303397464,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
