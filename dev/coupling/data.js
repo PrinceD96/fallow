@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782303400365,
+  "lastUpdate": 1782303489704,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "aaeb8de2b7d21ed1c6155cbc03024288e008dd3d",
-          "message": "refactor: split sfc component prop collection",
-          "timestamp": "2026-06-20T12:57:21+02:00",
-          "tree_id": "3466882ca49135c1157bd05eb77001eef6be7f4b",
-          "url": "https://github.com/fallow-rs/fallow/commit/aaeb8de2b7d21ed1c6155cbc03024288e008dd3d"
-        },
-        "date": 1781953127431,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/54cefdca3fb5620fb0a4c27ce9d6d68901e4184d"
         },
         "date": 1782303397464,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 27,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 29,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.97,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 411,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1030,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c0a7fdd8e75cae2c130f6c9ba24e822f4ba8d13a",
+          "message": "feat(dupes): ignore tests by default\n\nAdd test and mock path defaults to duplicate detection while keeping duplicates.ignoreDefaults: false as the opt-out. Optimize merged ignore matching so default skip accounting does not add another glob pass per file.\\n\\nFixes #1386.",
+          "timestamp": "2026-06-24T14:16:50+02:00",
+          "tree_id": "a273c5ad4ad73933ad99e582f5d4e433a598ac4b",
+          "url": "https://github.com/fallow-rs/fallow/commit/c0a7fdd8e75cae2c130f6c9ba24e822f4ba8d13a"
+        },
+        "date": 1782303486979,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
