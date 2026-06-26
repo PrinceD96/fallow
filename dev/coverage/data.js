@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782479352313,
+  "lastUpdate": 1782480455154,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "397b1b0e439885eb3adc28930840df7236138cc2",
-          "message": "docs: refresh jscpd v5 benchmark results\n\nUpdate the duplication benchmark harness to use jscpd v5 and refresh the README table from a new real-world run.\n\nKeep the benchmark output neutral by reporting the faster tool instead of treating fallow as the baseline. The README now states that jscpd v5 is faster for raw duplication scanning while fallow keeps duplication inside the broader audit flow.\n\nFixes #1316.",
-          "timestamp": "2026-06-18T11:13:12+02:00",
-          "tree_id": "758245eae85e8e813639e0bcbc4d3ed2378e29e1",
-          "url": "https://github.com/fallow-rs/fallow/commit/397b1b0e439885eb3adc28930840df7236138cc2"
-        },
-        "date": 1781774224402,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4c8927efaf8a3677d36986701e43f4a1ed574758"
         },
         "date": 1782479349990,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "367ecaf9c03de9a5643aba4e141a520ba035171e",
+          "message": "fix(extract): credit Pinia store members through typed params (#1489 Case 2)\n\nA Pinia store passed as a param typed ReturnType<typeof useFooStore> (inline or\nvia a local type alias), and read as store.member, props.store.member, or\nconst { member } = props.store, was reported as an unused-store-members false\npositive: crediting only joined on the store-factory name and never resolved a\nparam typed as the store.\n\nRecords the type-alias-to-factory mapping and resolves a store-typed param to\nthe factory name through the existing binding_target_names remap, gated on the\nuse<Name>Store convention so a non-store ReturnType param never masks a real\nunused member. Extract-only; no analyze, CLI, or LSP change. CACHE_VERSION\nbumped 191 to 192.\n\nCompletes #1489 (Case 1, the inline form, shipped in #1634).\n\nCloses #1489.",
+          "timestamp": "2026-06-26T15:23:40+02:00",
+          "tree_id": "55fa1adc270c18c91bcb83e840e4d6b4e622e668",
+          "url": "https://github.com/fallow-rs/fallow/commit/367ecaf9c03de9a5643aba4e141a520ba035171e"
+        },
+        "date": 1782480452630,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
