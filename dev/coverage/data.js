@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782481801183,
+  "lastUpdate": 1782482176101,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "709fe1bf62bfc5da82d8462f4010a880ef94c642",
-          "message": "docs(benchmarks): refresh comparison tables\n\nRefresh the benchmark harness to compare dead-code runs against the current installed knip package instead of carrying legacy knip version columns. Align dead-code and dupes benchmark summaries around the same comparator and faster-tool fields, and keep the comparison helper from reporting n/a when knip has no comparable findings.\n\nUpdate the README performance section with current real-world benchmark medians from the refreshed harness, and keep benchmark scripts ASCII-clean for the repo style rules.",
-          "timestamp": "2026-06-18T13:13:30+02:00",
-          "tree_id": "b2bff590fda98c76d60ce8089781e58589350a94",
-          "url": "https://github.com/fallow-rs/fallow/commit/709fe1bf62bfc5da82d8462f4010a880ef94c642"
-        },
-        "date": 1781781424365,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/400c8416172afe7c1ae78c8bdd04dfb159e91ec7"
         },
         "date": 1782481797797,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2a348354c0102d245827e063e16b07ac43e38ba4",
+          "message": "docs(changelog): record the #1634 cluster FP fixes\n\nBroaden the store-member [Unreleased] entry to cover inline useFooStore().member (#1489 Case 1) and add the #1439 component-props entry that #1634 omitted. Docs-only.",
+          "timestamp": "2026-06-26T15:51:11+02:00",
+          "tree_id": "3f4d7f5cb9b4b71956c440b8baeed447f464ec8f",
+          "url": "https://github.com/fallow-rs/fallow/commit/2a348354c0102d245827e063e16b07ac43e38ba4"
+        },
+        "date": 1782482173697,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
