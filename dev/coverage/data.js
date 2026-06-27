@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782594447913,
+  "lastUpdate": 1782596035817,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9cadc4b71b358695d9a77c60a9fab331fc800f93",
-          "message": "perf: reduce duplicate matching work for web formats\n\nAdd a global duplicate-shingle prefilter, namespace duplicate token hashes across JS, style, and markup sections, and adjust the real-world benchmark watchdog for the expanded Next.js combined-analysis surface.",
-          "timestamp": "2026-06-18T14:53:17+02:00",
-          "tree_id": "2fb56bc22d8101e6966c6c392cb99a52d66a89fd",
-          "url": "https://github.com/fallow-rs/fallow/commit/9cadc4b71b358695d9a77c60a9fab331fc800f93"
-        },
-        "date": 1781787429768,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b006fb79cf1e6b80608532b80cdf290a9d9baad3"
         },
         "date": 1782594444434,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5a664dea3888b76e535b83f46b4ab2b4d4cf0f49",
+          "message": "feat(coverage): mirror cloud trust-output contract on local analyze report (#1646)\n\n* feat(coverage): mirror cloud trust-output contract on local analyze report (#316, #319)\n\n`coverage analyze` now emits the cloud runtime-context trust-output shape on the local report: actionable + actionability_reason + actionability_verdict (#316, a capture with no tracked functions is non-actionable with a first-class insufficient_evidence verdict, never read as cold) and a provenance block (#319: data_source, is_production 'unknown' locally, freshness_days, untracked_ratio, unresolved_ratio, stale, stale_after_days 14 mirrored from the cloud RUNTIME_STALE_AFTER_DAYS).\n\nF4: actionable is a non-action floor and provenance is context only; neither gates a positive verdict or confidence. The cloud-join path (analyze --cloud) carries the same shape; full cloud-provenance pass-through is #328. Additive (only the JSON format surfaces the block; 2 snapshots updated). fallow-rs/fallow-cloud#316 fallow-rs/fallow-cloud#319\n\n* chore(schema): regenerate output-schema for runtime-coverage provenance/actionable (#316, #319)\n\nThe new RuntimeCoverageProvenance struct + actionable/provenance report fields changed the derived JsonSchema; regenerate the committed docs/output-schema.json so the schema_emit drift tests pass. Additive only.",
+          "timestamp": "2026-06-27T23:27:47+02:00",
+          "tree_id": "4a134cb6d61be100c26b2f3907c296dc54b08da4",
+          "url": "https://github.com/fallow-rs/fallow/commit/5a664dea3888b76e535b83f46b4ab2b4d4cf0f49"
+        },
+        "date": 1782596033348,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
