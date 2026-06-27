@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782589066574,
+  "lastUpdate": 1782592069432,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "cf96273eb884bd06dacf16f37b9917591ff77900",
-          "message": "chore: harden CodSpeed benchmarks\n\nImprove benchmark isolation by replacing shared fixed temp paths with owned temporary directories.\n\nAdd a real-source CodSpeed shard that reuses the vendored Zod fixture, plus a bounded scaling shard for PR feedback. The slower full large-analysis suite remains limited to main and manual runs.",
-          "timestamp": "2026-06-17T22:12:57+02:00",
-          "tree_id": "0c930215c5dbb24c1aac3434340c59572bddca6c",
-          "url": "https://github.com/fallow-rs/fallow/commit/cf96273eb884bd06dacf16f37b9917591ff77900"
-        },
-        "date": 1781727381937,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 8660507,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 37680,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 791831,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6280,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 58546,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1775944e57c47367250f410889f2948545f8789a",
+          "message": "fix(vue): credit v-bind shorthand and <style> v-bind() as prop usage\n\nTwo Vue `unused-component-props` false positives from the SFC scanner missing prop references.\n\n1. Value-less `v-bind` same-name shorthand (Vue 3.4+): `:open` = `:open=\"open\"`, `:some-prop` = `:some-prop=\"someProp\"`. The camelCase argument of a value-less `:arg` / `v-bind:arg` is now credited.\n\n2. `<style> v-bind()`: Vue SFC CSS `v-bind(accent)` / `v-bind(props.accent)` / `v-bind('a.b')` binds a script or prop value into CSS. `<style>` bodies are now scanned for these references (quote- and paren-aware) and the referenced binding is credited.\n\nA `v-bind` written with an explicit value is unchanged. CACHE_VERSION 193 -> 195.\n\nRefs #1641.",
+          "timestamp": "2026-06-27T22:20:18+02:00",
+          "tree_id": "70fcb3b09cffc2a37b3a5d6cf85294cfe1ee98cb",
+          "url": "https://github.com/fallow-rs/fallow/commit/1775944e57c47367250f410889f2948545f8789a"
+        },
+        "date": 1782592065884,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10640625,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 58613,
             "unit": "allocations"
           },
           {
