@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782592040051,
+  "lastUpdate": 1782594447913,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c5f69714f4eafecfed254e2763bb2206fbc58422",
-          "message": "feat: expose framework health diagnostics\n\nAdd optional framework health diagnostics to health JSON output when the run already has analysis data. The payload reports detected framework ids and scoped detector statuses for active, disabled, abstained, and not-checked detectors.\n\nPreserve pre-parsed health analysis parity by deriving release-time module fields before analysis, so framework detector abstains are visible in health score runs too.",
-          "timestamp": "2026-06-18T14:20:32+02:00",
-          "tree_id": "e3ce4fdab46c37fce036740c2b6bd31902950c32",
-          "url": "https://github.com/fallow-rs/fallow/commit/c5f69714f4eafecfed254e2763bb2206fbc58422"
-        },
-        "date": 1781785858595,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1775944e57c47367250f410889f2948545f8789a"
         },
         "date": 1782592037556,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 94.1,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b006fb79cf1e6b80608532b80cdf290a9d9baad3",
+          "message": "feat(coverage): confidence-discriminator contract on analyze findings (#1645)\n\n* feat(coverage): emit confidence-discriminator contract on analyze findings (#321)\n\nEvery `coverage analyze` finding now carries a `discriminators` block alongside its verdict so an agent can reproduce the verdict and see the min-observation confidence cap instead of re-deriving them: tracking_state (called / never_called / untracked) from the three-state signal, invocation_ratio (invocations / trace_count), the low_traffic_threshold + min_observation_volume in effect (resolved CLI-side with the sidecar's own defaults, 0.001 / 5000), and trace_count + meets_observation_volume (floor visibility).\n\nF4: makes the EXISTING Fallow-owned discriminators legible; not a new or external signal and gates nothing. Additive + backwards-compatible (Optional, omitted when absent; the merge pipeline populates it, the cloud-join path omits it pending #328). All output formats + snapshots unaffected (fixtures omit it). fallow-rs/fallow-cloud#321\n\n* chore(schema): regenerate output-schema for the discriminator block (#321)\n\nThe new RuntimeCoverageDiscriminators struct + discriminators finding field changed the derived JsonSchema; regenerate the committed docs/output-schema.json so the schema_emit drift tests pass. Additive only.",
+          "timestamp": "2026-06-27T23:00:07+02:00",
+          "tree_id": "38924ceb8cc7d7b8c8eccadfb0a8c3dcde340fc0",
+          "url": "https://github.com/fallow-rs/fallow/commit/b006fb79cf1e6b80608532b80cdf290a9d9baad3"
+        },
+        "date": 1782594444434,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
