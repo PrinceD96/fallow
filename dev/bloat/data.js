@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782596311923,
+  "lastUpdate": 1782625348656,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "8c26b85369db46e2d00234d19aa8825475b07618",
-          "message": "feat(extract): recover SvelteKit page.data.<key> depth in templates (#1260)\n\nPrimitive C for unused-load-data-key: a SvelteKit global page-store read in a template, `{$page.data.KEY}` (Svelte 4 `$app/stores`) or `{page.data.KEY}` (Svelte 5 `$app/state`), now recovers the nested `page.data.<key>` member access for the cross-file load-data-key detector's project-wide global-store consumer channel.\n\nThe template scanner's `remap_object_name` previously remapped only the root identifier and dropped the `.data` suffix, so the consumed key was lost. It now recovers the canonical `page.data` object, gated on the Svelte dollar-ref path (excludes Vue) and scoped to the page store's `data` member. The script context already emitted the dotted form via the visitor's recursive member-name builder, so no visit_impl.rs change was needed.\n\nInternal extraction primitive with zero finding delta, so no CHANGELOG/detection.md entry, mirroring Primitives A (#1255) and B (#1257). CACHE_VERSION 164. Findings byte-identical on all 10 benchmark fixtures and 10 real SvelteKit corpus apps; extract + core + full-workspace tests, clippy, fmt, and cargo doc all green.",
-          "timestamp": "2026-06-15T12:37:14+02:00",
-          "tree_id": "24635a4b4b60e55ad741c4cd99416367843eec1e",
-          "url": "https://github.com/fallow-rs/fallow/commit/8c26b85369db46e2d00234d19aa8825475b07618"
-        },
-        "date": 1781520340057,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 294460976,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 362893032,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f8eb3dd6a2103fdcd20f210957ed7a0d4ff8914b",
+          "message": "refactor: consolidate engine api and output contracts\n\nSplit the architecture into explicit engine, output, API, and programmatic CLI boundaries so CLI rendering is no longer the implicit API surface. Typed engine results now feed CLI, LSP, NAPI, MCP, and programmatic consumers through shared contracts.\n\nMove output contracts out of CLI ownership, replace extraction sentinel protocols with typed semantic facts, unify issue metadata and cache fingerprints, and keep the graph cache behind stable FileId-aware keys. The final perf pass also removes an allocation from dupes identifier labeling.",
+          "timestamp": "2026-06-28T07:30:51+02:00",
+          "tree_id": "d9c5eb2f44852a326fc1c97da926f36b46b28d80",
+          "url": "https://github.com/fallow-rs/fallow/commit/f8eb3dd6a2103fdcd20f210957ed7a0d4ff8914b"
+        },
+        "date": 1782625345261,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 378555840,
             "unit": "bytes"
           }
         ]
