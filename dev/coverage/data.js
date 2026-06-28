@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782631755972,
+  "lastUpdate": 1782632537063,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4ee0c2e35aedea68cf6eadc87f7207ca71ec8142",
-          "message": "fix(ci): stream real-world benchmark logs\n\nKeep the real-world benchmark stderr artifact while also streaming progress to the Actions log, so benchmark runs do not go silent and timeout diagnostics remain visible.",
-          "timestamp": "2026-06-18T16:00:35+02:00",
-          "tree_id": "87329f8c0472743a17d50b546281c25dd6f47759",
-          "url": "https://github.com/fallow-rs/fallow/commit/4ee0c2e35aedea68cf6eadc87f7207ca71ec8142"
-        },
-        "date": 1781791459577,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/078c8372557fe5303dfa8d9de93123b07a75e402"
         },
         "date": 1782631753432,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e28929f58d96b190038826bce07c38808cff4166",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v2.103.0",
+          "timestamp": "2026-06-28T09:38:13+02:00",
+          "tree_id": "9575d956e7f2887730990aedd3331d1ee44d733d",
+          "url": "https://github.com/fallow-rs/fallow/commit/e28929f58d96b190038826bce07c38808cff4166"
+        },
+        "date": 1782632534090,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
