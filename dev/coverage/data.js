@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782628767630,
+  "lastUpdate": 1782631755972,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "bbc4116ec005e9e96d892da45bc869800b5c3373",
-          "message": "ci: keep benchmark watchdog in script\n\nReplace the external timeout wrapper with a script-local PID watchdog so real-world benchmark timeouts produce normal diagnostics and artifacts.",
-          "timestamp": "2026-06-18T15:43:11+02:00",
-          "tree_id": "81dd11d159f54f7ea40135a2e9fa0138855231f8",
-          "url": "https://github.com/fallow-rs/fallow/commit/bbc4116ec005e9e96d892da45bc869800b5c3373"
-        },
-        "date": 1781790416854,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ac68a1a4e99d9ee38ff9198c519f438d172358d2"
         },
         "date": 1782628764759,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "078c8372557fe5303dfa8d9de93123b07a75e402",
+          "message": "fix(release): publish new fallow-output/engine/api crates to crates.io\n\nThe engine/output contract refactor (v2.103.0) split out fallow-output,\nfallow-engine, and fallow-api, which are build dependencies of the published\nfallow-config / fallow-cli crates. The hardcoded crates.io publish list omitted\nthem, so fallow-config could not resolve fallow-output on the index and the\npublish chain broke after fallow-types. Add the three crates in dependency\norder (output after types; engine after core; api after engine).",
+          "timestamp": "2026-06-28T09:22:56+02:00",
+          "tree_id": "5f321989fb0f47a8f7c105ccca93c3eb0b2293ed",
+          "url": "https://github.com/fallow-rs/fallow/commit/078c8372557fe5303dfa8d9de93123b07a75e402"
+        },
+        "date": 1782631753432,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
