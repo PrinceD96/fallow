@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782731608672,
+  "lastUpdate": 1782737368834,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "86ffdd7f7069463d96bf53a6c3d988c49660032a",
-          "message": "refactor: split boundary cycle detector branches",
-          "timestamp": "2026-06-20T13:57:45+02:00",
-          "tree_id": "30dfae51bd44c7bbd1f23ec8f842f4f9b0997684",
-          "url": "https://github.com/fallow-rs/fallow/commit/86ffdd7f7069463d96bf53a6c3d988c49660032a"
-        },
-        "date": 1781956748843,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 831,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ff1e13f167bdaf05a5ecf9c419a2536df6acafcb",
+          "message": "feat(review): add `fallow review --walkthrough` human/markdown terminal renderer\n\nRender the existing StandardWalkthroughGuide as a staged terminal tour,\nthe zero-install surface for the review walkthrough.\n\n- fallow review --walkthrough: staged human tour (Review Focus header,\n  ordered stages, ordered files, per-file fact line, badges, the cleared\n  panel collapsed by default with an expand hint).\n- --format markdown: paste-into-PR artifact (no ANSI), to stdout.\n- --format json: delegates verbatim to the existing --walkthrough-guide\n  path; byte-identical wire, no contract fork.\n- per-file viewed-state at <cache_dir>/.fallow/walkthrough-state.json\n  (--mark-viewed), atomic write, stale-tolerant via graph_snapshot_hash.\n- review exit-0 invariant preserved; conflicts_with --walkthrough-guide\n  and --walkthrough-file.\n\nPure presentation over the in-memory guide: no re-derivation of ordering\nor facts, no new analyzer intelligence. The renderer is read-only.",
+          "timestamp": "2026-06-29T14:47:31+02:00",
+          "tree_id": "21f6b22a7d53ceedd79f98335261a8fc9ddc8557",
+          "url": "https://github.com/fallow-rs/fallow/commit/ff1e13f167bdaf05a5ecf9c419a2536df6acafcb"
+        },
+        "date": 1782737366152,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 26,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 29,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.79,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 380,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 835,
             "unit": "count"
           }
         ]
