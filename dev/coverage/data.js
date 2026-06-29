@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782720203257,
+  "lastUpdate": 1782721422074,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "88b0c6b8465dd6272d86f813f14e560e85430502",
-          "message": "fix(ci): skip timed out benchmark projects\n\nKeep real-world benchmark runs from failing the whole workflow when one project hits the per-project watchdog; partial benchmark JSON is still produced with skip diagnostics.",
-          "timestamp": "2026-06-18T17:28:02+02:00",
-          "tree_id": "88006cb5528184ebfdf5bc4b26819e7254468c7b",
-          "url": "https://github.com/fallow-rs/fallow/commit/88b0c6b8465dd6272d86f813f14e560e85430502"
-        },
-        "date": 1781796733812,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4caf4a8dfd12600fe6f5d01d752d3917128faf51"
         },
         "date": 1782720199839,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4f5aabde8eda855175aee7c0e1dbd695f31e9923",
+          "message": "test(release): guard crates.io publish list matches publishable workspace crates",
+          "timestamp": "2026-06-29T10:19:37+02:00",
+          "tree_id": "e545ffd666a6dc86ee5d9cc7f957f4e730cabff1",
+          "url": "https://github.com/fallow-rs/fallow/commit/4f5aabde8eda855175aee7c0e1dbd695f31e9923"
+        },
+        "date": 1782721419560,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
