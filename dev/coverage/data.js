@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782764207911,
+  "lastUpdate": 1782765540243,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "0541f1184331b39db2815b515156432e5efaba63",
-          "message": "docs(npm): refresh stale benchmark claims in npm README\n\nSync npm README benchmark framing to the corrected main README (jscpd Rust rewrite is faster for duplication; knip mixed). Refs #1316.",
-          "timestamp": "2026-06-19T19:52:25+02:00",
-          "tree_id": "53b80895a170864424782d6f311bb6f740c95703",
-          "url": "https://github.com/fallow-rs/fallow/commit/0541f1184331b39db2815b515156432e5efaba63"
-        },
-        "date": 1781891769430,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d5eb3efa80660d0798bd8f19861bfd02e8485b88"
         },
         "date": 1782764204237,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "857111c3427c83917374ddcbc3dac8f920a2680b",
+          "message": "fix(coverage): read cloud stable_id as snake_case on runtime-context (#1666)\n\nThe runtime-context response serializes CloudRuntimeFunction fields snake_case; the consumer renamed only stable_id to camelCase stableId, so the cross-surface join key always deserialized to None. Drop the rename (and on the blast/importance entry structs) so stable_id is read like every sibling field.",
+          "timestamp": "2026-06-29T20:35:10Z",
+          "tree_id": "1cd96711a96d3b163aa7ff8c64539ff79f058ce9",
+          "url": "https://github.com/fallow-rs/fallow/commit/857111c3427c83917374ddcbc3dac8f920a2680b"
+        },
+        "date": 1782765537365,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
