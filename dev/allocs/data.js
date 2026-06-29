@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782720157710,
+  "lastUpdate": 1782721375133,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a742fe4d876d1ae634309d7e4f470b02f7a84eb5",
-          "message": "feat(inspect): add CLI evidence bundle flow\n\nExpose `fallow inspect` as the CLI and editor path for the same evidence bundle that MCP `inspect_target` returns. The CLI composes trace, dead-code, duplication, complexity, and security evidence without adding a new analyzer pass.\n\nRoute the MCP tool through the CLI adapter, document the typed `inspect_target` root output in the schema, and regenerate the VS Code and npm contracts. The VS Code command now saves dirty active files before inspection and consumes the generated output type.\n\nTighten dogfood coverage for health, duplication, audit, duplicate config keys, and GitHub/GitLab renderer parity while keeping the core dead-code orchestration refactor local to result collection.",
-          "timestamp": "2026-06-18T15:15:32+02:00",
-          "tree_id": "d426dc2f6ada742222db53d12dd4ff1ad67be5c2",
-          "url": "https://github.com/fallow-rs/fallow/commit/a742fe4d876d1ae634309d7e4f470b02f7a84eb5"
-        },
-        "date": 1781788818459,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 8668858,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 37675,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 831784,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6695,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 58316,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4f5aabde8eda855175aee7c0e1dbd695f31e9923",
+          "message": "test(release): guard crates.io publish list matches publishable workspace crates",
+          "timestamp": "2026-06-29T10:19:37+02:00",
+          "tree_id": "e545ffd666a6dc86ee5d9cc7f957f4e730cabff1",
+          "url": "https://github.com/fallow-rs/fallow/commit/4f5aabde8eda855175aee7c0e1dbd695f31e9923"
+        },
+        "date": 1782721372817,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10591294,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 58314,
             "unit": "allocations"
           },
           {
