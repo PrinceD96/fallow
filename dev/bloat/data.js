@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782738113065,
+  "lastUpdate": 1782740076738,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "871dab1c3b7ed6f532d952aee13d848fd23862b8",
-          "message": "docs(extract): document the lightningcss/regex hybrid in css.rs\n\nRecords why standard-CSS class membership is lightningcss-owned while the\nregex chain and the entire SCSS path stay regex-based: lightningcss does\nnot parse SCSS (@use, @forward, // comments, $variables), so the regex\nscanners are permanent infrastructure, not a transitional step toward an\nall-parser tokenizer.",
-          "timestamp": "2026-06-15T22:43:03+02:00",
-          "tree_id": "2782133763bdad7e90c2fa0ab74c93af19c05acd",
-          "url": "https://github.com/fallow-rs/fallow/commit/871dab1c3b7ed6f532d952aee13d848fd23862b8"
-        },
-        "date": 1781556740727,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 333633784,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1fcfee6ad71b3bc70c16cabc59b5b6fa4d93123d"
         },
         "date": 1782738108723,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 380409904,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "19a5a58c8a5ce73b2928dd0a8ed2b7d7a6e3f15b",
+          "message": "test(review): end-to-end runtime-weighted focus map coverage\n\nAdds a gated integration test driving real `fallow review --runtime-coverage`:\na signed stub sidecar reports a hot path on a changed module, and the test\nasserts the brief's focus map weights it (a `runtime` score component that\nlifts the file into `review-here`). A negative control runs the same repo\nwithout `--runtime-coverage` and asserts no `runtime` component and no `skip`\nlabel.\n\nCovers the seam the unit tests cannot reach on their own: that\n`--runtime-coverage` populates `result.health.report.runtime_coverage` and that\n`build_runtime_focus` joins it onto the focus map end-to-end. Gated behind the\n`test-sidecar-key` cargo feature (signed stub + minted license).",
+          "timestamp": "2026-06-29T13:26:11Z",
+          "tree_id": "83dd19a5d0c726271e84d53a33e105516eb9f4fc",
+          "url": "https://github.com/fallow-rs/fallow/commit/19a5a58c8a5ce73b2928dd0a8ed2b7d7a6e3f15b"
+        },
+        "date": 1782740073710,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
