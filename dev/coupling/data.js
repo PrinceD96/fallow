@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782721529620,
+  "lastUpdate": 1782723360319,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e9d48be5721879e87bfa4d5a05af16fbe73e07ed",
-          "message": "refactor: split unused export collection",
-          "timestamp": "2026-06-20T13:46:11+02:00",
-          "tree_id": "c47cd2fa8f91a6d7d8cc6e312ea7877d1e1c2411",
-          "url": "https://github.com/fallow-rs/fallow/commit/e9d48be5721879e87bfa4d5a05af16fbe73e07ed"
-        },
-        "date": 1781956058361,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 828,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "377027c5764a2cf11b79e9e9ac6b6a79321a7442",
+          "message": "fix(plugins): credit commit-and-tag-version updater and bump files\n\nA custom version-bump `updater` JS module referenced under the package.json `commit-and-tag-version` key (or a `.versionrc` config) is loaded by the tool at runtime and has no static importer, so `unused-files` false-flagged it. fallow scanned only an allowlist of package.json keys and had no plugin for this tool.\n\nA new `commit-and-tag-version` plugin credits each `bumpFiles[]` / `packageFiles[]` entry's `updater` and `filename` as support files, gated on disk-existence so non-source targets (gradle/plist/version.txt) and phantom paths are never over-credited. The trait reads one package.json key, so a legacy `standard-version` user with config inlined under the `standard-version` key is covered via its `.versionrc` files.\n\nFixes #1640.",
+          "timestamp": "2026-06-29T10:53:58+02:00",
+          "tree_id": "4b9dde1e152ef06ccef4c17ef365d7882db5277a",
+          "url": "https://github.com/fallow-rs/fallow/commit/377027c5764a2cf11b79e9e9ac6b6a79321a7442"
+        },
+        "date": 1782723356386,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 25,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 29,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.79,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 378,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 831,
             "unit": "count"
           }
         ]
