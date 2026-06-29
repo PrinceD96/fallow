@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782719382496,
+  "lastUpdate": 1782719935888,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c5f69714f4eafecfed254e2763bb2206fbc58422",
-          "message": "feat: expose framework health diagnostics\n\nAdd optional framework health diagnostics to health JSON output when the run already has analysis data. The payload reports detected framework ids and scoped detector statuses for active, disabled, abstained, and not-checked detectors.\n\nPreserve pre-parsed health analysis parity by deriving release-time module fields before analysis, so framework detector abstains are visible in health score runs too.",
-          "timestamp": "2026-06-18T14:20:32+02:00",
-          "tree_id": "e3ce4fdab46c37fce036740c2b6bd31902950c32",
-          "url": "https://github.com/fallow-rs/fallow/commit/c5f69714f4eafecfed254e2763bb2206fbc58422"
-        },
-        "date": 1781785467048,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 8622930,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 37666,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 827220,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6690,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 58318,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 957673,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7376,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b294a60257e6900b0a209a2ffc0da38dd20ebcc0",
+          "message": "chore: mark fallow-programmatic-cli publish = false to match release crate list",
+          "timestamp": "2026-06-29T09:54:58+02:00",
+          "tree_id": "d7af88fbd12ad06a63fd3d4ee2dfa4bd93809cf5",
+          "url": "https://github.com/fallow-rs/fallow/commit/b294a60257e6900b0a209a2ffc0da38dd20ebcc0"
+        },
+        "date": 1782719933278,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10567534,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 58322,
             "unit": "allocations"
           },
           {
