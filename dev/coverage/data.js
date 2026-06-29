@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782727210849,
+  "lastUpdate": 1782729627616,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "78e21330430985dea8dd419c156d81dc17094a8a",
-          "message": "fix: tighten security workflow outputs\n\nTighten the security survivor and blind-spots workflows for CI and agent consumers.\n\nSurvivor output now uses schema version 2, reports unreviewed candidates through `summary.unverdicted`, and offers a strict complete-verdict gate for CI. The human output separates verifier dispositions from unreviewed candidates so fallow still presents candidates, not proven vulnerabilities.\n\nBlind-spots now accepts `--file` after the subcommand and keeps scoped unresolved-callee summary counts aligned with scoped diagnostics. Docs, generated schema, TypeScript contracts, and bundled agent guidance were updated with the new contract.",
-          "timestamp": "2026-06-19T08:01:00+02:00",
-          "tree_id": "8ed003b37d2346c8f35ed899401d27bd31119594",
-          "url": "https://github.com/fallow-rs/fallow/commit/78e21330430985dea8dd419c156d81dc17094a8a"
-        },
-        "date": 1781849123659,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a64ff318455f77583bbe9d4805792fc5da7e2962"
         },
         "date": 1782727207439,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ae0214951c811db6eb71ff52ef0dbd4413a460b9",
+          "message": "feat(config): exempt props via unusedComponentProps.ignorePattern (#1654)\n\nAdds an opt-in `unusedComponentProps: { ignorePattern: \"<regex>\" }` config section. The regex is matched against each declared component prop's local destructure binding name (e.g. `_stage`), exempting it from `unused-component-props`. Honors the leading-underscore \"accepted-but-intentionally-unused\" convention (Svelte 5 `$props()`, React destructure) mirroring TypeScript `noUnusedParameters` and ESLint `varsIgnorePattern` / `argsIgnorePattern`.\n\nApplies to all four arms sharing the `ComponentProp` IR (Vue, Svelte, Astro, React/Preact). Validated at config load (invalid regex fails load with exit 2), compiled defensively at resolve. Matching is unanchored, so users anchor with `^_`. A human-output note reports the exempted count. No `CACHE_VERSION` bump. Default behavior unchanged (opt-in only).\n\nFixes #1648.",
+          "timestamp": "2026-06-29T12:36:17+02:00",
+          "tree_id": "7b1f22d13dcc425a67d2b921a0f36ad30246f441",
+          "url": "https://github.com/fallow-rs/fallow/commit/ae0214951c811db6eb71ff52ef0dbd4413a460b9"
+        },
+        "date": 1782729624092,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
