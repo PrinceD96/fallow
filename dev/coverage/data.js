@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782737710297,
+  "lastUpdate": 1782739806425,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f916fe3cc2036ed8b8e970738928d5e2dbcf673e",
-          "message": "docs(mcp): cover devDependency install for MCP server setup (#1344)\n\nThe MCP config example assumed fallow-mcp was on PATH (a global install). As a project devDependency the binary lives in node_modules/.bin/ and the server fails with ENOENT, so document launching it via the package manager runner (npx / pnpm exec / yarn / bunx) in the npm README's agents section, plus a Documentation CHANGELOG entry.\n\nThe matching MCP integration guide, quickstart, and mcp.mdx snippets are updated in the fallow-docs companion repo.\n\nCloses #1343.",
-          "timestamp": "2026-06-19T10:15:38+02:00",
-          "tree_id": "29eb6b76d72f6128e104fe698246a4e15b7d0c22",
-          "url": "https://github.com/fallow-rs/fallow/commit/f916fe3cc2036ed8b8e970738928d5e2dbcf673e"
-        },
-        "date": 1781857164842,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1fcfee6ad71b3bc70c16cabc59b5b6fa4d93123d"
         },
         "date": 1782737707620,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "19a5a58c8a5ce73b2928dd0a8ed2b7d7a6e3f15b",
+          "message": "test(review): end-to-end runtime-weighted focus map coverage\n\nAdds a gated integration test driving real `fallow review --runtime-coverage`:\na signed stub sidecar reports a hot path on a changed module, and the test\nasserts the brief's focus map weights it (a `runtime` score component that\nlifts the file into `review-here`). A negative control runs the same repo\nwithout `--runtime-coverage` and asserts no `runtime` component and no `skip`\nlabel.\n\nCovers the seam the unit tests cannot reach on their own: that\n`--runtime-coverage` populates `result.health.report.runtime_coverage` and that\n`build_runtime_focus` joins it onto the focus map end-to-end. Gated behind the\n`test-sidecar-key` cargo feature (signed stub + minted license).",
+          "timestamp": "2026-06-29T13:26:11Z",
+          "tree_id": "83dd19a5d0c726271e84d53a33e105516eb9f4fc",
+          "url": "https://github.com/fallow-rs/fallow/commit/19a5a58c8a5ce73b2928dd0a8ed2b7d7a6e3f15b"
+        },
+        "date": 1782739803917,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
