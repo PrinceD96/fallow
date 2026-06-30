@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782828794826,
+  "lastUpdate": 1782829538982,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7b98ff7a17c3f4c88eaec90f48cb0a6e9a06b503",
-          "message": "test: improve runtime coverage source map tests",
-          "timestamp": "2026-06-20T15:20:39+02:00",
-          "tree_id": "47a430f889caec67ecae6351641a188d059be350",
-          "url": "https://github.com/fallow-rs/fallow/commit/7b98ff7a17c3f4c88eaec90f48cb0a6e9a06b503"
-        },
-        "date": 1781961707851,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/686b8034bf7e807c4d4761e24de1123648abed0c"
         },
         "date": 1782828791853,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 26,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 29,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.79,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 382,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 837,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "903d6f95d9b937daa623a3dab396ef113bfeca03",
+          "message": "chore(deps): bump oxc_resolver from 11.21.0 to 11.21.3 in the oxc group (#1693)\n\nBumps the oxc group with 1 update: [oxc_resolver](https://github.com/oxc-project/oxc-resolver).\n\n\nUpdates `oxc_resolver` from 11.21.0 to 11.21.3\n- [Release notes](https://github.com/oxc-project/oxc-resolver/releases)\n- [Changelog](https://github.com/oxc-project/oxc-resolver/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/oxc-project/oxc-resolver/compare/v11.21.0...v11.21.3)\n\n---\nupdated-dependencies:\n- dependency-name: oxc_resolver\n  dependency-version: 11.21.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: oxc\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-06-30T14:14:25Z",
+          "tree_id": "adf8ef90b20f813988b74b429eb0139d6f34f48c",
+          "url": "https://github.com/fallow-rs/fallow/commit/903d6f95d9b937daa623a3dab396ef113bfeca03"
+        },
+        "date": 1782829536617,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
