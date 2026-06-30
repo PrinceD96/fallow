@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782811988263,
+  "lastUpdate": 1782816256207,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "8d7c91573b893d9a67822de901165195397a4b3a",
-          "message": "chore: remove stray plans/ research doc and ignore the path\n\nA research scratch doc was committed under an undotted plans/ directory.\nScratch plan/research docs belong in the gitignored .plans/ and should not\nship in the repo. Remove the file and add plans/ to .gitignore so git add -A\ncannot sweep one in again.",
-          "timestamp": "2026-06-19T22:20:35+02:00",
-          "tree_id": "5aebfecbf67775ca0b9d4c7398775497d1f4cf42",
-          "url": "https://github.com/fallow-rs/fallow/commit/8d7c91573b893d9a67822de901165195397a4b3a"
-        },
-        "date": 1781900676986,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8b0796b923954b049210e16f7b61713edaee8a33"
         },
         "date": 1782811985689,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5c72d26939cd6f21847c0897de42f81873842184",
+          "message": "fix(health): no implicit px on custom-property values in object CSS-in-JS (#1672)\n\nThe object serializer applied implicit-px to numeric custom-property values\n(`--space: 8` -> `--space:8px`), fabricating a unit the bundler never emits.\nEmotion's own serializer guards px with `!isCustomProperty(key)`\n(@emotion/serialize) and React does the same, so a numeric `--x` value stays\nunitless. Skip implicit px for `--*` properties so the lifted CSS matches the\nreal compiled output. Found while smoke-testing the emotion site's\n`<Global>` custom-property block on real public projects.",
+          "timestamp": "2026-06-30T12:33:40+02:00",
+          "tree_id": "7457c935790576edb2b4f119f6072c43a2d65a9c",
+          "url": "https://github.com/fallow-rs/fallow/commit/5c72d26939cd6f21847c0897de42f81873842184"
+        },
+        "date": 1782816253306,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
