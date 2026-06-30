@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782833035351,
+  "lastUpdate": 1782834607523,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "235bbfcb3a09e6951fd0b654e12a0f2af1535fbf",
-          "message": "refactor: split workspace plugin fast path",
-          "timestamp": "2026-06-20T11:31:56+02:00",
-          "tree_id": "b27e8d08193b76df79a1eb61f547a843eb1c0681",
-          "url": "https://github.com/fallow-rs/fallow/commit/235bbfcb3a09e6951fd0b654e12a0f2af1535fbf"
-        },
-        "date": 1781948149393,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10392483,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 56522,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4384,6 +4340,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Bytes Allocated",
             "value": 10404588,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 58464,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0408c5a174382529d2e6bbec391f3055bcec02bb",
+          "message": "feat(css): design-token blast-radius for CSS-in-JS token definitions (Phase 3d) (#1701)\n\nExtend css_analytics.token_consumers + the get_token_blast_radius MCP tool from Tailwind v4 @theme tokens to CSS-in-JS token definitions (StyleX defineVars, vanilla-extract createTheme family). Descriptive-only, dep-gated, additive ConsumerKind::JsMember, no new wire field, no CACHE_VERSION bump. Panda deferred to 3e.",
+          "timestamp": "2026-06-30T17:45:49+02:00",
+          "tree_id": "ceea2a353cebb35511e90238997969a9e414cfd0",
+          "url": "https://github.com/fallow-rs/fallow/commit/0408c5a174382529d2e6bbec391f3055bcec02bb"
+        },
+        "date": 1782834603799,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10433628,
             "unit": "bytes"
           },
           {
