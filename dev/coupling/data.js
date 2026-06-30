@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782765781481,
+  "lastUpdate": 1782799879250,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c1dc0da9a24611711db12bac734df541d9dcfdcb",
-          "message": "refactor: split changed-file result filters",
-          "timestamp": "2026-06-20T14:30:48+02:00",
-          "tree_id": "c6b980ce7a7e59bca6a98a6ab21e89b0712cb2af",
-          "url": "https://github.com/fallow-rs/fallow/commit/c1dc0da9a24611711db12bac734df541d9dcfdcb"
-        },
-        "date": 1781958727630,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 835,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ce3c76b0cea9e091b8471c63f7cc0e992a14b806",
+          "message": "feat(health): CSS-in-JS first-class in styling analytics (CSS program Phase 3)\n\nCSS program Phase 3: make CSS-in-JS a first-class citizen of fallow's CSS analytics.\n\n3a: characterizes that styled-components / emotion / vanilla-extract styled bindings are ordinary value exports already covered by unused-export, and the libraries are credited via their value imports (no new detection code, dep gate, or IssueKind). Adds a fixture, a no-regression integration test, and a detection.md entry.\n\n3b: adds css_in_js_virtual_stylesheet, a lexical lifter (the tagged-template analogue of sfc_virtual_stylesheet) that lifts styled/css/keyframes template-literal CSS into a blank-line-padded virtual stylesheet, masking interpolations to a CSS-valid placeholder, so compute_css_analytics + styling-health analyze CSS-in-JS like a .css file. The engine admits a JS/TS arm in the CSS walk (CssScanKind::CssInJs) dep-gated on project_uses_css_in_js, so a non-CSS-in-JS project never scans JS/TS files. Template-literal form only; health-time-only over source (no CACHE_VERSION bump, no new wire field); styling-health stays descriptive-only.",
+          "timestamp": "2026-06-30T08:04:26+02:00",
+          "tree_id": "1d901e0018d491d65a5bb49238c895a4dcaf7619",
+          "url": "https://github.com/fallow-rs/fallow/commit/ce3c76b0cea9e091b8471c63f7cc0e992a14b806"
+        },
+        "date": 1782799876435,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 26,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 29,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.79,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 381,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 836,
             "unit": "count"
           }
         ]
