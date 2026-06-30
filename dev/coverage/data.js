@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782826885584,
+  "lastUpdate": 1782829692264,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b7055f6144038611012d5c0b78daa8feea72d061",
-          "message": "refactor: split render fan-in analyzer phases",
-          "timestamp": "2026-06-20T09:29:05+02:00",
-          "tree_id": "071d7e49b22c667f2b7cb0c3d667562370412d0a",
-          "url": "https://github.com/fallow-rs/fallow/commit/b7055f6144038611012d5c0b78daa8feea72d061"
-        },
-        "date": 1781940826716,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1ecf9d859f92801d61e3704fe24278307bbf75b4"
         },
         "date": 1782826882994,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a350562ea8b2c4957121c39ad0ed3455c7244036",
+          "message": "chore(deps): bump @commitlint/cli and config-conventional to 21.1.0 (#1700)\n\nSupersedes #1683 and #1687. Dependabot's #1683 lockfile was generated on a\nstale base (it downgraded oxfmt 0.56.0 to 0.55.0) and was missing\nconventional-commits-parser@6.4.0, failing npm ci. commitlint 21.1.0 also\nmakes config-conventional a direct dependency of cli, so both bump together.\n\nLockfile regenerated cleanly off current main; npm ci is back in sync.\n\nCloses #1683\nCloses #1687",
+          "timestamp": "2026-06-30T14:19:18Z",
+          "tree_id": "b99974f2e26c17c6e8ed8d91d98bec829f28819b",
+          "url": "https://github.com/fallow-rs/fallow/commit/a350562ea8b2c4957121c39ad0ed3455c7244036"
+        },
+        "date": 1782829689834,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
