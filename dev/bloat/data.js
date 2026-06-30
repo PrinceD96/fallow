@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782826562504,
+  "lastUpdate": 1782828378416,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b66c18ac23a61de62a4a192ac0ec90b5f573af86",
-          "message": "fix(output): add framework action guidance\n\nLead framework dead-code findings with manual fix actions before the suppress fallback. The new action discriminants cover server actions, injects, SvelteKit load keys, unrendered components, Vue props and emits, and Svelte events while keeping every path non-auto-fixable.\n\nClarify template and component complexity rows in human and markdown health output while keeping machine-readable names stable. Regenerate the output schema and published TypeScript contracts so structured consumers see the new action vocabulary.",
-          "timestamp": "2026-06-17T10:27:54+02:00",
-          "tree_id": "7897d210ecf44770fef884e9d41ea7fe742cac88",
-          "url": "https://github.com/fallow-rs/fallow/commit/b66c18ac23a61de62a4a192ac0ec90b5f573af86"
-        },
-        "date": 1781686003040,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 345899656,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 383829888,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "686b8034bf7e807c4d4761e24de1123648abed0c",
+          "message": "fix(review): grammar + tighter wording for walkthrough decision facts\n\nSmoke-testing the contract-change wording surfaced two nits:\n\n- Singular/plural: a single changed export rendered \"changes exports\n  (createBeaconLifecycle)\". Pluralize the noun by symbol count, so one\n  export reads \"changes export (X)\" and several read \"changes exports (...)\".\n- The consolidated public-API-surface question carried a generic filler\n  sentence (\"These become maintained contracts.\") that, with the question\n  dropped in the tour, left a wordy two-sentence fact. Fold it into the\n  question (\"This change adds N exports to the public API surface. Intended\n  as maintained contracts, or should they stay internal?\"), so the tour\n  fact is one clean sentence.\n\nVerified the coordination (singular + plural) and boundary facts on real\nand synthetic diffs; added a unit test pinning the public-API-surface tour\nfact. Decision-question wording only; the schemas and the agent contract\nare unchanged.",
+          "timestamp": "2026-06-30T15:46:02+02:00",
+          "tree_id": "056f4535ece3cfc61893d3f20bd590ba44d286b9",
+          "url": "https://github.com/fallow-rs/fallow/commit/686b8034bf7e807c4d4761e24de1123648abed0c"
+        },
+        "date": 1782828375156,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 383829352,
             "unit": "bytes"
           }
         ]
