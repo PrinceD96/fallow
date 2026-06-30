@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782766519090,
+  "lastUpdate": 1782800044913,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "5275ec5945b195269797dfb9e45b190b61a86251",
-          "message": "feat(analyze): flag Svelte events dispatched but listened nowhere (#1283)\n\nNew default-warn IssueKind unused-svelte-event (gated on svelte): a Svelte\ncomponent dispatching a custom event via createEventDispatcher whose name is\nlistened to nowhere project-wide. Cross-file dead-output direction, no native\ncoverage. Two-pass set-difference detector (liberal listened set, flag the\ndisjoint). Abstains on dynamic/forwarded dispatch; DOM on:click excluded.\nCACHE_VERSION 173->174. Zero-FP on Budibase (6 true positives). Wave 2 W2.2.",
-          "timestamp": "2026-06-16T22:39:46+02:00",
-          "tree_id": "5790f221257bf3363db2b3cc870585d4dc87d585",
-          "url": "https://github.com/fallow-rs/fallow/commit/5275ec5945b195269797dfb9e45b190b61a86251"
-        },
-        "date": 1781642981470,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 344379192,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 382013392,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ce3c76b0cea9e091b8471c63f7cc0e992a14b806",
+          "message": "feat(health): CSS-in-JS first-class in styling analytics (CSS program Phase 3)\n\nCSS program Phase 3: make CSS-in-JS a first-class citizen of fallow's CSS analytics.\n\n3a: characterizes that styled-components / emotion / vanilla-extract styled bindings are ordinary value exports already covered by unused-export, and the libraries are credited via their value imports (no new detection code, dep gate, or IssueKind). Adds a fixture, a no-regression integration test, and a detection.md entry.\n\n3b: adds css_in_js_virtual_stylesheet, a lexical lifter (the tagged-template analogue of sfc_virtual_stylesheet) that lifts styled/css/keyframes template-literal CSS into a blank-line-padded virtual stylesheet, masking interpolations to a CSS-valid placeholder, so compute_css_analytics + styling-health analyze CSS-in-JS like a .css file. The engine admits a JS/TS arm in the CSS walk (CssScanKind::CssInJs) dep-gated on project_uses_css_in_js, so a non-CSS-in-JS project never scans JS/TS files. Template-literal form only; health-time-only over source (no CACHE_VERSION bump, no new wire field); styling-health stays descriptive-only.",
+          "timestamp": "2026-06-30T08:04:26+02:00",
+          "tree_id": "1d901e0018d491d65a5bb49238c895a4dcaf7619",
+          "url": "https://github.com/fallow-rs/fallow/commit/ce3c76b0cea9e091b8471c63f7cc0e992a14b806"
+        },
+        "date": 1782800040471,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 382101888,
             "unit": "bytes"
           }
         ]
