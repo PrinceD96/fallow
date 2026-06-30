@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782832339619,
+  "lastUpdate": 1782833120647,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c36bdecf430893074c6948b7a54030ec17123a81",
-          "message": "refactor: split dependency detector population",
-          "timestamp": "2026-06-20T15:29:51+02:00",
-          "tree_id": "02ba2601dc1b573e238a5b569dc385be4d504024",
-          "url": "https://github.com/fallow-rs/fallow/commit/c36bdecf430893074c6948b7a54030ec17123a81"
-        },
-        "date": 1781962276881,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6325aee5c0d3247d047f7759252dfd70f8ff6a44"
         },
         "date": 1782832336752,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 26,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 29,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.99,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 405,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 935,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "16d44a1e5b65cbeb799506a730378bc8a57eab72",
+          "message": "chore(deps): bump rmcp from 1.7.0 to 1.8.0 (#1698)\n\nBumps [rmcp](https://github.com/modelcontextprotocol/rust-sdk) from 1.7.0 to 1.8.0.\n- [Release notes](https://github.com/modelcontextprotocol/rust-sdk/releases)\n- [Changelog](https://github.com/modelcontextprotocol/rust-sdk/blob/main/release-plz.toml)\n- [Commits](https://github.com/modelcontextprotocol/rust-sdk/compare/rmcp-v1.7.0...rmcp-v1.8.0)\n\n---\nupdated-dependencies:\n- dependency-name: rmcp\n  dependency-version: 1.8.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-06-30T15:19:25Z",
+          "tree_id": "8dc10699be2e6a40f02b4b5d7028debd76a0877a",
+          "url": "https://github.com/fallow-rs/fallow/commit/16d44a1e5b65cbeb799506a730378bc8a57eab72"
+        },
+        "date": 1782833115419,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
