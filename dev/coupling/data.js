@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782827129300,
+  "lastUpdate": 1782828794826,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "0bae19fb9d15a6ef6433a0a8f99d6ceb68ba943f",
-          "message": "refactor: split config resolution phases",
-          "timestamp": "2026-06-20T15:13:55+02:00",
-          "tree_id": "28cd450ec00f55ddb9e5238f992cc8c0e56a10f4",
-          "url": "https://github.com/fallow-rs/fallow/commit/0bae19fb9d15a6ef6433a0a8f99d6ceb68ba943f"
-        },
-        "date": 1781961311111,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1ecf9d859f92801d61e3704fe24278307bbf75b4"
         },
         "date": 1782827126533,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 26,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 29,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.79,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 382,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 837,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "686b8034bf7e807c4d4761e24de1123648abed0c",
+          "message": "fix(review): grammar + tighter wording for walkthrough decision facts\n\nSmoke-testing the contract-change wording surfaced two nits:\n\n- Singular/plural: a single changed export rendered \"changes exports\n  (createBeaconLifecycle)\". Pluralize the noun by symbol count, so one\n  export reads \"changes export (X)\" and several read \"changes exports (...)\".\n- The consolidated public-API-surface question carried a generic filler\n  sentence (\"These become maintained contracts.\") that, with the question\n  dropped in the tour, left a wordy two-sentence fact. Fold it into the\n  question (\"This change adds N exports to the public API surface. Intended\n  as maintained contracts, or should they stay internal?\"), so the tour\n  fact is one clean sentence.\n\nVerified the coordination (singular + plural) and boundary facts on real\nand synthetic diffs; added a unit test pinning the public-API-surface tour\nfact. Decision-question wording only; the schemas and the agent contract\nare unchanged.",
+          "timestamp": "2026-06-30T15:46:02+02:00",
+          "tree_id": "056f4535ece3cfc61893d3f20bd590ba44d286b9",
+          "url": "https://github.com/fallow-rs/fallow/commit/686b8034bf7e807c4d4761e24de1123648abed0c"
+        },
+        "date": 1782828791853,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
