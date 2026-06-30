@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782800044913,
+  "lastUpdate": 1782801280852,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "687edc3286d61c90f9c13bcc3ce2173a7130c03e",
-          "message": "feat(analyze): extend unrendered-component to Angular (#1286)\n\nAdds an Angular arm to the existing unrendered-component rule (framework\nangular, no new IssueKind): an @Component whose element selector is used in no\ntemplate project-wide and that is not routed/bootstrapped/dynamically\nrendered. FP-safe abstains incl. the bare loadComponent default-export lazy\nform (default-export-referenced graph signal). CACHE_VERSION 174->175. Zero-FP\non angular-realworld. Wave 4 W4.2.",
-          "timestamp": "2026-06-16T23:36:53+02:00",
-          "tree_id": "58262c2d20a52583fa91c1d3f42b7c73256f9f46",
-          "url": "https://github.com/fallow-rs/fallow/commit/687edc3286d61c90f9c13bcc3ce2173a7130c03e"
-        },
-        "date": 1781646459550,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 344857152,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 382101888,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a4d52c9b662e50826c20bab87cfffc680bce83a0",
+          "message": "feat(dupes): CSS-aware value canonicalization for fuzzy CSS clones (CSS program Phase 4)\n\nCSS program Phase 4. Adds CSS value canonicalization to the duplicate-detection lexical tokenizer's style path (zero-unit collapse 0px/0em/0% -> 0, hex-color expansion #fff -> #ffffff, #abcd -> #aabbccdd) so the SA-IS clone engine catches near-miss / value-drifted CSS clones. Gated on a css flag set true only on the style path; JS/TS go through the oxc AST extractor and are unchanged. DUPES_CACHE_VERSION bumped 8 to 9. Validated zero false matches on the astro repo.",
+          "timestamp": "2026-06-30T08:24:17+02:00",
+          "tree_id": "1ccee5742017a243e957bb28da30172435148685",
+          "url": "https://github.com/fallow-rs/fallow/commit/a4d52c9b662e50826c20bab87cfffc680bce83a0"
+        },
+        "date": 1782801277889,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 382159336,
             "unit": "bytes"
           }
         ]
