@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782800013957,
+  "lastUpdate": 1782800940689,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "661fcd6261dc59595219496f255366ba3a0799c6",
-          "message": "docs(changelog): note faster plugin/config detection + traversal-rules refinement",
-          "timestamp": "2026-06-19T21:48:42+02:00",
-          "tree_id": "67c93a8a0e4a702d42e1c889b4302343f9d03aef",
-          "url": "https://github.com/fallow-rs/fallow/commit/661fcd6261dc59595219496f255366ba3a0799c6"
-        },
-        "date": 1781899530334,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10439963,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 56531,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 58566,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a4d52c9b662e50826c20bab87cfffc680bce83a0",
+          "message": "feat(dupes): CSS-aware value canonicalization for fuzzy CSS clones (CSS program Phase 4)\n\nCSS program Phase 4. Adds CSS value canonicalization to the duplicate-detection lexical tokenizer's style path (zero-unit collapse 0px/0em/0% -> 0, hex-color expansion #fff -> #ffffff, #abcd -> #aabbccdd) so the SA-IS clone engine catches near-miss / value-drifted CSS clones. Gated on a css flag set true only on the style path; JS/TS go through the oxc AST extractor and are unchanged. DUPES_CACHE_VERSION bumped 8 to 9. Validated zero false matches on the astro repo.",
+          "timestamp": "2026-06-30T08:24:17+02:00",
+          "tree_id": "1ccee5742017a243e957bb28da30172435148685",
+          "url": "https://github.com/fallow-rs/fallow/commit/a4d52c9b662e50826c20bab87cfffc680bce83a0"
+        },
+        "date": 1782800938160,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10593081,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 58565,
             "unit": "allocations"
           },
           {
