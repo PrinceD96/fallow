@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782922496811,
+  "lastUpdate": 1782929734939,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "16fcfaf1d914e0aded6e0124e725594e08a3cad3",
-          "message": "refactor: split programmatic analysis options",
-          "timestamp": "2026-06-20T15:00:26+02:00",
-          "tree_id": "4aabe866b974a0ee759e63557528ac2f326bcd38",
-          "url": "https://github.com/fallow-rs/fallow/commit/16fcfaf1d914e0aded6e0124e725594e08a3cad3"
-        },
-        "date": 1781960731319,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b8ef5a048e39b53b5820746dba2ea89cd213543f"
         },
         "date": 1782922492748,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "bcc1f7866f04b1e6455609f828be97ed0d06a8bb",
+          "message": "docs: link iteration-binding residual follow-up issues (#1716, #1717, #1718)\n\nCite the tracking issues for the deferred iteration-binding sibling cases in\ndetection.md: #1716 (Vue `v-for` over `<ref>.value` / `store.<field>`), #1717\n(Angular `@for` / `*ngFor` in an external `templateUrl`), and #1718 (JS\niteration-binding over a function-local array receiver). Mirrors #1714. Refs #1707.",
+          "timestamp": "2026-07-01T20:11:20+02:00",
+          "tree_id": "de93487b5d0ab96a7182c35b6d59c84fd4e85a90",
+          "url": "https://github.com/fallow-rs/fallow/commit/bcc1f7866f04b1e6455609f828be97ed0d06a8bb"
+        },
+        "date": 1782929732341,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
