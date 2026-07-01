@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782898356486,
+  "lastUpdate": 1782907762567,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "9b5bbf68e8890723cce26bfe0b84252e9ab77024",
-          "message": "refactor: split unlisted dependency plugin context",
-          "timestamp": "2026-06-20T14:04:27+02:00",
-          "tree_id": "fb1d49dab6d21aac7e490ab903ae51d7d69217f9",
-          "url": "https://github.com/fallow-rs/fallow/commit/9b5bbf68e8890723cce26bfe0b84252e9ab77024"
-        },
-        "date": 1781957289675,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10459055,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 56610,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 58448,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "335218664154eee1ba9df187cd6651c0e20f8abb",
+          "message": "chore(license): drop redundant ed25519-dalek dev-dependency\n\nThe dev-dependency duplicated the normal dependency, which already\nprovides ed25519-dalek. Tests use only core APIs (SigningKey::from_bytes,\nsign, verifying_key) available with the std feature, so the extra dev\nentry was unnecessary.",
+          "timestamp": "2026-07-01T14:04:40+02:00",
+          "tree_id": "ecc23d616817930341bec3bf45ff6c2ad3f0a3d2",
+          "url": "https://github.com/fallow-rs/fallow/commit/335218664154eee1ba9df187cd6651c0e20f8abb"
+        },
+        "date": 1782907760061,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10402620,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 58459,
             "unit": "allocations"
           },
           {
