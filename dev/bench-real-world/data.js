@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782815885674,
+  "lastUpdate": 1782902992266,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -6601,6 +6601,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1021,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "16d7934f39e7cb96d0e29f906b251fb621af3d18",
+          "message": "chore(deps): bump syn from 2.0.117 to 2.0.118 (#1695)\n\nBumps [syn](https://github.com/dtolnay/syn) from 2.0.117 to 2.0.118.\n- [Release notes](https://github.com/dtolnay/syn/releases)\n- [Commits](https://github.com/dtolnay/syn/compare/2.0.117...2.0.118)\n\n---\nupdated-dependencies:\n- dependency-name: syn\n  dependency-version: 2.0.118\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-07-01T09:28:01Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/16d7934f39e7cb96d0e29f906b251fb621af3d18"
+        },
+        "date": 1782902989288,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 207,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 208,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 514,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 409,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1643,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1431,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1128,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1125,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1127,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1025,
             "unit": "ms"
           }
         ]
