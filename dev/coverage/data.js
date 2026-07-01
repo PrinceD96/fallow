@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782917379992,
+  "lastUpdate": 1782918535914,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "341c7a8d35a051fdacbe4cc1c8a63901adaa5f78",
-          "message": "refactor: split full analysis core run",
-          "timestamp": "2026-06-20T14:38:53+02:00",
-          "tree_id": "46e071e07c0fae9e8efe98ce70ab3f84b492718a",
-          "url": "https://github.com/fallow-rs/fallow/commit/341c7a8d35a051fdacbe4cc1c8a63901adaa5f78"
-        },
-        "date": 1781959373627,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/91fb0eeb104bf10ea104346457bbc53063fb23c9"
         },
         "date": 1782917376198,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 93.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8ce42a141d471908771f79ae43471fb7494a375e",
+          "message": "docs: link iteration-binding follow-up issues (#1714)\n\nCite tracking issues #1711 (Vue props.items), #1712 (Angular @for), #1713 (Astro .map) for the deferred iteration-binding sibling cases in detection.md and CHANGELOG. Refs #1707.",
+          "timestamp": "2026-07-01T17:04:47+02:00",
+          "tree_id": "8d1fb741ff016e0085548c22ac7fdd16881a62ce",
+          "url": "https://github.com/fallow-rs/fallow/commit/8ce42a141d471908771f79ae43471fb7494a375e"
+        },
+        "date": 1782918532372,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
