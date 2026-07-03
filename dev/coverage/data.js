@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783104923295,
+  "lastUpdate": 1783105414275,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "16360a0025390b9ecca036ec07664d33a6bb5204",
-          "message": "refactor: group code mode arg dispatch",
-          "timestamp": "2026-06-20T16:09:06+02:00",
-          "tree_id": "9b7709b68168e2e09ddf92c1f9842c92412d6801",
-          "url": "https://github.com/fallow-rs/fallow/commit/16360a0025390b9ecca036ec07664d33a6bb5204"
-        },
-        "date": 1781964798360,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ac7df1b8c2ed0d3c6898c5a90bcc44ebb76c3994"
         },
         "date": 1783104920699,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "606685c64a2a8ea619d9a7b9cd1208e794b6bec6",
+          "message": "chore: fix vscode guard dist check",
+          "timestamp": "2026-07-03T20:58:58+02:00",
+          "tree_id": "2aa7bd3f0d1d5e2de1c73d2da4c76ba5daf1dab4",
+          "url": "https://github.com/fallow-rs/fallow/commit/606685c64a2a8ea619d9a7b9cd1208e794b6bec6"
+        },
+        "date": 1783105410423,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
