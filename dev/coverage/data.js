@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783105414275,
+  "lastUpdate": 1783120363067,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "97462e517bf3524c5309673b0770a43fc3b8816a",
-          "message": "refactor: split codeowners parse state",
-          "timestamp": "2026-06-20T16:13:39+02:00",
-          "tree_id": "ce3163fb68c09b91c4830799b4396ffa1ce469c7",
-          "url": "https://github.com/fallow-rs/fallow/commit/97462e517bf3524c5309673b0770a43fc3b8816a"
-        },
-        "date": 1781965019196,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/606685c64a2a8ea619d9a7b9cd1208e794b6bec6"
         },
         "date": 1783105410423,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0dac94e1a27fe044da0992fa7e68cc8fe60717d0",
+          "message": "feat(action): post PR output as the branded Fallow app (#1737)\n\nWhen a workflow grants `id-token: write` and the Fallow app is installed on the\nrepo, the action now requests a short-lived GitHub OIDC token, exchanges it for\na repo-scoped app installation token, and posts PR comments and reviews with it,\nso they are authored by the Fallow app instead of github-actions.\n\nFails safe: without id-token permission, without the app installed, or on any\nerror, it falls back to the default github-token exactly as before, so the check\nnever breaks. The minted token is masked. New `branded-token` (default true) and\n`broker-url` inputs; SARIF upload stays on github-token.",
+          "timestamp": "2026-07-04T01:06:42+02:00",
+          "tree_id": "4e054ec8e99dd4c08b7d27eda41487c959b01600",
+          "url": "https://github.com/fallow-rs/fallow/commit/0dac94e1a27fe044da0992fa7e68cc8fe60717d0"
+        },
+        "date": 1783120360224,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
