@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783153242682,
+  "lastUpdate": 1783155926854,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e8c584bb058c547d215603e5e5eb23f6046c5c98",
-          "message": "refactor: split extractor merge phases",
-          "timestamp": "2026-06-20T17:31:37+02:00",
-          "tree_id": "b9d2a207807e91dffc3ac8b93f838e3566965558",
-          "url": "https://github.com/fallow-rs/fallow/commit/e8c584bb058c547d215603e5e5eb23f6046c5c98"
-        },
-        "date": 1781969746076,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/348caa5d35f0c8d73f79c4950f9ab55db056b150"
         },
         "date": 1783153239699,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "630722b016a5b785d6fa05ee54db6b339eb3c4fa",
+          "message": "chore: release v3.0.0",
+          "timestamp": "2026-07-04T10:58:59+02:00",
+          "tree_id": "f011cc378131a241699dd790fca05d8f01d804ea",
+          "url": "https://github.com/fallow-rs/fallow/commit/630722b016a5b785d6fa05ee54db6b339eb3c4fa"
+        },
+        "date": 1783155923598,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
