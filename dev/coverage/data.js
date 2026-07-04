@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783120363067,
+  "lastUpdate": 1783147254919,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "8f313d479b98ada7112ec674cd2135c2cfa235f6",
-          "message": "refactor: split base collection rules",
-          "timestamp": "2026-06-20T16:28:56+02:00",
-          "tree_id": "f899e788f427fd078c3cb42d566d5af57a591157",
-          "url": "https://github.com/fallow-rs/fallow/commit/8f313d479b98ada7112ec674cd2135c2cfa235f6"
-        },
-        "date": 1781965982251,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0dac94e1a27fe044da0992fa7e68cc8fe60717d0"
         },
         "date": 1783120360224,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "80dd2c3d601ff337d527a020bc5a1d3e9ca71df8",
+          "message": "feat(brand): new fallow f-wing logo (#1733)\n\nReplaces the three-bar mark with the new f-wing brand mark across the icon,\nthe wordmark lockups (light + dark), and the vscode sidebar icon. The mark was\nvectorized cleanly and kept in the brand palette (cream #FDFAEF on warm-black\n#1C1B1C); the wordmark text is unchanged. Regenerated the icon and logo PNGs.",
+          "timestamp": "2026-07-04T08:36:45+02:00",
+          "tree_id": "1407eaff83e2c04186577b389d61ff84be5485f4",
+          "url": "https://github.com/fallow-rs/fallow/commit/80dd2c3d601ff337d527a020bc5a1d3e9ca71df8"
+        },
+        "date": 1783147252339,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
