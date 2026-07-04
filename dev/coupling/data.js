@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783151348402,
+  "lastUpdate": 1783152852275,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "8a91704d11d85dbc72ab6a9b8ae8281c0efcc079",
-          "message": "refactor: split security summary counts",
-          "timestamp": "2026-06-20T16:53:40+02:00",
-          "tree_id": "96f26f24923484ecc83f929ee45ec9f9bc289241",
-          "url": "https://github.com/fallow-rs/fallow/commit/8a91704d11d85dbc72ab6a9b8ae8281c0efcc079"
-        },
-        "date": 1781967297680,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 398,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 991,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 946,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "798926774813548301ea5fa5ea18994cfa7e37ea",
+          "message": "feat(cli): add pre-edit architecture guard reports\n\nAdds typed guard reports across types, engine, CLI, MCP, and generated agent/docs surfaces so agents can inspect applicable architecture rules before editing files.",
+          "timestamp": "2026-07-04T10:13:02+02:00",
+          "tree_id": "14244fbe94fd0f91fa554335ecaff0fcc687a979",
+          "url": "https://github.com/fallow-rs/fallow/commit/798926774813548301ea5fa5ea18994cfa7e37ea"
+        },
+        "date": 1783152849767,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 26,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.99,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 404,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 947,
             "unit": "count"
           }
         ]
