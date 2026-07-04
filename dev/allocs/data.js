@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783160551732,
+  "lastUpdate": 1783177303931,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "edf288a8af526c09c2a0909dcef07ad2494cff6a",
-          "message": "refactor: split health shared analysis prep",
-          "timestamp": "2026-06-20T16:05:33+02:00",
-          "tree_id": "826dd61b4317fc7e4ef2515f2439410af4cd12d8",
-          "url": "https://github.com/fallow-rs/fallow/commit/edf288a8af526c09c2a0909dcef07ad2494cff6a"
-        },
-        "date": 1781964532875,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10440671,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 56604,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 58452,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "79987bd2dc5ee5d29c0ff5ed6615022f28f4fab6",
+          "message": "docs(brand): fold styling into crate/npm/vscode descriptions, demote build attributes",
+          "timestamp": "2026-07-04T16:58:09+02:00",
+          "tree_id": "07e3265f1c6568af6b83287ec68552b015bfaef7",
+          "url": "https://github.com/fallow-rs/fallow/commit/79987bd2dc5ee5d29c0ff5ed6615022f28f4fab6"
+        },
+        "date": 1783177300573,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10384372,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 58437,
             "unit": "allocations"
           },
           {
