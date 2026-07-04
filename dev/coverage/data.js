@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783147254919,
+  "lastUpdate": 1783147692129,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "90312950b59f8a69f44b181283271c5748cd2fae",
-          "message": "refactor: split css property token collection",
-          "timestamp": "2026-06-20T16:47:00+02:00",
-          "tree_id": "861454345c1f383fc9b94131512ec3106759dc80",
-          "url": "https://github.com/fallow-rs/fallow/commit/90312950b59f8a69f44b181283271c5748cd2fae"
-        },
-        "date": 1781967070934,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/80dd2c3d601ff337d527a020bc5a1d3e9ca71df8"
         },
         "date": 1783147252339,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "d4e8a860ed3e60c250bcea2895ec1684f4cb3bc9",
+          "message": "fix(brand): update GitHub Pages favicon to the f-wing mark\n\nThe metrics landing page still embedded the old three-bar mark as its data-URI favicon. Swaps in the new f-wing mark to match the rebrand in #1733.",
+          "timestamp": "2026-07-04T08:43:15+02:00",
+          "tree_id": "410267c7b9654e5f142348b3fb8fd62a90f34cba",
+          "url": "https://github.com/fallow-rs/fallow/commit/d4e8a860ed3e60c250bcea2895ec1684f4cb3bc9"
+        },
+        "date": 1783147689781,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
