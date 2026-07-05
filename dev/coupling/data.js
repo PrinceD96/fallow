@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783249808961,
+  "lastUpdate": 1783253966507,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "93e9700587dda05b878ea7fa8b20e027254e9a52",
-          "message": "Merge pull request #1363 from fallow-rs/fix/review-quality\n\nfeat: graph-grounded review brief, decision surface, walkthrough loop, and symbol trace",
-          "timestamp": "2026-06-22T10:44:26+02:00",
-          "tree_id": "d978aafb6323609462762565ee59cb62a2329047",
-          "url": "https://github.com/fallow-rs/fallow/commit/93e9700587dda05b878ea7fa8b20e027254e9a52"
-        },
-        "date": 1782118118171,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.98,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 410,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1022,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/71410c4e92a13dd4cd79a9970225349bfc78b8eb"
         },
         "date": 1783249806386,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 26,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.99,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 404,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 949,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a5e0327261f94261dd6752d27261758860eb7dfb",
+          "message": "perf(api): reuse audit analysis context",
+          "timestamp": "2026-07-05T14:13:22+02:00",
+          "tree_id": "f4f1c0f80057d4190dea8a84aae9693c79bfa360",
+          "url": "https://github.com/fallow-rs/fallow/commit/a5e0327261f94261dd6752d27261758860eb7dfb"
+        },
+        "date": 1783253963692,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
