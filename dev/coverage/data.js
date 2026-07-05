@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783245755433,
+  "lastUpdate": 1783246802146,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9a46ab94fc51b6eed0fb663af2f201cc589b802d",
-          "message": "ci(zizmor): suppress adhoc-packages for ci.yml and release.yml\n\nzizmor v1.26.1 added the adhoc-packages audit, flagging four deliberate pinned --ignore-scripts installs (ci.yml tarball smoke test, release.yml two-step pinned npm bootstrap, pinned vsce/ovsx). All already hardened per the release-workflow boundary; ignore the audit for those two files, matching existing per-rule suppressions.",
-          "timestamp": "2026-06-21T22:45:21+02:00",
-          "tree_id": "35f9ff2cb1cecbb8fafa3223cb9b5fce7487a576",
-          "url": "https://github.com/fallow-rs/fallow/commit/9a46ab94fc51b6eed0fb663af2f201cc589b802d"
-        },
-        "date": 1782074953756,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3bb785ce9a64066a096f33379e34b2b7a3e0c31c"
         },
         "date": 1783245752626,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f86039289acd6dee37597d41a7988b893a7f26f8",
+          "message": "refactor(engine): own routing git identities",
+          "timestamp": "2026-07-05T12:14:05+02:00",
+          "tree_id": "f7bd6c7a9dc2a9b810495dc82c403d9275e63823",
+          "url": "https://github.com/fallow-rs/fallow/commit/f86039289acd6dee37597d41a7988b893a7f26f8"
+        },
+        "date": 1783246799543,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
