@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783248048435,
+  "lastUpdate": 1783248646781,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "93e9700587dda05b878ea7fa8b20e027254e9a52",
-          "message": "Merge pull request #1363 from fallow-rs/fix/review-quality\n\nfeat: graph-grounded review brief, decision surface, walkthrough loop, and symbol trace",
-          "timestamp": "2026-06-22T10:44:26+02:00",
-          "tree_id": "d978aafb6323609462762565ee59cb62a2329047",
-          "url": "https://github.com/fallow-rs/fallow/commit/93e9700587dda05b878ea7fa8b20e027254e9a52"
-        },
-        "date": 1782118155058,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/26e195b3627ec190680fbf857ca2c5743ae1f703"
         },
         "date": 1783248045815,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "58a83e31057807c6d557b397f815675a45319ce4",
+          "message": "docs(mcp): correct trace tools' in-process framing in mcp-server.md\n\nAll four trace MCP tools (trace_export / trace_file / trace_dependency / trace_clone) are API-backed in-process via fallow_api::run_trace_*, not a CLI subprocess. Reframe the three stale mcp-server.md bullets to match. Docs-only.",
+          "timestamp": "2026-07-05T12:46:24+02:00",
+          "tree_id": "1890a032a89bec3d1b2f81b5a900f763878cb0dc",
+          "url": "https://github.com/fallow-rs/fallow/commit/58a83e31057807c6d557b397f815675a45319ce4"
+        },
+        "date": 1783248643490,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
