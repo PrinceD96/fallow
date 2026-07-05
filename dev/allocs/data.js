@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783278837198,
+  "lastUpdate": 1783280406625,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "de828f7de4029d5b61344f15f82a9fb76b997877",
-          "message": "test: cover hardcoded-secret classification and import-resolution fallbacks",
-          "timestamp": "2026-06-21T20:37:49+02:00",
-          "tree_id": "253c25e92677f18774115490d78fef368c6086d5",
-          "url": "https://github.com/fallow-rs/fallow/commit/de828f7de4029d5b61344f15f82a9fb76b997877"
-        },
-        "date": 1782067323509,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10396327,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 56576,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 62121,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9dc768e2cc481d98d70c3cd24eb424712ea0d89e",
+          "message": "perf: broaden codspeed benchmark coverage",
+          "timestamp": "2026-07-05T21:35:49+02:00",
+          "tree_id": "8efe61fc0d959fe8b7bf2e4634316d18b70a6cc7",
+          "url": "https://github.com/fallow-rs/fallow/commit/9dc768e2cc481d98d70c3cd24eb424712ea0d89e"
+        },
+        "date": 1783280403692,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10977744,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 62127,
             "unit": "allocations"
           },
           {
