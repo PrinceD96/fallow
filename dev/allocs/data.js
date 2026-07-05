@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783280406625,
+  "lastUpdate": 1783282960975,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b594834c097157dda41ea60229d9d4e193f1f8a9",
-          "message": "test(config,ci): make env-var tests deterministic on Windows CI\n\nurl_timeout and FALLOW_BOT_LOGIN tests raced on parallel env mutation (passed on macOS, failed windows-latest). config: pure url_timeout_from parser, no env mutation. ci: serialize the two FALLOW_BOT_LOGIN override tests behind a shared mutex.",
-          "timestamp": "2026-06-22T09:30:30+02:00",
-          "tree_id": "b8815aae5fca9fbdc9145db97ca9e3e92af85ffa",
-          "url": "https://github.com/fallow-rs/fallow/commit/b594834c097157dda41ea60229d9d4e193f1f8a9"
-        },
-        "date": 1782113952172,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10457143,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 56565,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 62127,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "185c6a728a4759c5c34afcae1d262ccb09e41a8c",
+          "message": "feat(health): expose max unit size threshold in summary\n\nAdd max_unit_size_threshold to the health JSON summary so consumers can read the configured global health.maxUnitSize alongside the existing cyclomatic, cognitive, and CRAP thresholds.\n\nThe human large-functions section now reflects the configured global threshold, and the markdown/human fallback effective-threshold wiring carries the same value for parity with the other thresholds.\n\nFixes #1750.",
+          "timestamp": "2026-07-05T22:15:25+02:00",
+          "tree_id": "ff38a4bc359bb161c5746c4abd7ff6381f68399a",
+          "url": "https://github.com/fallow-rs/fallow/commit/185c6a728a4759c5c34afcae1d262ccb09e41a8c"
+        },
+        "date": 1783282957404,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10939336,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 62120,
             "unit": "allocations"
           },
           {
