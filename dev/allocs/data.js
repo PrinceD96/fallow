@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783245779196,
+  "lastUpdate": 1783246163565,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "086246b5e8c4b6706cce868d443c1201e42910c9",
-          "message": "refactor: split health report input assembly",
-          "timestamp": "2026-06-20T17:20:28+02:00",
-          "tree_id": "79151e178b642066489a6bdcf6639544eca218a2",
-          "url": "https://github.com/fallow-rs/fallow/commit/086246b5e8c4b6706cce868d443c1201e42910c9"
-        },
-        "date": 1781969040238,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10434591,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 56596,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 58473,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "fefe43f91c89c9662e090da068c5ca916856a02d",
+          "message": "refactor(engine): own list inventory composition",
+          "timestamp": "2026-07-05T12:05:28+02:00",
+          "tree_id": "e68e6ddad3991f77357ec479a84eec7560d04d5c",
+          "url": "https://github.com/fallow-rs/fallow/commit/fefe43f91c89c9662e090da068c5ca916856a02d"
+        },
+        "date": 1783246160614,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10433012,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 58463,
             "unit": "allocations"
           },
           {
