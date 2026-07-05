@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783250002303,
+  "lastUpdate": 1783254016298,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "182e269f7d2fd6e18666e3d3d30d60d1291a6e53",
-          "message": "test: raise RUST_MIN_STACK to 16 MiB so Windows test threads survive clap-tree construction\n\nlibtest spawns each test on a thread sized from RUST_MIN_STACK (default ~2 MiB),\nnot the main-thread /STACK reserve. Building the full Cli::command() clap tree\n(exercised by crates/cli/src/schema.rs tests) outgrew that on Windows as the CLI\nsurface expanded, aborting the whole test binary with STATUS_STACK_OVERFLOW. Pin\ntest threads to the same 16 MiB the main thread (/STACK) and rayon workers already\nuse, via .cargo/config.toml [env]. Harmless lazy virtual reserve on POSIX hosts.",
-          "timestamp": "2026-06-22T11:34:56+02:00",
-          "tree_id": "e5f397b646c06ad472d2d3ddad2ebc9e305274e3",
-          "url": "https://github.com/fallow-rs/fallow/commit/182e269f7d2fd6e18666e3d3d30d60d1291a6e53"
-        },
-        "date": 1782121141433,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.1,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/71410c4e92a13dd4cd79a9970225349bfc78b8eb"
         },
         "date": 1783249998774,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a5e0327261f94261dd6752d27261758860eb7dfb",
+          "message": "perf(api): reuse audit analysis context",
+          "timestamp": "2026-07-05T14:13:22+02:00",
+          "tree_id": "f4f1c0f80057d4190dea8a84aae9693c79bfa360",
+          "url": "https://github.com/fallow-rs/fallow/commit/a5e0327261f94261dd6752d27261758860eb7dfb"
+        },
+        "date": 1783254013701,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
