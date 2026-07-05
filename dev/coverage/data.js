@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783243279034,
+  "lastUpdate": 1783244930919,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ecd9905bffc7e9c19fbc45833e05540253b88da1",
-          "message": "ci(coverage): enforce a hard 92% coverage floor\n\nCoverage was report-only; add a hard 92% floor to coverage.yml (current main ~92.7%). Ratchets upward only; closes the CRAP loop alongside the clippy complexity gate.",
-          "timestamp": "2026-06-21T15:48:06+02:00",
-          "tree_id": "c19fefc3efaf0a45fb3b56a6131e873189eb11c7",
-          "url": "https://github.com/fallow-rs/fallow/commit/ecd9905bffc7e9c19fbc45833e05540253b88da1"
-        },
-        "date": 1782049924762,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/784ffed5d6a2113262787585d8599dc1cf8acd9a"
         },
         "date": 1783243275993,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "6b9eb819620baf9aaf892e2ec552e92eb8a63e2e",
+          "message": "refactor(engine): route workspace discovery through engine",
+          "timestamp": "2026-07-05T11:44:05+02:00",
+          "tree_id": "b3d4e7baf45ecd11c4357acc578d0b29f434926b",
+          "url": "https://github.com/fallow-rs/fallow/commit/6b9eb819620baf9aaf892e2ec552e92eb8a63e2e"
+        },
+        "date": 1783244928279,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
