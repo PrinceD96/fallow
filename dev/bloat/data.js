@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783279111545,
+  "lastUpdate": 1783280815552,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1779391d89029381f0ca8130c64fc37b2b6009ab",
-          "message": "test(audit): pin LF in shifted-duplicate test for Windows",
-          "timestamp": "2026-06-19T12:21:05+02:00",
-          "tree_id": "9ce75c125fa41e34c3dfa905939e0dd47d1454ab",
-          "url": "https://github.com/fallow-rs/fallow/commit/1779391d89029381f0ca8130c64fc37b2b6009ab"
-        },
-        "date": 1781865045214,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 351755008,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1d14a7714bb46de6c36fc0fb3ffbc01f7aa35767"
         },
         "date": 1783279106918,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 401221232,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9dc768e2cc481d98d70c3cd24eb424712ea0d89e",
+          "message": "perf: broaden codspeed benchmark coverage",
+          "timestamp": "2026-07-05T21:35:49+02:00",
+          "tree_id": "8efe61fc0d959fe8b7bf2e4634316d18b70a6cc7",
+          "url": "https://github.com/fallow-rs/fallow/commit/9dc768e2cc481d98d70c3cd24eb424712ea0d89e"
+        },
+        "date": 1783280812178,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
