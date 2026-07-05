@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783279059509,
+  "lastUpdate": 1783280408120,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "2ce37db1bfe3eb610ae094d7a4bd873eb9eeb1a7",
-          "message": "feat(review): the fallow review app (Electron) (#1366)\n\nNative Electron review app: author brief + decision surface + model-inferred trade-offs (fallow-validated via change_anchors) + diff with comment-back-to-the-agent. Spawns the workspace fallow build by default.",
-          "timestamp": "2026-06-23T09:59:19+02:00",
-          "tree_id": "b0cf7b7cb4f9ba7a34583562a9ed5feeb2d4a0ab",
-          "url": "https://github.com/fallow-rs/fallow/commit/2ce37db1bfe3eb610ae094d7a4bd873eb9eeb1a7"
-        },
-        "date": 1782201806300,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.1,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1d14a7714bb46de6c36fc0fb3ffbc01f7aa35767"
         },
         "date": 1783279055972,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9dc768e2cc481d98d70c3cd24eb424712ea0d89e",
+          "message": "perf: broaden codspeed benchmark coverage",
+          "timestamp": "2026-07-05T21:35:49+02:00",
+          "tree_id": "8efe61fc0d959fe8b7bf2e4634316d18b70a6cc7",
+          "url": "https://github.com/fallow-rs/fallow/commit/9dc768e2cc481d98d70c3cd24eb424712ea0d89e"
+        },
+        "date": 1783280404236,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
