@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783357731335,
+  "lastUpdate": 1783374875047,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "54cefdca3fb5620fb0a4c27ce9d6d68901e4184d",
-          "message": "refactor: harden issue contract registry\n\n* chore: open issue contract registry foundation branch\n\n* refactor: harden issue contract registry\n\n* fix: address issue contract review gaps",
-          "timestamp": "2026-06-24T14:15:30+02:00",
-          "tree_id": "87fb317b893a2ff45312f53c1061b83039482f3e",
-          "url": "https://github.com/fallow-rs/fallow/commit/54cefdca3fb5620fb0a4c27ce9d6d68901e4184d"
-        },
-        "date": 1782303397464,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 27,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 29,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.97,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 411,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1030,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f1b9d4c1b12acebe53841a259b91ba36d7607468"
         },
         "date": 1783357727914,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 26,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 0.99,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 404,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 949,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2c96a30db4904bab4d269782cad4874bcbbfc72e",
+          "message": "refactor(architecture): close output boundary leftovers\n\nMove reusable SARIF result assembly and audit styling render facts into fallow-output so API and CLI code stop owning shared output contract behavior.\n\nKeep fallow-core contained as engine backend debt by removing the benchmark convenience dependency and adding crate-boundary guards. Complete the FallowOutput schema manifest for trace, feature flags, and decision surface, then drift-test the backwards compatibility docs and regenerated TypeScript contracts.",
+          "timestamp": "2026-07-06T23:53:20+02:00",
+          "tree_id": "a189a2313c041ef55c41a310e4ea13f65108a0e3",
+          "url": "https://github.com/fallow-rs/fallow/commit/2c96a30db4904bab4d269782cad4874bcbbfc72e"
+        },
+        "date": 1783374872098,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
