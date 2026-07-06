@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783332462421,
+  "lastUpdate": 1783358050154,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "3a40fb927410b008aa0b454f3cbf1df293393a50",
-          "message": "docs(agent): generate trace + decision-surface cli-reference sections; re-vendor skills",
-          "timestamp": "2026-06-24T08:33:18+02:00",
-          "tree_id": "a84a7f05b1087c6f0e6032cfd3d8652472060bad",
-          "url": "https://github.com/fallow-rs/fallow/commit/3a40fb927410b008aa0b454f3cbf1df293393a50"
-        },
-        "date": 1782283038326,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.1,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ba423ccec8b0e7edc3e5cdb67ba97ea1c9b2c25d"
         },
         "date": 1783332459761,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f1b9d4c1b12acebe53841a259b91ba36d7607468",
+          "message": "feat(architecture): add contract guardrails\n\nAdd generated contract surface checks, architecture invariants, SARIF/LSP contract cleanup, MCP CLI fallbacks, and public smoke conformance guardrails.",
+          "timestamp": "2026-07-06T19:07:35+02:00",
+          "tree_id": "72031856c10c4af91c5c074522e91270a772f573",
+          "url": "https://github.com/fallow-rs/fallow/commit/f1b9d4c1b12acebe53841a259b91ba36d7607468"
+        },
+        "date": 1783358047391,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
