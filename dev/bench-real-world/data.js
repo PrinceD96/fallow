@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783244983896,
+  "lastUpdate": 1783337677247,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -7061,6 +7061,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 915,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "ba423ccec8b0e7edc3e5cdb67ba97ea1c9b2c25d",
+          "message": "docs(extract): clarify parse scheduling\n\nClarifies that extraction uses a sequential fast path for small file sets and parallel parsing for larger file sets.\n\nAlso documents why the small-input threshold exists: avoiding Rayon scheduling overhead on cache-hot inputs.",
+          "timestamp": "2026-07-06T10:02:31Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/ba423ccec8b0e7edc3e5cdb67ba97ea1c9b2c25d"
+        },
+        "date": 1783337673889,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 206,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 206,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 614,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 409,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1739,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1329,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1229,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1020,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1331,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1225,
             "unit": "ms"
           }
         ]
