@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783332584945,
+  "lastUpdate": 1783357871122,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "5de6a978fd5fd97b5533d6710ab8228c5c108062",
-          "message": "feat(review): change_anchors for the walkthrough guide + validator (#1367)\n\nPer-hunk content-addressed change_anchors in the walkthrough guide; the validator accepts signal_id OR change_anchor (anchor_kind), folded into the snapshot hash. Schema + .d.ts regenerated.",
-          "timestamp": "2026-06-23T10:10:30+02:00",
-          "tree_id": "c61803b365bdcefc84e1d1e4efe16e9dd42ae0b2",
-          "url": "https://github.com/fallow-rs/fallow/commit/5de6a978fd5fd97b5533d6710ab8228c5c108062"
-        },
-        "date": 1782202515326,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10424431,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 56602,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 62251,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f1b9d4c1b12acebe53841a259b91ba36d7607468",
+          "message": "feat(architecture): add contract guardrails\n\nAdd generated contract surface checks, architecture invariants, SARIF/LSP contract cleanup, MCP CLI fallbacks, and public smoke conformance guardrails.",
+          "timestamp": "2026-07-06T19:07:35+02:00",
+          "tree_id": "72031856c10c4af91c5c074522e91270a772f573",
+          "url": "https://github.com/fallow-rs/fallow/commit/f1b9d4c1b12acebe53841a259b91ba36d7607468"
+        },
+        "date": 1783357868494,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10958696,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 62227,
             "unit": "allocations"
           },
           {
