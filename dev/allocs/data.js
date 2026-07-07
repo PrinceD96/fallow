@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783451045958,
+  "lastUpdate": 1783451425403,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b5e53b54fc2c0fc7668449b432727f58044bd839",
-          "message": "fix(dead-code): credit merged namespace star re-export values\n\nMerged namespace/value declarations can produce duplicate same-named exports. A value consumer imported through an export-star barrel now keeps the same type/value intent as a direct named import, including multi-hop star barrels that need synthetic forwarding stubs.\n\nThe graph re-export pass now carries importer context through star propagation, splits synthetic type and value forwarding, and trace selection prefers the referenced duplicate export. The regression fixture covers the reported shape plus mixed type/value consumers.\n\nFixes #1373.",
-          "timestamp": "2026-06-23T17:16:46+02:00",
-          "tree_id": "6cb71d05a8c607d2375e4b8d4a9d9cd3af82b1be",
-          "url": "https://github.com/fallow-rs/fallow/commit/b5e53b54fc2c0fc7668449b432727f58044bd839"
-        },
-        "date": 1782228092779,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10450817,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 56989,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 62236,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "90d340dcdc8f15c8bc2dfbecbf348b51894f72d9",
+          "message": "fix(resolve): clarify incomplete-tsconfig-chain warning\n\nThe \"Broken tsconfig chain ... path aliases from missing inherited configs will not [work]\" warning read as if every path alias was unresolved, alarming users of large monorepos whose aliases resolve fine. When a per-file tsconfig extends/references chain cannot be fully loaded (commonly a node_modules base config not installed yet), fallow falls back to resolver-less resolution, but aliases declared in a discovered root or workspace tsconfig are still applied project-wide by the TypeScript plugin. The warning now says so and only flags aliases declared solely in the unreadable inherited config. Wording and documentation only; resolution behavior is unchanged.",
+          "timestamp": "2026-07-07T21:06:38+02:00",
+          "tree_id": "8a35075bdbd2b0b2de755d2aa78a346500f24683",
+          "url": "https://github.com/fallow-rs/fallow/commit/90d340dcdc8f15c8bc2dfbecbf348b51894f72d9"
+        },
+        "date": 1783451422708,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10965352,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 62238,
             "unit": "allocations"
           },
           {
