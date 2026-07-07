@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783403821236,
+  "lastUpdate": 1783451045958,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "0ffd4caa625a79cdcc9bb233d73c6c69a5e51131",
-          "message": "test(unused-members): cover issue-844 typed-instance crediting at monorepo path-alias scale\n\nAdds a regression test for issue #844's useMemo-bound typed-instance crediting at multi-package monorepo + tsconfig path-alias scale, reparented into the existing issue_844 module with a monorepo fixture. Test-only, no source change.",
-          "timestamp": "2026-06-23T11:07:32+02:00",
-          "tree_id": "b8b748e3b7226b7d114b1588c912a4b3ac9f3c1b",
-          "url": "https://github.com/fallow-rs/fallow/commit/0ffd4caa625a79cdcc9bb233d73c6c69a5e51131"
-        },
-        "date": 1782205854605,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10459905,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 57005,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 62224,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "df76662b0e166beb87b831b26c927a46e4cecf2d",
+          "message": "feat(plugins): add manifestEntries to external plugins\n\nAdds a declarative manifestEntries capability to external plugins: a fallow-plugin-*.jsonc can seed entry points DERIVED from framework manifest files. Each rule finds manifests by a recursive .gitignore-respecting walk, parses JSON/JSONC, gates on a dotted-field when (strict equality), and resolves each entries[].path (with ${dotted.field} string/array fan-out) relative to the manifest's directory into an entry point under the plugin's entryPointRole. Loud warns on zero-match glob, when-excludes-all, typo'd field paths, empty entries, and unparseable manifests. Regenerates plugin-schema.json + schema.json.\n\nValidated on a real Kibana clone: unused files 21,932 to 5,318, unresolved_imports stays 0, 100% of the 383 plugins' declared entries seeded. Per-seed role and TOML/YAML manifests deferred (additive-safe).\n\nRefs #1774.",
+          "timestamp": "2026-07-07T20:59:01+02:00",
+          "tree_id": "2932ae0649ca1ecedded3189c04113d11aca6426",
+          "url": "https://github.com/fallow-rs/fallow/commit/df76662b0e166beb87b831b26c927a46e4cecf2d"
+        },
+        "date": 1783451042082,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10991776,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 62236,
             "unit": "allocations"
           },
           {
