@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783375032463,
+  "lastUpdate": 1783403821236,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f893d59ec16b212fde2555f59411a30990579cd9",
-          "message": "feat(lsp): React component intelligence + deeper prop extraction\n\nSurface descriptive React/Preact component context in the editor with no new rule, finding, severity, or gating. A code lens above each component summarizes it (render fan-in, prop count, hook breakdown), and a per-prop hover shows whether the prop is read in the body and how many call sites pass it, plus a prop-drilling trace (`forwarded N levels: A > B > C`) when the prop is forwarded. The data is an in-process serde-skip carrier read only by the LSP, gated on the editor `collect_usages` path so bare `fallow` / `audit` never compute it.\n\nThe same change deepens the React prop harvest feeding the existing `unused-component-prop` rule: same-file typed-interface props (`(props: Props) => props.x`) and generic `forwardRef<Ref, Props>`, not only inline destructure, with the zero-false-positive abstain ladder intact. No new CLI / JSON / MCP / SARIF / CI / schema surface; `CACHE_VERSION` 185 to 188.",
-          "timestamp": "2026-06-23T10:59:52+02:00",
-          "tree_id": "d0a1609844973fbae671e3e15d7c4b82938278fb",
-          "url": "https://github.com/fallow-rs/fallow/commit/f893d59ec16b212fde2555f59411a30990579cd9"
-        },
-        "date": 1782205441484,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10454993,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 56974,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 62244,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e7878f27ede3575df0ca7142e03db38ad56acb00",
+          "message": "refactor: remove architecture debt\n\nMove SARIF-family assembly and shared formatter facts behind fallow-output while keeping fallow-api as a compatibility facade.\n\nReclassify fallow-core as an internal detector backend behind fallow-engine, tighten architecture guards for direct core calls, IO/cache ownership, analyzer placement, manifest drift, and protocol prose.\n\nRemove stale exception language from contributor docs and add pre-ship guard coverage so the architecture debt cannot silently return.",
+          "timestamp": "2026-07-07T07:51:22+02:00",
+          "tree_id": "db8be59ca0bf3c1f9de75a9cf302d1874c84c199",
+          "url": "https://github.com/fallow-rs/fallow/commit/e7878f27ede3575df0ca7142e03db38ad56acb00"
+        },
+        "date": 1783403817871,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10983464,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 62224,
             "unit": "allocations"
           },
           {
