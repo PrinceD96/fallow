@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783337677247,
+  "lastUpdate": 1783420276077,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -7153,6 +7153,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1225,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "e7878f27ede3575df0ca7142e03db38ad56acb00",
+          "message": "refactor: remove architecture debt\n\nMove SARIF-family assembly and shared formatter facts behind fallow-output while keeping fallow-api as a compatibility facade.\n\nReclassify fallow-core as an internal detector backend behind fallow-engine, tighten architecture guards for direct core calls, IO/cache ownership, analyzer placement, manifest drift, and protocol prose.\n\nRemove stale exception language from contributor docs and add pre-ship guard coverage so the architecture debt cannot silently return.",
+          "timestamp": "2026-07-07T05:51:22Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/e7878f27ede3575df0ca7142e03db38ad56acb00"
+        },
+        "date": 1783420272641,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 306,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 614,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 410,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1739,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1332,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1224,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1020,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1223,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1121,
             "unit": "ms"
           }
         ]
