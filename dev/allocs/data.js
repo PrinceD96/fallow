@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783545702152,
+  "lastUpdate": 1783547769520,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7dadcaa188d4cc744330d120389c0b4b942fb098",
-          "message": "fix(svelte): credit bind:/style:/class: directive shorthands as prop usage\n\nA Svelte directive written without an explicit value is shorthand for `directive:NAME={NAME}`, so the directive name itself references a local binding: `bind:open` = `bind:open={open}`, `style:height` = `style:height={height}`, `class:active` = `class:active={active}`. The template scanner only credited `use:`/`animate:`/`in:`/`out:`/`transition:` directive names, so a prop referenced only through a `bind:`/`style:`/`class:` shorthand was reported as `unused-component-props`.\n\nCredit the directive name as a reference only for value-less attributes; with an explicit `={...}` value the name is a target (child prop, CSS property, or class name) and the value path already credits the real binding. A leading-character guard skips CSS custom properties (`style:--accent`).\n\nCACHE_VERSION 192 -> 193: prop `used_in_template` flags change.\n\nFixes #1641",
-          "timestamp": "2026-06-27T21:28:41+02:00",
-          "tree_id": "74631c1ce7cab6cf9b65d269c0befb2e9eb5ab07",
-          "url": "https://github.com/fallow-rs/fallow/commit/7dadcaa188d4cc744330d120389c0b4b942fb098"
-        },
-        "date": 1782589064106,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10613072,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 58546,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 62238,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c196a300d6a420d9c2abe69df1f771b336942b7f",
+          "message": "fix(members): credit member access through interface/type-alias property hops\n\nA dotted member chain whose receiver's type hop goes through a named interface or type-literal alias (interface Opts { c: OptDep }, constructor(private opts: Opts), this.opts.c.optM()) was never resolved, same-file or cross-module: the per-file interface property-type map's only consumer was destructured typed bindings. Codebases wiring classes through constructor-injected options objects saw near-100% false-positive unused-class-member rates and had to disable the rule.\n\nThe extraction layer now expands compound binding targets through the file's own interface/alias property types (one path segment per hop, so self-referential types terminate; local-class compounds stay on the instance_bindings path). When a hop's type name is imported, the property maps persist as ModuleInfo.type_member_types and a new TypedPropertyMemberAccess semantic fact joins consumer, declaring module, and class at analyze time, mirroring the factory-return machinery with the same export_is_class_with_members over-credit gate, so a wrong annotation can only under-report, never flag. Same-file renamed interface exports (export { Foo as Bar }) resolve through the export's declared local name.\n\nAlso fixed: interface-declared Playwright fixture maps (base.extend<MyFixtures> where MyFixtures is an interface) now resolve identically to the type-alias form, and the SFC merge path now carries semantic_facts, so Vue/Svelte script blocks participate in every cross-module fact join they previously dropped. CACHE_VERSION 224 to 225; warm caches invalidate on upgrade.\n\nFixes #1785.",
+          "timestamp": "2026-07-08T23:51:37+02:00",
+          "tree_id": "be50085faab8293d5d61c4509a6ae7f5e6c56a29",
+          "url": "https://github.com/fallow-rs/fallow/commit/c196a300d6a420d9c2abe69df1f771b336942b7f"
+        },
+        "date": 1783547766788,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10977744,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 62241,
             "unit": "allocations"
           },
           {
