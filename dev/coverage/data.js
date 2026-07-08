@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783545370543,
+  "lastUpdate": 1783545722535,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "078c8372557fe5303dfa8d9de93123b07a75e402",
-          "message": "fix(release): publish new fallow-output/engine/api crates to crates.io\n\nThe engine/output contract refactor (v2.103.0) split out fallow-output,\nfallow-engine, and fallow-api, which are build dependencies of the published\nfallow-config / fallow-cli crates. The hardcoded crates.io publish list omitted\nthem, so fallow-config could not resolve fallow-output on the index and the\npublish chain broke after fallow-types. Add the three crates in dependency\norder (output after types; engine after core; api after engine).",
-          "timestamp": "2026-06-28T09:22:56+02:00",
-          "tree_id": "5f321989fb0f47a8f7c105ccca93c3eb0b2293ed",
-          "url": "https://github.com/fallow-rs/fallow/commit/078c8372557fe5303dfa8d9de93123b07a75e402"
-        },
-        "date": 1782631753432,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ef6b1de673addd85cc57bc4b02d3f3487bfce2d2"
         },
         "date": 1783545367054,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a4fb282920ee12d521d48a2f13be9ad77d3665ef",
+          "message": "docs(rules): point churn wiring at fallow_engine paths in cli-crate.md",
+          "timestamp": "2026-07-08T23:17:03+02:00",
+          "tree_id": "bb38d0056949b8ed70e36793b19a100ba1ae8c97",
+          "url": "https://github.com/fallow-rs/fallow/commit/a4fb282920ee12d521d48a2f13be9ad77d3665ef"
+        },
+        "date": 1783545718988,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
