@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783506137379,
+  "lastUpdate": 1783506670932,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7dadcaa188d4cc744330d120389c0b4b942fb098",
-          "message": "fix(svelte): credit bind:/style:/class: directive shorthands as prop usage\n\nA Svelte directive written without an explicit value is shorthand for `directive:NAME={NAME}`, so the directive name itself references a local binding: `bind:open` = `bind:open={open}`, `style:height` = `style:height={height}`, `class:active` = `class:active={active}`. The template scanner only credited `use:`/`animate:`/`in:`/`out:`/`transition:` directive names, so a prop referenced only through a `bind:`/`style:`/`class:` shorthand was reported as `unused-component-props`.\n\nCredit the directive name as a reference only for value-less attributes; with an explicit `={...}` value the name is a target (child prop, CSS property, or class name) and the value path already credits the real binding. A leading-character guard skips CSS custom properties (`style:--accent`).\n\nCACHE_VERSION 192 -> 193: prop `used_in_template` flags change.\n\nFixes #1641",
-          "timestamp": "2026-06-27T21:28:41+02:00",
-          "tree_id": "74631c1ce7cab6cf9b65d269c0befb2e9eb5ab07",
-          "url": "https://github.com/fallow-rs/fallow/commit/7dadcaa188d4cc744330d120389c0b4b942fb098"
-        },
-        "date": 1782589548332,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 94.1,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/dc47771ba6fbee568a862ca72516fde9fd3f89cb"
         },
         "date": 1783506134642,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5f17bad395911bb1c18992c53d9f7105b757d9bf",
+          "message": "fix(ci): skills-vendor gate ignores version-string lines; add vendor-skills unit tests (#1782)\n\nNormalize `\"version\"` strings in the skills-vendor drift comparison so the transient release-window bump (step 5c vs 10a-pre) does not false-fail CI; guard main() behind an import.meta check so importing the module never runs it; add unit tests for vendor-skills.mjs.",
+          "timestamp": "2026-07-08T12:24:29+02:00",
+          "tree_id": "62d5c2f5ef39923bc580b1728cecb9df09a7d0ea",
+          "url": "https://github.com/fallow-rs/fallow/commit/5f17bad395911bb1c18992c53d9f7105b757d9bf"
+        },
+        "date": 1783506668319,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
