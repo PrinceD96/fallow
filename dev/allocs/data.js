@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783530991972,
+  "lastUpdate": 1783545302560,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "367ecaf9c03de9a5643aba4e141a520ba035171e",
-          "message": "fix(extract): credit Pinia store members through typed params (#1489 Case 2)\n\nA Pinia store passed as a param typed ReturnType<typeof useFooStore> (inline or\nvia a local type alias), and read as store.member, props.store.member, or\nconst { member } = props.store, was reported as an unused-store-members false\npositive: crediting only joined on the store-factory name and never resolved a\nparam typed as the store.\n\nRecords the type-alias-to-factory mapping and resolves a store-typed param to\nthe factory name through the existing binding_target_names remap, gated on the\nuse<Name>Store convention so a non-store ReturnType param never masks a real\nunused member. Extract-only; no analyze, CLI, or LSP change. CACHE_VERSION\nbumped 191 to 192.\n\nCompletes #1489 (Case 1, the inline form, shipped in #1634).\n\nCloses #1489.",
-          "timestamp": "2026-06-26T15:23:40+02:00",
-          "tree_id": "55fa1adc270c18c91bcb83e840e4d6b4e622e668",
-          "url": "https://github.com/fallow-rs/fallow/commit/367ecaf9c03de9a5643aba4e141a520ba035171e"
-        },
-        "date": 1782480423967,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10646073,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 58567,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 62252,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ef6b1de673addd85cc57bc4b02d3f3487bfce2d2",
+          "message": "test(cli): update architecture guardrails after core detector deletion\n\nThe core_backend forbidden list dropped its fallow_core::duplicates::*\nentries: the module no longer exists, so that routing cannot compile and\nthe string guards are vacuous. The BackendCloneFingerprintSet adapter\nguard and the engine-side ownership assertions stay. Also repoints a\ndoc-comment path in audit_tests.rs to the engine detector tree.",
+          "timestamp": "2026-07-08T21:22:28+02:00",
+          "tree_id": "f20d25cbe6e9bbb56c3c1a6a11b5ba11b0267cae",
+          "url": "https://github.com/fallow-rs/fallow/commit/ef6b1de673addd85cc57bc4b02d3f3487bfce2d2"
+        },
+        "date": 1783545299742,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10982800,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 62260,
             "unit": "allocations"
           },
           {
