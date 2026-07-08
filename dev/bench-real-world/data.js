@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783420276077,
+  "lastUpdate": 1783503198518,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -7245,6 +7245,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1121,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "df2f052a926c23937a359551ba771fcbe795cbe2",
+          "message": "refactor(skill): split MCP catalogue to references/mcp.md; add vendored-skill drift gate (#1781)\n\nMove the MCP tool catalogue out of the always-loaded SKILL.md into references/mcp.md, add a CI gate keeping npm/fallow/skills in lockstep with canonical fallow-skills, and reconcile capabilities.json + both skill trees with the binary (adds plugin-check, fixing the stale contract bundle).",
+          "timestamp": "2026-07-08T09:24:03Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/df2f052a926c23937a359551ba771fcbe795cbe2"
+        },
+        "date": 1783503194782,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 306,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 614,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 409,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1740,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1331,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1222,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1021,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1226,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1221,
             "unit": "ms"
           }
         ]
