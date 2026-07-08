@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783531509631,
+  "lastUpdate": 1783546272234,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "de828f7de4029d5b61344f15f82a9fb76b997877",
-          "message": "test: cover hardcoded-secret classification and import-resolution fallbacks",
-          "timestamp": "2026-06-21T20:37:49+02:00",
-          "tree_id": "253c25e92677f18774115490d78fef368c6086d5",
-          "url": "https://github.com/fallow-rs/fallow/commit/de828f7de4029d5b61344f15f82a9fb76b997877"
-        },
-        "date": 1782067687774,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 352825552,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 413857712,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a4fb282920ee12d521d48a2f13be9ad77d3665ef",
+          "message": "docs(rules): point churn wiring at fallow_engine paths in cli-crate.md",
+          "timestamp": "2026-07-08T23:17:03+02:00",
+          "tree_id": "bb38d0056949b8ed70e36793b19a100ba1ae8c97",
+          "url": "https://github.com/fallow-rs/fallow/commit/a4fb282920ee12d521d48a2f13be9ad77d3665ef"
+        },
+        "date": 1783546267449,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 413875744,
             "unit": "bytes"
           }
         ]
