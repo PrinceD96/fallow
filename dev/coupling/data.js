@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783628238097,
+  "lastUpdate": 1783631351682,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "377027c5764a2cf11b79e9e9ac6b6a79321a7442",
-          "message": "fix(plugins): credit commit-and-tag-version updater and bump files\n\nA custom version-bump `updater` JS module referenced under the package.json `commit-and-tag-version` key (or a `.versionrc` config) is loaded by the tool at runtime and has no static importer, so `unused-files` false-flagged it. fallow scanned only an allowlist of package.json keys and had no plugin for this tool.\n\nA new `commit-and-tag-version` plugin credits each `bumpFiles[]` / `packageFiles[]` entry's `updater` and `filename` as support files, gated on disk-existence so non-source targets (gradle/plist/version.txt) and phantom paths are never over-credited. The trait reads one package.json key, so a legacy `standard-version` user with config inlined under the `standard-version` key is covered via its `.versionrc` files.\n\nFixes #1640.",
-          "timestamp": "2026-06-29T10:53:58+02:00",
-          "tree_id": "4b9dde1e152ef06ccef4c17ef365d7882db5277a",
-          "url": "https://github.com/fallow-rs/fallow/commit/377027c5764a2cf11b79e9e9ac6b6a79321a7442"
-        },
-        "date": 1782723356386,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 25,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 29,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.79,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 378,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 831,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 922,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "05a23e93d82583f43a8982dc3e9ebce5581bdf58",
+          "message": "docs: drop deleted core-module references from agent and security docs\n\nPoints CLAUDE.md, the crate rule files, crates/core/AGENTS.md, SECURITY.md, detection.md, and CONTRIBUTING.md at the current module owners (engine duplication_detector/ and churn.rs, types-crate duplication types, analyze/members/) and removes the deleted duplicates/, cross_reference.rs, trace.rs, and spawn::git references.",
+          "timestamp": "2026-07-09T22:59:12+02:00",
+          "tree_id": "a5000fc6def84bd7543f7bc250130fe3962949a2",
+          "url": "https://github.com/fallow-rs/fallow/commit/05a23e93d82583f43a8982dc3e9ebce5581bdf58"
+        },
+        "date": 1783631348268,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 31,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 397,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 983,
             "unit": "count"
           }
         ]
