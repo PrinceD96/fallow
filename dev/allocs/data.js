@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783635808403,
+  "lastUpdate": 1783636421461,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b294a60257e6900b0a209a2ffc0da38dd20ebcc0",
-          "message": "chore: mark fallow-programmatic-cli publish = false to match release crate list",
-          "timestamp": "2026-06-29T09:54:58+02:00",
-          "tree_id": "d7af88fbd12ad06a63fd3d4ee2dfa4bd93809cf5",
-          "url": "https://github.com/fallow-rs/fallow/commit/b294a60257e6900b0a209a2ffc0da38dd20ebcc0"
-        },
-        "date": 1782719933278,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10567534,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 58322,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 52264,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d10ef7616a78bc7268948cec15690cfbb7b9365a",
+          "message": "test(core,engine): drop timing-dependent asserts and profiling pseudo-test\n\nGates the assert-free dupes profiling harness behind #[ignore], removes the wall-clock asserts from the dupes stress tests (bench workflows own perf signal), makes the graph-cache transparency test deterministic without the mtime sleep, and moves the test-only tempfile dependency to dev-dependencies.",
+          "timestamp": "2026-07-10T00:29:19+02:00",
+          "tree_id": "8b358b861bfe734dad120c0ec01c3f92372d91e8",
+          "url": "https://github.com/fallow-rs/fallow/commit/d10ef7616a78bc7268948cec15690cfbb7b9365a"
+        },
+        "date": 1783636418604,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9910424,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 52304,
             "unit": "allocations"
           },
           {
