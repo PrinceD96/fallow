@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783600774601,
+  "lastUpdate": 1783625160860,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e28929f58d96b190038826bce07c38808cff4166",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.103.0",
-          "timestamp": "2026-06-28T09:38:13+02:00",
-          "tree_id": "9575d956e7f2887730990aedd3331d1ee44d733d",
-          "url": "https://github.com/fallow-rs/fallow/commit/e28929f58d96b190038826bce07c38808cff4166"
-        },
-        "date": 1782632594040,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10602281,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 58421,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4384,6 +4340,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Bytes Allocated",
             "value": 10997964,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 62227,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "89d83c73d3a64f1e3fcde52cdafe72d7fc7c3071",
+          "message": "chore(contracts): regenerate output schema, TS contracts, and capabilities for suppression-inventory",
+          "timestamp": "2026-07-09T21:14:57+02:00",
+          "tree_id": "5e2a71e73fc3bd5e8bbea43a90b213df96f7529a",
+          "url": "https://github.com/fallow-rs/fallow/commit/89d83c73d3a64f1e3fcde52cdafe72d7fc7c3071"
+        },
+        "date": 1783625158344,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10969984,
             "unit": "bytes"
           },
           {
