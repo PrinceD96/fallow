@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783635902578,
+  "lastUpdate": 1783636835497,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "19a5a58c8a5ce73b2928dd0a8ed2b7d7a6e3f15b",
-          "message": "test(review): end-to-end runtime-weighted focus map coverage\n\nAdds a gated integration test driving real `fallow review --runtime-coverage`:\na signed stub sidecar reports a hot path on a changed module, and the test\nasserts the brief's focus map weights it (a `runtime` score component that\nlifts the file into `review-here`). A negative control runs the same repo\nwithout `--runtime-coverage` and asserts no `runtime` component and no `skip`\nlabel.\n\nCovers the seam the unit tests cannot reach on their own: that\n`--runtime-coverage` populates `result.health.report.runtime_coverage` and that\n`build_runtime_focus` joins it onto the focus map end-to-end. Gated behind the\n`test-sidecar-key` cargo feature (signed stub + minted license).",
-          "timestamp": "2026-06-29T13:26:11Z",
-          "tree_id": "83dd19a5d0c726271e84d53a33e105516eb9f4fc",
-          "url": "https://github.com/fallow-rs/fallow/commit/19a5a58c8a5ce73b2928dd0a8ed2b7d7a6e3f15b"
-        },
-        "date": 1782739803917,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/38f36755518bad4df0c4b4aa9071eba5c7e97561"
         },
         "date": 1783635899361,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e484a4312bcb482bca3e8b900b785bc752ca19b9",
+          "message": "chore(docker): bump default FALLOW_VERSION to 3.3.0 with refreshed checksums\n\nBumps the default image version to 3.3.0 with freshly verified per-arch sha256 pins and documents the version/hash lockstep rule.",
+          "timestamp": "2026-07-10T00:29:55+02:00",
+          "tree_id": "39563153ffada37d2b776cada8a8d8db7f6a0824",
+          "url": "https://github.com/fallow-rs/fallow/commit/e484a4312bcb482bca3e8b900b785bc752ca19b9"
+        },
+        "date": 1783636831612,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
