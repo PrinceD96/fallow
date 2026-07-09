@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783593254713,
+  "lastUpdate": 1783597154169,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4f5aabde8eda855175aee7c0e1dbd695f31e9923",
-          "message": "test(release): guard crates.io publish list matches publishable workspace crates",
-          "timestamp": "2026-06-29T10:19:37+02:00",
-          "tree_id": "e545ffd666a6dc86ee5d9cc7f957f4e730cabff1",
-          "url": "https://github.com/fallow-rs/fallow/commit/4f5aabde8eda855175aee7c0e1dbd695f31e9923"
-        },
-        "date": 1782721419560,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b39782a149db879383734aef60f1329e967b0317"
         },
         "date": 1783593250746,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "c9326d9395c0b46f4077290473060b3e950b6e8c",
+          "message": "chore: release v3.3.0",
+          "timestamp": "2026-07-09T13:33:19+02:00",
+          "tree_id": "ec96dac95d61fa33fa75fa03f8df2d0c1ff95914",
+          "url": "https://github.com/fallow-rs/fallow/commit/c9326d9395c0b46f4077290473060b3e950b6e8c"
+        },
+        "date": 1783597151140,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
