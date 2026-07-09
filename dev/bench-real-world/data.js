@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783503198518,
+  "lastUpdate": 1783593107844,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -7337,6 +7337,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1221,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "b39782a149db879383734aef60f1329e967b0317",
+          "message": "docs(rules): document the PositionMapper byte-to-UTF-16 boundary convention",
+          "timestamp": "2026-07-09T10:26:37Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/b39782a149db879383734aef60f1329e967b0317"
+        },
+        "date": 1783593102862,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 615,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 510,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1745,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1333,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1228,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1021,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1225,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1222,
             "unit": "ms"
           }
         ]
