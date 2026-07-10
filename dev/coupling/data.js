@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783644578288,
+  "lastUpdate": 1783661060589,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ff1e13f167bdaf05a5ecf9c419a2536df6acafcb",
-          "message": "feat(review): add `fallow review --walkthrough` human/markdown terminal renderer\n\nRender the existing StandardWalkthroughGuide as a staged terminal tour,\nthe zero-install surface for the review walkthrough.\n\n- fallow review --walkthrough: staged human tour (Review Focus header,\n  ordered stages, ordered files, per-file fact line, badges, the cleared\n  panel collapsed by default with an expand hint).\n- --format markdown: paste-into-PR artifact (no ANSI), to stdout.\n- --format json: delegates verbatim to the existing --walkthrough-guide\n  path; byte-identical wire, no contract fork.\n- per-file viewed-state at <cache_dir>/.fallow/walkthrough-state.json\n  (--mark-viewed), atomic write, stale-tolerant via graph_snapshot_hash.\n- review exit-0 invariant preserved; conflicts_with --walkthrough-guide\n  and --walkthrough-file.\n\nPure presentation over the in-memory guide: no re-derivation of ordering\nor facts, no new analyzer intelligence. The renderer is read-only.",
-          "timestamp": "2026-06-29T14:47:31+02:00",
-          "tree_id": "21f6b22a7d53ceedd79f98335261a8fc9ddc8557",
-          "url": "https://github.com/fallow-rs/fallow/commit/ff1e13f167bdaf05a5ecf9c419a2536df6acafcb"
-        },
-        "date": 1782737366152,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 26,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 29,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.79,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 380,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 835,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f92a06ffd7163d012d7d2fd86ab893390ff4f955"
         },
         "date": 1783644575671,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 31,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 397,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 985,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d26a96b43b4001b9aa0368583c53ff4de248a210",
+          "message": "fix(ci): lint Windows MCP lifecycle code (#1807)\n\nRepair the Windows-only MCP Clippy failure and run focused MCP Clippy in the pull request lifecycle gate.\n\nAdd a workflow policy regression test so the Windows lint command cannot drift.",
+          "timestamp": "2026-07-10T05:23:10Z",
+          "tree_id": "d1eeaef212a3f173a52b7f6afe093d16bc38a38f",
+          "url": "https://github.com/fallow-rs/fallow/commit/d26a96b43b4001b9aa0368583c53ff4de248a210"
+        },
+        "date": 1783661057098,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
