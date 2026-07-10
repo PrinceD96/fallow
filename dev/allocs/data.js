@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783639065429,
+  "lastUpdate": 1783644719299,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4f5aabde8eda855175aee7c0e1dbd695f31e9923",
-          "message": "test(release): guard crates.io publish list matches publishable workspace crates",
-          "timestamp": "2026-06-29T10:19:37+02:00",
-          "tree_id": "e545ffd666a6dc86ee5d9cc7f957f4e730cabff1",
-          "url": "https://github.com/fallow-rs/fallow/commit/4f5aabde8eda855175aee7c0e1dbd695f31e9923"
-        },
-        "date": 1782721372817,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10591294,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 58314,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 957673,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7376,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 52316,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f92a06ffd7163d012d7d2fd86ab893390ff4f955",
+          "message": "perf: share parsed modules across warm sessions",
+          "timestamp": "2026-07-10T02:48:28+02:00",
+          "tree_id": "2a50af72f2c4552e120c1abf2173880450988f36",
+          "url": "https://github.com/fallow-rs/fallow/commit/f92a06ffd7163d012d7d2fd86ab893390ff4f955"
+        },
+        "date": 1783644715160,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9905352,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 52294,
             "unit": "allocations"
           },
           {
