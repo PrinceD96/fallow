@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783675778014,
+  "lastUpdate": 1783686315537,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "716522dbb4270242ee5d82b592bad536178e135e",
-          "message": "feat(coverage): emit per-function complexity and per-file churn in inventory upload (#1663)\n\nv2 inventory payload with optional per-function cyclomatic/cognitive and a top-level per-file churn map (commits, weightedCommits, linesAdded/Deleted, trend, authorCount=distinct git authors, lastCommitTs). All fields optional, backward compatible. CodSpeed's single flagged regression is a cross-environment measurement artifact on a cache-hit benchmark that does not touch the changed code.",
-          "timestamp": "2026-06-29T22:02:41+02:00",
-          "tree_id": "eeeb979be30d0ed5fe1a8eb7dd26a984639b7711",
-          "url": "https://github.com/fallow-rs/fallow/commit/716522dbb4270242ee5d82b592bad536178e135e"
-        },
-        "date": 1782763596501,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4d019eeb4785ea71412d8e7f56dc8a208d03e94f"
         },
         "date": 1783675774396,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "36875ed79d16710af94c5d7654667404d72de828",
+          "message": "fix: address audit improvement findings\n\nHarden source and fix I/O, audit base materialization, LSP failure handling, route-loader reachability, and grouped workspace diagnostics so failures cannot be mistaken for clean analysis.\n\nAdd transactional contract generation, Node 22 runtime contracts, documentation updates, and measured graph and extraction performance improvements. Include regression coverage for unreadable warm-cache sources found during final review.",
+          "timestamp": "2026-07-10T14:18:12+02:00",
+          "tree_id": "f3ac0e7b9051f15fabe7ae919f715e9885cec173",
+          "url": "https://github.com/fallow-rs/fallow/commit/36875ed79d16710af94c5d7654667404d72de828"
+        },
+        "date": 1783686312556,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
