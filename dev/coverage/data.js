@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783721175193,
+  "lastUpdate": 1783797408870,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d62115038dcb272d608f698e294848f441b17881",
-          "message": "docs(changelog): record CSS-in-JS first-class (Phase 3, PR #1668)",
-          "timestamp": "2026-06-30T08:05:29+02:00",
-          "tree_id": "ed3ca34d2e8f991179af3fe7984a078d23b34965",
-          "url": "https://github.com/fallow-rs/fallow/commit/d62115038dcb272d608f698e294848f441b17881"
-        },
-        "date": 1782799905952,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c05420909051aec49c0362c8e1de28132d82a86b"
         },
         "date": 1783721171136,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.4,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5f77b7b5e86af87a570ca874a2531445ec58aa2f",
+          "message": "fix(report): singular nouns for one-finding GitHub format headlines\n\nSmoke testing the unreleased GitHub-native formats surfaced two count==1 grammar defects: the annotations budget notice rendered \"fallow emitted 1 annotations\" and the job-summary headline rendered \"**1 issues** found\". A pull request that introduces exactly one issue is the most common CI case, so both strings now branch on the count.\n\nGolden snapshots are unchanged (their fixtures are plural); new unit and integration tests pin the singular forms.",
+          "timestamp": "2026-07-11T21:08:08+02:00",
+          "tree_id": "62b1f8435a829356be6bc2e28091b6e02dac4d35",
+          "url": "https://github.com/fallow-rs/fallow/commit/5f77b7b5e86af87a570ca874a2531445ec58aa2f"
+        },
+        "date": 1783797406309,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
