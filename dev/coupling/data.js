@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783848007150,
+  "lastUpdate": 1783853907861,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "bab6c6815925776b36ddccb503ea8bd73e9daba6",
-          "message": "fix(review): make --walkthrough output release-clean\n\nFollow-up to #1660. A tidiness pass on the walkthrough renderer:\n\n- ordering: each stage now orders by the concrete count it displays, so\n  position is explained by a visible number. Stage 1 by out-of-diff\n  consumer count (\"consumed by N modules\"); Stage 2 by fan-in importer\n  count, then fan-out. The most-imported file leads Stage 2 instead of\n  sitting mid-list, and no abstract score/connectedness number is shown.\n- markdown now honors --mark-viewed: viewed files collapse out of their\n  stage into Cleared in markdown too (was silently ignored), matching the\n  human surface.\n- the status line reports the number of stages actually rendered (was a\n  hardcoded \"2 stages\" that could lie when a stage was empty).\n- removed em-dashes from the rendered output (headers and list\n  separators) for one consistent separator vocabulary.\n\nRender-surface and sort-order only: --walkthrough --format json stays\nbyte-identical to --walkthrough-guide, and the review exit-0 invariant is\nuntouched.",
-          "timestamp": "2026-06-29T18:44:52+02:00",
-          "tree_id": "7763038eecab77495314b931d2a072315b509489",
-          "url": "https://github.com/fallow-rs/fallow/commit/bab6c6815925776b36ddccb503ea8bd73e9daba6"
-        },
-        "date": 1782751561436,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 26,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 29,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.79,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 380,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 835,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/43a4faaa2fbef129c29b908a5d3eb7f5e871d580"
         },
         "date": 1783848004173,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 31,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 397,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 985,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2723871c33b6fb591227b2b09bf3a99b3af47da1",
+          "message": "fix(extract): credit member access through private class fields (#1822)\n\nA member reached through a `#`-private DI field (`this.#dep.m()`) on a\nclass in another module was reported as unused-class-member because the\nprivate-field receiver recorded no member access and no binding target,\nunlike the equivalent public `this.dep.m()` receiver.\n\nAdd the three missing `#`-private arms so a private field produces the\nsame binding-key + member-access pair a public field does:\n- static_member_object_name yields the `this.#dep` receiver key,\n- visit_property_definition derives the `#dep` member key for the typed,\n  inline-new, and inject binding arms (the hardcoded-secret sink stays\n  gated on static_name only),\n- visit_assignment_expression handles the PrivateFieldExpression target\n  for `this.#dep = new Dep()` / `this.#dep = dep`.\n\nBump CACHE_VERSION: warm caches lack the private-field member accesses.\n\nFixes #1821",
+          "timestamp": "2026-07-12T12:56:56+02:00",
+          "tree_id": "95f593b914baecaae299a1a5493a959fcee97396",
+          "url": "https://github.com/fallow-rs/fallow/commit/2723871c33b6fb591227b2b09bf3a99b3af47da1"
+        },
+        "date": 1783853904515,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
