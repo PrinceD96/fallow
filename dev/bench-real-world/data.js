@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783759941498,
+  "lastUpdate": 1783847329598,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -7613,6 +7613,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1022,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "dfcc69f429c943a91751a587990a0e7f078b325e",
+          "message": "ci: move cross-platform checks to release\n\nKeep regular pull request and main CI on Ubuntu for fast feedback. Move Windows correctness, lifecycle, NAPI, ARM64, and macOS or Windows Zed coverage into token-free release verification.\n\nGate crates.io, npm, GitHub release, and editor publication paths behind the aggregate release verification job.",
+          "timestamp": "2026-07-11T20:36:08Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/dfcc69f429c943a91751a587990a0e7f078b325e"
+        },
+        "date": 1783847325044,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 103,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 509,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 407,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1429,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1225,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1019,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 915,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1123,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1019,
             "unit": "ms"
           }
         ]
