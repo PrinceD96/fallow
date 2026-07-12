@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783855203427,
+  "lastUpdate": 1783856258601,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "716522dbb4270242ee5d82b592bad536178e135e",
-          "message": "feat(coverage): emit per-function complexity and per-file churn in inventory upload (#1663)\n\nv2 inventory payload with optional per-function cyclomatic/cognitive and a top-level per-file churn map (commits, weightedCommits, linesAdded/Deleted, trend, authorCount=distinct git authors, lastCommitTs). All fields optional, backward compatible. CodSpeed's single flagged regression is a cross-environment measurement artifact on a cache-hit benchmark that does not touch the changed code.",
-          "timestamp": "2026-06-29T22:02:41+02:00",
-          "tree_id": "eeeb979be30d0ed5fe1a8eb7dd26a984639b7711",
-          "url": "https://github.com/fallow-rs/fallow/commit/716522dbb4270242ee5d82b592bad536178e135e"
-        },
-        "date": 1782763429756,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 26,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 29,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.79,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 380,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 835,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/acc994aa8ec24673399d016db7dede091338c8e7"
         },
         "date": 1783855200737,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 31,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 397,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 986,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d87215889a57d05c7b52a4be32c902bd3f731e68",
+          "message": "test(cli): isolate orphan-sweep fixtures from the shared temp dir (#1829)\n\nThe #1815 orphan sweep scans std::env::temp_dir() globally for dead-pid\nworktree directories, so a test fixture fabricated there with a fake dead\nPID is legitimate prey for any concurrent sweep (a parallel test or a\nspawned fallow binary). Under full-suite parallelism this raced the\nfixture's own assertions: the fixture dir vanished between git worktree\nadd and the registration precondition check.\n\nMake the scanned temp root injectable (sweep_orphan_audit_worktrees_in)\nand point the three orphan-sweep tests at their own TempDir. Production\nbehavior is unchanged: the public wrapper still scans the real temp dir.",
+          "timestamp": "2026-07-12T13:35:32+02:00",
+          "tree_id": "29f35de772eeb87ef746e409499e9388e45986ef",
+          "url": "https://github.com/fallow-rs/fallow/commit/d87215889a57d05c7b52a4be32c902bd3f731e68"
+        },
+        "date": 1783856255088,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
