@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783971330409,
+  "lastUpdate": 1783971699975,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ea88340200e529d0f1416303cc436ae9ac370044",
-          "message": "fix(napi): align smoke test with consolidated engine root-validation message\n\nThe engine consolidation refactor (f8eb3dd6a) changed validate_root's\nerror message from \"analysis root does not exist\" to the more\ninformative \"invalid root path '<path>': <os-error>\", but the NAPI\nsmoke test still asserted the old wording, reddening the Check job on\nboth ubuntu and windows. Match the stable substring instead of the\nOS-specific error text.",
-          "timestamp": "2026-07-01T20:16:39+02:00",
-          "tree_id": "92bdd3b04580279f931e136aacb504464312a418",
-          "url": "https://github.com/fallow-rs/fallow/commit/ea88340200e529d0f1416303cc436ae9ac370044"
-        },
-        "date": 1782930263340,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/98c028c8b53da9d8de9cf27fe431bf089920ec91"
         },
         "date": 1783971326748,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "48f88e87776b4d85aeef649bfa1a6ac024be7ba1",
+          "message": "fix(ci): allow multi-binary size checks to finish\n\nThe binary-size workflow began building LSP, MCP, and multicall release artifacts but retained a budget sized for the CLI-only job. Raise the timeout to 30 minutes and guard the minimum budget with a workflow policy test.",
+          "timestamp": "2026-07-13T19:36:48Z",
+          "tree_id": "3c43d4e00445fef864e4ebf97703c28528928da5",
+          "url": "https://github.com/fallow-rs/fallow/commit/48f88e87776b4d85aeef649bfa1a6ac024be7ba1"
+        },
+        "date": 1783971695931,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
