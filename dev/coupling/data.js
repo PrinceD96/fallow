@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783970558008,
+  "lastUpdate": 1783970882037,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7ec9a8b187f1e2c986430ca49c7caa55355f3fd6",
-          "message": "refactor(extract): consolidate CSS-in-JS front-ends into a css_in_js/ module\n\nConsolidate the three flat CSS-in-JS files (template lexer 3b, object serializer 3c, token graph 3d, ~2300 lines) into a css_in_js/ module dir (template.rs / object.rs / tokens.rs / shared.rs / mod.rs). shared.rs single-sources the count_newlines helper and the WRAPPER synthetic selector both front-ends emit. Behavior-preserving: the public API and every downstream import path are unchanged (mod.rs re-exports what lib.rs re-exports). No logic change; reviewed by two rust-reviewer agents (APPROVE); full workspace test + clippy + fmt green.",
-          "timestamp": "2026-07-01T09:48:09+02:00",
-          "tree_id": "112f9ed9b1d704f4666a66cb8cf8469d1e7ec02c",
-          "url": "https://github.com/fallow-rs/fallow/commit/7ec9a8b187f1e2c986430ca49c7caa55355f3fd6"
-        },
-        "date": 1782892228265,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 26,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 29,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.98,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 408,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 942,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f0f242566fed03cee095aed08a7966cd8155d4ee"
         },
         "date": 1783970554878,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 32,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.13,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 443,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1104,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "98c028c8b53da9d8de9cf27fe431bf089920ec91",
+          "message": "fix(cli): label config edit failures accurately\n\nDistinguish configuration read failures from errors while preparing ignoreExports edits. Add behavior-level regression coverage for unreadable and malformed configs.",
+          "timestamp": "2026-07-13T19:26:36Z",
+          "tree_id": "a0f2feede7936c3de78e94319a0372ba5183f0ac",
+          "url": "https://github.com/fallow-rs/fallow/commit/98c028c8b53da9d8de9cf27fe431bf089920ec91"
+        },
+        "date": 1783970878087,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
