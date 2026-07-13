@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783972224435,
+  "lastUpdate": 1783974242831,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7d7ca6d3c8d7737501beba662a7b50146ff8a4be",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v2.104.0",
-          "timestamp": "2026-07-01T23:16:48+02:00",
-          "tree_id": "db4a97930ea52a57dba1c156f329cc96119dd355",
-          "url": "https://github.com/fallow-rs/fallow/commit/7d7ca6d3c8d7737501beba662a7b50146ff8a4be"
-        },
-        "date": 1782941135930,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2e7c2abfa177f0a31320532eb50cb5ee880aaab2"
         },
         "date": 1783972221544,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a9d1afa161fa444cbb09afd792409fdc62d1abbb",
+          "message": "fix(ci): split binary size builds by artifact mode",
+          "timestamp": "2026-07-13T20:20:10Z",
+          "tree_id": "7cda5c034df6300c9d09c61c87d678d921254c03",
+          "url": "https://github.com/fallow-rs/fallow/commit/a9d1afa161fa444cbb09afd792409fdc62d1abbb"
+        },
+        "date": 1783974239124,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
