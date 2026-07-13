@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783939717087,
+  "lastUpdate": 1783943795010,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "8b1d50f565587a84801a00db9b8d006e12e7455c",
-          "message": "refactor(css): tighten CSS-in-JS object lifter internals\n\n- sanitize_selector strips `;` (not just `{`/`}`) so an adversarial\n  globalStyle selector cannot split a declaration in the virtual stylesheet.\n- Lib + module_library are pub(super): used only within css_in_js/, no crate\n  public-API surface.\n- add a coexistence test: Panda `cva` and class-variance-authority `cva` under\n  distinct local aliases in one file (only Panda's base serializes).",
-          "timestamp": "2026-07-01T10:59:57+02:00",
-          "tree_id": "12896870ab600cfb3ae5c887cab62131831240b2",
-          "url": "https://github.com/fallow-rs/fallow/commit/8b1d50f565587a84801a00db9b8d006e12e7455c"
-        },
-        "date": 1782896658732,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/83762f1dc7852f6910e70e3c3a1ca0eb179ff98e"
         },
         "date": 1783939713890,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fe9812109059f5b77d2506da61bece83f484f526",
+          "message": "ci: make release validation dispatchable before any version exists (#1836)\n\nExtract the three release-gating validation jobs (Windows correctness\nand lifecycle, Zed verification, codegen drift) into a reusable\nrelease-validation.yml. release.yml calls it on tag runs so publishes\nkeep gating on the identical set; workflow_dispatch lets the release\npre-flight run the full validation on main BEFORE bumping a version, so\na failing check can no longer burn a release tag (v3.4.0 and v3.4.1\nwere both lost to a Windows-only CRLF failure that had never run\npre-tag); a weekly cron surfaces runner-image drift between releases.",
+          "timestamp": "2026-07-13T13:46:24+02:00",
+          "tree_id": "3baf10b1de3f2273debbd93c143ae7edc59f9424",
+          "url": "https://github.com/fallow-rs/fallow/commit/fe9812109059f5b77d2506da61bece83f484f526"
+        },
+        "date": 1783943791723,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
