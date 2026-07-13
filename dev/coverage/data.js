@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783933127689,
+  "lastUpdate": 1783935829253,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "968316f4fc03ec0051c17f30441775b68e7ea33a",
-          "message": "ci: fix taiki-e/install-action tool selection for audit/shear/llvm-cov (#1703)\n\nThe Security Audit and Unused Dependencies jobs (both required checks) were\nfailing on main with 'no such command: audit' / 'no such command: shear'.\n\nThese steps selected the tool via the action ref (the `cargo-audit` /\n`cargo-shear` tags), which only works when the ref is the tool tag. #1686\nbumped taiki-e/install-action and re-pinned those refs to a version-release\nSHA, so tool detection silently broke and the tools never installed. The\nsame latent bug was present in coverage.yml (cargo-llvm-cov).\n\nPin all three to the same version SHA as bench.yml (v2.82.2) and select the\ntool explicitly via `with: tool:`, matching the cargo-codspeed step. This is\nrobust to future SHA re-pins by Dependabot.",
-          "timestamp": "2026-07-01T08:14:44Z",
-          "tree_id": "dc9208260a0605f6dd218185417dbca2b69507d6",
-          "url": "https://github.com/fallow-rs/fallow/commit/968316f4fc03ec0051c17f30441775b68e7ea33a"
-        },
-        "date": 1782894047004,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ab61b4073f08af78335aef83d5fb997836c57c85"
         },
         "date": 1783933124229,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "0f2de24d23679cca1568b85aa8028d9f4ea6ed38",
+          "message": "chore: release v3.4.0",
+          "timestamp": "2026-07-13T11:35:29+02:00",
+          "tree_id": "9e849ef300cd8fa21173a0444904b2d36b1cc74f",
+          "url": "https://github.com/fallow-rs/fallow/commit/0f2de24d23679cca1568b85aa8028d9f4ea6ed38"
+        },
+        "date": 1783935825780,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
