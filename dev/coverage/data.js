@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783893455910,
+  "lastUpdate": 1783932484050,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b1679306e76c14001f24bfcdd6e21016c971d491",
-          "message": "chore(deps): bump actions/checkout from 6.0.3 to 7.0.0 (#1692)\n\nBumps [actions/checkout](https://github.com/actions/checkout) from 6.0.3 to 7.0.0.\n- [Release notes](https://github.com/actions/checkout/releases)\n- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/actions/checkout/compare/df4cb1c069e1874edd31b4311f1884172cec0e10...9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0)\n\n---\nupdated-dependencies:\n- dependency-name: actions/checkout\n  dependency-version: 7.0.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
-          "timestamp": "2026-06-30T14:28:59Z",
-          "tree_id": "dedeb98ca0126655fc3a06ecd9e7e129e982cba4",
-          "url": "https://github.com/fallow-rs/fallow/commit/b1679306e76c14001f24bfcdd6e21016c971d491"
-        },
-        "date": 1782830593399,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/976a868175368846efa5c43145b367ca9224c76d"
         },
         "date": 1783893452402,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2e9313ddd139a994e38c004b67e31d4dd21415ab",
+          "message": "docs: classify the CI path-rebase as a behavior change, not a semver major\n\nThe #1808 CHANGELOG entry led with BREAKING, which would push the next release toward a major bump for a fix whose affected cohort (subdirectory --root runs) previously got output their only consumers rejected, and which has a one-flag restore (--report-path-prefix ''). Relabels the entry as a behavior change with the rationale inline, and records it in the backwards-compatibility doc's new v3 notable-behavior-changes section. v4 stays reserved for the announced kind-tagged FallowOutput / alias-removal major (#413).",
+          "timestamp": "2026-07-13T10:43:14+02:00",
+          "tree_id": "cccc0312fab1b5c076929ed01299a2e01244c61e",
+          "url": "https://github.com/fallow-rs/fallow/commit/2e9313ddd139a994e38c004b67e31d4dd21415ab"
+        },
+        "date": 1783932481414,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
