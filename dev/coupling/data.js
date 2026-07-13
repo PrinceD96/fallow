@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783935472733,
+  "lastUpdate": 1783939665865,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "fbe60a8d3c7117421605c3b87476b8c302e77f92",
-          "message": "fix(review): clearer wording for contract-change decisions\n\nThe contract-change decision read as a wall of one repeated, awkward\nsentence on every flagged file (\"...consumed by N modules NOT in this\ndiff. Coordinate the change, or is the contract stable?\").\n\n- Reword the decision question (decision surface, shared with the brief\n  and the JSON): plain \"changes exports (...) imported by N files outside\n  this PR\" instead of \"consumed by N modules NOT in this diff\", and a\n  single open question \"Does this change break or alter what those callers\n  expect?\" instead of the imperative-plus-question hybrid.\n- In the guided tour, the per-file line now shows just the observation:\n  the section header frames the action once, and the open question stays\n  in the decisions brief and the JSON (where each decision stands alone),\n  so the rows read as distinct facts rather than a repeated sentence.\n\nRender-surface plus decision-question wording only. The `question` text is\nfree-text framing (deterministic: false); the guide/brief/JSON schema and\nthe agent contract are unchanged, and --walkthrough --format json stays\nbyte-identical to --walkthrough-guide.",
-          "timestamp": "2026-06-30T14:26:22+02:00",
-          "tree_id": "09f06dc2ba8ffeeab1e731ac99d930862d5f9fd0",
-          "url": "https://github.com/fallow-rs/fallow/commit/fbe60a8d3c7117421605c3b87476b8c302e77f92"
-        },
-        "date": 1782822455965,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 26,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 29,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.79,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 382,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 837,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0f2de24d23679cca1568b85aa8028d9f4ea6ed38"
         },
         "date": 1783935469131,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 31,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.01,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 397,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 987,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "83762f1dc7852f6910e70e3c3a1ca0eb179ff98e",
+          "message": "chore: release v3.4.1\n\nv3.4.0's tag never published: the first Windows run of the relocated\ncross-platform checks failed the staged subgenerator byte-comparison\nbecause core.autocrlf converted the committed contract surfaces to CRLF\nwhile generators write LF. Contract surfaces are now pinned to LF in\n.gitattributes; the 3.4.0 changelog section ships unchanged as 3.4.1.",
+          "timestamp": "2026-07-13T12:42:02+02:00",
+          "tree_id": "04359d9b49accbf637cf688407585c1a31ba21df",
+          "url": "https://github.com/fallow-rs/fallow/commit/83762f1dc7852f6910e70e3c3a1ca0eb179ff98e"
+        },
+        "date": 1783939662543,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
