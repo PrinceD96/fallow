@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783844004275,
+  "lastUpdate": 1783933354747,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -5692,6 +5692,88 @@ window.BENCHMARK_DATA = {
           {
             "name": "Fallow Total",
             "value": 30220,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2030,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 6.1,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.7,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.3,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 6.7,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 22.8,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 2.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "ab61b4073f08af78335aef83d5fb997836c57c85",
+          "message": "fix(cli): emit parseable suppress tokens in every human footer section (#1835)\n\nsection_suppress_rule in the human report emitted hardcoded token strings that\nfallow_types::suppress::parse_suppression_target did not recognize for eight\nsections (unused-exports, unused-types, unused-dependencies, unused-enum-members,\nunused-class-members, unresolved-imports, unlisted-dependencies, duplicate-exports):\nthe strings existed only as config keys or MCP names, never as IssueKind codes or\naliases. Following the printed hint produced a comment that suppressed nothing and\nthen surfaced a stale-suppression finding.\n\nDerive each section's token from the issue registry instead. A section-title to\nIssueKind map feeds issue_kind_to_kebab (the kind's suppress_token, falling back\nto its code), so the emitted token always parses back to the same kind.\nis_file_level_only is likewise derived from the registry's suppress_file_level\nflag, fixing two drifts: duplicate-export (file-level-only per its detector) now\nprints the file-level form, and circular-dependency / boundary-violation (which\nhonor next-line suppression) now print the next-line form. Dependency sections\nwhose findings live in package.json emit no hint rather than a token pointing at\nan impossible inline comment.\n\nA roundtrip guard test asserts every token section_suppress_rule can emit parses\nvia parse_suppression_target and uses the file-level form exactly when the\nregistry marks the kind file-level-only, so this surface stays locked down.\n\nFixes #1828",
+          "timestamp": "2026-07-13T08:51:20Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/ab61b4073f08af78335aef83d5fb997836c57c85"
+        },
+        "date": 1783933350860,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 1.9,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 592,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30219,
             "unit": "issues"
           },
           {
