@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783969673653,
+  "lastUpdate": 1783971330409,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "bcc1f7866f04b1e6455609f828be97ed0d06a8bb",
-          "message": "docs: link iteration-binding residual follow-up issues (#1716, #1717, #1718)\n\nCite the tracking issues for the deferred iteration-binding sibling cases in\ndetection.md: #1716 (Vue `v-for` over `<ref>.value` / `store.<field>`), #1717\n(Angular `@for` / `*ngFor` in an external `templateUrl`), and #1718 (JS\niteration-binding over a function-local array receiver). Mirrors #1714. Refs #1707.",
-          "timestamp": "2026-07-01T20:11:20+02:00",
-          "tree_id": "de93487b5d0ab96a7182c35b6d59c84fd4e85a90",
-          "url": "https://github.com/fallow-rs/fallow/commit/bcc1f7866f04b1e6455609f828be97ed0d06a8bb"
-        },
-        "date": 1782929732341,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b6dd3032cc311d1a7de0ca97a517f8b30c1442ad"
         },
         "date": 1783969670657,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "98c028c8b53da9d8de9cf27fe431bf089920ec91",
+          "message": "fix(cli): label config edit failures accurately\n\nDistinguish configuration read failures from errors while preparing ignoreExports edits. Add behavior-level regression coverage for unreadable and malformed configs.",
+          "timestamp": "2026-07-13T19:26:36Z",
+          "tree_id": "a0f2feede7936c3de78e94319a0372ba5183f0ac",
+          "url": "https://github.com/fallow-rs/fallow/commit/98c028c8b53da9d8de9cf27fe431bf089920ec91"
+        },
+        "date": 1783971326748,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
