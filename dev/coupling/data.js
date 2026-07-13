@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783967851534,
+  "lastUpdate": 1783968380417,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6325aee5c0d3247d047f7759252dfd70f8ff6a44",
-          "message": "chore(deps): bump napi from 3.9.2 to 3.9.3 (#1696)\n\nBumps [napi](https://github.com/napi-rs/napi-rs) from 3.9.2 to 3.9.3.\n- [Release notes](https://github.com/napi-rs/napi-rs/releases)\n- [Commits](https://github.com/napi-rs/napi-rs/compare/napi-v3.9.2...napi-v3.9.3)\n\n---\nupdated-dependencies:\n- dependency-name: napi\n  dependency-version: 3.9.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
-          "timestamp": "2026-06-30T15:08:50Z",
-          "tree_id": "3671adc5d6fd6bf2a20e36eebe4af27e3407a6a3",
-          "url": "https://github.com/fallow-rs/fallow/commit/6325aee5c0d3247d047f7759252dfd70f8ff6a44"
-        },
-        "date": 1782832336752,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 26,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 29,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.99,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 405,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 935,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/91565369edcad66c4ec5bddb049be22d2bc31163"
         },
         "date": 1783967848613,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 32,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.13,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 443,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1104,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "06b8ccb911d5e364c158a92c8d6d29482d651d18",
+          "message": "test(cli): per-IssueKind drift guard for the GitHub-native formats\n\nAdds a Rust guard iterating the counted dead-code ISSUE_RESULT_META rows and asserting each kind renders in both github-summary and github-annotations, mirroring the shell drift guard so the native GitHub surfaces cannot silently drop a counted IssueKind. Includes a fixture-vs-registry trip-wire and a count pin. Advisor plan 027 Phase A; hardens the live native path and prerequisites the eventual jq retirement (Phase B deferred).",
+          "timestamp": "2026-07-13T20:39:56+02:00",
+          "tree_id": "4b9bd3b5f64b1fee4669c5e5170af9b0c781b54c",
+          "url": "https://github.com/fallow-rs/fallow/commit/06b8ccb911d5e364c158a92c8d6d29482d651d18"
+        },
+        "date": 1783968377112,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
