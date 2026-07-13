@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783974242831,
+  "lastUpdate": 1783975694759,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "revaz.zakalashvili@gmail.com",
-            "name": "Revaz Zakalashvili",
-            "username": "revazi"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "88c3f434bd53d2536914607ee9a6d193a7bacb82",
-          "message": "docs: add repo-scoped agent skills\n\nAdd portable Agent Skills adapters for the CI formats, CLI output, and JSON output reviewers.\n\nKeep the Agent Skills bodies aligned with their Claude reviewer counterparts where possible, while removing dependencies on local internal files or private maintainer context.",
-          "timestamp": "2026-07-03T09:55:37+02:00",
-          "tree_id": "19189030b5534463b67d7c191b2b7a9bd17e3fe6",
-          "url": "https://github.com/fallow-rs/fallow/commit/88c3f434bd53d2536914607ee9a6d193a7bacb82"
-        },
-        "date": 1783065723314,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a9d1afa161fa444cbb09afd792409fdc62d1abbb"
         },
         "date": 1783974239124,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9a377bb2ecb4626f46670efae3cf1cec5e07373c",
+          "message": "fix(ci): scope bloat debug profile to CLI",
+          "timestamp": "2026-07-13T20:43:45Z",
+          "tree_id": "cc2819b9e7f9412956c9e52738f3c55c0fe520a6",
+          "url": "https://github.com/fallow-rs/fallow/commit/9a377bb2ecb4626f46670efae3cf1cec5e07373c"
+        },
+        "date": 1783975691271,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
