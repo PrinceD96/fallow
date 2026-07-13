@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783966080764,
+  "lastUpdate": 1783967606999,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "8ce42a141d471908771f79ae43471fb7494a375e",
-          "message": "docs: link iteration-binding follow-up issues (#1714)\n\nCite tracking issues #1711 (Vue props.items), #1712 (Angular @for), #1713 (Astro .map) for the deferred iteration-binding sibling cases in detection.md and CHANGELOG. Refs #1707.",
-          "timestamp": "2026-07-01T17:04:47+02:00",
-          "tree_id": "8d1fb741ff016e0085548c22ac7fdd16881a62ce",
-          "url": "https://github.com/fallow-rs/fallow/commit/8ce42a141d471908771f79ae43471fb7494a375e"
-        },
-        "date": 1782918532372,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/cfe11ff668693aaee685af664d84a97162c67734"
         },
         "date": 1783966077840,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bc4e0fe190675feb5db6966e7376284c9ef1c0a3",
+          "message": "fix(cli): box the large MapOutcome::Ready variant (Windows clippy) (#1844)\n\nclippy's large_enum_variant fires on Windows (the Ready payload is 256\nbytes there, over the 200-byte threshold; under it on macOS/Linux, so\nit never showed in PR CI). The Windows clippy step only runs in the\nrelease-validation Windows job, so this was latent on main and would\nhave failed the next release. Boxing the variant drops it to a pointer\non every platform.",
+          "timestamp": "2026-07-13T20:26:19+02:00",
+          "tree_id": "8f9f5c709118b7f5e2438a15abfb4154ebdf0954",
+          "url": "https://github.com/fallow-rs/fallow/commit/bc4e0fe190675feb5db6966e7376284c9ef1c0a3"
+        },
+        "date": 1783967603166,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
