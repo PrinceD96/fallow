@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783948157707,
+  "lastUpdate": 1783954117827,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "335218664154eee1ba9df187cd6651c0e20f8abb",
-          "message": "chore(license): drop redundant ed25519-dalek dev-dependency\n\nThe dev-dependency duplicated the normal dependency, which already\nprovides ed25519-dalek. Tests use only core APIs (SigningKey::from_bytes,\nsign, verifying_key) available with the std feature, so the extra dev\nentry was unnecessary.",
-          "timestamp": "2026-07-01T14:04:40+02:00",
-          "tree_id": "ecc23d616817930341bec3bf45ff6c2ad3f0a3d2",
-          "url": "https://github.com/fallow-rs/fallow/commit/335218664154eee1ba9df187cd6651c0e20f8abb"
-        },
-        "date": 1782907788042,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/5cdf83b10de669b72f559142ecdd36f54c7bc4a5"
         },
         "date": 1783948154976,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f57215bf3224b5276ecd8582f5fcac519dce3598",
+          "message": "feat(action): render annotations and job summary via the native GitHub formats\n\nThe action's annotate and summary steps rendered through ~90KB of bundled jq that duplicated what the binary renders natively since v3.4.2. They now call `fallow report --from <results.json> --format github-annotations|github-summary`, re-rendering the same saved analysis JSON the run already produced behind a capability probe (HAS_NATIVE_REPORT via $GITHUB_ENV). Older binaries fall back to the jq renderers automatically; a step log line names which renderer ran.\n\nRender precedence is native > typed > jq, fail-open at each step. The action keeps applying its max-annotations cap plus truncation notice on the native stream. fix stays on the jq summary (report --from has no fix kind yet). No jq file is modified or deleted; jq retirement is a separate follow-up.\n\nCloses #1816.",
+          "timestamp": "2026-07-13T16:43:40+02:00",
+          "tree_id": "80683b5d9d61f84cf7a80df5bfb87cce376e9931",
+          "url": "https://github.com/fallow-rs/fallow/commit/f57215bf3224b5276ecd8582f5fcac519dce3598"
+        },
+        "date": 1783954115128,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
