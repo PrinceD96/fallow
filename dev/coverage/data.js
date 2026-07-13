@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783960792636,
+  "lastUpdate": 1783966080764,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "91fb0eeb104bf10ea104346457bbc53063fb23c9",
-          "message": "fix(extract): credit iteration-binding class members (#1710)\n\nFollow-up to #1707. Types an iteration variable to the element class of a typed array / reactive array so member accesses on it credit the class instead of false-reporting unused-class-member. Reuses the #1707 element-type inference.\n\nJS arm: array-method callbacks (map/forEach/filter/find/findLast/findIndex/findLastIndex/flatMap/some/every; reduce/reduceRight excluded, accumulator param) and for...of loops, covering React/Preact JSX .map. Svelte arm: {#each utils as util} items. Over-credit only. Deferred: Vue props.items, Angular @for, Astro .map. CACHE_VERSION 216 to 217.\n\nRefs #1707.",
-          "timestamp": "2026-07-01T16:38:01+02:00",
-          "tree_id": "dfd000e110caa16ff1bb4d67d847c66af09a92c9",
-          "url": "https://github.com/fallow-rs/fallow/commit/91fb0eeb104bf10ea104346457bbc53063fb23c9"
-        },
-        "date": 1782917376198,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 93.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a876f51642cf3c317d046c7696d2e1f69f770c18"
         },
         "date": 1783960790104,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cfe11ff668693aaee685af664d84a97162c67734",
+          "message": "docs(npm): describe fallow-lsp/fallow-mcp as launchers, not separate binaries (#1842)\n\nSince the multicall packaging (#1841) the platform package ships one\nbinary; the fallow-lsp and fallow-mcp bins are launchers that start the\nservers from it.",
+          "timestamp": "2026-07-13T20:03:43+02:00",
+          "tree_id": "b4bd66b007d00a59e8d0b74a7b819ae120ef317e",
+          "url": "https://github.com/fallow-rs/fallow/commit/cfe11ff668693aaee685af664d84a97162c67734"
+        },
+        "date": 1783966077840,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
