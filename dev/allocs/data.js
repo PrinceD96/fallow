@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783970651044,
+  "lastUpdate": 1783971246590,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6325aee5c0d3247d047f7759252dfd70f8ff6a44",
-          "message": "chore(deps): bump napi from 3.9.2 to 3.9.3 (#1696)\n\nBumps [napi](https://github.com/napi-rs/napi-rs) from 3.9.2 to 3.9.3.\n- [Release notes](https://github.com/napi-rs/napi-rs/releases)\n- [Commits](https://github.com/napi-rs/napi-rs/compare/napi-v3.9.2...napi-v3.9.3)\n\n---\nupdated-dependencies:\n- dependency-name: napi\n  dependency-version: 3.9.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
-          "timestamp": "2026-06-30T15:08:50Z",
-          "tree_id": "3671adc5d6fd6bf2a20e36eebe4af27e3407a6a3",
-          "url": "https://github.com/fallow-rs/fallow/commit/6325aee5c0d3247d047f7759252dfd70f8ff6a44"
-        },
-        "date": 1782832424594,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10421092,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 58447,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 52339,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965547,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "98c028c8b53da9d8de9cf27fe431bf089920ec91",
+          "message": "fix(cli): label config edit failures accurately\n\nDistinguish configuration read failures from errors while preparing ignoreExports edits. Add behavior-level regression coverage for unreadable and malformed configs.",
+          "timestamp": "2026-07-13T19:26:36Z",
+          "tree_id": "a0f2feede7936c3de78e94319a0372ba5183f0ac",
+          "url": "https://github.com/fallow-rs/fallow/commit/98c028c8b53da9d8de9cf27fe431bf089920ec91"
+        },
+        "date": 1783971242009,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9945010,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 52355,
             "unit": "allocations"
           },
           {
