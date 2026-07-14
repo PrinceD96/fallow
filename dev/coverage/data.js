@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784007992003,
+  "lastUpdate": 1784012778245,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "80dd2c3d601ff337d527a020bc5a1d3e9ca71df8",
-          "message": "feat(brand): new fallow f-wing logo (#1733)\n\nReplaces the three-bar mark with the new f-wing brand mark across the icon,\nthe wordmark lockups (light + dark), and the vscode sidebar icon. The mark was\nvectorized cleanly and kept in the brand palette (cream #FDFAEF on warm-black\n#1C1B1C); the wordmark text is unchanged. Regenerated the icon and logo PNGs.",
-          "timestamp": "2026-07-04T08:36:45+02:00",
-          "tree_id": "1407eaff83e2c04186577b389d61ff84be5485f4",
-          "url": "https://github.com/fallow-rs/fallow/commit/80dd2c3d601ff337d527a020bc5a1d3e9ca71df8"
-        },
-        "date": 1783147252339,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/5b06369ef95a02f68414220b02198da409f45d3d"
         },
         "date": 1784007987863,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "bc7cd251ba3f813b7d7a35712fa140baaf058647",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v3.5.0",
+          "timestamp": "2026-07-14T08:58:48+02:00",
+          "tree_id": "daae30760de81297d79fa7067241c61b7a76d9b6",
+          "url": "https://github.com/fallow-rs/fallow/commit/bc7cd251ba3f813b7d7a35712fa140baaf058647"
+        },
+        "date": 1784012774157,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
