@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784057495021,
+  "lastUpdate": 1784060708729,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "58a83e31057807c6d557b397f815675a45319ce4",
-          "message": "docs(mcp): correct trace tools' in-process framing in mcp-server.md\n\nAll four trace MCP tools (trace_export / trace_file / trace_dependency / trace_clone) are API-backed in-process via fallow_api::run_trace_*, not a CLI subprocess. Reframe the three stale mcp-server.md bullets to match. Docs-only.",
-          "timestamp": "2026-07-05T12:46:24+02:00",
-          "tree_id": "1890a032a89bec3d1b2f81b5a900f763878cb0dc",
-          "url": "https://github.com/fallow-rs/fallow/commit/58a83e31057807c6d557b397f815675a45319ce4"
-        },
-        "date": 1783248643490,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6ef02ff843a6e46a44d42eb70fcfbdcb5dc7e849"
         },
         "date": 1784057491539,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "11f0adea9977d1946e2d7736f0ae14085e994b1a",
+          "message": "chore: release v3.5.1",
+          "timestamp": "2026-07-14T22:16:02+02:00",
+          "tree_id": "d983980b5d370b3d48c8132b5a4363d57488d274",
+          "url": "https://github.com/fallow-rs/fallow/commit/11f0adea9977d1946e2d7736f0ae14085e994b1a"
+        },
+        "date": 1784060704895,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
