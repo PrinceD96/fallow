@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784045953556,
+  "lastUpdate": 1784047149365,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "6b9eb819620baf9aaf892e2ec552e92eb8a63e2e",
-          "message": "refactor(engine): route workspace discovery through engine",
-          "timestamp": "2026-07-05T11:44:05+02:00",
-          "tree_id": "b3d4e7baf45ecd11c4357acc578d0b29f434926b",
-          "url": "https://github.com/fallow-rs/fallow/commit/6b9eb819620baf9aaf892e2ec552e92eb8a63e2e"
-        },
-        "date": 1783244928279,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/03bee8e7efb444aad1ec8eb86a60578e8a7cb6bc"
         },
         "date": 1784045950274,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f762e887556c2c930d05dc8d4b84c8dc9fd49856",
+          "message": "test(ci): bump paths-filter SHA in workflow-policy test to v4.0.2\n\nFollow-up to #1876: the dorny/paths-filter bump changed the pinned SHA in\nci.yml and coverage.yml, but workflow-policy.test.mjs still asserted the\nold 4.0.1 SHA, red-ing the JS Lint script-tests step. Update the expected\nSHA to match.",
+          "timestamp": "2026-07-14T18:34:33+02:00",
+          "tree_id": "07397f2ea2f9d084952f8009ba117c989e3e6ad4",
+          "url": "https://github.com/fallow-rs/fallow/commit/f762e887556c2c930d05dc8d4b84c8dc9fd49856"
+        },
+        "date": 1784047146154,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
