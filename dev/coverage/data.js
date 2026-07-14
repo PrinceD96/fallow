@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784051888556,
+  "lastUpdate": 1784052265854,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "6ea5700b9d00292aa47a60b3fec634abd4a39e8a",
-          "message": "refactor(engine): own audit repo refs",
-          "timestamp": "2026-07-05T12:25:53+02:00",
-          "tree_id": "69d957791c764e65aabf9d75e3c5ffc29b73043a",
-          "url": "https://github.com/fallow-rs/fallow/commit/6ea5700b9d00292aa47a60b3fec634abd4a39e8a"
-        },
-        "date": 1783247429933,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4d22ff4bc095d641781cf7cbcfd5e67de6615daf"
         },
         "date": 1784051886145,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e1129ac09c042effa88a78eeaea7ea9e2bfa4188",
+          "message": "docs(changelog): reference hardening PR\n\nLink the Unreleased correctness, security, and performance entries to PR #1864 so the changelog keeps a traceable review history.",
+          "timestamp": "2026-07-14T19:59:27+02:00",
+          "tree_id": "24d97290a65714a189ca1ed475732feda781db6b",
+          "url": "https://github.com/fallow-rs/fallow/commit/e1129ac09c042effa88a78eeaea7ea9e2bfa4188"
+        },
+        "date": 1784052260641,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
