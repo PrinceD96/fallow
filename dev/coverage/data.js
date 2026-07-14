@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784033947740,
+  "lastUpdate": 1784038320909,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "630722b016a5b785d6fa05ee54db6b339eb3c4fa",
-          "message": "chore: release v3.0.0",
-          "timestamp": "2026-07-04T10:58:59+02:00",
-          "tree_id": "f011cc378131a241699dd790fca05d8f01d804ea",
-          "url": "https://github.com/fallow-rs/fallow/commit/630722b016a5b785d6fa05ee54db6b339eb3c4fa"
-        },
-        "date": 1783155923598,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/469332212e313f044637f6765707207cff7b24a8"
         },
         "date": 1784033944792,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cdd5e649d61a29226958edbcfd8f51080088802e",
+          "message": "docs(readme): research-backed rewrite for humans and agents\n\nReplace the 1128-line README with a 279-line version: masthead covering the five analysis areas plus styling drift, a captured fallow 3.5.0 audit excerpt from the vitest monorepo, quick start, a curated command table plus a complete overview of the remaining command surface, output formats and exit codes, a consolidated agent block (MCP, agent skill, hooks, compliance loop), suppression syntax, CI setup, the optional runtime layer, and benchmark numbers sourced from BENCHMARKS.md. Depth delegates to docs.fallow.tools deep links, all verified live.\n\nEvery command, flag, config key, and count traces to the clap definitions or to captured runs; the plugin-count contradiction (123 vs a stale 114) resolves to a stable \"over 100\" with 123 verified in the builtin registry. Also fixes command drift in CONTEXT.md: the coverage subcommand list (no coverage explain; the three upload subcommands were missing), regression gating documented as flag-driven rather than a fallow regression subcommand, the nonexistent fallow validate removed, and stylelint added as a migrate source.",
+          "timestamp": "2026-07-14T15:27:11+02:00",
+          "tree_id": "885c9bae55ddda92f949138ea421481760f3ec76",
+          "url": "https://github.com/fallow-rs/fallow/commit/cdd5e649d61a29226958edbcfd8f51080088802e"
+        },
+        "date": 1784038316237,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
