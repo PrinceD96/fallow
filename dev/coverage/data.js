@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784012778245,
+  "lastUpdate": 1784018050889,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d4e8a860ed3e60c250bcea2895ec1684f4cb3bc9",
-          "message": "fix(brand): update GitHub Pages favicon to the f-wing mark\n\nThe metrics landing page still embedded the old three-bar mark as its data-URI favicon. Swaps in the new f-wing mark to match the rebrand in #1733.",
-          "timestamp": "2026-07-04T08:43:15+02:00",
-          "tree_id": "410267c7b9654e5f142348b3fb8fd62a90f34cba",
-          "url": "https://github.com/fallow-rs/fallow/commit/d4e8a860ed3e60c250bcea2895ec1684f4cb3bc9"
-        },
-        "date": 1783147689781,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/bc7cd251ba3f813b7d7a35712fa140baaf058647"
         },
         "date": 1784012774157,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c802c2d5ddcfd6a3cee7bcceb4542a7842a34569",
+          "message": "docs: document the --legacy-envelope removal and clear stale references\n\nAdds the missing v2.104.0 changelog entry for the --legacy-envelope / legacyEnvelope removal, re-vendors the skills SKILL.md without the stale flag mention, and rewrites the stale programmatic.rs bullet in the cli-crate rules (the module moved to fallow-api; napi no longer depends on fallow-cli).",
+          "timestamp": "2026-07-14T10:29:28+02:00",
+          "tree_id": "9e843d00c39776136b7fed8d208a51d6b3ef0575",
+          "url": "https://github.com/fallow-rs/fallow/commit/c802c2d5ddcfd6a3cee7bcceb4542a7842a34569"
+        },
+        "date": 1784018046393,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
