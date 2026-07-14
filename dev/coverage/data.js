@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784050143907,
+  "lastUpdate": 1784051888556,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f86039289acd6dee37597d41a7988b893a7f26f8",
-          "message": "refactor(engine): own routing git identities",
-          "timestamp": "2026-07-05T12:14:05+02:00",
-          "tree_id": "f7bd6c7a9dc2a9b810495dc82c403d9275e63823",
-          "url": "https://github.com/fallow-rs/fallow/commit/f86039289acd6dee37597d41a7988b893a7f26f8"
-        },
-        "date": 1783246799543,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/811fa409b4aecaddf64596646e9c5553a6327882"
         },
         "date": 1784050140069,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4d22ff4bc095d641781cf7cbcfd5e67de6615daf",
+          "message": "fix(nextjs): credit metadata route config exports\n\nCredit framework-consumed config exports in App Router metadata routes while leaving dynamicParams and arbitrary helpers reportable.\n\nCorrect Knip migration suppression hints, preserve documented suppression reasons, and clarify config-backed regression baseline updates across generated and companion documentation.",
+          "timestamp": "2026-07-14T19:52:04+02:00",
+          "tree_id": "12d5945835e0a6d8f1592bbb62df3f79a8639c22",
+          "url": "https://github.com/fallow-rs/fallow/commit/4d22ff4bc095d641781cf7cbcfd5e67de6615daf"
+        },
+        "date": 1784051886145,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
