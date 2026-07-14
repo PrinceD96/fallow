@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783981386835,
+  "lastUpdate": 1784004140897,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "606685c64a2a8ea619d9a7b9cd1208e794b6bec6",
-          "message": "chore: fix vscode guard dist check",
-          "timestamp": "2026-07-03T20:58:58+02:00",
-          "tree_id": "2aa7bd3f0d1d5e2de1c73d2da4c76ba5daf1dab4",
-          "url": "https://github.com/fallow-rs/fallow/commit/606685c64a2a8ea619d9a7b9cd1208e794b6bec6"
-        },
-        "date": 1783105410423,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c68954e6de9bee9d9895cf11b4e086e2f987023d"
         },
         "date": 1783981383364,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3d8d11622bc1529345e167025ec7eef34ebf0300",
+          "message": "fix(report): singular noun for a single fix in the github-summary headline\n\nThe --format github-summary auto-fix headline read 'would apply 1 fixes' for a single fix; it now reads '1 fix', branching on the count. Shared by the live fallow fix and report --from paths (both call render_fix_summary). Adds a singular-case test; plural snapshot unchanged.",
+          "timestamp": "2026-07-14T06:37:44+02:00",
+          "tree_id": "b787e737c42c695cef7eb294e5d8f0485fa585a0",
+          "url": "https://github.com/fallow-rs/fallow/commit/3d8d11622bc1529345e167025ec7eef34ebf0300"
+        },
+        "date": 1784004137001,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
