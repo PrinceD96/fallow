@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784041741491,
+  "lastUpdate": 1784042104049,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4722bc298c3e9655d9b912bf6f1822d255106e25",
-          "message": "docs(brand): finish positioning sweep in README and vendored skill",
-          "timestamp": "2026-07-04T17:02:28+02:00",
-          "tree_id": "60335441c5311214cc0a9f1b801051ccae929b85",
-          "url": "https://github.com/fallow-rs/fallow/commit/4722bc298c3e9655d9b912bf6f1822d255106e25"
-        },
-        "date": 1783177617072,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c621903ebc2b451fd062d2a4e9e8edd771ae0f99"
         },
         "date": 1784041737637,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b96ee785bc315963ac6d44f1873b4dc553bda5ef",
+          "message": "docs(readme): apply panel-review fixes\n\nFixes from a nine-persona panel review of the rewritten README. The two make-or-break items: the agent snippet taught `|| true`, which hid exit 2 (real errors) from anything checking the exit code, and the CI section framed the Action as a report while fail-on-issues defaults to a blocking gate. Also: SARIF upload marked opt-in, tag-pinning rationale, format-to-command mapping for badge and the CI envelopes, benchmark capture version named explicitly, a first-timer caption on the terminal excerpt, the introduced-only audit gate default stated in prose, an adoption paragraph signposting baselines, and the long-tail command table collapsed behind a details element.",
+          "timestamp": "2026-07-14T17:10:04+02:00",
+          "tree_id": "05f68a820777cac1f86e1d870dbef693af704568",
+          "url": "https://github.com/fallow-rs/fallow/commit/b96ee785bc315963ac6d44f1873b4dc553bda5ef"
+        },
+        "date": 1784042101437,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
