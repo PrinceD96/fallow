@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784044918626,
+  "lastUpdate": 1784045953556,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "784ffed5d6a2113262787585d8599dc1cf8acd9a",
-          "message": "feat(trace): fall back to a class-member trace on export miss (#1744)\n\n`fallow dead-code --trace FILE:NAME` errored `export 'NAME' not found` when NAME was a class / enum / store MEMBER rather than a top-level export, so a member finding could not be debugged from the trace tool. On an export miss, `handle_trace_export` now falls back to a `trace_class_member` primitive that finds the export whose members contain NAME and reports the owning export's reachability and usage (reusing `trace_export`), who imports it, the re-export chains it is reachable through, and a `fallow dead-code --unused-<kind>-members --file <file>` pointer.\n\nThe trace path runs on the module graph only, so it does not report per-member crediting provenance. Trace JSON goes through the generic `print_trace_json` (not in the published schema), so the new `ClassMemberTrace` type needs no schema or TS-codegen regen. Adds core + human-renderer tests; human and `--format json` supported.\n\nCloses #1744.",
-          "timestamp": "2026-07-05T11:16:58+02:00",
-          "tree_id": "40bcb08fba8878fd48278a93a3974b02f6231ebf",
-          "url": "https://github.com/fallow-rs/fallow/commit/784ffed5d6a2113262787585d8599dc1cf8acd9a"
-        },
-        "date": 1783243275993,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/52989ec9627d0ca7baaa74d36a6b1bb17d11b688"
         },
         "date": 1784044915666,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "03bee8e7efb444aad1ec8eb86a60578e8a7cb6bc",
+          "message": "chore(deps): bump dorny/paths-filter from 4.0.1 to 4.0.2 (#1876)\n\nSafe github-actions patch bump. Landed via admin bypass; the failing required checks (Skills vendor drift, JS Lint) are a pre-existing main issue unrelated to this action-version bump.",
+          "timestamp": "2026-07-14T18:14:09+02:00",
+          "tree_id": "30d8ffd16a911b21d25d5eaa082c2556c145cae0",
+          "url": "https://github.com/fallow-rs/fallow/commit/03bee8e7efb444aad1ec8eb86a60578e8a7cb6bc"
+        },
+        "date": 1784045950274,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
