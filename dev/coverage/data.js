@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784042104049,
+  "lastUpdate": 1784043959682,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ff76b924a3ac0190f0f187c5917bda19275a3fcf",
-          "message": "refactor(quality): reduce Rust unit size\n\nContinue the SIG unit-size cleanup by splitting long Rust functions across CLI, API, engine, extractor, graph, LSP, MCP, output, config, and types surfaces into narrower private helpers. The changes keep public output contracts and analysis behavior intact while making pipelines, renderers, mappers, and diagnostics easier to scan.\n\nThe loop only kept measured improvements and dropped the final non-improving split. No new user-facing capability is intended, this is maintainability work for future feature and bug-fix changes.",
-          "timestamp": "2026-07-04T20:25:47+02:00",
-          "tree_id": "7a6acf2979fb6307c8b0922ad92d265ca2058c9d",
-          "url": "https://github.com/fallow-rs/fallow/commit/ff76b924a3ac0190f0f187c5917bda19275a3fcf"
-        },
-        "date": 1783190134599,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b96ee785bc315963ac6d44f1873b4dc553bda5ef"
         },
         "date": 1784042101437,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9869f3b325d4845125655c162c50903c08a8730c",
+          "message": "chore(deps): bump CodSpeedHQ/action from 4.18.1 to 4.18.2 (#1881)\n\nBumps [CodSpeedHQ/action](https://github.com/codspeedhq/action) from 4.18.1 to 4.18.2.\n- [Release notes](https://github.com/codspeedhq/action/releases)\n- [Changelog](https://github.com/CodSpeedHQ/action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/codspeedhq/action/compare/a4a36bb07c0638b0b4ca52bf1f3dad1b4289e52f...4e969336ab9acd4f6f8d025fdd793292b0835df0)\n\n---\nupdated-dependencies:\n- dependency-name: CodSpeedHQ/action\n  dependency-version: 4.18.2\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-07-14T17:40:58+02:00",
+          "tree_id": "c0b5c74162c12f5cfb58341469b2823af4b96db4",
+          "url": "https://github.com/fallow-rs/fallow/commit/9869f3b325d4845125655c162c50903c08a8730c"
+        },
+        "date": 1784043957063,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
