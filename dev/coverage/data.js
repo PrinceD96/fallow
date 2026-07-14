@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784047149365,
+  "lastUpdate": 1784050143907,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "3bb785ce9a64066a096f33379e34b2b7a3e0c31c",
-          "message": "refactor(engine): own workspace scope resolution",
-          "timestamp": "2026-07-05T11:57:09+02:00",
-          "tree_id": "9ccd27402baee33ddc5c915b2ebdb63edf474c74",
-          "url": "https://github.com/fallow-rs/fallow/commit/3bb785ce9a64066a096f33379e34b2b7a3e0c31c"
-        },
-        "date": 1783245752626,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f762e887556c2c930d05dc8d4b84c8dc9fd49856"
         },
         "date": 1784047146154,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "811fa409b4aecaddf64596646e9c5553a6327882",
+          "message": "refactor: group dependency override inputs",
+          "timestamp": "2026-07-14T19:23:11+02:00",
+          "tree_id": "d2c9b75e9f93144ab387cdfc9d3320b6cd5f8a73",
+          "url": "https://github.com/fallow-rs/fallow/commit/811fa409b4aecaddf64596646e9c5553a6327882"
+        },
+        "date": 1784050140069,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
