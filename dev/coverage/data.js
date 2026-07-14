@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784038320909,
+  "lastUpdate": 1784041110247,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "a45a7865b6a646be5e121c3687127357408c81b9",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v3.0.0",
-          "timestamp": "2026-07-04T12:17:42+02:00",
-          "tree_id": "6918a5a2e08e156c62134dbf8c931ce81d6657d1",
-          "url": "https://github.com/fallow-rs/fallow/commit/a45a7865b6a646be5e121c3687127357408c81b9"
-        },
-        "date": 1783160521063,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/cdd5e649d61a29226958edbcfd8f51080088802e"
         },
         "date": 1784038316237,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cb7e4db6cd07a8ab166158a7abe186601c2f5d80",
+          "message": "docs(readme): feature fallow recommend as the onboarding entry point\n\nThe first-run section now points at fallow recommend before hand-authored config, the command table promotes it out of the long tail, and the agent block explains the decision-set contract: detected stack, proposed config, per-decision tier and rationale, and subjective choices delivered as ready-to-ask questions with options and tradeoffs. The npm README gets the same pointer in its configuration section.",
+          "timestamp": "2026-07-14T16:50:11+02:00",
+          "tree_id": "b2aa70036d39d22da538e1a453a8624bd6459f7e",
+          "url": "https://github.com/fallow-rs/fallow/commit/cb7e4db6cd07a8ab166158a7abe186601c2f5d80"
+        },
+        "date": 1784041107020,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
