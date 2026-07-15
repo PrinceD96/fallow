@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784137234854,
+  "lastUpdate": 1784139804945,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "2c9ecd2f9091c56b92b0177b7d4d01a45e044f6d",
-          "message": "feat(analysis): add route-loader and CSS-in-JS quality checks\n\nAdds framework-scoped route-loader data key harvesting for React Router and Remix while keeping SvelteKit load data isolated. The extractor now records the correct producer mode, bumps the cache version, and the analyzer keeps SvelteKit whole-object abstain from suppressing route-loader findings.\n\nAdds CSS-in-JS near-duplicate token reporting to the CSS analytics contract, human health output, schema, generated TypeScript contracts, and styling findings. Partial-scope scans abstain from the whole-project comparison so changed-file output stays conservative.",
-          "timestamp": "2026-07-06T11:46:31+02:00",
-          "tree_id": "f7d59442271c692c1e336839424ecf12abe89e11",
-          "url": "https://github.com/fallow-rs/fallow/commit/2c9ecd2f9091c56b92b0177b7d4d01a45e044f6d"
-        },
-        "date": 1783331511241,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4e46717fc4b5822227380febf2955468e5473f83"
         },
         "date": 1784137231138,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "5795c10548a3b67790a2b21058f977e8b48ecf1a",
+          "message": "fix(ci): drop flaky pnpm cache from release-validation setup-node\n\nOn a cache miss the actions/setup-node post-step failed the Windows and Zed\nrelease-validation jobs with \"Path Validation Error: Path(s) specified in\nthe action for caching do(es) not exist\" while every real step passed. The\npnpm store path is absent at save time on Windows, so the save aborts and\nfails the job's overall conclusion. Because release.yml gates publishing on\nthis reusable workflow, a cache-miss tag run would skip every publish job\nand burn the version tag.\n\nRemove cache: pnpm / cache-dependency-path from both setup-node steps. The\npnpm install for the small editors/vscode contract deps runs uncached on\nthis rarely-run gate, trading a negligible slowdown for a deterministic gate.",
+          "timestamp": "2026-07-15T20:18:59+02:00",
+          "tree_id": "2c128252a61975bcdb4db72c5ccecc5fafd06f1e",
+          "url": "https://github.com/fallow-rs/fallow/commit/5795c10548a3b67790a2b21058f977e8b48ecf1a"
+        },
+        "date": 1784139801962,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
