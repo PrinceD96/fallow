@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784135022518,
+  "lastUpdate": 1784135896647,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "903d6f95d9b937daa623a3dab396ef113bfeca03",
-          "message": "chore(deps): bump oxc_resolver from 11.21.0 to 11.21.3 in the oxc group (#1693)\n\nBumps the oxc group with 1 update: [oxc_resolver](https://github.com/oxc-project/oxc-resolver).\n\n\nUpdates `oxc_resolver` from 11.21.0 to 11.21.3\n- [Release notes](https://github.com/oxc-project/oxc-resolver/releases)\n- [Changelog](https://github.com/oxc-project/oxc-resolver/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/oxc-project/oxc-resolver/compare/v11.21.0...v11.21.3)\n\n---\nupdated-dependencies:\n- dependency-name: oxc_resolver\n  dependency-version: 11.21.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: oxc\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
-          "timestamp": "2026-06-30T14:14:25Z",
-          "tree_id": "adf8ef90b20f813988b74b429eb0139d6f34f48c",
-          "url": "https://github.com/fallow-rs/fallow/commit/903d6f95d9b937daa623a3dab396ef113bfeca03"
-        },
-        "date": 1782829509753,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 382932528,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -3169,6 +3140,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow)",
             "value": 423835552,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-lsp)",
+            "value": 18577600,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-mcp)",
+            "value": 23864440,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-multicall)",
+            "value": 34664600,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "2fb4b7d3676f1800e5fbad5bb2ffbb5c07135ebf",
+          "message": "test(audit): resolve integration cache paths via production hash\n\nThe Windows correctness gate failed on the audit-cache remove integration\ntests: audit_cache_paths recomputed the cache identity from\nPath::canonicalize + to_string_lossy bytes, which diverges from production\non Windows (std canonicalize keeps the \\\\?\\ verbatim prefix that production\nstrips via dunce, and the identity is hashed as UTF-16LE, not UTF-8). The\nfixtures then landed at paths the spawned binary never enumerated, so\nwould_remove was wrong and the lock-contention path reported success.\n\nRe-export canonical_root_hash and derive the fixture paths from it, matching\nthe exact hashing the binary uses on every platform.",
+          "timestamp": "2026-07-15T19:07:45+02:00",
+          "tree_id": "5057f610b15a34f838af21991359e9d46a1b586a",
+          "url": "https://github.com/fallow-rs/fallow/commit/2fb4b7d3676f1800e5fbad5bb2ffbb5c07135ebf"
+        },
+        "date": 1784135893982,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 423845536,
             "unit": "bytes"
           },
           {
