@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784100095589,
+  "lastUpdate": 1784102834959,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ede3bcd2c01c06d0b63178ee54491103cfe5ff11",
-          "message": "docs: correct benchmark ratio claims",
-          "timestamp": "2026-07-05T19:40:18+02:00",
-          "tree_id": "a3659bf288831ff1b37b04933f8f616c8dca4e55",
-          "url": "https://github.com/fallow-rs/fallow/commit/ede3bcd2c01c06d0b63178ee54491103cfe5ff11"
-        },
-        "date": 1783273498718,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d86455c69123a2f8ff5d4aeb6e3fc0786609c534"
         },
         "date": 1784100092560,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "29e84905254d37b5c20577ecd31f4daba4349926",
+          "message": "Merge pull request #1898 from fallow-rs/codex/fix-pnpm-audit-ci\n\nfix(ci): restore VS Code dependency audit",
+          "timestamp": "2026-07-15T10:02:47+02:00",
+          "tree_id": "472855cc88d2f36584095d08452b9431918810d8",
+          "url": "https://github.com/fallow-rs/fallow/commit/29e84905254d37b5c20577ecd31f4daba4349926"
+        },
+        "date": 1784102831691,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
