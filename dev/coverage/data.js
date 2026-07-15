@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784115635089,
+  "lastUpdate": 1784116561387,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "47220ee76899388cf5bc1298b083c644a5067495",
-          "message": "ci: shard benchmarks by affected component",
-          "timestamp": "2026-07-05T21:41:55+02:00",
-          "tree_id": "82a80080e018646894c56c860aecfaf9089b28b6",
-          "url": "https://github.com/fallow-rs/fallow/commit/47220ee76899388cf5bc1298b083c644a5067495"
-        },
-        "date": 1783280769290,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d261eb39ffe53b1bdc60f1a84e4805aac62e24e4"
         },
         "date": 1784115630785,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a6c74e746d31b1821dae87247754e76aefb00bb8",
+          "message": "fix: harden analysis and integration contracts\n\nHarden dependency attribution, CSS artifact reuse, Action input validation, and current-binary integration coverage across the GitHub Action and VS Code extension.\\n\\nAlign repository tooling and documentation contracts, and preserve parent dependency ownership for package-less TypeScript project references. The fallow fix promotion-race item remains out of scope.",
+          "timestamp": "2026-07-15T13:43:28+02:00",
+          "tree_id": "1f667074e29803c7a1e21258c9c1a4ca35aad006",
+          "url": "https://github.com/fallow-rs/fallow/commit/a6c74e746d31b1821dae87247754e76aefb00bb8"
+        },
+        "date": 1784116558282,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
