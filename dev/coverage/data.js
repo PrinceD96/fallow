@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784119108848,
+  "lastUpdate": 1784124213175,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "afa3c171257bcb18cd0edbad9cf033d2be8f0443",
-          "message": "fix(health): pluralize the large-functions unit-size footer (#1753)\n\nThe large-functions footer from #1750 read \"exceeding 1 lines\" when health.maxUnitSize is 1; guard the noun so a ceiling of 1 renders \"1 line\". Refs #1750.",
-          "timestamp": "2026-07-05T22:35:46+02:00",
-          "tree_id": "b388d3dcf64b25ac2d88c6e4a0b38dfbcdf95c2a",
-          "url": "https://github.com/fallow-rs/fallow/commit/afa3c171257bcb18cd0edbad9cf033d2be8f0443"
-        },
-        "date": 1783284061647,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/852cc98798b2521885f2d23e6e160a02dcde598b"
         },
         "date": 1784119105432,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bef4d7df15fb4fa76c3a16bea72cc0f4f948f2f6",
+          "message": "chore(docker): pin FALLOW_VERSION 3.5.1 with refreshed checksums\n\nRefresh the Docker image to download fallow v3.5.1 for amd64 and arm64.\n\nPin each architecture to the SHA-256 digest published with the matching release asset.\n\nRefs #1817.",
+          "timestamp": "2026-07-15T15:58:56+02:00",
+          "tree_id": "e8f52b8ee1f4831015f1b09cec3a74a4402b88a2",
+          "url": "https://github.com/fallow-rs/fallow/commit/bef4d7df15fb4fa76c3a16bea72cc0f4f948f2f6"
+        },
+        "date": 1784124209674,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
