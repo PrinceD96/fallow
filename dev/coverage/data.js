@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784110111951,
+  "lastUpdate": 1784115635089,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "9dc768e2cc481d98d70c3cd24eb424712ea0d89e",
-          "message": "perf: broaden codspeed benchmark coverage",
-          "timestamp": "2026-07-05T21:35:49+02:00",
-          "tree_id": "8efe61fc0d959fe8b7bf2e4634316d18b70a6cc7",
-          "url": "https://github.com/fallow-rs/fallow/commit/9dc768e2cc481d98d70c3cd24eb424712ea0d89e"
-        },
-        "date": 1783280404236,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.9,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3ab6c16927f569c2df9455d0c393c5f66baf8b88"
         },
         "date": 1784110108648,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d261eb39ffe53b1bdc60f1a84e4805aac62e24e4",
+          "message": "fix(lsp): normalize Windows diagnostic paths\n\nWindows canonicalization returned verbatim paths that the LSP URI layer could not encode for editor diagnostics.\n\nNormalize all LSP path ingress through dunce, cover workspace and legacy initialization on Windows, and keep the focused regression plus platform Clippy in pull request CI. UNC shares and irreducible verbatim inputs remain outside this local-drive fix.\n\nFixes #1899.",
+          "timestamp": "2026-07-15T13:33:10+02:00",
+          "tree_id": "123aeea0469d27373af3b274df755e7ce6b9756c",
+          "url": "https://github.com/fallow-rs/fallow/commit/d261eb39ffe53b1bdc60f1a84e4805aac62e24e4"
+        },
+        "date": 1784115630785,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
