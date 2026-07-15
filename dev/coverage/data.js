@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784102834959,
+  "lastUpdate": 1784109250420,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c6bbfa3d6697269811e1e9d942e0d212832931a1",
-          "message": "docs: align benchmark file count",
-          "timestamp": "2026-07-05T19:45:59+02:00",
-          "tree_id": "47877230143b5ef1ddb44e2bdd994b23fe5774ca",
-          "url": "https://github.com/fallow-rs/fallow/commit/c6bbfa3d6697269811e1e9d942e0d212832931a1"
-        },
-        "date": 1783273807947,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/29e84905254d37b5c20577ecd31f4daba4349926"
         },
         "date": 1784102831691,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "hi@ryolambert.dev",
+            "name": "Ryo Lambert",
+            "username": "ryolambert"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1675bfc3f0debd0b40e81f3b6d3ba0aa46ab19dd",
+          "message": "feat(cli): add root-owned audit cache cleanup\n\nAdd root-keyed reusable audit base snapshots with full-SHA readiness, explicit lock release, private cache ownership checks, and safe Git admin cleanup.\n\nExpose fallow audit-cache remove --root with dry-run and structured JSON, reclaim legacy entries, and synchronize generated skill contracts.\n\nThanks to Ryo Lambert for the original contribution.",
+          "timestamp": "2026-07-15T11:44:29+02:00",
+          "tree_id": "52cc4ae2f99c03f089e34c0a04d163275905f5b2",
+          "url": "https://github.com/fallow-rs/fallow/commit/1675bfc3f0debd0b40e81f3b6d3ba0aa46ab19dd"
+        },
+        "date": 1784109246795,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
