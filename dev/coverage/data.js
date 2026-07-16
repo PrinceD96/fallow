@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784205528491,
+  "lastUpdate": 1784209030513,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e7878f27ede3575df0ca7142e03db38ad56acb00",
-          "message": "refactor: remove architecture debt\n\nMove SARIF-family assembly and shared formatter facts behind fallow-output while keeping fallow-api as a compatibility facade.\n\nReclassify fallow-core as an internal detector backend behind fallow-engine, tighten architecture guards for direct core calls, IO/cache ownership, analyzer placement, manifest drift, and protocol prose.\n\nRemove stale exception language from contributor docs and add pre-ship guard coverage so the architecture debt cannot silently return.",
-          "timestamp": "2026-07-07T07:51:22+02:00",
-          "tree_id": "db8be59ca0bf3c1f9de75a9cf302d1874c84c199",
-          "url": "https://github.com/fallow-rs/fallow/commit/e7878f27ede3575df0ca7142e03db38ad56acb00"
-        },
-        "date": 1783404014515,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.8,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/398af909d30e0c68541fa2c089da743b7b30dda2"
         },
         "date": 1784205525080,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "41dc3988b0c371de1a42855e3fe76c6976a24f57",
+          "message": "feat(vscode): set baseline at HEAD\n\nAdd a VS Code command that creates a local fallow baseline tag at HEAD, persists the effective changed-since setting, and refreshes analysis for a single-folder workspace. Existing tags, settings, and multi-root workspaces are handled explicitly.\n\nCreate the tag with --no-sign so user-level tag.gpgSign configuration cannot turn the lightweight local workflow into a signing failure. The command never pushes to a remote.",
+          "timestamp": "2026-07-16T15:27:43+02:00",
+          "tree_id": "51d89453d6c3247a0765b27cf62821e1a11c7b8a",
+          "url": "https://github.com/fallow-rs/fallow/commit/41dc3988b0c371de1a42855e3fe76c6976a24f57"
+        },
+        "date": 1784209027286,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
