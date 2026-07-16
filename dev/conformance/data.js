@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784102543187,
+  "lastUpdate": 1784189313376,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -5943,6 +5943,88 @@ window.BENCHMARK_DATA = {
           {
             "name": "Knip Total",
             "value": 2030,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 6.1,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.7,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.3,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 6.7,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 22.8,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 2.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "3d30c38a4a49ccb912174e22d674e19377ebf910",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v3.6.0",
+          "timestamp": "2026-07-15T20:36:00Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/3d30c38a4a49ccb912174e22d674e19377ebf910"
+        },
+        "date": 1784189309716,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 1.9,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 590,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30203,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2031,
             "unit": "issues"
           },
           {
