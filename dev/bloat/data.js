@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784148501700,
+  "lastUpdate": 1784206093693,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7ec9a8b187f1e2c986430ca49c7caa55355f3fd6",
-          "message": "refactor(extract): consolidate CSS-in-JS front-ends into a css_in_js/ module\n\nConsolidate the three flat CSS-in-JS files (template lexer 3b, object serializer 3c, token graph 3d, ~2300 lines) into a css_in_js/ module dir (template.rs / object.rs / tokens.rs / shared.rs / mod.rs). shared.rs single-sources the count_newlines helper and the WRAPPER synthetic selector both front-ends emit. Behavior-preserving: the public API and every downstream import path are unchanged (mod.rs re-exports what lib.rs re-exports). No logic change; reviewed by two rust-reviewer agents (APPROVE); full workspace test + clippy + fmt green.",
-          "timestamp": "2026-07-01T09:48:09+02:00",
-          "tree_id": "112f9ed9b1d704f4666a66cb8cf8469d1e7ec02c",
-          "url": "https://github.com/fallow-rs/fallow/commit/7ec9a8b187f1e2c986430ca49c7caa55355f3fd6"
-        },
-        "date": 1782893063734,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 386039992,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -3244,6 +3215,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow-multicall)",
             "value": 34688856,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "398af909d30e0c68541fa2c089da743b7b30dda2",
+          "message": "docs: document the multicall crate in the project-structure map",
+          "timestamp": "2026-07-16T14:33:43+02:00",
+          "tree_id": "e43c65ed411a8a7830da2b897f363277bf40ed68",
+          "url": "https://github.com/fallow-rs/fallow/commit/398af909d30e0c68541fa2c089da743b7b30dda2"
+        },
+        "date": 1784206089939,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 424281280,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-lsp)",
+            "value": 18599680,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-mcp)",
+            "value": 23887544,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-multicall)",
+            "value": 34688792,
             "unit": "bytes"
           }
         ]
