@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784364806996,
+  "lastUpdate": 1784452312439,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -8257,6 +8257,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1226,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "fc632a1c2f2b57580bc0af8222038fe3b3cd1e53",
+          "message": "fix: harden external input boundaries\n\nHarden external input boundaries before analysis: bound churn and diff reads, reject unsafe imported paths and aggregate overflow, and keep source and manifest symlink targets inside the configured project root. Oversized diffs continue with unfiltered reporting instead of truncated parsing.\n\nAdd focused regression coverage, real-repository probes, and Windows CI coverage for the platform-gated core symlink paths and all-target Clippy.",
+          "timestamp": "2026-07-16T13:52:16Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/fc632a1c2f2b57580bc0af8222038fe3b3cd1e53"
+        },
+        "date": 1784452308678,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 102,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 509,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 406,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1223,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1124,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1019,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 917,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 914,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 815,
             "unit": "ms"
           }
         ]
