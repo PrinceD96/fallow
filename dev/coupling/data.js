@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784501284486,
+  "lastUpdate": 1784504538691,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "callum.howard@checkbox.ai",
-            "name": "Callum Howard",
-            "username": "CallumHoward"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7f0cef748adc8b602c6ac87ec6c2e6e8128c5dd6",
-          "message": "feat: add dev-dependency-in-production rule (#1740)\n\n* feat: add dev-dependency-in-production rule\n\nFlag a package in devDependencies that is imported by production\n(non-test, non-config) source code via a runtime/value import, so it can\nbe promoted to dependencies. A production-only install\n(pnpm install --prod) omits devDependencies, so such an import breaks at\nruntime. This is the promote-side mirror of the existing\ntest-only-dependency and type-only-dependency rules.\n\nDetection reuses the prod-vs-test file partition and the per-import\nvalue/type accounting already used by the sibling rules:\n\n- flag only when a production file has a runtime (value) import\n- do not flag type-only production imports (erased at build time)\n- do not flag imports that come only from test/config files\n- skip workspace packages, known tooling (@types/*, typescript, ...),\n  ignoreDependencies entries, and packages also declared in\n  dependencies / peerDependencies / optionalDependencies\n\nDefault severity warn; gated by the dev-dependencies-in-production rule\nkey; suppress a package with ignoreDependencies. Wired through human,\nJSON, SARIF, Code Climate, compact, and markdown output, fallow explain,\nthe LSP diagnostic surface, the GitHub Action / GitLab CI jq summaries,\nthe VS Code extension, regression baselines, and the generated contracts.\nAdds a fixture, integration test, and unit tests covering the flag and\neach abstain path.\n\n* fix(deps): harden dev-dependency-in-production before ship\n\nFilter parity: clear dev_dependencies_in_production in the --unused-deps\nclear arm and the --file scoping path like every sibling dependency kind,\nand render devDependenciesInProduction in the TOML regression baseline so\na saved fallow.toml baseline does not report a phantom regression.\n\nDetection: only count imports from files reachable from a RUNTIME entry\npoint (repo tooling like scripts/, benchmarks/, and rollup-config chains\nis not production evidence), skip files owned by a workspace package\n(root-manifest scope; a hoisted root devDep declared in the workspace's\nown dependencies is not a misplacement), and keep the rule active in\nproduction mode where its signal is cleanest.\n\nSurfaces: align jq summary labels with the registry label (drift gate),\nadd the kind to the action drift-guard fallback table, the VS Code status\nbar registry, and the @fallow/node typings; drop the never-released\nprod-usage-of-dev-dependency alias; strip the CHANGELOG em-dash and\ndocument the runtime-reachability semantics and known limitations.\n\n---------\n\nCo-authored-by: Claude <noreply@anthropic.com>\nCo-authored-by: Bart Waardenburg <bart@waardenburg.dev>",
-          "timestamp": "2026-07-05T12:12:06+02:00",
-          "tree_id": "a8ebacaf0ecb0096ff459dde001ae13057175b33",
-          "url": "https://github.com/fallow-rs/fallow/commit/7f0cef748adc8b602c6ac87ec6c2e6e8128c5dd6"
-        },
-        "date": 1783246427688,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 26,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.99,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 404,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 949,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6fbcd06f18ee0f2423fef4b4f5d63c92f54c4d6d"
         },
         "date": 1784501280914,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.35,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 444,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1152,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2f65edb595df848573d94fbec0125513a30cd466",
+          "message": "perf(extract): bound the object-binding resolver on minified bundles (#1843)\n\nThe object-binding member-resolution fixed-point blew up on a real 2 MB minified vendor bundle full of nested object maps (>90s parse). Bounded three ways: an ancestor-prefix index makes copy_nested O(matches); a size cap (8192) stops the fixed-point from multiplying binding_target_names; and a pass cap (8) stops it running candidate-count passes. Byte-identical on ordinary code (over-cap files degrade to a false negative). The 2 MB bundle now analyzes in ~0.2s. CACHE_VERSION 237 to 238.\n\nFollow-up to #1843.",
+          "timestamp": "2026-07-20T01:41:02+02:00",
+          "tree_id": "533e3831f73940113352df8fa9302052f2efd5a6",
+          "url": "https://github.com/fallow-rs/fallow/commit/2f65edb595df848573d94fbec0125513a30cd466"
+        },
+        "date": 1784504535175,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
