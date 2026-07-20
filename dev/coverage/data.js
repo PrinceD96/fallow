@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784535260817,
+  "lastUpdate": 1784536282878,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4f6dfc9fcf12d0cda5680cd91a8a4aacbc9b2755",
-          "message": "chore(contracts): regenerate output schema after dupes doc-comment refresh",
-          "timestamp": "2026-07-08T14:29:47+02:00",
-          "tree_id": "e8b4671376a932acfa57ecffac7c94237c02ed6d",
-          "url": "https://github.com/fallow-rs/fallow/commit/4f6dfc9fcf12d0cda5680cd91a8a4aacbc9b2755"
-        },
-        "date": 1783514063447,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/dbae50c8da7012a71ae84c7b1ae7582311390efe"
         },
         "date": 1784535257851,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e20398e0809c10d47a46af8a351cdcef12d40285",
+          "message": "fix(napi): restore @emnapi lockfile entries for cross-platform npm ci",
+          "timestamp": "2026-07-20T10:26:26+02:00",
+          "tree_id": "1cba20c4652fad2f21bc72491afc5bfe6ea2f9ba",
+          "url": "https://github.com/fallow-rs/fallow/commit/e20398e0809c10d47a46af8a351cdcef12d40285"
+        },
+        "date": 1784536278683,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
