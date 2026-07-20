@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784534782940,
+  "lastUpdate": 1784535260817,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "5f17bad395911bb1c18992c53d9f7105b757d9bf",
-          "message": "fix(ci): skills-vendor gate ignores version-string lines; add vendor-skills unit tests (#1782)\n\nNormalize `\"version\"` strings in the skills-vendor drift comparison so the transient release-window bump (step 5c vs 10a-pre) does not false-fail CI; guard main() behind an import.meta check so importing the module never runs it; add unit tests for vendor-skills.mjs.",
-          "timestamp": "2026-07-08T12:24:29+02:00",
-          "tree_id": "62d5c2f5ef39923bc580b1728cecb9df09a7d0ea",
-          "url": "https://github.com/fallow-rs/fallow/commit/5f17bad395911bb1c18992c53d9f7105b757d9bf"
-        },
-        "date": 1783506668319,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/fe845138c24513e0c73f14eb69b3f187c96fe9b3"
         },
         "date": 1784534780034,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "dbae50c8da7012a71ae84c7b1ae7582311390efe",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v3.7.0",
+          "timestamp": "2026-07-20T10:08:41+02:00",
+          "tree_id": "a9bcf8d24bd7eb11b679ec9d6b09a0ea96b42945",
+          "url": "https://github.com/fallow-rs/fallow/commit/dbae50c8da7012a71ae84c7b1ae7582311390efe"
+        },
+        "date": 1784535257851,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
