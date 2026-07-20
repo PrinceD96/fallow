@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784538855181,
+  "lastUpdate": 1784539401232,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ede3bcd2c01c06d0b63178ee54491103cfe5ff11",
-          "message": "docs: correct benchmark ratio claims",
-          "timestamp": "2026-07-05T19:40:18+02:00",
-          "tree_id": "a3659bf288831ff1b37b04933f8f616c8dca4e55",
-          "url": "https://github.com/fallow-rs/fallow/commit/ede3bcd2c01c06d0b63178ee54491103cfe5ff11"
-        },
-        "date": 1783273323577,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 26,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 0.99,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 404,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 949,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 1152,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dacea3780abcf5e2c5d98ac208a88a4cdeb3529e",
+          "message": "fix: inherited-member (#1910) and tsconfig-alias (#1911) false positives\n\nTwo dead-code false-positive fixes: credit members reached through an inherited/generic base-class property (#1910), and activate the TypeScript plugin on tsconfig presence so paths aliases are not misreported as unlisted dependencies (#1911).\n\nCloses #1910\nCloses #1911",
+          "timestamp": "2026-07-20T09:21:52Z",
+          "tree_id": "430b7bd8dde924b133675adce583910e58523691",
+          "url": "https://github.com/fallow-rs/fallow/commit/dacea3780abcf5e2c5d98ac208a88a4cdeb3529e"
+        },
+        "date": 1784539398453,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.35,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 444,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1153,
             "unit": "count"
           }
         ]
