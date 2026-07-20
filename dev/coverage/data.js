@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784543769119,
+  "lastUpdate": 1784549281850,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "a4fb282920ee12d521d48a2f13be9ad77d3665ef",
-          "message": "docs(rules): point churn wiring at fallow_engine paths in cli-crate.md",
-          "timestamp": "2026-07-08T23:17:03+02:00",
-          "tree_id": "bb38d0056949b8ed70e36793b19a100ba1ae8c97",
-          "url": "https://github.com/fallow-rs/fallow/commit/a4fb282920ee12d521d48a2f13be9ad77d3665ef"
-        },
-        "date": 1783545718988,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/5988b978230134388b89060a39707a501211085a"
         },
         "date": 1784543766052,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8e45850977cdecfe8624d5ec4abe7def0fe484bf",
+          "message": "chore(docker): pin FALLOW_VERSION 3.7.1 with refreshed checksums\n\nCo-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>",
+          "timestamp": "2026-07-20T14:00:52+02:00",
+          "tree_id": "cb735ea714bb297a16c03060aaa67ec08f2f61b2",
+          "url": "https://github.com/fallow-rs/fallow/commit/8e45850977cdecfe8624d5ec4abe7def0fe484bf"
+        },
+        "date": 1784549279123,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
