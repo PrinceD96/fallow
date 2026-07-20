@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784535151457,
+  "lastUpdate": 1784536234773,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "fcbeb2005efeb2e4d86dca222e218a311e6a5aed",
-          "message": "refactor(engine): own public api key policy",
-          "timestamp": "2026-07-05T12:32:08+02:00",
-          "tree_id": "c493902e15e5583b11d7ca8671fc3dcebfb0c9ad",
-          "url": "https://github.com/fallow-rs/fallow/commit/fcbeb2005efeb2e4d86dca222e218a311e6a5aed"
-        },
-        "date": 1783247743900,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10982496,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 62142,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 54273,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965619,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e20398e0809c10d47a46af8a351cdcef12d40285",
+          "message": "fix(napi): restore @emnapi lockfile entries for cross-platform npm ci",
+          "timestamp": "2026-07-20T10:26:26+02:00",
+          "tree_id": "1cba20c4652fad2f21bc72491afc5bfe6ea2f9ba",
+          "url": "https://github.com/fallow-rs/fallow/commit/e20398e0809c10d47a46af8a351cdcef12d40285"
+        },
+        "date": 1784536230839,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10258604,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 54319,
             "unit": "allocations"
           },
           {
