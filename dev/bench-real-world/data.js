@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784452312439,
+  "lastUpdate": 1784541731956,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -8349,6 +8349,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 815,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "dacea3780abcf5e2c5d98ac208a88a4cdeb3529e",
+          "message": "fix: inherited-member (#1910) and tsconfig-alias (#1911) false positives\n\nTwo dead-code false-positive fixes: credit members reached through an inherited/generic base-class property (#1910), and activate the TypeScript plugin on tsconfig presence so paths aliases are not misreported as unlisted dependencies (#1911).\n\nCloses #1910\nCloses #1911",
+          "timestamp": "2026-07-20T09:21:52Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/dacea3780abcf5e2c5d98ac208a88a4cdeb3529e"
+        },
+        "date": 1784541728567,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 206,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 614,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 510,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1746,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1328,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1228,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1124,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1327,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1226,
             "unit": "ms"
           }
         ]
