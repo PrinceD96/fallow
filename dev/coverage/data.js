@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784536282878,
+  "lastUpdate": 1784537214606,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "bd988db96ecd7aaf80b94525d27662ac5820363f",
-          "message": "refactor(ci): make vendor-skills main testable and quiet diff output in tests (#1784)\n\nExtract the main() dispatch into a pure decide(), export main(), and add a renderDiffs option to runCheck so tests exercise the changed-file drift path without spawning git diff into the TAP stream. Adds decide + main unit tests.",
-          "timestamp": "2026-07-08T14:50:39+02:00",
-          "tree_id": "f753d1dc00cc8d464bf9457579b705d95174843f",
-          "url": "https://github.com/fallow-rs/fallow/commit/bd988db96ecd7aaf80b94525d27662ac5820363f"
-        },
-        "date": 1783515319182,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e20398e0809c10d47a46af8a351cdcef12d40285"
         },
         "date": 1784536278683,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "124ad5cc84484f890cfd728240d6688d3b68df4d",
+          "message": "fix(napi): bump lockfile fallow-node entries to v3.7.0",
+          "timestamp": "2026-07-20T10:39:44+02:00",
+          "tree_id": "03383d1f3a4318f706631c9828073077f8e936c7",
+          "url": "https://github.com/fallow-rs/fallow/commit/124ad5cc84484f890cfd728240d6688d3b68df4d"
+        },
+        "date": 1784537210547,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
