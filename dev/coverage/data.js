@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784642463100,
+  "lastUpdate": 1784643620429,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ac9cf46f94303c658e15c5a6789137075ad65fba",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v3.3.0",
-          "timestamp": "2026-07-09T14:32:39+02:00",
-          "tree_id": "db8f60e46559097639047210300ebd59ce045d22",
-          "url": "https://github.com/fallow-rs/fallow/commit/ac9cf46f94303c658e15c5a6789137075ad65fba"
-        },
-        "date": 1783600896935,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3b67f6ddd01b98a6b038ce0c19cae8ab7a9e954c"
         },
         "date": 1784642460037,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9698f06c5a93231cea94dc2e1ff27813c0a432f1",
+          "message": "chore(deps): bump astral-sh/setup-uv from 8.3.1 to 8.3.2 (#1933)\n\nClean GitHub Actions bump, all checks green.",
+          "timestamp": "2026-07-21T16:14:52+02:00",
+          "tree_id": "ffa68163faf9ca970b4daa98b1b331aad2645577",
+          "url": "https://github.com/fallow-rs/fallow/commit/9698f06c5a93231cea94dc2e1ff27813c0a432f1"
+        },
+        "date": 1784643617539,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
