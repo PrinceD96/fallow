@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784548725236,
+  "lastUpdate": 1784626710328,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "9dc768e2cc481d98d70c3cd24eb424712ea0d89e",
-          "message": "perf: broaden codspeed benchmark coverage",
-          "timestamp": "2026-07-05T21:35:49+02:00",
-          "tree_id": "8efe61fc0d959fe8b7bf2e4634316d18b70a6cc7",
-          "url": "https://github.com/fallow-rs/fallow/commit/9dc768e2cc481d98d70c3cd24eb424712ea0d89e"
-        },
-        "date": 1783280403692,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10977744,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 62127,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 54606,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965619,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "094c4c1bb2cfccde19c2fa19e0d2d87e79137c9d",
+          "message": "feat(viz): interactive codebase map (fallow viz)\n\nNew `fallow viz` command renders the codebase as a single self-contained\ninteractive HTML file (no server, no external assets): a nested treemap sized by\nbytes plus a force-directed import graph, sharing four lenses (dead code,\nduplication, boundaries, complexity hotspots). Clicking a file opens a detail\npanel with the evidence and a runnable `fallow ... --trace` verify command.\nSearch, breadcrumb drill-down, keyboard shortcuts, URL deep links, and dark/light\nthemes are built in; `--viz-format dot|mermaid` emit the import graph as text,\n`--no-open`/`--out` control output. Read-only, respects `--production`,\n`--config`, `--no-cache`.\n\nEngine databuilder `fallow_engine::viz::build_viz_data` runs from one project\nanalysis; `crates/cli/src/viz.rs` emits the HTML embedding the rolldown-bundled\nTypeScript frontend (`viz-frontend/` into `crates/cli/viz-assets/`), with payload\nescaping, a symlink-refusing `--out`, and control-char sanitization for the text\nformats.",
+          "timestamp": "2026-07-21T11:34:58+02:00",
+          "tree_id": "c0f1613ba3c72a1a048cfc33c304184da1031af8",
+          "url": "https://github.com/fallow-rs/fallow/commit/094c4c1bb2cfccde19c2fa19e0d2d87e79137c9d"
+        },
+        "date": 1784626707320,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10284791,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 54584,
             "unit": "allocations"
           },
           {
