@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784627193109,
+  "lastUpdate": 1784634139509,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "48f415e1191095a8b4a7a170e0ceee8eaccb402e",
-          "message": "refactor(core): remove engine-owned copy modules\n\nRemove the stale fallow-core copies for churn, trace, trace-chain, and cross-reference now that fallow-engine owns those surfaces. This keeps core focused on internal orchestration instead of publishing duplicate adapters that can drift.\n\nMove the trace and trace-chain regression coverage onto the engine path, add an architecture guardrail that rejects reintroducing the core modules, and drop the unused core bitcode dependency.",
-          "timestamp": "2026-07-09T10:47:28+02:00",
-          "tree_id": "edda384dd8da235bd8d6202781eae85c4e6a0c36",
-          "url": "https://github.com/fallow-rs/fallow/commit/48f415e1191095a8b4a7a170e0ceee8eaccb402e"
-        },
-        "date": 1783587454179,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/443638cb2a7135230a5768ebc98948c87f87db0f"
         },
         "date": 1784627189806,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b47f16da3b607980aed5603a8db39fdff99c6472",
+          "message": "fix(hooks): add viz-frontend/src to pre-commit JS lint scope\n\nfeat(viz) added viz-frontend/src to the lint:js / fmt:js:check targets in\npackage.json and to CI, but not to the pre-commit hook's staged-path\nexpression. The command-policy parity test enforces the hook mirror the\npackage.json scopes, so it failed once oxfmt stopped masking it. Mirror the\nnew scope in the hook.",
+          "timestamp": "2026-07-21T13:34:54+02:00",
+          "tree_id": "e33af38844f3e8aebcb6894c870cbd6460d02f05",
+          "url": "https://github.com/fallow-rs/fallow/commit/b47f16da3b607980aed5603a8db39fdff99c6472"
+        },
+        "date": 1784634135302,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
