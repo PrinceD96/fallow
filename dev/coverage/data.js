@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784634884711,
+  "lastUpdate": 1784641367971,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b39782a149db879383734aef60f1329e967b0317",
-          "message": "docs(rules): document the PositionMapper byte-to-UTF-16 boundary convention",
-          "timestamp": "2026-07-09T12:27:10+02:00",
-          "tree_id": "80949b8bcb5a3a4f734f375d1bf1783eace7ca1c",
-          "url": "https://github.com/fallow-rs/fallow/commit/b39782a149db879383734aef60f1329e967b0317"
-        },
-        "date": 1783593250746,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d3a107c408d5d1b7eec23965391b5fd13d0f64f7"
         },
         "date": 1784634881262,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "aa5cff99933b7d37be9b7dabd99dcf5efbd8ca82",
+          "message": "chore(deps): bump taiki-e/install-action from 2.82.10 to 2.83.2 (#1925)\n\nBumps [taiki-e/install-action](https://github.com/taiki-e/install-action) from 2.82.10 to 2.83.2.\n- [Release notes](https://github.com/taiki-e/install-action/releases)\n- [Changelog](https://github.com/taiki-e/install-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/taiki-e/install-action/compare/50414676f9f5d50a65992c6dd2ed02641263226c...43aecc8d72668fbcfe75c31400bc4f890f1c5853)\n\n---\nupdated-dependencies:\n- dependency-name: taiki-e/install-action\n  dependency-version: 2.83.2\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-07-21T15:33:22+02:00",
+          "tree_id": "4ccccb17864a13cab73ff5413abcc369224ba681",
+          "url": "https://github.com/fallow-rs/fallow/commit/aa5cff99933b7d37be9b7dabd99dcf5efbd8ca82"
+        },
+        "date": 1784641364180,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
