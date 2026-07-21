@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784634139509,
+  "lastUpdate": 1784634884711,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b005d105c275f2dd0da67767862b12e702295cec",
-          "message": "fix(members): credit Playwright POM methods through function-wrapped fixture consts (#1792)\n\nA Playwright fixture exported as a function that wraps a local base.extend<T>({...}) fixture const via <const>.extend({}) and called in specs as myTest()(\"title\", cb) left every Page Object method reported as unused-class-member. The equivalent direct const form credited them correctly.\n\nThe use side already handled the double-call; the def side dropped it because try_capture_playwright_factory_helper bailed on a wrapping .extend({}) with no type argument. The helper now records a (helper, base) alias whenever it returns <base>.extend(...), and the finalize-time fixed point inherits fixture bindings from local base.extend<T>({...}) consts (a new transient playwright_local_fixture_defs map) as an inheritance source only, gated on @playwright/test resolution so non-Playwright code is unaffected. Bumps the extract CACHE_VERSION 226 to 227.\n\nFixes #1791.",
-          "timestamp": "2026-07-09T11:34:57+02:00",
-          "tree_id": "8b12d6f9466b770766c095d664acf0edfe623f31",
-          "url": "https://github.com/fallow-rs/fallow/commit/b005d105c275f2dd0da67767862b12e702295cec"
-        },
-        "date": 1783590123535,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/b47f16da3b607980aed5603a8db39fdff99c6472"
         },
         "date": 1784634135302,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "d3a107c408d5d1b7eec23965391b5fd13d0f64f7",
+          "message": "fix(skills): regenerate SKILL.md so viz row matches generated order\n\nMy earlier re-vendor mirrored canonical, which placed the viz row after\n`workspaces` and tripped the contract bundle drift gate (generate-all emits\nit after `setup-hooks`). Regenerate from generate-all so the vendored copy\nsatisfies both the contract bundle and vendor-drift gates; canonical was\naligned in fallow-skills 241ddf6.",
+          "timestamp": "2026-07-21T13:49:57+02:00",
+          "tree_id": "0e147f3761af637343b1e1b3ab85094e74800477",
+          "url": "https://github.com/fallow-rs/fallow/commit/d3a107c408d5d1b7eec23965391b5fd13d0f64f7"
+        },
+        "date": 1784634881262,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
