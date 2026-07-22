@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784720299777,
+  "lastUpdate": 1784721080822,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f92a06ffd7163d012d7d2fd86ab893390ff4f955",
-          "message": "perf: share parsed modules across warm sessions",
-          "timestamp": "2026-07-10T02:48:28+02:00",
-          "tree_id": "2a50af72f2c4552e120c1abf2173880450988f36",
-          "url": "https://github.com/fallow-rs/fallow/commit/f92a06ffd7163d012d7d2fd86ab893390ff4f955"
-        },
-        "date": 1783644787632,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/038aa0b9c9c0ef61c699ced92aa110f7df93dd32"
         },
         "date": 1784720296196,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c2e967fdb4fcd2bbe8d5fbaa4a09732369c418bc",
+          "message": "fix(ci): make fuzzing operational\n\nRun every cargo-fuzz harness under AddressSanitizer for relevant pull requests and pushes, with a longer weekly campaign. Pin the nightly toolchain and cargo-fuzz version, validate locked dependencies, and preserve crash inputs as workflow artifacts.\n\nAlign corpus directories with their target names, enforce the workflow contract in policy tests, and exclude seed fixtures from fallow self-analysis. Keep each run bounded while allowing every target to execute even when an earlier target fails.",
+          "timestamp": "2026-07-22T13:44:53+02:00",
+          "tree_id": "3e430dfb011514b7aae61fb1a7ac00f5ff0b9969",
+          "url": "https://github.com/fallow-rs/fallow/commit/c2e967fdb4fcd2bbe8d5fbaa4a09732369c418bc"
+        },
+        "date": 1784721078139,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
