@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784714068028,
+  "lastUpdate": 1784716213793,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "38f36755518bad4df0c4b4aa9071eba5c7e97561",
-          "message": "fix: harden config trust and process lifecycle\n\n* chore: open audit security implementation branch\n\n* fix: harden config trust and process lifecycle\n\n* test: run MCP process cleanup on Windows\n\n* test: fix Windows process tree fixture",
-          "timestamp": "2026-07-10T00:18:47+02:00",
-          "tree_id": "47f3eab1e34610ea0c4a31ec5b4e1ace829571c3",
-          "url": "https://github.com/fallow-rs/fallow/commit/38f36755518bad4df0c4b4aa9071eba5c7e97561"
-        },
-        "date": 1783635899361,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a495ce796f1c5f89fc07e5dd1f6c5fe0ca56bd1e"
         },
         "date": 1784714064748,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1fbe048925397c809a429d640fd07d7df958e67f",
+          "message": "fix(ci): hold incompatible React Vite plugin major\n\nKeep @vitejs/plugin-react on its Vite 7-compatible major while electron-vite 5 prevents the review app from moving to Vite 8. A clean install of the proposed plugin major fails its peer dependency resolution.\n\nExtend the repository policy test so Dependabot cannot reopen that incompatible major independently.",
+          "timestamp": "2026-07-22T12:06:59+02:00",
+          "tree_id": "5754ad1e137637c751ebca571c1ce45820bd01a9",
+          "url": "https://github.com/fallow-rs/fallow/commit/1fbe048925397c809a429d640fd07d7df958e67f"
+        },
+        "date": 1784716209870,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
