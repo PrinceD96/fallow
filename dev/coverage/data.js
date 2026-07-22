@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784721080822,
+  "lastUpdate": 1784721417665,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d26a96b43b4001b9aa0368583c53ff4de248a210",
-          "message": "fix(ci): lint Windows MCP lifecycle code (#1807)\n\nRepair the Windows-only MCP Clippy failure and run focused MCP Clippy in the pull request lifecycle gate.\n\nAdd a workflow policy regression test so the Windows lint command cannot drift.",
-          "timestamp": "2026-07-10T05:23:10Z",
-          "tree_id": "d1eeaef212a3f173a52b7f6afe093d16bc38a38f",
-          "url": "https://github.com/fallow-rs/fallow/commit/d26a96b43b4001b9aa0368583c53ff4de248a210"
-        },
-        "date": 1783661260998,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c2e967fdb4fcd2bbe8d5fbaa4a09732369c418bc"
         },
         "date": 1784721078139,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "29308d1c2e3a4ec957e2115bd906175abf6656a8",
+          "message": "fix(ci): repair dependency validation gaps\n\nRequire the path-specific Zed job in aggregate CI, with a policy test preventing accidental removal.\n\nMake Electron E2E runs deterministic by reviewing isolated Git fixtures and resolving an available release, debug, or PATH binary. Keep screenshot capture separate from asserted E2E runs.",
+          "timestamp": "2026-07-22T13:52:10+02:00",
+          "tree_id": "98d934b1d294a01d40249c76b9c1d4a998a85eb0",
+          "url": "https://github.com/fallow-rs/fallow/commit/29308d1c2e3a4ec957e2115bd906175abf6656a8"
+        },
+        "date": 1784721413077,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
