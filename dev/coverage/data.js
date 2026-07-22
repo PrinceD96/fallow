@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784716213793,
+  "lastUpdate": 1784719565889,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e484a4312bcb482bca3e8b900b785bc752ca19b9",
-          "message": "chore(docker): bump default FALLOW_VERSION to 3.3.0 with refreshed checksums\n\nBumps the default image version to 3.3.0 with freshly verified per-arch sha256 pins and documents the version/hash lockstep rule.",
-          "timestamp": "2026-07-10T00:29:55+02:00",
-          "tree_id": "39563153ffada37d2b776cada8a8d8db7f6a0824",
-          "url": "https://github.com/fallow-rs/fallow/commit/e484a4312bcb482bca3e8b900b785bc752ca19b9"
-        },
-        "date": 1783636831612,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1fbe048925397c809a429d640fd07d7df958e67f"
         },
         "date": 1784716209870,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a4474ddd16488a27aee1e515e6f40e45c516f513",
+          "message": "refactor: narrow internal Rust visibility with Hawk\n\nApply Hawk's lint-clean visibility reductions across internal Rust modules while preserving supported contract crates and externally compiled benchmark surfaces.\n\nKeep dead-public deletion out of scope until Hawk exposes stable cross-target identities, and align rustdoc with the narrower module boundaries.",
+          "timestamp": "2026-07-22T13:02:02+02:00",
+          "tree_id": "0b77dfec341fc8433b5835a7d2095be8925de35a",
+          "url": "https://github.com/fallow-rs/fallow/commit/a4474ddd16488a27aee1e515e6f40e45c516f513"
+        },
+        "date": 1784719562826,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
