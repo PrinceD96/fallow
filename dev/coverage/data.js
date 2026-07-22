@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784708423338,
+  "lastUpdate": 1784712273870,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "49f62ff29ae896681e541a0b7bd9a1bb04d963f8",
-          "message": "docs: changelog entry and regenerated capability manifest for the GitHub formats\n\nCHANGELOG under Unreleased/Added for --format github-annotations,\n--format github-summary, and fallow report --from. capabilities.json,\nthe vendored SKILL.md task matrix, and the CLI reference regenerate from\nlive clap via npm run generate:contracts (new --format values, the\n--annotations-path-prefix global flag, and the report command).",
-          "timestamp": "2026-07-09T22:10:58+02:00",
-          "tree_id": "dfd4a9a305814386afdad0a1c662ca3e1b754dca",
-          "url": "https://github.com/fallow-rs/fallow/commit/49f62ff29ae896681e541a0b7bd9a1bb04d963f8"
-        },
-        "date": 1783628416689,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/5184b9d74d2ede605538a96f1bae9ec0edaf73e3"
         },
         "date": 1784708417437,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8f0dcb3c2c3cdfda0b1341c221c93615ebe36868",
+          "message": "chore(deps-dev): update TypeScript in viz frontend\n\nUpdate the visualization frontend to TypeScript 7. Its focused lint, test, and build checks pass.",
+          "timestamp": "2026-07-22T11:16:18+02:00",
+          "tree_id": "751862b29fcffa80ccae06fe5a86ffab3a8ef618",
+          "url": "https://github.com/fallow-rs/fallow/commit/8f0dcb3c2c3cdfda0b1341c221c93615ebe36868"
+        },
+        "date": 1784712268562,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
