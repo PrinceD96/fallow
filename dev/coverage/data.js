@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784719565889,
+  "lastUpdate": 1784720299777,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ee20cbaf15378649088b951bc4ecb4c72622ea34",
-          "message": "test: strengthen CI and contributor guidance\n\n* chore: open audit CI and docs implementation branch\n\n* test: strengthen CI and contributor guidance",
-          "timestamp": "2026-07-10T01:13:22+02:00",
-          "tree_id": "6a4a450c205ffb93c1439c2faa6633652f97a911",
-          "url": "https://github.com/fallow-rs/fallow/commit/ee20cbaf15378649088b951bc4ecb4c72622ea34"
-        },
-        "date": 1783639219135,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a4474ddd16488a27aee1e515e6f40e45c516f513"
         },
         "date": 1784719562826,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "038aa0b9c9c0ef61c699ced92aa110f7df93dd32",
+          "message": "fix(zed): remove obsolete ed25519 feature\n\nRemove the obsolete `std` feature from the Zed extension's `ed25519-dalek` 3 dependency while keeping default features disabled.\n\nThis restores native tests and the packaged WASM build after the major dependency update in #1951.",
+          "timestamp": "2026-07-22T13:31:16+02:00",
+          "tree_id": "01938b811854bcce502f124c1eb5372673886973",
+          "url": "https://github.com/fallow-rs/fallow/commit/038aa0b9c9c0ef61c699ced92aa110f7df93dd32"
+        },
+        "date": 1784720296196,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
