@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784842981075,
+  "lastUpdate": 1784844385050,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "7a827074ceedafb3199ae6ea1f729910ec1354b1",
-          "message": "feat(plugins): add fallow plugin-check for agent plugin-authoring\n\nRead-only fallow plugin-check [--format json] dry-run so an agent can verify an external plugin (fallow-plugin-*.jsonc, especially manifestEntries) without a full analysis. Reports per plugin whether it activated (with the unmet detection/enabler requirement when inactive), and for active manifestEntries plugins the per-rule matched manifests, when-gate result, seeded entries (with path_exists), and typed warnings. The report is a shared RuleReport that production seeding also consumes, so the two cannot drift. Deterministic output; always exits 0 (advisory).\n\nA dead-code --format json run with active external plugins + unused files surfaces a verify-plugins next step, and fallow schema related_schemas gained plugin_schema_command / plugin_check_command pointers. Fixes the dead fallow.dev/plugin-schema.json URL to raw.githubusercontent. Refs #1774.",
-          "timestamp": "2026-07-08T09:28:12+02:00",
-          "tree_id": "59c68ebaa68a4fc92a8a4b9736537407dc07fadd",
-          "url": "https://github.com/fallow-rs/fallow/commit/7a827074ceedafb3199ae6ea1f729910ec1354b1"
-        },
-        "date": 1783496320403,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 11010160,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 62257,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 54537,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965619,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "3f6d4a5f817525d322365d64953940ff47175bf2",
+          "message": "chore: release v3.9.1",
+          "timestamp": "2026-07-24T00:01:26+02:00",
+          "tree_id": "b65b4e0cfd7b53c4e78d3e744f2656632ffc91b1",
+          "url": "https://github.com/fallow-rs/fallow/commit/3f6d4a5f817525d322365d64953940ff47175bf2"
+        },
+        "date": 1784844382125,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10300143,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 54606,
             "unit": "allocations"
           },
           {
