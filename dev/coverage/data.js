@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784807518918,
+  "lastUpdate": 1784809785714,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c05420909051aec49c0362c8e1de28132d82a86b",
-          "message": "ci: move telemetry fail-rate gate to cloud",
-          "timestamp": "2026-07-10T21:56:39Z",
-          "tree_id": "83f41b2e53ebd2804aafd50618a29c7022cc0706",
-          "url": "https://github.com/fallow-rs/fallow/commit/c05420909051aec49c0362c8e1de28132d82a86b"
-        },
-        "date": 1783721171136,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2a85bcce4e5ae2df6ff4a3ab0550e5a5bf71d118"
         },
         "date": 1784807516265,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fe967602b0e6c71225406ab1dcb2087f2cbee9f3",
+          "message": "chore: integrate trigger-tree agent telemetry\n\nIntegrate trigger-tree v1.21.0 for Codex and Claude Code with pinned plugin sources and project-specific documentation routing.\n\nKeep Fallow prompt telemetry hash-only, use an off fallback for unconfigured Codex repositories, preserve existing hooks, and document hook trust, upgrades, privacy, and removal.\n\nValidate both clients with real host sessions, client-attributed events, prompt privacy probes, healthy doctors, and repository gates.",
+          "timestamp": "2026-07-23T14:25:14+02:00",
+          "tree_id": "e8a9034fa9d07b180466002c0cdd0d1256a79a2b",
+          "url": "https://github.com/fallow-rs/fallow/commit/fe967602b0e6c71225406ab1dcb2087f2cbee9f3"
+        },
+        "date": 1784809782510,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
