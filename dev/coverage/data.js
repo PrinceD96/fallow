@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784819705014,
+  "lastUpdate": 1784821463576,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4cb65794e5631bdfd8e6a4aec016d45b560a0d68",
-          "message": "test(cli): make workflow-event assertions immune to parallel accumulator writes (#1830)\n\nworkflow_event_buckets_exit_codes asserted config_shape through\nbuild_workflow_event, which reads process-global accumulators. The\nreset-before-read guard cannot close the race against a PARALLEL test\ndriving a real command path (load_config_for_analysis ->\nnote_config_shape) mid-test; the Coverage CI run on main caught exactly\nthat with CustomConfig leaking over the expected CustomRules.\n\nSplit build_workflow_event into a pure build_workflow_event_with taking\na RunAccumulatorSnapshot; production snapshots the globals once per\nevent (behavior unchanged), the test passes the UNSET snapshot and is\ndeterministic under any parallelism. The reset helper and the two\none-line derivation wrappers are folded away.",
-          "timestamp": "2026-07-12T13:40:45+02:00",
-          "tree_id": "5aac6ac3c0556d25f58e2457b3992d1256de6659",
-          "url": "https://github.com/fallow-rs/fallow/commit/4cb65794e5631bdfd8e6a4aec016d45b560a0d68"
-        },
-        "date": 1783857204170,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3b652718d6934f22e7418c3dc2c96fcf43c181b9"
         },
         "date": 1784819702244,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "91869523531eca1fe5aae45af2d4fe6a6b6a385b",
+          "message": "chore: upgrade trigger-tree to v1.23.1\n\nPin the Claude and Codex Trigger Tree integrations to v1.23.1 and its exact tagged commit. Use the upstream user-wide configuration layer for marker-only defaults while preserving Fallow's project hash override.\n\nKeep Codex CLI 0.144.6 deterministic through a local tag-exact marketplace entry until upstream issue #6 is resolved, without modifying Trigger Tree runtime code.",
+          "timestamp": "2026-07-23T17:39:24+02:00",
+          "tree_id": "f8859588b08b25c6d32f74f78b13832e927e2959",
+          "url": "https://github.com/fallow-rs/fallow/commit/91869523531eca1fe5aae45af2d4fe6a6b6a385b"
+        },
+        "date": 1784821460429,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
