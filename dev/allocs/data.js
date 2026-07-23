@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784812545780,
+  "lastUpdate": 1784818743862,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "df76662b0e166beb87b831b26c927a46e4cecf2d",
-          "message": "feat(plugins): add manifestEntries to external plugins\n\nAdds a declarative manifestEntries capability to external plugins: a fallow-plugin-*.jsonc can seed entry points DERIVED from framework manifest files. Each rule finds manifests by a recursive .gitignore-respecting walk, parses JSON/JSONC, gates on a dotted-field when (strict equality), and resolves each entries[].path (with ${dotted.field} string/array fan-out) relative to the manifest's directory into an entry point under the plugin's entryPointRole. Loud warns on zero-match glob, when-excludes-all, typo'd field paths, empty entries, and unparseable manifests. Regenerates plugin-schema.json + schema.json.\n\nValidated on a real Kibana clone: unused files 21,932 to 5,318, unresolved_imports stays 0, 100% of the 383 plugins' declared entries seeded. Per-seed role and TOML/YAML manifests deferred (additive-safe).\n\nRefs #1774.",
-          "timestamp": "2026-07-07T20:59:01+02:00",
-          "tree_id": "2932ae0649ca1ecedded3189c04113d11aca6426",
-          "url": "https://github.com/fallow-rs/fallow/commit/df76662b0e166beb87b831b26c927a46e4cecf2d"
-        },
-        "date": 1783451042082,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10991776,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 62236,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 54594,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 965619,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7458,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f2561ae8d7e7b3a4b602f8056a9531ce76e6ebf7",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v3.8.1",
+          "timestamp": "2026-07-23T16:53:11+02:00",
+          "tree_id": "84fbfbf791f4d366d4c0389a2d7615ff5f826c0f",
+          "url": "https://github.com/fallow-rs/fallow/commit/f2561ae8d7e7b3a4b602f8056a9531ce76e6ebf7"
+        },
+        "date": 1784818740016,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10313967,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 54622,
             "unit": "allocations"
           },
           {
