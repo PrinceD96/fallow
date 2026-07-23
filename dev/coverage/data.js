@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784821463576,
+  "lastUpdate": 1784822581697,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e893500daea980960952ccb948c24c78f9c4b59f",
-          "message": "docs(cli): drop intra-doc link to the cfg(test)-only UNSET snapshot (#1831)\n\nThe Documentation CI job documents non-test code, where\nRunAccumulatorSnapshot::UNSET does not exist, so the intra-doc link from\n#1830 was unresolved under -D warnings. Plain code span instead.",
-          "timestamp": "2026-07-12T14:10:25+02:00",
-          "tree_id": "cc027cbc180653c4f03b987f0fbc77d3424f58b7",
-          "url": "https://github.com/fallow-rs/fallow/commit/e893500daea980960952ccb948c24c78f9c4b59f"
-        },
-        "date": 1783858525475,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/91869523531eca1fe5aae45af2d4fe6a6b6a385b"
         },
         "date": 1784821460429,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fd3770291d0495b80a8fc724b7c32a463a2f8949",
+          "message": "chore: upgrade trigger-tree to v1.23.2\n\nPin the Claude and Codex Trigger Tree integrations to v1.23.2 and its exact tagged commit. Use the official Codex marketplace now that relative plugin resolution makes the documented tag pin deterministic.\n\nPreserve the upstream user-wide marker-only default and Fallow's project hash override while removing the obsolete local marketplace wrapper.",
+          "timestamp": "2026-07-23T17:56:58+02:00",
+          "tree_id": "70783aeb270e7ad51ac35ed26b4c8e246642b700",
+          "url": "https://github.com/fallow-rs/fallow/commit/fd3770291d0495b80a8fc724b7c32a463a2f8949"
+        },
+        "date": 1784822577128,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
