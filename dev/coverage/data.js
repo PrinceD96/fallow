@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784844610093,
+  "lastUpdate": 1784846632069,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "fe9812109059f5b77d2506da61bece83f484f526",
-          "message": "ci: make release validation dispatchable before any version exists (#1836)\n\nExtract the three release-gating validation jobs (Windows correctness\nand lifecycle, Zed verification, codegen drift) into a reusable\nrelease-validation.yml. release.yml calls it on tag runs so publishes\nkeep gating on the identical set; workflow_dispatch lets the release\npre-flight run the full validation on main BEFORE bumping a version, so\na failing check can no longer burn a release tag (v3.4.0 and v3.4.1\nwere both lost to a Windows-only CRLF failure that had never run\npre-tag); a weekly cron surfaces runner-image drift between releases.",
-          "timestamp": "2026-07-13T13:46:24+02:00",
-          "tree_id": "3baf10b1de3f2273debbd93c143ae7edc59f9424",
-          "url": "https://github.com/fallow-rs/fallow/commit/fe9812109059f5b77d2506da61bece83f484f526"
-        },
-        "date": 1783943791723,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/3f6d4a5f817525d322365d64953940ff47175bf2"
         },
         "date": 1784844606014,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "1548c96af4d6675a0a8488d7e0690fcc07f4413c",
+          "message": "fix: validate Impact statusline flags",
+          "timestamp": "2026-07-24T00:38:29+02:00",
+          "tree_id": "d420bbd1259a67fbbe665d24342ae26a8699d078",
+          "url": "https://github.com/fallow-rs/fallow/commit/1548c96af4d6675a0a8488d7e0690fcc07f4413c"
+        },
+        "date": 1784846628276,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
