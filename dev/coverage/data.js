@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784831994458,
+  "lastUpdate": 1784839758188,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "2e9313ddd139a994e38c004b67e31d4dd21415ab",
-          "message": "docs: classify the CI path-rebase as a behavior change, not a semver major\n\nThe #1808 CHANGELOG entry led with BREAKING, which would push the next release toward a major bump for a fix whose affected cohort (subdirectory --root runs) previously got output their only consumers rejected, and which has a one-flag restore (--report-path-prefix ''). Relabels the entry as a behavior change with the rationale inline, and records it in the backwards-compatibility doc's new v3 notable-behavior-changes section. v4 stays reserved for the announced kind-tagged FallowOutput / alias-removal major (#413).",
-          "timestamp": "2026-07-13T10:43:14+02:00",
-          "tree_id": "cccc0312fab1b5c076929ed01299a2e01244c61e",
-          "url": "https://github.com/fallow-rs/fallow/commit/2e9313ddd139a994e38c004b67e31d4dd21415ab"
-        },
-        "date": 1783932481414,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/fbe63e3efcf10b43fa5a670976f5755416ce267e"
         },
         "date": 1784831991045,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ddbdaa94e3dadb5bf39914d17ddf100bdcc38c07",
+          "message": "docs: harden maintainer knowledge architecture",
+          "timestamp": "2026-07-23T22:40:55+02:00",
+          "tree_id": "57260586ef2df0e5cf5a10ed16b78036e2132b22",
+          "url": "https://github.com/fallow-rs/fallow/commit/ddbdaa94e3dadb5bf39914d17ddf100bdcc38c07"
+        },
+        "date": 1784839754286,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
