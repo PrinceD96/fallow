@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784738170497,
+  "lastUpdate": 1784807518918,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9e12a7ba2edc74a9a06b5150aff05d9df22d5332",
-          "message": "fix(ci): allow cold Windows checks to finish",
-          "timestamp": "2026-07-10T16:02:56+02:00",
-          "tree_id": "29bbc9a349d49954985508fc192d2863ec3a590d",
-          "url": "https://github.com/fallow-rs/fallow/commit/9e12a7ba2edc74a9a06b5150aff05d9df22d5332"
-        },
-        "date": 1783692420428,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/acd28051c4c2c217f9fac612f288e9546c86b6c3"
         },
         "date": 1784738166894,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2a85bcce4e5ae2df6ff4a3ab0550e5a5bf71d118",
+          "message": "fix: preserve cloud runtime actionability\n\nPreserve the cloud runtime-context actionability decision, evidence reason, verdict, and deployment provenance in cloud analysis output.\n\nOlder cloud responses keep the existing tracked-function fallback. Repository self-audit also excludes the bundled comparison fixtures it should not treat as product source.",
+          "timestamp": "2026-07-23T13:45:02+02:00",
+          "tree_id": "dbb8600b33891813d461a24c30f955480a920dec",
+          "url": "https://github.com/fallow-rs/fallow/commit/2a85bcce4e5ae2df6ff4a3ab0550e5a5bf71d118"
+        },
+        "date": 1784807516265,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
