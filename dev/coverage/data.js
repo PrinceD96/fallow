@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784846632069,
+  "lastUpdate": 1784849399910,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d1a6f2b254df3ab5be2f72c99d59f81fa032dd48",
-          "message": "chore(docker): pin FALLOW_VERSION 3.4.2 with refreshed checksums (#1838)\n\nCo-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>",
-          "timestamp": "2026-07-13T14:50:03+02:00",
-          "tree_id": "181b3039bb6811efa1f77d6e0c94b685a89071f6",
-          "url": "https://github.com/fallow-rs/fallow/commit/d1a6f2b254df3ab5be2f72c99d59f81fa032dd48"
-        },
-        "date": 1783947436294,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1548c96af4d6675a0a8488d7e0690fcc07f4413c"
         },
         "date": 1784846628276,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "45f1642a21b049771ecf54fb92133dda4ce0c1fe",
+          "message": "chore(docker): pin FALLOW_VERSION 3.9.1 with refreshed checksums",
+          "timestamp": "2026-07-24T01:22:42+02:00",
+          "tree_id": "73bee3e92aa4e7f1025a39dade93875c9ed4741d",
+          "url": "https://github.com/fallow-rs/fallow/commit/45f1642a21b049771ecf54fb92133dda4ce0c1fe"
+        },
+        "date": 1784849396489,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
