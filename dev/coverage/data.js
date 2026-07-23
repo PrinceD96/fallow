@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1784812607161,
+  "lastUpdate": 1784818914666,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "dfcc69f429c943a91751a587990a0e7f078b325e",
-          "message": "ci: move cross-platform checks to release\n\nKeep regular pull request and main CI on Ubuntu for fast feedback. Move Windows correctness, lifecycle, NAPI, ARM64, and macOS or Windows Zed coverage into token-free release verification.\n\nGate crates.io, npm, GitHub release, and editor publication paths behind the aggregate release verification job.",
-          "timestamp": "2026-07-11T22:36:08+02:00",
-          "tree_id": "50b9eb629aad444971b47f47bc1c51ee709c1350",
-          "url": "https://github.com/fallow-rs/fallow/commit/dfcc69f429c943a91751a587990a0e7f078b325e"
-        },
-        "date": 1783802445012,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.4,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/69be8fc7a004f28e7a43e3ed3d9ad3eb64b962f7"
         },
         "date": 1784812604411,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "f2561ae8d7e7b3a4b602f8056a9531ce76e6ebf7",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v3.8.1",
+          "timestamp": "2026-07-23T16:53:11+02:00",
+          "tree_id": "84fbfbf791f4d366d4c0389a2d7615ff5f826c0f",
+          "url": "https://github.com/fallow-rs/fallow/commit/f2561ae8d7e7b3a4b602f8056a9531ce76e6ebf7"
+        },
+        "date": 1784818911339,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
