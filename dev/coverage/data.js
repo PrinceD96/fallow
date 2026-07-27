@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785148659594,
+  "lastUpdate": 1785151054289,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f57215bf3224b5276ecd8582f5fcac519dce3598",
-          "message": "feat(action): render annotations and job summary via the native GitHub formats\n\nThe action's annotate and summary steps rendered through ~90KB of bundled jq that duplicated what the binary renders natively since v3.4.2. They now call `fallow report --from <results.json> --format github-annotations|github-summary`, re-rendering the same saved analysis JSON the run already produced behind a capability probe (HAS_NATIVE_REPORT via $GITHUB_ENV). Older binaries fall back to the jq renderers automatically; a step log line names which renderer ran.\n\nRender precedence is native > typed > jq, fail-open at each step. The action keeps applying its max-annotations cap plus truncation notice on the native stream. fix stays on the jq summary (report --from has no fix kind yet). No jq file is modified or deleted; jq retirement is a separate follow-up.\n\nCloses #1816.",
-          "timestamp": "2026-07-13T16:43:40+02:00",
-          "tree_id": "80683b5d9d61f84cf7a80df5bfb87cce376e9931",
-          "url": "https://github.com/fallow-rs/fallow/commit/f57215bf3224b5276ecd8582f5fcac519dce3598"
-        },
-        "date": 1783954115128,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/20972d541b1deadad79108d780ffae6fd9c48163"
         },
         "date": 1785148655962,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9746941c8cdc6cea9e287245bd46e54963c203f6",
+          "message": "chore: release v3.10.0",
+          "timestamp": "2026-07-27T13:12:14+02:00",
+          "tree_id": "7ac54040090a916b3f8961fb88cd1f083a3864a7",
+          "url": "https://github.com/fallow-rs/fallow/commit/9746941c8cdc6cea9e287245bd46e54963c203f6"
+        },
+        "date": 1785151050364,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
