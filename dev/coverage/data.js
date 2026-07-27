@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785179202388,
+  "lastUpdate": 1785181781262,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "bc7cd251ba3f813b7d7a35712fa140baaf058647",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v3.5.0",
-          "timestamp": "2026-07-14T08:58:48+02:00",
-          "tree_id": "daae30760de81297d79fa7067241c61b7a76d9b6",
-          "url": "https://github.com/fallow-rs/fallow/commit/bc7cd251ba3f813b7d7a35712fa140baaf058647"
-        },
-        "date": 1784012774157,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/722e4a64347f3c7c544df5084ce9211b2aa18d25"
         },
         "date": 1785179197715,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "52732287e06d6ca4886ec548c7686b7563724943",
+          "message": "fix(brand): tighten standalone icon safe area",
+          "timestamp": "2026-07-27T19:43:09Z",
+          "tree_id": "b9374c05679fd87b6e32abc8d8c77bd9031a3985",
+          "url": "https://github.com/fallow-rs/fallow/commit/52732287e06d6ca4886ec548c7686b7563724943"
+        },
+        "date": 1785181778254,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
