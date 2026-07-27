@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785169604798,
+  "lastUpdate": 1785169728930,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d26a96b43b4001b9aa0368583c53ff4de248a210",
-          "message": "fix(ci): lint Windows MCP lifecycle code (#1807)\n\nRepair the Windows-only MCP Clippy failure and run focused MCP Clippy in the pull request lifecycle gate.\n\nAdd a workflow policy regression test so the Windows lint command cannot drift.",
-          "timestamp": "2026-07-10T05:23:10Z",
-          "tree_id": "d1eeaef212a3f173a52b7f6afe093d16bc38a38f",
-          "url": "https://github.com/fallow-rs/fallow/commit/d26a96b43b4001b9aa0368583c53ff4de248a210"
-        },
-        "date": 1783661057098,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 31,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 397,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 985,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 1163,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "raihassanraza10@gmail.com",
+            "name": "Muhammad Hassan Raza",
+            "username": "M-Hassan-Raza"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "55d72c006cfda0e5843bcdb12035ccf433320eaf",
+          "message": "feat(config): add ignoreFindings to hide findings without removing files from the graph\n\nknip's `ignore` migrated to `ignorePatterns`, which removes matching files from discovery, resolution, and the module graph, so anything they imported became unreachable and surfaced as new findings. `ignoreFindings` hides the findings a path owns while keeping the file fully analyzed, and `fallow migrate` now targets it.\n\nA finding with multiple source owners is hidden only when every owner matches. Negated `!` patterns keep matching paths reportable. Architecture, policy, suppression-hygiene, and framework-correctness findings stay visible, as do manifest-owned findings that no source file owns.\n\nAdmin merge: the only failing check is Commit messages, which rejects a `merge:` subject in this branch's history. The squash collapses that history and this subject replaces it.\n\nCloses #1991",
+          "timestamp": "2026-07-27T18:27:25+02:00",
+          "tree_id": "40fbc4522266fce22678ecc573d2e945e0627516",
+          "url": "https://github.com/fallow-rs/fallow/commit/55d72c006cfda0e5843bcdb12035ccf433320eaf"
+        },
+        "date": 1785169724744,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.35,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 446,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1167,
             "unit": "count"
           }
         ]
