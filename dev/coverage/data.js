@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785181781262,
+  "lastUpdate": 1785184434193,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c802c2d5ddcfd6a3cee7bcceb4542a7842a34569",
-          "message": "docs: document the --legacy-envelope removal and clear stale references\n\nAdds the missing v2.104.0 changelog entry for the --legacy-envelope / legacyEnvelope removal, re-vendors the skills SKILL.md without the stale flag mention, and rewrites the stale programmatic.rs bullet in the cli-crate rules (the module moved to fallow-api; napi no longer depends on fallow-cli).",
-          "timestamp": "2026-07-14T10:29:28+02:00",
-          "tree_id": "9e843d00c39776136b7fed8d208a51d6b3ef0575",
-          "url": "https://github.com/fallow-rs/fallow/commit/c802c2d5ddcfd6a3cee7bcceb4542a7842a34569"
-        },
-        "date": 1784018046393,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/52732287e06d6ca4886ec548c7686b7563724943"
         },
         "date": 1785181778254,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "818b7ad2318c4ea83f4dd7f8e7626f467c3b67f7",
+          "message": "docs: record the type-aware sidecar install as local setup\n\nThe type-aware CLI tests launch the real sidecar from tools/type-aware-sidecar, which needs its own npm install. Without it three tests fail with exit code 2 and empty stderr, which reads as a code defect rather than a missing install. CI installs the sidecar, so the failure never reproduces there.",
+          "timestamp": "2026-07-27T22:28:20+02:00",
+          "tree_id": "8e1b9b5579ea72787c46f8e5966e410209969f08",
+          "url": "https://github.com/fallow-rs/fallow/commit/818b7ad2318c4ea83f4dd7f8e7626f467c3b67f7"
+        },
+        "date": 1785184431137,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
