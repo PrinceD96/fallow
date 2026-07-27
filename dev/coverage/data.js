@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785170555323,
+  "lastUpdate": 1785177665663,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c68954e6de9bee9d9895cf11b4e086e2f987023d",
-          "message": "fix(graph): bound star re-export propagation work (#1855)\n\nReuse the named-import origin index across star re-export propagation and batch reference deduplication per export.\n\nFixes #1843.",
-          "timestamp": "2026-07-14T00:18:41+02:00",
-          "tree_id": "8097a0e09139f95f49a944f049c4397da3e44115",
-          "url": "https://github.com/fallow-rs/fallow/commit/c68954e6de9bee9d9895cf11b4e086e2f987023d"
-        },
-        "date": 1783981383364,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/28810138faa8fdbc830b8d585d0c15d65c39c3fd"
         },
         "date": 1785170551253,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "882f31056decb2fca13d70580c76075b203f3cad",
+          "message": "chore(docker): pin FALLOW_VERSION 3.10.0 with refreshed checksums",
+          "timestamp": "2026-07-27T20:33:20+02:00",
+          "tree_id": "c4958ec9940a4178dbddf8fa70554e0c194947f2",
+          "url": "https://github.com/fallow-rs/fallow/commit/882f31056decb2fca13d70580c76075b203f3cad"
+        },
+        "date": 1785177661412,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
