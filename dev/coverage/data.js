@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785166192927,
+  "lastUpdate": 1785167482841,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "48f88e87776b4d85aeef649bfa1a6ac024be7ba1",
-          "message": "fix(ci): allow multi-binary size checks to finish\n\nThe binary-size workflow began building LSP, MCP, and multicall release artifacts but retained a budget sized for the CLI-only job. Raise the timeout to 30 minutes and guard the minimum budget with a workflow policy test.",
-          "timestamp": "2026-07-13T19:36:48Z",
-          "tree_id": "3c43d4e00445fef864e4ebf97703c28528928da5",
-          "url": "https://github.com/fallow-rs/fallow/commit/48f88e87776b4d85aeef649bfa1a6ac024be7ba1"
-        },
-        "date": 1783971695931,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1142d229914e21b25dba587d48983ecd6fb06fd4"
         },
         "date": 1785166189933,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "11bf96c8fcadfe58b247ceaea44c9de656950fde",
+          "message": "fix: increase standalone icon safe area",
+          "timestamp": "2026-07-27T15:43:43Z",
+          "tree_id": "309750bdd7d62c1da34ceb8edb47fd65c736986c",
+          "url": "https://github.com/fallow-rs/fallow/commit/11bf96c8fcadfe58b247ceaea44c9de656950fde"
+        },
+        "date": 1785167478695,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
