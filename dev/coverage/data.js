@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785153158140,
+  "lastUpdate": 1785154568420,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "cfe11ff668693aaee685af664d84a97162c67734",
-          "message": "docs(npm): describe fallow-lsp/fallow-mcp as launchers, not separate binaries (#1842)\n\nSince the multicall packaging (#1841) the platform package ships one\nbinary; the fallow-lsp and fallow-mcp bins are launchers that start the\nservers from it.",
-          "timestamp": "2026-07-13T20:03:43+02:00",
-          "tree_id": "b4bd66b007d00a59e8d0b74a7b819ae120ef317e",
-          "url": "https://github.com/fallow-rs/fallow/commit/cfe11ff668693aaee685af664d84a97162c67734"
-        },
-        "date": 1783966077840,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ac87521aae348889b4aa8d7826d7fdd0fdf06f7b"
         },
         "date": 1785153155395,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e207ccdcdd2f44b18d28030ef791e70ac5b1588c",
+          "message": "fix: preserve type-aware package binary",
+          "timestamp": "2026-07-27T14:10:43+02:00",
+          "tree_id": "ca8cda21c36ba83339f1b1c00ab4f97e53763fdf",
+          "url": "https://github.com/fallow-rs/fallow/commit/e207ccdcdd2f44b18d28030ef791e70ac5b1588c"
+        },
+        "date": 1785154565318,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
