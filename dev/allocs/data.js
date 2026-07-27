@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785162619515,
+  "lastUpdate": 1785164899524,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "48f415e1191095a8b4a7a170e0ceee8eaccb402e",
-          "message": "refactor(core): remove engine-owned copy modules\n\nRemove the stale fallow-core copies for churn, trace, trace-chain, and cross-reference now that fallow-engine owns those surfaces. This keeps core focused on internal orchestration instead of publishing duplicate adapters that can drift.\n\nMove the trace and trace-chain regression coverage onto the engine path, add an architecture guardrail that rejects reintroducing the core modules, and drop the unused core bitcode dependency.",
-          "timestamp": "2026-07-09T10:47:28+02:00",
-          "tree_id": "edda384dd8da235bd8d6202781eae85c4e6a0c36",
-          "url": "https://github.com/fallow-rs/fallow/commit/48f415e1191095a8b4a7a170e0ceee8eaccb402e"
-        },
-        "date": 1783587150031,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 11012704,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 62243,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6931,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "c151c4ef468487308c62a8202e92fb1f07932dd6",
+          "message": "fix: make type-aware release validation portable",
+          "timestamp": "2026-07-27T17:04:09+02:00",
+          "tree_id": "8b0bc9c95d042081217951e9e5e966e7b3a5e663",
+          "url": "https://github.com/fallow-rs/fallow/commit/c151c4ef468487308c62a8202e92fb1f07932dd6"
+        },
+        "date": 1785164895136,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10487565,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 54528,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 969658,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6907,
             "unit": "allocations"
           }
         ]
