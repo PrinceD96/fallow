@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785178962149,
+  "lastUpdate": 1785181202342,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "5f77b7b5e86af87a570ca874a2531445ec58aa2f",
-          "message": "fix(report): singular nouns for one-finding GitHub format headlines\n\nSmoke testing the unreleased GitHub-native formats surfaced two count==1 grammar defects: the annotations budget notice rendered \"fallow emitted 1 annotations\" and the job-summary headline rendered \"**1 issues** found\". A pull request that introduces exactly one issue is the most common CI case, so both strings now branch on the count.\n\nGolden snapshots are unchanged (their fixtures are plural); new unit and integration tests pin the singular forms.",
-          "timestamp": "2026-07-11T21:08:08+02:00",
-          "tree_id": "62b1f8435a829356be6bc2e28091b6e02dac4d35",
-          "url": "https://github.com/fallow-rs/fallow/commit/5f77b7b5e86af87a570ca874a2531445ec58aa2f"
-        },
-        "date": 1783797143353,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 31,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 397,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 985,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/722e4a64347f3c7c544df5084ce9211b2aa18d25"
         },
         "date": 1785178958867,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.35,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 446,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1167,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "742076bafcbcb626e8b39a01aa35ec13eddd86c0",
+          "message": "fix(plugins): let a callback's own return outrank a branch return\n\nBranch descent searched returns at the same precedence as the callback's own statements, so a guard clause shadowed the real config: `if (!mode) { return {}; } return { test: {...} };` resolved to the empty object. That shape worked before descent existed, so it was a regression.\n\nA return at the body's own level now always wins; branches are searched only when there is none, which keeps Vite's documented if/else form working.\n\nThe test meant to guard this asserted the regressed value, so it locked the bug in rather than catching it. Replaced with cases that pin the trailing return, plus an else-if chain.\n\nAdmin merge: the only failing check is CodSpeed Performance Analysis reporting an internal error while processing the run's data; every benchmark job in the workflow succeeded.",
+          "timestamp": "2026-07-27T21:38:40+02:00",
+          "tree_id": "4b56dd17d210e593241e480bcfe8fb7a8b78001a",
+          "url": "https://github.com/fallow-rs/fallow/commit/742076bafcbcb626e8b39a01aa35ec13eddd86c0"
+        },
+        "date": 1785181199164,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
