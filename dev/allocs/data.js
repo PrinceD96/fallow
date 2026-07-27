@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785169894070,
+  "lastUpdate": 1785170456794,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "05a23e93d82583f43a8982dc3e9ebce5581bdf58",
-          "message": "docs: drop deleted core-module references from agent and security docs\n\nPoints CLAUDE.md, the crate rule files, crates/core/AGENTS.md, SECURITY.md, detection.md, and CONTRIBUTING.md at the current module owners (engine duplication_detector/ and churn.rs, types-crate duplication types, analyze/members/) and removes the deleted duplicates/, cross_reference.rs, trace.rs, and spawn::git references.",
-          "timestamp": "2026-07-09T22:59:12+02:00",
-          "tree_id": "a5000fc6def84bd7543f7bc250130fe3962949a2",
-          "url": "https://github.com/fallow-rs/fallow/commit/05a23e93d82583f43a8982dc3e9ebce5581bdf58"
-        },
-        "date": 1783631225161,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 9911160,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 52302,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 54612,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 983170,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6959,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "28810138faa8fdbc830b8d585d0c15d65c39c3fd",
+          "message": "test: scope process lint expectation to Unix",
+          "timestamp": "2026-07-27T18:36:55+02:00",
+          "tree_id": "81f7a366361951493117f4736d3a811d6effdf83",
+          "url": "https://github.com/fallow-rs/fallow/commit/28810138faa8fdbc830b8d585d0c15d65c39c3fd"
+        },
+        "date": 1785170453737,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10495074,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 54590,
             "unit": "allocations"
           },
           {
