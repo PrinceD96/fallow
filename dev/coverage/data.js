@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785168065967,
+  "lastUpdate": 1785169347023,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a9d1afa161fa444cbb09afd792409fdc62d1abbb",
-          "message": "fix(ci): split binary size builds by artifact mode",
-          "timestamp": "2026-07-13T20:20:10Z",
-          "tree_id": "7cda5c034df6300c9d09c61c87d678d921254c03",
-          "url": "https://github.com/fallow-rs/fallow/commit/a9d1afa161fa444cbb09afd792409fdc62d1abbb"
-        },
-        "date": 1783974239124,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7667b6ab3b9987ab6f254947d0a005a4f6e0355a"
         },
         "date": 1785168062833,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "cca693b5988ca2626d1f522e09df6fff954050ec",
+          "message": "test: avoid global sidecar environment mutation",
+          "timestamp": "2026-07-27T18:16:53+02:00",
+          "tree_id": "70fc9a0df8679b4adc30e2ab77cd27ead7d48492",
+          "url": "https://github.com/fallow-rs/fallow/commit/cca693b5988ca2626d1f522e09df6fff954050ec"
+        },
+        "date": 1785169343541,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
