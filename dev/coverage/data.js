@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785184434193,
+  "lastUpdate": 1785187617155,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c7936189eb0040a97190baafb7522d9a9e392ded",
-          "message": "fix: harden analysis boundaries and verification (#1860)\n\nPreserve Git path identity across changed-file and churn flows, redact and canonicalize remote config URLs, and clean completed MCP process trees on every return path.\n\nBound extraction-cache eviction work, align Action and generated-contract verification with current ownership, and add focused Windows PR coverage for platform-specific paths and cleanup.",
-          "timestamp": "2026-07-14T11:41:35+02:00",
-          "tree_id": "5056d2b5d840cfb50d24214c048864db8db69dbc",
-          "url": "https://github.com/fallow-rs/fallow/commit/c7936189eb0040a97190baafb7522d9a9e392ded"
-        },
-        "date": 1784022456100,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/818b7ad2318c4ea83f4dd7f8e7626f467c3b67f7"
         },
         "date": 1785184431137,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "56d87f100dbf21718a0131599eed21136623bee9",
+          "message": "docs(action): explain branded comment permissions",
+          "timestamp": "2026-07-27T23:21:12+02:00",
+          "tree_id": "9e89e85c7d0c4e2565586d7465bc65878b2c8eb7",
+          "url": "https://github.com/fallow-rs/fallow/commit/56d87f100dbf21718a0131599eed21136623bee9"
+        },
+        "date": 1785187613742,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
