@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785151054289,
+  "lastUpdate": 1785151902776,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "0b17f59b8052f78b9ba7a9a66b9c9f48c24faaa5",
-          "message": "feat: harden review and reliability workflows (#1840)\n\nReviewed and validated across the CLI, editor, Electron, and real-project surfaces.",
-          "timestamp": "2026-07-13T18:01:34+02:00",
-          "tree_id": "d9e90111eb2e84c40f4dbb45b85adf6169358478",
-          "url": "https://github.com/fallow-rs/fallow/commit/0b17f59b8052f78b9ba7a9a66b9c9f48c24faaa5"
-        },
-        "date": 1783958979494,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9746941c8cdc6cea9e287245bd46e54963c203f6"
         },
         "date": 1785151050364,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "fe1b11d8f5f17b94a26e2434b1c56c55c136a0a8",
+          "message": "test: derive type-aware version from package metadata",
+          "timestamp": "2026-07-27T13:26:02+02:00",
+          "tree_id": "6c5e4345ecf158602fd960385984b3ed45ded499",
+          "url": "https://github.com/fallow-rs/fallow/commit/fe1b11d8f5f17b94a26e2434b1c56c55c136a0a8"
+        },
+        "date": 1785151899677,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
