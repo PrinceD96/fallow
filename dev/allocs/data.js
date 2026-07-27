@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785181622503,
+  "lastUpdate": 1785188902436,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d26a96b43b4001b9aa0368583c53ff4de248a210",
-          "message": "fix(ci): lint Windows MCP lifecycle code (#1807)\n\nRepair the Windows-only MCP Clippy failure and run focused MCP Clippy in the pull request lifecycle gate.\n\nAdd a workflow policy regression test so the Windows lint command cannot drift.",
-          "timestamp": "2026-07-10T05:23:10Z",
-          "tree_id": "d1eeaef212a3f173a52b7f6afe093d16bc38a38f",
-          "url": "https://github.com/fallow-rs/fallow/commit/d26a96b43b4001b9aa0368583c53ff4de248a210"
-        },
-        "date": 1783661193002,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 9923968,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 52318,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6934,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2ffd3a327285b23e4163bd8b867d8b784a5d7f4e",
+          "message": "fix: make report favicon edge to edge",
+          "timestamp": "2026-07-27T21:44:29Z",
+          "tree_id": "d37f37a0852463ca65cd18423f1e07e1d6eb10f6",
+          "url": "https://github.com/fallow-rs/fallow/commit/2ffd3a327285b23e4163bd8b867d8b784a5d7f4e"
+        },
+        "date": 1785188899195,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10550021,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 54986,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 983237,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6960,
             "unit": "allocations"
           }
         ]
