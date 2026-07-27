@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785190199538,
+  "lastUpdate": 1785192587153,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "cdd5e649d61a29226958edbcfd8f51080088802e",
-          "message": "docs(readme): research-backed rewrite for humans and agents\n\nReplace the 1128-line README with a 279-line version: masthead covering the five analysis areas plus styling drift, a captured fallow 3.5.0 audit excerpt from the vitest monorepo, quick start, a curated command table plus a complete overview of the remaining command surface, output formats and exit codes, a consolidated agent block (MCP, agent skill, hooks, compliance loop), suppression syntax, CI setup, the optional runtime layer, and benchmark numbers sourced from BENCHMARKS.md. Depth delegates to docs.fallow.tools deep links, all verified live.\n\nEvery command, flag, config key, and count traces to the clap definitions or to captured runs; the plugin-count contradiction (123 vs a stale 114) resolves to a stable \"over 100\" with 123 verified in the builtin registry. Also fixes command drift in CONTEXT.md: the coverage subcommand list (no coverage explain; the three upload subcommands were missing), regression gating documented as flag-driven rather than a fallow regression subcommand, the nonexistent fallow validate removed, and stylelint added as a migrate source.",
-          "timestamp": "2026-07-14T15:27:11+02:00",
-          "tree_id": "885c9bae55ddda92f949138ea421481760f3ec76",
-          "url": "https://github.com/fallow-rs/fallow/commit/cdd5e649d61a29226958edbcfd8f51080088802e"
-        },
-        "date": 1784038316237,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1faf718e4589333a9d1a82e8f3810c17cdf5e0f3"
         },
         "date": 1785190194970,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e0ae72ba0344f3ab2cf9daa555463f5229672ca7",
+          "message": "feat(plugins): parse nx.json and .releaserc.json, credit lightningcss and folded CI runs\n\nNx and semantic-release both listed a config file for activation but not for parsing, so it was protected from unused-file reporting while everything it declared stayed invisible. nx.json now yields its plugins, targetDefaults executors and task runners; .releaserc.json joins the JS forms already parsed, while the YAML forms and the extensionless variant stay activation-only because the extractor is a JS/JSON parser.\n\nVite ships the lightningcss integration but not the package, so css.transformer or build.cssMinify selecting it makes the dependency load-bearing with no import anywhere.\n\nThe CI scanner recognized only the literal block scalar, so a folded 'run: >' pushed the string '>' as the command and discarded the actual script.\n\nAn empty ignoreFindings pattern is also no longer a hard config-load failure: ignorePatterns already accepts it, and the error message named a negation the pattern does not contain.\n\nEach fix carries a negative control, and the real-project probe holds at 752 issues with all seven genuine unused dependencies still reported.\n\nCloses #2015",
+          "timestamp": "2026-07-28T00:43:49+02:00",
+          "tree_id": "9ad7d9b47329ee4a3067d16aceabc0bfd555e1b3",
+          "url": "https://github.com/fallow-rs/fallow/commit/e0ae72ba0344f3ab2cf9daa555463f5229672ca7"
+        },
+        "date": 1785192584291,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
