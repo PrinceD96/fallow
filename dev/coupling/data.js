@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785164747425,
+  "lastUpdate": 1785165730989,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "89d83c73d3a64f1e3fcde52cdafe72d7fc7c3071",
-          "message": "chore(contracts): regenerate output schema, TS contracts, and capabilities for suppression-inventory",
-          "timestamp": "2026-07-09T21:14:57+02:00",
-          "tree_id": "5e2a71e73fc3bd5e8bbea43a90b213df96f7529a",
-          "url": "https://github.com/fallow-rs/fallow/commit/89d83c73d3a64f1e3fcde52cdafe72d7fc7c3071"
-        },
-        "date": 1783624959905,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 26,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.03,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 388,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 918,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c151c4ef468487308c62a8202e92fb1f07932dd6"
         },
         "date": 1785164744117,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.35,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 445,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1163,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "1142d229914e21b25dba587d48983ecd6fb06fd4",
+          "message": "test: expose type-aware CLI failure output",
+          "timestamp": "2026-07-27T17:18:35+02:00",
+          "tree_id": "912e7f901b1fe3b530d441ac2cc9d2d6596aedbe",
+          "url": "https://github.com/fallow-rs/fallow/commit/1142d229914e21b25dba587d48983ecd6fb06fd4"
+        },
+        "date": 1785165727658,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
