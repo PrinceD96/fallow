@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785148487697,
+  "lastUpdate": 1785151037958,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "a4fb282920ee12d521d48a2f13be9ad77d3665ef",
-          "message": "docs(rules): point churn wiring at fallow_engine paths in cli-crate.md",
-          "timestamp": "2026-07-08T23:17:03+02:00",
-          "tree_id": "bb38d0056949b8ed70e36793b19a100ba1ae8c97",
-          "url": "https://github.com/fallow-rs/fallow/commit/a4fb282920ee12d521d48a2f13be9ad77d3665ef"
-        },
-        "date": 1783545698643,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10966288,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 62238,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 54609,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 983170,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6959,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9746941c8cdc6cea9e287245bd46e54963c203f6",
+          "message": "chore: release v3.10.0",
+          "timestamp": "2026-07-27T13:12:14+02:00",
+          "tree_id": "7ac54040090a916b3f8961fb88cd1f083a3864a7",
+          "url": "https://github.com/fallow-rs/fallow/commit/9746941c8cdc6cea9e287245bd46e54963c203f6"
+        },
+        "date": 1785151034860,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10506439,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 54604,
             "unit": "allocations"
           },
           {
