@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785169112085,
+  "lastUpdate": 1785169604798,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f92a06ffd7163d012d7d2fd86ab893390ff4f955",
-          "message": "perf: share parsed modules across warm sessions",
-          "timestamp": "2026-07-10T02:48:28+02:00",
-          "tree_id": "2a50af72f2c4552e120c1abf2173880450988f36",
-          "url": "https://github.com/fallow-rs/fallow/commit/f92a06ffd7163d012d7d2fd86ab893390ff4f955"
-        },
-        "date": 1783644575671,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 31,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 397,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 985,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/cca693b5988ca2626d1f522e09df6fff954050ec"
         },
         "date": 1785169108239,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.35,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 445,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1163,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d3b7350e7fc5e8df6bde87384738aed3eba17ac4",
+          "message": "fix(deps): credit dependencies referenced by config callbacks and CLI flags\n\nResolves two unused-dependency false positives.\n\nThe config parser only traversed the concise arrow inside a config call, so a block-bodied `defineConfig(({ mode }) => { return { ... } })` extracted nothing. The vitest plugin also listed `vite.config.*` for activation only, never for parsing. With both fixed, a `test` block in a vite config is read again, and `canvas` is credited as the optional jsdom peer it is.\n\nScript and CI command parsing discarded flag values, so a package named only as a flag argument had no reference anywhere. eslint's `--format gha` shorthand now credits `eslint-formatter-gha`.\n\nMeasured on a real project: three false positives removed, none added.\n\nFixes #2005\nFixes #2006",
+          "timestamp": "2026-07-27T18:25:25+02:00",
+          "tree_id": "315accf3d79289ac4245008ba722ba9d2d5a142a",
+          "url": "https://github.com/fallow-rs/fallow/commit/d3b7350e7fc5e8df6bde87384738aed3eba17ac4"
+        },
+        "date": 1785169601841,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
