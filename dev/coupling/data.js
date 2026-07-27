@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785181464751,
+  "lastUpdate": 1785188737488,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "2723871c33b6fb591227b2b09bf3a99b3af47da1",
-          "message": "fix(extract): credit member access through private class fields (#1822)\n\nA member reached through a `#`-private DI field (`this.#dep.m()`) on a\nclass in another module was reported as unused-class-member because the\nprivate-field receiver recorded no member access and no binding target,\nunlike the equivalent public `this.dep.m()` receiver.\n\nAdd the three missing `#`-private arms so a private field produces the\nsame binding-key + member-access pair a public field does:\n- static_member_object_name yields the `this.#dep` receiver key,\n- visit_property_definition derives the `#dep` member key for the typed,\n  inline-new, and inject binding arms (the hardcoded-secret sink stays\n  gated on static_name only),\n- visit_assignment_expression handles the PrivateFieldExpression target\n  for `this.#dep = new Dep()` / `this.#dep = dep`.\n\nBump CACHE_VERSION: warm caches lack the private-field member accesses.\n\nFixes #1821",
-          "timestamp": "2026-07-12T12:56:56+02:00",
-          "tree_id": "95f593b914baecaae299a1a5493a959fcee97396",
-          "url": "https://github.com/fallow-rs/fallow/commit/2723871c33b6fb591227b2b09bf3a99b3af47da1"
-        },
-        "date": 1783853904515,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 31,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 397,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 985,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/52732287e06d6ca4886ec548c7686b7563724943"
         },
         "date": 1785181461318,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.35,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 446,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1167,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2ffd3a327285b23e4163bd8b867d8b784a5d7f4e",
+          "message": "fix: make report favicon edge to edge",
+          "timestamp": "2026-07-27T21:44:29Z",
+          "tree_id": "d37f37a0852463ca65cd18423f1e07e1d6eb10f6",
+          "url": "https://github.com/fallow-rs/fallow/commit/2ffd3a327285b23e4163bd8b867d8b784a5d7f4e"
+        },
+        "date": 1785188733713,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
