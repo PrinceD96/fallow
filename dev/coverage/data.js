@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785189002963,
+  "lastUpdate": 1785190199538,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "469332212e313f044637f6765707207cff7b24a8",
-          "message": "test(npm): allow launcher tests without dependencies\n\nMirror the production Linux platform fallback when detect-libc is unavailable. This preserves the npm Package job zero-install contract while still exercising both multicall launchers.",
-          "timestamp": "2026-07-14T14:52:49+02:00",
-          "tree_id": "306bb3a23713248b77c08626a8876a72723aa92d",
-          "url": "https://github.com/fallow-rs/fallow/commit/469332212e313f044637f6765707207cff7b24a8"
-        },
-        "date": 1784033944792,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2ffd3a327285b23e4163bd8b867d8b784a5d7f4e"
         },
         "date": 1785188999745,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1faf718e4589333a9d1a82e8f3810c17cdf5e0f3",
+          "message": "ci: give each CodSpeed run a single instrument\n\nCodSpeed had been unable to generate a performance report since 20972d541b1, the commit that added the type-aware walltime benchmark next to the Rust simulation shards. Every benchmark job collected and uploaded successfully, so the failure was report assembly: CodSpeed received two instruments for one commit and could not reconcile them.\n\nThe walltime benchmark moves to its own workflow so each run carries a single instrument. Verified before merge: Performance Gate Passed, the first green check since 24 July, with the walltime run still collecting both benches.\n\nThe harness guard now asserts the two stay separated, and checks the CodSpeedHQ/action pin across both workflows so they cannot drift apart.\n\nFixes #2024",
+          "timestamp": "2026-07-28T00:04:22+02:00",
+          "tree_id": "e45b0f70c9a0d034005185a8a1cebade59bef659",
+          "url": "https://github.com/fallow-rs/fallow/commit/1faf718e4589333a9d1a82e8f3810c17cdf5e0f3"
+        },
+        "date": 1785190194970,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
