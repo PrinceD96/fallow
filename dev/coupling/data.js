@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785167713328,
+  "lastUpdate": 1785168942922,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d10ef7616a78bc7268948cec15690cfbb7b9365a",
-          "message": "test(core,engine): drop timing-dependent asserts and profiling pseudo-test\n\nGates the assert-free dupes profiling harness behind #[ignore], removes the wall-clock asserts from the dupes stress tests (bench workflows own perf signal), makes the graph-cache transparency test deterministic without the mtime sleep, and moves the test-only tempfile dependency to dev-dependencies.",
-          "timestamp": "2026-07-10T00:29:19+02:00",
-          "tree_id": "8b358b861bfe734dad120c0ec01c3f92372d91e8",
-          "url": "https://github.com/fallow-rs/fallow/commit/d10ef7616a78bc7268948cec15690cfbb7b9365a"
-        },
-        "date": 1783636246609,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 31,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.01,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 397,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 985,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7667b6ab3b9987ab6f254947d0a005a4f6e0355a"
         },
         "date": 1785167709525,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.35,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 445,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1163,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "r.salhab@aiyexpertsolutions.com",
+            "name": "Rayan Salhab",
+            "username": "cyphercodes"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d73cee930b1e20cf90fd33cdc202275e4581d2ac",
+          "message": "fix(graph): preserve TypeScript path aliases excluded by ignorePatterns\n\nA tsconfig `paths` alias whose target is excluded from discovery by `ignorePatterns` fell through to npm-package classification and was reported as an unlisted dependency. The resolver now keeps the concrete target when the alias resolves inside the project root, while targets outside it keep npm-package accounting so workspace install symlinks stay credited.\n\nBumps GRAPH_CACHE_VERSION so a cache written before the change does not replay the old classification.\n\nFixes #1942",
+          "timestamp": "2026-07-27T18:14:37+02:00",
+          "tree_id": "c90768a88519b517156e5b96079564d12a32db63",
+          "url": "https://github.com/fallow-rs/fallow/commit/d73cee930b1e20cf90fd33cdc202275e4581d2ac"
+        },
+        "date": 1785168940038,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
