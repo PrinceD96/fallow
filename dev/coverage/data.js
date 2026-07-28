@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785199386392,
+  "lastUpdate": 1785253509072,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c621903ebc2b451fd062d2a4e9e8edd771ae0f99",
-          "message": "chore(deps): bump astral-sh/setup-uv from 8.2.0 to 8.3.1 (#1873)\n\nBumps [astral-sh/setup-uv](https://github.com/astral-sh/setup-uv) from 8.2.0 to 8.3.1.\n- [Release notes](https://github.com/astral-sh/setup-uv/releases)\n- [Commits](https://github.com/astral-sh/setup-uv/compare/fac544c07dec837d0ccb6301d7b5580bf5edae39...f98e06938123ccabd21905ea5d0069192241f9f1)\n\n---\nupdated-dependencies:\n- dependency-name: astral-sh/setup-uv\n  dependency-version: 8.3.1\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
-          "timestamp": "2026-07-14T17:02:54+02:00",
-          "tree_id": "536df4bda4ef74fa627487e0ab3d03bace62a854",
-          "url": "https://github.com/fallow-rs/fallow/commit/c621903ebc2b451fd062d2a4e9e8edd771ae0f99"
-        },
-        "date": 1784041737637,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/55944e88c96fe0cc60679470781808977fd1e0fc"
         },
         "date": 1785199383430,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bbdec44c0964406f20247f65c5223d71a7182617",
+          "message": "fix(release): require curated release notes",
+          "timestamp": "2026-07-28T15:27:21Z",
+          "tree_id": "76cc8df92eee59ac7fe0e7e8bfb85388c94f09a2",
+          "url": "https://github.com/fallow-rs/fallow/commit/bbdec44c0964406f20247f65c5223d71a7182617"
+        },
+        "date": 1785253505243,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
