@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785253509072,
+  "lastUpdate": 1785256896639,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b96ee785bc315963ac6d44f1873b4dc553bda5ef",
-          "message": "docs(readme): apply panel-review fixes\n\nFixes from a nine-persona panel review of the rewritten README. The two make-or-break items: the agent snippet taught `|| true`, which hid exit 2 (real errors) from anything checking the exit code, and the CI section framed the Action as a report while fail-on-issues defaults to a blocking gate. Also: SARIF upload marked opt-in, tag-pinning rationale, format-to-command mapping for badge and the CI envelopes, benchmark capture version named explicitly, a first-timer caption on the terminal excerpt, the introduced-only audit gate default stated in prose, an adoption paragraph signposting baselines, and the long-tail command table collapsed behind a details element.",
-          "timestamp": "2026-07-14T17:10:04+02:00",
-          "tree_id": "05f68a820777cac1f86e1d870dbef693af704568",
-          "url": "https://github.com/fallow-rs/fallow/commit/b96ee785bc315963ac6d44f1873b4dc553bda5ef"
-        },
-        "date": 1784042101437,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/bbdec44c0964406f20247f65c5223d71a7182617"
         },
         "date": 1785253505243,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fcd09f24f768d522e455363ca85713e6df72b6c1",
+          "message": "fix(audit): label empty boundary-zone warnings from the base revision (#2055)\n\n`fallow audit --base` analyzes the base revision in an isolated worktree. A boundary zone whose files only exist in the working tree matched nothing there and produced the same unqualified `boundary zone ... matched 0 reachable files` warning used for the working tree, which read as a broken current configuration.\n\nThe base pass now prefixes the warning with `base revision snapshot (audit --base)` and states that the finding is about the base revision only. The working-tree warning, all output formats, and exit codes are unchanged.\n\nCloses #2013",
+          "timestamp": "2026-07-28T18:24:53+02:00",
+          "tree_id": "d1d5bc745bd91424baaf1385ef18fc60514f063f",
+          "url": "https://github.com/fallow-rs/fallow/commit/fcd09f24f768d522e455363ca85713e6df72b6c1"
+        },
+        "date": 1785256893438,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
