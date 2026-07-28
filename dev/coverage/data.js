@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785268777923,
+  "lastUpdate": 1785269816592,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4d22ff4bc095d641781cf7cbcfd5e67de6615daf",
-          "message": "fix(nextjs): credit metadata route config exports\n\nCredit framework-consumed config exports in App Router metadata routes while leaving dynamicParams and arbitrary helpers reportable.\n\nCorrect Knip migration suppression hints, preserve documented suppression reasons, and clarify config-backed regression baseline updates across generated and companion documentation.",
-          "timestamp": "2026-07-14T19:52:04+02:00",
-          "tree_id": "12d5945835e0a6d8f1592bbb62df3f79a8639c22",
-          "url": "https://github.com/fallow-rs/fallow/commit/4d22ff4bc095d641781cf7cbcfd5e67de6615daf"
-        },
-        "date": 1784051886145,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ca5106060c0bcfc7e189cd086d3a368c8a300dfa"
         },
         "date": 1785268774427,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "64b5ac68735d19e0f221cdb45163143b0b79d36f",
+          "message": "docs(release): fix list continuation indent under the two-digit publish step\n\nThe publish step became item 10 when the immutability check was added, so its\nthree-space continuation no longer nests under the marker and the shell block\nescaped the list item.",
+          "timestamp": "2026-07-28T22:09:57+02:00",
+          "tree_id": "91f3401a89923d3c369ab7ec5fb871af70faf886",
+          "url": "https://github.com/fallow-rs/fallow/commit/64b5ac68735d19e0f221cdb45163143b0b79d36f"
+        },
+        "date": 1785269813306,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
