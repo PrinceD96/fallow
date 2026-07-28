@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785269816592,
+  "lastUpdate": 1785271396102,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e1129ac09c042effa88a78eeaea7ea9e2bfa4188",
-          "message": "docs(changelog): reference hardening PR\n\nLink the Unreleased correctness, security, and performance entries to PR #1864 so the changelog keeps a traceable review history.",
-          "timestamp": "2026-07-14T19:59:27+02:00",
-          "tree_id": "24d97290a65714a189ca1ed475732feda781db6b",
-          "url": "https://github.com/fallow-rs/fallow/commit/e1129ac09c042effa88a78eeaea7ea9e2bfa4188"
-        },
-        "date": 1784052260641,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/64b5ac68735d19e0f221cdb45163143b0b79d36f"
         },
         "date": 1785269813306,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ce52c96d7e71cb3ab3076144b7b426be7048c986",
+          "message": "feat(scripts): follow package-manager indirection into script bodies (#2063)\n\nnpm run <script> -- --flag and yarn <script> --flag were dropped before flag scanning, so the flag-value dependency crediting from #2006 never reached the shape most projects actually use. Script bodies now resolve through the catalogue and are rescanned, bounded by a depth limit and a global expansion budget.\n\nAmbiguity is sticky: a script name declared with different bodies across packages is never followed, regardless of workspace order. Names and bodies filter separately under --production, so a filtered script name still wins over a same-named dependency binary. Entry files from workspace bodies no longer seed root-relative patterns.\n\nRefs #2016",
+          "timestamp": "2026-07-28T22:35:43+02:00",
+          "tree_id": "346ac6934e0ed41497fc51d1614a2f43ba505ee5",
+          "url": "https://github.com/fallow-rs/fallow/commit/ce52c96d7e71cb3ab3076144b7b426be7048c986"
+        },
+        "date": 1785271392290,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
