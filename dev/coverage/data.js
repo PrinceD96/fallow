@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785265279728,
+  "lastUpdate": 1785267491005,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f762e887556c2c930d05dc8d4b84c8dc9fd49856",
-          "message": "test(ci): bump paths-filter SHA in workflow-policy test to v4.0.2\n\nFollow-up to #1876: the dorny/paths-filter bump changed the pinned SHA in\nci.yml and coverage.yml, but workflow-policy.test.mjs still asserted the\nold 4.0.1 SHA, red-ing the JS Lint script-tests step. Update the expected\nSHA to match.",
-          "timestamp": "2026-07-14T18:34:33+02:00",
-          "tree_id": "07397f2ea2f9d084952f8009ba117c989e3e6ad4",
-          "url": "https://github.com/fallow-rs/fallow/commit/f762e887556c2c930d05dc8d4b84c8dc9fd49856"
-        },
-        "date": 1784047146154,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a7ed46b6758d5fee85aa1b20fbc848dcb3cc44c0"
         },
         "date": 1785265276617,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "aee9ce139a7808f99ffca977e2b5bea95af8757e",
+          "message": "fix(release): verify release immutability in the maintainer pre-flight\n\nThe immutable-releases endpoint needs the Administration read permission.\nThat scope is not grantable to a workflow token: declaring administration\nmakes the workflow unparseable and every dispatch fails with HTTP 422, while\ncontents: read gets HTTP 403 from the endpoint itself.\n\nMove the check to the release skill's pre-flight, where maintainer\ncredentials can read it, and record why the workflow cannot own it.",
+          "timestamp": "2026-07-28T21:32:28+02:00",
+          "tree_id": "be637af9421a18db117d2a290d54d66c8bd15040",
+          "url": "https://github.com/fallow-rs/fallow/commit/aee9ce139a7808f99ffca977e2b5bea95af8757e"
+        },
+        "date": 1785267487808,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
