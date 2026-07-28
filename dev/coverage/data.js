@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785260506539,
+  "lastUpdate": 1785265279728,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "03bee8e7efb444aad1ec8eb86a60578e8a7cb6bc",
-          "message": "chore(deps): bump dorny/paths-filter from 4.0.1 to 4.0.2 (#1876)\n\nSafe github-actions patch bump. Landed via admin bypass; the failing required checks (Skills vendor drift, JS Lint) are a pre-existing main issue unrelated to this action-version bump.",
-          "timestamp": "2026-07-14T18:14:09+02:00",
-          "tree_id": "30d8ffd16a911b21d25d5eaa082c2556c145cae0",
-          "url": "https://github.com/fallow-rs/fallow/commit/03bee8e7efb444aad1ec8eb86a60578e8a7cb6bc"
-        },
-        "date": 1784045950274,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8522c08fb87a482adefab47355d39cdc0be4b001"
         },
         "date": 1785260502682,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a7ed46b6758d5fee85aa1b20fbc848dcb3cc44c0",
+          "message": "fix(release): enforce the immutability flag and gate release metadata locally\n\nThe immutability check used a jq select filter, which produces empty output\nand exit 0 when the flag is disabled, so the gate passed on exactly the\nrepositories it was meant to stop.\n\nTag-last publication also removed the workflow's curated-metadata validation,\nbecause the release no longer exists while the workflow runs. Move the title\nformat, em-dash, and comparison-link checks into the maintainer flow, where\nthey still run before an immutable release is created.",
+          "timestamp": "2026-07-28T20:54:49+02:00",
+          "tree_id": "e0ef7063b379f218005d178db030fba2d970b907",
+          "url": "https://github.com/fallow-rs/fallow/commit/a7ed46b6758d5fee85aa1b20fbc848dcb3cc44c0"
+        },
+        "date": 1785265276617,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
