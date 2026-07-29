@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785231772697,
+  "lastUpdate": 1785318232280,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -9085,6 +9085,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1322,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "57adb47d2ddc8720f1870dcaabca5096529d0c05",
+          "message": "feat(health): add an identity-preserving baseline mode (#2064)\n\nThe default count baseline matches per file and category, so a new hotspot replacing an old one in the same file consumed the existing allowance and the gate stayed green. --baseline-mode identity matches per function identity instead: a replacement hotspot is reported, line shifts and severity improvements stay suppressed, and resolved findings disappear without a refresh.\n\nThe default stays count. Identity baselines keep their count buckets so both modes read them, and comparing in identity mode against a count-only baseline is an input error rather than a silent fallback. A finding identity is file path plus function name, so renaming or moving a function that is still in the baseline reports it as new; the flag documentation states that limit and the re-save rule.\n\nRefs #2010",
+          "timestamp": "2026-07-28T20:48:23Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/57adb47d2ddc8720f1870dcaabca5096529d0c05"
+        },
+        "date": 1785318227940,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 102,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 510,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 406,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1224,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1017,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1019,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 913,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 917,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 912,
             "unit": "ms"
           }
         ]
