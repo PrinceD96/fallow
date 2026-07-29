@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785272037729,
+  "lastUpdate": 1785322370049,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "11f0adea9977d1946e2d7736f0ae14085e994b1a",
-          "message": "chore: release v3.5.1",
-          "timestamp": "2026-07-14T22:16:02+02:00",
-          "tree_id": "d983980b5d370b3d48c8132b5a4363d57488d274",
-          "url": "https://github.com/fallow-rs/fallow/commit/11f0adea9977d1946e2d7736f0ae14085e994b1a"
-        },
-        "date": 1784060704895,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/57adb47d2ddc8720f1870dcaabca5096529d0c05"
         },
         "date": 1785272034173,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4da4d122e66be28e091fa1be9cb6d2b56de14889",
+          "message": "chore(agents): track the canonical client-neutral knowledge tree (#2067)\n\nA .git/info/exclude entry covering all of .agents/ predated that tree becoming canonical. Excludes only apply to untracked paths, so the files committed before it stayed tracked while everything added since stayed invisible, including the rules and reviewer definitions the thin review skills read and the source of the vendored user-facing skill.\n\nNarrow the exclude to the three genuinely local paths and track the rest, so a future gap shows up in git status. Restate the guidance in two reviewer definitions without the private documentation path they referenced.\n\nFix the adapter generator, which wrote SKILL.md but never the files a skill links to, so every skill shipping a references directory produced an adapter with dangling links. Drop the fallow-analysis skill: it is the former name of the fallow skill, its references moved with the rename, and it carried a stale plugin count.",
+          "timestamp": "2026-07-29T12:47:36+02:00",
+          "tree_id": "1596bf875af5258de6f84ddd88506d00df0eb3fd",
+          "url": "https://github.com/fallow-rs/fallow/commit/4da4d122e66be28e091fa1be9cb6d2b56de14889"
+        },
+        "date": 1785322366809,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
