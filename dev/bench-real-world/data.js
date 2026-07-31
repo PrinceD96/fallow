@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785404150037,
+  "lastUpdate": 1785491307175,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
@@ -9269,6 +9269,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1329,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "92623a5f54a52e1834318256218ba989efadeefc",
+          "message": "chore(agents): finish the reviewer-skill migration (#2072)\n\nSeven review subjects already follow one shape: a thin <x>-review skill that reads its checklist from .agents/agents/<x>-reviewer.md and its constraints from .agents/rules. Three still carried the older fat <x>-reviewer skill alongside it, so both generations loaded and competed for the same triggers.\n\nThe fat skills were not pure duplicates, so their unique content moved into the agent definitions first: the four CI-format audits, the human-format audit, the pluralization rule for counted nouns, and the note that the real-world corpus must be downloaded before any audit command works, which was missing from every agent definition.\n\nReviewer names in team-assembly refer to agents to spawn rather than skills, so they keep resolving.",
+          "timestamp": "2026-07-29T22:06:22Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/92623a5f54a52e1834318256218ba989efadeefc"
+        },
+        "date": 1785491302127,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 308,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 615,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 510,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1646,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1430,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1227,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1121,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1325,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1328,
             "unit": "ms"
           }
         ]
