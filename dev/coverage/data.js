@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785363100567,
+  "lastUpdate": 1785617208941,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "29e84905254d37b5c20577ecd31f4daba4349926",
-          "message": "Merge pull request #1898 from fallow-rs/codex/fix-pnpm-audit-ci\n\nfix(ci): restore VS Code dependency audit",
-          "timestamp": "2026-07-15T10:02:47+02:00",
-          "tree_id": "472855cc88d2f36584095d08452b9431918810d8",
-          "url": "https://github.com/fallow-rs/fallow/commit/29e84905254d37b5c20577ecd31f4daba4349926"
-        },
-        "date": 1784102831691,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "52b30f51ec5639ccbefec3bb9a130f5a8afd436a",
+          "message": "docs(changelog): call out review reconciliation and mocked-coverage behavior shifts (#2081)\n\nDocuments the unscoped fingerprint narrowing that shipped with #2078 and adds the missing entry with upgrade callout for the mocked-module coverage change from #2068.",
+          "timestamp": "2026-08-01T22:41:01+02:00",
+          "tree_id": "1454b69d9cf8e6a3b61479cac1ce1e65d1c40b67",
+          "url": "https://github.com/fallow-rs/fallow/commit/52b30f51ec5639ccbefec3bb9a130f5a8afd436a"
+        },
+        "date": 1785617205706,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
             "unit": "%"
           }
         ]
