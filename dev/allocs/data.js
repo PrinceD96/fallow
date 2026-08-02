@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785640651894,
+  "lastUpdate": 1785643585174,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "29770c49b2ca0ddf978fa502d8441620e7597981",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v3.4.2",
-          "timestamp": "2026-07-13T15:01:41+02:00",
-          "tree_id": "7ac98fc1ec476d0b4bc8dd67b1a59b7920fa3747",
-          "url": "https://github.com/fallow-rs/fallow/commit/29770c49b2ca0ddf978fa502d8441620e7597981"
-        },
-        "date": 1783947987535,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 9917058,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 52353,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 55103,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 984873,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6961,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "9f950e75d0f9e37c1db8d968b788b3f76193f208",
+          "message": "chore: release v3.11.0",
+          "timestamp": "2026-08-02T06:00:36+02:00",
+          "tree_id": "87b0d1fa53d22ecc3e27e7573687e27c2aa36457",
+          "url": "https://github.com/fallow-rs/fallow/commit/9f950e75d0f9e37c1db8d968b788b3f76193f208"
+        },
+        "date": 1785643581304,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10604036,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55125,
             "unit": "allocations"
           },
           {
