@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785637993274,
+  "lastUpdate": 1785640841055,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "bef4d7df15fb4fa76c3a16bea72cc0f4f948f2f6",
-          "message": "chore(docker): pin FALLOW_VERSION 3.5.1 with refreshed checksums\n\nRefresh the Docker image to download fallow v3.5.1 for amd64 and arm64.\n\nPin each architecture to the SHA-256 digest published with the matching release asset.\n\nRefs #1817.",
-          "timestamp": "2026-07-15T15:58:56+02:00",
-          "tree_id": "e8f52b8ee1f4831015f1b09cec3a74a4402b88a2",
-          "url": "https://github.com/fallow-rs/fallow/commit/bef4d7df15fb4fa76c3a16bea72cc0f4f948f2f6"
-        },
-        "date": 1784124209674,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1d2a61e8c57c3f29258d6e20dbafbcd1727b15f7"
         },
         "date": 1785637990299,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "942c6eec1f55bd2bf1abcd5f8371b41f06018593",
+          "message": "fix: harden Deno workspace support follow-ups (#2091)\n\nEngine AnalysisSession::from_resolved_config now uses strict workspace discovery so every command exits 2 on a malformed root manifest; resolve_specifier skips the Deno import-map lookup when no package scope declares a map; deno.json workspace accepts the object form {\"members\": [...]}.",
+          "timestamp": "2026-08-02T05:13:43+02:00",
+          "tree_id": "cc1c7cdd4d989cc14792a246b84efc44d794f9f6",
+          "url": "https://github.com/fallow-rs/fallow/commit/942c6eec1f55bd2bf1abcd5f8371b41f06018593"
+        },
+        "date": 1785640837917,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
