@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785626507904,
+  "lastUpdate": 1785631277621,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d261eb39ffe53b1bdc60f1a84e4805aac62e24e4",
-          "message": "fix(lsp): normalize Windows diagnostic paths\n\nWindows canonicalization returned verbatim paths that the LSP URI layer could not encode for editor diagnostics.\n\nNormalize all LSP path ingress through dunce, cover workspace and legacy initialization on Windows, and keep the focused regression plus platform Clippy in pull request CI. UNC shares and irreducible verbatim inputs remain outside this local-drive fix.\n\nFixes #1899.",
-          "timestamp": "2026-07-15T13:33:10+02:00",
-          "tree_id": "123aeea0469d27373af3b274df755e7ce6b9756c",
-          "url": "https://github.com/fallow-rs/fallow/commit/d261eb39ffe53b1bdc60f1a84e4805aac62e24e4"
-        },
-        "date": 1784115630785,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9a40a7f9d74bb52fe16d5b5fa727cc2cedc6ffeb"
         },
         "date": 1785626504760,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e025bccb9edd184b0c3c3e586b8441eb8b31d880",
+          "message": "fix(scripts): fold plain multi-line run scalars into one CI command (#2086)\n\nPlain multi-line run: scalars in CI workflows now keep their continuation lines, anchored at the run key column so sibling step keys terminate the scalar and their values do not leak into entry files.\n\nFixes #2016",
+          "timestamp": "2026-08-02T02:24:07+02:00",
+          "tree_id": "482bad1944ba114640d2d90cc9f5da88d4b7c993",
+          "url": "https://github.com/fallow-rs/fallow/commit/e025bccb9edd184b0c3c3e586b8441eb8b31d880"
+        },
+        "date": 1785631274481,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
