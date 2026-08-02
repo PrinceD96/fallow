@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785643640796,
+  "lastUpdate": 1785652340930,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "06b8ccb911d5e364c158a92c8d6d29482d651d18",
-          "message": "test(cli): per-IssueKind drift guard for the GitHub-native formats\n\nAdds a Rust guard iterating the counted dead-code ISSUE_RESULT_META rows and asserting each kind renders in both github-summary and github-annotations, mirroring the shell drift guard so the native GitHub surfaces cannot silently drop a counted IssueKind. Includes a fixture-vs-registry trip-wire and a count pin. Advisor plan 027 Phase A; hardens the live native path and prerequisites the eventual jq retirement (Phase B deferred).",
-          "timestamp": "2026-07-13T20:39:56+02:00",
-          "tree_id": "4b9bd3b5f64b1fee4669c5e5170af9b0c781b54c",
-          "url": "https://github.com/fallow-rs/fallow/commit/06b8ccb911d5e364c158a92c8d6d29482d651d18"
-        },
-        "date": 1783968377112,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 32,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.13,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 443,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1104,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9f950e75d0f9e37c1db8d968b788b3f76193f208"
         },
         "date": 1785643637579,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.33,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 450,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1179,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "fbfae06e32395ab6c3d600b6e591b2fe83174eb7",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v3.11.0",
+          "timestamp": "2026-08-02T08:26:20+02:00",
+          "tree_id": "7c111438b93b0377ec0986cd35bca551147772a0",
+          "url": "https://github.com/fallow-rs/fallow/commit/fbfae06e32395ab6c3d600b6e591b2fe83174eb7"
+        },
+        "date": 1785652337402,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
