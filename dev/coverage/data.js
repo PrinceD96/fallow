@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785766754097,
+  "lastUpdate": 1785769979985,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "41dc3988b0c371de1a42855e3fe76c6976a24f57",
-          "message": "feat(vscode): set baseline at HEAD\n\nAdd a VS Code command that creates a local fallow baseline tag at HEAD, persists the effective changed-since setting, and refreshes analysis for a single-folder workspace. Existing tags, settings, and multi-root workspaces are handled explicitly.\n\nCreate the tag with --no-sign so user-level tag.gpgSign configuration cannot turn the lightweight local workflow into a signing failure. The command never pushes to a remote.",
-          "timestamp": "2026-07-16T15:27:43+02:00",
-          "tree_id": "51d89453d6c3247a0765b27cf62821e1a11c7b8a",
-          "url": "https://github.com/fallow-rs/fallow/commit/41dc3988b0c371de1a42855e3fe76c6976a24f57"
-        },
-        "date": 1784209027286,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d4e759f1c49929cd7ba340c1099337609a02929c"
         },
         "date": 1785766751217,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4274c9397ca6a46eb0277bee312baeff96b408c4",
+          "message": "chore: release v3.13.0",
+          "timestamp": "2026-08-03T17:02:58+02:00",
+          "tree_id": "ec00145cac21238b68eb687bf69d19d4bc26887f",
+          "url": "https://github.com/fallow-rs/fallow/commit/4274c9397ca6a46eb0277bee312baeff96b408c4"
+        },
+        "date": 1785769976665,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
