@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785779716910,
+  "lastUpdate": 1785781017118,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "fcc1d69e312a65c9348b64a4626ceb333e8db8e4",
-          "message": "docs(detection): note the taint-binding breadth cap (#1843)\n\nRecords MAX_TAINTED_BINDINGS_PER_MODULE (4096) as the per-module breadth companion to the MAX_TAINT_BINDING_HOPS depth cap, and adds #1843 to the CACHE_VERSION bump list. Follow-up to the #1843 memory fix.",
-          "timestamp": "2026-07-19T21:06:07+02:00",
-          "tree_id": "6d69c10795e3ab76621cdadee70a1b44ad93b75c",
-          "url": "https://github.com/fallow-rs/fallow/commit/fcc1d69e312a65c9348b64a4626ceb333e8db8e4"
-        },
-        "date": 1784488400570,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/afb3f6f286c11995000dd9f8ede7b0f381fda3bb"
         },
         "date": 1785779713516,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a99fb67f3a78c6250bd62a67ac560055354e2089",
+          "message": "fix(vscode): override brace-expansion to 5.0.9 for GHSA-rgw5-rvv9-x895\n\nThe transitive dependency via vscode-languageclient's minimatch sat at\n5.0.8, which the new advisory marks vulnerable; the override plus the\nrelease-age exclude move it to the patched 5.0.9.",
+          "timestamp": "2026-08-03T20:11:13+02:00",
+          "tree_id": "14b37c9a4ea3cd796e1af095caca491a48f43768",
+          "url": "https://github.com/fallow-rs/fallow/commit/a99fb67f3a78c6250bd62a67ac560055354e2089"
+        },
+        "date": 1785781013409,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
