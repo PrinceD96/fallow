@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785737401626,
+  "lastUpdate": 1785741545701,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "bc4e0fe190675feb5db6966e7376284c9ef1c0a3",
-          "message": "fix(cli): box the large MapOutcome::Ready variant (Windows clippy) (#1844)\n\nclippy's large_enum_variant fires on Windows (the Ready payload is 256\nbytes there, over the 200-byte threshold; under it on macOS/Linux, so\nit never showed in PR CI). The Windows clippy step only runs in the\nrelease-validation Windows job, so this was latent on main and would\nhave failed the next release. Boxing the variant drops it to a pointer\non every platform.",
-          "timestamp": "2026-07-13T20:26:19+02:00",
-          "tree_id": "8f9f5c709118b7f5e2438a15abfb4154ebdf0954",
-          "url": "https://github.com/fallow-rs/fallow/commit/bc4e0fe190675feb5db6966e7376284c9ef1c0a3"
-        },
-        "date": 1783967480385,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 9941986,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 52346,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6961,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "fab6c5029dcc44c7d2dbd5d0adf24dc5fe4faf7e",
+          "message": "chore: release v3.12.0",
+          "timestamp": "2026-08-03T09:13:13+02:00",
+          "tree_id": "093606a090063318e520589db7c9e6fa4925d4b7",
+          "url": "https://github.com/fallow-rs/fallow/commit/fab6c5029dcc44c7d2dbd5d0adf24dc5fe4faf7e"
+        },
+        "date": 1785741540589,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10537498,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55016,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 976157,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7604,
             "unit": "allocations"
           }
         ]
