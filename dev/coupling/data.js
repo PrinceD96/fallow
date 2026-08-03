@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785784709007,
+  "lastUpdate": 1785784826862,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "5b06369ef95a02f68414220b02198da409f45d3d",
-          "message": "chore: release v3.5.0",
-          "timestamp": "2026-07-14T07:38:53+02:00",
-          "tree_id": "68ca7aab37aede7785c0bc19de300a692045c4ce",
-          "url": "https://github.com/fallow-rs/fallow/commit/5b06369ef95a02f68414220b02198da409f45d3d"
-        },
-        "date": 1784007629229,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 32,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.13,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 443,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1105,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4bc061f29fa9968c587fdb9c94f30c16927badd5"
         },
         "date": 1785784705492,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.33,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 451,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1183,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d00354b85399a5908d45f38bb890877c78e5375b",
+          "message": "fix(api): report truthful type-aware discovery sources (#2113)\n\nFallow's own launchers mark self-injected FALLOW_TYPE_AWARE_BIN wiring, so type-aware status now distinguishes npm-wrapper and github-action wiring from a genuinely user-set environment-override, keeps installed-sibling for the adjacent-binary path, and gives wrapper-wired discovery failures the right remediation.",
+          "timestamp": "2026-08-03T21:18:47+02:00",
+          "tree_id": "b222ea1b48695ba138b57c2a31f9fea17c50863b",
+          "url": "https://github.com/fallow-rs/fallow/commit/d00354b85399a5908d45f38bb890877c78e5375b"
+        },
+        "date": 1785784823561,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
