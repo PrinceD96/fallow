@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785769979985,
+  "lastUpdate": 1785779716910,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "fc632a1c2f2b57580bc0af8222038fe3b3cd1e53",
-          "message": "fix: harden external input boundaries\n\nHarden external input boundaries before analysis: bound churn and diff reads, reject unsafe imported paths and aggregate overflow, and keep source and manifest symlink targets inside the configured project root. Oversized diffs continue with unfiltered reporting instead of truncated parsing.\n\nAdd focused regression coverage, real-repository probes, and Windows CI coverage for the platform-gated core symlink paths and all-target Clippy.",
-          "timestamp": "2026-07-16T15:52:16+02:00",
-          "tree_id": "2bd5478623b7cc405d91a7d073f9a2b1e2610db4",
-          "url": "https://github.com/fallow-rs/fallow/commit/fc632a1c2f2b57580bc0af8222038fe3b3cd1e53"
-        },
-        "date": 1784210432444,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4274c9397ca6a46eb0277bee312baeff96b408c4"
         },
         "date": 1785769976665,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "afb3f6f286c11995000dd9f8ede7b0f381fda3bb",
+          "message": "chore(docker): pin FALLOW_VERSION 3.13.0 with refreshed checksums",
+          "timestamp": "2026-08-03T19:46:33+02:00",
+          "tree_id": "ee440f986ade51fe4fef1770793658d8a5c348ef",
+          "url": "https://github.com/fallow-rs/fallow/commit/afb3f6f286c11995000dd9f8ede7b0f381fda3bb"
+        },
+        "date": 1785779713516,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
