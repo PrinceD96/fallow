@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785652497766,
+  "lastUpdate": 1785732961183,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4e46717fc4b5822227380febf2955468e5473f83",
-          "message": "fix(audit): silence Windows unnecessary_wraps on ownership no-op\n\nThe release-validation Windows Clippy job flagged\nclippy::unnecessary_wraps on the #[cfg(not(unix))] ensure_cache_entry_is_owned\nstub: it always returns Ok(()) because there is no POSIX owner to verify on\nnon-Unix. The io::Result signature must mirror the fallible Unix ownership\ncheck, so annotate the stub with #[expect(clippy::unnecessary_wraps)],\nmatching the sibling stubs in crates/engine/src/repo_refs.rs.",
-          "timestamp": "2026-07-15T19:34:51+02:00",
-          "tree_id": "dd7327aec050e87acb7f5c0dd63d50e2e2eb875c",
-          "url": "https://github.com/fallow-rs/fallow/commit/4e46717fc4b5822227380febf2955468e5473f83"
-        },
-        "date": 1784137231138,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/763066883ef36e51c0c99c9971b676beca9a8e55"
         },
         "date": 1785652493862,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "c3b171a4c9b67320915779ba40b16b246c1dffee",
+          "message": "fix(npm): pin fallow-type-aware optionalDependency in lockstep with the CLI\n\nThe release bump only covered @fallow-cli/* keys, so fallow@3.11.0 shipped\npinning fallow-type-aware to 3.10.0 while the launcher requires an exact\nversion match, leaving the sidecar unwired for every npm install.\n\nRefs #2103",
+          "timestamp": "2026-08-03T06:48:59+02:00",
+          "tree_id": "a4cc72fa01c591f529b6fb47fdbbf594f17a39b8",
+          "url": "https://github.com/fallow-rs/fallow/commit/c3b171a4c9b67320915779ba40b16b246c1dffee"
+        },
+        "date": 1785732957843,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
