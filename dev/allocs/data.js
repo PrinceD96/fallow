@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785747851042,
+  "lastUpdate": 1785766342448,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "06b8ccb911d5e364c158a92c8d6d29482d651d18",
-          "message": "test(cli): per-IssueKind drift guard for the GitHub-native formats\n\nAdds a Rust guard iterating the counted dead-code ISSUE_RESULT_META rows and asserting each kind renders in both github-summary and github-annotations, mirroring the shell drift guard so the native GitHub surfaces cannot silently drop a counted IssueKind. Includes a fixture-vs-registry trip-wire and a count pin. Advisor plan 027 Phase A; hardens the live native path and prerequisites the eventual jq retirement (Phase B deferred).",
-          "timestamp": "2026-07-13T20:39:56+02:00",
-          "tree_id": "4b9bd3b5f64b1fee4669c5e5170af9b0c781b54c",
-          "url": "https://github.com/fallow-rs/fallow/commit/06b8ccb911d5e364c158a92c8d6d29482d651d18"
-        },
-        "date": 1783968327001,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 9933122,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 52368,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6961,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9a3ae1440dc7bbd228306924083746c818837eb3",
+          "message": "fix(hooks): recognize git commit and push behind git-level flags in the agent gate (#2111)\n\nThe agent gate replaced its single regex with a tokenizer that steps over git-level options (-c k=v, -C dir, --no-pager, --git-dir=, and friends) before matching the subcommand, so flagged invocations audit while lookalikes like git log commit-message.txt still skip. FALLOW_GATE_DEBUG surfaces skip decisions on stderr.\n\nFixes #2106",
+          "timestamp": "2026-08-03T16:09:04+02:00",
+          "tree_id": "46385236668b614f2cec86a38a97aad84908bae1",
+          "url": "https://github.com/fallow-rs/fallow/commit/9a3ae1440dc7bbd228306924083746c818837eb3"
+        },
+        "date": 1785766339113,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10566988,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55108,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 988729,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6959,
             "unit": "allocations"
           }
         ]
