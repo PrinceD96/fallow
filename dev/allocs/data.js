@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785766342448,
+  "lastUpdate": 1785769661473,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b6dd3032cc311d1a7de0ca97a517f8b30c1442ad",
-          "message": "fix(cli): expect unsafe_code on the Windows source-map canonicalizer (#1847)\n\nSecond latent Windows-only clippy failure in the same file: the\ncfg(windows) securely_open_source_map makes three Win32 FFI calls\n(GetFinalPathNameByHandleW, CompareStringOrdinal) whose unsafe blocks\ntrip -D unsafe_code, which only runs on the release Windows clippy leg.\nAnnotated at the function level with a reason, matching the existing\nWin32 FFI pattern in crates/mcp process_tree.rs.",
-          "timestamp": "2026-07-13T20:51:06+02:00",
-          "tree_id": "6af59bb236cf751c0605b4495cfb028ddf51e9a0",
-          "url": "https://github.com/fallow-rs/fallow/commit/b6dd3032cc311d1a7de0ca97a517f8b30c1442ad"
-        },
-        "date": 1783969237377,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 9914274,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 52349,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6959,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4274c9397ca6a46eb0277bee312baeff96b408c4",
+          "message": "chore: release v3.13.0",
+          "timestamp": "2026-08-03T17:02:58+02:00",
+          "tree_id": "ec00145cac21238b68eb687bf69d19d4bc26887f",
+          "url": "https://github.com/fallow-rs/fallow/commit/4274c9397ca6a46eb0277bee312baeff96b408c4"
+        },
+        "date": 1785769657782,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10607559,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55091,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 986117,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6935,
             "unit": "allocations"
           }
         ]
