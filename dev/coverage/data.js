@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785748322614,
+  "lastUpdate": 1785766754097,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "398af909d30e0c68541fa2c089da743b7b30dda2",
-          "message": "docs: document the multicall crate in the project-structure map",
-          "timestamp": "2026-07-16T14:33:43+02:00",
-          "tree_id": "e43c65ed411a8a7830da2b897f363277bf40ed68",
-          "url": "https://github.com/fallow-rs/fallow/commit/398af909d30e0c68541fa2c089da743b7b30dda2"
-        },
-        "date": 1784205525080,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4e83c23c025e17874f34f0c674166c86cfba6bf1"
         },
         "date": 1785748189452,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d4e759f1c49929cd7ba340c1099337609a02929c",
+          "message": "feat(action): provision the fallow-type-aware sidecar for typeAware-enabled projects (#2110)\n\nThe Action gains a tri-state type-aware input (auto reads the project config, true forces, false skips and passes --no-type-aware). When enabled it installs fallow-type-aware at exactly the resolved CLI version into a runner tool dir, verifies the exact-version match fail-closed, and exports FALLOW_TYPE_AWARE_BIN.\n\nFixes #2107",
+          "timestamp": "2026-08-03T16:11:23+02:00",
+          "tree_id": "0c6f10b65768219432b24d2c1aa3923987ecc084",
+          "url": "https://github.com/fallow-rs/fallow/commit/d4e759f1c49929cd7ba340c1099337609a02929c"
+        },
+        "date": 1785766751217,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
