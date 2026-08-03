@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785779505111,
+  "lastUpdate": 1785784709007,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "3d8d11622bc1529345e167025ec7eef34ebf0300",
-          "message": "fix(report): singular noun for a single fix in the github-summary headline\n\nThe --format github-summary auto-fix headline read 'would apply 1 fixes' for a single fix; it now reads '1 fix', branching on the count. Shared by the live fallow fix and report --from paths (both call render_fix_summary). Adds a singular-case test; plural snapshot unchanged.",
-          "timestamp": "2026-07-14T06:37:44+02:00",
-          "tree_id": "b787e737c42c695cef7eb294e5d8f0485fa585a0",
-          "url": "https://github.com/fallow-rs/fallow/commit/3d8d11622bc1529345e167025ec7eef34ebf0300"
-        },
-        "date": 1784003988018,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 32,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.13,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 443,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1105,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/32673b7c882a4980b64d7c5469620a80ac931fa1"
         },
         "date": 1785779501976,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.33,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 451,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1183,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4bc061f29fa9968c587fdb9c94f30c16927badd5",
+          "message": "perf(config): cache manifest probes during workspace discovery (#2115)\n\nA per-discovery manifest cache replays the first probe outcome for members visited via multiple workspace sources, Deno config probing collapses to a single filesystem probe per directory shared with the import-map load, and the resolver stops parsing member deno.json twice. Behavior and diagnostics identical.",
+          "timestamp": "2026-08-03T21:17:06+02:00",
+          "tree_id": "b23c343e13b50a1fb241c71ef9d6f576b3c32630",
+          "url": "https://github.com/fallow-rs/fallow/commit/4bc061f29fa9968c587fdb9c94f30c16927badd5"
+        },
+        "date": 1785784705492,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
