@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785741545701,
+  "lastUpdate": 1785747851042,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "91565369edcad66c4ec5bddb049be22d2bc31163",
-          "message": "fix(output): conform feature-flags _meta to the published schema\n\n`fallow flags --format json` without --explain injects a _meta.telemetry block, but the schema required the explain-only feature_flags field and did not model telemetry, so the default-path document failed schema validation. The MCP feature_flags tool and Code Mode emit the same shape. FeatureFlagsMeta now models both fields optional, mirroring Meta/CombinedMeta. Wire bytes unchanged (no schema_version bump); schema + TS contracts regenerated; regression test added.\n\nFound by the plan-028 agent-surface instance-validation probe.",
-          "timestamp": "2026-07-13T20:35:28+02:00",
-          "tree_id": "4c1b03947381ab82b292b70c8306f409e5028068",
-          "url": "https://github.com/fallow-rs/fallow/commit/91565369edcad66c4ec5bddb049be22d2bc31163"
-        },
-        "date": 1783967926143,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 9919290,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 52348,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7604,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "87cae517c52aa09cfc9e65250f708e98bc1dba99",
+          "message": "chore(napi): sync package.json / package-lock / index.js to v3.12.0",
+          "timestamp": "2026-08-03T10:58:53+02:00",
+          "tree_id": "e0f6aa954331fa714f36793f08e5cb4b443f096c",
+          "url": "https://github.com/fallow-rs/fallow/commit/87cae517c52aa09cfc9e65250f708e98bc1dba99"
+        },
+        "date": 1785747847547,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10590788,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55108,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 992873,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6961,
             "unit": "allocations"
           }
         ]
