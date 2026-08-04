@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785834365942,
+  "lastUpdate": 1785856100343,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "bc7cd251ba3f813b7d7a35712fa140baaf058647",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v3.5.0",
-          "timestamp": "2026-07-14T08:58:48+02:00",
-          "tree_id": "daae30760de81297d79fa7067241c61b7a76d9b6",
-          "url": "https://github.com/fallow-rs/fallow/commit/bc7cd251ba3f813b7d7a35712fa140baaf058647"
-        },
-        "date": 1784012621671,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 9889954,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 52318,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6959,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8330bfdf7e8d17017ea134d687035d85cc39ed7d",
+          "message": "chore(deps): batch the remaining JS dependency updates (#2147)\n\noxlint 1.76.0, radix-ui 1.6.7, jscpd 5.0.14, rolldown 1.2.0 with the vendored viz assets regenerated in the same commit, and lightningcss 1.0.0-alpha.72. The two previously red dependabot PRs were diagnosed: the rolldown failure was vendored-asset drift now fixed here, and the lightningcss Windows failure was a cancelled job, not a real incompatibility.\n\nCloses #2121\nCloses #2130\nCloses #2033\nCloses #2050",
+          "timestamp": "2026-08-04T16:31:07+02:00",
+          "tree_id": "b3a49c9b224a876b62a9bec6d9554455da11d984",
+          "url": "https://github.com/fallow-rs/fallow/commit/8330bfdf7e8d17017ea134d687035d85cc39ed7d"
+        },
+        "date": 1785856096775,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10610376,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55123,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 992873,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6961,
             "unit": "allocations"
           }
         ]
