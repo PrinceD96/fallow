@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785827046456,
+  "lastUpdate": 1785828679165,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "3d8d11622bc1529345e167025ec7eef34ebf0300",
-          "message": "fix(report): singular noun for a single fix in the github-summary headline\n\nThe --format github-summary auto-fix headline read 'would apply 1 fixes' for a single fix; it now reads '1 fix', branching on the count. Shared by the live fallow fix and report --from paths (both call render_fix_summary). Adds a singular-case test; plural snapshot unchanged.",
-          "timestamp": "2026-07-14T06:37:44+02:00",
-          "tree_id": "b787e737c42c695cef7eb294e5d8f0485fa585a0",
-          "url": "https://github.com/fallow-rs/fallow/commit/3d8d11622bc1529345e167025ec7eef34ebf0300"
-        },
-        "date": 1784004160440,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 9922450,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 52356,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 6961,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "3cf8074a0e2e91c895c0a4224ba1c3bec4630d65",
+          "message": "chore: release v3.14.0",
+          "timestamp": "2026-08-04T09:26:26+02:00",
+          "tree_id": "7169d090d5ffedbe17318e0ff4f421c33178d3db",
+          "url": "https://github.com/fallow-rs/fallow/commit/3cf8074a0e2e91c895c0a4224ba1c3bec4630d65"
+        },
+        "date": 1785828675440,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10613952,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55123,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 990801,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6960,
             "unit": "allocations"
           }
         ]
