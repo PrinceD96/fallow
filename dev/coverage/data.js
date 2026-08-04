@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785856854562,
+  "lastUpdate": 1785860486932,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e20398e0809c10d47a46af8a351cdcef12d40285",
-          "message": "fix(napi): restore @emnapi lockfile entries for cross-platform npm ci",
-          "timestamp": "2026-07-20T10:26:26+02:00",
-          "tree_id": "1cba20c4652fad2f21bc72491afc5bfe6ea2f9ba",
-          "url": "https://github.com/fallow-rs/fallow/commit/e20398e0809c10d47a46af8a351cdcef12d40285"
-        },
-        "date": 1784536278683,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8330bfdf7e8d17017ea134d687035d85cc39ed7d"
         },
         "date": 1785856850746,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "32ac1d3e34cc28f0c8f29b5ab0168360bdffea96",
+          "message": "fix(viz): restore wasm32-wasi transitive entries in the viz-frontend lockfile\n\nThe rolldown 1.2.0 lock regeneration on macOS pruned the platform-independent\nwasm binding's @emnapi closure, so npm ci failed on the missing nested\nentries. Regenerated with the full optional tree; clean npm ci passes with\nand without --omit=optional, and the build and tests are green.",
+          "timestamp": "2026-08-04T18:12:48+02:00",
+          "tree_id": "e1f80f1d97bd92d7d0c9bbae7e161133747e8414",
+          "url": "https://github.com/fallow-rs/fallow/commit/32ac1d3e34cc28f0c8f29b5ab0168360bdffea96"
+        },
+        "date": 1785860482754,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
