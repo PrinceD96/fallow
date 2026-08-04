@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785791057139,
+  "lastUpdate": 1785824737347,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4551fc703c79ba261513feb7c5d3f64d42b7ea82",
-          "message": "chore(skills): re-vendor viz-less SKILL.md to match main binary contract",
-          "timestamp": "2026-07-20T07:35:01+02:00",
-          "tree_id": "482a3800cf3e678420066b2d2922c3dfdec353d5",
-          "url": "https://github.com/fallow-rs/fallow/commit/4551fc703c79ba261513feb7c5d3f64d42b7ea82"
-        },
-        "date": 1784525990778,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/6e808833500f1f04c5ad3cd4110c0fed347e275c"
         },
         "date": 1785791053085,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.3,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "b6f6adc5d8882daf58b1b24a022501d24adea047",
+          "message": "fix(mcp): satisfy redundant_pub_crate on the Windows test lock\n\nThe cfg(windows) test_support module is private, so the pub(crate) static\ntripped clippy's redundant_pub_crate on the Windows validation leg.",
+          "timestamp": "2026-08-04T08:17:00+02:00",
+          "tree_id": "f669c7d197ba434ab4b2bc23ab6c68e2ae55fa5d",
+          "url": "https://github.com/fallow-rs/fallow/commit/b6f6adc5d8882daf58b1b24a022501d24adea047"
+        },
+        "date": 1785824732791,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
