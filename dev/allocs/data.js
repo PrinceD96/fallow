@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785856100343,
+  "lastUpdate": 1785954258448,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c7936189eb0040a97190baafb7522d9a9e392ded",
-          "message": "fix: harden analysis boundaries and verification (#1860)\n\nPreserve Git path identity across changed-file and churn flows, redact and canonicalize remote config URLs, and clean completed MCP process trees on every return path.\n\nBound extraction-cache eviction work, align Action and generated-contract verification with current ownership, and add focused Windows PR coverage for platform-specific paths and cleanup.",
-          "timestamp": "2026-07-14T11:41:35+02:00",
-          "tree_id": "5056d2b5d840cfb50d24214c048864db8db69dbc",
-          "url": "https://github.com/fallow-rs/fallow/commit/c7936189eb0040a97190baafb7522d9a9e392ded"
-        },
-        "date": 1784022298481,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 9910298,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 52345,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965547,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 55123,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 992873,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 6961,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9c3d5e3c8e527fabee9fe52a02b1ffc3b9b0470c",
+          "message": "chore: overnight quality, performance, and docs sweep (#2148)\n\nVerified overnight batch: resolver and detector fixes from dogfooding (ignoreUnresolvedImports ./ matching, .js to .d.ts fallback, one unresolved-import finding per specifier), non-blocking LSP analysis with burst coalescing and the push/pull double-render fix, markdown escaping for untrusted values in github-summary and report tables, loud config errors for malformed extends and unknown override/ignoreExports keys, MCP workspace comma lists and guard validation, graph resolution performance work, duplication consolidations, and docs, changelog, and rustdoc updates. Panel-review consensus fixes included.",
+          "timestamp": "2026-08-05T20:11:48+02:00",
+          "tree_id": "424411e3641436fba11f43fa7a1303b634419a7b",
+          "url": "https://github.com/fallow-rs/fallow/commit/9c3d5e3c8e527fabee9fe52a02b1ffc3b9b0470c"
+        },
+        "date": 1785954254944,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10657846,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55582,
             "unit": "allocations"
           },
           {
