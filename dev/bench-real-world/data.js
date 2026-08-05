@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785836784875,
+  "lastUpdate": 1785923009856,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "committer": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "id": "56b4a06bd9fc6f2bed96134bdea34f968795a24c",
-          "message": "fix: add bench-real-world.yml to zizmor superfluous-actions ignore list",
-          "timestamp": "2026-03-27T07:46:07Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/56b4a06bd9fc6f2bed96134bdea34f968795a24c"
-        },
-        "date": 1774598734152,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "preact (cold)",
-            "value": 50,
-            "unit": "ms"
-          },
-          {
-            "name": "preact (warm)",
-            "value": 40,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (cold)",
-            "value": 57,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (warm)",
-            "value": 44,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (cold)",
-            "value": 34,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (warm)",
-            "value": 40,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (cold)",
-            "value": 106,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (warm)",
-            "value": 90,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (cold)",
-            "value": 438,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (warm)",
-            "value": 420,
-            "unit": "ms"
-          },
-          {
-            "name": "query (cold)",
-            "value": 336,
-            "unit": "ms"
-          },
-          {
-            "name": "query (warm)",
-            "value": 321,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (cold)",
-            "value": 217,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (warm)",
-            "value": 210,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (cold)",
-            "value": 1910,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (warm)",
-            "value": 1753,
-            "unit": "ms"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9729,6 +9627,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1433,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "589885290490eeeb02fcc274defc55a3c11789dc",
+          "message": "fix(viz): add the wasm-runtime peer entry for @emnapi/runtime 1.11.3\n\nThe @napi-rs/wasm-runtime peer dependency needs a top-level runtime entry\nthat macOS resolution never materializes; clean npm ci now passes with and\nwithout --omit=optional and the build and tests are green from scratch.",
+          "timestamp": "2026-08-04T16:31:25Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/589885290490eeeb02fcc274defc55a3c11789dc"
+        },
+        "date": 1785923004850,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 617,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 511,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1745,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1432,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1332,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1124,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1432,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1429,
             "unit": "ms"
           }
         ]
