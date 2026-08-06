@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785923009856,
+  "lastUpdate": 1786009511564,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "committer": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "id": "9e65ad1327a908010b3815c3411e8e7e2348d680",
-          "message": "chore: release v2.5.0",
-          "timestamp": "2026-03-28T00:11:56Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/9e65ad1327a908010b3815c3411e8e7e2348d680"
-        },
-        "date": 1774684361653,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "preact (cold)",
-            "value": 52,
-            "unit": "ms"
-          },
-          {
-            "name": "preact (warm)",
-            "value": 39,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (cold)",
-            "value": 60,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (warm)",
-            "value": 101,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (cold)",
-            "value": 40,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (warm)",
-            "value": 36,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (cold)",
-            "value": 113,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (warm)",
-            "value": 98,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (cold)",
-            "value": 430,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (warm)",
-            "value": 417,
-            "unit": "ms"
-          },
-          {
-            "name": "query (cold)",
-            "value": 334,
-            "unit": "ms"
-          },
-          {
-            "name": "query (warm)",
-            "value": 321,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (cold)",
-            "value": 224,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (warm)",
-            "value": 210,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (cold)",
-            "value": 1874,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (warm)",
-            "value": 1777,
-            "unit": "ms"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9719,6 +9617,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1429,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "24e84bc0ca81bd48d3b0a520cbcdcd2ab090ef75",
+          "message": "feat(cli): progressive root help, specifier-anchored imports, code-span table cells (#2149)\n\nfallow -h leads with the task cheat sheet, shows the Analysis and Workflow groups plus everyday options, and points to --help for the complete list (197 to 49 lines; the machine schema is unchanged). Unresolved-import findings anchor on the source specifier via new statement and source spans threaded through extract, the caches, and the graph, so one suppression above a multi-line re-export covers the deduped finding and the stale-suppression contradiction is gone. Identifier and path cells in github-summary tables render as code spans with pipe escaping, mirrored in the action/ and ci/ jq fallback renderers, and the shared helper collapses CR/LF so identifiers cannot split a table row.",
+          "timestamp": "2026-08-05T21:34:55Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/24e84bc0ca81bd48d3b0a520cbcdcd2ab090ef75"
+        },
+        "date": 1786009507229,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 102,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 509,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 410,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1322,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1123,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1020,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 916,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1120,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1421,
             "unit": "ms"
           }
         ]
