@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785918676886,
+  "lastUpdate": 1786004909380,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
@@ -7705,6 +7705,88 @@ window.BENCHMARK_DATA = {
           {
             "name": "zod Agreement",
             "value": 2.8,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "24e84bc0ca81bd48d3b0a520cbcdcd2ab090ef75",
+          "message": "feat(cli): progressive root help, specifier-anchored imports, code-span table cells (#2149)\n\nfallow -h leads with the task cheat sheet, shows the Analysis and Workflow groups plus everyday options, and points to --help for the complete list (197 to 49 lines; the machine schema is unchanged). Unresolved-import findings anchor on the source specifier via new statement and source spans threaded through extract, the caches, and the graph, so one suppression above a multi-line re-export covers the deduped finding and the stale-suppression contradiction is gone. Identifier and path cells in github-summary tables render as code spans with pipe escaping, mirrored in the action/ and ci/ jq fallback renderers, and the shared helper collapses CR/LF so identifiers cannot split a table row.",
+          "timestamp": "2026-08-05T21:34:55Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/24e84bc0ca81bd48d3b0a520cbcdcd2ab090ef75"
+        },
+        "date": 1786004906143,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 1.8,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 571,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30155,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2003,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 4.9,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.7,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.3,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 5.8,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 22.8,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 1.9,
             "unit": "%"
           }
         ]
