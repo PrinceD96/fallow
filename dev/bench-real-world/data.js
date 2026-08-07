@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786009511564,
+  "lastUpdate": 1786090897940,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "committer": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "id": "9a10769adcd44174a91945238758424486f8d81e",
-          "message": "fix: gate parser-invoking extract tests with #[cfg(not(miri))]\n\nThe sfc, astro, and mdx parse_*_to_module tests invoke the Oxc parser\nwhich is ~1000x slower under Miri, causing the 30-minute CI timeout.\nGate these 11 tests so only string-extraction tests run under Miri.",
-          "timestamp": "2026-03-28T22:39:21Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/9a10769adcd44174a91945238758424486f8d81e"
-        },
-        "date": 1774771141146,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "preact (cold)",
-            "value": 43,
-            "unit": "ms"
-          },
-          {
-            "name": "preact (warm)",
-            "value": 34,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (cold)",
-            "value": 54,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (warm)",
-            "value": 47,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (cold)",
-            "value": 40,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (warm)",
-            "value": 31,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (cold)",
-            "value": 116,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (warm)",
-            "value": 100,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (cold)",
-            "value": 439,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (warm)",
-            "value": 427,
-            "unit": "ms"
-          },
-          {
-            "name": "query (cold)",
-            "value": 346,
-            "unit": "ms"
-          },
-          {
-            "name": "query (warm)",
-            "value": 330,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (cold)",
-            "value": 224,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (warm)",
-            "value": 219,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (cold)",
-            "value": 1900,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (warm)",
-            "value": 1820,
-            "unit": "ms"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9709,6 +9607,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1421,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "d8de238c7fce3f4805a1d671cf54b408e9e9d445",
+          "message": "refactor: consolidate entry-point discovery on the fallow-core implementation (#2154)\n\nDeletes the engine's diverged copy of entry-point discovery (net +131/-1428) and routes the engine through core_backend pass-throughs, mirroring the discovery-walk consolidation. BackendAggregatedPluginResult wraps the core AggregatedPluginResult directly so plugin entry-point provenance survives without mirror-type reconstruction; the engine e2e tests moved to core before the fork was deleted; the orphaned regex and glob dependencies are removed. Behavior verified byte-identical against a pristine baseline binary on three real projects (dead-code, check, and list JSON, cold and warm cache). One log-only change: the skipped-entry warning dedupe is a single process-wide set.",
+          "timestamp": "2026-08-07T07:14:05Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/d8de238c7fce3f4805a1d671cf54b408e9e9d445"
+        },
+        "date": 1786090893436,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 309,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 206,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 311,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 206,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 207,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 207,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 723,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 515,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 2268,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1852,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1564,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1332,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1650,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1548,
             "unit": "ms"
           }
         ]
