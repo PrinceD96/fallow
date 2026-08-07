@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786087398747,
+  "lastUpdate": 1786133279718,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "443638cb2a7135230a5768ebc98948c87f87db0f",
-          "message": "docs(changelog): move the fallow viz entry to Unreleased\n\nThe viz feature squash-merged while v3.7.0 was freshly cut, so the server-side\n3-way merge anchored its CHANGELOG entry inside the released 3.7.0 section even\nthough that binary does not contain viz. Move it under [Unreleased]. Also\nclarify the object-binding termination test comment to name the resolver's\nper-module caps (main's #1843 breadth and size caps) instead of the depth cap\nthis branch's now-superseded fix used.",
-          "timestamp": "2026-07-21T11:39:34+02:00",
-          "tree_id": "719fabeb50978ab23f43135eaf897a5ba37c09e7",
-          "url": "https://github.com/fallow-rs/fallow/commit/443638cb2a7135230a5768ebc98948c87f87db0f"
-        },
-        "date": 1784627189806,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d8de238c7fce3f4805a1d671cf54b408e9e9d445"
         },
         "date": 1786087395159,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4066db66e0b2251a54a9e4b8441025d2f35374fa",
+          "message": "docs(changelog): record the framework-template complexity breakdown (#2157)\n\nThe fix landed in #2152 without a changelog entry while GitHub Actions was down. Records the user-facing behavior: the VS Code inline breakdown and health --complexity-breakdown now render contributing conditions for Vue, Angular, Svelte, and Astro templates, metric totals are unchanged, and two things are visible on upgrade (a Svelte block whose condition sits away from the block open can report a different line and column, and the first analysis re-extracts because older caches hold no breakdown).",
+          "timestamp": "2026-08-07T22:03:25+02:00",
+          "tree_id": "a0c9834418bb264743d3661bbfa107ff4295e360",
+          "url": "https://github.com/fallow-rs/fallow/commit/4066db66e0b2251a54a9e4b8441025d2f35374fa"
+        },
+        "date": 1786133275506,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
