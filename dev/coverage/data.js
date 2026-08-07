@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786136886382,
+  "lastUpdate": 1786141507454,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d3a107c408d5d1b7eec23965391b5fd13d0f64f7",
-          "message": "fix(skills): regenerate SKILL.md so viz row matches generated order\n\nMy earlier re-vendor mirrored canonical, which placed the viz row after\n`workspaces` and tripped the contract bundle drift gate (generate-all emits\nit after `setup-hooks`). Regenerate from generate-all so the vendored copy\nsatisfies both the contract bundle and vendor-drift gates; canonical was\naligned in fallow-skills 241ddf6.",
-          "timestamp": "2026-07-21T13:49:57+02:00",
-          "tree_id": "0e147f3761af637343b1e1b3ab85094e74800477",
-          "url": "https://github.com/fallow-rs/fallow/commit/d3a107c408d5d1b7eec23965391b5fd13d0f64f7"
-        },
-        "date": 1784634881262,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1791333192526e898de933a5245ba9dcfd22d48e"
         },
         "date": 1786136883047,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "49c0bb438c8ddf4b207ad35446f6525147ecb2ae",
+          "message": "refactor: keep one definition of each discovery constant (#2159)\n\nSOURCE_EXTENSIONS, PRODUCTION_EXCLUDE_PATTERNS, and ALLOWED_HIDDEN_DIRS were byte-identical copies in the engine and the core walk that consumes them; the engine re-exports the core definitions through the backend adapter, leaving its public paths unchanged. OUTPUT_DIRS had a third copy and moves to fallow-graph, the lowest crate both sides already depend on, so no adapter hop or boundary exception is needed. Verified byte-identical check and list JSON on two real projects against a binary built from a pristine worktree at the parent commit.",
+          "timestamp": "2026-08-08T00:15:56+02:00",
+          "tree_id": "ccd62f158eb0fff46d7ffd34dc9061aa175a6f3e",
+          "url": "https://github.com/fallow-rs/fallow/commit/49c0bb438c8ddf4b207ad35446f6525147ecb2ae"
+        },
+        "date": 1786141504182,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
