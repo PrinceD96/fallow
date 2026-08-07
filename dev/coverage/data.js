@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786133279718,
+  "lastUpdate": 1786136886382,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b47f16da3b607980aed5603a8db39fdff99c6472",
-          "message": "fix(hooks): add viz-frontend/src to pre-commit JS lint scope\n\nfeat(viz) added viz-frontend/src to the lint:js / fmt:js:check targets in\npackage.json and to CI, but not to the pre-commit hook's staged-path\nexpression. The command-policy parity test enforces the hook mirror the\npackage.json scopes, so it failed once oxfmt stopped masking it. Mirror the\nnew scope in the hook.",
-          "timestamp": "2026-07-21T13:34:54+02:00",
-          "tree_id": "e33af38844f3e8aebcb6894c870cbd6460d02f05",
-          "url": "https://github.com/fallow-rs/fallow/commit/b47f16da3b607980aed5603a8db39fdff99c6472"
-        },
-        "date": 1784634135302,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4066db66e0b2251a54a9e4b8441025d2f35374fa"
         },
         "date": 1786133275506,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1791333192526e898de933a5245ba9dcfd22d48e",
+          "message": "feat: rank and triage distant duplicate code\n\n* feat: start duplication triage improvements\n\n* feat: improve duplication triage\n\n* test: update VS Code schema fixtures\n\n* test: refresh VS Code integration CLI version",
+          "timestamp": "2026-08-07T23:00:20+02:00",
+          "tree_id": "70ceedb6abe93ce657c9843d13a1b3f234e6480b",
+          "url": "https://github.com/fallow-rs/fallow/commit/1791333192526e898de933a5245ba9dcfd22d48e"
+        },
+        "date": 1786136883047,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
