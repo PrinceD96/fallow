@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786141507454,
+  "lastUpdate": 1786172174783,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "aa5cff99933b7d37be9b7dabd99dcf5efbd8ca82",
-          "message": "chore(deps): bump taiki-e/install-action from 2.82.10 to 2.83.2 (#1925)\n\nBumps [taiki-e/install-action](https://github.com/taiki-e/install-action) from 2.82.10 to 2.83.2.\n- [Release notes](https://github.com/taiki-e/install-action/releases)\n- [Changelog](https://github.com/taiki-e/install-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/taiki-e/install-action/compare/50414676f9f5d50a65992c6dd2ed02641263226c...43aecc8d72668fbcfe75c31400bc4f890f1c5853)\n\n---\nupdated-dependencies:\n- dependency-name: taiki-e/install-action\n  dependency-version: 2.83.2\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
-          "timestamp": "2026-07-21T15:33:22+02:00",
-          "tree_id": "4ccccb17864a13cab73ff5413abcc369224ba681",
-          "url": "https://github.com/fallow-rs/fallow/commit/aa5cff99933b7d37be9b7dabd99dcf5efbd8ca82"
-        },
-        "date": 1784641364180,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/49c0bb438c8ddf4b207ad35446f6525147ecb2ae"
         },
         "date": 1786141504182,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dffec365267ba06a983bfa0944be5ff339f1fb64",
+          "message": "refactor: harden duplication architecture\n\n* refactor: start duplication architecture hardening\n\n* refactor: harden duplication architecture\n\n* test: keep spread proptest out of miri",
+          "timestamp": "2026-08-08T06:48:38Z",
+          "tree_id": "9dea107b803e597dc40092ec7e719931ca75b72f",
+          "url": "https://github.com/fallow-rs/fallow/commit/dffec365267ba06a983bfa0944be5ff339f1fb64"
+        },
+        "date": 1786172170839,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
