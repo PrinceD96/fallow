@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786090897940,
+  "lastUpdate": 1786175592386,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "committer": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "id": "1b89cd86611bd85a1c0ebdef7678f56ffd3f95e1",
-          "message": "docs: mark trend reporting as shipped in roadmap",
-          "timestamp": "2026-03-30T08:11:11Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/1b89cd86611bd85a1c0ebdef7678f56ffd3f95e1"
-        },
-        "date": 1774859239349,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "preact (cold)",
-            "value": 51,
-            "unit": "ms"
-          },
-          {
-            "name": "preact (warm)",
-            "value": 44,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (cold)",
-            "value": 59,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (warm)",
-            "value": 50,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (cold)",
-            "value": 44,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (warm)",
-            "value": 34,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (cold)",
-            "value": 115,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (warm)",
-            "value": 96,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (cold)",
-            "value": 449,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (warm)",
-            "value": 424,
-            "unit": "ms"
-          },
-          {
-            "name": "query (cold)",
-            "value": 346,
-            "unit": "ms"
-          },
-          {
-            "name": "query (warm)",
-            "value": 335,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (cold)",
-            "value": 237,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (warm)",
-            "value": 215,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (cold)",
-            "value": 1927,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (warm)",
-            "value": 1826,
-            "unit": "ms"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9699,6 +9597,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1548,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "dffec365267ba06a983bfa0944be5ff339f1fb64",
+          "message": "refactor: harden duplication architecture\n\n* refactor: start duplication architecture hardening\n\n* refactor: harden duplication architecture\n\n* test: keep spread proptest out of miri",
+          "timestamp": "2026-08-08T06:48:38Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/dffec365267ba06a983bfa0944be5ff339f1fb64"
+        },
+        "date": 1786175587507,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 206,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 613,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 410,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1748,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1336,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1227,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1020,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1427,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1327,
             "unit": "ms"
           }
         ]
