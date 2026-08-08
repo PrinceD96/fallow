@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786141149752,
+  "lastUpdate": 1786172038359,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "6ef02ff843a6e46a44d42eb70fcfbdcb5dc7e849",
-          "message": "test(core): normalize path separators in workspace-bucketing assertion\n\nThe workspace-bucketing test built its expected relative paths with\nPathBuf::join (all-backslash on Windows) while the code preserves the\ninput path's original separators, which are mixed when the fixture is\nbuilt via multiple join calls (web\\src/first.ts). Compare with\nseparators normalized so the assertion checks bucketing and file order,\nnot host path formatting. Windows-only failure; passed on Linux/macOS.",
-          "timestamp": "2026-07-14T21:26:23+02:00",
-          "tree_id": "8e3fea4a14c6cdc1194876b639b61f66ad45b837",
-          "url": "https://github.com/fallow-rs/fallow/commit/6ef02ff843a6e46a44d42eb70fcfbdcb5dc7e849"
-        },
-        "date": 1784057423405,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10249119,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54263,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 55281,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 976157,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7604,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dffec365267ba06a983bfa0944be5ff339f1fb64",
+          "message": "refactor: harden duplication architecture\n\n* refactor: start duplication architecture hardening\n\n* refactor: harden duplication architecture\n\n* test: keep spread proptest out of miri",
+          "timestamp": "2026-08-08T06:48:38Z",
+          "tree_id": "9dea107b803e597dc40092ec7e719931ca75b72f",
+          "url": "https://github.com/fallow-rs/fallow/commit/dffec365267ba06a983bfa0944be5ff339f1fb64"
+        },
+        "date": 1786172035099,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10661570,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55299,
             "unit": "allocations"
           },
           {
