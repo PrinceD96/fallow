@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786220173431,
+  "lastUpdate": 1786223014970,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9698f06c5a93231cea94dc2e1ff27813c0a432f1",
-          "message": "chore(deps): bump astral-sh/setup-uv from 8.3.1 to 8.3.2 (#1933)\n\nClean GitHub Actions bump, all checks green.",
-          "timestamp": "2026-07-21T16:14:52+02:00",
-          "tree_id": "ffa68163faf9ca970b4daa98b1b331aad2645577",
-          "url": "https://github.com/fallow-rs/fallow/commit/9698f06c5a93231cea94dc2e1ff27813c0a432f1"
-        },
-        "date": 1784643617539,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9ebcfc87b04045556abb61e5c4dfb6a390564139"
         },
         "date": 1786220170064,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d4c08465b2c66afbaf3ea1e25b6259a02da30327",
+          "message": "fix: close duplication sweep gaps\n\n* chore: start duplication filter follow-up\n\n* fix: close duplication sweep gaps",
+          "timestamp": "2026-08-08T20:57:45Z",
+          "tree_id": "56100040f2ddcb3269abc022a5eb6e0e68f8e403",
+          "url": "https://github.com/fallow-rs/fallow/commit/d4c08465b2c66afbaf3ea1e25b6259a02da30327"
+        },
+        "date": 1786223011641,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
