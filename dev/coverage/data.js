@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786309101790,
+  "lastUpdate": 1786309667520,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "49699333+dependabot[bot]@users.noreply.github.com",
-            "name": "dependabot[bot]",
-            "username": "dependabot[bot]"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "8f0dcb3c2c3cdfda0b1341c221c93615ebe36868",
-          "message": "chore(deps-dev): update TypeScript in viz frontend\n\nUpdate the visualization frontend to TypeScript 7. Its focused lint, test, and build checks pass.",
-          "timestamp": "2026-07-22T11:16:18+02:00",
-          "tree_id": "751862b29fcffa80ccae06fe5a86ffab3a8ef618",
-          "url": "https://github.com/fallow-rs/fallow/commit/8f0dcb3c2c3cdfda0b1341c221c93615ebe36868"
-        },
-        "date": 1784712268562,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/74ccc085c31e9c716ff60360016e6cb0cea8d590"
         },
         "date": 1786309098157,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b8e9c8c305dd7a5ae9f4f3afa7880738028ad943",
+          "message": "fix(health): handle inline Svelte await states",
+          "timestamp": "2026-08-09T21:00:28Z",
+          "tree_id": "624248b4aea1879c39d244ecbbe5954cd38bbfe2",
+          "url": "https://github.com/fallow-rs/fallow/commit/b8e9c8c305dd7a5ae9f4f3afa7880738028ad943"
+        },
+        "date": 1786309663887,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
