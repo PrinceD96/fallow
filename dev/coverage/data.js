@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786223014970,
+  "lastUpdate": 1786309101790,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "5184b9d74d2ede605538a96f1bae9ec0edaf73e3",
-          "message": "fix: resolve audit and analysis improvement findings\n\nImprove inherited member and alias resolution, audit comparison context, styling attribution, and annotation safety across CLI, API, MCP, CI, and editor surfaces.\n\nReuse shared repository context for audit attribution and base snapshots, and reduce clone-family and warm CSS analysis overhead without changing stable output contracts. Preserve the existing CSS benchmark workload and track the heavier many-file workload separately.\n\nRefresh dependency coverage and invalidate affected extraction and audit caches.",
-          "timestamp": "2026-07-22T10:13:36+02:00",
-          "tree_id": "29fab722dabc0865d6662233b000dddb805f52df",
-          "url": "https://github.com/fallow-rs/fallow/commit/5184b9d74d2ede605538a96f1bae9ec0edaf73e3"
-        },
-        "date": 1784708417437,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d4c08465b2c66afbaf3ea1e25b6259a02da30327"
         },
         "date": 1786223011641,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "74ccc085c31e9c716ff60360016e6cb0cea8d590",
+          "message": "fix: repair dangling anchors in the CLI reference (#2166)\n\nThree table-of-contents and cross-reference links pointed at renamed headings. Point them at the current headings, spell the ampersand in the health heading as a word so the slug carries no doubled hyphen, and add a test that fails on any in-document link whose target heading is absent.\n\nReported in fallow-rs/fallow-skills#6.",
+          "timestamp": "2026-08-09T22:50:59+02:00",
+          "tree_id": "515ba74826323b85917e33e54e45feb7eaddb390",
+          "url": "https://github.com/fallow-rs/fallow/commit/74ccc085c31e9c716ff60360016e6cb0cea8d590"
+        },
+        "date": 1786309098157,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
