@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786467124753,
+  "lastUpdate": 1786473791370,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b5d94599737c419804015cd7f2596593d5b2843d",
-          "message": "fix(cli): honor JSON style for audit-cache remove output\n\naudit-cache remove --format json used the always-pretty report::emit_json chokepoint; route it through emit_report_json so it is compact by default and honors --pretty, matching every other --format json command (values, fields, exit codes unchanged).",
-          "timestamp": "2026-07-16T15:14:49+02:00",
-          "tree_id": "8f1d5f1fddf1e08d9b06967a3786f3bdbe5913a8",
-          "url": "https://github.com/fallow-rs/fallow/commit/b5d94599737c419804015cd7f2596593d5b2843d"
-        },
-        "date": 1784208032634,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.35,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 444,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1152,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1c08e714744061b81d58b5a439f78d5a6a541980"
         },
         "date": 1786467120310,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.33,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 451,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1202,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4dadd3021e5c0dfae34229041753c0dc0ae21237",
+          "message": "fix(engine): pass forward-slashed paths to the untracked-file diff on Windows",
+          "timestamp": "2026-08-11T20:37:13+02:00",
+          "tree_id": "fb8c2f2b735a4f05795161be68e9f347eb4af493",
+          "url": "https://github.com/fallow-rs/fallow/commit/4dadd3021e5c0dfae34229041753c0dc0ae21237"
+        },
+        "date": 1786473788064,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
