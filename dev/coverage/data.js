@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786468461994,
+  "lastUpdate": 1786470553708,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "038aa0b9c9c0ef61c699ced92aa110f7df93dd32",
-          "message": "fix(zed): remove obsolete ed25519 feature\n\nRemove the obsolete `std` feature from the Zed extension's `ed25519-dalek` 3 dependency while keeping default features disabled.\n\nThis restores native tests and the packaged WASM build after the major dependency update in #1951.",
-          "timestamp": "2026-07-22T13:31:16+02:00",
-          "tree_id": "01938b811854bcce502f124c1eb5372673886973",
-          "url": "https://github.com/fallow-rs/fallow/commit/038aa0b9c9c0ef61c699ced92aa110f7df93dd32"
-        },
-        "date": 1784720296196,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1c08e714744061b81d58b5a439f78d5a6a541980"
         },
         "date": 1786468457580,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "54082f0b474b7c47239cd3543d7595e068c35009",
+          "message": "chore(deps): move the Oxc tooling to oxlint 1.78 and oxfmt 0.63 (#2204)\n\nBoth released past the versions the open bumps targeted. The linter\nfinds nothing new in either scope; the formatter hugs a single arrow\nargument in one file, which is the only source change here.",
+          "timestamp": "2026-08-11T19:42:55+02:00",
+          "tree_id": "95eff3e60315fbab41158b76e88f14a320e6f2a6",
+          "url": "https://github.com/fallow-rs/fallow/commit/54082f0b474b7c47239cd3543d7595e068c35009"
+        },
+        "date": 1786470549940,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
