@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786477597439,
+  "lastUpdate": 1786481928749,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "811fa409b4aecaddf64596646e9c5553a6327882",
-          "message": "refactor: group dependency override inputs",
-          "timestamp": "2026-07-14T19:23:11+02:00",
-          "tree_id": "d2c9b75e9f93144ab387cdfc9d3320b6cd5f8a73",
-          "url": "https://github.com/fallow-rs/fallow/commit/811fa409b4aecaddf64596646e9c5553a6327882"
-        },
-        "date": 1784050427165,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 423515560,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-lsp)",
-            "value": 18607168,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-mcp)",
-            "value": 23895672,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-multicall)",
-            "value": 34662936,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow-multicall)",
             "value": 37614872,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1c59d2d951cfc5092da157e4a567bf2262112354",
+          "message": "fix(health): make threshold-override rows agree with their findings (#2207)\n\nFollow-up to #2163. Five defects a pre-ship review found after that work landed: the `<component>` rollup never consulted the override resolver, `outstanding` swapped dimensions between same-named units, a `maxUnitSize`-only override was silent when it matched and loud when it did not, status was scored per ceiling in isolation and contradicted its own `outstanding`, and CodeClimate plus github-annotations still quoted the run-global threshold while SARIF and human quoted the effective one. Each was reproduced against a pristine main build and re-checked after. With no overrides configured the JSON envelope is byte-identical to main on four fixtures and two real projects. No wire shape change; the health schema stays at version 10.\n\nRefs #2163",
+          "timestamp": "2026-08-11T22:39:35+02:00",
+          "tree_id": "43bfa549674eed778b9fc427635ffa178dbed6cf",
+          "url": "https://github.com/fallow-rs/fallow/commit/1c59d2d951cfc5092da157e4a567bf2262112354"
+        },
+        "date": 1786481923997,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 492724824,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-lsp)",
+            "value": 19845584,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-mcp)",
+            "value": 25185544,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-multicall)",
+            "value": 37623448,
             "unit": "bytes"
           }
         ]
