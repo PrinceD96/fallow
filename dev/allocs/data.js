@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786480441435,
+  "lastUpdate": 1786481041583,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4e46717fc4b5822227380febf2955468e5473f83",
-          "message": "fix(audit): silence Windows unnecessary_wraps on ownership no-op\n\nThe release-validation Windows Clippy job flagged\nclippy::unnecessary_wraps on the #[cfg(not(unix))] ensure_cache_entry_is_owned\nstub: it always returns Ok(()) because there is no POSIX owner to verify on\nnon-Unix. The io::Result signature must mirror the fallible Unix ownership\ncheck, so annotate the stub with #[expect(clippy::unnecessary_wraps)],\nmatching the sibling stubs in crates/engine/src/repo_refs.rs.",
-          "timestamp": "2026-07-15T19:34:51+02:00",
-          "tree_id": "dd7327aec050e87acb7f5c0dd63d50e2e2eb875c",
-          "url": "https://github.com/fallow-rs/fallow/commit/4e46717fc4b5822227380febf2955468e5473f83"
-        },
-        "date": 1784137113881,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10252680,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54310,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 55314,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 970653,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7604,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1c59d2d951cfc5092da157e4a567bf2262112354",
+          "message": "fix(health): make threshold-override rows agree with their findings (#2207)\n\nFollow-up to #2163. Five defects a pre-ship review found after that work landed: the `<component>` rollup never consulted the override resolver, `outstanding` swapped dimensions between same-named units, a `maxUnitSize`-only override was silent when it matched and loud when it did not, status was scored per ceiling in isolation and contradicted its own `outstanding`, and CodeClimate plus github-annotations still quoted the run-global threshold while SARIF and human quoted the effective one. Each was reproduced against a pristine main build and re-checked after. With no overrides configured the JSON envelope is byte-identical to main on four fixtures and two real projects. No wire shape change; the health schema stays at version 10.\n\nRefs #2163",
+          "timestamp": "2026-08-11T22:39:35+02:00",
+          "tree_id": "43bfa549674eed778b9fc427635ffa178dbed6cf",
+          "url": "https://github.com/fallow-rs/fallow/commit/1c59d2d951cfc5092da157e4a567bf2262112354"
+        },
+        "date": 1786481036912,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10607560,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55300,
             "unit": "allocations"
           },
           {
