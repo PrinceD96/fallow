@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786462671541,
+  "lastUpdate": 1786465381968,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1fbe048925397c809a429d640fd07d7df958e67f",
-          "message": "fix(ci): hold incompatible React Vite plugin major\n\nKeep @vitejs/plugin-react on its Vite 7-compatible major while electron-vite 5 prevents the review app from moving to Vite 8. A clean install of the proposed plugin major fails its peer dependency resolution.\n\nExtend the repository policy test so Dependabot cannot reopen that incompatible major independently.",
-          "timestamp": "2026-07-22T12:06:59+02:00",
-          "tree_id": "5754ad1e137637c751ebca571c1ce45820bd01a9",
-          "url": "https://github.com/fallow-rs/fallow/commit/1fbe048925397c809a429d640fd07d7df958e67f"
-        },
-        "date": 1784716209870,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4934a353b9e283a1e8880ba0ce7545d98ab71e0c"
         },
         "date": 1786462668040,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1ef78a594e3d1268175741a628ac8f417542b5b1",
+          "message": "fix(audit): reclaim abandoned base-snapshot caches across repo hashes (#2203)\n\nFixes #2169",
+          "timestamp": "2026-08-11T17:56:48+02:00",
+          "tree_id": "b500ae4004e0f6cef60716805562ba2318781f8e",
+          "url": "https://github.com/fallow-rs/fallow/commit/1ef78a594e3d1268175741a628ac8f417542b5b1"
+        },
+        "date": 1786465377899,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
