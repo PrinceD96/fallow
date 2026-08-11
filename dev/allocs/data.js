@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786462053039,
+  "lastUpdate": 1786464727355,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "hi@ryolambert.dev",
-            "name": "Ryo Lambert",
-            "username": "ryolambert"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1675bfc3f0debd0b40e81f3b6d3ba0aa46ab19dd",
-          "message": "feat(cli): add root-owned audit cache cleanup\n\nAdd root-keyed reusable audit base snapshots with full-SHA readiness, explicit lock release, private cache ownership checks, and safe Git admin cleanup.\n\nExpose fallow audit-cache remove --root with dry-run and structured JSON, reclaim legacy entries, and synchronize generated skill contracts.\n\nThanks to Ryo Lambert for the original contribution.",
-          "timestamp": "2026-07-15T11:44:29+02:00",
-          "tree_id": "52cc4ae2f99c03f089e34c0a04d163275905f5b2",
-          "url": "https://github.com/fallow-rs/fallow/commit/1675bfc3f0debd0b40e81f3b6d3ba0aa46ab19dd"
-        },
-        "date": 1784109198497,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10254968,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54309,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 55240,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 970653,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7604,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1ef78a594e3d1268175741a628ac8f417542b5b1",
+          "message": "fix(audit): reclaim abandoned base-snapshot caches across repo hashes (#2203)\n\nFixes #2169",
+          "timestamp": "2026-08-11T17:56:48+02:00",
+          "tree_id": "b500ae4004e0f6cef60716805562ba2318781f8e",
+          "url": "https://github.com/fallow-rs/fallow/commit/1ef78a594e3d1268175741a628ac8f417542b5b1"
+        },
+        "date": 1786464723484,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10612056,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55286,
             "unit": "allocations"
           },
           {
