@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786463238967,
+  "lastUpdate": 1786469146027,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9314f204e4aac4c803bf725056fe502effe5d2e5",
-          "message": "fix: harden analysis correctness and verification\n\nCorrect star re-export default semantics, store license tokens through private atomic files, and clean completed MCP process trees. Preserve exact changed-file paths across the GitHub Action boundary.\n\nExercise packaged launchers and repository scripts in CI, refresh security and ownership guidance, and add benchmark-backed indexes for named re-export stubs and workspace bucketing. The higher-risk re-export fixpoint rewrite remains out of scope because current measurements do not justify it.",
-          "timestamp": "2026-07-14T14:38:26+02:00",
-          "tree_id": "0682a832ceb6207fbdb281a5c023ae8f4abfdd80",
-          "url": "https://github.com/fallow-rs/fallow/commit/9314f204e4aac4c803bf725056fe502effe5d2e5"
-        },
-        "date": 1784034039729,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 423306576,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-lsp)",
-            "value": 18567392,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-mcp)",
-            "value": 23862200,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-multicall)",
-            "value": 34618456,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow-multicall)",
             "value": 37494152,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1c08e714744061b81d58b5a439f78d5a6a541980",
+          "message": "fix(health): apply thresholdOverrides to synthetic SFC template findings (#2168)\n\nFixes #2163",
+          "timestamp": "2026-08-11T18:39:05+02:00",
+          "tree_id": "c6b99a342562c7635b7bc5c8ce964e7b6116e4bd",
+          "url": "https://github.com/fallow-rs/fallow/commit/1c08e714744061b81d58b5a439f78d5a6a541980"
+        },
+        "date": 1786469142720,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 493242992,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-lsp)",
+            "value": 19819088,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-mcp)",
+            "value": 25156680,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-multicall)",
+            "value": 37586072,
             "unit": "bytes"
           }
         ]
