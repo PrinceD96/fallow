@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786471256469,
+  "lastUpdate": 1786473772695,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "29308d1c2e3a4ec957e2115bd906175abf6656a8",
-          "message": "fix(ci): repair dependency validation gaps\n\nRequire the path-specific Zed job in aggregate CI, with a policy test preventing accidental removal.\n\nMake Electron E2E runs deterministic by reviewing isolated Git fixtures and resolving an available release, debug, or PATH binary. Keep screenshot capture separate from asserted E2E runs.",
-          "timestamp": "2026-07-22T13:52:10+02:00",
-          "tree_id": "98d934b1d294a01d40249c76b9c1d4a998a85eb0",
-          "url": "https://github.com/fallow-rs/fallow/commit/29308d1c2e3a4ec957e2115bd906175abf6656a8"
-        },
-        "date": 1784721413077,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a6848ae481aa99f6b79db69406569dcba1e99ff9"
         },
         "date": 1786471251877,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "4dadd3021e5c0dfae34229041753c0dc0ae21237",
+          "message": "fix(engine): pass forward-slashed paths to the untracked-file diff on Windows",
+          "timestamp": "2026-08-11T20:37:13+02:00",
+          "tree_id": "fb8c2f2b735a4f05795161be68e9f347eb4af493",
+          "url": "https://github.com/fallow-rs/fallow/commit/4dadd3021e5c0dfae34229041753c0dc0ae21237"
+        },
+        "date": 1786473768397,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
