@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786470553708,
+  "lastUpdate": 1786471256469,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "c2e967fdb4fcd2bbe8d5fbaa4a09732369c418bc",
-          "message": "fix(ci): make fuzzing operational\n\nRun every cargo-fuzz harness under AddressSanitizer for relevant pull requests and pushes, with a longer weekly campaign. Pin the nightly toolchain and cargo-fuzz version, validate locked dependencies, and preserve crash inputs as workflow artifacts.\n\nAlign corpus directories with their target names, enforce the workflow contract in policy tests, and exclude seed fixtures from fallow self-analysis. Keep each run bounded while allowing every target to execute even when an earlier target fails.",
-          "timestamp": "2026-07-22T13:44:53+02:00",
-          "tree_id": "3e430dfb011514b7aae61fb1a7ac00f5ff0b9969",
-          "url": "https://github.com/fallow-rs/fallow/commit/c2e967fdb4fcd2bbe8d5fbaa4a09732369c418bc"
-        },
-        "date": 1784721078139,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/54082f0b474b7c47239cd3543d7595e068c35009"
         },
         "date": 1786470549940,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a6848ae481aa99f6b79db69406569dcba1e99ff9",
+          "message": "test(vscode): pin combined and health envelopes at schema 10 (#2205)\n\nRepairs the VS Code Extension job on main after the combined/health schema moved to 10.",
+          "timestamp": "2026-08-11T19:55:02+02:00",
+          "tree_id": "05d258d6e81db276f7b00e619ada4be1bd304981",
+          "url": "https://github.com/fallow-rs/fallow/commit/a6848ae481aa99f6b79db69406569dcba1e99ff9"
+        },
+        "date": 1786471251877,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
