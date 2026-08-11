@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786473772695,
+  "lastUpdate": 1786480653829,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "73cc071cf4d346cfc867e9270fc726a1e9977f8b",
-          "message": "fix: credit Next.js fallback metadata exports\n\nNext.js resolves metadata and viewport exports from App Router fallback modules. Credit those framework-consumed exports for not-found, default, forbidden, unauthorized, and root global-not-found files while leaving unsupported special files and arbitrary helpers reportable.\n\nAdd exact plugin and integration coverage for static and generated forms, plus negative controls that preserve unused-export precision.\n\nFixes #1987.",
-          "timestamp": "2026-07-22T16:21:32+02:00",
-          "tree_id": "e0c96fb111ba5451a29f575ef613f280b8e311f9",
-          "url": "https://github.com/fallow-rs/fallow/commit/73cc071cf4d346cfc867e9270fc726a1e9977f8b"
-        },
-        "date": 1784730526927,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4dadd3021e5c0dfae34229041753c0dc0ae21237"
         },
         "date": 1786473768397,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1e09e51be050e6af76ec086f8e7da59e23da4d79",
+          "message": "fix: sync the npm package versions with the 3.15.0 workspace (#2208)\n\nThe release moved the Rust workspace to 3.15.0 without running the npm\nversion sync, so the type-aware companion and the node bindings stayed\nat 3.14.0. The CLI refuses a companion whose version does not match, so\nthree audit tests fail on main, and the repository policy test asserts\nthe same equality directly.",
+          "timestamp": "2026-08-11T22:29:47+02:00",
+          "tree_id": "11e02ea0ebe1c5b43a50b464883112635f841f59",
+          "url": "https://github.com/fallow-rs/fallow/commit/1e09e51be050e6af76ec086f8e7da59e23da4d79"
+        },
+        "date": 1786480648405,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
