@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786480653829,
+  "lastUpdate": 1786481601824,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "85f36fcdf367ea349cb77b6f647f7ae24e755236",
-          "message": "chore: release v3.8.0",
-          "timestamp": "2026-07-22T17:08:05+02:00",
-          "tree_id": "99667e89bdc6e3390f7dd3e630c015a1d41334fa",
-          "url": "https://github.com/fallow-rs/fallow/commit/85f36fcdf367ea349cb77b6f647f7ae24e755236"
-        },
-        "date": 1784733476948,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1e09e51be050e6af76ec086f8e7da59e23da4d79"
         },
         "date": 1786480648405,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4b48d655bae0d7948d2d225b2a5ee940ec7af6b3",
+          "message": "ci: retry the ecosystem project clone (#2206)\n\nThe analysis step in this workflow is deliberately non-gating, but the\nclone above it was not, so a transient TLS error while fetching a\nthird-party repository failed the whole job. That is what happened on\nthe next.js matrix entry: git reported a certificate verification\nfailure and the run went red while the same job passed on main before\nand after.\n\nRetry the clone three times with a growing pause, and keep failing\nloudly if it still does not succeed, so a genuinely moved or renamed\nrepository is still reported.",
+          "timestamp": "2026-08-11T22:44:10+02:00",
+          "tree_id": "c4186180c2e30091be3547d4fc602fed612cc47c",
+          "url": "https://github.com/fallow-rs/fallow/commit/4b48d655bae0d7948d2d225b2a5ee940ec7af6b3"
+        },
+        "date": 1786481597772,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
