@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786551737383,
+  "lastUpdate": 1786552668363,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d9937cde797ecea0cd015ddacedd58a2fd867071",
-          "message": "chore: release v3.7.0",
-          "timestamp": "2026-07-20T08:43:24+02:00",
-          "tree_id": "bce3fd11936daa8818656b2eb8dd3d83dfb77156",
-          "url": "https://github.com/fallow-rs/fallow/commit/d9937cde797ecea0cd015ddacedd58a2fd867071"
-        },
-        "date": 1784530068773,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10242668,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54292,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 55228,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 970653,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7604,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jernej.barbaric@gmail.com",
+            "name": "Jerc92",
+            "username": "Jerc92"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6d086f80e1224f2534ae12a0945efcd8f3b6f828",
+          "message": "fix(core): keep package tooling out of production reachability (#2211)\n\nCo-authored-by: Jernej Barbaric <jernej.barbaric@login5.org>\nCo-authored-by: Bart Waardenburg <bart@waardenburg.dev>",
+          "timestamp": "2026-08-12T18:30:49+02:00",
+          "tree_id": "fc7038f62744b8f9baaf0ebe20fe80572f7b8ef4",
+          "url": "https://github.com/fallow-rs/fallow/commit/6d086f80e1224f2534ae12a0945efcd8f3b6f828"
+        },
+        "date": 1786552665339,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10583158,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55215,
             "unit": "allocations"
           },
           {
