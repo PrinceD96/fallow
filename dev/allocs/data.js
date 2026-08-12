@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786546146213,
+  "lastUpdate": 1786550038021,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6fbcd06f18ee0f2423fef4b4f5d63c92f54c4d6d",
-          "message": "perf(analysis): harden super-linear paths found by the #1843 audit\n\nFollow-up to the #1843 taint-memory fix. Bounds or linearizes eight more paths with the same accumulator/scan pathology: duplicate-export and class-heritage grouping, star re-export propagation, object-binding and factory-return candidate caps, incremental JSDoc brace scanning, depth-guarded template and CSS-in-JS scanners (stack-overflow hardening), and linearized health-time line/mask scanners. Behavior-preserving on ordinary code (verified byte-identical old-vs-new across the fixture corpus). CACHE_VERSION 236 to 237 for the candidate caps.\n\nFollow-up to #1843.",
-          "timestamp": "2026-07-20T00:35:50+02:00",
-          "tree_id": "877ff829d7479d2103da37820e88ae78c8ca7e98",
-          "url": "https://github.com/fallow-rs/fallow/commit/6fbcd06f18ee0f2423fef4b4f5d63c92f54c4d6d"
-        },
-        "date": 1784500891117,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10266916,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54320,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 55214,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 970653,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7604,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b2837f8c10b4da6bdc3282ccc517a6499afbdf58",
+          "message": "fix(graph): drop speculative mock candidates that resolve to package space (#2224)\n\nFactory-less jest.mock/vi.mock of a bare scoped specifier synthesized a __mocks__ sibling candidate that classified as an npm package, bypassing the speculative drop guard and surfacing as a phantom unlisted-dependency finding (@scope/__mocks__) that blocks gated CI in Jest projects. Drop speculative dynamic-import candidates that resolve to package space, bump GRAPH_CACHE_VERSION so warm caches stop replaying the phantom edges, and pin the behavior with resolver unit tests and an end-to-end regression test.\n\nCloses #2213",
+          "timestamp": "2026-08-12T15:48:49Z",
+          "tree_id": "348c34a0caa6ec65725906befd884c04f3ca245b",
+          "url": "https://github.com/fallow-rs/fallow/commit/b2837f8c10b4da6bdc3282ccc517a6499afbdf58"
+        },
+        "date": 1786550034445,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10646568,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55313,
             "unit": "allocations"
           },
           {
