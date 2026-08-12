@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786563714409,
+  "lastUpdate": 1786567729446,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1548c96af4d6675a0a8488d7e0690fcc07f4413c",
-          "message": "fix: validate Impact statusline flags",
-          "timestamp": "2026-07-24T00:38:29+02:00",
-          "tree_id": "d420bbd1259a67fbbe665d24342ae26a8699d078",
-          "url": "https://github.com/fallow-rs/fallow/commit/1548c96af4d6675a0a8488d7e0690fcc07f4413c"
-        },
-        "date": 1784846628276,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ce300ac5a840a0728d026e0606c132883c27d988"
         },
         "date": 1786563710835,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "798918a2a34a323508e510631a49c3cc67faa7b9",
+          "message": "ci: retry the image and template downloads (#2238)\n\nThe Docker job on main failed with curl exit 22 on a 503 while fetching\nthe release asset. Both this download and the GitLab template's script\nbootstrap verify what they receive but had nothing covering whether the\nrequest arrives at all.\n\ncurl treats 5xx as transient, so --retry covers exactly the observed\nfailure. The template already degrades with a warning per missing\nscript; retrying first means it degrades far less often.",
+          "timestamp": "2026-08-12T22:43:23+02:00",
+          "tree_id": "2eb9a780eff24fbd293e050fbd90632af72e9843",
+          "url": "https://github.com/fallow-rs/fallow/commit/798918a2a34a323508e510631a49c3cc67faa7b9"
+        },
+        "date": 1786567725968,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
