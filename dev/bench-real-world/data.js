@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786436095751,
+  "lastUpdate": 1786522916101,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "committer": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "id": "b82e6eab66c63d51f7cf1f19f575699414ebb9b9",
-          "message": "fix: use slurpfile for PR files to avoid ARG_MAX on large PRs\n\nThe --argjson flag inlines the entire PR files JSON on the command line,\nwhich exceeds ARG_MAX for PRs with 100+ files (each carrying patch data).\nSwitch to --slurpfile which reads from a temp file instead. The jq script\nnormalizes both formats so tests using --argjson still work.",
-          "timestamp": "2026-04-03T08:05:37Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/b82e6eab66c63d51f7cf1f19f575699414ebb9b9"
-        },
-        "date": 1775203775536,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "preact (cold)",
-            "value": 43,
-            "unit": "ms"
-          },
-          {
-            "name": "preact (warm)",
-            "value": 39,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (cold)",
-            "value": 59,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (warm)",
-            "value": 42,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (cold)",
-            "value": 40,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (warm)",
-            "value": 36,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (cold)",
-            "value": 111,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (warm)",
-            "value": 92,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (cold)",
-            "value": 448,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (warm)",
-            "value": 425,
-            "unit": "ms"
-          },
-          {
-            "name": "query (cold)",
-            "value": 337,
-            "unit": "ms"
-          },
-          {
-            "name": "query (warm)",
-            "value": 321,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (cold)",
-            "value": 225,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (warm)",
-            "value": 215,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (cold)",
-            "value": 1938,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (warm)",
-            "value": 1854,
-            "unit": "ms"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9659,6 +9557,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1326,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "354ee1c6a92bdf2e8f84c336cb35e22eff039dd8",
+          "message": "chore(docker): pin FALLOW_VERSION 3.15.0 with refreshed checksums",
+          "timestamp": "2026-08-12T07:51:43Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/354ee1c6a92bdf2e8f84c336cb35e22eff039dd8"
+        },
+        "date": 1786522910279,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 206,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 306,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 615,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 510,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1741,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1431,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1327,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1022,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1429,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1328,
             "unit": "ms"
           }
         ]
