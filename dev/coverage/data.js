@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786521636473,
+  "lastUpdate": 1786524073294,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "fe967602b0e6c71225406ab1dcb2087f2cbee9f3",
-          "message": "chore: integrate trigger-tree agent telemetry\n\nIntegrate trigger-tree v1.21.0 for Codex and Claude Code with pinned plugin sources and project-specific documentation routing.\n\nKeep Fallow prompt telemetry hash-only, use an off fallback for unconfigured Codex repositories, preserve existing hooks, and document hook trust, upgrades, privacy, and removal.\n\nValidate both clients with real host sessions, client-attributed events, prompt privacy probes, healthy doctors, and repository gates.",
-          "timestamp": "2026-07-23T14:25:14+02:00",
-          "tree_id": "e8a9034fa9d07b180466002c0cdd0d1256a79a2b",
-          "url": "https://github.com/fallow-rs/fallow/commit/fe967602b0e6c71225406ab1dcb2087f2cbee9f3"
-        },
-        "date": 1784809782510,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/354ee1c6a92bdf2e8f84c336cb35e22eff039dd8"
         },
         "date": 1786521632834,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "14a4e64476d1d4f019de1f6e8c7f26ddf5c8e613",
+          "message": "docs(release): name the two version-bearing manifests outside the bump (#2214)\n\nStep 8 said \"every version-bearing artifact\", which named neither of the two manifests that sit outside the workspace bump and follow opposite rules. v3.15.0 left `tools/type-aware-sidecar` at 3.14.0 and went red on Windows validation; the repair then bumped `crates/napi` too, which broke npm ci on unresolvable platform entries and had to be reverted. The step now names both, their opposite rules, and the lockfile check that version-string assertions miss.",
+          "timestamp": "2026-08-12T10:35:27+02:00",
+          "tree_id": "8c5b9b57a264d9ace4b0eb2fe32a369c7414d3c7",
+          "url": "https://github.com/fallow-rs/fallow/commit/14a4e64476d1d4f019de1f6e8c7f26ddf5c8e613"
+        },
+        "date": 1786524068579,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
