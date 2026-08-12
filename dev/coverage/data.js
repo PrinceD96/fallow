@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786557742002,
+  "lastUpdate": 1786560974376,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "b9f65158db327fba64d2bad2ebb216c1e4bb4693",
-          "message": "chore: release v3.9.0",
-          "timestamp": "2026-07-23T23:35:52+02:00",
-          "tree_id": "30f8f746d0053f3a648f8ec516604b605572a26b",
-          "url": "https://github.com/fallow-rs/fallow/commit/b9f65158db327fba64d2bad2ebb216c1e4bb4693"
-        },
-        "date": 1784843255459,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4f756e1f90972efa4190ca4f00ba6a3df3642b9b"
         },
         "date": 1786557737847,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6abca717a7d9a561014364f420e64c5358731683",
+          "message": "chore(deps): bump CodSpeedHQ/action to v5.0.3 (#2233)\n\nPatch release over the v5 measurement change already in place: it retries\npinned binary downloads and accepts the estimation flags without a value.\nNo baseline impact.",
+          "timestamp": "2026-08-12T20:46:05+02:00",
+          "tree_id": "dcc1b25aa798dd46bd979078a80bdd083788700f",
+          "url": "https://github.com/fallow-rs/fallow/commit/6abca717a7d9a561014364f420e64c5358731683"
+        },
+        "date": 1786560970337,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
