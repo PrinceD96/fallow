@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786524693283,
+  "lastUpdate": 1786539247729,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "f2561ae8d7e7b3a4b602f8056a9531ce76e6ebf7",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v3.8.1",
-          "timestamp": "2026-07-23T16:53:11+02:00",
-          "tree_id": "84fbfbf791f4d366d4c0389a2d7615ff5f826c0f",
-          "url": "https://github.com/fallow-rs/fallow/commit/f2561ae8d7e7b3a4b602f8056a9531ce76e6ebf7"
-        },
-        "date": 1784818911339,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1a470d104851cfa3373eb836f915ccfdc8fb3147"
         },
         "date": 1786524689770,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "bca40b53bffdfb518c8d65d1795847d8be1367ba",
+          "message": "ci(release): drop the duplicate sidecar version check from the dispatch gate",
+          "timestamp": "2026-08-12T14:44:59+02:00",
+          "tree_id": "65a927db25cea89a864f527e44af9234e9731115",
+          "url": "https://github.com/fallow-rs/fallow/commit/bca40b53bffdfb518c8d65d1795847d8be1367ba"
+        },
+        "date": 1786539243695,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
