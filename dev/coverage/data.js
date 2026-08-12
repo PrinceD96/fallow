@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786545982500,
+  "lastUpdate": 1786550217819,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "46297d2677f54cc64d51d9d308e79016fadd19c3",
-          "message": "chore: refresh vendored Fallow skill\n\nRefresh the bundled npm skill from the current canonical fallow-skills repository.\n\nInclude the OpenAI agent manifest and remove metadata no longer present in the canonical skill so the push-only vendor drift gate is green again.",
-          "timestamp": "2026-07-23T19:40:13+02:00",
-          "tree_id": "87d561717a6f0420c349e25060ff53fd0cce22ab",
-          "url": "https://github.com/fallow-rs/fallow/commit/46297d2677f54cc64d51d9d308e79016fadd19c3"
-        },
-        "date": 1784828752390,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/73bb630b9510462e3139b3a65ba0179999380752"
         },
         "date": 1786545977945,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b2837f8c10b4da6bdc3282ccc517a6499afbdf58",
+          "message": "fix(graph): drop speculative mock candidates that resolve to package space (#2224)\n\nFactory-less jest.mock/vi.mock of a bare scoped specifier synthesized a __mocks__ sibling candidate that classified as an npm package, bypassing the speculative drop guard and surfacing as a phantom unlisted-dependency finding (@scope/__mocks__) that blocks gated CI in Jest projects. Drop speculative dynamic-import candidates that resolve to package space, bump GRAPH_CACHE_VERSION so warm caches stop replaying the phantom edges, and pin the behavior with resolver unit tests and an end-to-end regression test.\n\nCloses #2213",
+          "timestamp": "2026-08-12T15:48:49Z",
+          "tree_id": "348c34a0caa6ec65725906befd884c04f3ca245b",
+          "url": "https://github.com/fallow-rs/fallow/commit/b2837f8c10b4da6bdc3282ccc517a6499afbdf58"
+        },
+        "date": 1786550214371,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
