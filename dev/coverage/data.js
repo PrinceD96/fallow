@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786524073294,
+  "lastUpdate": 1786524693283,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "69be8fc7a004f28e7a43e3ed3d9ad3eb64b962f7",
-          "message": "chore: release v3.8.1",
-          "timestamp": "2026-07-23T15:07:31+02:00",
-          "tree_id": "08640f77484c57a195e14940f1dbb8ce096343df",
-          "url": "https://github.com/fallow-rs/fallow/commit/69be8fc7a004f28e7a43e3ed3d9ad3eb64b962f7"
-        },
-        "date": 1784812604411,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/14a4e64476d1d4f019de1f6e8c7f26ddf5c8e613"
         },
         "date": 1786524068579,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1a470d104851cfa3373eb836f915ccfdc8fb3147",
+          "message": "ci: gate the release on the type-aware companion version (#2215)\n\nThe v3.15.0 release commit bumped the workspace without bumping the\ncompanion, so the CLI it produced refused to run type-aware analysis.\nThat surfaced in the Windows validation job, and once the commit was on\nmain it failed the audit tests there too.\n\nCheck the companion against the workspace version in the step that\nalready verifies the tag, before anything is built or published, and\npoint at the fix in the error rather than at the sync script, which\nwould also move the node bindings ahead of publish.",
+          "timestamp": "2026-08-12T10:44:40+02:00",
+          "tree_id": "dbfccd70e00514d5ce8225050e31e7ef25384bc3",
+          "url": "https://github.com/fallow-rs/fallow/commit/1a470d104851cfa3373eb836f915ccfdc8fb3147"
+        },
+        "date": 1786524689770,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
