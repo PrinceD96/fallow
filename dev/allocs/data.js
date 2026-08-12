@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786521179943,
+  "lastUpdate": 1786538762039,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "398af909d30e0c68541fa2c089da743b7b30dda2",
-          "message": "docs: document the multicall crate in the project-structure map",
-          "timestamp": "2026-07-16T14:33:43+02:00",
-          "tree_id": "e43c65ed411a8a7830da2b897f363277bf40ed68",
-          "url": "https://github.com/fallow-rs/fallow/commit/398af909d30e0c68541fa2c089da743b7b30dda2"
-        },
-        "date": 1784205464560,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10264200,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54318,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 55300,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 970653,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7604,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c97f4b9dbb324e655c5e66e0f10b205a36381fc6",
+          "message": "Merge pull request #2212 from fallow-rs/feat/css-reference-index-perf\n\nrefactor: index CSS reference lookups",
+          "timestamp": "2026-08-12T14:40:50+02:00",
+          "tree_id": "83d7481b74a847bc52a2abeabc69ad9604c3bcc6",
+          "url": "https://github.com/fallow-rs/fallow/commit/c97f4b9dbb324e655c5e66e0f10b205a36381fc6"
+        },
+        "date": 1786538757824,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10613480,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55308,
             "unit": "allocations"
           },
           {
