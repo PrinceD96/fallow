@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786560458343,
+  "lastUpdate": 1786571309553,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e20398e0809c10d47a46af8a351cdcef12d40285",
-          "message": "fix(napi): restore @emnapi lockfile entries for cross-platform npm ci",
-          "timestamp": "2026-07-20T10:26:26+02:00",
-          "tree_id": "1cba20c4652fad2f21bc72491afc5bfe6ea2f9ba",
-          "url": "https://github.com/fallow-rs/fallow/commit/e20398e0809c10d47a46af8a351cdcef12d40285"
-        },
-        "date": 1784536230839,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10258604,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54319,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 55306,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 970653,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7604,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dfc0bba8ba7635efb3832b4be26771714748515c",
+          "message": "Merge pull request #2240 from fallow-rs/feat/cache-production-exclude-globset\n\nperf: cache production exclude globset",
+          "timestamp": "2026-08-12T23:42:34+02:00",
+          "tree_id": "170ded617baca4a02249d86faff91c588b9c8ab0",
+          "url": "https://github.com/fallow-rs/fallow/commit/dfc0bba8ba7635efb3832b4be26771714748515c"
+        },
+        "date": 1786571306462,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10033034,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 51545,
             "unit": "allocations"
           },
           {
