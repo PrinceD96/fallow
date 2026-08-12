@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786540029868,
+  "lastUpdate": 1786543007546,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "91869523531eca1fe5aae45af2d4fe6a6b6a385b",
-          "message": "chore: upgrade trigger-tree to v1.23.1\n\nPin the Claude and Codex Trigger Tree integrations to v1.23.1 and its exact tagged commit. Use the upstream user-wide configuration layer for marker-only defaults while preserving Fallow's project hash override.\n\nKeep Codex CLI 0.144.6 deterministic through a local tag-exact marketplace entry until upstream issue #6 is resolved, without modifying Trigger Tree runtime code.",
-          "timestamp": "2026-07-23T17:39:24+02:00",
-          "tree_id": "f8859588b08b25c6d32f74f78b13832e927e2959",
-          "url": "https://github.com/fallow-rs/fallow/commit/91869523531eca1fe5aae45af2d4fe6a6b6a385b"
-        },
-        "date": 1784821460429,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/038c5922e7a6f0fcf8a8dc636cb93b20d6969432"
         },
         "date": 1786540026564,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "32b6a010485b317873f5788dd1d83cf1cf3067fa",
+          "message": "Merge pull request #2223 from fallow-rs/feat/css-inventory-reuse\n\nperf(engine): reuse CSS class inventory",
+          "timestamp": "2026-08-12T15:50:14+02:00",
+          "tree_id": "f6c2b68cbc5b9c77db24f1c952461c045eefa37b",
+          "url": "https://github.com/fallow-rs/fallow/commit/32b6a010485b317873f5788dd1d83cf1cf3067fa"
+        },
+        "date": 1786543003690,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
