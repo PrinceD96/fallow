@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786576222087,
+  "lastUpdate": 1786578600862,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "fe1b11d8f5f17b94a26e2434b1c56c55c136a0a8",
-          "message": "test: derive type-aware version from package metadata",
-          "timestamp": "2026-07-27T13:26:02+02:00",
-          "tree_id": "6c5e4345ecf158602fd960385984b3ed45ded499",
-          "url": "https://github.com/fallow-rs/fallow/commit/fe1b11d8f5f17b94a26e2434b1c56c55c136a0a8"
-        },
-        "date": 1785151899677,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f86dc17482f42b69dc50a1bc3875c1c3812342b9"
         },
         "date": 1786576218649,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "36197a403b1deca55231fc95a6e4f41bfcef054f",
+          "message": "Merge pull request #2243 from fallow-rs/feat/security-control-predicate-order\n\nperf(extract): skip irrelevant package scans",
+          "timestamp": "2026-08-13T01:44:12+02:00",
+          "tree_id": "29b90777a6ba69cada2c04834e18a081f2cbaf3f",
+          "url": "https://github.com/fallow-rs/fallow/commit/36197a403b1deca55231fc95a6e4f41bfcef054f"
+        },
+        "date": 1786578597011,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
