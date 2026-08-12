@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786543007546,
+  "lastUpdate": 1786544996432,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "fd3770291d0495b80a8fc724b7c32a463a2f8949",
-          "message": "chore: upgrade trigger-tree to v1.23.2\n\nPin the Claude and Codex Trigger Tree integrations to v1.23.2 and its exact tagged commit. Use the official Codex marketplace now that relative plugin resolution makes the documented tag pin deterministic.\n\nPreserve the upstream user-wide marker-only default and Fallow's project hash override while removing the obsolete local marketplace wrapper.",
-          "timestamp": "2026-07-23T17:56:58+02:00",
-          "tree_id": "70783aeb270e7ad51ac35ed26b4c8e246642b700",
-          "url": "https://github.com/fallow-rs/fallow/commit/fd3770291d0495b80a8fc724b7c32a463a2f8949"
-        },
-        "date": 1784822577128,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/32b6a010485b317873f5788dd1d83cf1cf3067fa"
         },
         "date": 1786543003690,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e0d27b060044b5c8758ccbfc725779758652846e",
+          "message": "Merge pull request #2229 from fallow-rs/feat/css-lazy-token-candidates\n\nperf(engine): build styling token candidates lazily",
+          "timestamp": "2026-08-12T16:23:00+02:00",
+          "tree_id": "0a48cc90a4daa9b01c97a2fc2b661ae385ad293b",
+          "url": "https://github.com/fallow-rs/fallow/commit/e0d27b060044b5c8758ccbfc725779758652846e"
+        },
+        "date": 1786544992303,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
