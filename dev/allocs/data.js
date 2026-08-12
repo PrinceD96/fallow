@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786557564324,
+  "lastUpdate": 1786560458343,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "dbae50c8da7012a71ae84c7b1ae7582311390efe",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v3.7.0",
-          "timestamp": "2026-07-20T10:08:41+02:00",
-          "tree_id": "a9bcf8d24bd7eb11b679ec9d6b09a0ea96b42945",
-          "url": "https://github.com/fallow-rs/fallow/commit/dbae50c8da7012a71ae84c7b1ae7582311390efe"
-        },
-        "date": 1784535148400,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10254435,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54273,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 55303,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 970653,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7604,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "19606bfef48834a4d0844172f466c2438cb4256e",
+          "message": "Merge pull request #2234 from fallow-rs/feat/css-color-direct-parse-product\n\nperf(extract): parse CSS colors directly",
+          "timestamp": "2026-08-12T20:42:28+02:00",
+          "tree_id": "fa7b6fb416303e594914bf58d897cd758a294c2e",
+          "url": "https://github.com/fallow-rs/fallow/commit/19606bfef48834a4d0844172f466c2438cb4256e"
+        },
+        "date": 1786560454012,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10640680,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 55306,
             "unit": "allocations"
           },
           {
