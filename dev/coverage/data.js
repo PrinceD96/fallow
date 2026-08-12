@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786539247729,
+  "lastUpdate": 1786540029868,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "3b652718d6934f22e7418c3dc2c96fcf43c181b9",
-          "message": "chore: upgrade trigger-tree to v1.22.0\n\nPin the Claude and Codex Trigger Tree integrations to v1.22.0 and its exact tagged commit. Preserve Fallow's project prompt hashing and the Codex user-wide marker-only fallback.\n\nDocument and validate the new deterministic GitLab Code Quality output from the static documentation gate.",
-          "timestamp": "2026-07-23T17:10:33+02:00",
-          "tree_id": "46e205611ea647d87ff6ea7719f6fa78e7166a48",
-          "url": "https://github.com/fallow-rs/fallow/commit/3b652718d6934f22e7418c3dc2c96fcf43c181b9"
-        },
-        "date": 1784819702244,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/bca40b53bffdfb518c8d65d1795847d8be1367ba"
         },
         "date": 1786539243695,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jernej.barbaric@gmail.com",
+            "name": "Jerc92",
+            "username": "Jerc92"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "038c5922e7a6f0fcf8a8dc636cb93b20d6969432",
+          "message": "fix(ci): surface partial GitLab review posts (#2209)\n\nCo-authored-by: Jernej Barbaric <jernej.barbaric@login5.org>",
+          "timestamp": "2026-08-12T14:56:41+02:00",
+          "tree_id": "9cd3d7cae9145ad7cde876b5d54a2f18808d618d",
+          "url": "https://github.com/fallow-rs/fallow/commit/038c5922e7a6f0fcf8a8dc636cb93b20d6969432"
+        },
+        "date": 1786540026564,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
