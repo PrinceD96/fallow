@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786637957282,
+  "lastUpdate": 1786638931995,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "722e4a64347f3c7c544df5084ce9211b2aa18d25",
-          "message": "chore(napi): refresh 3.10.0 lockfile after publish",
-          "timestamp": "2026-07-27T21:01:11+02:00",
-          "tree_id": "d2da57f724338c0b0a8278f3bdab4b1706403c63",
-          "url": "https://github.com/fallow-rs/fallow/commit/722e4a64347f3c7c544df5084ce9211b2aa18d25"
-        },
-        "date": 1785179197715,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/008e2b2056841859745afae6b92047f847e5553e"
         },
         "date": 1786637952628,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "defaf599b13af50aa35df2138c3772c6a93de032",
+          "message": "test(audit): dump base duplicate-export keys in the demotion assert",
+          "timestamp": "2026-08-13T18:29:55+02:00",
+          "tree_id": "429b863690666afbf6eba0ad37f74e8aa5acfe4a",
+          "url": "https://github.com/fallow-rs/fallow/commit/defaf599b13af50aa35df2138c3772c6a93de032"
+        },
+        "date": 1786638928179,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
