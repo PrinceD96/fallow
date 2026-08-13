@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786638931995,
+  "lastUpdate": 1786639601483,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "52732287e06d6ca4886ec548c7686b7563724943",
-          "message": "fix(brand): tighten standalone icon safe area",
-          "timestamp": "2026-07-27T19:43:09Z",
-          "tree_id": "b9374c05679fd87b6e32abc8d8c77bd9031a3985",
-          "url": "https://github.com/fallow-rs/fallow/commit/52732287e06d6ca4886ec548c7686b7563724943"
-        },
-        "date": 1785181778254,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/defaf599b13af50aa35df2138c3772c6a93de032"
         },
         "date": 1786638928179,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "88507a56c272a0ec00cd59cc33c0405563f0ebf4",
+          "message": "test(audit): dump full base snapshot keys in the demotion assert",
+          "timestamp": "2026-08-13T18:41:16+02:00",
+          "tree_id": "e32ded3879f3fba7b45ba73d38937df13e0571ed",
+          "url": "https://github.com/fallow-rs/fallow/commit/88507a56c272a0ec00cd59cc33c0405563f0ebf4"
+        },
+        "date": 1786639597782,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
