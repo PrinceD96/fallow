@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786578331449,
+  "lastUpdate": 1786585647069,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "01779a66d8d2ec5e2ba905b1f409dce92cd7e03e",
-          "message": "chore: integrate Hawk and upgrade Rust to 1.97.1\n\nUpgrade the default, development, and Linux release toolchains to Rust 1.97.1 while preserving and correctly enforcing the Rust 1.92 MSRV.\n\nAdd a pinned, checksum-verified Hawk 0.1.9 workspace audit with protected contract crates, scheduled artifact retention, and contributor guidance. Keep dead-public removal informational until Hawk exposes stable cross-target identities.",
-          "timestamp": "2026-07-22T12:53:12+02:00",
-          "tree_id": "81f509db076e6aa89a6f3915a7f54b969b1d1656",
-          "url": "https://github.com/fallow-rs/fallow/commit/01779a66d8d2ec5e2ba905b1f409dce92cd7e03e"
-        },
-        "date": 1784717968763,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.35,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 444,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1154,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 1201,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "raihassanraza10@gmail.com",
+            "name": "Muhammad Hassan Raza",
+            "username": "M-Hassan-Raza"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9aa5e697ccead870f7137a39a758feb470f1dc72",
+          "message": "fix(graph): resolve effective barrel exports (#2210)\n\nResolves named and star re-exports through one graph-owned effective binding model: explicit-over-star precedence, ambiguous star collisions vs convergent diamonds, separate type/value namespaces with fallback lanes so real type declarations win over value-derived fallbacks, default exports excluded from star propagation, opaque bindings for external re-export surfaces, and canonical binding identity through usage propagation, public exports, duplicate analysis, traces, caches, and the type-aware sidecar. Explicit Options-API defaults earn render credit, extraction hardens binding resolution against name collisions, and workspace public-API entry points honor publicPackages.",
+          "timestamp": "2026-08-13T03:41:48+02:00",
+          "tree_id": "93ddc4687a7bc1f78ea09c196fac96b00d41f1b6",
+          "url": "https://github.com/fallow-rs/fallow/commit/9aa5e697ccead870f7137a39a758feb470f1dc72"
+        },
+        "date": 1786585643086,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 46,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.32,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 453,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1219,
             "unit": "count"
           }
         ]
