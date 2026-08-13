@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786626108541,
+  "lastUpdate": 1786628802412,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a495ce796f1c5f89fc07e5dd1f6c5fe0ca56bd1e",
-          "message": "chore(deps): resolve nested workspace updates\n\nApply the useful nested-workspace dependency updates with their required compatibility changes. Migrate review Electron to TypeScript 7 and Babel 8, align its Node types with the embedded runtime, and hold Vite majors until electron-vite supports them.\n\nUpdate the N-API generator and checked-in loader, remove the unused Tinybench dependency, and preserve the Dependabot boundaries with repository policy tests.",
-          "timestamp": "2026-07-22T11:40:49+02:00",
-          "tree_id": "0302c416f04c93061a12aca874961d92a870a905",
-          "url": "https://github.com/fallow-rs/fallow/commit/a495ce796f1c5f89fc07e5dd1f6c5fe0ca56bd1e"
-        },
-        "date": 1784713938867,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10319391,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54621,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7560,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "93e765835bf3aa5b3048468753ad0fd228bbef15",
+          "message": "perf: skip side-effect export indexes",
+          "timestamp": "2026-08-13T15:41:30+02:00",
+          "tree_id": "65970b121ab3e0902b67919ecf298a124e4db4eb",
+          "url": "https://github.com/fallow-rs/fallow/commit/93e765835bf3aa5b3048468753ad0fd228bbef15"
+        },
+        "date": 1786628798962,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10310066,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 52965,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1024347,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7578,
             "unit": "allocations"
           }
         ]
