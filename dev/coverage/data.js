@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786585853105,
+  "lastUpdate": 1786605214982,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "e207ccdcdd2f44b18d28030ef791e70ac5b1588c",
-          "message": "fix: preserve type-aware package binary",
-          "timestamp": "2026-07-27T14:10:43+02:00",
-          "tree_id": "ca8cda21c36ba83339f1b1c00ab4f97e53763fdf",
-          "url": "https://github.com/fallow-rs/fallow/commit/e207ccdcdd2f44b18d28030ef791e70ac5b1588c"
-        },
-        "date": 1785154565318,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/9aa5e697ccead870f7137a39a758feb470f1dc72"
         },
         "date": 1786585849671,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "95728543e804a0e4a4a0ca9dd239f328c6adde4d",
+          "message": "Merge pull request #2247 from fallow-rs/feat/manual-rust-walltime\n\nci: add manual Rust walltime benchmarks",
+          "timestamp": "2026-08-13T08:56:58+02:00",
+          "tree_id": "7fa519205f63b391d2b9936c8b61aa94b21f9c6c",
+          "url": "https://github.com/fallow-rs/fallow/commit/95728543e804a0e4a4a0ca9dd239f328c6adde4d"
+        },
+        "date": 1786605211089,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
