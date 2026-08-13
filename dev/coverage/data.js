@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786633501977,
+  "lastUpdate": 1786635641131,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "28810138faa8fdbc830b8d585d0c15d65c39c3fd",
-          "message": "test: scope process lint expectation to Unix",
-          "timestamp": "2026-07-27T18:36:55+02:00",
-          "tree_id": "81f7a366361951493117f4736d3a811d6effdf83",
-          "url": "https://github.com/fallow-rs/fallow/commit/28810138faa8fdbc830b8d585d0c15d65c39c3fd"
-        },
-        "date": 1785170551253,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/74f5a847a45709ef4d09a5d8f7918d6fcb70cb9d"
         },
         "date": 1786633497971,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8cde8ee26e9e0061403420077209b2395fb58901",
+          "message": "build(scripts): fail loudly when node resolution escapes the checkout (#2261)\n\nNode resolves bare specifiers by walking ancestor directories, and `npm run`\nextends PATH the same way. A checkout nested inside another checkout borrows\nthe outer install when it has none of its own, so lint, format, and contract\ngeneration silently ran tool versions this checkout does not pin.\n\nAdd `scripts/assert-local-resolution.mjs`, which locates the package directory\nNode would load and fails when it sits outside this checkout, naming the\nforeign path and the install command. Wire it into the JavaScript lint and\nformat scripts through npm pre-scripts and into contract generation before the\nextension codegen runs. Entrypoints that import only `node:` builtins cannot\nescape and stay untouched; the type-aware sidecar keeps its own preflight\nbecause it also checks the backend version.\n\nRefs #2246",
+          "timestamp": "2026-08-13T17:29:13+02:00",
+          "tree_id": "7bfcb387334f1739cf4335f47d80133a5e8171fd",
+          "url": "https://github.com/fallow-rs/fallow/commit/8cde8ee26e9e0061403420077209b2395fb58901"
+        },
+        "date": 1786635636083,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
