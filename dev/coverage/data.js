@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786639601483,
+  "lastUpdate": 1786644438484,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "818b7ad2318c4ea83f4dd7f8e7626f467c3b67f7",
-          "message": "docs: record the type-aware sidecar install as local setup\n\nThe type-aware CLI tests launch the real sidecar from tools/type-aware-sidecar, which needs its own npm install. Without it three tests fail with exit code 2 and empty stderr, which reads as a code defect rather than a missing install. CI installs the sidecar, so the failure never reproduces there.",
-          "timestamp": "2026-07-27T22:28:20+02:00",
-          "tree_id": "8e1b9b5579ea72787c46f8e5966e410209969f08",
-          "url": "https://github.com/fallow-rs/fallow/commit/818b7ad2318c4ea83f4dd7f8e7626f467c3b67f7"
-        },
-        "date": 1785184431137,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/88507a56c272a0ec00cd59cc33c0405563f0ebf4"
         },
         "date": 1786639597782,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "fb44ef467c8a032dc12453fb3b2842c115ec10da",
+          "message": "fix(audit): keep base attribution when the focus remap fails\n\nThe base-snapshot focus set is built from `git rev-parse --show-toplevel`,\nwhose spelling can differ from the caller's canonicalized root (Windows 8.3\ncomponents and drive-letter case, verbatim prefixes), so a literal\nstrip_prefix mapped no path at all. The base dead-code results were then\nfiltered against an empty focus set and every base finding disappeared, which\nmade each inherited finding look introduced and failed `--gate new-only` on\npre-existing findings.\n\nThe remap now compares simplified and canonicalized forms before giving up on\na path, and a base run whose focus set cannot be expressed leaves its results\nunfiltered instead of filtering them against an empty set.",
+          "timestamp": "2026-08-13T20:01:56+02:00",
+          "tree_id": "a32c69c82618dc6eee83c07431f87f5eed349ee2",
+          "url": "https://github.com/fallow-rs/fallow/commit/fb44ef467c8a032dc12453fb3b2842c115ec10da"
+        },
+        "date": 1786644434729,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
