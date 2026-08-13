@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786628802412,
+  "lastUpdate": 1786630450534,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "31e30337a694755e762c93d7b627d3aea97c1de9",
-          "message": "chore(deps): update Cargo lockfile dependencies\n\nUpdate regex, toml, toml_edit, and indicatif to their latest compatible releases after GitHub's Dependabot Cargo updater failed while generating the lockfile changes.\n\nInclude the compatible transitive lockfile updates selected by Cargo's resolver.",
-          "timestamp": "2026-07-22T12:03:36+02:00",
-          "tree_id": "367005f1de267fe92702134bd218b7478d4c6773",
-          "url": "https://github.com/fallow-rs/fallow/commit/31e30337a694755e762c93d7b627d3aea97c1de9"
-        },
-        "date": 1784715296723,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10306007,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54603,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7578,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "04b49162b342f0889b8eb50e3c69ba010f18aee5",
+          "message": "perf: compact source discovery globs",
+          "timestamp": "2026-08-13T16:08:41+02:00",
+          "tree_id": "354e7483492f34085f8391b63dff92dc0be7dd4b",
+          "url": "https://github.com/fallow-rs/fallow/commit/04b49162b342f0889b8eb50e3c69ba010f18aee5"
+        },
+        "date": 1786630446062,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9741098,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 48469,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1026456,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7596,
             "unit": "allocations"
           }
         ]
