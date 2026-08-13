@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786645291589,
+  "lastUpdate": 1786648682055,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "faf2b968cfd44d94b34146575b853d64510f0aae",
-          "message": "fix: preserve cloud never-called confidence\n\nPreserve the Cloud provenance that distinguishes runtime-observed never-called functions from inventory backfill.\n\nKeep inventory-backed, missing, and future provenance conservative. Only runtime-observed evidence can retain the existing high-confidence deletion recommendation.",
-          "timestamp": "2026-07-23T19:17:09+02:00",
-          "tree_id": "e5fddc0e980063a53dc7f59c72d193950bc73a9d",
-          "url": "https://github.com/fallow-rs/fallow/commit/faf2b968cfd44d94b34146575b853d64510f0aae"
-        },
-        "date": 1784827305543,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10316943,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54614,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7581,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "45fd28766199acb1f939f6862274a37aad12770b",
+          "message": "chore: release v3.16.0",
+          "timestamp": "2026-08-13T21:13:19+02:00",
+          "tree_id": "75fc52ec7f7b8ff5a32073a0c7f8f8145dd2f75a",
+          "url": "https://github.com/fallow-rs/fallow/commit/45fd28766199acb1f939f6862274a37aad12770b"
+        },
+        "date": 1786648677752,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9755307,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 48522,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1018706,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7270,
             "unit": "allocations"
           }
         ]
