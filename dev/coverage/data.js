@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786644438484,
+  "lastUpdate": 1786645387407,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "56d87f100dbf21718a0131599eed21136623bee9",
-          "message": "docs(action): explain branded comment permissions",
-          "timestamp": "2026-07-27T23:21:12+02:00",
-          "tree_id": "9e89e85c7d0c4e2565586d7465bc65878b2c8eb7",
-          "url": "https://github.com/fallow-rs/fallow/commit/56d87f100dbf21718a0131599eed21136623bee9"
-        },
-        "date": 1785187613742,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/fb44ef467c8a032dc12453fb3b2842c115ec10da"
         },
         "date": 1786644434729,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "aec0bd07a5e2532ad242a3587459b7aaade345df",
+          "message": "test(audit-cache): ignore lazy directory mtimes in the prune snapshot",
+          "timestamp": "2026-08-13T20:17:19+02:00",
+          "tree_id": "93e3fee7ae6c8e79248acf298c739fe8ecdbc395",
+          "url": "https://github.com/fallow-rs/fallow/commit/aec0bd07a5e2532ad242a3587459b7aaade345df"
+        },
+        "date": 1786645383770,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
