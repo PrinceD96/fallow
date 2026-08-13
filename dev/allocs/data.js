@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786630450534,
+  "lastUpdate": 1786633368350,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a4474ddd16488a27aee1e515e6f40e45c516f513",
-          "message": "refactor: narrow internal Rust visibility with Hawk\n\nApply Hawk's lint-clean visibility reductions across internal Rust modules while preserving supported contract crates and externally compiled benchmark surfaces.\n\nKeep dead-public deletion out of scope until Hawk exposes stable cross-target identities, and align rustdoc with the narrower module boundaries.",
-          "timestamp": "2026-07-22T13:02:02+02:00",
-          "tree_id": "0b77dfec341fc8433b5835a7d2095be8925de35a",
-          "url": "https://github.com/fallow-rs/fallow/commit/a4474ddd16488a27aee1e515e6f40e45c516f513"
-        },
-        "date": 1784718635885,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10320071,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54618,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7596,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "74f5a847a45709ef4d09a5d8f7918d6fcb70cb9d",
+          "message": "perf(core): cache default entry matchers",
+          "timestamp": "2026-08-13T16:57:26+02:00",
+          "tree_id": "5f23453ab749809c83ad7f68b0ce87b612840b0f",
+          "url": "https://github.com/fallow-rs/fallow/commit/74f5a847a45709ef4d09a5d8f7918d6fcb70cb9d"
+        },
+        "date": 1786633364497,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9744539,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 48504,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1030804,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7606,
             "unit": "allocations"
           }
         ]
