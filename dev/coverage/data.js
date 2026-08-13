@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786648886206,
+  "lastUpdate": 1786655848027,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1faf718e4589333a9d1a82e8f3810c17cdf5e0f3",
-          "message": "ci: give each CodSpeed run a single instrument\n\nCodSpeed had been unable to generate a performance report since 20972d541b1, the commit that added the type-aware walltime benchmark next to the Rust simulation shards. Every benchmark job collected and uploaded successfully, so the failure was report assembly: CodSpeed received two instruments for one commit and could not reconcile them.\n\nThe walltime benchmark moves to its own workflow so each run carries a single instrument. Verified before merge: Performance Gate Passed, the first green check since 24 July, with the walltime run still collecting both benches.\n\nThe harness guard now asserts the two stay separated, and checks the CodSpeedHQ/action pin across both workflows so they cannot drift apart.\n\nFixes #2024",
-          "timestamp": "2026-07-28T00:04:22+02:00",
-          "tree_id": "e45b0f70c9a0d034005185a8a1cebade59bef659",
-          "url": "https://github.com/fallow-rs/fallow/commit/1faf718e4589333a9d1a82e8f3810c17cdf5e0f3"
-        },
-        "date": 1785190194970,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/45fd28766199acb1f939f6862274a37aad12770b"
         },
         "date": 1786648881562,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9f8b753e84f47c53eda2c4b7a61002f3bc34c511",
+          "message": "ci(benchmarks): add output walltime suite",
+          "timestamp": "2026-08-13T23:07:05+02:00",
+          "tree_id": "2890796b061e16f3345a62b03a99b8142fce6229",
+          "url": "https://github.com/fallow-rs/fallow/commit/9f8b753e84f47c53eda2c4b7a61002f3bc34c511"
+        },
+        "date": 1786655842872,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
