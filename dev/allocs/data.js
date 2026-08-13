@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786638850444,
+  "lastUpdate": 1786639477812,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "2a85bcce4e5ae2df6ff4a3ab0550e5a5bf71d118",
-          "message": "fix: preserve cloud runtime actionability\n\nPreserve the cloud runtime-context actionability decision, evidence reason, verdict, and deployment provenance in cloud analysis output.\n\nOlder cloud responses keep the existing tracked-function fallback. Repository self-audit also excludes the bundled comparison fixtures it should not treat as product source.",
-          "timestamp": "2026-07-23T13:45:02+02:00",
-          "tree_id": "dbb8600b33891813d461a24c30f955480a920dec",
-          "url": "https://github.com/fallow-rs/fallow/commit/2a85bcce4e5ae2df6ff4a3ab0550e5a5bf71d118"
-        },
-        "date": 1784807384937,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10303263,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54598,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7593,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "88507a56c272a0ec00cd59cc33c0405563f0ebf4",
+          "message": "test(audit): dump full base snapshot keys in the demotion assert",
+          "timestamp": "2026-08-13T18:41:16+02:00",
+          "tree_id": "e32ded3879f3fba7b45ba73d38937df13e0571ed",
+          "url": "https://github.com/fallow-rs/fallow/commit/88507a56c272a0ec00cd59cc33c0405563f0ebf4"
+        },
+        "date": 1786639474256,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9737306,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 48473,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1027269,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7601,
             "unit": "allocations"
           }
         ]
