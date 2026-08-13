@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786648682055,
+  "lastUpdate": 1786658339393,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "ddbdaa94e3dadb5bf39914d17ddf100bdcc38c07",
-          "message": "docs: harden maintainer knowledge architecture",
-          "timestamp": "2026-07-23T22:40:55+02:00",
-          "tree_id": "57260586ef2df0e5cf5a10ed16b78036e2132b22",
-          "url": "https://github.com/fallow-rs/fallow/commit/ddbdaa94e3dadb5bf39914d17ddf100bdcc38c07"
-        },
-        "date": 1784839538632,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10316935,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54615,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4389,6 +4345,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Allocations",
             "value": 48522,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1018706,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7270,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c64f703114d452f52077a3a1737696a22a342ec9",
+          "message": "perf(graph): reserve named export index capacity",
+          "timestamp": "2026-08-13T23:53:47+02:00",
+          "tree_id": "bdbad5be9280f810e1c0cf7527b6a71fc6d80ef4",
+          "url": "https://github.com/fallow-rs/fallow/commit/c64f703114d452f52077a3a1737696a22a342ec9"
+        },
+        "date": 1786658334992,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9760211,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 48528,
             "unit": "allocations"
           },
           {
