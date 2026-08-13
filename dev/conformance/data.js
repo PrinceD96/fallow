@@ -1,75 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786519266414,
+  "lastUpdate": 1786606086800,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
-      {
-        "commit": {
-          "author": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "committer": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "id": "636fe4f18d157410ed9f8ef8ff5d9257a0524a7b",
-          "message": "refactor: add 6 restriction lints from oxc\n\n- filetype_is_file: use !is_dir() to include symlinked source files\n- rest_pat_in_fully_bound_structs: catch redundant .. in patterns\n- pub_underscore_fields: catch accidentally public _-prefixed fields\n- non_zero_suggestions: suggest NonZero types\n- precedence_bits: catch bitwise precedence mistakes\n- map_with_unused_argument_over_ranges: prefer repeat/repeat_with",
-          "timestamp": "2026-03-31T14:30:34Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/636fe4f18d157410ed9f8ef8ff5d9257a0524a7b"
-        },
-        "date": 1775027613528,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Agreement Rate",
-            "value": 1.8,
-            "unit": "%"
-          },
-          {
-            "name": "Agreed Issues",
-            "value": 147,
-            "unit": "issues"
-          },
-          {
-            "name": "Fallow Total",
-            "value": 7426,
-            "unit": "issues"
-          },
-          {
-            "name": "Knip Total",
-            "value": 670,
-            "unit": "issues"
-          },
-          {
-            "name": "fastify Agreement",
-            "value": 3,
-            "unit": "%"
-          },
-          {
-            "name": "preact Agreement",
-            "value": 3.4,
-            "unit": "%"
-          },
-          {
-            "name": "query Agreement",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "svelte Agreement",
-            "value": 0.3,
-            "unit": "%"
-          },
-          {
-            "name": "zod Agreement",
-            "value": 9.1,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -7939,6 +7872,88 @@ window.BENCHMARK_DATA = {
           {
             "name": "vue-core Agreement",
             "value": 22.8,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 1.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bartwaardenburg@gmail.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "95728543e804a0e4a4a0ca9dd239f328c6adde4d",
+          "message": "Merge pull request #2247 from fallow-rs/feat/manual-rust-walltime\n\nci: add manual Rust walltime benchmarks",
+          "timestamp": "2026-08-13T06:56:58Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/95728543e804a0e4a4a0ca9dd239f328c6adde4d"
+        },
+        "date": 1786606083430,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 1.8,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 577,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30103,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2003,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 4.9,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.7,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.4,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 6.4,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 23.4,
             "unit": "%"
           },
           {
