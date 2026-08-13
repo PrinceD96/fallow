@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786658339393,
+  "lastUpdate": 1786659677360,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": false,
-          "id": "3925887ede0b710c855a60d1a5a48e215593360b",
-          "message": "docs: complete unreleased changelog",
-          "timestamp": "2026-07-23T23:01:37+02:00",
-          "tree_id": "9f549f91c275ee3116a72e9721ced17dcca9f9f1",
-          "url": "https://github.com/fallow-rs/fallow/commit/3925887ede0b710c855a60d1a5a48e215593360b"
-        },
-        "date": 1784841723962,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10324807,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54634,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7270,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c2b6c9efff2e4de57a32bfad828bc5a3a3574070",
+          "message": "perf(output): insert root kind in place",
+          "timestamp": "2026-08-14T00:15:47+02:00",
+          "tree_id": "9aa3e9c8065828466f34323fb9593765664c96cf",
+          "url": "https://github.com/fallow-rs/fallow/commit/c2b6c9efff2e4de57a32bfad828bc5a3a3574070"
+        },
+        "date": 1786659673390,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9758691,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 48523,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1040409,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7635,
             "unit": "allocations"
           }
         ]
