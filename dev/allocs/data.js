@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786615354161,
+  "lastUpdate": 1786617653936,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "094c4c1bb2cfccde19c2fa19e0d2d87e79137c9d",
-          "message": "feat(viz): interactive codebase map (fallow viz)\n\nNew `fallow viz` command renders the codebase as a single self-contained\ninteractive HTML file (no server, no external assets): a nested treemap sized by\nbytes plus a force-directed import graph, sharing four lenses (dead code,\nduplication, boundaries, complexity hotspots). Clicking a file opens a detail\npanel with the evidence and a runnable `fallow ... --trace` verify command.\nSearch, breadcrumb drill-down, keyboard shortcuts, URL deep links, and dark/light\nthemes are built in; `--viz-format dot|mermaid` emit the import graph as text,\n`--no-open`/`--out` control output. Read-only, respects `--production`,\n`--config`, `--no-cache`.\n\nEngine databuilder `fallow_engine::viz::build_viz_data` runs from one project\nanalysis; `crates/cli/src/viz.rs` emits the HTML embedding the rolldown-bundled\nTypeScript frontend (`viz-frontend/` into `crates/cli/viz-assets/`), with payload\nescaping, a symlink-refusing `--out`, and control-char sanitization for the text\nformats.",
-          "timestamp": "2026-07-21T11:34:58+02:00",
-          "tree_id": "c0f1613ba3c72a1a048cfc33c304184da1031af8",
-          "url": "https://github.com/fallow-rs/fallow/commit/094c4c1bb2cfccde19c2fa19e0d2d87e79137c9d"
-        },
-        "date": 1784626707320,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10284791,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54584,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7541,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c40adbdfbe7847a0f63bc8acf2bb353c6e638db9",
+          "message": "feat(audit): surface new-only duplication demotion (#2256)\n\n* feat(audit): surface new-only duplication demotion\n\nAn introduced clone group none of whose instances overlap an added line\nis demoted to inherited under --gate new-only (issue #2164). The\ndemotion was invisible: nothing in the output said a group was demoted\nor why.\n\nMake it observable, with no verdict or exit-code change:\n\n- AuditDomainLedger records each demoted key and exposes demoted_count,\n  demoted_keys, and record-order demoted membership.\n- Demoted clone groups carry an additive optional demotion_reason field\n  (typed CloneDemotionReason, kebab-case, currently no-added-lines) in\n  audit JSON, on the typed programmatic path, and in the review brief.\n- Audit-family attribution blocks always include an integer\n  duplication_demoted, derived from the serialized clone groups by the\n  new attach_audit_wire_attribution single entry point, mirroring the\n  styling attribution precedent (no schema_version bump).\n- Human output folds the demotion into the gate-excluded note as an\n  indented sub-line naming the deciding diff source; --explain adds one\n  line per demoted group (report-scoped dup:<fp>, locations, rule) and\n  one line naming the diff source, capped like the clone listing.\n- The GitHub Action and GitLab CI summaries print a footnote when\n  duplication_demoted is nonzero.\n- Docs record the diff-source precedence (shared diff index over\n  merge-base worktree diff), the narrower-base over-demotion caveat,\n  and the additive-field compatibility rationale.\n\nCloses #2220\n\n* docs(cli): align LoadedDiff rustdoc with retained source label",
+          "timestamp": "2026-08-13T12:35:36+02:00",
+          "tree_id": "c620685c988c392694dc2a3b6e5b5fc3bc9cfea4",
+          "url": "https://github.com/fallow-rs/fallow/commit/c40adbdfbe7847a0f63bc8acf2bb353c6e638db9"
+        },
+        "date": 1786617650268,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 10278265,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 52937,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1014281,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7551,
             "unit": "allocations"
           }
         ]
