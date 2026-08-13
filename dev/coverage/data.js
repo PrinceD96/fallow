@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786629092425,
+  "lastUpdate": 1786631400588,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "cca693b5988ca2626d1f522e09df6fff954050ec",
-          "message": "test: avoid global sidecar environment mutation",
-          "timestamp": "2026-07-27T18:16:53+02:00",
-          "tree_id": "70fc9a0df8679b4adc30e2ab77cd27ead7d48492",
-          "url": "https://github.com/fallow-rs/fallow/commit/cca693b5988ca2626d1f522e09df6fff954050ec"
-        },
-        "date": 1785169343541,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/93e765835bf3aa5b3048468753ad0fd228bbef15"
         },
         "date": 1786629089339,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4a2c8cb05c0ac87bc3db8614dc7a4369d0207b41",
+          "message": "docs(quality-gates): root npm ci suffices for type-aware test targets (#2259)\n\nThe one-time setup section still led with the sidecar-local install as a\nblanket requirement. After #2246 the root package.json overrides entry keeps\nthe root typescript install in lockstep with the sidecar, so both the\ntype-aware CLI test targets and the sidecar's own node --test suite pass\nafter a root-only npm ci (verified locally without a sidecar-local install).\nDocument the two remaining cases that still need the local install: the\nsidecar bench devDependencies and an absent or out-of-lockstep root install,\nwhere the preflight exits 2 with the resolved version and the fix.\n\nRefs #2246",
+          "timestamp": "2026-08-13T16:18:36+02:00",
+          "tree_id": "3f44df2384fbdcf69e31a4b091f0baab0bae23c5",
+          "url": "https://github.com/fallow-rs/fallow/commit/4a2c8cb05c0ac87bc3db8614dc7a4369d0207b41"
+        },
+        "date": 1786631396502,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
