@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786689587772,
+  "lastUpdate": 1786699206256,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "1548c96af4d6675a0a8488d7e0690fcc07f4413c",
-          "message": "fix: validate Impact statusline flags",
-          "timestamp": "2026-07-24T00:38:29+02:00",
-          "tree_id": "d420bbd1259a67fbbe665d24342ae26a8699d078",
-          "url": "https://github.com/fallow-rs/fallow/commit/1548c96af4d6675a0a8488d7e0690fcc07f4413c"
-        },
-        "date": 1784846608169,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10244253,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54503,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 965619,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7458,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7621,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6ab2c847bad9bc88a85e6fa29139a811db7203a0",
+          "message": "fix(type-aware): bound generic scans and identify Svelte host gaps\n\n* chore: start type-aware issue fixes\n\n* fix: harden type-aware generic and Svelte analysis",
+          "timestamp": "2026-08-14T11:14:51+02:00",
+          "tree_id": "e9541817bdca9b64870fd20eab3e4911020d11d0",
+          "url": "https://github.com/fallow-rs/fallow/commit/6ab2c847bad9bc88a85e6fa29139a811db7203a0"
+        },
+        "date": 1786699202217,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9718139,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 48512,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1023571,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7582,
             "unit": "allocations"
           }
         ]
