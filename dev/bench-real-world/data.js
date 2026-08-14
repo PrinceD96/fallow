@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786609491747,
+  "lastUpdate": 1786695573979,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "committer": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "id": "31ad2b795659f758b0815386fdacc05d56844e61",
-          "message": "chore: release v2.13.0",
-          "timestamp": "2026-04-04T10:03:19Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/31ad2b795659f758b0815386fdacc05d56844e61"
-        },
-        "date": 1775376139968,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "preact (cold)",
-            "value": 43,
-            "unit": "ms"
-          },
-          {
-            "name": "preact (warm)",
-            "value": 37,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (cold)",
-            "value": 56,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (warm)",
-            "value": 42,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (cold)",
-            "value": 44,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (warm)",
-            "value": 33,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (cold)",
-            "value": 117,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (warm)",
-            "value": 96,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (cold)",
-            "value": 462,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (warm)",
-            "value": 435,
-            "unit": "ms"
-          },
-          {
-            "name": "query (cold)",
-            "value": 349,
-            "unit": "ms"
-          },
-          {
-            "name": "query (warm)",
-            "value": 328,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (cold)",
-            "value": 243,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (warm)",
-            "value": 233,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (cold)",
-            "value": 1976,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (warm)",
-            "value": 1868,
-            "unit": "ms"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9634,6 +9532,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (cold)",
             "value": 1426,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1326,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "95a7ae9faf9e987616fe2366b74e99626dfd58c6",
+          "message": "fix: surface star-export ambiguity instead of blaming the sources (#2268)\n\nWhen two star re-export sources supply the same name, the barrel exports nothing under that name. Unused-export and unused-type findings are now suppressed for the declarations that contribute to such a collision, instead of blaming both source files for a mistake in the barrel. Traces carry an optional star_export_ambiguity block naming the contributing files and namespaces, so an ambiguous name is no longer indistinguishable from a misspelled one. The unrendered-component and unprovided-inject headers now state the guarantee the code actually offers, including the abstain carve-out that remains. The value-derived type fallback lane is seeded lazily, which makes barrel-chain resolution roughly ten percent cheaper.\n\nCloses #2262\nCloses #2263\nCloses #2264",
+          "timestamp": "2026-08-14T06:35:39Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/95a7ae9faf9e987616fe2366b74e99626dfd58c6"
+        },
+        "date": 1786695569595,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 207,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 615,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 408,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1641,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1329,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1226,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1022,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1329,
             "unit": "ms"
           },
           {
