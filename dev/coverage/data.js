@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786689694408,
+  "lastUpdate": 1786699232844,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ebc64c0c5a600e97d712fd369859b1a05c9a0c60",
-          "message": "fix(release): create version tag after publication",
-          "timestamp": "2026-07-28T17:22:43Z",
-          "tree_id": "491714bae55d23487ca0e98af5ccbcf586b54fb8",
-          "url": "https://github.com/fallow-rs/fallow/commit/ebc64c0c5a600e97d712fd369859b1a05c9a0c60"
-        },
-        "date": 1785259813171,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/95a7ae9faf9e987616fe2366b74e99626dfd58c6"
         },
         "date": 1786689690068,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6ab2c847bad9bc88a85e6fa29139a811db7203a0",
+          "message": "fix(type-aware): bound generic scans and identify Svelte host gaps\n\n* chore: start type-aware issue fixes\n\n* fix: harden type-aware generic and Svelte analysis",
+          "timestamp": "2026-08-14T11:14:51+02:00",
+          "tree_id": "e9541817bdca9b64870fd20eab3e4911020d11d0",
+          "url": "https://github.com/fallow-rs/fallow/commit/6ab2c847bad9bc88a85e6fa29139a811db7203a0"
+        },
+        "date": 1786699228747,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
