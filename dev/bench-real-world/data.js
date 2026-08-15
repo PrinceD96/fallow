@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786695573979,
+  "lastUpdate": 1786779362151,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "committer": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "id": "c78e241a27479311715dedcc0d8984bed19a4ec1",
-          "message": "chore: release v2.13.4",
-          "timestamp": "2026-04-06T07:17:00Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/c78e241a27479311715dedcc0d8984bed19a4ec1"
-        },
-        "date": 1775464146463,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "preact (cold)",
-            "value": 47,
-            "unit": "ms"
-          },
-          {
-            "name": "preact (warm)",
-            "value": 37,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (cold)",
-            "value": 54,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (warm)",
-            "value": 47,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (cold)",
-            "value": 43,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (warm)",
-            "value": 37,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (cold)",
-            "value": 120,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (warm)",
-            "value": 98,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (cold)",
-            "value": 467,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (warm)",
-            "value": 453,
-            "unit": "ms"
-          },
-          {
-            "name": "query (cold)",
-            "value": 359,
-            "unit": "ms"
-          },
-          {
-            "name": "query (warm)",
-            "value": 343,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (cold)",
-            "value": 246,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (warm)",
-            "value": 236,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (cold)",
-            "value": 2132,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (warm)",
-            "value": 1931,
-            "unit": "ms"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9629,6 +9527,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1326,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "6ab2c847bad9bc88a85e6fa29139a811db7203a0",
+          "message": "fix(type-aware): bound generic scans and identify Svelte host gaps\n\n* chore: start type-aware issue fixes\n\n* fix: harden type-aware generic and Svelte analysis",
+          "timestamp": "2026-08-14T09:14:51Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/6ab2c847bad9bc88a85e6fa29139a811db7203a0"
+        },
+        "date": 1786779356378,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 207,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 617,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 409,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1640,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1327,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1228,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1024,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1431,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1329,
             "unit": "ms"
           }
         ]
