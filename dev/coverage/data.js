@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786831120046,
+  "lastUpdate": 1786831619115,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "aee9ce139a7808f99ffca977e2b5bea95af8757e",
-          "message": "fix(release): verify release immutability in the maintainer pre-flight\n\nThe immutable-releases endpoint needs the Administration read permission.\nThat scope is not grantable to a workflow token: declaring administration\nmakes the workflow unparseable and every dispatch fails with HTTP 422, while\ncontents: read gets HTTP 403 from the endpoint itself.\n\nMove the check to the release skill's pre-flight, where maintainer\ncredentials can read it, and record why the workflow cannot own it.",
-          "timestamp": "2026-07-28T21:32:28+02:00",
-          "tree_id": "be637af9421a18db117d2a290d54d66c8bd15040",
-          "url": "https://github.com/fallow-rs/fallow/commit/aee9ce139a7808f99ffca977e2b5bea95af8757e"
-        },
-        "date": 1785267487808,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7a8442440410c9e3211ac28028fd415e8ee4e303"
         },
         "date": 1786831116930,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4084184901c496642c96f0b8937ce933342cfa2e",
+          "message": "perf(extract): deduplicate local type declarations once",
+          "timestamp": "2026-08-15T22:01:25Z",
+          "tree_id": "2b57ead18d3817001821489850716112f9185888",
+          "url": "https://github.com/fallow-rs/fallow/commit/4084184901c496642c96f0b8937ce933342cfa2e"
+        },
+        "date": 1786831615576,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
