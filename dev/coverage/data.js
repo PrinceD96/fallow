@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786827151478,
+  "lastUpdate": 1786831120046,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "a7ed46b6758d5fee85aa1b20fbc848dcb3cc44c0",
-          "message": "fix(release): enforce the immutability flag and gate release metadata locally\n\nThe immutability check used a jq select filter, which produces empty output\nand exit 0 when the flag is disabled, so the gate passed on exactly the\nrepositories it was meant to stop.\n\nTag-last publication also removed the workflow's curated-metadata validation,\nbecause the release no longer exists while the workflow runs. Move the title\nformat, em-dash, and comparison-link checks into the maintainer flow, where\nthey still run before an immutable release is created.",
-          "timestamp": "2026-07-28T20:54:49+02:00",
-          "tree_id": "e0ef7063b379f218005d178db030fba2d970b907",
-          "url": "https://github.com/fallow-rs/fallow/commit/a7ed46b6758d5fee85aa1b20fbc848dcb3cc44c0"
-        },
-        "date": 1785265276617,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f66e6e8d30cdeedaec9f07c740a4584a00442269"
         },
         "date": 1786827147250,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7a8442440410c9e3211ac28028fd415e8ee4e303",
+          "message": "perf(types): bucket clone spread locations",
+          "timestamp": "2026-08-15T23:51:41+02:00",
+          "tree_id": "5f52d8af626c7e62b2ce1239d7963bbfc93e8c92",
+          "url": "https://github.com/fallow-rs/fallow/commit/7a8442440410c9e3211ac28028fd415e8ee4e303"
+        },
+        "date": 1786831116930,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
