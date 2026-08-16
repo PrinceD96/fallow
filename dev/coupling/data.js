@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786904721503,
+  "lastUpdate": 1786917234278,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "r.salhab@aiyexpertsolutions.com",
-            "name": "Rayan Salhab",
-            "username": "cyphercodes"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d73cee930b1e20cf90fd33cdc202275e4581d2ac",
-          "message": "fix(graph): preserve TypeScript path aliases excluded by ignorePatterns\n\nA tsconfig `paths` alias whose target is excluded from discovery by `ignorePatterns` fell through to npm-package classification and was reported as an unlisted dependency. The resolver now keeps the concrete target when the alias resolves inside the project root, while targets outside it keep npm-package accounting so workspace install symlinks stay credited.\n\nBumps GRAPH_CACHE_VERSION so a cache written before the change does not replay the old classification.\n\nFixes #1942",
-          "timestamp": "2026-07-27T18:14:37+02:00",
-          "tree_id": "c90768a88519b517156e5b96079564d12a32db63",
-          "url": "https://github.com/fallow-rs/fallow/commit/d73cee930b1e20cf90fd33cdc202275e4581d2ac"
-        },
-        "date": 1785168940038,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.35,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 445,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1163,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/78632bbbada683198be1cc47e1ea9023c7c8cebc"
         },
         "date": 1786904718569,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 47,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.32,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 455,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1230,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "e08e3e05fe9909916f92b089fb7e8ae5ff544e32",
+          "message": "chore: release v3.17.0",
+          "timestamp": "2026-08-16T23:47:53+02:00",
+          "tree_id": "5418df7130ee9f4317fffae9b8c21e2f27282181",
+          "url": "https://github.com/fallow-rs/fallow/commit/e08e3e05fe9909916f92b089fb7e8ae5ff544e32"
+        },
+        "date": 1786917230191,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
