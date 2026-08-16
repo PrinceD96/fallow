@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786835554463,
+  "lastUpdate": 1786904835572,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "64b5ac68735d19e0f221cdb45163143b0b79d36f",
-          "message": "docs(release): fix list continuation indent under the two-digit publish step\n\nThe publish step became item 10 when the immutability check was added, so its\nthree-space continuation no longer nests under the marker and the shell block\nescaped the list item.",
-          "timestamp": "2026-07-28T22:09:57+02:00",
-          "tree_id": "91f3401a89923d3c369ab7ec5fb871af70faf886",
-          "url": "https://github.com/fallow-rs/fallow/commit/64b5ac68735d19e0f221cdb45163143b0b79d36f"
-        },
-        "date": 1785269813306,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8437d52e6688cd1ce823d5da8c6670e7a23f839f"
         },
         "date": 1786835550900,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jernej.barbaric@gmail.com",
+            "name": "Jerc92",
+            "username": "Jerc92"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "78632bbbada683198be1cc47e1ea9023c7c8cebc",
+          "message": "feat(ci): render type-aware feedback from saved results\n\n* feat(ci): render type-aware feedback from saved results\n\n* fix(ci): harden saved report rendering\n\n---------\n\nCo-authored-by: Jernej Barbaric <jernej.barbaric@login5.org>\nCo-authored-by: Bart Waardenburg <bart@waardenburg.dev>",
+          "timestamp": "2026-08-16T18:20:58Z",
+          "tree_id": "b5d9359e208820c8c0ff7ecb0ee38be2d3824e5b",
+          "url": "https://github.com/fallow-rs/fallow/commit/78632bbbada683198be1cc47e1ea9023c7c8cebc"
+        },
+        "date": 1786904831177,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
