@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786835487282,
+  "lastUpdate": 1786904770692,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ac87521aae348889b4aa8d7826d7fdd0fdf06f7b",
-          "message": "fix: add breathing room to Fallow icons\n\n* chore: prepare icon breathing room update\n\n* fix: add breathing room to Fallow icons",
-          "timestamp": "2026-07-27T13:47:15+02:00",
-          "tree_id": "4f8bdfe262c925df0e1e7aeaa595b4d503d689a1",
-          "url": "https://github.com/fallow-rs/fallow/commit/ac87521aae348889b4aa8d7826d7fdd0fdf06f7b"
-        },
-        "date": 1785153089480,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10516103,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54620,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 983170,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6959,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7608,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jernej.barbaric@gmail.com",
+            "name": "Jerc92",
+            "username": "Jerc92"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "78632bbbada683198be1cc47e1ea9023c7c8cebc",
+          "message": "feat(ci): render type-aware feedback from saved results\n\n* feat(ci): render type-aware feedback from saved results\n\n* fix(ci): harden saved report rendering\n\n---------\n\nCo-authored-by: Jernej Barbaric <jernej.barbaric@login5.org>\nCo-authored-by: Bart Waardenburg <bart@waardenburg.dev>",
+          "timestamp": "2026-08-16T18:20:58Z",
+          "tree_id": "b5d9359e208820c8c0ff7ecb0ee38be2d3824e5b",
+          "url": "https://github.com/fallow-rs/fallow/commit/78632bbbada683198be1cc47e1ea9023c7c8cebc"
+        },
+        "date": 1786904766683,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9717727,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 48900,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1038668,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7621,
             "unit": "allocations"
           }
         ]
