@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786927598920,
+  "lastUpdate": 1786952286454,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d3b7350e7fc5e8df6bde87384738aed3eba17ac4",
-          "message": "fix(deps): credit dependencies referenced by config callbacks and CLI flags\n\nResolves two unused-dependency false positives.\n\nThe config parser only traversed the concise arrow inside a config call, so a block-bodied `defineConfig(({ mode }) => { return { ... } })` extracted nothing. The vitest plugin also listed `vite.config.*` for activation only, never for parsing. With both fixed, a `test` block in a vite config is read again, and `canvas` is credited as the optional jsdom peer it is.\n\nScript and CI command parsing discarded flag values, so a package named only as a flag argument had no reference anywhere. eslint's `--format gha` shorthand now credits `eslint-formatter-gha`.\n\nMeasured on a real project: three false positives removed, none added.\n\nFixes #2005\nFixes #2006",
-          "timestamp": "2026-07-27T18:25:25+02:00",
-          "tree_id": "315accf3d79289ac4245008ba722ba9d2d5a142a",
-          "url": "https://github.com/fallow-rs/fallow/commit/d3b7350e7fc5e8df6bde87384738aed3eba17ac4"
-        },
-        "date": 1785169601841,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.35,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 445,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1163,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/fc234ba804a29edc872f2ace40045b6254da5c81"
         },
         "date": 1786927595285,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 47,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.32,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 455,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1230,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "aba36fe9c341c4365ead772ba7ff274a74ecf8eb",
+          "message": "chore(benchmarks): remove stale CodSpeed coverage\n\n* chore: start CodSpeed benchmark cleanup\n\n* chore(benchmarks): remove stale CodSpeed coverage",
+          "timestamp": "2026-08-17T09:32:16+02:00",
+          "tree_id": "1ae690447248416f42d7419692136895a319c362",
+          "url": "https://github.com/fallow-rs/fallow/commit/aba36fe9c341c4365ead772ba7ff274a74ecf8eb"
+        },
+        "date": 1786952282583,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
