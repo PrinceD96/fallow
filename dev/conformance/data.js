@@ -1,75 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786862095356,
+  "lastUpdate": 1786949124215,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
-      {
-        "commit": {
-          "author": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "committer": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "id": "31ad2b795659f758b0815386fdacc05d56844e61",
-          "message": "chore: release v2.13.0",
-          "timestamp": "2026-04-04T10:03:19Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/31ad2b795659f758b0815386fdacc05d56844e61"
-        },
-        "date": 1775372392229,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Agreement Rate",
-            "value": 1.9,
-            "unit": "%"
-          },
-          {
-            "name": "Agreed Issues",
-            "value": 147,
-            "unit": "issues"
-          },
-          {
-            "name": "Fallow Total",
-            "value": 7430,
-            "unit": "issues"
-          },
-          {
-            "name": "Knip Total",
-            "value": 662,
-            "unit": "issues"
-          },
-          {
-            "name": "fastify Agreement",
-            "value": 3,
-            "unit": "%"
-          },
-          {
-            "name": "preact Agreement",
-            "value": 3.4,
-            "unit": "%"
-          },
-          {
-            "name": "query Agreement",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "svelte Agreement",
-            "value": 0.3,
-            "unit": "%"
-          },
-          {
-            "name": "zod Agreement",
-            "value": 9.1,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -7944,6 +7877,88 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8437d52e6688cd1ce823d5da8c6670e7a23f839f"
         },
         "date": 1786862091605,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 1.8,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 577,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30103,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2003,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 4.9,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.7,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.4,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 6.4,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 23.4,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 1.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "id": "fc234ba804a29edc872f2ace40045b6254da5c81",
+          "message": "chore(docker): pin v3.17.0 assets",
+          "timestamp": "2026-08-17T00:40:35Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/fc234ba804a29edc872f2ace40045b6254da5c81"
+        },
+        "date": 1786949119992,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
