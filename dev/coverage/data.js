@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786989072625,
+  "lastUpdate": 1786992990686,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9a40a7f9d74bb52fe16d5b5fa727cc2cedc6ffeb",
-          "message": "feat(config): report unused npm dependency overrides (#2090)\n\nnpm overrides in the root package.json are now parsed like pnpm overrides, including nested objects and the \".\" self-pin key, and feed the same unused and misconfigured override analysis. $package reference values are credited rather than reported. package-lock.json resolved packages credit override targets the way pnpm-lock.yaml does. Yarn and bun remain out of scope.\n\nFixes #2069",
-          "timestamp": "2026-08-02T01:07:52+02:00",
-          "tree_id": "74c026dbcb066c2f637029fe36906ad617b82ecb",
-          "url": "https://github.com/fallow-rs/fallow/commit/9a40a7f9d74bb52fe16d5b5fa727cc2cedc6ffeb"
-        },
-        "date": 1785626504760,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/08aad0e35721f0adcf599f890a6a8ac3ea344f35"
         },
         "date": 1786989067464,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4651de0ef4cb03746823c471a4e97c74479da7a8",
+          "message": "feat(vscode): publish platform-specific extension packages\n\nPublishes smaller target-specific VSIX packages for macOS, Linux, and Windows while retaining the universal compatibility fallback. Hardens release publication with exact artifact inventory, isolated registry credentials, and credential-free public verification.",
+          "timestamp": "2026-08-17T20:51:17+02:00",
+          "tree_id": "24857f17e4e59fb69f56e21d57432db9bbe56d5b",
+          "url": "https://github.com/fallow-rs/fallow/commit/4651de0ef4cb03746823c471a4e97c74479da7a8"
+        },
+        "date": 1786992985835,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
