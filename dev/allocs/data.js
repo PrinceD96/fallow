@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786952251440,
+  "lastUpdate": 1786978563781,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "11bf96c8fcadfe58b247ceaea44c9de656950fde",
-          "message": "fix: increase standalone icon safe area",
-          "timestamp": "2026-07-27T15:43:43Z",
-          "tree_id": "309750bdd7d62c1da34ceb8edb47fd65c736986c",
-          "url": "https://github.com/fallow-rs/fallow/commit/11bf96c8fcadfe58b247ceaea44c9de656950fde"
-        },
-        "date": 1785167397154,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10504727,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54601,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 983170,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6959,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7637,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6ebdf806df1a1ce1389026401af225d8fc7ab38f",
+          "message": "perf(engine): coalesce duplicate line ranges",
+          "timestamp": "2026-08-17T16:44:24+02:00",
+          "tree_id": "2c1af25ee8f999aa236ef4107e1b91d6d82d24ed",
+          "url": "https://github.com/fallow-rs/fallow/commit/6ebdf806df1a1ce1389026401af225d8fc7ab38f"
+        },
+        "date": 1786978559980,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9722039,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 48911,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1022404,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7587,
             "unit": "allocations"
           }
         ]
