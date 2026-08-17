@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786918699182,
+  "lastUpdate": 1786927736375,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "59e6655ff94f17b0922e5f1f0cbd79ee69b8d779",
-          "message": "fix(scripts): remove companion files the canonical skill no longer ships (#2071)\n\nThe adapter generator copies every file a skill ships next to its SKILL.md, but it only walked the source tree, so a reference deleted from a canonical skill left the generated copy in place indefinitely and --check reported nothing.\n\nIt now walks the destination as well and drops what the source no longer has. The companion walk is also guarded against a missing directory, so a skill shipping only a SKILL.md is not a hard error.",
-          "timestamp": "2026-07-29T23:58:18+02:00",
-          "tree_id": "3268bd0abdd23006eea4574b2707f81f95306705",
-          "url": "https://github.com/fallow-rs/fallow/commit/59e6655ff94f17b0922e5f1f0cbd79ee69b8d779"
-        },
-        "date": 1785362616753,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.2,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/ecf5a314fd3e10974acb4f5a7f867c433030522d"
         },
         "date": 1786918695636,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "fc234ba804a29edc872f2ace40045b6254da5c81",
+          "message": "chore(docker): pin v3.17.0 assets",
+          "timestamp": "2026-08-17T02:40:35+02:00",
+          "tree_id": "0c18118291abdea71c5f0798efb0c53da759674a",
+          "url": "https://github.com/fallow-rs/fallow/commit/fc234ba804a29edc872f2ace40045b6254da5c81"
+        },
+        "date": 1786927732692,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
