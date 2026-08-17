@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786952432736,
+  "lastUpdate": 1786978206837,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "52b30f51ec5639ccbefec3bb9a130f5a8afd436a",
-          "message": "docs(changelog): call out review reconciliation and mocked-coverage behavior shifts (#2081)\n\nDocuments the unscoped fingerprint narrowing that shipped with #2078 and adds the missing entry with upgrade callout for the mocked-module coverage change from #2068.",
-          "timestamp": "2026-08-01T22:41:01+02:00",
-          "tree_id": "1454b69d9cf8e6a3b61479cac1ce1e65d1c40b67",
-          "url": "https://github.com/fallow-rs/fallow/commit/52b30f51ec5639ccbefec3bb9a130f5a8afd436a"
-        },
-        "date": 1785617205706,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/aba36fe9c341c4365ead772ba7ff274a74ecf8eb"
         },
         "date": 1786952428149,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6ebdf806df1a1ce1389026401af225d8fc7ab38f",
+          "message": "perf(engine): coalesce duplicate line ranges",
+          "timestamp": "2026-08-17T16:44:24+02:00",
+          "tree_id": "2c1af25ee8f999aa236ef4107e1b91d6d82d24ed",
+          "url": "https://github.com/fallow-rs/fallow/commit/6ebdf806df1a1ce1389026401af225d8fc7ab38f"
+        },
+        "date": 1786978202703,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
