@@ -39,14 +39,22 @@ pub fn build_guard_report(
     config: &ResolvedConfig,
     files: &[String],
 ) -> Result<GuardReport, GuardError> {
+    if files.is_empty() {
+        return Ok(GuardReport { files: Vec::new() });
+    }
+    let rule_scopes = compile_rule_scopes(config);
     let mut reports = Vec::with_capacity(files.len());
     for file in files {
-        reports.push(build_file_report(config, file)?);
+        reports.push(build_file_report(config, &rule_scopes, file)?);
     }
     Ok(GuardReport { files: reports })
 }
 
-fn build_file_report(config: &ResolvedConfig, input: &str) -> Result<GuardFileReport, GuardError> {
+fn build_file_report(
+    config: &ResolvedConfig,
+    rule_scopes: &[CompiledRuleScope<'_>],
+    input: &str,
+) -> Result<GuardFileReport, GuardError> {
     let rel_path = normalize_target_path(config, input)?;
     let full_path = config.root.join(&rel_path);
     let rules = config.resolve_rules_for_path(&full_path);
@@ -57,7 +65,7 @@ fn build_file_report(config: &ResolvedConfig, input: &str) -> Result<GuardFileRe
     Ok(GuardFileReport {
         exists: full_path.exists(),
         boundary: guard_boundary(&config.boundaries, &rel_path, zone_name),
-        policy_rules: guard_policy_rules(config, &rel_path, rules.policy_violation),
+        policy_rules: guard_policy_rules(rule_scopes, &rel_path, zone_name, rules.policy_violation),
         severities: GuardSeverities {
             boundary_violation: rules.boundary_violation.to_string(),
             policy_violation: rules.policy_violation.to_string(),
@@ -187,51 +195,56 @@ fn boundaries_configured(boundaries: &ResolvedBoundaryConfig) -> bool {
     !boundaries.zones.is_empty() || !boundaries.logical_groups.is_empty()
 }
 
+struct CompiledRuleScope<'a> {
+    pack: &'a str,
+    rule: &'a RulePackRule,
+    files: Vec<globset::GlobMatcher>,
+    exclude: Vec<globset::GlobMatcher>,
+    zones: FxHashSet<&'a str>,
+}
+
+impl CompiledRuleScope<'_> {
+    fn applies(&self, relative: &str, zone: Option<&str>) -> bool {
+        (self.files.is_empty() || self.files.iter().any(|matcher| matcher.is_match(relative)))
+            && !self
+                .exclude
+                .iter()
+                .any(|matcher| matcher.is_match(relative))
+            && (self.zones.is_empty() || zone.is_some_and(|zone| self.zones.contains(zone)))
+    }
+}
+
+fn compile_rule_scopes(config: &ResolvedConfig) -> Vec<CompiledRuleScope<'_>> {
+    config
+        .rule_packs
+        .iter()
+        .flat_map(|pack| {
+            pack.rules.iter().map(|rule| CompiledRuleScope {
+                pack: &pack.name,
+                rule,
+                files: compile_scope_globs(&rule.files),
+                exclude: compile_scope_globs(&rule.exclude),
+                zones: rule.zones.iter().map(String::as_str).collect(),
+            })
+        })
+        .collect()
+}
+
 fn guard_policy_rules(
-    config: &ResolvedConfig,
+    rule_scopes: &[CompiledRuleScope<'_>],
     rel_path: &str,
+    zone: Option<&str>,
     master_severity: fallow_config::Severity,
 ) -> Vec<GuardPolicyRule> {
     if master_severity == fallow_config::Severity::Off {
         return Vec::new();
     }
 
-    rules_applying_to_path(config, rel_path)
-        .into_iter()
-        .filter_map(|(pack, rule)| guard_policy_rule(pack, rule, master_severity))
-        .collect()
-}
-
-fn rules_applying_to_path<'a>(
-    config: &'a ResolvedConfig,
-    rel_path: &str,
-) -> Vec<(&'a str, &'a RulePackRule)> {
-    let zone = config.boundaries.classify_zone(rel_path);
-    config
-        .rule_packs
+    rule_scopes
         .iter()
-        .flat_map(|pack| {
-            pack.rules
-                .iter()
-                .filter(move |rule| {
-                    raw_rule_scope_applies(rule, &config.boundaries, rel_path, zone)
-                })
-                .map(|rule| (pack.name.as_str(), rule))
-        })
+        .filter(|scope| scope.applies(rel_path, zone))
+        .filter_map(|scope| guard_policy_rule(scope.pack, scope.rule, master_severity))
         .collect()
-}
-
-fn raw_rule_scope_applies(
-    rule: &RulePackRule,
-    boundaries: &ResolvedBoundaryConfig,
-    relative: &str,
-    zone: Option<&str>,
-) -> bool {
-    let files = compile_scope_globs(&rule.files);
-    let exclude = compile_scope_globs(&rule.exclude);
-    let zones = rule.zones.iter().cloned().collect();
-    let zone = zone.or_else(|| boundaries.classify_zone(relative));
-    compiled_scope_applies(&files, &exclude, &zones, relative, zone)
 }
 
 fn compile_scope_globs(patterns: &[String]) -> Vec<globset::GlobMatcher> {
@@ -240,18 +253,6 @@ fn compile_scope_globs(patterns: &[String]) -> Vec<globset::GlobMatcher> {
         .filter_map(|pattern| globset::Glob::new(pattern).ok())
         .map(|glob| glob.compile_matcher())
         .collect()
-}
-
-fn compiled_scope_applies(
-    files: &[globset::GlobMatcher],
-    exclude: &[globset::GlobMatcher],
-    zones: &FxHashSet<String>,
-    relative: &str,
-    zone: Option<&str>,
-) -> bool {
-    (files.is_empty() || files.iter().any(|matcher| matcher.is_match(relative)))
-        && !exclude.iter().any(|matcher| matcher.is_match(relative))
-        && (zones.is_empty() || zone.is_some_and(|zone| zones.contains(zone)))
 }
 
 fn guard_policy_rule(
@@ -460,6 +461,78 @@ mod tests {
             "policy-violation:team-policy/pure-domain"
         );
         assert_eq!(rules[0].severity, "warn");
+    }
+
+    #[test]
+    fn compiled_rule_scopes_match_individual_file_reports() {
+        let temp = tempfile::tempdir().expect("tempdir");
+        let mut config = resolve(temp.path(), |config| {
+            config.boundaries = BoundaryConfig {
+                zones: vec![
+                    BoundaryZone {
+                        name: "domain".to_string(),
+                        patterns: vec!["src/domain/**".to_string()],
+                        auto_discover: Vec::new(),
+                        root: None,
+                    },
+                    BoundaryZone {
+                        name: "app".to_string(),
+                        patterns: vec!["src/app/**".to_string()],
+                        auto_discover: Vec::new(),
+                        root: None,
+                    },
+                ],
+                ..BoundaryConfig::default()
+            };
+        });
+        let mut domain_rule = rule("domain-only", RulePackRuleKind::BannedImport);
+        domain_rule.files = vec!["src/domain/**".to_string()];
+        domain_rule.exclude = vec!["src/domain/generated/**".to_string()];
+        let mut app_rule = rule("app-zone", RulePackRuleKind::BannedCall);
+        app_rule.zones = vec!["app".to_string()];
+        let mut invalid_glob_rule = rule("invalid-glob", RulePackRuleKind::BannedExport);
+        invalid_glob_rule.files = vec!["[".to_string()];
+        config.rule_packs = vec![pack(vec![domain_rule, app_rule, invalid_glob_rule])];
+
+        let files = vec![
+            "src/domain/user.ts".to_string(),
+            "src/domain/generated/client.ts".to_string(),
+            "src/app/page.ts".to_string(),
+            "src/other.ts".to_string(),
+        ];
+        let batch = build_guard_report(&config, &files).expect("batch report");
+        let individual = files
+            .iter()
+            .flat_map(|file| {
+                build_guard_report(&config, std::slice::from_ref(file))
+                    .expect("individual report")
+                    .files
+            })
+            .collect::<Vec<_>>();
+
+        assert_eq!(
+            serde_json::to_value(&batch.files).expect("serialize batch reports"),
+            serde_json::to_value(&individual).expect("serialize individual reports")
+        );
+        let rule_ids = batch
+            .files
+            .iter()
+            .map(|file| {
+                file.policy_rules
+                    .iter()
+                    .map(|rule| rule.rule_id.as_str())
+                    .collect::<Vec<_>>()
+            })
+            .collect::<Vec<_>>();
+        assert_eq!(
+            rule_ids,
+            vec![
+                vec!["domain-only", "invalid-glob"],
+                vec!["invalid-glob"],
+                vec!["app-zone", "invalid-glob"],
+                vec!["invalid-glob"],
+            ]
+        );
     }
 
     #[test]
