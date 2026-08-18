@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787092846955,
+  "lastUpdate": 1787097139331,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c3b171a4c9b67320915779ba40b16b246c1dffee",
-          "message": "fix(npm): pin fallow-type-aware optionalDependency in lockstep with the CLI\n\nThe release bump only covered @fallow-cli/* keys, so fallow@3.11.0 shipped\npinning fallow-type-aware to 3.10.0 while the launcher requires an exact\nversion match, leaving the sidecar unwired for every npm install.\n\nRefs #2103",
-          "timestamp": "2026-08-03T06:48:59+02:00",
-          "tree_id": "a4cc72fa01c591f529b6fb47fdbbf594f17a39b8",
-          "url": "https://github.com/fallow-rs/fallow/commit/c3b171a4c9b67320915779ba40b16b246c1dffee"
-        },
-        "date": 1785732957843,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7e1e075d314031e000c552e8af2f5de26084d0a1"
         },
         "date": 1787092843016,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "65c0f80a2e29e607eda9eafb5f9457f92c3b3127",
+          "message": "perf(benchmarks): track circular dependency command",
+          "timestamp": "2026-08-19T01:42:41+02:00",
+          "tree_id": "ba73445056731c31c7ea2a97760c02a5aaef20b6",
+          "url": "https://github.com/fallow-rs/fallow/commit/65c0f80a2e29e607eda9eafb5f9457f92c3b3127"
+        },
+        "date": 1787097135125,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
