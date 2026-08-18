@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787084924046,
+  "lastUpdate": 1787090791940,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "c1e15ea0bab981252060e6118df8957929946c9e",
-          "message": "fix(release): bump the type-aware sidecar in lockstep with the CLI version\n\nThe Windows release-validation lifecycle tests enforce the exact-version\nmatch between fallow and the in-repo type-aware sidecar, so the sidecar\npackage.json and lockfile must move with the release commit.",
-          "timestamp": "2026-08-02T07:09:01+02:00",
-          "tree_id": "7bdb219df594ea3b85e0aebce0a6ca985ca8738d",
-          "url": "https://github.com/fallow-rs/fallow/commit/c1e15ea0bab981252060e6118df8957929946c9e"
-        },
-        "date": 1785647822074,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/21b304caa4484b4395588e526df4663db8a1d7aa"
         },
         "date": 1787084920049,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fc2a90cef2bae23eca27f00c464122dd25a7904b",
+          "message": "chore(deps): bump taiki-e/install-action from 2.85.8 to 2.85.11 (#2317)\n\nBumps [taiki-e/install-action](https://github.com/taiki-e/install-action) from 2.85.8 to 2.85.11.\n- [Release notes](https://github.com/taiki-e/install-action/releases)\n- [Changelog](https://github.com/taiki-e/install-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/taiki-e/install-action/compare/cb33e69fad06166ca28a42b2575e4dadabf62ee8...7f4eb899022d8fe70b20c4f3de697aa85c309026)\n\n---\nupdated-dependencies:\n- dependency-name: taiki-e/install-action\n  dependency-version: 2.85.11\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-08-18T23:29:46+02:00",
+          "tree_id": "05b1c5c4704c2b9b12bd24c3c8d8a20c3acccdb5",
+          "url": "https://github.com/fallow-rs/fallow/commit/fc2a90cef2bae23eca27f00c464122dd25a7904b"
+        },
+        "date": 1787090786717,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
