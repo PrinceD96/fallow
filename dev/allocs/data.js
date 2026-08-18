@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787042598458,
+  "lastUpdate": 1787045162228,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "cca693b5988ca2626d1f522e09df6fff954050ec",
-          "message": "test: avoid global sidecar environment mutation",
-          "timestamp": "2026-07-27T18:16:53+02:00",
-          "tree_id": "70fc9a0df8679b4adc30e2ab77cd27ead7d48492",
-          "url": "https://github.com/fallow-rs/fallow/commit/cca693b5988ca2626d1f522e09df6fff954050ec"
-        },
-        "date": 1785169276769,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10497775,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54604,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 988965,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7236,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7596,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "00be8921cfd7397d579693a592e60e2944fc1a2a",
+          "message": "perf(benchmarks): cover saved report rendering",
+          "timestamp": "2026-08-18T11:20:35+02:00",
+          "tree_id": "b3f35a4ca0b97461757bbdcf219e9fa16a1e8b6b",
+          "url": "https://github.com/fallow-rs/fallow/commit/00be8921cfd7397d579693a592e60e2944fc1a2a"
+        },
+        "date": 1787045157006,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9708861,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 48830,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1024618,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7561,
             "unit": "allocations"
           }
         ]
