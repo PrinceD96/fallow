@@ -446,8 +446,64 @@ pub fn markdown_code_span(value: &str) -> String {
 /// to spaces because any CommonMark line ending would split the table row.
 #[must_use]
 pub fn markdown_table_code_span(value: &str) -> String {
-    let collapsed = value.replace("\r\n", " ").replace(['\n', '\r'], " ");
-    markdown_code_span(&collapsed.replace('|', "\\|"))
+    let bytes = value.as_bytes();
+    let mut transformed = String::with_capacity(value.len());
+    let mut longest_backtick_run = 0;
+    let mut backtick_run = 0;
+    let mut segment_start = 0;
+    let mut index = 0;
+    while index < bytes.len() {
+        let (replacement, consumed) = match bytes[index] {
+            b'`' => {
+                backtick_run += 1;
+                longest_backtick_run = longest_backtick_run.max(backtick_run);
+                index += 1;
+                continue;
+            }
+            b'\r' => {
+                backtick_run = 0;
+                (" ", usize::from(bytes.get(index + 1) == Some(&b'\n')) + 1)
+            }
+            b'\n' => {
+                backtick_run = 0;
+                (" ", 1)
+            }
+            b'|' => {
+                backtick_run = 0;
+                ("\\|", 1)
+            }
+            _ => {
+                backtick_run = 0;
+                index += 1;
+                continue;
+            }
+        };
+        transformed.push_str(&value[segment_start..index]);
+        transformed.push_str(replacement);
+        index += consumed;
+        segment_start = index;
+    }
+    transformed.push_str(&value[segment_start..]);
+
+    let fence_len = longest_backtick_run + 1;
+    let needs_padding = transformed.starts_with('`')
+        || transformed.ends_with('`')
+        || (transformed.starts_with(' ')
+            && transformed.ends_with(' ')
+            && !transformed.chars().all(|ch| ch == ' '));
+    let mut out = String::with_capacity(
+        transformed.len() + fence_len * 2 + usize::from(needs_padding) * 2,
+    );
+    out.extend(std::iter::repeat_n('`', fence_len));
+    if needs_padding {
+        out.push(' ');
+    }
+    out.push_str(&transformed);
+    if needs_padding {
+        out.push(' ');
+    }
+    out.extend(std::iter::repeat_n('`', fence_len));
+    out
 }
 
 /// Escape prose for a Markdown table cell while leaving intentional inline
@@ -928,6 +984,11 @@ mod tests {
         out.trim().to_owned()
     }
 
+    fn markdown_table_code_span_legacy(value: &str) -> String {
+        let collapsed = value.replace("\r\n", " ").replace(['\n', '\r'], " ");
+        markdown_code_span(&collapsed.replace('|', "\\|"))
+    }
+
     fn category_for_rule(rule_id: &str) -> &'static str {
         match rule_id {
             "fallow/code-duplication" => "Duplication",
@@ -1106,6 +1167,27 @@ mod tests {
     #[test]
     fn markdown_table_code_span_collapses_line_endings() {
         assert_eq!(markdown_table_code_span("a\r\nb\rc\nd"), "`a b c d`");
+    }
+
+    #[test]
+    fn markdown_table_code_span_matches_legacy_contract_corpus() {
+        const ALPHABET: [char; 10] = ['a', ' ', '\t', '\r', '\n', '\\', '|', '`', 'é', '🦀'];
+
+        for length in 0..=4 {
+            let case_count = ALPHABET.len().pow(length);
+            for mut encoded in 0..case_count {
+                let mut value = String::new();
+                for _ in 0..length {
+                    value.push(ALPHABET[encoded % ALPHABET.len()]);
+                    encoded /= ALPHABET.len();
+                }
+                assert_eq!(
+                    markdown_table_code_span(&value),
+                    markdown_table_code_span_legacy(&value),
+                    "contract mismatch for {value:?}"
+                );
+            }
+        }
     }
 
     #[test]
