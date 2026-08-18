@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787084762419,
+  "lastUpdate": 1787092753954,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "28810138faa8fdbc830b8d585d0c15d65c39c3fd",
-          "message": "test: scope process lint expectation to Unix",
-          "timestamp": "2026-07-27T18:36:55+02:00",
-          "tree_id": "81f7a366361951493117f4736d3a811d6effdf83",
-          "url": "https://github.com/fallow-rs/fallow/commit/28810138faa8fdbc830b8d585d0c15d65c39c3fd"
-        },
-        "date": 1785170453737,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10495074,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54590,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 983170,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6959,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8443,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7e1e075d314031e000c552e8af2f5de26084d0a1",
+          "message": "chore(deps-dev): bump ovsx to 1.1.1 and rolldown to 1.2.3 (#2322)",
+          "timestamp": "2026-08-18T22:33:27Z",
+          "tree_id": "c80bf47d3b43378343eb88ec2a0df0d9c4b08206",
+          "url": "https://github.com/fallow-rs/fallow/commit/7e1e075d314031e000c552e8af2f5de26084d0a1"
+        },
+        "date": 1787092749047,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9745099,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49222,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1186637,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8405,
             "unit": "allocations"
           }
         ]
