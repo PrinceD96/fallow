@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787102376677,
+  "lastUpdate": 1787103987055,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d4e759f1c49929cd7ba340c1099337609a02929c",
-          "message": "feat(action): provision the fallow-type-aware sidecar for typeAware-enabled projects (#2110)\n\nThe Action gains a tri-state type-aware input (auto reads the project config, true forces, false skips and passes --no-type-aware). When enabled it installs fallow-type-aware at exactly the resolved CLI version into a runner tool dir, verifies the exact-version match fail-closed, and exports FALLOW_TYPE_AWARE_BIN.\n\nFixes #2107",
-          "timestamp": "2026-08-03T16:11:23+02:00",
-          "tree_id": "0c6f10b65768219432b24d2c1aa3923987ecc084",
-          "url": "https://github.com/fallow-rs/fallow/commit/d4e759f1c49929cd7ba340c1099337609a02929c"
-        },
-        "date": 1785766751217,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/69e4446d9494e464b304317ee9a9c6920f25150a"
         },
         "date": 1787102373328,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d52e91244c091b25b097d15050635516cc3d0c28",
+          "message": "perf(benchmarks): track suppression inventory",
+          "timestamp": "2026-08-19T03:38:28+02:00",
+          "tree_id": "ae26aa0d130443e83e0b96cdc5d4280477f3f00f",
+          "url": "https://github.com/fallow-rs/fallow/commit/d52e91244c091b25b097d15050635516cc3d0c28"
+        },
+        "date": 1787103983551,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
