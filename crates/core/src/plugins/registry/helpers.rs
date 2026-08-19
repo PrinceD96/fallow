@@ -308,6 +308,31 @@ impl ConfigCandidateIndex {
             .any(|(dir, names)| dir.starts_with(root) && names.contains(name))
     }
 
+    /// Return indexed paths named `name` that are ancestors of discovered
+    /// source files at or below `root`.
+    ///
+    /// File-based plugin activation can use this instead of rebuilding the
+    /// same ancestor candidate list from every discovered source file.
+    pub(crate) fn paths_named_in_source_ancestors(
+        &self,
+        root: &Path,
+        name: &OsStr,
+        discovered_files: &[PathBuf],
+    ) -> Vec<PathBuf> {
+        let mut paths = self
+            .dirs
+            .iter()
+            .filter(|(dir, names)| {
+                dir.starts_with(root)
+                    && names.contains(name)
+                    && (*dir == root || discovered_files.iter().any(|file| file.starts_with(dir)))
+            })
+            .map(|(dir, _)| dir.join(name))
+            .collect::<Vec<_>>();
+        paths.sort_unstable();
+        paths
+    }
+
     /// Whether any directory at or below `root` contains a file whose name
     /// matches `matcher`, per the files the discovery walk collected. The glob
     /// analogue of [`Self::any_descendant_contains`], used to activate a plugin
@@ -784,5 +809,45 @@ mod tests {
         );
         // A pattern present in no indexed directory yields nothing.
         assert!(match_pattern_in_index(root, "missing.json", &index).is_empty());
+    }
+
+    #[test]
+    fn config_candidate_index_lists_named_paths_within_root() {
+        let index = ConfigCandidateIndex::build([
+            Path::new("/project/manifest.json"),
+            Path::new("/project/packages/b/manifest.json"),
+            Path::new("/project/packages/a/manifest.json"),
+            Path::new("/other/manifest.json"),
+            Path::new("/project/packages/a/src/main.ts"),
+        ]);
+
+        assert_eq!(
+            index.paths_named_in_source_ancestors(
+                Path::new("/project"),
+                OsStr::new("manifest.json"),
+                &[PathBuf::from("/project/packages/a/src/main.ts")],
+            ),
+            vec![
+                PathBuf::from("/project/manifest.json"),
+                PathBuf::from("/project/packages/a/manifest.json"),
+            ]
+        );
+        assert_eq!(
+            index.paths_named_in_source_ancestors(
+                Path::new("/project/packages/a"),
+                OsStr::new("manifest.json"),
+                &[PathBuf::from("/project/packages/a/src/main.ts")],
+            ),
+            vec![PathBuf::from("/project/packages/a/manifest.json")]
+        );
+        assert!(
+            index
+                .paths_named_in_source_ancestors(
+                    Path::new("/project"),
+                    OsStr::new("missing.json"),
+                    &[PathBuf::from("/project/packages/a/src/main.ts")],
+                )
+                .is_empty()
+        );
     }
 }

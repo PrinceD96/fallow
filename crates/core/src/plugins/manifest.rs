@@ -9,24 +9,23 @@ pub(super) fn has_matching_manifest_json(
     candidate_index: Option<&super::registry::ConfigCandidateIndex>,
     matches_manifest: impl Fn(&Value) -> bool,
 ) -> bool {
-    manifest_json_candidates(root, discovered_files)
-        .into_iter()
-        // Outside production mode the discovery walk already recorded which
-        // directories actually contain a `manifest.json`, so skip filesystem
-        // reads for candidate directories that have none. In production
-        // (`None`) fall back to probing every candidate.
-        .filter(|path| match candidate_index {
-            Some(index) => path
-                .parent()
-                .is_some_and(|dir| index.dir_contains(dir, std::ffi::OsStr::new("manifest.json"))),
-            None => true,
-        })
-        .any(|path| {
-            let Ok(source) = std::fs::read_to_string(path) else {
-                return false;
-            };
-            parse_manifest_json(&source).is_some_and(|manifest| matches_manifest(&manifest))
-        })
+    let candidates = candidate_index.map_or_else(
+        || manifest_json_candidates(root, discovered_files),
+        |index| {
+            index.paths_named_in_source_ancestors(
+                root,
+                std::ffi::OsStr::new("manifest.json"),
+                discovered_files,
+            )
+        },
+    );
+
+    candidates.into_iter().any(|path| {
+        let Ok(source) = std::fs::read_to_string(path) else {
+            return false;
+        };
+        parse_manifest_json(&source).is_some_and(|manifest| matches_manifest(&manifest))
+    })
 }
 
 pub(super) fn parse_manifest_json(source: &str) -> Option<Value> {
@@ -63,5 +62,64 @@ fn push_manifest_candidate(
     let candidate = dir.join("manifest.json");
     if seen.insert(candidate.clone()) {
         candidates.push(candidate);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn indexed_candidates_preserve_fallback_matching_and_root_boundaries() {
+        let temp = tempfile::tempdir().unwrap();
+        let root = temp.path().join("project");
+        let nested = root.join("packages/plugin");
+        let unused = root.join("packages/unused");
+        let outside = temp.path().join("outside");
+        std::fs::create_dir_all(nested.join("src")).unwrap();
+        std::fs::create_dir_all(&unused).unwrap();
+        std::fs::create_dir_all(&outside).unwrap();
+        std::fs::write(root.join("manifest.json"), "{ malformed").unwrap();
+        std::fs::write(nested.join("manifest.json"), r#"{"kind":"target"}"#).unwrap();
+        std::fs::write(unused.join("manifest.json"), r#"{"kind":"unused"}"#).unwrap();
+        std::fs::write(outside.join("manifest.json"), r#"{"kind":"target"}"#).unwrap();
+
+        let discovered = vec![nested.join("src/main.ts")];
+        let indexed_paths = [
+            root.join("manifest.json"),
+            nested.join("manifest.json"),
+            unused.join("manifest.json"),
+            outside.join("manifest.json"),
+        ];
+        let index = super::super::registry::ConfigCandidateIndex::build(
+            indexed_paths.iter().map(PathBuf::as_path),
+        );
+        let matches_target =
+            |value: &Value| value.get("kind").and_then(Value::as_str) == Some("target");
+
+        assert!(has_matching_manifest_json(
+            &root,
+            &discovered,
+            None,
+            matches_target
+        ));
+        assert!(!has_matching_manifest_json(
+            &root,
+            &discovered,
+            Some(&index),
+            |value| value.get("kind").and_then(Value::as_str) == Some("unused")
+        ));
+        assert!(has_matching_manifest_json(
+            &root,
+            &discovered,
+            Some(&index),
+            matches_target
+        ));
+        assert!(!has_matching_manifest_json(
+            &outside.join("nested"),
+            &[],
+            Some(&index),
+            matches_target
+        ));
     }
 }
