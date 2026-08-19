@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787123153172,
+  "lastUpdate": 1787130007175,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "8522c08fb87a482adefab47355d39cdc0be4b001",
-          "message": "feat(plugins): drive config-value dependency credits from a catalogue (#2059)\n\nThree hardcoded arms credited packages named by a config value: jsdom's optional peer canvas, vitest's edge-runtime peer, and vite's lightningcss.\n\nThey now read from crates/core/data/config_value_credits.toml, embedded and parsed once like tooling.toml, keyed on (surface, value) -> credits. Adding a rule for an existing surface is a one-entry data change. An unknown surface, unknown field, empty value or credit, or duplicate row fails the catalogue parse loudly.\n\nBehavior is unchanged for the three migrated cases.\n\nFixes #2018",
-          "timestamp": "2026-07-28T19:34:24+02:00",
-          "tree_id": "4790a7520c6bf72979424b8574d27dd75e839287",
-          "url": "https://github.com/fallow-rs/fallow/commit/8522c08fb87a482adefab47355d39cdc0be4b001"
-        },
-        "date": 1785260397613,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10500439,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55027,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 975909,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7602,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8367,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f7764202547193e2c1bfefafc4b67f38a22d14b3",
+          "message": "perf(benchmarks): track rule-pack policy analysis",
+          "timestamp": "2026-08-19T10:56:00+02:00",
+          "tree_id": "aa5e39f8fd6ce18b82128714fe2420d60613c655",
+          "url": "https://github.com/fallow-rs/fallow/commit/f7764202547193e2c1bfefafc4b67f38a22d14b3"
+        },
+        "date": 1787130003186,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9683089,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49119,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1174625,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8346,
             "unit": "allocations"
           }
         ]
