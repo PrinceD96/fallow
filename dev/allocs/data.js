@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787111388436,
+  "lastUpdate": 1787113994722,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1e39ca6da3fe60a19b9ea64f7778d10be204f49c",
-          "message": "docs(migrate): state that ignoreFindings is narrower than knip ignore (#2056)\n\nknip's ignore suppresses every issue whose file path matches, including dependency and manifest issues. fallow's ignoreFindings only hides findings a matching source file owns, so a migrated config silently narrows the semantics.\n\nfallow migrate now prints one note about that scope difference for every knip migration, not only when ignore was present. The generated config and the exit codes are unchanged.\n\nFixes #2017",
-          "timestamp": "2026-07-28T16:02:49+02:00",
-          "tree_id": "c42a71ded879dabba87ef13a1678c2369f26daa1",
-          "url": "https://github.com/fallow-rs/fallow/commit/1e39ca6da3fe60a19b9ea64f7778d10be204f49c"
-        },
-        "date": 1785251994102,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10539783,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55038,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 975909,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7602,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8421,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f6ce30f8c3663ffa8d042a61e792ed8e03c11b09",
+          "message": "perf(benchmarks): track list inventory",
+          "timestamp": "2026-08-19T06:29:00+02:00",
+          "tree_id": "c10d95c4467ed06288792bf590e5d29f82278358",
+          "url": "https://github.com/fallow-rs/fallow/commit/f6ce30f8c3663ffa8d042a61e792ed8e03c11b09"
+        },
+        "date": 1787113991707,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9712371,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49218,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1183709,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8424,
             "unit": "allocations"
           }
         ]
