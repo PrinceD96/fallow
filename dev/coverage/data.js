@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787100531255,
+  "lastUpdate": 1787102376677,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4e83c23c025e17874f34f0c674166c86cfba6bf1",
-          "message": "chore(docker): pin FALLOW_VERSION 3.12.0 with refreshed checksums",
-          "timestamp": "2026-08-03T10:59:33+02:00",
-          "tree_id": "f53f05eb207d16d1f2964bf0252346f3e711da3a",
-          "url": "https://github.com/fallow-rs/fallow/commit/4e83c23c025e17874f34f0c674166c86cfba6bf1"
-        },
-        "date": 1785748189452,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/d6e16368e9a9b04f1d232b2b35442021146945a4"
         },
         "date": 1787100525913,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "69e4446d9494e464b304317ee9a9c6920f25150a",
+          "message": "perf(benchmarks): track trace symbol chains",
+          "timestamp": "2026-08-19T03:09:11+02:00",
+          "tree_id": "e573c4f84e583b25e1ccef0d6d964de61685d0f0",
+          "url": "https://github.com/fallow-rs/fallow/commit/69e4446d9494e464b304317ee9a9c6920f25150a"
+        },
+        "date": 1787102373328,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
