@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787145646364,
+  "lastUpdate": 1787162886086,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "raihassanraza10@gmail.com",
-            "name": "Muhammad Hassan Raza",
-            "username": "M-Hassan-Raza"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "cf897c27da5f671cde789a7437433b2da5fd84ef",
-          "message": "fix(health): respect mocked modules in test reachability (#2068)\n\nExtraction records ordered vi.mock/vi.unmock facts for the literal vitest vi binding with statically proven closed factories; resolution canonicalizes targets through the specifier pipeline; the graph masks ESM edges per test root with bit-parallel reachability profiles and exact reference provenance, while CommonJS require paths stay live. Health coverage gaps, export gaps, and estimated CRAP consume the shared masked view.\n\nFixes #2031",
-          "timestamp": "2026-08-01T22:32:56+02:00",
-          "tree_id": "dfc7382d1f0c19dd0a1322b0a1b8b44777e1c6bb",
-          "url": "https://github.com/fallow-rs/fallow/commit/cf897c27da5f671cde789a7437433b2da5fd84ef"
-        },
-        "date": 1785616615432,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10604783,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55055,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 984873,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6961,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8447,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "aed49b4addf9549b6271997b0c0a2e38dfe14b08",
+          "message": "perf(benchmarks): cover warm coverage gaps",
+          "timestamp": "2026-08-19T20:03:53+02:00",
+          "tree_id": "b03c21c46732dd8858caa5eccf4f8258be7cd6ac",
+          "url": "https://github.com/fallow-rs/fallow/commit/aed49b4addf9549b6271997b0c0a2e38dfe14b08"
+        },
+        "date": 1787162879832,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9700811,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49201,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1187182,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8434,
             "unit": "allocations"
           }
         ]
