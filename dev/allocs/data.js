@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787133158931,
+  "lastUpdate": 1787140689129,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ce52c96d7e71cb3ab3076144b7b426be7048c986",
-          "message": "feat(scripts): follow package-manager indirection into script bodies (#2063)\n\nnpm run <script> -- --flag and yarn <script> --flag were dropped before flag scanning, so the flag-value dependency crediting from #2006 never reached the shape most projects actually use. Script bodies now resolve through the catalogue and are rescanned, bounded by a depth limit and a global expansion budget.\n\nAmbiguity is sticky: a script name declared with different bodies across packages is never followed, regardless of workspace order. Names and bodies filter separately under --production, so a filtered script name still wins over a same-named dependency binary. Entry files from workspace bodies no longer seed root-relative patterns.\n\nRefs #2016",
-          "timestamp": "2026-07-28T22:35:43+02:00",
-          "tree_id": "346ac6934e0ed41497fc51d1614a2f43ba505ee5",
-          "url": "https://github.com/fallow-rs/fallow/commit/ce52c96d7e71cb3ab3076144b7b426be7048c986"
-        },
-        "date": 1785271251085,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10540887,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55033,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 983273,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6961,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8391,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2ed7d02a94c6ff2d3578406a2dc269f31ce3667f",
+          "message": "perf(benchmarks): cover audit impact closure",
+          "timestamp": "2026-08-19T13:54:04+02:00",
+          "tree_id": "1647e61081d7d2497306d0e0d9ff4f2171407e7a",
+          "url": "https://github.com/fallow-rs/fallow/commit/2ed7d02a94c6ff2d3578406a2dc269f31ce3667f"
+        },
+        "date": 1787140685645,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9688985,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49128,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1178137,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8378,
             "unit": "allocations"
           }
         ]
