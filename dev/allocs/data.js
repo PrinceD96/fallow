@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787140689129,
+  "lastUpdate": 1787145646364,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "57adb47d2ddc8720f1870dcaabca5096529d0c05",
-          "message": "feat(health): add an identity-preserving baseline mode (#2064)\n\nThe default count baseline matches per file and category, so a new hotspot replacing an old one in the same file consumed the existing allowance and the gate stayed green. --baseline-mode identity matches per function identity instead: a replacement hotspot is reported, line shifts and severity improvements stay suppressed, and resolved findings disappear without a refresh.\n\nThe default stays count. Identity baselines keep their count buckets so both modes read them, and comparing in identity mode against a count-only baseline is an input error rather than a silent fallback. A finding identity is file path plus function name, so renaming or moving a function that is still in the baseline reports it as new; the flag documentation states that limit and the re-save rule.\n\nRefs #2010",
-          "timestamp": "2026-07-28T22:48:23+02:00",
-          "tree_id": "8adad1a994a5a7ed9a53b46a83d928fdc7142377",
-          "url": "https://github.com/fallow-rs/fallow/commit/57adb47d2ddc8720f1870dcaabca5096529d0c05"
-        },
-        "date": 1785271933302,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10554871,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55057,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 983273,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6961,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8378,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0bae5b1d371aeadeea21373ced69584dfdcacbcd",
+          "message": "perf(benchmarks): cover recommend workspace JSON",
+          "timestamp": "2026-08-19T15:16:31+02:00",
+          "tree_id": "e8991454566277d66ccf2ef7e58cdab167cb8b81",
+          "url": "https://github.com/fallow-rs/fallow/commit/0bae5b1d371aeadeea21373ced69584dfdcacbcd"
+        },
+        "date": 1787145642493,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9736883,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49205,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1190541,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8447,
             "unit": "allocations"
           }
         ]
