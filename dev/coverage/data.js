@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787145736825,
+  "lastUpdate": 1787162967046,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7093ed409c5b7e64162bd70826dd62e7db88a08c",
-          "message": "chore(docker): pin FALLOW_VERSION 3.14.0 with refreshed checksums",
-          "timestamp": "2026-08-04T11:01:32+02:00",
-          "tree_id": "d9312a3d7b5141dd36e676ce009563447ed234ea",
-          "url": "https://github.com/fallow-rs/fallow/commit/7093ed409c5b7e64162bd70826dd62e7db88a08c"
-        },
-        "date": 1785834490695,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/0bae5b1d371aeadeea21373ced69584dfdcacbcd"
         },
         "date": 1787145732627,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "aed49b4addf9549b6271997b0c0a2e38dfe14b08",
+          "message": "perf(benchmarks): cover warm coverage gaps",
+          "timestamp": "2026-08-19T20:03:53+02:00",
+          "tree_id": "b03c21c46732dd8858caa5eccf4f8258be7cd6ac",
+          "url": "https://github.com/fallow-rs/fallow/commit/aed49b4addf9549b6271997b0c0a2e38dfe14b08"
+        },
+        "date": 1787162959363,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
