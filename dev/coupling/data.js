@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787162716718,
+  "lastUpdate": 1787167577691,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f5a898f9a5e03d4839f46b88996371218dda8b34",
-          "message": "fix(graph): credit the whole React Native platform-extension family (#2087)\n\nA specifier that resolves into a Metro platform family now credits every member (.ios, .android, .native, .web, and the base file) across static imports, dynamic imports, require calls, and re-exports. Explicit platform specifiers keep a single edge.\n\nFixes #2073",
-          "timestamp": "2026-08-02T03:30:24+02:00",
-          "tree_id": "9f3bea18b6096339c0b9f148ecf603754774ca50",
-          "url": "https://github.com/fallow-rs/fallow/commit/f5a898f9a5e03d4839f46b88996371218dda8b34"
-        },
-        "date": 1785634300466,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.33,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 450,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1179,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/aed49b4addf9549b6271997b0c0a2e38dfe14b08"
         },
         "date": 1787162710920,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 47,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.32,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 455,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1231,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fecc8c221bd0c75346720209d8e6ec18d78f8495",
+          "message": "perf(benchmarks): cover hotspot ownership churn",
+          "timestamp": "2026-08-19T21:24:21+02:00",
+          "tree_id": "949f3bf700e92734ca6877fb6549b0ee69f2adfa",
+          "url": "https://github.com/fallow-rs/fallow/commit/fecc8c221bd0c75346720209d8e6ec18d78f8495"
+        },
+        "date": 1787167573606,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
