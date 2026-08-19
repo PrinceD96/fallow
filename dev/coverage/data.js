@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787097139331,
+  "lastUpdate": 1787098866962,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "7145cf78d75499ab96d8f81bc6dbe85574e461cb",
-          "message": "fix(release): sync the fallow-type-aware pin from the tag at npm publish time\n\nThe wrapper sync only bumped @fallow-cli/* optionalDependencies, so the\npublished fallow package pinned fallow-type-aware to the committed value\nof the previous release and the exact-match launcher never wired the\nsidecar.\n\nRefs #2103",
-          "timestamp": "2026-08-03T07:45:41+02:00",
-          "tree_id": "5170c9852a03ce1f8bfc94c4fb0f284d4caa38f1",
-          "url": "https://github.com/fallow-rs/fallow/commit/7145cf78d75499ab96d8f81bc6dbe85574e461cb"
-        },
-        "date": 1785738444263,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/65c0f80a2e29e607eda9eafb5f9457f92c3b3127"
         },
         "date": 1787097135125,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9d14001d7fefd519a89116d156a07149b51b4314",
+          "message": "perf(benchmarks): track feature flags command",
+          "timestamp": "2026-08-19T02:12:42+02:00",
+          "tree_id": "55c0cc4f0e9285a1d46628492bbec72928b07ca7",
+          "url": "https://github.com/fallow-rs/fallow/commit/9d14001d7fefd519a89116d156a07149b51b4314"
+        },
+        "date": 1787098863237,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
