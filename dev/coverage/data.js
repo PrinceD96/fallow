@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787111592281,
+  "lastUpdate": 1787114341308,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "a99fb67f3a78c6250bd62a67ac560055354e2089",
-          "message": "fix(vscode): override brace-expansion to 5.0.9 for GHSA-rgw5-rvv9-x895\n\nThe transitive dependency via vscode-languageclient's minimatch sat at\n5.0.8, which the new advisory marks vulnerable; the override plus the\nrelease-age exclude move it to the patched 5.0.9.",
-          "timestamp": "2026-08-03T20:11:13+02:00",
-          "tree_id": "14b37c9a4ea3cd796e1af095caca491a48f43768",
-          "url": "https://github.com/fallow-rs/fallow/commit/a99fb67f3a78c6250bd62a67ac560055354e2089"
-        },
-        "date": 1785781013409,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f6ce30f8c3663ffa8d042a61e792ed8e03c11b09",
+          "message": "perf(benchmarks): track list inventory",
+          "timestamp": "2026-08-19T06:29:00+02:00",
+          "tree_id": "c10d95c4467ed06288792bf590e5d29f82278358",
+          "url": "https://github.com/fallow-rs/fallow/commit/f6ce30f8c3663ffa8d042a61e792ed8e03c11b09"
+        },
+        "date": 1787114336768,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
             "unit": "%"
           }
         ]
