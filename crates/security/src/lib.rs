@@ -208,6 +208,9 @@ impl CalleePattern {
         if self.suffix_segments.is_empty() || (self.leading_wildcard && self.trailing_wildcard) {
             return false;
         }
+        if !self.leading_wildcard && !self.trailing_wildcard {
+            return self.raw == callee_path;
+        }
         let candidate: Vec<&str> = callee_path.split('.').collect();
         if self.leading_wildcard {
             // A leading `*.` requires at least one object segment before the
@@ -1309,6 +1312,95 @@ evidence_template = "   "
     fn parse_rejects_no_matchers() {
         let err = parse_catalogue("").unwrap_err();
         assert!(err.contains("no [[matcher]]"), "got: {err}");
+    }
+
+    fn reference_callee_pattern_matches(pattern: &CalleePattern, callee_path: &str) -> bool {
+        if pattern.suffix_segments.is_empty()
+            || (pattern.leading_wildcard && pattern.trailing_wildcard)
+        {
+            return false;
+        }
+
+        let candidate: Vec<&str> = callee_path.split('.').collect();
+        if pattern.leading_wildcard {
+            if pattern.suffix_segments.len() >= candidate.len() {
+                return false;
+            }
+            let tail = &candidate[candidate.len() - pattern.suffix_segments.len()..];
+            pattern
+                .suffix_segments
+                .iter()
+                .zip(tail)
+                .all(|(expected, actual)| expected == actual)
+        } else if pattern.trailing_wildcard {
+            if pattern.suffix_segments.len() >= candidate.len() {
+                return false;
+            }
+            let head = &candidate[..pattern.suffix_segments.len()];
+            pattern
+                .suffix_segments
+                .iter()
+                .zip(head)
+                .all(|(expected, actual)| expected == actual)
+        } else {
+            pattern.suffix_segments.len() == candidate.len()
+                && pattern
+                    .suffix_segments
+                    .iter()
+                    .zip(&candidate)
+                    .all(|(expected, actual)| expected == actual)
+        }
+    }
+
+    #[test]
+    fn callee_pattern_fast_paths_match_segment_reference() {
+        let patterns = [
+            "fetch",
+            "child_process.exec",
+            ".fetch",
+            "fetch.",
+            "foo..bar",
+            "føø.方法",
+            "*.innerHTML",
+            "*.foo.bar",
+            "*..tail",
+            "child_process.*",
+            "foo.bar.*",
+            "foo..*",
+            "*",
+            "*.query.*",
+            "*.*",
+        ];
+        let candidates = [
+            "",
+            ".",
+            "fetch",
+            "myfetch",
+            "child_process.exec",
+            "child_process.exec.call",
+            ".fetch",
+            "fetch.",
+            "foo..bar",
+            "obj.foo.bar",
+            "foo.bar.member",
+            "obj..tail",
+            "db.query.run",
+            "føø.方法",
+            "prefix.føø.方法",
+            "δοκιμή.κλήση",
+            "😀.调用",
+        ];
+
+        for raw in patterns {
+            let pattern = parse_callee_pattern(raw).expect("pattern parses");
+            for candidate in candidates {
+                assert_eq!(
+                    pattern.matches(candidate),
+                    reference_callee_pattern_matches(&pattern, candidate),
+                    "pattern {raw:?}, candidate {candidate:?}"
+                );
+            }
+        }
     }
 
     #[test]
