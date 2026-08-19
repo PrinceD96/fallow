@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787162886086,
+  "lastUpdate": 1787167798040,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "de65b31999b0551377dd0006eeff7d4d337ca9c9",
-          "message": "fix(security): stop treating \"use server\" as a server-only marker (#2088)\n\nA \"use server\" directive declares a Server Action boundary that client components are meant to import; the server-only-import rule treated it like server-only or node:fs, flagging every Server Action call site in App Router projects as high severity. The sink set now builds from imported server-only code only, while a \"use server\" module that imports server-only code and leaks it through a non-action export is still reported. Remediation and SARIF text updated to match.\n\nFixes #2074",
-          "timestamp": "2026-08-02T00:46:49+02:00",
-          "tree_id": "2f4fedd4835c67ad61c69b30cf5b65625568b647",
-          "url": "https://github.com/fallow-rs/fallow/commit/de65b31999b0551377dd0006eeff7d4d337ca9c9"
-        },
-        "date": 1785625099987,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10551445,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55033,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 976157,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8434,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fecc8c221bd0c75346720209d8e6ec18d78f8495",
+          "message": "perf(benchmarks): cover hotspot ownership churn",
+          "timestamp": "2026-08-19T21:24:21+02:00",
+          "tree_id": "949f3bf700e92734ca6877fb6549b0ee69f2adfa",
+          "url": "https://github.com/fallow-rs/fallow/commit/fecc8c221bd0c75346720209d8e6ec18d78f8495"
+        },
+        "date": 1787167793420,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9736555,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49210,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1187415,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8419,
             "unit": "allocations"
           }
         ]
