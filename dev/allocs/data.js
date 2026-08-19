@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787098672876,
+  "lastUpdate": 1787100290395,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "742076bafcbcb626e8b39a01aa35ec13eddd86c0",
-          "message": "fix(plugins): let a callback's own return outrank a branch return\n\nBranch descent searched returns at the same precedence as the callback's own statements, so a guard clause shadowed the real config: `if (!mode) { return {}; } return { test: {...} };` resolved to the empty object. That shape worked before descent existed, so it was a regression.\n\nA return at the body's own level now always wins; branches are searched only when there is none, which keeps Vite's documented if/else form working.\n\nThe test meant to guard this asserted the regressed value, so it locked the bug in rather than catching it. Replaced with cases that pin the trailing return, plus an else-if chain.\n\nAdmin merge: the only failing check is CodSpeed Performance Analysis reporting an internal error while processing the run's data; every benchmark job in the workflow succeeded.",
-          "timestamp": "2026-07-27T21:38:40+02:00",
-          "tree_id": "4b56dd17d210e593241e480bcfe8fb7a8b78001a",
-          "url": "https://github.com/fallow-rs/fallow/commit/742076bafcbcb626e8b39a01aa35ec13eddd86c0"
-        },
-        "date": 1785181336120,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10532349,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 54963,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 983237,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6960,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8378,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d6e16368e9a9b04f1d232b2b35442021146945a4",
+          "message": "perf(benchmarks): track guard policy resolution",
+          "timestamp": "2026-08-19T02:40:52+02:00",
+          "tree_id": "c463c7ff2489653698a1ba698389908c45313317",
+          "url": "https://github.com/fallow-rs/fallow/commit/d6e16368e9a9b04f1d232b2b35442021146945a4"
+        },
+        "date": 1787100286553,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9685265,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49121,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1179974,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8403,
             "unit": "allocations"
           }
         ]
