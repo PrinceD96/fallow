@@ -1,4 +1,4 @@
-use std::io::IsTerminal;
+use std::io::{BufRead, BufReader, IsTerminal};
 use std::path::{Path, PathBuf};
 use std::process::ExitCode;
 use std::sync::{Arc, Mutex, mpsc};
@@ -8,7 +8,7 @@ use colored::Colorize;
 use fallow_config::OutputFormat;
 use ignore::Match;
 use notify::{RecommendedWatcher, Watcher};
-use rustc_hash::FxHashSet;
+use rustc_hash::{FxHashMap, FxHashSet};
 
 use crate::report;
 use crate::runtime_support::{LoadConfigArgs, load_config};
@@ -94,8 +94,25 @@ struct WatchFilter {
     root: PathBuf,
     ignore_patterns: globset::GlobSet,
     production_excludes: Option<globset::GlobSet>,
-    gitignores: Vec<ignore::gitignore::Gitignore>,
+    gitignores: Vec<ProjectGitignore>,
     global_gitignore: ignore::gitignore::Gitignore,
+}
+
+#[derive(Clone)]
+struct ProjectGitignore {
+    base: PathBuf,
+    matcher: Arc<ignore::gitignore::Gitignore>,
+}
+
+impl ProjectGitignore {
+    fn matched_path_or_any_parents(&self, path: &Path, is_dir: bool) -> Option<bool> {
+        let relative = path.strip_prefix(&self.base).ok()?;
+        match self.matcher.matched_path_or_any_parents(relative, is_dir) {
+            Match::Ignore(_) => Some(true),
+            Match::Whitelist(_) => Some(false),
+            Match::None => None,
+        }
+    }
 }
 
 impl WatchFilter {
@@ -155,10 +172,8 @@ impl WatchFilter {
     fn project_gitignore_match(&self, path: &Path, is_dir: bool) -> Option<bool> {
         let mut ignored = None;
         for gitignore in &self.gitignores {
-            match gitignore.matched_path_or_any_parents(path, is_dir) {
-                Match::Ignore(_) => ignored = Some(true),
-                Match::Whitelist(_) => ignored = Some(false),
-                Match::None => {}
+            if let Some(project_match) = gitignore.matched_path_or_any_parents(path, is_dir) {
+                ignored = Some(project_match);
             }
         }
         ignored
@@ -186,25 +201,24 @@ pub fn benchmark_filter_initialization(
     let pattern_count = filter
         .gitignores
         .iter()
-        .map(|gitignore| gitignore.len())
+        .map(|gitignore| gitignore.matcher.len())
         .sum();
     (filter.gitignores.len(), pattern_count)
 }
 
-fn build_project_gitignores(
-    config: &fallow_config::ResolvedConfig,
-) -> Vec<ignore::gitignore::Gitignore> {
+fn build_project_gitignores(config: &fallow_config::ResolvedConfig) -> Vec<ProjectGitignore> {
     let root = &config.root;
     let mut gitignores = Vec::new();
+    let mut matcher_cache = FxHashMap::default();
 
     let git_exclude = root.join(".git/info/exclude");
-    if let Some(gitignore) = build_gitignore(root, &git_exclude) {
+    if let Some(gitignore) = build_project_gitignore(root, &git_exclude, &mut matcher_cache) {
         gitignores.push(gitignore);
     }
 
     for path in discover_project_gitignores(root, &config.ignore_patterns) {
         if let Some(base) = path.parent()
-            && let Some(gitignore) = build_gitignore(base, &path)
+            && let Some(gitignore) = build_project_gitignore(base, &path, &mut matcher_cache)
         {
             gitignores.push(gitignore);
         }
@@ -213,10 +227,43 @@ fn build_project_gitignores(
     gitignores
 }
 
-fn build_gitignore(base: &Path, path: &Path) -> Option<ignore::gitignore::Gitignore> {
-    let mut builder = ignore::gitignore::GitignoreBuilder::new(base);
-    let _ = builder.add(path);
-    builder.build().ok()
+fn build_project_gitignore(
+    base: &Path,
+    path: &Path,
+    matcher_cache: &mut FxHashMap<Vec<u8>, Arc<ignore::gitignore::Gitignore>>,
+) -> Option<ProjectGitignore> {
+    let Ok(contents) = std::fs::read(path) else {
+        let mut builder = ignore::gitignore::GitignoreBuilder::new("");
+        let _ = builder.add(path);
+        return builder.build().ok().map(|matcher| ProjectGitignore {
+            base: base.to_path_buf(),
+            matcher: Arc::new(matcher),
+        });
+    };
+
+    let matcher = match matcher_cache.entry(contents) {
+        std::collections::hash_map::Entry::Occupied(entry) => Arc::clone(entry.get()),
+        std::collections::hash_map::Entry::Vacant(entry) => {
+            let mut builder = ignore::gitignore::GitignoreBuilder::new("");
+            for (index, line) in BufReader::new(entry.key().as_slice()).lines().enumerate() {
+                let Ok(line) = line else { break };
+                let line = if index == 0 {
+                    line.trim_start_matches('\u{feff}')
+                } else {
+                    &line
+                };
+                let _ = builder.add_line(Some(path.to_path_buf()), line);
+            }
+            let matcher = Arc::new(builder.build().ok()?);
+            entry.insert(Arc::clone(&matcher));
+            matcher
+        }
+    };
+
+    Some(ProjectGitignore {
+        base: base.to_path_buf(),
+        matcher,
+    })
 }
 
 fn discover_project_gitignores(root: &Path, ignore_patterns: &globset::GlobSet) -> Vec<PathBuf> {
@@ -977,6 +1024,93 @@ mod tests {
         let event = make_event(&[&dir.path().join("packages/web/generated/client.ts")]);
         let paths = display_changed_paths(filter_event_paths(event, &filter), dir.path());
         assert_eq!(paths, vec!["packages/web/generated/client.ts"]);
+    }
+
+    #[test]
+    fn project_gitignore_cache_preserves_builder_matching() {
+        let dir = tempfile::tempdir().expect("tempdir");
+        let base = dir.path().join("packages/web");
+        std::fs::create_dir_all(&base).expect("create package dir");
+        let gitignore_path = base.join(".gitignore");
+        std::fs::write(
+            &gitignore_path,
+            "\u{feff}generated/**\n!generated/keep.ts\n*.log\n/root-only.ts\ncache/\n",
+        )
+        .expect("write gitignore");
+
+        let mut cache = FxHashMap::default();
+        let cached =
+            build_project_gitignore(&base, &gitignore_path, &mut cache).expect("cached matcher");
+        let mut legacy_builder = ignore::gitignore::GitignoreBuilder::new(&base);
+        let _ = legacy_builder.add(&gitignore_path);
+        let legacy = legacy_builder.build().expect("legacy matcher");
+
+        for (relative, is_dir) in [
+            ("generated/output.ts", false),
+            ("generated/keep.ts", false),
+            ("src/debug.log", false),
+            ("root-only.ts", false),
+            ("nested/root-only.ts", false),
+            ("cache", true),
+            ("src/index.ts", false),
+        ] {
+            let path = base.join(relative);
+            let expected = match legacy.matched_path_or_any_parents(&path, is_dir) {
+                Match::Ignore(_) => Some(true),
+                Match::Whitelist(_) => Some(false),
+                Match::None => None,
+            };
+            assert_eq!(
+                cached.matched_path_or_any_parents(&path, is_dir),
+                expected,
+                "matching differs for {relative}"
+            );
+        }
+    }
+
+    #[test]
+    fn identical_nested_gitignores_share_matchers_without_crossing_scopes() {
+        let dir = tempfile::tempdir().expect("tempdir");
+        for package in ["a", "b", "c"] {
+            std::fs::create_dir_all(dir.path().join(format!("packages/{package}/generated")))
+                .expect("create generated dir");
+            std::fs::create_dir_all(dir.path().join(format!("packages/{package}/private")))
+                .expect("create private dir");
+        }
+        for package in ["a", "b"] {
+            std::fs::write(
+                dir.path().join(format!("packages/{package}/.gitignore")),
+                "generated/**\n!generated/keep.ts\n",
+            )
+            .expect("write shared gitignore");
+        }
+        std::fs::write(dir.path().join("packages/c/.gitignore"), "private/**\n")
+            .expect("write distinct gitignore");
+
+        let config = make_config(dir.path(), OutputFormat::Human, 1, false);
+        let filter =
+            WatchFilter::new_with_global_gitignore(&config, ignore::gitignore::Gitignore::empty());
+        let package_matcher = |package: &str| {
+            filter
+                .gitignores
+                .iter()
+                .find(|gitignore| gitignore.base.ends_with(format!("packages/{package}")))
+                .expect("package matcher")
+        };
+        assert!(Arc::ptr_eq(
+            &package_matcher("a").matcher,
+            &package_matcher("b").matcher
+        ));
+        assert!(!Arc::ptr_eq(
+            &package_matcher("a").matcher,
+            &package_matcher("c").matcher
+        ));
+
+        assert!(!filter.allows(&dir.path().join("packages/a/generated/output.ts")));
+        assert!(filter.allows(&dir.path().join("packages/a/generated/keep.ts")));
+        assert!(filter.allows(&dir.path().join("packages/a/private/output.ts")));
+        assert!(filter.allows(&dir.path().join("packages/c/generated/output.ts")));
+        assert!(!filter.allows(&dir.path().join("packages/c/private/output.ts")));
     }
 
     #[test]
