@@ -656,7 +656,72 @@ fn load_candidate_map(path: &Path) -> Result<BTreeMap<String, SecurityFinding>, 
     Ok(candidates)
 }
 
+#[derive(Default)]
+enum RawJsonField<'a> {
+    #[default]
+    Missing,
+    Present(&'a serde_json::value::RawValue),
+}
+
+fn deserialize_raw_json_field<'de, D>(deserializer: D) -> Result<RawJsonField<'de>, D::Error>
+where
+    D: serde::Deserializer<'de>,
+{
+    serde::Deserialize::deserialize(deserializer).map(RawJsonField::Present)
+}
+
+#[derive(serde::Deserialize)]
+struct SecurityVerdictEnvelope<'a> {
+    #[serde(borrow, default, deserialize_with = "deserialize_raw_json_field")]
+    schema_version: RawJsonField<'a>,
+    #[serde(borrow, default, deserialize_with = "deserialize_raw_json_field")]
+    verdicts: RawJsonField<'a>,
+}
+
 fn load_verdicts(path: &Path) -> Result<Vec<SecurityVerifierVerdict>, String> {
+    let src = std::fs::read_to_string(path)
+        .map_err(|err| format!("Failed to read verdict file {}: {err}", path.display()))?;
+    if src.trim_start().starts_with('{') {
+        let envelope: SecurityVerdictEnvelope<'_> = serde_json::from_str(&src)
+            .map_err(|err| format!("Failed to parse verdict file {}: {err}", path.display()))?;
+        if let RawJsonField::Present(verdicts) = envelope.verdicts {
+            let valid_schema = match envelope.schema_version {
+                RawJsonField::Present(schema_version) => {
+                    serde_json::from_str::<&str>(schema_version.get()).ok()
+                        == Some("fallow-security-verdicts/v1")
+                }
+                RawJsonField::Missing => false,
+            };
+            if !valid_schema {
+                return Err(format!(
+                    "Verifier verdict file {} must use schema_version `fallow-security-verdicts/v1`.",
+                    path.display()
+                ));
+            }
+            let verdicts = verdicts.get();
+            if !verdicts.trim_start().starts_with('[') {
+                return Err(format!(
+                    "Verifier verdict file {} must contain a verdicts array.",
+                    path.display()
+                ));
+            }
+            return parse_verdict_list(verdicts, path);
+        }
+    }
+    parse_verdict_list(&src, path)
+}
+
+fn parse_verdict_list(verdicts: &str, path: &Path) -> Result<Vec<SecurityVerifierVerdict>, String> {
+    serde_json::from_str(verdicts).map_err(|err| {
+        format!(
+            "Failed to parse verifier verdict file {}: {err}",
+            path.display()
+        )
+    })
+}
+
+#[cfg(test)]
+fn load_verdicts_via_value_for_test(path: &Path) -> Result<Vec<SecurityVerifierVerdict>, String> {
     let value = load_json_file(path, "verdict")?;
     let verdicts_value = if let Some(items) = value.get("verdicts") {
         if value
@@ -3327,6 +3392,57 @@ mod tests {
         assert_eq!(result.2, 1);
         assert_eq!(result.3, 0);
         assert!(result.4 > 0);
+    }
+
+    #[test]
+    fn survivors_verdict_loader_matches_value_oracle() {
+        let dir = tempfile::tempdir().expect("temp dir");
+        let verdicts = dir.path().join("verdicts.json");
+        let items = serde_json::json!([
+            {
+                "schema_version": "fallow-security-verdict/v1",
+                "finding_id": "sec-a",
+                "verdict": "survivor",
+                "rationale": "validated"
+            },
+            {
+                "schema_version": "fallow-security-verdict/v1",
+                "finding_id": "sec-b",
+                "verdict": "needs-human-review"
+            }
+        ]);
+        let documents = [
+            items.to_string(),
+            serde_json::json!({
+                "schema_version": "fallow-security-verdicts/v1",
+                "verdicts": items
+            })
+            .to_string(),
+        ];
+
+        for document in documents {
+            std::fs::write(&verdicts, document).expect("write verdicts");
+            let expected = load_verdicts_via_value_for_test(&verdicts)
+                .expect("value oracle should parse verdicts");
+            let actual = load_verdicts(&verdicts).expect("direct loader should parse verdicts");
+            assert_eq!(
+                serde_json::to_value(actual).expect("serialize direct verdicts"),
+                serde_json::to_value(expected).expect("serialize oracle verdicts")
+            );
+        }
+
+        std::fs::write(
+            &verdicts,
+            r#"{"schema_version":"fallow-security-verdicts/v1","verdicts":null}"#,
+        )
+        .expect("write invalid verdicts");
+        let error = load_verdicts(&verdicts).expect_err("null verdicts should fail");
+        assert!(error.contains("must contain a verdicts array"));
+
+        std::fs::write(&verdicts, r#"{"schema_version":1,"verdicts":[]}"#)
+            .expect("write invalid schema");
+        let error = load_verdicts(&verdicts).expect_err("non-string schema should fail");
+        assert!(error.contains("must use schema_version"));
     }
 
     #[test]
