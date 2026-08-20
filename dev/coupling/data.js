@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787216901407,
+  "lastUpdate": 1787224288919,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f990d58f9d59e675ee85c51d6501c1708158fe6d",
-          "message": "fix(audit): compare type-aware identities by compatibility, not equality (#2105)\n\nThe degrade decision now uses SemanticAnalysisIdentity::incompatible_fields() and tolerates a side that ran no semantic queries, and the sidecar's effective project-config hash no longer includes the root file listing, so a diff that merely adds a file no longer degrades the gate. Genuinely incompatible identities still degrade with a warning.\n\nFixes #2102",
-          "timestamp": "2026-08-03T07:42:59+02:00",
-          "tree_id": "3f6fd22cfa12f7e18e62e5f61dda01f6f58d8785",
-          "url": "https://github.com/fallow-rs/fallow/commit/f990d58f9d59e675ee85c51d6501c1708158fe6d"
-        },
-        "date": 1785736983876,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.33,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 451,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1183,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/efb888b3c84f2a377fc65f0d644e8ad530ca9595"
         },
         "date": 1787216897570,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 47,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.32,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 455,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1233,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1a6cdc5cc00c6158571362cf00126e5ac8112e0d",
+          "message": "perf(benchmarks): cover audit review brief assembly\n\n* perf(benchmarks): cover audit review brief assembly\n\n* perf(benchmarks): route audit output changes",
+          "timestamp": "2026-08-20T13:05:39+02:00",
+          "tree_id": "434c60962ccb0793c4e3dafd6e55159cfc2f2244",
+          "url": "https://github.com/fallow-rs/fallow/commit/1a6cdc5cc00c6158571362cf00126e5ac8112e0d"
+        },
+        "date": 1787224285045,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
