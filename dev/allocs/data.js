@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787233619675,
+  "lastUpdate": 1787236993848,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f990d58f9d59e675ee85c51d6501c1708158fe6d",
-          "message": "fix(audit): compare type-aware identities by compatibility, not equality (#2105)\n\nThe degrade decision now uses SemanticAnalysisIdentity::incompatible_fields() and tolerates a side that ran no semantic queries, and the sidecar's effective project-config hash no longer includes the root file listing, so a diff that merely adds a file no longer degrades the gate. Genuinely incompatible identities still degrade with a warning.\n\nFixes #2102",
-          "timestamp": "2026-08-03T07:42:59+02:00",
-          "tree_id": "3f6fd22cfa12f7e18e62e5f61dda01f6f58d8785",
-          "url": "https://github.com/fallow-rs/fallow/commit/f990d58f9d59e675ee85c51d6501c1708158fe6d"
-        },
-        "date": 1785737398165,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10621476,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55141,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 992873,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6961,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7055,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "69dc2c13221ee32b578617d659352c5218191888",
+          "message": "perf(benchmarks): cover Istanbul health CRAP matching\n\nAdd stable CodSpeed coverage for Istanbul ingestion, declaration-alias matching, CRAP scoring, and health report assembly.",
+          "timestamp": "2026-08-20T16:38:05+02:00",
+          "tree_id": "0469723ab0df950cb17a1ebf35b5cc0a04eef186",
+          "url": "https://github.com/fallow-rs/fallow/commit/69dc2c13221ee32b578617d659352c5218191888"
+        },
+        "date": 1787236989998,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9750723,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49224,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1191487,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8444,
             "unit": "allocations"
           }
         ]
