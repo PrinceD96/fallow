@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787210200435,
+  "lastUpdate": 1787212154909,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "589885290490eeeb02fcc274defc55a3c11789dc",
-          "message": "fix(viz): add the wasm-runtime peer entry for @emnapi/runtime 1.11.3\n\nThe @napi-rs/wasm-runtime peer dependency needs a top-level runtime entry\nthat macOS resolution never materializes; clean npm ci now passes with and\nwithout --omit=optional and the build and tests are green from scratch.",
-          "timestamp": "2026-08-04T18:31:25+02:00",
-          "tree_id": "a51646b9cd509dace2fe2a2d5ff1b42707f888e6",
-          "url": "https://github.com/fallow-rs/fallow/commit/589885290490eeeb02fcc274defc55a3c11789dc"
-        },
-        "date": 1785861461825,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/08565e1db1c5166af5dc4f2907894657fd347dda"
         },
         "date": 1787210197093,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1881f4d5fe0a9410f807e6c236d23537279a1a7b",
+          "message": "perf(benchmarks): cover inspect evidence bundle\n\n* perf(benchmarks): cover inspect evidence bundle\n\n* perf(benchmarks): bound inspect simulation corpus",
+          "timestamp": "2026-08-20T09:41:01+02:00",
+          "tree_id": "36252efcca8f4b75152b56a06c9e7b891022acd3",
+          "url": "https://github.com/fallow-rs/fallow/commit/1881f4d5fe0a9410f807e6c236d23537279a1a7b"
+        },
+        "date": 1787212149642,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
