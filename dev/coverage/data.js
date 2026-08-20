@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787233798318,
+  "lastUpdate": 1787237097670,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4066db66e0b2251a54a9e4b8441025d2f35374fa",
-          "message": "docs(changelog): record the framework-template complexity breakdown (#2157)\n\nThe fix landed in #2152 without a changelog entry while GitHub Actions was down. Records the user-facing behavior: the VS Code inline breakdown and health --complexity-breakdown now render contributing conditions for Vue, Angular, Svelte, and Astro templates, metric totals are unchanged, and two things are visible on upgrade (a Svelte block whose condition sits away from the block open can report a different line and column, and the first analysis re-extracts because older caches hold no breakdown).",
-          "timestamp": "2026-08-07T22:03:25+02:00",
-          "tree_id": "a0c9834418bb264743d3661bbfa107ff4295e360",
-          "url": "https://github.com/fallow-rs/fallow/commit/4066db66e0b2251a54a9e4b8441025d2f35374fa"
-        },
-        "date": 1786133275506,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1380b8d61a8e874f8d7368ae0b88aff15edf36cc"
         },
         "date": 1787233794516,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "69dc2c13221ee32b578617d659352c5218191888",
+          "message": "perf(benchmarks): cover Istanbul health CRAP matching\n\nAdd stable CodSpeed coverage for Istanbul ingestion, declaration-alias matching, CRAP scoring, and health report assembly.",
+          "timestamp": "2026-08-20T16:38:05+02:00",
+          "tree_id": "0469723ab0df950cb17a1ebf35b5cc0a04eef186",
+          "url": "https://github.com/fallow-rs/fallow/commit/69dc2c13221ee32b578617d659352c5218191888"
+        },
+        "date": 1787237094205,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
