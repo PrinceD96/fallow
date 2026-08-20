@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787210040303,
+  "lastUpdate": 1787211941610,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e025bccb9edd184b0c3c3e586b8441eb8b31d880",
-          "message": "fix(scripts): fold plain multi-line run scalars into one CI command (#2086)\n\nPlain multi-line run: scalars in CI workflows now keep their continuation lines, anchored at the run key column so sibling step keys terminate the scalar and their values do not leak into entry files.\n\nFixes #2016",
-          "timestamp": "2026-08-02T02:24:07+02:00",
-          "tree_id": "482bad1944ba114640d2d90cc9f5da88d4b7c993",
-          "url": "https://github.com/fallow-rs/fallow/commit/e025bccb9edd184b0c3c3e586b8441eb8b31d880"
-        },
-        "date": 1785630564079,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10599524,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55119,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 984873,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6961,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8443,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1881f4d5fe0a9410f807e6c236d23537279a1a7b",
+          "message": "perf(benchmarks): cover inspect evidence bundle\n\n* perf(benchmarks): cover inspect evidence bundle\n\n* perf(benchmarks): bound inspect simulation corpus",
+          "timestamp": "2026-08-20T09:41:01+02:00",
+          "tree_id": "36252efcca8f4b75152b56a06c9e7b891022acd3",
+          "url": "https://github.com/fallow-rs/fallow/commit/1881f4d5fe0a9410f807e6c236d23537279a1a7b"
+        },
+        "date": 1787211938167,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9714107,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49217,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1184463,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8430,
             "unit": "allocations"
           }
         ]
