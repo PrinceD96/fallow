@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787231722051,
+  "lastUpdate": 1787233798318,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d8de238c7fce3f4805a1d671cf54b408e9e9d445",
-          "message": "refactor: consolidate entry-point discovery on the fallow-core implementation (#2154)\n\nDeletes the engine's diverged copy of entry-point discovery (net +131/-1428) and routes the engine through core_backend pass-throughs, mirroring the discovery-walk consolidation. BackendAggregatedPluginResult wraps the core AggregatedPluginResult directly so plugin entry-point provenance survives without mirror-type reconstruction; the engine e2e tests moved to core before the fork was deleted; the orphaned regex and glob dependencies are removed. Behavior verified byte-identical against a pristine baseline binary on three real projects (dead-code, check, and list JSON, cold and warm cache). One log-only change: the skipped-entry warning dedupe is a single process-wide set.",
-          "timestamp": "2026-08-07T09:14:05+02:00",
-          "tree_id": "ad2aba4d13d4f1be5707b5a0efe1cca2aebca583",
-          "url": "https://github.com/fallow-rs/fallow/commit/d8de238c7fce3f4805a1d671cf54b408e9e9d445"
-        },
-        "date": 1786087395159,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7472746b01cba1e7e3436fc1837b4c130334be4c"
         },
         "date": 1787231718045,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1380b8d61a8e874f8d7368ae0b88aff15edf36cc",
+          "message": "perf(benchmarks): cover derived security outputs\n\nAdd stable CodSpeed coverage for survivors verdict joins and unresolved-callee blind-spot grouping.",
+          "timestamp": "2026-08-20T15:41:34+02:00",
+          "tree_id": "bbd2cdf817c722b6e5173159b821a190e61d61ed",
+          "url": "https://github.com/fallow-rs/fallow/commit/1380b8d61a8e874f8d7368ae0b88aff15edf36cc"
+        },
+        "date": 1787233794516,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
