@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787167798040,
+  "lastUpdate": 1787210040303,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9a40a7f9d74bb52fe16d5b5fa727cc2cedc6ffeb",
-          "message": "feat(config): report unused npm dependency overrides (#2090)\n\nnpm overrides in the root package.json are now parsed like pnpm overrides, including nested objects and the \".\" self-pin key, and feed the same unused and misconfigured override analysis. $package reference values are credited rather than reported. package-lock.json resolved packages credit override targets the way pnpm-lock.yaml does. Yarn and bun remain out of scope.\n\nFixes #2069",
-          "timestamp": "2026-08-02T01:07:52+02:00",
-          "tree_id": "74c026dbcb066c2f637029fe36906ad617b82ecb",
-          "url": "https://github.com/fallow-rs/fallow/commit/9a40a7f9d74bb52fe16d5b5fa727cc2cedc6ffeb"
-        },
-        "date": 1785625900328,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10595292,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55119,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 984873,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6961,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8419,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "08565e1db1c5166af5dc4f2907894657fd347dda",
+          "message": "perf(benchmarks): track runtime coverage analysis",
+          "timestamp": "2026-08-20T09:08:41+02:00",
+          "tree_id": "8539fd70ef84c9dad35bfc6506a6a6046805f8c6",
+          "url": "https://github.com/fallow-rs/fallow/commit/08565e1db1c5166af5dc4f2907894657fd347dda"
+        },
+        "date": 1787210036501,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9747915,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49229,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1191527,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8443,
             "unit": "allocations"
           }
         ]
