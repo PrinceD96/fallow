@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787167925386,
+  "lastUpdate": 1787210200435,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "32ac1d3e34cc28f0c8f29b5ab0168360bdffea96",
-          "message": "fix(viz): restore wasm32-wasi transitive entries in the viz-frontend lockfile\n\nThe rolldown 1.2.0 lock regeneration on macOS pruned the platform-independent\nwasm binding's @emnapi closure, so npm ci failed on the missing nested\nentries. Regenerated with the full optional tree; clean npm ci passes with\nand without --omit=optional, and the build and tests are green.",
-          "timestamp": "2026-08-04T18:12:48+02:00",
-          "tree_id": "e1f80f1d97bd92d7d0c9bbae7e161133747e8414",
-          "url": "https://github.com/fallow-rs/fallow/commit/32ac1d3e34cc28f0c8f29b5ab0168360bdffea96"
-        },
-        "date": 1785860482754,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.3,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2899,6 +2870,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Code Coverage",
             "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "08565e1db1c5166af5dc4f2907894657fd347dda",
+          "message": "perf(benchmarks): track runtime coverage analysis",
+          "timestamp": "2026-08-20T09:08:41+02:00",
+          "tree_id": "8539fd70ef84c9dad35bfc6506a6a6046805f8c6",
+          "url": "https://github.com/fallow-rs/fallow/commit/08565e1db1c5166af5dc4f2907894657fd347dda"
+        },
+        "date": 1787210197093,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
             "unit": "%"
           }
         ]
