@@ -12,6 +12,7 @@
 use crate::report::sink::outln;
 use colored::Colorize;
 use std::cmp::Ordering;
+use std::collections::btree_map::Entry;
 use std::collections::{BTreeMap, BTreeSet};
 use std::io::Write;
 use std::path::{Path, PathBuf};
@@ -617,40 +618,55 @@ fn build_survivors_output(
     })
 }
 
+#[derive(serde::Deserialize)]
+struct SecurityCandidateFile<'a> {
+    #[serde(borrow)]
+    security_findings: Option<&'a serde_json::value::RawValue>,
+}
+
 fn load_candidate_map(path: &Path) -> Result<BTreeMap<String, SecurityFinding>, String> {
-    let value = load_json_file(path, "candidate")?;
-    let Some(findings) = value
-        .get("security_findings")
-        .and_then(serde_json::Value::as_array)
-    else {
+    let src = std::fs::read_to_string(path)
+        .map_err(|err| format!("Failed to read candidate file {}: {err}", path.display()))?;
+    let file: SecurityCandidateFile<'_> = serde_json::from_str(&src)
+        .map_err(|err| format!("Failed to parse candidate file {}: {err}", path.display()))?;
+    let Some(findings) = file.security_findings else {
         return Err(format!(
             "Candidate file {} must be raw `fallow security --format json` output with a security_findings array.",
             path.display()
         ));
     };
+    let findings = findings.get();
+    if !findings.trim_start().starts_with('[') {
+        return Err(format!(
+            "Candidate file {} must be raw `fallow security --format json` output with a security_findings array.",
+            path.display()
+        ));
+    }
+    let findings: Vec<SecurityFinding> = serde_json::from_str(findings).map_err(|err| {
+        format!(
+            "Candidate file {} contains a malformed security finding: {err}",
+            path.display()
+        )
+    })?;
     let mut candidates = BTreeMap::new();
     for finding in findings {
-        let finding: SecurityFinding = serde_json::from_value(finding.clone()).map_err(|err| {
-            format!(
-                "Candidate file {} contains a malformed security finding: {err}",
-                path.display()
-            )
-        })?;
         if finding.finding_id.is_empty() {
             return Err(format!(
                 "Candidate file {} contains a security finding with an empty finding_id.",
                 path.display()
             ));
         }
-        if candidates
-            .insert(finding.finding_id.clone(), finding.clone())
-            .is_some()
-        {
-            return Err(format!(
-                "Candidate file {} contains duplicate finding_id `{}`.",
-                path.display(),
-                finding.finding_id
-            ));
+        match candidates.entry(finding.finding_id.clone()) {
+            Entry::Vacant(entry) => {
+                entry.insert(finding);
+            }
+            Entry::Occupied(entry) => {
+                return Err(format!(
+                    "Candidate file {} contains duplicate finding_id `{}`.",
+                    path.display(),
+                    entry.key()
+                ));
+            }
         }
     }
     Ok(candidates)
@@ -3327,6 +3343,44 @@ mod tests {
         assert_eq!(result.2, 1);
         assert_eq!(result.3, 0);
         assert!(result.4 > 0);
+    }
+
+    #[test]
+    fn survivors_candidate_loader_preserves_validation_errors() {
+        let dir = tempfile::tempdir().expect("temp dir");
+        let candidates = dir.path().join("candidates.json");
+
+        for contents in ["{}", r#"{"security_findings":{}}"#] {
+            std::fs::write(&candidates, contents).expect("write candidates");
+            let error = load_candidate_map(&candidates).expect_err("invalid shape should fail");
+            assert!(error.contains("security_findings array"));
+        }
+
+        std::fs::write(
+            &candidates,
+            r#"{"security_findings":[{"finding_id":"sec-a"}]}"#,
+        )
+        .expect("write malformed candidate");
+        let malformed = load_candidate_map(&candidates).expect_err("malformed finding should fail");
+        assert!(malformed.contains("malformed security finding"));
+
+        let finding = survivor_candidate_json(
+            "sec-a",
+            "src/a.ts",
+            1,
+            SecurityFindingKind::TaintedSink,
+            Some("ssrf"),
+        );
+        std::fs::write(
+            &candidates,
+            serde_json::json!({
+                "security_findings": [finding.clone(), finding]
+            })
+            .to_string(),
+        )
+        .expect("write duplicate candidates");
+        let duplicate = load_candidate_map(&candidates).expect_err("duplicate finding should fail");
+        assert!(duplicate.contains("duplicate finding_id `sec-a`"));
     }
 
     #[test]
