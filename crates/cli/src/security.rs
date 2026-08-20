@@ -1744,6 +1744,18 @@ fn path_key(path: &Path) -> String {
     path.to_string_lossy().replace('\\', "/")
 }
 
+fn compare_unresolved_callee_diagnostics(
+    a: &SecurityUnresolvedCalleeDiagnostic,
+    b: &SecurityUnresolvedCalleeDiagnostic,
+) -> Ordering {
+    a.path
+        .cmp(&b.path)
+        .then(a.line.cmp(&b.line))
+        .then(a.col.cmp(&b.col))
+        .then(a.reason.cmp(&b.reason))
+        .then(a.expression_kind.cmp(&b.expression_kind))
+}
+
 fn unresolved_callee_diagnostics(
     diagnostics: &[SecurityUnresolvedCalleeDiagnostic],
     root: &Path,
@@ -1752,20 +1764,20 @@ fn unresolved_callee_diagnostics(
         return None;
     }
 
-    let mut sorted = diagnostics.to_vec();
-    sorted.sort_by(|a, b| {
-        a.path
-            .cmp(&b.path)
-            .then(a.line.cmp(&b.line))
-            .then(a.col.cmp(&b.col))
-            .then(a.reason.cmp(&b.reason))
-            .then(a.expression_kind.cmp(&b.expression_kind))
-    });
+    let mut sampled_diagnostics: Vec<_> = diagnostics.iter().enumerate().collect();
+    let compare = |(a_index, a): &(usize, &SecurityUnresolvedCalleeDiagnostic),
+                   (b_index, b): &(usize, &SecurityUnresolvedCalleeDiagnostic)| {
+        compare_unresolved_callee_diagnostics(a, b).then(a_index.cmp(b_index))
+    };
+    if sampled_diagnostics.len() > UNRESOLVED_CALLEE_SAMPLE_LIMIT {
+        sampled_diagnostics.select_nth_unstable_by(UNRESOLVED_CALLEE_SAMPLE_LIMIT, compare);
+        sampled_diagnostics.truncate(UNRESOLVED_CALLEE_SAMPLE_LIMIT);
+    }
+    sampled_diagnostics.sort_unstable_by(compare);
 
-    let sampled = sorted
+    let sampled = sampled_diagnostics
         .iter()
-        .take(UNRESOLVED_CALLEE_SAMPLE_LIMIT)
-        .map(|diagnostic| SecurityUnresolvedCalleeSample {
+        .map(|(_, diagnostic)| SecurityUnresolvedCalleeSample {
             path: relative_key(&diagnostic.path, root),
             line: diagnostic.line,
             col: diagnostic.col,
@@ -1777,7 +1789,7 @@ fn unresolved_callee_diagnostics(
     let mut by_file: BTreeMap<String, usize> = BTreeMap::new();
     let mut by_reason: BTreeMap<fallow_types::extract::SkippedSecurityCalleeReason, usize> =
         BTreeMap::new();
-    for diagnostic in &sorted {
+    for diagnostic in diagnostics {
         *by_file
             .entry(relative_key(&diagnostic.path, root))
             .or_insert(0) += 1;
@@ -3362,6 +3374,56 @@ mod tests {
         );
         assert_eq!(result.output.groups.len(), 2);
         assert!(result.rendered_bytes > 0);
+    }
+
+    #[test]
+    fn unresolved_callee_sample_matches_full_stable_sort() {
+        let root = Path::new("/project");
+        let diagnostics: Vec<_> = (0..80)
+            .map(|index| SecurityUnresolvedCalleeDiagnostic {
+                path: if index < 40 {
+                    if index % 2 == 0 {
+                        root.join("src/./same.ts")
+                    } else {
+                        root.join("src/same.ts")
+                    }
+                } else if index % 2 == 0 {
+                    root.join(format!("src/z{index}.ts"))
+                } else {
+                    PathBuf::from(format!("outside/z{index}.ts"))
+                },
+                line: 1,
+                col: 0,
+                reason: fallow_types::extract::SkippedSecurityCalleeReason::ComputedMember,
+                expression_kind:
+                    fallow_types::extract::SkippedSecurityCalleeExpressionKind::ComputedMemberExpression,
+            })
+            .collect();
+
+        for len in [1, UNRESOLVED_CALLEE_SAMPLE_LIMIT, diagnostics.len()] {
+            let input = &diagnostics[..len];
+            let mut reference = input.to_vec();
+            reference.sort_by(compare_unresolved_callee_diagnostics);
+            let expected: Vec<_> = reference
+                .iter()
+                .take(UNRESOLVED_CALLEE_SAMPLE_LIMIT)
+                .map(|diagnostic| SecurityUnresolvedCalleeSample {
+                    path: relative_key(&diagnostic.path, root),
+                    line: diagnostic.line,
+                    col: diagnostic.col,
+                    reason: diagnostic.reason,
+                    expression_kind: diagnostic.expression_kind,
+                })
+                .collect();
+            let actual = unresolved_callee_diagnostics(input, root)
+                .expect("non-empty diagnostics")
+                .sampled;
+
+            assert_eq!(
+                serde_json::to_value(actual).expect("actual sample serializes"),
+                serde_json::to_value(expected).expect("reference sample serializes")
+            );
+        }
     }
 
     #[test]
