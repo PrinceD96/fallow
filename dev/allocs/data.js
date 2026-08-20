@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787211941610,
+  "lastUpdate": 1787213998305,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "f5a898f9a5e03d4839f46b88996371218dda8b34",
-          "message": "fix(graph): credit the whole React Native platform-extension family (#2087)\n\nA specifier that resolves into a Metro platform family now credits every member (.ios, .android, .native, .web, and the base file) across static imports, dynamic imports, require calls, and re-exports. Explicit platform specifiers keep a single edge.\n\nFixes #2073",
-          "timestamp": "2026-08-02T03:30:24+02:00",
-          "tree_id": "9f3bea18b6096339c0b9f148ecf603754774ca50",
-          "url": "https://github.com/fallow-rs/fallow/commit/f5a898f9a5e03d4839f46b88996371218dda8b34"
-        },
-        "date": 1785634514498,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10583380,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55101,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 976157,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8430,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9450f933307dcbad05b7ee2e80df5251221d8ebf",
+          "message": "perf(benchmarks): cover list boundaries",
+          "timestamp": "2026-08-20T10:14:48+02:00",
+          "tree_id": "c7534b59d2992a42abe31ae713b31cd36ab90199",
+          "url": "https://github.com/fallow-rs/fallow/commit/9450f933307dcbad05b7ee2e80df5251221d8ebf"
+        },
+        "date": 1787213995240,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9746115,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49218,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1186637,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8405,
             "unit": "allocations"
           }
         ]
