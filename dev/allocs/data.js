@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787216881284,
+  "lastUpdate": 1787224256494,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "942c6eec1f55bd2bf1abcd5f8371b41f06018593",
-          "message": "fix: harden Deno workspace support follow-ups (#2091)\n\nEngine AnalysisSession::from_resolved_config now uses strict workspace discovery so every command exits 2 on a malformed root manifest; resolve_specifier skips the Deno import-map lookup when no package scope declares a map; deno.json workspace accepts the object form {\"members\": [...]}.",
-          "timestamp": "2026-08-02T05:13:43+02:00",
-          "tree_id": "cc1c7cdd4d989cc14792a246b84efc44d794f9f6",
-          "url": "https://github.com/fallow-rs/fallow/commit/942c6eec1f55bd2bf1abcd5f8371b41f06018593"
-        },
-        "date": 1785640648303,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10586844,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55103,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 984873,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6961,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8614,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1a6cdc5cc00c6158571362cf00126e5ac8112e0d",
+          "message": "perf(benchmarks): cover audit review brief assembly\n\n* perf(benchmarks): cover audit review brief assembly\n\n* perf(benchmarks): route audit output changes",
+          "timestamp": "2026-08-20T13:05:39+02:00",
+          "tree_id": "434c60962ccb0793c4e3dafd6e55159cfc2f2244",
+          "url": "https://github.com/fallow-rs/fallow/commit/1a6cdc5cc00c6158571362cf00126e5ac8112e0d"
+        },
+        "date": 1787224252168,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9713737,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49162,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1177428,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8353,
             "unit": "allocations"
           }
         ]
