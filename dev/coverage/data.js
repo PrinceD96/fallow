@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787237097670,
+  "lastUpdate": 1787344905780,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1791333192526e898de933a5245ba9dcfd22d48e",
-          "message": "feat: rank and triage distant duplicate code\n\n* feat: start duplication triage improvements\n\n* feat: improve duplication triage\n\n* test: update VS Code schema fixtures\n\n* test: refresh VS Code integration CLI version",
-          "timestamp": "2026-08-07T23:00:20+02:00",
-          "tree_id": "70ceedb6abe93ce657c9843d13a1b3f234e6480b",
-          "url": "https://github.com/fallow-rs/fallow/commit/1791333192526e898de933a5245ba9dcfd22d48e"
-        },
-        "date": 1786136883047,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/69dc2c13221ee32b578617d659352c5218191888"
         },
         "date": 1787237094205,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "03b7e74802176f653ae5fcf6d92a1883335a8599",
+          "message": "chore(contracts): regenerate output contract types for bun.lock override resolution\n\nRegenerates the two TypeScript output-contract surfaces that went stale with the UnusedDependencyOverrideFinding doc update from #2350. No structural changes.",
+          "timestamp": "2026-08-21T22:17:00+02:00",
+          "tree_id": "6ef0e5bfe6700cb6adc0f6403be278175d520ae9",
+          "url": "https://github.com/fallow-rs/fallow/commit/03b7e74802176f653ae5fcf6d92a1883335a8599"
+        },
+        "date": 1787344902398,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
