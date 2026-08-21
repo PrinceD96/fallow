@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787237028065,
+  "lastUpdate": 1787343751525,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4274c9397ca6a46eb0277bee312baeff96b408c4",
-          "message": "chore: release v3.13.0",
-          "timestamp": "2026-08-03T17:02:58+02:00",
-          "tree_id": "ec00145cac21238b68eb687bf69d19d4bc26887f",
-          "url": "https://github.com/fallow-rs/fallow/commit/4274c9397ca6a46eb0277bee312baeff96b408c4"
-        },
-        "date": 1785769732749,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.33,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 451,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1183,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/69dc2c13221ee32b578617d659352c5218191888"
         },
         "date": 1787237024376,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 47,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.32,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 455,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1234,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f83974cf024b987f2f4dc5ba51a5a83fa6744976",
+          "message": "fix(extract): record JSX namespace member tags as member accesses\n\nThe syntactic dead-code scan only recorded plain-expression member accesses, so a namespace import rendered exclusively through JSX member tags (<SC.Wrapper />) kept its exports reported as unused, and in entry-point files every sibling export of the namespace target was falsely flagged. JSX member-expression tags now record member accesses like their plain-expression spelling, covering nested receivers, this receivers, and star re-export resolution. Behavior change: namespace imports in non-entry consumers narrow to the members actually used instead of marking every export used, so genuinely unused siblings surface for the first time. Extraction and graph cache versions were bumped, so the first run after upgrading performs one cold re-analysis.\n\nFixes #2348",
+          "timestamp": "2026-08-21T22:14:36+02:00",
+          "tree_id": "1b98e2f31f26ddbfb312439022ea6a7c60ca9c0e",
+          "url": "https://github.com/fallow-rs/fallow/commit/f83974cf024b987f2f4dc5ba51a5a83fa6744976"
+        },
+        "date": 1787343747364,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
