@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787236993848,
+  "lastUpdate": 1787344045324,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "fab6c5029dcc44c7d2dbd5d0adf24dc5fe4faf7e",
-          "message": "chore: release v3.12.0",
-          "timestamp": "2026-08-03T09:13:13+02:00",
-          "tree_id": "093606a090063318e520589db7c9e6fa4925d4b7",
-          "url": "https://github.com/fallow-rs/fallow/commit/fab6c5029dcc44c7d2dbd5d0adf24dc5fe4faf7e"
-        },
-        "date": 1785741540589,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10537498,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55016,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 976157,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8444,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f83974cf024b987f2f4dc5ba51a5a83fa6744976",
+          "message": "fix(extract): record JSX namespace member tags as member accesses\n\nThe syntactic dead-code scan only recorded plain-expression member accesses, so a namespace import rendered exclusively through JSX member tags (<SC.Wrapper />) kept its exports reported as unused, and in entry-point files every sibling export of the namespace target was falsely flagged. JSX member-expression tags now record member accesses like their plain-expression spelling, covering nested receivers, this receivers, and star re-export resolution. Behavior change: namespace imports in non-entry consumers narrow to the members actually used instead of marking every export used, so genuinely unused siblings surface for the first time. Extraction and graph cache versions were bumped, so the first run after upgrading performs one cold re-analysis.\n\nFixes #2348",
+          "timestamp": "2026-08-21T22:14:36+02:00",
+          "tree_id": "1b98e2f31f26ddbfb312439022ea6a7c60ca9c0e",
+          "url": "https://github.com/fallow-rs/fallow/commit/f83974cf024b987f2f4dc5ba51a5a83fa6744976"
+        },
+        "date": 1787344042264,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9725915,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49196,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1190645,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8431,
             "unit": "allocations"
           }
         ]
