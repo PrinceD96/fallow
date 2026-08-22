@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787298477386,
+  "lastUpdate": 1787384230673,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "name": "Test User",
-            "username": "bhanuprasad14",
-            "email": "test@example.com"
-          },
-          "committer": {
-            "name": "Test User",
-            "username": "bhanuprasad14",
-            "email": "test@example.com"
-          },
-          "id": "bc2ac04af20694bea9f773243d21077df9aec6ed",
-          "message": "fix(test): prevent git operations from leaking into main repo via GIT_DIR\n\nWhen the pre-push hook runs cargo test, git sets GIT_DIR in the hook\nenvironment pointing to the main repo's .git directory. Test helpers\nthat create temp git repos via current_dir() were still committing to\nthe main repo because GIT_DIR overrides current_dir. Added\nenv_remove(\"GIT_DIR\") and env_remove(\"GIT_WORK_TREE\") to both the\nhealth_tests and audit_tests git helpers.",
-          "timestamp": "2026-04-13T08:44:32Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/bc2ac04af20694bea9f773243d21077df9aec6ed"
-        },
-        "date": 1776071373527,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "preact (cold)",
-            "value": 44,
-            "unit": "ms"
-          },
-          {
-            "name": "preact (warm)",
-            "value": 41,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (cold)",
-            "value": 61,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (warm)",
-            "value": 49,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (cold)",
-            "value": 49,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (warm)",
-            "value": 45,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (cold)",
-            "value": 123,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (warm)",
-            "value": 106,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (cold)",
-            "value": 530,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (warm)",
-            "value": 464,
-            "unit": "ms"
-          },
-          {
-            "name": "query (cold)",
-            "value": 647,
-            "unit": "ms"
-          },
-          {
-            "name": "query (warm)",
-            "value": 616,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (cold)",
-            "value": 300,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (warm)",
-            "value": 266,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (cold)",
-            "value": 3696,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (warm)",
-            "value": 3472,
-            "unit": "ms"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9559,6 +9457,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1327,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "03b7e74802176f653ae5fcf6d92a1883335a8599",
+          "message": "chore(contracts): regenerate output contract types for bun.lock override resolution\n\nRegenerates the two TypeScript output-contract surfaces that went stale with the UnusedDependencyOverrideFinding doc update from #2350. No structural changes.",
+          "timestamp": "2026-08-21T20:17:00Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/03b7e74802176f653ae5fcf6d92a1883335a8599"
+        },
+        "date": 1787384225786,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 102,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 103,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 409,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 307,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1122,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1023,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 816,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 713,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1018,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 917,
             "unit": "ms"
           }
         ]
