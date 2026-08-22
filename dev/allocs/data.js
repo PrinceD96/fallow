@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787385999251,
+  "lastUpdate": 1787391173124,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9a3ae1440dc7bbd228306924083746c818837eb3",
-          "message": "fix(hooks): recognize git commit and push behind git-level flags in the agent gate (#2111)\n\nThe agent gate replaced its single regex with a tokenizer that steps over git-level options (-c k=v, -C dir, --no-pager, --git-dir=, and friends) before matching the subcommand, so flagged invocations audit while lookalikes like git log commit-message.txt still skip. FALLOW_GATE_DEBUG surfaces skip decisions on stderr.\n\nFixes #2106",
-          "timestamp": "2026-08-03T16:09:04+02:00",
-          "tree_id": "46385236668b614f2cec86a38a97aad84908bae1",
-          "url": "https://github.com/fallow-rs/fallow/commit/9a3ae1440dc7bbd228306924083746c818837eb3"
-        },
-        "date": 1785766339113,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10566988,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55108,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 988729,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6959,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8403,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c3df8857ec0fca10f1b359946ec89a0208a50715",
+          "message": "perf(benchmarks): cover Bun lock override analysis",
+          "timestamp": "2026-08-22T09:29:16Z",
+          "tree_id": "43e370925077f83b46ba7073598895fb2f8ae382",
+          "url": "https://github.com/fallow-rs/fallow/commit/c3df8857ec0fca10f1b359946ec89a0208a50715"
+        },
+        "date": 1787391169992,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9762907,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49241,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1146577,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7055,
             "unit": "allocations"
           }
         ]
