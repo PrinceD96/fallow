@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787391434597,
+  "lastUpdate": 1787405143483,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9ebcfc87b04045556abb61e5c4dfb6a390564139",
-          "message": "fix(health): label Svelte await complexity contributions\n\n* fix(health): label Svelte await complexity contributions\n\n* test(vscode): update schema version fixtures\n\n* fix(output): version JSON envelopes independently\n\n* docs: defer public v4 skill guidance\n\n* fix(types): preserve schema version compatibility",
-          "timestamp": "2026-08-08T22:09:01+02:00",
-          "tree_id": "f2e322855620560659ec5fb50ceb796bc3d4b1e2",
-          "url": "https://github.com/fallow-rs/fallow/commit/9ebcfc87b04045556abb61e5c4dfb6a390564139"
-        },
-        "date": 1786220170064,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/c3df8857ec0fca10f1b359946ec89a0208a50715"
         },
         "date": 1787391431462,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.5,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e65a9083ee5117be29e69091ff0b7de9554de1b7",
+          "message": "docs(skills): list every workspace diagnostic kind and the audit config coverage fallback\n\n## What changed\n\n- The `--workspaces` paragraph of the vendored CLI reference now lists every `workspace_diagnostics[].kind` value, including `bun-lockb-override-resolution-skipped` from #2362 (the kind list is curated prose that `npm run generate:contracts` does not regenerate).\n- The `fallow audit` flag rows for `--coverage` and `--coverage-root` document the `health.coverage` / `health.coverageRoot` fallback from #2361.\n- The `.agents` source copy and its generated `.claude` adapter carry the same kind list.\n\nThe canonical fallow-skills copy is synced immediately after this lands (content plus `source-lock.json` repin and plugin version bump), so the Public skills contract gate is red only for that window.\n\nRefs #2358, #2359",
+          "timestamp": "2026-08-22T15:10:52+02:00",
+          "tree_id": "3f9beef41bc3f5215a9cd2f0ac086205b089d5f9",
+          "url": "https://github.com/fallow-rs/fallow/commit/e65a9083ee5117be29e69091ff0b7de9554de1b7"
+        },
+        "date": 1787405139960,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
