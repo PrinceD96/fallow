@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787387009511,
+  "lastUpdate": 1787391227726,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4bc061f29fa9968c587fdb9c94f30c16927badd5",
-          "message": "perf(config): cache manifest probes during workspace discovery (#2115)\n\nA per-discovery manifest cache replays the first probe outcome for members visited via multiple workspace sources, Deno config probing collapses to a single filesystem probe per directory shared with the import-map load, and the resolver stops parsing member deno.json twice. Behavior and diagnostics identical.",
-          "timestamp": "2026-08-03T21:17:06+02:00",
-          "tree_id": "b23c343e13b50a1fb241c71ef9d6f576b3c32630",
-          "url": "https://github.com/fallow-rs/fallow/commit/4bc061f29fa9968c587fdb9c94f30c16927badd5"
-        },
-        "date": 1785784705492,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.33,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 451,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1183,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/cbd9cf4b5d8507f8a4d7b49e964c4b76eca2e894"
         },
         "date": 1787387005609,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 47,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.32,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 455,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1234,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c3df8857ec0fca10f1b359946ec89a0208a50715",
+          "message": "perf(benchmarks): cover Bun lock override analysis",
+          "timestamp": "2026-08-22T09:29:16Z",
+          "tree_id": "43e370925077f83b46ba7073598895fb2f8ae382",
+          "url": "https://github.com/fallow-rs/fallow/commit/c3df8857ec0fca10f1b359946ec89a0208a50715"
+        },
+        "date": 1787391223648,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
