@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787609293220,
+  "lastUpdate": 1787610833169,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "32b6a010485b317873f5788dd1d83cf1cf3067fa",
-          "message": "Merge pull request #2223 from fallow-rs/feat/css-inventory-reuse\n\nperf(engine): reuse CSS class inventory",
-          "timestamp": "2026-08-12T15:50:14+02:00",
-          "tree_id": "f6c2b68cbc5b9c77db24f1c952461c045eefa37b",
-          "url": "https://github.com/fallow-rs/fallow/commit/32b6a010485b317873f5788dd1d83cf1cf3067fa"
-        },
-        "date": 1786543003690,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/536f96da2ec0b83aa5ee676fd2a2cdd56c124139"
         },
         "date": 1787609288023,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a87665c0837d60020b8d8dce1bd4920139d5fb9c",
+          "message": "fix(release): stage Windows candidate version",
+          "timestamp": "2026-08-25T00:25:56+02:00",
+          "tree_id": "eeab2ac42340cbdb3f70b489f831eb941508e39c",
+          "url": "https://github.com/fallow-rs/fallow/commit/a87665c0837d60020b8d8dce1bd4920139d5fb9c"
+        },
+        "date": 1787610828983,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
