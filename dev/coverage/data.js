@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787586067952,
+  "lastUpdate": 1787587684666,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "354ee1c6a92bdf2e8f84c336cb35e22eff039dd8",
-          "message": "chore(docker): pin FALLOW_VERSION 3.15.0 with refreshed checksums",
-          "timestamp": "2026-08-12T09:51:43+02:00",
-          "tree_id": "ad603a1286fa91d0ae9daa2b0128eb17b7e4484d",
-          "url": "https://github.com/fallow-rs/fallow/commit/354ee1c6a92bdf2e8f84c336cb35e22eff039dd8"
-        },
-        "date": 1786521632834,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/73b67a1083e0156bb4e635609ca8e51eca0f886f"
         },
         "date": 1787586063718,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e3a0f9854fdecddae851226049f6e0fad6ca103c",
+          "message": "test(mcp): bound env route analysis threads",
+          "timestamp": "2026-08-24T18:02:10+02:00",
+          "tree_id": "2c557e29ef716fd3a8bfb509430370010537cfe0",
+          "url": "https://github.com/fallow-rs/fallow/commit/e3a0f9854fdecddae851226049f6e0fad6ca103c"
+        },
+        "date": 1787587679968,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
