@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787558875811,
+  "lastUpdate": 1787561271591,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "24e84bc0ca81bd48d3b0a520cbcdcd2ab090ef75",
-          "message": "feat(cli): progressive root help, specifier-anchored imports, code-span table cells (#2149)\n\nfallow -h leads with the task cheat sheet, shows the Analysis and Workflow groups plus everyday options, and points to --help for the complete list (197 to 49 lines; the machine schema is unchanged). Unresolved-import findings anchor on the source specifier via new statement and source spans threaded through extract, the caches, and the graph, so one suppression above a multi-line re-export covers the deduped finding and the stale-suppression contradiction is gone. Identifier and path cells in github-summary tables render as code spans with pipe escaping, mirrored in the action/ and ci/ jq fallback renderers, and the shared helper collapses CR/LF so identifiers cannot split a table row.",
-          "timestamp": "2026-08-05T23:37:28+02:00",
-          "tree_id": "046f67861970ef25827049e68a08da9d1a1cf16b",
-          "url": "https://github.com/fallow-rs/fallow/commit/24e84bc0ca81bd48d3b0a520cbcdcd2ab090ef75"
-        },
-        "date": 1785966155382,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10644917,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55536,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 986117,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 6935,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8364,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9532b3fb45443be3ae29053e4df4cbf6cab432a7",
+          "message": "test(config): compare the per-instance dedupe key with a platform-native tail (#2398)",
+          "timestamp": "2026-08-24T08:43:49Z",
+          "tree_id": "8c9cb762e2e4501d578bc6caec727fa26eeff5dc",
+          "url": "https://github.com/fallow-rs/fallow/commit/9532b3fb45443be3ae29053e4df4cbf6cab432a7"
+        },
+        "date": 1787561267815,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9745836,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49234,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1194668,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8401,
             "unit": "allocations"
           }
         ]
