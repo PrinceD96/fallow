@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787574389981,
+  "lastUpdate": 1787581244635,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4b48d655bae0d7948d2d225b2a5ee940ec7af6b3",
-          "message": "ci: retry the ecosystem project clone (#2206)\n\nThe analysis step in this workflow is deliberately non-gating, but the\nclone above it was not, so a transient TLS error while fetching a\nthird-party repository failed the whole job. That is what happened on\nthe next.js matrix entry: git reported a certificate verification\nfailure and the run went red while the same job passed on main before\nand after.\n\nRetry the clone three times with a growing pause, and keep failing\nloudly if it still does not succeed, so a genuinely moved or renamed\nrepository is still reported.",
-          "timestamp": "2026-08-11T22:44:10+02:00",
-          "tree_id": "c4186180c2e30091be3547d4fc602fed612cc47c",
-          "url": "https://github.com/fallow-rs/fallow/commit/4b48d655bae0d7948d2d225b2a5ee940ec7af6b3"
-        },
-        "date": 1786481597772,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/edf720b9b43955058fdcbab71089ee589d7f9c4c"
         },
         "date": 1787574385778,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "77cf2cf659697e89748c49c2a4c421fc0924e129",
+          "message": "perf(trace): omit redundant namespace evidence",
+          "timestamp": "2026-08-24T16:12:29+02:00",
+          "tree_id": "17c89c3de031d78c1fd8693b22dd7ccc20e35d03",
+          "url": "https://github.com/fallow-rs/fallow/commit/77cf2cf659697e89748c49c2a4c421fc0924e129"
+        },
+        "date": 1787581240829,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
