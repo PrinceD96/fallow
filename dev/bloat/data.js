@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787593604761,
+  "lastUpdate": 1787605812187,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "afc7ffa7e967f84dcc49fba878edf7e05651afd7",
-          "message": "fix: resolver false positives, LSP dispatch blocking, and config silent drops (#2148)\n\nResolver: ignoreUnresolvedImports matches ./-prefixed entries again, .js\nspecifiers fall back to declaration-only .d.ts modules, one\nunresolved-import finding per specifier per file. LSP: analyses spawn off\nthe dispatch loop, bursts coalesce, push and pull diagnostics no longer\ndouble after the client's first pull. Output: untrusted values escaped in\ngithub-summary and report markdown tables. Config: malformed extends\nvalues and unknown override/ignoreExports keys fail loud with a\ndeduplicated, actionable error. Also: MCP workspace comma lists and guard\nvalidation, graph resolution performance (canonicalize cache, memoized\nglobs, indexed reference attachment), duplication consolidations,\nVS Code download and cancellation fixes, CI job timeouts, docs,\nchangelog, and rustdoc updates.",
-          "timestamp": "2026-08-05T20:53:14+02:00",
-          "tree_id": "424411e3641436fba11f43fa7a1303b634419a7b",
-          "url": "https://github.com/fallow-rs/fallow/commit/afc7ffa7e967f84dcc49fba878edf7e05651afd7"
-        },
-        "date": 1785956786093,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 491696568,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-lsp)",
-            "value": 19693488,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-mcp)",
-            "value": 24992552,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-multicall)",
-            "value": 37397960,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow-multicall)",
             "value": 39108024,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2262b4b6321374ae91ae6c4ae8df046035a83210",
+          "message": "fix(engine): detach Git probes from MCP stdin\n\n* test(mcp): serialize env route servers\n\n* test(mcp): allow nested env route work\n\n* fix(mcp): isolate typed analysis workers\n\n* test(mcp): preserve default threads in env routes\n\n* test(mcp): isolate type-aware sidecar fixture\n\n* fix(ci): isolate Windows MCP test suite\n\n* style: format workflow policy test\n\n* test(mcp): trace Windows typed worker phases\n\n* test(ci): run MCP diagnostics first\n\n* test(ci): build CLI before MCP diagnostics\n\n* test(mcp): compare debug and release worker entry\n\n* fix(ci): order Windows MCP process suites\n\n* fix(api): prepare discovery outside analysis pools\n\n* test(api): diagnose Windows analysis pool stall\n\n* test(api): isolate Windows output assembly stall\n\n* fix(engine): detach Git probes from protocol stdin",
+          "timestamp": "2026-08-24T22:58:11+02:00",
+          "tree_id": "92426dbdfcd76bfeaa7bf4c6de4da080769c1e75",
+          "url": "https://github.com/fallow-rs/fallow/commit/2262b4b6321374ae91ae6c4ae8df046035a83210"
+        },
+        "date": 1787605808248,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 517610480,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-lsp)",
+            "value": 20316928,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-mcp)",
+            "value": 25759096,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-multicall)",
+            "value": 39107192,
             "unit": "bytes"
           }
         ]
