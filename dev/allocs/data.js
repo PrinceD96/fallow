@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787587580898,
+  "lastUpdate": 1787593129876,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "dffec365267ba06a983bfa0944be5ff339f1fb64",
-          "message": "refactor: harden duplication architecture\n\n* refactor: start duplication architecture hardening\n\n* refactor: harden duplication architecture\n\n* test: keep spread proptest out of miri",
-          "timestamp": "2026-08-08T06:48:38Z",
-          "tree_id": "9dea107b803e597dc40092ec7e719931ca75b72f",
-          "url": "https://github.com/fallow-rs/fallow/commit/dffec365267ba06a983bfa0944be5ff339f1fb64"
-        },
-        "date": 1786172035099,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10661570,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55299,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 976157,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8360,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4330a637d8a19aa094386828fa530acf1ddcde31",
+          "message": "Merge pull request #2402 from fallow-rs/feat/contract-doc-drift\n\nfix: align generated contracts and agent guidance",
+          "timestamp": "2026-08-24T19:33:32+02:00",
+          "tree_id": "7653d731cf7c44d9d58302b23b97b8adeb427e8f",
+          "url": "https://github.com/fallow-rs/fallow/commit/4330a637d8a19aa094386828fa530acf1ddcde31"
+        },
+        "date": 1787593124085,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9739787,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49282,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1171504,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8338,
             "unit": "allocations"
           }
         ]
