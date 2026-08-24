@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787470734026,
+  "lastUpdate": 1787558598524,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "name": "Test User",
-            "username": "bhanuprasad14",
-            "email": "test@example.com"
-          },
-          "committer": {
-            "name": "Test User",
-            "username": "bhanuprasad14",
-            "email": "test@example.com"
-          },
-          "id": "c157b043953c6bf27780b0545b07b83ad7a18079",
-          "message": "fix: use bare fallow (not check) for real-world benchmarks\n\n`fallow check` is an alias for `fallow dead-code`. Bare `fallow`\nruns the full pipeline (dead-code + dupes + health).",
-          "timestamp": "2026-04-13T22:33:17Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/c157b043953c6bf27780b0545b07b83ad7a18079"
-        },
-        "date": 1776120112174,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "preact (cold)",
-            "value": 173,
-            "unit": "ms"
-          },
-          {
-            "name": "preact (warm)",
-            "value": 170,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (cold)",
-            "value": 265,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (warm)",
-            "value": 263,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (cold)",
-            "value": 176,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (warm)",
-            "value": 177,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (cold)",
-            "value": 485,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (warm)",
-            "value": 461,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (cold)",
-            "value": 1271,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (warm)",
-            "value": 1195,
-            "unit": "ms"
-          },
-          {
-            "name": "query (cold)",
-            "value": 1393,
-            "unit": "ms"
-          },
-          {
-            "name": "query (warm)",
-            "value": 1371,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (cold)",
-            "value": 700,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (warm)",
-            "value": 674,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (cold)",
-            "value": 11870,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (warm)",
-            "value": 12054,
-            "unit": "ms"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9539,6 +9437,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1433,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bart@waardenburg.dev"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "62752fa6df4feb1e4ad646f4b2b536c52f2b7db3",
+          "message": "fix(extract): route ambient export type * through a type-only whole-module import\n\n## What was broken\n\n`export type *` and `export type * as ns` inside a `declare module '...'` body still created a file-level type-only star re-export on the declaring file. [#2357](https://github.com/fallow-rs/fallow/issues/2357) routed the plain `export *` and `export * as ns` spellings through a bindingless whole-module import so the declaring file gains no export surface, but that shape carried no type modifier: routing the type-only star through it as-is would have credited the value meaning of every target export, which the star erases.\n\nBoth directions were wrong, with `src/pair.ts` holding `export interface Foo { a: number }`, `export const Foo = 1`, `export const plain = 3` and `export default function d(): void {}`:\n\n- A non-entry `src/shim.ts` carrying `declare module 'pkg' { export type * from './pair' }` plus `export {}`, imported for side effects by the entry, reported the `Foo` interface, the `Foo` const, `plain` and `default`. Nothing credited the target, so the interface half was a false positive: the type star forwards it.\n- With the same declaration in an entry-point `src/ambient.d.ts`, the file-level star laundered the consts into the entry's public surface and only `default` reported: the `Foo` const, which the type star does not forward, reported nowhere.\n\n## Root cause\n\n`visit_export_all_declaration` took the ambient branch only for `!decl.export_kind.is_type()`, so the type-only spellings fell through to the file-level `ReExportInfo`. The whole-module shape the ambient branch records is read by `ImportedSymbol::is_ambient_star`, and `desired_import_namespaces` credits both namespaces for it, which is right for `export *` and wrong for `export type *`. Nothing in the persisted extract shape could tell the two apart.\n\n## The fix\n\nEarliest incorrect layer is extraction. `ImportInfo` and the graph's `ImportedSymbol` gain `is_type_only_star`. The extractor now takes the ambient branch for every star spelling and sets the flag from `export_kind.is_type()`, so `export type *` records exactly what `export *` records (one type-space `Namespace` import with an empty local name, plus a `Default` import for the `as ns` form, and no `ReExportInfo`) with the flag set.\n\nIn the graph, `ImportedSymbol::is_value_bearing_ambient_star` names the plain star alone, and `desired_import_namespaces` reads it, so a type-only star credits the target's star surface in the type namespace and nothing else. Everything else about the shape is unchanged: `mark_star_surface_referenced_at_site` still skips `default` for the plain form, the extra `Default` import of the `as ns` form still reaches `ns.default` (now in type space), and the exposed-namespace closure seed is the same, so the chain behind the target keeps exactly the credit the plain star gives it.\n\n## Behavior change\n\n- **The type half of a same-name type and value pair behind a non-entry shim stops reporting.** That is the false positive in the issue.\n- **The target's value-only exports behind such a shim stop reporting too.** `export type *` forwards them as type-only bindings, reachable as `typeof plain`, and the graph credits them through the type-space fallback lane. This is exactly the credit the ambient `export type { plain } from './pair'` form has given since [#2349](https://github.com/fallow-rs/fallow/issues/2349), verified against a binary built from main, so the two spellings stay consistent. The issue text expected these rows to survive; making the star stricter than the named form it generalizes would have been the inconsistency.\n- **The value half of a same-name pair behind an entry-point `.d.ts` starts reporting.** The laundered entry surface is gone, so a `const Foo` the type star does not forward is a finding again. That is a finding-count increase on upgrade for repositories with an entry-point ambient `export type *`.\n- `export type *` forwards no `default`, exactly like the plain star; `export type * as ns` forwards `ns.default` in type space.\n- Plain ambient stars, the ambient named re-export forms, and `import()` type references in TypeScript and JSDoc are unchanged. A bare-specifier `export type *` inside an ambient body stays type-only package usage, so `--production` classification does not move.\n\n### Known limitation\n\nThe chain behind the target (its own `export *` and `export * as sub` sources) is credited at full namespace-object exposure, in both namespaces, because the closure has no namespace dimension. A type star erases the value meanings of those names too, so that credit is more generous than the target's own surface. Keeping the seed as it is means no shape reports more than it did before this change; splitting the closure per namespace is filed separately.\n\n## Cache invalidation\n\n- extract `CACHE_VERSION` 279 -> 280: warm caches replay the file-level star re-export and lack the flag.\n- `GRAPH_CACHE_VERSION` 43 -> 44: the persisted graph carries the old `ReExportEdge`, the laundered entry surface, and the value-lane credits, and a graph-cache hit skips the build entirely.\n\nWarm-cache proof on a scratch copy of the fixture sharing one `.fallow` directory: a binary built from main (279/43) runs cold, writes `cache.bin` and `graph-cache.bin`, and reports the laundered and uncredited shapes; the patched binary (280/44) on that warm cache reports exactly its own cold output, twice.\n\n## How it was tested\n\n- Extract tests: `export type *` and `export type * as ns` inside an ambient body record the flagged whole-module shape, no file-level export and no `ReExportInfo`, and the `as ns` form adds the default import. The test that pinned the old file-level shape is replaced by these.\n- Cache test: the flag survives a `ModuleInfo` to `CachedModule` round trip, and a bound `import type { Foo }` does not carry it.\n- Graph unit tests: `desired_import_namespaces` returns type space only for the flagged `Namespace` and `Default` symbols; the type star credits the interface half of a pair in the type namespace, leaves the const half with no reference at all, credits a value-only export in type space, and leaves `default` unreferenced; the `as ns` form credits `default` in type space and nowhere else.\n- Integration fixture `issue-2375-ambient-type-star`: an entry-point `ambient.d.ts` with `export type * from './entry-pair'`, a reachable non-entry `shim.ts` with `export type * from './shim-pair'`, `ambient-ns.d.ts` with `export type * as ns` over a target carrying a type default (`export default interface`) and over a value-only target, and `ambient-value.d.ts` with a plain type star over a value-only target. Four tests assert the credited type surface, the value halves and defaults that keep reporting, the empty export surface and re-export list on all four declaring files (with the entry-point and non-entry roles pinned), and the namespace of the credited references.\n- Mutation matrix: reverting the extractor hunk fails both new extract tests and all four integration tests; reverting the lane hunk fails the three graph unit tests and the two integration tests that read lanes; reverting the cache mapping fails the round trip.\n- Issue reproduction through the patched binary, both directions: the non-entry shim reports the `Foo` const and `default` (was: those plus the interface and `plain`); the entry-point `.d.ts` reports the `Foo` const and `default` (was: `default` alone).\n- Regression pins re-run: the `issue-2357`, `issue-2349`, `issue-2372` and `issue-2373` fixtures all pass unchanged, and a chain probe confirms the type star credits a `export * from` plus `export * as sub` chain identically to the plain star.\n- Real-project smokes: `dead-code --format json` with the main and patched binaries on the in-repo `viz-frontend` and `editors/vscode`, normalized outputs identical.\n- Gates: cargo fmt check, clippy workspace all-targets with warnings denied, full workspace test suite, bench check, cargo doc with warnings denied, typos, hidden-unicode scan, comment-quality check, and the agent-adapter check, all green.\n\nFixes #2375",
+          "timestamp": "2026-08-24T07:57:20Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/62752fa6df4feb1e4ad646f4b2b536c52f2b7db3"
+        },
+        "date": 1787558593518,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 205,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 306,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 207,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 516,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 511,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1638,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1226,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 1228,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 1021,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1326,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 1326,
             "unit": "ms"
           }
         ]
