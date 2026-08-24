@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787560011061,
+  "lastUpdate": 1787561509323,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a6848ae481aa99f6b79db69406569dcba1e99ff9",
-          "message": "test(vscode): pin combined and health envelopes at schema 10 (#2205)\n\nRepairs the VS Code Extension job on main after the combined/health schema moved to 10.",
-          "timestamp": "2026-08-11T19:55:02+02:00",
-          "tree_id": "05d258d6e81db276f7b00e619ada4be1bd304981",
-          "url": "https://github.com/fallow-rs/fallow/commit/a6848ae481aa99f6b79db69406569dcba1e99ff9"
-        },
-        "date": 1786471251877,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/62752fa6df4feb1e4ad646f4b2b536c52f2b7db3"
         },
         "date": 1787560007792,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.6,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9532b3fb45443be3ae29053e4df4cbf6cab432a7",
+          "message": "test(config): compare the per-instance dedupe key with a platform-native tail (#2398)",
+          "timestamp": "2026-08-24T08:43:49Z",
+          "tree_id": "8c9cb762e2e4501d578bc6caec727fa26eeff5dc",
+          "url": "https://github.com/fallow-rs/fallow/commit/9532b3fb45443be3ae29053e4df4cbf6cab432a7"
+        },
+        "date": 1787561505881,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
