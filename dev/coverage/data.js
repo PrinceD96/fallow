@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787593294381,
+  "lastUpdate": 1787596045300,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1a470d104851cfa3373eb836f915ccfdc8fb3147",
-          "message": "ci: gate the release on the type-aware companion version (#2215)\n\nThe v3.15.0 release commit bumped the workspace without bumping the\ncompanion, so the CLI it produced refused to run type-aware analysis.\nThat surfaced in the Windows validation job, and once the commit was on\nmain it failed the audit tests there too.\n\nCheck the companion against the workspace version in the step that\nalready verifies the tag, before anything is built or published, and\npoint at the fix in the error rather than at the sync script, which\nwould also move the node bindings ahead of publish.",
-          "timestamp": "2026-08-12T10:44:40+02:00",
-          "tree_id": "dbfccd70e00514d5ce8225050e31e7ef25384bc3",
-          "url": "https://github.com/fallow-rs/fallow/commit/1a470d104851cfa3373eb836f915ccfdc8fb3147"
-        },
-        "date": 1786524689770,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/4330a637d8a19aa094386828fa530acf1ddcde31"
         },
         "date": 1787593291262,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "26ba73cd0d5f59f368612e1afb84205a94ad3850",
+          "message": "fix(ci): allow cold-cache check completion",
+          "timestamp": "2026-08-24T20:21:15+02:00",
+          "tree_id": "1049715c52f48099c0e50978c6b153d840e75faf",
+          "url": "https://github.com/fallow-rs/fallow/commit/26ba73cd0d5f59f368612e1afb84205a94ad3850"
+        },
+        "date": 1787596041377,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
