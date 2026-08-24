@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787605553426,
+  "lastUpdate": 1787609293220,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "jernej.barbaric@gmail.com",
-            "name": "Jerc92",
-            "username": "Jerc92"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "038c5922e7a6f0fcf8a8dc636cb93b20d6969432",
-          "message": "fix(ci): surface partial GitLab review posts (#2209)\n\nCo-authored-by: Jernej Barbaric <jernej.barbaric@login5.org>",
-          "timestamp": "2026-08-12T14:56:41+02:00",
-          "tree_id": "9cd3d7cae9145ad7cde876b5d54a2f18808d618d",
-          "url": "https://github.com/fallow-rs/fallow/commit/038c5922e7a6f0fcf8a8dc636cb93b20d6969432"
-        },
-        "date": 1786540026564,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/2262b4b6321374ae91ae6c4ae8df046035a83210"
         },
         "date": 1787605547535,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "536f96da2ec0b83aa5ee676fd2a2cdd56c124139",
+          "message": "chore: release v3.18.0",
+          "timestamp": "2026-08-25T00:00:27+02:00",
+          "tree_id": "a7c5e143f1b082b6655fc9afc2c4031b47a825e0",
+          "url": "https://github.com/fallow-rs/fallow/commit/536f96da2ec0b83aa5ee676fd2a2cdd56c124139"
+        },
+        "date": 1787609288023,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
