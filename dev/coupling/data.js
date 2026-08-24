@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787566656427,
+  "lastUpdate": 1787574363627,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "d8de238c7fce3f4805a1d671cf54b408e9e9d445",
-          "message": "refactor: consolidate entry-point discovery on the fallow-core implementation (#2154)\n\nDeletes the engine's diverged copy of entry-point discovery (net +131/-1428) and routes the engine through core_backend pass-throughs, mirroring the discovery-walk consolidation. BackendAggregatedPluginResult wraps the core AggregatedPluginResult directly so plugin entry-point provenance survives without mirror-type reconstruction; the engine e2e tests moved to core before the fork was deleted; the orphaned regex and glob dependencies are removed. Behavior verified byte-identical against a pristine baseline binary on three real projects (dead-code, check, and list JSON, cold and warm cache). One log-only change: the skipped-entry warning dedupe is a single process-wide set.",
-          "timestamp": "2026-08-07T09:14:05+02:00",
-          "tree_id": "ad2aba4d13d4f1be5707b5a0efe1cca2aebca583",
-          "url": "https://github.com/fallow-rs/fallow/commit/d8de238c7fce3f4805a1d671cf54b408e9e9d445"
-        },
-        "date": 1786087114304,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.33,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 451,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1202,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4899,6 +4850,55 @@ window.BENCHMARK_DATA = {
           {
             "name": "Total Edges",
             "value": 1240,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "edf720b9b43955058fdcbab71089ee589d7f9c4c",
+          "message": "fix: close remaining analysis consistency gaps\n\n* chore: start correctness sweep\n\n* fix(extract): align Convex and MDX statement discovery\n\n* fix(graph): align export crediting across spellings\n\n* fix(trace): align syntactic and type-aware evidence\n\n* fix(workspace): align diagnostics and override analysis\n\n* docs: document correctness sweep contracts\n\n* fix: resolve correctness review findings\n\n* fix(type-aware): remove stale project binding\n\n* style(type-aware): format barrel regressions\n\n* fix: close final review edge cases\n\n* fix(extract): close shadow and mutation gaps\n\n* fix(extract): close wrapped CommonJS mutations\n\n* test(type-aware): satisfy cancellation lint\n\n* fix(extract): preserve scoped namespace owners\n\n* fix(extract): register namespace binding owners",
+          "timestamp": "2026-08-24T12:20:11Z",
+          "tree_id": "526a9cd87dc8684c7beae3ce63f9142890fc9970",
+          "url": "https://github.com/fallow-rs/fallow/commit/edf720b9b43955058fdcbab71089ee589d7f9c4c"
+        },
+        "date": 1787574359395,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 47,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.32,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 456,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1243,
             "unit": "count"
           }
         ]
