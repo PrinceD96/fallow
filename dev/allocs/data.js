@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787581073160,
+  "lastUpdate": 1787587580898,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "49c0bb438c8ddf4b207ad35446f6525147ecb2ae",
-          "message": "refactor: keep one definition of each discovery constant (#2159)\n\nSOURCE_EXTENSIONS, PRODUCTION_EXCLUDE_PATTERNS, and ALLOWED_HIDDEN_DIRS were byte-identical copies in the engine and the core walk that consumes them; the engine re-exports the core definitions through the backend adapter, leaving its public paths unchanged. OUTPUT_DIRS had a third copy and moves to fallow-graph, the lowest crate both sides already depend on, so no adapter hop or boundary exception is needed. Verified byte-identical check and list JSON on two real projects against a binary built from a pristine worktree at the parent commit.",
-          "timestamp": "2026-08-08T00:15:56+02:00",
-          "tree_id": "ccd62f158eb0fff46d7ffd34dc9061aa175a6f3e",
-          "url": "https://github.com/fallow-rs/fallow/commit/49c0bb438c8ddf4b207ad35446f6525147ecb2ae"
-        },
-        "date": 1786141145916,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10616674,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55281,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 976157,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8407,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e3a0f9854fdecddae851226049f6e0fad6ca103c",
+          "message": "test(mcp): bound env route analysis threads",
+          "timestamp": "2026-08-24T18:02:10+02:00",
+          "tree_id": "2c557e29ef716fd3a8bfb509430370010537cfe0",
+          "url": "https://github.com/fallow-rs/fallow/commit/e3a0f9854fdecddae851226049f6e0fad6ca103c"
+        },
+        "date": 1787587574594,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9748365,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49347,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1182613,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8360,
             "unit": "allocations"
           }
         ]
