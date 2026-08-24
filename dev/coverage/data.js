@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787587684666,
+  "lastUpdate": 1787593294381,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "14a4e64476d1d4f019de1f6e8c7f26ddf5c8e613",
-          "message": "docs(release): name the two version-bearing manifests outside the bump (#2214)\n\nStep 8 said \"every version-bearing artifact\", which named neither of the two manifests that sit outside the workspace bump and follow opposite rules. v3.15.0 left `tools/type-aware-sidecar` at 3.14.0 and went red on Windows validation; the repair then bumped `crates/napi` too, which broke npm ci on unresolvable platform entries and had to be reverted. The step now names both, their opposite rules, and the lockfile check that version-string assertions miss.",
-          "timestamp": "2026-08-12T10:35:27+02:00",
-          "tree_id": "8c5b9b57a264d9ace4b0eb2fe32a369c7414d3c7",
-          "url": "https://github.com/fallow-rs/fallow/commit/14a4e64476d1d4f019de1f6e8c7f26ddf5c8e613"
-        },
-        "date": 1786524068579,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/e3a0f9854fdecddae851226049f6e0fad6ca103c"
         },
         "date": 1787587679968,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4330a637d8a19aa094386828fa530acf1ddcde31",
+          "message": "Merge pull request #2402 from fallow-rs/feat/contract-doc-drift\n\nfix: align generated contracts and agent guidance",
+          "timestamp": "2026-08-24T19:33:32+02:00",
+          "tree_id": "7653d731cf7c44d9d58302b23b97b8adeb427e8f",
+          "url": "https://github.com/fallow-rs/fallow/commit/4330a637d8a19aa094386828fa530acf1ddcde31"
+        },
+        "date": 1787593291262,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
