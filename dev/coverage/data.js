@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787665225942,
+  "lastUpdate": 1787666179723,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "798918a2a34a323508e510631a49c3cc67faa7b9",
-          "message": "ci: retry the image and template downloads (#2238)\n\nThe Docker job on main failed with curl exit 22 on a 503 while fetching\nthe release asset. Both this download and the GitLab template's script\nbootstrap verify what they receive but had nothing covering whether the\nrequest arrives at all.\n\ncurl treats 5xx as transient, so --retry covers exactly the observed\nfailure. The template already degrades with a warning per missing\nscript; retrying first means it degrades far less often.",
-          "timestamp": "2026-08-12T22:43:23+02:00",
-          "tree_id": "2eb9a780eff24fbd293e050fbd90632af72e9843",
-          "url": "https://github.com/fallow-rs/fallow/commit/798918a2a34a323508e510631a49c3cc67faa7b9"
-        },
-        "date": 1786567725968,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/bdab2f6f9dbca0835a6af77c95c37c906c27aefd"
         },
         "date": 1787665221602,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "346cb87affc0f96ea4681f59efeabc5faae8d7d1",
+          "message": "chore(claude): drop duplicate workflow rule and unload the agent template\n\nThe workflow rule restated every line of the root CLAUDE.md, so both\nwere always loaded. The agent template carried a live name and showed\nup as an agent named agent-name; it now lives under docs/development.",
+          "timestamp": "2026-08-25T15:45:36+02:00",
+          "tree_id": "a13ed3e3efea2c5d055fb85eb60f0afee1e7ce66",
+          "url": "https://github.com/fallow-rs/fallow/commit/346cb87affc0f96ea4681f59efeabc5faae8d7d1"
+        },
+        "date": 1787666176228,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
