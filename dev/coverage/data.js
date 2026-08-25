@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787666179723,
+  "lastUpdate": 1787667907230,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "dfc0bba8ba7635efb3832b4be26771714748515c",
-          "message": "Merge pull request #2240 from fallow-rs/feat/cache-production-exclude-globset\n\nperf: cache production exclude globset",
-          "timestamp": "2026-08-12T23:42:34+02:00",
-          "tree_id": "170ded617baca4a02249d86faff91c588b9c8ab0",
-          "url": "https://github.com/fallow-rs/fallow/commit/dfc0bba8ba7635efb3832b4be26771714748515c"
-        },
-        "date": 1786571591253,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/346cb87affc0f96ea4681f59efeabc5faae8d7d1"
         },
         "date": 1787666176228,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "ab60f2ca9cc0ea64e74a07f18dfc74caecea21d2",
+          "message": "fix(hooks): keep staged paths from being parsed as rustfmt or typos flags\n\nEvery staged path handed to the commit hook now carries a ./ prefix, so a\nfile name that starts with a dash cannot turn into an option.",
+          "timestamp": "2026-08-25T16:10:41+02:00",
+          "tree_id": "13f86348872ee47f5947c7ece169cc7cd0dc8f08",
+          "url": "https://github.com/fallow-rs/fallow/commit/ab60f2ca9cc0ea64e74a07f18dfc74caecea21d2"
+        },
+        "date": 1787667903720,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
