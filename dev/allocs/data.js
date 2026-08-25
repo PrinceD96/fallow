@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787636601971,
+  "lastUpdate": 1787650567848,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4934a353b9e283a1e8880ba0ce7545d98ab71e0c",
-          "message": "fix: respect explicit private-type-leaks off under type-aware (#2201)\n\nFixes #2170",
-          "timestamp": "2026-08-11T17:19:52+02:00",
-          "tree_id": "94d80eadf32c2d330c08a233bbcfafbbd2c6b455",
-          "url": "https://github.com/fallow-rs/fallow/commit/4934a353b9e283a1e8880ba0ce7545d98ab71e0c"
-        },
-        "date": 1786462048455,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10630726,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55240,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 970653,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 7034,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1edd39e794b2c16dbc64fedda368c3df1ff903bc",
+          "message": "fix(impact): name a newer store in the statusline\n\nAn older fallow reading an Impact store written by a newer release printed the generic data-unavailable line, which read as lost history. The statusline now prints data from newer fallow with an upgrade hint for that case; corrupt or unreadable stores keep the data-unavailable line.",
+          "timestamp": "2026-08-25T11:29:38+02:00",
+          "tree_id": "5ac3f059ffa9b0ec43bd3637213d3dbdff380b0b",
+          "url": "https://github.com/fallow-rs/fallow/commit/1edd39e794b2c16dbc64fedda368c3df1ff903bc"
+        },
+        "date": 1787650564546,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9766677,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49371,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1175572,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8091,
             "unit": "allocations"
           }
         ]
