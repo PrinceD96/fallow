@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787654862502,
+  "lastUpdate": 1787660013690,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "6abca717a7d9a561014364f420e64c5358731683",
-          "message": "chore(deps): bump CodSpeedHQ/action to v5.0.3 (#2233)\n\nPatch release over the v5 measurement change already in place: it retries\npinned binary downloads and accepts the estimation flags without a value.\nNo baseline impact.",
-          "timestamp": "2026-08-12T20:46:05+02:00",
-          "tree_id": "dcc1b25aa798dd46bd979078a80bdd083788700f",
-          "url": "https://github.com/fallow-rs/fallow/commit/6abca717a7d9a561014364f420e64c5358731683"
-        },
-        "date": 1786560970337,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/02b49a7c15f0bb3856afe0e2bc3bffc5e0a5c62a"
         },
         "date": 1787654859069,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7a28a05378a747cb78c3bd5e95fd59618eabb1e4",
+          "message": "fix(dead-code): collapse React Native platform families in duplicate-exports (#2416)\n\nWith the react-native or expo plugin active, an import of ./UserMenu credits every Metro platform-extension member, so UserMenu.tsx and UserMenu.ios.tsx shared an importer and surfaced as a duplicate pair. Each family now folds into one representative (the base file, otherwise the lowest path) before the importer partition. A genuine duplicate in an unrelated file is still reported against that representative. Without those plugins the output is unchanged.\n\nCloses #2407",
+          "timestamp": "2026-08-25T14:06:16+02:00",
+          "tree_id": "d72f29057e2625beedc7a9b33edc6364b35e7cbf",
+          "url": "https://github.com/fallow-rs/fallow/commit/7a28a05378a747cb78c3bd5e95fd59618eabb1e4"
+        },
+        "date": 1787660009657,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
