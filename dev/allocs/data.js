@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787609083196,
+  "lastUpdate": 1787636601971,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "b8e9c8c305dd7a5ae9f4f3afa7880738028ad943",
-          "message": "fix(health): handle inline Svelte await states",
-          "timestamp": "2026-08-09T21:00:28Z",
-          "tree_id": "624248b4aea1879c39d244ecbbe5954cd38bbfe2",
-          "url": "https://github.com/fallow-rs/fallow/commit/b8e9c8c305dd7a5ae9f4f3afa7880738028ad943"
-        },
-        "date": 1786309554166,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10645330,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55279,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 976157,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8091,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a2931f099f4f8a8088dd7be40b46c7c0e8aa33e8",
+          "message": "chore: prepare v3.18.0 post-release sync",
+          "timestamp": "2026-08-25T07:34:32+02:00",
+          "tree_id": "0ad2781ea27d70dddae618a993f18f2152b7b9fa",
+          "url": "https://github.com/fallow-rs/fallow/commit/a2931f099f4f8a8088dd7be40b46c7c0e8aa33e8"
+        },
+        "date": 1787636598694,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9753884,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49326,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1139974,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 7034,
             "unit": "allocations"
           }
         ]
