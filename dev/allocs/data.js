@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787672285601,
+  "lastUpdate": 1787696472463,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4dadd3021e5c0dfae34229041753c0dc0ae21237",
-          "message": "fix(engine): pass forward-slashed paths to the untracked-file diff on Windows",
-          "timestamp": "2026-08-11T20:37:13+02:00",
-          "tree_id": "fb8c2f2b735a4f05795161be68e9f347eb4af493",
-          "url": "https://github.com/fallow-rs/fallow/commit/4dadd3021e5c0dfae34229041753c0dc0ae21237"
-        },
-        "date": 1786473757760,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10624664,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55284,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 970653,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8417,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bartwaardenburg@gmail.com",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "da6a0486f88623d045799b47ad9b13faed04c362",
+          "message": "Merge pull request #2434 from fallow-rs/fix/similar-code-review-findings\n\nfix: harden similar-code evidence and companion verification",
+          "timestamp": "2026-08-26T00:15:40+02:00",
+          "tree_id": "bfcc1155f6e6bf8b0e5beff461f27b9f680d7d9d",
+          "url": "https://github.com/fallow-rs/fallow/commit/da6a0486f88623d045799b47ad9b13faed04c362"
+        },
+        "date": 1787696468884,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9754317,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49354,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1190974,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8451,
             "unit": "allocations"
           }
         ]
