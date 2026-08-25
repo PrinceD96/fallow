@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787618990448,
+  "lastUpdate": 1787636619448,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "73bb630b9510462e3139b3a65ba0179999380752",
-          "message": "fix(health): explain override rows a reader could not act on (#2230)\n\nOverride metrics gain an optional line_count on complexity rows so a unit-size breach claim sits next to the number it was scored on; the human override section caps at the ten most actionable rows with an overflow line while JSON, compact and markdown stay complete; and a complexity override scoped to a suppressed function reads stale instead of no_match, mirroring the CRAP semantics from #2207. Additive only; health schema stays at version 10.\n\nRefs #2163",
-          "timestamp": "2026-08-12T16:40:46+02:00",
-          "tree_id": "af0295c2558347e66c11af566af0bcfa15ecd07c",
-          "url": "https://github.com/fallow-rs/fallow/commit/73bb630b9510462e3139b3a65ba0179999380752"
-        },
-        "date": 1786545977945,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/174d025b6327ec3813face3fcb42b610a0c6d3c2"
         },
         "date": 1787618987161,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "a2931f099f4f8a8088dd7be40b46c7c0e8aa33e8",
+          "message": "chore: prepare v3.18.0 post-release sync",
+          "timestamp": "2026-08-25T07:34:32+02:00",
+          "tree_id": "0ad2781ea27d70dddae618a993f18f2152b7b9fa",
+          "url": "https://github.com/fallow-rs/fallow/commit/a2931f099f4f8a8088dd7be40b46c7c0e8aa33e8"
+        },
+        "date": 1787636615849,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
