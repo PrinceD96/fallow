@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787660013690,
+  "lastUpdate": 1787665225942,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "ce300ac5a840a0728d026e0606c132883c27d988",
-          "message": "ci: retry the remaining third-party fetches (#2237)\n\nThree jobs failed on network reads from github.com in a single day, none\ncaused by the change under test: an ecosystem clone, a checkout, and a\nrunner downloading its pinned binary.\n\nThe workflow-level ecosystem clone already retries. These are the two\nplaces left that reach a third-party host once and give up: the clone\ninside the full ecosystem script, and the Hawk archive download, which\nverifies its checksum afterwards but had nothing covering availability.",
-          "timestamp": "2026-08-12T21:34:56+02:00",
-          "tree_id": "717b96308a9a0965f744a9b858fbe11d1a9f7adf",
-          "url": "https://github.com/fallow-rs/fallow/commit/ce300ac5a840a0728d026e0606c132883c27d988"
-        },
-        "date": 1786563710835,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/7a28a05378a747cb78c3bd5e95fd59618eabb1e4"
         },
         "date": 1787660009657,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bdab2f6f9dbca0835a6af77c95c37c906c27aefd",
+          "message": "perf(scripts): prune skip dirs while walking the agent surface\n\nThe SessionStart hidden-unicode scan walked target/ and node_modules/ before its skip filter could reject them, costing 10-25s per session start on a built checkout. The agent-surface walk now prunes those directories as it descends; committed mode is unchanged.",
+          "timestamp": "2026-08-25T15:17:08+02:00",
+          "tree_id": "108e172317786c8ab5eab4c2eca90a5e0b1047f9",
+          "url": "https://github.com/fallow-rs/fallow/commit/bdab2f6f9dbca0835a6af77c95c37c906c27aefd"
+        },
+        "date": 1787665221602,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
