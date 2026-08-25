@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787650588601,
+  "lastUpdate": 1787654862502,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "4f756e1f90972efa4190ca4f00ba6a3df3642b9b",
-          "message": "Merge pull request #2232 from fallow-rs/feat/css-color-direct-parse\n\nperf(benchmarks): cover CSS color candidates",
-          "timestamp": "2026-08-12T19:54:16+02:00",
-          "tree_id": "d561b401029e193f6e2adf861531aab0604795c0",
-          "url": "https://github.com/fallow-rs/fallow/commit/4f756e1f90972efa4190ca4f00ba6a3df3642b9b"
-        },
-        "date": 1786557737847,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/1edd39e794b2c16dbc64fedda368c3df1ff903bc"
         },
         "date": 1787650585351,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "02b49a7c15f0bb3856afe0e2bc3bffc5e0a5c62a",
+          "message": "chore(hooks): skip node-dependent checks without node_modules\n\nA fresh worktree has no node_modules, so commit-msg aborted the commit on missing commitlint and pre-commit aborted on staged JS/TS. Both now warn and skip locally; CI still enforces commitlint, oxlint, and oxfmt. The VS Code integration test runner also honours FALLOW_VSCODE_TEST_CACHE_PATH.",
+          "timestamp": "2026-08-25T12:39:25+02:00",
+          "tree_id": "df7f6021b1a3fbaf4f68c1ee8939e76fd7d2328d",
+          "url": "https://github.com/fallow-rs/fallow/commit/02b49a7c15f0bb3856afe0e2bc3bffc5e0a5c62a"
+        },
+        "date": 1787654859069,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
