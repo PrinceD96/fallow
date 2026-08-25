@@ -1,6 +1,60 @@
 //! Security metadata helpers owned by the engine boundary.
 
-use fallow_types::results::{SecurityFinding, SecurityRuntimeState, SecuritySeverity};
+use std::path::Path;
+
+use fallow_config::{ResolvedConfig, Severity};
+use fallow_types::results::{
+    SecurityFinding, SecurityFindingKind, SecurityRuntimeState, SecuritySeverity,
+};
+
+const SERVER_ONLY_CATEGORY: &str = "server-only-import";
+
+/// Stable rule identifier shared by JSON, SARIF, and Viz Security surfaces.
+#[must_use]
+pub fn security_rule_id(finding: &SecurityFinding) -> String {
+    match finding.kind {
+        SecurityFindingKind::ClientServerLeak
+            if finding.category.as_deref() == Some(SERVER_ONLY_CATEGORY) =>
+        {
+            "security/server-only-import".to_owned()
+        }
+        SecurityFindingKind::ClientServerLeak => "security/client-server-leak".to_owned(),
+        SecurityFindingKind::TaintedSink => format!(
+            "security/{}",
+            finding.category.as_deref().unwrap_or("tainted-sink")
+        ),
+    }
+}
+
+/// Stable per-finding correlation ID for a project-relative path anchor.
+#[must_use]
+pub fn security_finding_id(finding: &SecurityFinding, relative_path: &Path) -> String {
+    let fingerprint = format!(
+        "{}:{}:{}",
+        security_rule_id(finding),
+        relative_path.to_string_lossy().replace('\\', "/"),
+        finding.line,
+    );
+    let mut hash: u64 = 0xcbf2_9ce4_8422_2325;
+    for byte in fingerprint.bytes() {
+        hash ^= u64::from(byte);
+        hash = hash.wrapping_mul(0x0000_0100_0000_01b3);
+    }
+    format!("{hash:016x}")
+}
+
+/// Enable the advisory security rules for a dedicated security-aware surface.
+///
+/// Explicit user severities are preserved. Only the default `off` state is
+/// promoted to `warn`, matching the `fallow security` command contract.
+pub fn enable_security_rules(config: &mut ResolvedConfig) {
+    if config.rules.security_client_server_leak == Severity::Off {
+        config.rules.security_client_server_leak = Severity::Warn;
+    }
+    if config.rules.security_sink == Severity::Off {
+        config.rules.security_sink = Severity::Warn;
+    }
+}
 
 /// Derive the review-priority severity for a security candidate.
 #[must_use]
@@ -52,7 +106,7 @@ pub fn security_catalogue_title(kind: &str) -> Option<&'static str> {
 
 #[cfg(test)]
 mod tests {
-    use std::path::PathBuf;
+    use std::path::{Path, PathBuf};
 
     use fallow_types::{
         output::IssueAction,
@@ -63,7 +117,32 @@ mod tests {
         },
     };
 
-    use super::derive_security_severity;
+    use super::{
+        derive_security_severity, enable_security_rules, security_finding_id, security_rule_id,
+    };
+
+    #[test]
+    fn enables_only_default_off_security_rules() {
+        let project = tempfile::tempdir().expect("temp dir");
+        let mut config = fallow_config::FallowConfig::default().resolve(
+            project.path().to_path_buf(),
+            fallow_config::OutputFormat::Human,
+            1,
+            true,
+            true,
+            None,
+        );
+        config.rules.security_client_server_leak = fallow_config::Severity::Off;
+        config.rules.security_sink = fallow_config::Severity::Error;
+
+        enable_security_rules(&mut config);
+
+        assert_eq!(
+            config.rules.security_client_server_leak,
+            fallow_config::Severity::Warn
+        );
+        assert_eq!(config.rules.security_sink, fallow_config::Severity::Error);
+    }
 
     fn finding(name: &str) -> SecurityFinding {
         let path = PathBuf::from("/repo").join(name);
@@ -180,5 +259,16 @@ mod tests {
         ] {
             assert_eq!(derive_security_severity(&finding), SecuritySeverity::High);
         }
+    }
+
+    #[test]
+    fn canonical_security_ids_include_rule_path_and_line() {
+        let finding = finding("src/a.ts");
+        assert_eq!(security_rule_id(&finding), "security/dangerous-html");
+        let id = security_finding_id(&finding, Path::new("src/a.ts"));
+        assert_eq!(id.len(), 16);
+        assert!(id.chars().all(|character| character.is_ascii_hexdigit()));
+        assert_eq!(id, security_finding_id(&finding, Path::new("src/a.ts")));
+        assert_ne!(id, security_finding_id(&finding, Path::new("src/b.ts")));
     }
 }
