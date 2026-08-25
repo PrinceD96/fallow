@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787610833169,
+  "lastUpdate": 1787618990448,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bartwaardenburg@gmail.com",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e0d27b060044b5c8758ccbfc725779758652846e",
-          "message": "Merge pull request #2229 from fallow-rs/feat/css-lazy-token-candidates\n\nperf(engine): build styling token candidates lazily",
-          "timestamp": "2026-08-12T16:23:00+02:00",
-          "tree_id": "0a48cc90a4daa9b01c97a2fc2b661ae385ad293b",
-          "url": "https://github.com/fallow-rs/fallow/commit/e0d27b060044b5c8758ccbfc725779758652846e"
-        },
-        "date": 1786544992303,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a87665c0837d60020b8d8dce1bd4920139d5fb9c"
         },
         "date": 1787610828983,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "174d025b6327ec3813face3fcb42b610a0c6d3c2",
+          "message": "fix(release): wait for exact VSIX targets",
+          "timestamp": "2026-08-25T02:44:18+02:00",
+          "tree_id": "523b9fd1e2a0c1ba5b926b3045e0ff501832cdd4",
+          "url": "https://github.com/fallow-rs/fallow/commit/174d025b6327ec3813face3fcb42b610a0c6d3c2"
+        },
+        "date": 1787618987161,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
