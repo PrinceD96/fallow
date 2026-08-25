@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787649381016,
+  "lastUpdate": 1787649840321,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "raihassanraza10@gmail.com",
-            "name": "Muhammad Hassan Raza",
-            "username": "M-Hassan-Raza"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "64e3ce36c4a8086bd7a34aeaf7fd7d019d1548ca",
-          "message": "feat(plugins): expand declarative manifest entries (#2165)\n\nImplements the declarative manifest extensions from #1774.\n\nThe public skills contract check is red by construction on a contributor PR: the regenerated CLI reference in this branch is correct, and the companion repository can only be updated by a maintainer afterwards. That sync follows immediately.",
-          "timestamp": "2026-08-12T18:12:18+02:00",
-          "tree_id": "e985537ff7c697dba46a75dc3f67605334f5cf1f",
-          "url": "https://github.com/fallow-rs/fallow/commit/64e3ce36c4a8086bd7a34aeaf7fd7d019d1548ca"
-        },
-        "date": 1786551658790,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.5,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/05633a1c9bb636cdaf8db065c80ef416bd5d4ebe"
         },
         "date": 1787649377678,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.7,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f0b5193c85b023a0ed84c11e5638d478d630d89e",
+          "message": "ci: cover the config and types unit tests on Windows (#2409)",
+          "timestamp": "2026-08-25T09:18:28Z",
+          "tree_id": "f55bcfa24fa23befb8c5e5f2283a5cbd030f1666",
+          "url": "https://github.com/fallow-rs/fallow/commit/f0b5193c85b023a0ed84c11e5638d478d630d89e"
+        },
+        "date": 1787649836688,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
