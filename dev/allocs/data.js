@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787650567848,
+  "lastUpdate": 1787659928566,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1ef78a594e3d1268175741a628ac8f417542b5b1",
-          "message": "fix(audit): reclaim abandoned base-snapshot caches across repo hashes (#2203)\n\nFixes #2169",
-          "timestamp": "2026-08-11T17:56:48+02:00",
-          "tree_id": "b500ae4004e0f6cef60716805562ba2318781f8e",
-          "url": "https://github.com/fallow-rs/fallow/commit/1ef78a594e3d1268175741a628ac8f417542b5b1"
-        },
-        "date": 1786464723484,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10612056,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55286,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 970653,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8091,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7a28a05378a747cb78c3bd5e95fd59618eabb1e4",
+          "message": "fix(dead-code): collapse React Native platform families in duplicate-exports (#2416)\n\nWith the react-native or expo plugin active, an import of ./UserMenu credits every Metro platform-extension member, so UserMenu.tsx and UserMenu.ios.tsx shared an importer and surfaced as a duplicate pair. Each family now folds into one representative (the base file, otherwise the lowest path) before the importer partition. A genuine duplicate in an unrelated file is still reported against that representative. Without those plugins the output is unchanged.\n\nCloses #2407",
+          "timestamp": "2026-08-25T14:06:16+02:00",
+          "tree_id": "d72f29057e2625beedc7a9b33edc6364b35e7cbf",
+          "url": "https://github.com/fallow-rs/fallow/commit/7a28a05378a747cb78c3bd5e95fd59618eabb1e4"
+        },
+        "date": 1787659925277,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9706675,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49278,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1171130,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8382,
             "unit": "allocations"
           }
         ]
