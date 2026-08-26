@@ -409,6 +409,10 @@ const fn logical_kind(op: LogicalOperator) -> ComplexityContributionKind {
 
 impl<'ast> Visit<'ast> for ComplexityVisitor<'_> {
     fn visit_function(&mut self, func: &Function<'ast>, flags: ScopeFlags) {
+        if func.body.is_none() {
+            walk::walk_function(self, func, flags);
+            return;
+        }
         let name = func
             .id
             .as_ref()
@@ -744,6 +748,26 @@ mod tests {
         let results = analyze("function foo() {}");
         let f = find_fn(&results, "foo");
         assert_eq!(f.cyclomatic, 1);
+    }
+
+    #[test]
+    fn overload_signatures_do_not_emit_complexity_units() {
+        let results = analyze(
+            "function parse(value: string): string;\n\
+             function parse(value: number): number;\n\
+             function parse(value: string | number) {\n\
+               if (typeof value === 'string') { return value; }\n\
+               return value.toString();\n\
+             }",
+        );
+        let parse_functions: Vec<_> = results
+            .iter()
+            .filter(|function| function.name == "parse")
+            .collect();
+
+        assert_eq!(parse_functions.len(), 1);
+        assert_eq!(parse_functions[0].line, 3);
+        assert_eq!(parse_functions[0].cyclomatic, 2);
     }
 
     #[test]

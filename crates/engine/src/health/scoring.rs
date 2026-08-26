@@ -816,19 +816,92 @@ fn crap_formula(cc: f64, coverage_pct: f64) -> f64 {
 /// declaration alias at the typical `const x = async (` column.
 const ANONYMOUS_FALLBACK_MAX_COLUMN_DRIFT: u32 = 16;
 
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+struct IstanbulPosition {
+    line: u32,
+    col: u32,
+}
+
+impl IstanbulPosition {
+    const fn new(line: u32, col: u32) -> Self {
+        Self { line, col }
+    }
+
+    const fn distance_from(self, target: Self) -> (u32, u32) {
+        (
+            self.line.abs_diff(target.line),
+            self.col.abs_diff(target.col),
+        )
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+struct IstanbulSpan {
+    start: IstanbulPosition,
+    end: IstanbulPosition,
+}
+
+impl IstanbulSpan {
+    fn from_entry(fn_entry: &oxc_coverage_instrument::FnEntry) -> Option<Self> {
+        let start = IstanbulPosition::new(fn_entry.loc.start.line, fn_entry.loc.start.column);
+        let end = IstanbulPosition::new(fn_entry.loc.end.line, fn_entry.loc.end.column);
+        (start.line > 0 && end.line > 0 && start < end).then_some(Self { start, end })
+    }
+
+    fn contains(self, position: IstanbulPosition) -> bool {
+        self.start <= position && position <= self.end
+    }
+
+    fn strictly_contains(self, other: Self) -> bool {
+        self != other && self.start <= other.start && other.end <= self.end
+    }
+}
+
+struct IstanbulFunctionCoverage {
+    name: String,
+    coverage_pct: f64,
+    aliases: Vec<IstanbulPosition>,
+    body_span: Option<IstanbulSpan>,
+}
+
+impl IstanbulFunctionCoverage {
+    fn nearest_alias(
+        &self,
+        target: IstanbulPosition,
+        max_column_drift: Option<u32>,
+    ) -> Option<(u32, u32)> {
+        self.aliases
+            .iter()
+            .filter_map(|alias| {
+                let distance = alias.distance_from(target);
+                if distance.0 > 2 {
+                    return None;
+                }
+                if distance.0 > 0 && max_column_drift.is_some_and(|maximum| distance.1 > maximum) {
+                    return None;
+                }
+                Some(distance)
+            })
+            .min()
+    }
+}
+
 /// Pre-processed per-function coverage data for a single file,
 /// derived from Istanbul `coverage-final.json`.
 pub struct IstanbulFileCoverage {
-    /// Per-function coverage percentages, keyed by (name, line, col). Lines
-    /// are 1-based and columns are 0-based, matching both fallow's
-    /// `FunctionComplexity` positions and Istanbul `Position`s.
-    ///
-    /// Istanbul producers are not consistent about `FnEntry.line`: some use
-    /// the declaration line, while others use the body start. The loader
-    /// therefore indexes both the producer's effective line and
-    /// `decl.start`, so multiline TypeScript signatures still match the
-    /// function start that fallow extracts.
-    functions: rustc_hash::FxHashMap<(String, u32, u32), f64>,
+    /// One record per Istanbul `fnMap` identity. Each record owns its
+    /// deduplicated producer, declaration, and valid body-start aliases, so an
+    /// entry cannot tie with itself during anonymous positional matching.
+    functions: Vec<IstanbulFunctionCoverage>,
+    /// Exact aliases that belong to one function identity. Colliding aliases
+    /// are removed from this index and recorded in `ambiguous_aliases`.
+    alias_index: rustc_hash::FxHashMap<(String, u32, u32), usize>,
+    /// Aliases shared by multiple function identities. Exact queries at these
+    /// positions abstain instead of falling through to a fuzzy attribution.
+    ambiguous_aliases: rustc_hash::FxHashSet<(String, u32, u32)>,
+    /// Positions shared by multiple anonymous identities. Anonymous fallback
+    /// abstains at these targets even when each identity has other aliases.
+    ambiguous_anonymous_aliases: rustc_hash::FxHashSet<IstanbulPosition>,
     /// The coverage map was recorded against a different checkout of the
     /// project, so line numbers may have drifted beyond the bounded fuzz.
     /// Enables the distance-free unambiguous-name fallback in [`Self::lookup`].
@@ -836,16 +909,76 @@ pub struct IstanbulFileCoverage {
 }
 
 impl IstanbulFileCoverage {
+    fn new(mut functions: Vec<IstanbulFunctionCoverage>, relocated: bool) -> Self {
+        let mut named_alias_counts = rustc_hash::FxHashMap::default();
+        let mut anonymous_alias_counts = rustc_hash::FxHashMap::default();
+        for function in &functions {
+            let is_anonymous = function.name.starts_with("(anonymous_");
+            for alias in &function.aliases {
+                *named_alias_counts
+                    .entry((function.name.clone(), *alias))
+                    .or_insert(0usize) += 1;
+                if is_anonymous {
+                    *anonymous_alias_counts.entry(*alias).or_insert(0usize) += 1;
+                }
+            }
+        }
+
+        let mut ambiguous_aliases = rustc_hash::FxHashSet::default();
+        let mut ambiguous_anonymous_aliases = rustc_hash::FxHashSet::default();
+        for function in &mut functions {
+            let name = function.name.clone();
+            let is_anonymous = name.starts_with("(anonymous_");
+            function.aliases.retain(|alias| {
+                let named_unique = named_alias_counts
+                    .get(&(name.clone(), *alias))
+                    .is_some_and(|count| *count == 1);
+                let anonymous_unique = !is_anonymous
+                    || anonymous_alias_counts
+                        .get(alias)
+                        .is_some_and(|count| *count == 1);
+                if named_unique && anonymous_unique {
+                    true
+                } else {
+                    ambiguous_aliases.insert((name.clone(), alias.line, alias.col));
+                    if is_anonymous && !anonymous_unique {
+                        ambiguous_anonymous_aliases.insert(*alias);
+                    }
+                    false
+                }
+            });
+        }
+
+        let mut alias_index = rustc_hash::FxHashMap::default();
+        for (function_index, function) in functions.iter().enumerate() {
+            for alias in &function.aliases {
+                alias_index.insert(
+                    (function.name.clone(), alias.line, alias.col),
+                    function_index,
+                );
+            }
+        }
+
+        Self {
+            functions,
+            alias_index,
+            ambiguous_aliases,
+            ambiguous_anonymous_aliases,
+            relocated,
+        }
+    }
+
     /// Look up coverage for a function by name, start line, and start column.
     ///
     /// Resolution order:
     /// 1. Exact `(name, line, col)` match.
     /// 2. Name-only fuzzy match within ±2 lines (tolerates formatter drift),
     ///    tie-broken by smallest `(line, col)` distance from the target.
-    /// 3. Anonymous fallback: among Istanbul `(anonymous_N)` entries within
-    ///    ±2 lines, pick the one closest in `(line, col)` to the target.
-    ///    Bail only if two candidates tie on distance, which would be
-    ///    genuinely ambiguous.
+    /// 3. Anonymous fallback: among Istanbul `(anonymous_N)` records with an
+    ///    alias within ±2 lines, pick the record whose closest alias has the
+    ///    smallest `(line, col)` distance from the target. A distance tie is
+    ///    resolved only when one valid body span contains the target and is
+    ///    strictly inside every other tied span.
     ///
     /// Step 3 covers arrow-function exports where fallow extracts the binding
     /// identifier (`const myHandler = () => {...}` yields `myHandler`) while
@@ -862,72 +995,112 @@ impl IstanbulFileCoverage {
     /// the choice among them cannot matter (#2347). Same-checkout lookups
     /// keep the bounded fuzz, which protects against stale coverage data.
     pub fn lookup(&self, name: &str, line: u32, col: u32) -> Option<f64> {
-        if let Some(&pct) = self.functions.get(&(name.to_string(), line, col)) {
-            return Some(pct);
+        let exact_key = (name.to_string(), line, col);
+        if self.ambiguous_aliases.contains(&exact_key) {
+            return None;
         }
-        if let Some(pct) = self
+        if let Some(&function_index) = self.alias_index.get(&exact_key) {
+            return Some(self.functions[function_index].coverage_pct);
+        }
+
+        let target = IstanbulPosition::new(line, col);
+        if let Some(function) = self
             .functions
             .iter()
-            .filter(|((n, l, _), _)| n == name && l.abs_diff(line) <= 2)
-            .min_by_key(|((_, l, c), _)| (l.abs_diff(line), c.abs_diff(col)))
-            .map(|(_, &pct)| pct)
+            .filter(|function| function.name == name)
+            .filter_map(|function| {
+                function
+                    .nearest_alias(target, None)
+                    .map(|distance| (distance, function))
+            })
+            .min_by_key(|(distance, _)| *distance)
+            .map(|(_, function)| function)
         {
-            return Some(pct);
+            return Some(function.coverage_pct);
         }
         if self.relocated
             && let Some(pct) = self.unambiguous_named_pct(name)
         {
             return Some(pct);
         }
+        if self.ambiguous_anonymous_aliases.contains(&target) {
+            return None;
+        }
+
         let mut nearest_distance: Option<(u32, u32)> = None;
-        let mut nearest_pct: Option<f64> = None;
-        let mut tied = false;
-        for ((n, l, c), &pct) in &self.functions {
-            if !n.starts_with("(anonymous_") {
+        let mut nearest_functions = Vec::new();
+        for (function_index, function) in self.functions.iter().enumerate() {
+            if !function.name.starts_with("(anonymous_") {
                 continue;
             }
-            if l.abs_diff(line) > 2 {
+            let Some(distance) =
+                function.nearest_alias(target, Some(ANONYMOUS_FALLBACK_MAX_COLUMN_DRIFT))
+            else {
                 continue;
-            }
-            let dist = (l.abs_diff(line), c.abs_diff(col));
-            if dist.0 > 0 && dist.1 > ANONYMOUS_FALLBACK_MAX_COLUMN_DRIFT {
-                continue;
-            }
+            };
             match nearest_distance {
                 None => {
-                    nearest_distance = Some(dist);
-                    nearest_pct = Some(pct);
-                    tied = false;
+                    nearest_distance = Some(distance);
+                    nearest_functions.push(function_index);
                 }
-                Some(prev) if dist < prev => {
-                    nearest_distance = Some(dist);
-                    nearest_pct = Some(pct);
-                    tied = false;
+                Some(previous) if distance < previous => {
+                    nearest_distance = Some(distance);
+                    nearest_functions.clear();
+                    nearest_functions.push(function_index);
                 }
-                Some(prev) if dist == prev => {
-                    tied = true;
+                Some(previous) if distance == previous => {
+                    nearest_functions.push(function_index);
                 }
                 Some(_) => {}
             }
         }
-        if tied { None } else { nearest_pct }
+        match nearest_functions.as_slice() {
+            [] => None,
+            [function_index] => Some(self.functions[*function_index].coverage_pct),
+            tied => self.innermost_anonymous_match(tied, target),
+        }
+    }
+
+    fn innermost_anonymous_match(&self, tied: &[usize], target: IstanbulPosition) -> Option<f64> {
+        let containing: Option<Vec<_>> = tied
+            .iter()
+            .map(|&function_index| {
+                self.functions[function_index]
+                    .body_span
+                    .filter(|span| span.contains(target))
+                    .map(|span| (function_index, span))
+            })
+            .collect();
+        let containing = containing?;
+
+        let mut winner = None;
+        for &(function_index, candidate_span) in &containing {
+            let is_strictly_innermost = containing.iter().all(|&(other_index, other_span)| {
+                other_index == function_index || other_span.strictly_contains(candidate_span)
+            });
+            if !is_strictly_innermost {
+                continue;
+            }
+            if winner.replace(function_index).is_some() {
+                return None;
+            }
+        }
+        winner.map(|function_index| self.functions[function_index].coverage_pct)
     }
 
     /// The single coverage value shared by every entry named `name`, or
-    /// `None` when the name is absent or its entries disagree. Bit-exact
-    /// comparison: agreeing entries are either the primary/declaration alias
-    /// pair of one function (inserted with the identical value) or distinct
-    /// functions whose value coincides, in which case the choice among them
-    /// cannot change the result.
+    /// `None` when the name is absent or its records disagree. Bit-exact
+    /// comparison: distinct functions whose values coincide cannot change the
+    /// result regardless of which record matched.
     fn unambiguous_named_pct(&self, name: &str) -> Option<f64> {
         let mut found: Option<f64> = None;
-        for ((n, _, _), &pct) in &self.functions {
-            if n != name {
+        for function in &self.functions {
+            if function.name != name {
                 continue;
             }
             match found {
-                None => found = Some(pct),
-                Some(prev) if prev.to_bits() == pct.to_bits() => {}
+                None => found = Some(function.coverage_pct),
+                Some(previous) if previous.to_bits() == function.coverage_pct.to_bits() => {}
                 Some(_) => return None,
             }
         }
@@ -1069,19 +1242,13 @@ pub(super) fn load_istanbul_coverage(
         };
         let canonical = dunce::canonicalize(&file_path).unwrap_or(file_path);
 
-        let mut functions = rustc_hash::FxHashMap::default();
+        let mut functions = Vec::with_capacity(file_cov.fn_map.len());
         for (fn_id, fn_entry) in &file_cov.fn_map {
             let coverage_pct = compute_function_statement_coverage(file_cov, fn_id, fn_entry);
-            insert_istanbul_function_coverage(&mut functions, fn_entry, coverage_pct);
+            functions.push(istanbul_function_coverage(fn_entry, coverage_pct));
         }
 
-        files.insert(
-            canonical,
-            IstanbulFileCoverage {
-                functions,
-                relocated,
-            },
-        );
+        files.insert(canonical, IstanbulFileCoverage::new(functions, relocated));
     }
 
     Ok(IstanbulCoverage { files })
@@ -1110,22 +1277,34 @@ fn rebase_coverage_path(
     raw_path
 }
 
-fn insert_istanbul_function_coverage(
-    functions: &mut rustc_hash::FxHashMap<(String, u32, u32), f64>,
+fn istanbul_function_coverage(
     fn_entry: &oxc_coverage_instrument::FnEntry,
     coverage_pct: f64,
-) {
-    let name = fn_entry.name.clone();
-    let primary = (
-        name.clone(),
-        effective_istanbul_fn_line(fn_entry),
-        effective_istanbul_fn_col(fn_entry),
-    );
-    functions.insert(primary.clone(), coverage_pct);
+) -> IstanbulFunctionCoverage {
+    let body_span = IstanbulSpan::from_entry(fn_entry);
+    let candidates = [
+        Some(IstanbulPosition::new(
+            effective_istanbul_fn_line(fn_entry),
+            effective_istanbul_fn_col(fn_entry),
+        )),
+        Some(IstanbulPosition::new(
+            fn_entry.decl.start.line,
+            fn_entry.decl.start.column,
+        )),
+        body_span.map(|span| span.start),
+    ];
+    let mut aliases = Vec::with_capacity(candidates.len());
+    for candidate in candidates.into_iter().flatten() {
+        if !aliases.contains(&candidate) {
+            aliases.push(candidate);
+        }
+    }
 
-    let declaration = (name, fn_entry.decl.start.line, fn_entry.decl.start.column);
-    if declaration != primary {
-        functions.entry(declaration).or_insert(coverage_pct);
+    IstanbulFunctionCoverage {
+        name: fn_entry.name.clone(),
+        coverage_pct,
+        aliases,
+        body_span,
     }
 }
 
@@ -2065,6 +2244,24 @@ mod tests {
             std::path::Path::new("src/test.ts"),
         );
         compute_crap_scores_istanbul(complexity, file_coverage, is_test_reachable, &ceilings)
+    }
+
+    fn test_istanbul_file_coverage(
+        functions: rustc_hash::FxHashMap<(String, u32, u32), f64>,
+        relocated: bool,
+    ) -> IstanbulFileCoverage {
+        let functions = functions
+            .into_iter()
+            .map(
+                |((name, line, col), coverage_pct)| IstanbulFunctionCoverage {
+                    name,
+                    coverage_pct,
+                    aliases: vec![IstanbulPosition::new(line, col)],
+                    body_span: None,
+                },
+            )
+            .collect();
+        IstanbulFileCoverage::new(functions, relocated)
     }
 
     /// `compute_crap_scores_estimated` with default-configuration ceilings.
@@ -4316,10 +4513,7 @@ mod tests {
         let funcs = vec![make_fn_complexity(10)];
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("test_fn".to_string(), 1, 0), 41.56);
-        let file_cov = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let file_cov = test_istanbul_file_coverage(functions, false);
 
         let result = istanbul_crap_default(&funcs, Some(&file_cov), false);
         assert!((result.per_function[0].crap - 30.0).abs() < f64::EPSILON);
@@ -4592,10 +4786,7 @@ mod tests {
         let funcs = vec![make_fn_complexity(10)];
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("test_fn".to_string(), 1, 0), 80.0);
-        let file_cov = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let file_cov = test_istanbul_file_coverage(functions, false);
         let result = istanbul_crap_default(&funcs, Some(&file_cov), false);
         assert!((result.max_crap - 10.8).abs() < 0.1);
         assert_eq!(result.signals.above, 0);
@@ -4604,10 +4795,7 @@ mod tests {
     #[test]
     fn istanbul_crap_falls_back_to_binary_when_no_match() {
         let funcs = vec![make_fn_complexity(6)];
-        let file_cov = IstanbulFileCoverage {
-            functions: rustc_hash::FxHashMap::default(),
-            relocated: false,
-        };
+        let file_cov = test_istanbul_file_coverage(rustc_hash::FxHashMap::default(), false);
         let result = istanbul_crap_default(&funcs, Some(&file_cov), false);
         assert!((result.max_crap - 42.0).abs() < f64::EPSILON);
         assert_eq!(result.signals.above, 1);
@@ -4626,10 +4814,7 @@ mod tests {
         let funcs = vec![make_fn_complexity(5)];
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("test_fn".to_string(), 1, 0), 0.0);
-        let file_cov = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let file_cov = test_istanbul_file_coverage(functions, false);
         let result = istanbul_crap_default(&funcs, Some(&file_cov), false);
         assert!((result.max_crap - 30.0).abs() < f64::EPSILON);
         assert_eq!(result.signals.above, 1);
@@ -4965,6 +5150,252 @@ mod tests {
     }
 
     #[test]
+    fn load_istanbul_coverage_indexes_valid_body_start_alias() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/handler.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(&source_path, "export const handler = () => true;\n").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 8,
+                    "decl": {
+                        "start": { "line": 8, "column": 14 },
+                        "end": { "line": 8, "column": 25 }
+                    },
+                    "loc": {
+                        "start": { "line": 20, "column": 6 },
+                        "end": { "line": 22, "column": 1 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 1 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("handler", 20, 6), Some(100.0));
+
+        let mut function = make_fn_complexity(4);
+        function.name = "handler".to_string();
+        function.line = 20;
+        function.col = 6;
+        let result = istanbul_crap_default(&[function], Some(file_coverage), false);
+        assert_eq!(result.matched, 1);
+        assert_eq!(result.total, 1);
+        assert_eq!(
+            result.per_function[0].coverage_source,
+            fallow_output::CoverageSource::Istanbul
+        );
+        assert_eq!(result.per_function[0].coverage_pct, Some(100.0));
+    }
+
+    #[test]
+    fn anonymous_record_aliases_do_not_tie_with_their_own_identity() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/aliases.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(&source_path, "export const handler = () => true;\n").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 10,
+                    "decl": {
+                        "start": { "line": 10, "column": 8 },
+                        "end": { "line": 10, "column": 9 }
+                    },
+                    "loc": {
+                        "start": { "line": 12, "column": 8 },
+                        "end": { "line": 13, "column": 1 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 1 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("handler", 11, 8), Some(100.0));
+    }
+
+    #[test]
+    fn anonymous_tie_selects_unique_strictly_innermost_containing_span() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/nested.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(&source_path, "export const nested = () => () => true;\n").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 10,
+                    "decl": {
+                        "start": { "line": 10, "column": 8 },
+                        "end": { "line": 10, "column": 9 }
+                    },
+                    "loc": {
+                        "start": { "line": 8, "column": 0 },
+                        "end": { "line": 20, "column": 0 }
+                    }
+                },
+                "1": {
+                    "name": "(anonymous_1)",
+                    "line": 10,
+                    "decl": {
+                        "start": { "line": 10, "column": 12 },
+                        "end": { "line": 10, "column": 13 }
+                    },
+                    "loc": {
+                        "start": { "line": 9, "column": 0 },
+                        "end": { "line": 11, "column": 20 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 1, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("nested", 10, 10), Some(0.0));
+    }
+
+    #[test]
+    fn anonymous_tie_rejects_incomparable_containing_spans() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/siblings.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export const siblings = [() => true, () => false];\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 10,
+                    "decl": {
+                        "start": { "line": 10, "column": 8 },
+                        "end": { "line": 10, "column": 9 }
+                    },
+                    "loc": {
+                        "start": { "line": 8, "column": 0 },
+                        "end": { "line": 10, "column": 11 }
+                    }
+                },
+                "1": {
+                    "name": "(anonymous_1)",
+                    "line": 10,
+                    "decl": {
+                        "start": { "line": 10, "column": 12 },
+                        "end": { "line": 10, "column": 13 }
+                    },
+                    "loc": {
+                        "start": { "line": 9, "column": 20 },
+                        "end": { "line": 12, "column": 0 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 1, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert!(file_coverage.lookup("siblings", 10, 10).is_none());
+    }
+
+    #[test]
+    fn anonymous_shared_alias_rejects_even_nested_spans() {
+        let shared_alias = IstanbulPosition::new(10, 10);
+        let file_coverage = IstanbulFileCoverage::new(
+            vec![
+                IstanbulFunctionCoverage {
+                    name: "(anonymous_0)".to_string(),
+                    coverage_pct: 100.0,
+                    aliases: vec![IstanbulPosition::new(10, 8), shared_alias],
+                    body_span: Some(IstanbulSpan {
+                        start: IstanbulPosition::new(8, 0),
+                        end: IstanbulPosition::new(20, 0),
+                    }),
+                },
+                IstanbulFunctionCoverage {
+                    name: "(anonymous_1)".to_string(),
+                    coverage_pct: 0.0,
+                    aliases: vec![IstanbulPosition::new(10, 12), shared_alias],
+                    body_span: Some(IstanbulSpan {
+                        start: IstanbulPosition::new(9, 0),
+                        end: IstanbulPosition::new(11, 20),
+                    }),
+                },
+            ],
+            false,
+        );
+
+        assert!(file_coverage.lookup("nested", 10, 10).is_none());
+    }
+
+    #[test]
+    fn invalid_body_location_does_not_create_an_alias() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/invalid-location.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(&source_path, "export const handler = () => true;\n").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 8,
+                    "decl": {
+                        "start": { "line": 8, "column": 14 },
+                        "end": { "line": 8, "column": 25 }
+                    },
+                    "loc": {
+                        "start": { "line": 22, "column": 1 },
+                        "end": { "line": 20, "column": 6 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 1 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert!(file_coverage.lookup("handler", 22, 1).is_none());
+    }
+
+    #[test]
     fn load_istanbul_coverage_matches_multiline_async_arrow_decl_alias() {
         let temp = tempfile::TempDir::new().unwrap();
         let source_path = temp.path().join("src/actor.ts");
@@ -5009,10 +5440,7 @@ mod tests {
     fn istanbul_lookup_exact_match() {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("handleClick".to_string(), 10, 0), 85.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
         assert!((fc.lookup("handleClick", 10, 0).unwrap() - 85.0).abs() < f64::EPSILON);
     }
 
@@ -5020,10 +5448,7 @@ mod tests {
     fn istanbul_lookup_fuzzy_match_within_offset() {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("handleClick".to_string(), 10, 0), 72.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
         assert!((fc.lookup("handleClick", 11, 0).unwrap() - 72.0).abs() < f64::EPSILON);
         assert!((fc.lookup("handleClick", 12, 0).unwrap() - 72.0).abs() < f64::EPSILON);
     }
@@ -5032,10 +5457,7 @@ mod tests {
     fn istanbul_lookup_fuzzy_match_outside_offset() {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("handleClick".to_string(), 10, 0), 72.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
         assert!(fc.lookup("handleClick", 13, 0).is_none());
     }
 
@@ -5043,10 +5465,7 @@ mod tests {
     fn istanbul_lookup_relocated_matches_unique_name_at_any_distance() {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("handleClick".to_string(), 29, 0), 72.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: true,
-        };
+        let fc = test_istanbul_file_coverage(functions, true);
         assert!((fc.lookup("handleClick", 10, 0).unwrap() - 72.0).abs() < f64::EPSILON);
     }
 
@@ -5055,10 +5474,7 @@ mod tests {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("handleClick".to_string(), 29, 16), 72.0);
         functions.insert(("handleClick".to_string(), 29, 0), 72.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: true,
-        };
+        let fc = test_istanbul_file_coverage(functions, true);
         assert!((fc.lookup("handleClick", 10, 0).unwrap() - 72.0).abs() < f64::EPSILON);
     }
 
@@ -5067,10 +5483,7 @@ mod tests {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("render".to_string(), 29, 0), 72.0);
         functions.insert(("render".to_string(), 80, 0), 10.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: true,
-        };
+        let fc = test_istanbul_file_coverage(functions, true);
         assert!(fc.lookup("render", 10, 0).is_none());
     }
 
@@ -5079,10 +5492,7 @@ mod tests {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("render".to_string(), 11, 0), 72.0);
         functions.insert(("render".to_string(), 80, 0), 10.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: true,
-        };
+        let fc = test_istanbul_file_coverage(functions, true);
         assert!((fc.lookup("render", 10, 0).unwrap() - 72.0).abs() < f64::EPSILON);
     }
 
@@ -5090,19 +5500,13 @@ mod tests {
     fn istanbul_lookup_name_mismatch() {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("handleClick".to_string(), 10, 0), 85.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
         assert!(fc.lookup("handleSubmit", 10, 0).is_none());
     }
 
     #[test]
     fn istanbul_lookup_empty() {
-        let fc = IstanbulFileCoverage {
-            functions: rustc_hash::FxHashMap::default(),
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(rustc_hash::FxHashMap::default(), false);
         assert!(fc.lookup("anything", 1, 0).is_none());
     }
 
@@ -5111,10 +5515,7 @@ mod tests {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("render".to_string(), 8, 0), 60.0);
         functions.insert(("render".to_string(), 12, 0), 90.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
         let result = fc.lookup("render", 10, 0);
         assert!(result.is_some());
         let pct = result.unwrap();
@@ -5125,10 +5526,7 @@ mod tests {
     fn istanbul_lookup_anonymous_fallback_single_candidate() {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("(anonymous_0)".to_string(), 28, 0), 75.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
         assert!((fc.lookup("myHandler", 28, 0).unwrap() - 75.0).abs() < f64::EPSILON);
         assert!((fc.lookup("myHandler", 30, 0).unwrap() - 75.0).abs() < f64::EPSILON);
     }
@@ -5137,10 +5535,7 @@ mod tests {
     fn istanbul_lookup_anonymous_fallback_rejects_nearby_far_column() {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("(anonymous_0)".to_string(), 4, 28), 75.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
 
         assert!(fc.lookup("declaredHelper", 3, 0).is_none());
     }
@@ -5150,10 +5545,7 @@ mod tests {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("(anonymous_0)".to_string(), 28, 0), 75.0);
         functions.insert(("(anonymous_1)".to_string(), 29, 0), 50.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
         assert!((fc.lookup("myHandler", 28, 0).unwrap() - 75.0).abs() < f64::EPSILON);
     }
 
@@ -5162,10 +5554,7 @@ mod tests {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("(anonymous_0)".to_string(), 1, 23), 90.0); // outer
         functions.insert(("(anonymous_1)".to_string(), 1, 43), 10.0); // inner
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
         assert!((fc.lookup("<arrow>", 1, 43).unwrap() - 10.0).abs() < f64::EPSILON);
         assert!((fc.lookup("<arrow>", 1, 23).unwrap() - 90.0).abs() < f64::EPSILON);
     }
@@ -5175,10 +5564,7 @@ mod tests {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("(anonymous_0)".to_string(), 27, 0), 75.0);
         functions.insert(("(anonymous_1)".to_string(), 29, 0), 50.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
         assert!(fc.lookup("myHandler", 28, 0).is_none());
     }
 
@@ -5186,10 +5572,7 @@ mod tests {
     fn istanbul_lookup_anonymous_fallback_outside_offset() {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("(anonymous_0)".to_string(), 28, 0), 75.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
         assert!(fc.lookup("myHandler", 31, 0).is_none());
     }
 
@@ -5198,10 +5581,7 @@ mod tests {
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("handleClick".to_string(), 10, 0), 90.0);
         functions.insert(("(anonymous_7)".to_string(), 11, 0), 10.0);
-        let fc = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let fc = test_istanbul_file_coverage(functions, false);
         assert!((fc.lookup("handleClick", 10, 0).unwrap() - 90.0).abs() < f64::EPSILON);
     }
 
@@ -5240,10 +5620,7 @@ mod tests {
         }];
         let mut functions = rustc_hash::FxHashMap::default();
         functions.insert(("test_fn".to_string(), 1, 0), 80.0);
-        let file_cov = IstanbulFileCoverage {
-            functions,
-            relocated: false,
-        };
+        let file_cov = test_istanbul_file_coverage(functions, false);
         let result = istanbul_crap_default(&funcs, Some(&file_cov), true);
         assert_eq!(result.matched, 1);
         assert_eq!(result.total, 2);
