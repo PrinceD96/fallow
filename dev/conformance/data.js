@@ -1,75 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787640110789,
+  "lastUpdate": 1787726627829,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Conformance": [
-      {
-        "commit": {
-          "author": {
-            "name": "Test User",
-            "username": "bhanuprasad14",
-            "email": "test@example.com"
-          },
-          "committer": {
-            "name": "Test User",
-            "username": "bhanuprasad14",
-            "email": "test@example.com"
-          },
-          "id": "7b468e52310cf9a90e61e86fb8449ae5a2b224b8",
-          "message": "perf: share parsed modules between check and health in combined mode\n\nWhen running bare `fallow` (dead-code + dupes + health), the check\npipeline now parses with need_complexity=true and retains the\nmodules + discovered files. Health reuses them, skipping its own\ndiscovery and parse pass.\n\nOn next.js (21K files): eliminates ~374ms of redundant parsing.\nNet wall-clock savings ~250ms (complexity visitor adds ~100ms to\nthe check parse, offsetting part of the savings).",
-          "timestamp": "2026-04-14T05:29:58Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/7b468e52310cf9a90e61e86fb8449ae5a2b224b8"
-        },
-        "date": 1776151424620,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Agreement Rate",
-            "value": 2.3,
-            "unit": "%"
-          },
-          {
-            "name": "Agreed Issues",
-            "value": 155,
-            "unit": "issues"
-          },
-          {
-            "name": "Fallow Total",
-            "value": 6354,
-            "unit": "issues"
-          },
-          {
-            "name": "Knip Total",
-            "value": 662,
-            "unit": "issues"
-          },
-          {
-            "name": "fastify Agreement",
-            "value": 2.9,
-            "unit": "%"
-          },
-          {
-            "name": "preact Agreement",
-            "value": 8.3,
-            "unit": "%"
-          },
-          {
-            "name": "query Agreement",
-            "value": 0,
-            "unit": "%"
-          },
-          {
-            "name": "svelte Agreement",
-            "value": 0.3,
-            "unit": "%"
-          },
-          {
-            "name": "zod Agreement",
-            "value": 14.7,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -8079,6 +8012,88 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/a2931f099f4f8a8088dd7be40b46c7c0e8aa33e8"
         },
         "date": 1787640107434,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Agreement Rate",
+            "value": 1.8,
+            "unit": "%"
+          },
+          {
+            "name": "Agreed Issues",
+            "value": 574,
+            "unit": "issues"
+          },
+          {
+            "name": "Fallow Total",
+            "value": 30110,
+            "unit": "issues"
+          },
+          {
+            "name": "Knip Total",
+            "value": 2003,
+            "unit": "issues"
+          },
+          {
+            "name": "fastify Agreement",
+            "value": 4.9,
+            "unit": "%"
+          },
+          {
+            "name": "next.js Agreement",
+            "value": 1.7,
+            "unit": "%"
+          },
+          {
+            "name": "preact Agreement",
+            "value": 4.4,
+            "unit": "%"
+          },
+          {
+            "name": "query Agreement",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "svelte Agreement",
+            "value": 0.3,
+            "unit": "%"
+          },
+          {
+            "name": "vite Agreement",
+            "value": 6.4,
+            "unit": "%"
+          },
+          {
+            "name": "vue-core Agreement",
+            "value": 23.4,
+            "unit": "%"
+          },
+          {
+            "name": "zod Agreement",
+            "value": 1.9,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bartwaardenburg@gmail.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "da6a0486f88623d045799b47ad9b13faed04c362",
+          "message": "Merge pull request #2434 from fallow-rs/fix/similar-code-review-findings\n\nfix: harden similar-code evidence and companion verification",
+          "timestamp": "2026-08-25T22:15:40Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/da6a0486f88623d045799b47ad9b13faed04c362"
+        },
+        "date": 1787726623505,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
