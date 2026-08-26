@@ -1,110 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787644066430,
+  "lastUpdate": 1787730656993,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Real-World Benchmarks": [
-      {
-        "commit": {
-          "author": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "committer": {
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg",
-            "email": "bart@waardenburg.dev"
-          },
-          "id": "89130f8d7377c10d72e1749e7a8729d71d89ab18",
-          "message": "fix: expand Nx tokens in main and tsConfig fields, not just includePaths\n\n{projectRoot} and {workspaceRoot} can appear in any path-valued field\nin project.json. Hoisted token expansion above all three path fields\n(main, tsConfig, includePaths) so they all expand consistently.",
-          "timestamp": "2026-04-14T08:49:59Z",
-          "url": "https://github.com/fallow-rs/fallow/commit/89130f8d7377c10d72e1749e7a8729d71d89ab18"
-        },
-        "date": 1776156681477,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "preact (cold)",
-            "value": 166,
-            "unit": "ms"
-          },
-          {
-            "name": "preact (warm)",
-            "value": 144,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (cold)",
-            "value": 226,
-            "unit": "ms"
-          },
-          {
-            "name": "fastify (warm)",
-            "value": 213,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (cold)",
-            "value": 148,
-            "unit": "ms"
-          },
-          {
-            "name": "zod (warm)",
-            "value": 147,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (cold)",
-            "value": 418,
-            "unit": "ms"
-          },
-          {
-            "name": "vue-core (warm)",
-            "value": 364,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (cold)",
-            "value": 908,
-            "unit": "ms"
-          },
-          {
-            "name": "svelte (warm)",
-            "value": 852,
-            "unit": "ms"
-          },
-          {
-            "name": "query (cold)",
-            "value": 866,
-            "unit": "ms"
-          },
-          {
-            "name": "query (warm)",
-            "value": 824,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (cold)",
-            "value": 500,
-            "unit": "ms"
-          },
-          {
-            "name": "vite (warm)",
-            "value": 434,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (cold)",
-            "value": 9172,
-            "unit": "ms"
-          },
-          {
-            "name": "next.js (warm)",
-            "value": 8270,
-            "unit": "ms"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -9519,6 +9417,98 @@ window.BENCHMARK_DATA = {
           {
             "name": "vite (warm)",
             "value": 1121,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg",
+            "email": "bartwaardenburg@gmail.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "da6a0486f88623d045799b47ad9b13faed04c362",
+          "message": "Merge pull request #2434 from fallow-rs/fix/similar-code-review-findings\n\nfix: harden similar-code evidence and companion verification",
+          "timestamp": "2026-08-25T22:15:40Z",
+          "url": "https://github.com/fallow-rs/fallow/commit/da6a0486f88623d045799b47ad9b13faed04c362"
+        },
+        "date": 1787730650444,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "preact (cold)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "preact (warm)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (cold)",
+            "value": 204,
+            "unit": "ms"
+          },
+          {
+            "name": "fastify (warm)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (cold)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "zod (warm)",
+            "value": 203,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (cold)",
+            "value": 509,
+            "unit": "ms"
+          },
+          {
+            "name": "vue-core (warm)",
+            "value": 405,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (cold)",
+            "value": 1220,
+            "unit": "ms"
+          },
+          {
+            "name": "svelte (warm)",
+            "value": 1014,
+            "unit": "ms"
+          },
+          {
+            "name": "query (cold)",
+            "value": 916,
+            "unit": "ms"
+          },
+          {
+            "name": "query (warm)",
+            "value": 812,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (cold)",
+            "value": 1013,
+            "unit": "ms"
+          },
+          {
+            "name": "vite (warm)",
+            "value": 915,
             "unit": "ms"
           }
         ]
