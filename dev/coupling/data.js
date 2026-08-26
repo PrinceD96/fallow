@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787741962603,
+  "lastUpdate": 1787753714585,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "1c59d2d951cfc5092da157e4a567bf2262112354",
-          "message": "fix(health): make threshold-override rows agree with their findings (#2207)\n\nFollow-up to #2163. Five defects a pre-ship review found after that work landed: the `<component>` rollup never consulted the override resolver, `outstanding` swapped dimensions between same-named units, a `maxUnitSize`-only override was silent when it matched and loud when it did not, status was scored per ceiling in isolation and contradicted its own `outstanding`, and CodeClimate plus github-annotations still quoted the run-global threshold while SARIF and human quoted the effective one. Each was reproduced against a pristine main build and re-checked after. With no overrides configured the JSON envelope is byte-identical to main on four fixtures and two real projects. No wire shape change; the health schema stays at version 10.\n\nRefs #2163",
-          "timestamp": "2026-08-11T22:39:35+02:00",
-          "tree_id": "43bfa549674eed778b9fc427635ffa178dbed6cf",
-          "url": "https://github.com/fallow-rs/fallow/commit/1c59d2d951cfc5092da157e4a567bf2262112354"
-        },
-        "date": 1786480990971,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.33,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 451,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1202,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/f9cb3758ec1e69d9b6def5e0ef6da87a208ab994"
         },
         "date": 1787741959521,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 51,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 29,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.28,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 469,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1278,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "999350fc29dceea509bfef1259977fb6c35c5fdf",
+          "message": "feat(mcp): expose reference material as MCP resources\n\n`fallow-mcp` now declares the `resources` capability and serves its reference material as read-only, cacheable resources: `fallow://tools` (the tool manifest with CLI fallbacks), `fallow://issue-types` (every issue type with default severity, fixable flag, and docs URL), `fallow://explain` (index) plus the `fallow://explain/{issue_type}` template (the same document as `fallow explain --format json`), `fallow://task-matrix` (which read-only command to run before a task), and `fallow://schema/config`, `fallow://schema/plugin`, and `fallow://schema/rule-pack` (byte-identical to the CLI schema documents). Everything renders in-process from shared crates; no subprocess and no analysis run.\n\nThe server version travels in each content item's `_meta.fallow_version`, so payloads stay plain (the schema resources are valid strict JSON Schema) and a cached copy is self-describing. Resources carry exact `size`, `title`, and `audience: [\"assistant\"]` annotations with a higher priority on the tool manifest and task matrix; no `subscribe` or `listChanged` since the catalogue is compile-time constant. Unknown URIs and issue types return a structured error whose `data` lists the known URIs or the nearest issue types (`-32002` before protocol 2026-07-28, `-32602` after).\n\n`fallow schema` gains a matching `mcp_resources` block, the shipped skill reference gains a generated resource table, and the task matrix data moves to `fallow-types` so the MCP server can project it without depending on the CLI crate.",
+          "timestamp": "2026-08-26T16:05:15+02:00",
+          "tree_id": "94fbe8848e30d8692b70c15528698994f5669e1e",
+          "url": "https://github.com/fallow-rs/fallow/commit/999350fc29dceea509bfef1259977fb6c35c5fdf"
+        },
+        "date": 1787753710874,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
