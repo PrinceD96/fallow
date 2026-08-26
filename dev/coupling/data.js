@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787753714585,
+  "lastUpdate": 1787755397288,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "66ae724873c3002fe4c81d20d4a30ecb78139802",
-          "message": "fix(napi): keep the node-binding manifests at the last published version until the release publishes\n\nThe npm-prep job runs npm ci in crates/napi before CI bumps the version\nfrom the dispatched tag, so the committed package.json and lockfile must\nstay at the last version whose platform packages exist on npm. The 3.15.0\nbump left the nested platform entries unresolvable and npm ci rejects the\ntree; the post-release sync brings these files to 3.15.0 once the platform\npackages are published.",
-          "timestamp": "2026-08-11T23:05:14+02:00",
-          "tree_id": "c8b029cbaa6df2c840cab95a61e72c53099af6e7",
-          "url": "https://github.com/fallow-rs/fallow/commit/66ae724873c3002fe4c81d20d4a30ecb78139802"
-        },
-        "date": 1786482667413,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.33,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 451,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1202,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/999350fc29dceea509bfef1259977fb6c35c5fdf"
         },
         "date": 1787753710874,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 51,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 29,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.28,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 469,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1278,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "8eaa92c8e95f33ebfc8148bb9cf81706fbba21a6",
+          "message": "fix: keep main green on Windows and within the bundled skill line cap\n\nThe similar-code provider environment test read `Command`'s Debug output,\nwhich lists environment entries on Unix only, so it failed on Windows; it\nnow inspects `get_envs()` directly. The bundled SKILL.md had grown to 502\nvalidator lines after the agent and MCP resource additions; three blank\nlines after headings are dropped so it stays under the 500-line limit.",
+          "timestamp": "2026-08-26T16:36:58+02:00",
+          "tree_id": "cf55203ca01402bf9c8dcdfa4403e0b15facb1fb",
+          "url": "https://github.com/fallow-rs/fallow/commit/8eaa92c8e95f33ebfc8148bb9cf81706fbba21a6"
+        },
+        "date": 1787755385044,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
