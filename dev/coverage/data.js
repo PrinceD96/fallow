@@ -1,37 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787755583474,
+  "lastUpdate": 1787764772236,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Coverage": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "e5bf4e24fafe7798e97255aa458e4b62d8660ea3",
-          "message": "fix: collect Rust walltime benchmark results\n\n* fix(benchmarks): use CodSpeed macro runner\n\n* fix(benchmarks): collect Rust walltime results",
-          "timestamp": "2026-08-13T14:57:24+02:00",
-          "tree_id": "7529a1fb2b352f9f9b7574ce36a879a04cc79876",
-          "url": "https://github.com/fallow-rs/fallow/commit/e5bf4e24fafe7798e97255aa458e4b62d8660ea3"
-        },
-        "date": 1786626812125,
-        "tool": "customBiggerIsBetter",
-        "benches": [
-          {
-            "name": "Code Coverage",
-            "value": 92.6,
-            "unit": "%"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -2894,6 +2865,35 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/8eaa92c8e95f33ebfc8148bb9cf81706fbba21a6"
         },
         "date": 1787755579293,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "Code Coverage",
+            "value": 92.2,
+            "unit": "%"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "94d5f7ad28fd921c6709bf4939c2d5fe0b76a273",
+          "message": "ci(release): build the similar-code provider with matrix.target on Windows\n\nThe provider build step passed the target through a FALLOW_TARGET env var and read it back as \"$FALLOW_TARGET\". The Windows matrix entries run under pwsh, where that expands to an empty string and cargo aborts with \"target was empty\", so both Windows release builds failed before staging any asset. Interpolate matrix.target directly, as every sibling build step already does.",
+          "timestamp": "2026-08-26T18:50:34+02:00",
+          "tree_id": "67d009bc27baf1f1cb94d91abca394bc8aa69afa",
+          "url": "https://github.com/fallow-rs/fallow/commit/94d5f7ad28fd921c6709bf4939c2d5fe0b76a273"
+        },
+        "date": 1787764767756,
         "tool": "customBiggerIsBetter",
         "benches": [
           {
