@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787753632771,
+  "lastUpdate": 1787755392271,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "d8a1bd9afc3eaabcc4e886b66f34a00df3d1ea5f",
-          "message": "chore(napi): sync package.json / package-lock / index.js to v3.15.0",
-          "timestamp": "2026-08-12T09:48:46+02:00",
-          "tree_id": "e9485009d42559385d3803582a89b156dfe0e80d",
-          "url": "https://github.com/fallow-rs/fallow/commit/d8a1bd9afc3eaabcc4e886b66f34a00df3d1ea5f"
-        },
-        "date": 1786521176616,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10637408,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55300,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 970653,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8091,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "distinct": true,
+          "id": "8eaa92c8e95f33ebfc8148bb9cf81706fbba21a6",
+          "message": "fix: keep main green on Windows and within the bundled skill line cap\n\nThe similar-code provider environment test read `Command`'s Debug output,\nwhich lists environment entries on Unix only, so it failed on Windows; it\nnow inspects `get_envs()` directly. The bundled SKILL.md had grown to 502\nvalidator lines after the agent and MCP resource additions; three blank\nlines after headings are dropped so it stays under the 500-line limit.",
+          "timestamp": "2026-08-26T16:36:58+02:00",
+          "tree_id": "cf55203ca01402bf9c8dcdfa4403e0b15facb1fb",
+          "url": "https://github.com/fallow-rs/fallow/commit/8eaa92c8e95f33ebfc8148bb9cf81706fbba21a6"
+        },
+        "date": 1787755387623,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9714115,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49289,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1167835,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8341,
             "unit": "allocations"
           }
         ]
