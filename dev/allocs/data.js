@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787696472463,
+  "lastUpdate": 1787738513650,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "eaaeb4a54485969660625cdf33466ae10e02f7a0",
-          "message": "chore: release v3.15.0",
-          "timestamp": "2026-08-11T21:33:16+02:00",
-          "tree_id": "18d775e6950af8e85cb5421290b920b55f7c932b",
-          "url": "https://github.com/fallow-rs/fallow/commit/eaaeb4a54485969660625cdf33466ae10e02f7a0"
-        },
-        "date": 1786477131958,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10617030,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55221,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 970653,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8451,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "10cc20b72382fd1b0f0ef19efa30f44b8c5913ec",
+          "message": "feat: harden similar-code agent discovery workflow\n\nHarden scoped semantic discovery, snapshot-stable inspection, cache and provider lifecycle safety, programmatic contracts, conformance evidence, and release gates.",
+          "timestamp": "2026-08-26T11:56:44+02:00",
+          "tree_id": "fea78994dffea9ee1054f9024a1ac0a3474672fc",
+          "url": "https://github.com/fallow-rs/fallow/commit/10cc20b72382fd1b0f0ef19efa30f44b8c5913ec"
+        },
+        "date": 1787738509245,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9757845,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49361,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1218940,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8535,
             "unit": "allocations"
           }
         ]
