@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787696884537,
+  "lastUpdate": 1787739079851,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Binary Size": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "9ebcfc87b04045556abb61e5c4dfb6a390564139",
-          "message": "fix(health): label Svelte await complexity contributions\n\n* fix(health): label Svelte await complexity contributions\n\n* test(vscode): update schema version fixtures\n\n* fix(output): version JSON envelopes independently\n\n* docs: defer public v4 skill guidance\n\n* fix(types): preserve schema version compatibility",
-          "timestamp": "2026-08-08T22:09:01+02:00",
-          "tree_id": "f2e322855620560659ec5fb50ceb796bc3d4b1e2",
-          "url": "https://github.com/fallow-rs/fallow/commit/9ebcfc87b04045556abb61e5c4dfb6a390564139"
-        },
-        "date": 1786220593789,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Binary Size (fallow)",
-            "value": 492784536,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-lsp)",
-            "value": 19812224,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-mcp)",
-            "value": 25053208,
-            "unit": "bytes"
-          },
-          {
-            "name": "Binary Size (fallow-multicall)",
-            "value": 37468952,
-            "unit": "bytes"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Binary Size (fallow-multicall)",
             "value": 39652504,
+            "unit": "bytes"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "10cc20b72382fd1b0f0ef19efa30f44b8c5913ec",
+          "message": "feat: harden similar-code agent discovery workflow\n\nHarden scoped semantic discovery, snapshot-stable inspection, cache and provider lifecycle safety, programmatic contracts, conformance evidence, and release gates.",
+          "timestamp": "2026-08-26T11:56:44+02:00",
+          "tree_id": "fea78994dffea9ee1054f9024a1ac0a3474672fc",
+          "url": "https://github.com/fallow-rs/fallow/commit/10cc20b72382fd1b0f0ef19efa30f44b8c5913ec"
+        },
+        "date": 1787739075734,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Binary Size (fallow)",
+            "value": 528726128,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-lsp)",
+            "value": 20304000,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-mcp)",
+            "value": 26054520,
+            "unit": "bytes"
+          },
+          {
+            "name": "Binary Size (fallow-multicall)",
+            "value": 40050968,
             "unit": "bytes"
           }
         ]
