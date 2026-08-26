@@ -1,57 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787696477187,
+  "lastUpdate": 1787738545762,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Module Coupling": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "4dadd3021e5c0dfae34229041753c0dc0ae21237",
-          "message": "fix(engine): pass forward-slashed paths to the untracked-file diff on Windows",
-          "timestamp": "2026-08-11T20:37:13+02:00",
-          "tree_id": "fb8c2f2b735a4f05795161be68e9f347eb4af493",
-          "url": "https://github.com/fallow-rs/fallow/commit/4dadd3021e5c0dfae34229041753c0dc0ae21237"
-        },
-        "date": 1786473788064,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Max Fan-In (non-framework)",
-            "value": 46,
-            "unit": "deps"
-          },
-          {
-            "name": "Max Fan-Out (non-framework)",
-            "value": 28,
-            "unit": "deps"
-          },
-          {
-            "name": "Modules >20 Fan-In (%)",
-            "value": 1.33,
-            "unit": "%"
-          },
-          {
-            "name": "Total Modules",
-            "value": 451,
-            "unit": "count"
-          },
-          {
-            "name": "Total Edges",
-            "value": 1202,
-            "unit": "count"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4874,6 +4825,55 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/fallow-rs/fallow/commit/da6a0486f88623d045799b47ad9b13faed04c362"
         },
         "date": 1787696473801,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Max Fan-In (non-framework)",
+            "value": 48,
+            "unit": "deps"
+          },
+          {
+            "name": "Max Fan-Out (non-framework)",
+            "value": 28,
+            "unit": "deps"
+          },
+          {
+            "name": "Modules >20 Fan-In (%)",
+            "value": 1.3,
+            "unit": "%"
+          },
+          {
+            "name": "Total Modules",
+            "value": 461,
+            "unit": "count"
+          },
+          {
+            "name": "Total Edges",
+            "value": 1256,
+            "unit": "count"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "10cc20b72382fd1b0f0ef19efa30f44b8c5913ec",
+          "message": "feat: harden similar-code agent discovery workflow\n\nHarden scoped semantic discovery, snapshot-stable inspection, cache and provider lifecycle safety, programmatic contracts, conformance evidence, and release gates.",
+          "timestamp": "2026-08-26T11:56:44+02:00",
+          "tree_id": "fea78994dffea9ee1054f9024a1ac0a3474672fc",
+          "url": "https://github.com/fallow-rs/fallow/commit/10cc20b72382fd1b0f0ef19efa30f44b8c5913ec"
+        },
+        "date": 1787738541473,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
