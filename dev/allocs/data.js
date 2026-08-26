@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787741970314,
+  "lastUpdate": 1787753632771,
   "repoUrl": "https://github.com/fallow-rs/fallow",
   "entries": {
     "Fallow Allocations": [
-      {
-        "commit": {
-          "author": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "committer": {
-            "email": "bart@waardenburg.dev",
-            "name": "Bart Waardenburg",
-            "username": "BartWaardenburg"
-          },
-          "distinct": true,
-          "id": "66ae724873c3002fe4c81d20d4a30ecb78139802",
-          "message": "fix(napi): keep the node-binding manifests at the last published version until the release publishes\n\nThe npm-prep job runs npm ci in crates/napi before CI bumps the version\nfrom the dispatched tag, so the committed package.json and lockfile must\nstay at the last version whose platform packages exist on npm. The 3.15.0\nbump left the nested platform entries unresolvable and npm ci rejects the\ntree; the post-release sync brings these files to 3.15.0 once the platform\npackages are published.",
-          "timestamp": "2026-08-11T23:05:14+02:00",
-          "tree_id": "c8b029cbaa6df2c840cab95a61e72c53099af6e7",
-          "url": "https://github.com/fallow-rs/fallow/commit/66ae724873c3002fe4c81d20d4a30ecb78139802"
-        },
-        "date": 1786482639400,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Total Bytes Allocated",
-            "value": 10651192,
-            "unit": "bytes"
-          },
-          {
-            "name": "Total Allocations",
-            "value": 55320,
-            "unit": "allocations"
-          },
-          {
-            "name": "Peak Memory",
-            "value": 970653,
-            "unit": "bytes"
-          },
-          {
-            "name": "Peak Allocations",
-            "value": 7604,
-            "unit": "allocations"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -4399,6 +4355,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "Peak Allocations",
             "value": 8440,
+            "unit": "allocations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "bart@waardenburg.dev",
+            "name": "Bart Waardenburg",
+            "username": "BartWaardenburg"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "999350fc29dceea509bfef1259977fb6c35c5fdf",
+          "message": "feat(mcp): expose reference material as MCP resources\n\n`fallow-mcp` now declares the `resources` capability and serves its reference material as read-only, cacheable resources: `fallow://tools` (the tool manifest with CLI fallbacks), `fallow://issue-types` (every issue type with default severity, fixable flag, and docs URL), `fallow://explain` (index) plus the `fallow://explain/{issue_type}` template (the same document as `fallow explain --format json`), `fallow://task-matrix` (which read-only command to run before a task), and `fallow://schema/config`, `fallow://schema/plugin`, and `fallow://schema/rule-pack` (byte-identical to the CLI schema documents). Everything renders in-process from shared crates; no subprocess and no analysis run.\n\nThe server version travels in each content item's `_meta.fallow_version`, so payloads stay plain (the schema resources are valid strict JSON Schema) and a cached copy is self-describing. Resources carry exact `size`, `title`, and `audience: [\"assistant\"]` annotations with a higher priority on the tool manifest and task matrix; no `subscribe` or `listChanged` since the catalogue is compile-time constant. Unknown URIs and issue types return a structured error whose `data` lists the known URIs or the nearest issue types (`-32002` before protocol 2026-07-28, `-32602` after).\n\n`fallow schema` gains a matching `mcp_resources` block, the shipped skill reference gains a generated resource table, and the task matrix data moves to `fallow-types` so the MCP server can project it without depending on the CLI crate.",
+          "timestamp": "2026-08-26T16:05:15+02:00",
+          "tree_id": "94fbe8848e30d8692b70c15528698994f5669e1e",
+          "url": "https://github.com/fallow-rs/fallow/commit/999350fc29dceea509bfef1259977fb6c35c5fdf"
+        },
+        "date": 1787753625502,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Total Bytes Allocated",
+            "value": 9767745,
+            "unit": "bytes"
+          },
+          {
+            "name": "Total Allocations",
+            "value": 49374,
+            "unit": "allocations"
+          },
+          {
+            "name": "Peak Memory",
+            "value": 1175572,
+            "unit": "bytes"
+          },
+          {
+            "name": "Peak Allocations",
+            "value": 8091,
             "unit": "allocations"
           }
         ]
