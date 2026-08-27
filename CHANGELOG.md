@@ -47,7 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   import may now be reported as unused. If a subdirectory `tsconfig.json`
   intentionally holds shared `paths`, give it an explicit `include`, or move
   those aliases to a config whose directory contains the importing files.
-  Thanks to [@PatrickShaw](https://github.com/PatrickShaw) for the
+  Thanks to [@PatrickShaw](https://github.com/PatrickShaw) for the contribution.
 
 - **Overload signatures, abstract members, and `declare function`
   declarations no longer count as functions, and Istanbul coverage now matches
@@ -60,27 +60,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   leaves the file-score table entirely. Coverage matching improves at the same
   time: a function whose only structural match in the coverage map was its
   body location now scores against real coverage instead of a static estimate.
-  Each removed declaration was a complexity-1 unit, so everything averaged
-  over the function population reads higher on unchanged code (average
-  cyclomatic complexity, its 90th percentile, the share of functions over 60
-  lines) and the project health score moves down or stays flat, while per-file
-  maintainability moves up, because a file's complexity density is its total
-  complexity divided by its lines. Regression baselines
-  (`--regression-baseline`) compare dead-code and dependency counts and are
-  unaffected; re-save health baselines (`--save-baseline`) if you run with
-  `--coverage`, because a newly matched function can cross the CRAP ceiling in
-  either direction and both `count` and `identity` mode read that as a new
-  finding.
+  Each removed declaration was a complexity-1 unit, so metrics averaged over
+  the function population can change on unchanged runtime code (average
+  cyclomatic complexity, its 90th percentile, and the share of functions over
+  60 lines). Per-file maintainability can also improve because a file's
+  complexity density is its total complexity divided by its lines, and the
+  combined project health score can move in either direction. Regression
+  baselines (`--regression-baseline`) compare dead-code and dependency counts
+  and are unaffected; re-save health baselines (`--save-baseline`) if you run
+  with `--coverage`, because a newly matched function can cross the CRAP ceiling,
+  changing the total tracked by `count` mode or the set tracked by `identity`
+  mode.
 
-  Mechanically, each `fnMap` entry is indexed under three positions: the
-  producer's own, the declaration start, and the body start.
+  Mechanically, each `fnMap` entry contributes up to three candidate positions:
+  the producer's own, the declaration start, and the body start.
   istanbul-lib-instrument records an expression-bodied arrow's body as the
   next arrow in a curried chain, so a body-start alias yields to a declaration
   at the same position, which keeps every arrow of a redux middleware, a
   higher-order component, or a curried class property matchable. When two
-  nested anonymous candidates sit equally far from the target, the one whose
-  body strictly contains the other wins; when neither contains the other, the
-  function stays on the estimate rather than being credited to a guess. Thanks
+  nested anonymous candidates sit equally far from the target, the uniquely
+  strictly innermost body wins; when no such body exists, the function stays on
+  the estimate rather than being credited to a guess. Thanks
   to [@PrinceD96](https://github.com/PrinceD96) for the report and the
   contribution.
 
