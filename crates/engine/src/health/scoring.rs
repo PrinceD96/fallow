@@ -848,8 +848,9 @@ impl IstanbulSpan {
         (start.line > 0 && end.line > 0 && start < end).then_some(Self { start, end })
     }
 
+    /// Half-open containment: `end` is the position just past the body.
     fn contains(self, position: IstanbulPosition) -> bool {
-        self.start <= position && position <= self.end
+        self.start <= position && position < self.end
     }
 
     fn strictly_contains(self, other: Self) -> bool {
@@ -857,10 +858,56 @@ impl IstanbulSpan {
     }
 }
 
+/// A position under which an Istanbul function record can be found.
+///
+/// The producer's effective position and `decl.start` are primary: they
+/// identify the function itself. The body start (`loc.start`) is secondary.
+/// istanbul-lib-instrument records an expression-bodied arrow's `loc` as the
+/// body expression, so for curried arrows the outer entry's body start is the
+/// inner entry's declaration start. A secondary alias therefore yields to a
+/// primary alias at the same position instead of making it ambiguous.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+struct IstanbulAlias {
+    position: IstanbulPosition,
+    primary: bool,
+}
+
+/// How many primary and secondary aliases share one position within a
+/// collision namespace (per name, or across all anonymous records).
+#[derive(Clone, Copy, Debug, Default)]
+struct IstanbulAliasCounts {
+    primary: usize,
+    secondary: usize,
+}
+
+impl IstanbulAliasCounts {
+    fn add(&mut self, alias: IstanbulAlias) {
+        if alias.primary {
+            self.primary += 1;
+        } else {
+            self.secondary += 1;
+        }
+    }
+
+    /// A primary alias is unique when no other primary shares its position;
+    /// a secondary alias is unique only when nothing else does.
+    const fn is_unique(self, alias: IstanbulAlias) -> bool {
+        if alias.primary {
+            self.primary == 1
+        } else {
+            self.primary == 0 && self.secondary == 1
+        }
+    }
+}
+
+fn is_anonymous_istanbul_name(name: &str) -> bool {
+    name.starts_with("(anonymous_")
+}
+
 struct IstanbulFunctionCoverage {
     name: String,
     coverage_pct: f64,
-    aliases: Vec<IstanbulPosition>,
+    aliases: Vec<IstanbulAlias>,
     body_span: Option<IstanbulSpan>,
 }
 
@@ -873,7 +920,7 @@ impl IstanbulFunctionCoverage {
         self.aliases
             .iter()
             .filter_map(|alias| {
-                let distance = alias.distance_from(target);
+                let distance = alias.position.distance_from(target);
                 if distance.0 > 2 {
                     return None;
                 }
@@ -893,14 +940,18 @@ pub struct IstanbulFileCoverage {
     /// deduplicated producer, declaration, and valid body-start aliases, so an
     /// entry cannot tie with itself during anonymous positional matching.
     functions: Vec<IstanbulFunctionCoverage>,
-    /// Exact aliases that belong to one function identity. Colliding aliases
-    /// are removed from this index and recorded in `ambiguous_aliases`.
+    /// Exact aliases that belong to one function identity. Primary aliases
+    /// that collide are removed from this index and recorded in
+    /// `ambiguous_aliases`; secondary aliases that collide with anything are
+    /// dropped silently.
     alias_index: rustc_hash::FxHashMap<(String, u32, u32), usize>,
-    /// Aliases shared by multiple function identities. Exact queries at these
-    /// positions abstain instead of falling through to a fuzzy attribution.
+    /// Primary aliases shared by multiple function identities. Exact queries
+    /// at these positions abstain instead of falling through to a fuzzy
+    /// attribution.
     ambiguous_aliases: rustc_hash::FxHashSet<(String, u32, u32)>,
-    /// Positions shared by multiple anonymous identities. Anonymous fallback
-    /// abstains at these targets even when each identity has other aliases.
+    /// Primary positions shared by multiple anonymous identities. Anonymous
+    /// fallback abstains at these targets even when each identity has other
+    /// aliases.
     ambiguous_anonymous_aliases: rustc_hash::FxHashSet<IstanbulPosition>,
     /// The coverage map was recorded against a different checkout of the
     /// project, so line numbers may have drifted beyond the bounded fuzz.
@@ -910,42 +961,62 @@ pub struct IstanbulFileCoverage {
 
 impl IstanbulFileCoverage {
     fn new(mut functions: Vec<IstanbulFunctionCoverage>, relocated: bool) -> Self {
-        let mut named_alias_counts = rustc_hash::FxHashMap::default();
-        let mut anonymous_alias_counts = rustc_hash::FxHashMap::default();
+        let mut named_alias_counts: rustc_hash::FxHashMap<
+            (String, IstanbulPosition),
+            IstanbulAliasCounts,
+        > = rustc_hash::FxHashMap::default();
+        let mut anonymous_alias_counts: rustc_hash::FxHashMap<
+            IstanbulPosition,
+            IstanbulAliasCounts,
+        > = rustc_hash::FxHashMap::default();
         for function in &functions {
-            let is_anonymous = function.name.starts_with("(anonymous_");
+            let is_anonymous = is_anonymous_istanbul_name(&function.name);
             for alias in &function.aliases {
-                *named_alias_counts
-                    .entry((function.name.clone(), *alias))
-                    .or_insert(0usize) += 1;
+                named_alias_counts
+                    .entry((function.name.clone(), alias.position))
+                    .or_default()
+                    .add(*alias);
                 if is_anonymous {
-                    *anonymous_alias_counts.entry(*alias).or_insert(0usize) += 1;
+                    anonymous_alias_counts
+                        .entry(alias.position)
+                        .or_default()
+                        .add(*alias);
                 }
             }
         }
 
+        // Only primary/primary collisions make a position ambiguous. A
+        // secondary alias that collides with anything is dropped from its
+        // record, which leaves the primary owner of that position unique.
         let mut ambiguous_aliases = rustc_hash::FxHashSet::default();
         let mut ambiguous_anonymous_aliases = rustc_hash::FxHashSet::default();
         for function in &mut functions {
             let name = function.name.clone();
-            let is_anonymous = name.starts_with("(anonymous_");
+            let is_anonymous = is_anonymous_istanbul_name(&name);
             function.aliases.retain(|alias| {
-                let named_unique = named_alias_counts
-                    .get(&(name.clone(), *alias))
-                    .is_some_and(|count| *count == 1);
-                let anonymous_unique = !is_anonymous
-                    || anonymous_alias_counts
-                        .get(alias)
-                        .is_some_and(|count| *count == 1);
-                if named_unique && anonymous_unique {
-                    true
-                } else {
-                    ambiguous_aliases.insert((name.clone(), alias.line, alias.col));
-                    if is_anonymous && !anonymous_unique {
-                        ambiguous_anonymous_aliases.insert(*alias);
-                    }
-                    false
+                let named = named_alias_counts
+                    .get(&(name.clone(), alias.position))
+                    .copied()
+                    .unwrap_or_default();
+                let anonymous = is_anonymous
+                    .then(|| anonymous_alias_counts.get(&alias.position).copied())
+                    .flatten();
+                let unique = named.is_unique(*alias)
+                    && anonymous.is_none_or(|counts| counts.is_unique(*alias));
+                if unique {
+                    return true;
                 }
+                if alias.primary {
+                    ambiguous_aliases.insert((
+                        name.clone(),
+                        alias.position.line,
+                        alias.position.col,
+                    ));
+                    if anonymous.is_some_and(|counts| counts.primary > 1) {
+                        ambiguous_anonymous_aliases.insert(alias.position);
+                    }
+                }
+                false
             });
         }
 
@@ -953,7 +1024,11 @@ impl IstanbulFileCoverage {
         for (function_index, function) in functions.iter().enumerate() {
             for alias in &function.aliases {
                 alias_index.insert(
-                    (function.name.clone(), alias.line, alias.col),
+                    (
+                        function.name.clone(),
+                        alias.position.line,
+                        alias.position.col,
+                    ),
                     function_index,
                 );
             }
@@ -1030,7 +1105,7 @@ impl IstanbulFileCoverage {
         let mut nearest_distance: Option<(u32, u32)> = None;
         let mut nearest_functions = Vec::new();
         for (function_index, function) in self.functions.iter().enumerate() {
-            if !function.name.starts_with("(anonymous_") {
+            if !is_anonymous_istanbul_name(&function.name) {
                 continue;
             }
             let Some(distance) =
@@ -1283,19 +1358,28 @@ fn istanbul_function_coverage(
 ) -> IstanbulFunctionCoverage {
     let body_span = IstanbulSpan::from_entry(fn_entry);
     let candidates = [
-        Some(IstanbulPosition::new(
-            effective_istanbul_fn_line(fn_entry),
-            effective_istanbul_fn_col(fn_entry),
-        )),
-        Some(IstanbulPosition::new(
-            fn_entry.decl.start.line,
-            fn_entry.decl.start.column,
-        )),
-        body_span.map(|span| span.start),
+        Some(IstanbulAlias {
+            position: IstanbulPosition::new(
+                effective_istanbul_fn_line(fn_entry),
+                effective_istanbul_fn_col(fn_entry),
+            ),
+            primary: true,
+        }),
+        Some(IstanbulAlias {
+            position: IstanbulPosition::new(fn_entry.decl.start.line, fn_entry.decl.start.column),
+            primary: true,
+        }),
+        body_span.map(|span| IstanbulAlias {
+            position: span.start,
+            primary: false,
+        }),
     ];
-    let mut aliases = Vec::with_capacity(candidates.len());
+    let mut aliases: Vec<IstanbulAlias> = Vec::with_capacity(candidates.len());
     for candidate in candidates.into_iter().flatten() {
-        if !aliases.contains(&candidate) {
+        if !aliases
+            .iter()
+            .any(|alias| alias.position == candidate.position)
+        {
             aliases.push(candidate);
         }
     }
@@ -2256,12 +2340,33 @@ mod tests {
                 |((name, line, col), coverage_pct)| IstanbulFunctionCoverage {
                     name,
                     coverage_pct,
-                    aliases: vec![IstanbulPosition::new(line, col)],
+                    aliases: vec![primary_alias(line, col)],
                     body_span: None,
                 },
             )
             .collect();
         IstanbulFileCoverage::new(functions, relocated)
+    }
+
+    fn primary_alias(line: u32, col: u32) -> IstanbulAlias {
+        IstanbulAlias {
+            position: IstanbulPosition::new(line, col),
+            primary: true,
+        }
+    }
+
+    fn secondary_alias(line: u32, col: u32) -> IstanbulAlias {
+        IstanbulAlias {
+            position: IstanbulPosition::new(line, col),
+            primary: false,
+        }
+    }
+
+    fn body_span(start: (u32, u32), end: (u32, u32)) -> IstanbulSpan {
+        IstanbulSpan {
+            start: IstanbulPosition::new(start.0, start.1),
+            end: IstanbulPosition::new(end.0, end.1),
+        }
     }
 
     /// `compute_crap_scores_estimated` with default-configuration ceilings.
@@ -5232,8 +5337,12 @@ mod tests {
         assert_eq!(file_coverage.lookup("handler", 11, 8), Some(100.0));
     }
 
+    /// istanbul-lib-instrument geometry for
+    /// `export const nested = () => () => true;`: the outer arrow's `loc` is
+    /// its expression body, which starts exactly where the inner arrow is
+    /// declared.
     #[test]
-    fn anonymous_tie_selects_unique_strictly_innermost_containing_span() {
+    fn curried_arrow_one_liner_resolves_both_arrows() {
         let temp = tempfile::TempDir::new().unwrap();
         let source_path = temp.path().join("src/nested.ts");
         std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
@@ -5246,26 +5355,26 @@ mod tests {
             &serde_json::json!({
                 "0": {
                     "name": "(anonymous_0)",
-                    "line": 10,
+                    "line": 1,
                     "decl": {
-                        "start": { "line": 10, "column": 8 },
-                        "end": { "line": 10, "column": 9 }
+                        "start": { "line": 1, "column": 22 },
+                        "end": { "line": 1, "column": 23 }
                     },
                     "loc": {
-                        "start": { "line": 8, "column": 0 },
-                        "end": { "line": 20, "column": 0 }
+                        "start": { "line": 1, "column": 28 },
+                        "end": { "line": 1, "column": 38 }
                     }
                 },
                 "1": {
                     "name": "(anonymous_1)",
-                    "line": 10,
+                    "line": 1,
                     "decl": {
-                        "start": { "line": 10, "column": 12 },
-                        "end": { "line": 10, "column": 13 }
+                        "start": { "line": 1, "column": 28 },
+                        "end": { "line": 1, "column": 29 }
                     },
                     "loc": {
-                        "start": { "line": 9, "column": 0 },
-                        "end": { "line": 11, "column": 20 }
+                        "start": { "line": 1, "column": 34 },
+                        "end": { "line": 1, "column": 38 }
                     }
                 }
             }),
@@ -5276,17 +5385,21 @@ mod tests {
         let canonical_source = dunce::canonicalize(&source_path).unwrap();
         let file_coverage = coverage.get(&canonical_source).unwrap();
 
-        assert_eq!(file_coverage.lookup("nested", 10, 10), Some(0.0));
+        assert_eq!(file_coverage.lookup("nested", 1, 22), Some(100.0));
+        assert_eq!(file_coverage.lookup("<arrow>", 1, 28), Some(0.0));
     }
 
+    /// istanbul-lib-instrument geometry for a multi-line higher-order
+    /// component. The producer's `line` is the body start line, so the outer
+    /// record also carries an effective alias on line 2.
     #[test]
-    fn anonymous_tie_rejects_incomparable_containing_spans() {
+    fn curried_arrow_multiline_hoc_resolves_both_arrows() {
         let temp = tempfile::TempDir::new().unwrap();
-        let source_path = temp.path().join("src/siblings.ts");
+        let source_path = temp.path().join("src/with-auth.tsx");
         std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
         std::fs::write(
             &source_path,
-            "export const siblings = [() => true, () => false];\n",
+            "export const withAuth = (Component) =>\n  (props) => {\n    return Component(props);\n  };\n",
         )
         .unwrap();
 
@@ -5297,26 +5410,26 @@ mod tests {
             &serde_json::json!({
                 "0": {
                     "name": "(anonymous_0)",
-                    "line": 10,
+                    "line": 2,
                     "decl": {
-                        "start": { "line": 10, "column": 8 },
-                        "end": { "line": 10, "column": 9 }
+                        "start": { "line": 1, "column": 24 },
+                        "end": { "line": 1, "column": 25 }
                     },
                     "loc": {
-                        "start": { "line": 8, "column": 0 },
-                        "end": { "line": 10, "column": 11 }
+                        "start": { "line": 2, "column": 2 },
+                        "end": { "line": 4, "column": 3 }
                     }
                 },
                 "1": {
                     "name": "(anonymous_1)",
-                    "line": 10,
+                    "line": 2,
                     "decl": {
-                        "start": { "line": 10, "column": 12 },
-                        "end": { "line": 10, "column": 13 }
+                        "start": { "line": 2, "column": 2 },
+                        "end": { "line": 2, "column": 3 }
                     },
                     "loc": {
-                        "start": { "line": 9, "column": 20 },
-                        "end": { "line": 12, "column": 0 }
+                        "start": { "line": 2, "column": 13 },
+                        "end": { "line": 4, "column": 3 }
                     }
                 }
             }),
@@ -5327,37 +5440,319 @@ mod tests {
         let canonical_source = dunce::canonicalize(&source_path).unwrap();
         let file_coverage = coverage.get(&canonical_source).unwrap();
 
-        assert!(file_coverage.lookup("siblings", 10, 10).is_none());
+        assert_eq!(file_coverage.lookup("withAuth", 1, 24), Some(100.0));
+        assert_eq!(file_coverage.lookup("<arrow>", 2, 2), Some(0.0));
     }
 
+    /// istanbul-lib-instrument geometry for a depth-3 redux middleware chain.
+    /// Every non-first arrow is declared where the previous body starts.
     #[test]
-    fn anonymous_shared_alias_rejects_even_nested_spans() {
-        let shared_alias = IstanbulPosition::new(10, 10);
+    fn curried_arrow_depth_three_chain_resolves_every_arrow() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/logger.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export const logger = (store) => (next) => (action) => {\n  return next(action);\n};\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 1,
+                    "decl": {
+                        "start": { "line": 1, "column": 22 },
+                        "end": { "line": 1, "column": 23 }
+                    },
+                    "loc": {
+                        "start": { "line": 1, "column": 33 },
+                        "end": { "line": 3, "column": 1 }
+                    }
+                },
+                "1": {
+                    "name": "(anonymous_1)",
+                    "line": 1,
+                    "decl": {
+                        "start": { "line": 1, "column": 33 },
+                        "end": { "line": 1, "column": 34 }
+                    },
+                    "loc": {
+                        "start": { "line": 1, "column": 43 },
+                        "end": { "line": 3, "column": 1 }
+                    }
+                },
+                "2": {
+                    "name": "(anonymous_2)",
+                    "line": 1,
+                    "decl": {
+                        "start": { "line": 1, "column": 43 },
+                        "end": { "line": 1, "column": 44 }
+                    },
+                    "loc": {
+                        "start": { "line": 1, "column": 55 },
+                        "end": { "line": 3, "column": 1 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 0, "1": 1, "2": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("logger", 1, 22), Some(0.0));
+        assert_eq!(file_coverage.lookup("<arrow>", 1, 33), Some(100.0));
+        assert_eq!(file_coverage.lookup("<arrow>", 1, 43), Some(0.0));
+    }
+
+    /// istanbul-lib-instrument geometry for a curried class-property arrow.
+    #[test]
+    fn curried_class_property_arrow_resolves_both_arrows() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/store.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export class Store {\n  handle = (event) => (payload) => {\n    return payload;\n  };\n}\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 2,
+                    "decl": {
+                        "start": { "line": 2, "column": 11 },
+                        "end": { "line": 2, "column": 12 }
+                    },
+                    "loc": {
+                        "start": { "line": 2, "column": 22 },
+                        "end": { "line": 4, "column": 3 }
+                    }
+                },
+                "1": {
+                    "name": "(anonymous_1)",
+                    "line": 2,
+                    "decl": {
+                        "start": { "line": 2, "column": 22 },
+                        "end": { "line": 2, "column": 23 }
+                    },
+                    "loc": {
+                        "start": { "line": 2, "column": 35 },
+                        "end": { "line": 4, "column": 3 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 1, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("handle", 2, 11), Some(100.0));
+        assert_eq!(file_coverage.lookup("<arrow>", 2, 22), Some(0.0));
+    }
+
+    /// istanbul-lib-instrument geometry for two sibling arrows in an object
+    /// literal. A target one line away from both, at the shared column, ties
+    /// on distance and lies in neither body, so the lookup abstains.
+    #[test]
+    fn anonymous_sibling_tie_outside_every_body_abstains() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/handlers.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export const handlers = {\n  a: () => true,\n\n  b: () => false,\n};\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 2,
+                    "decl": {
+                        "start": { "line": 2, "column": 5 },
+                        "end": { "line": 2, "column": 6 }
+                    },
+                    "loc": {
+                        "start": { "line": 2, "column": 11 },
+                        "end": { "line": 2, "column": 15 }
+                    }
+                },
+                "1": {
+                    "name": "(anonymous_1)",
+                    "line": 4,
+                    "decl": {
+                        "start": { "line": 4, "column": 5 },
+                        "end": { "line": 4, "column": 6 }
+                    },
+                    "loc": {
+                        "start": { "line": 4, "column": 11 },
+                        "end": { "line": 4, "column": 16 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 1, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("a", 2, 5), Some(100.0));
+        assert_eq!(file_coverage.lookup("b", 4, 5), Some(0.0));
+        assert!(file_coverage.lookup("<arrow>", 3, 5).is_none());
+    }
+
+    /// istanbul-lib-instrument geometry for a function expression whose block
+    /// body wraps an arrow, with the closing braces on a second line. A target
+    /// on that line, equidistant from the outer `{` and the inner declaration,
+    /// ties on distance and lies inside both bodies; the strictly innermost
+    /// body wins.
+    #[test]
+    fn anonymous_tie_selects_unique_strictly_innermost_containing_span() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/nested.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export const o = function () { const f = () => { return 1;\n                                       }; return f; };\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 1,
+                    "decl": {
+                        "start": { "line": 1, "column": 17 },
+                        "end": { "line": 1, "column": 18 }
+                    },
+                    "loc": {
+                        "start": { "line": 1, "column": 29 },
+                        "end": { "line": 2, "column": 53 }
+                    }
+                },
+                "1": {
+                    "name": "(anonymous_1)",
+                    "line": 1,
+                    "decl": {
+                        "start": { "line": 1, "column": 41 },
+                        "end": { "line": 1, "column": 42 }
+                    },
+                    "loc": {
+                        "start": { "line": 1, "column": 47 },
+                        "end": { "line": 2, "column": 40 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 1, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("<arrow>", 2, 35), Some(0.0));
+    }
+
+    /// Defensive: no producer emits partially overlapping bodies, but a tie
+    /// between two containing spans that are not nested must not pick either.
+    #[test]
+    fn anonymous_tie_rejects_incomparable_containing_spans() {
         let file_coverage = IstanbulFileCoverage::new(
             vec![
                 IstanbulFunctionCoverage {
                     name: "(anonymous_0)".to_string(),
                     coverage_pct: 100.0,
-                    aliases: vec![IstanbulPosition::new(10, 8), shared_alias],
-                    body_span: Some(IstanbulSpan {
-                        start: IstanbulPosition::new(8, 0),
-                        end: IstanbulPosition::new(20, 0),
-                    }),
+                    aliases: vec![primary_alias(10, 8), secondary_alias(10, 14)],
+                    body_span: Some(body_span((10, 14), (12, 30))),
                 },
                 IstanbulFunctionCoverage {
                     name: "(anonymous_1)".to_string(),
                     coverage_pct: 0.0,
-                    aliases: vec![IstanbulPosition::new(10, 12), shared_alias],
-                    body_span: Some(IstanbulSpan {
-                        start: IstanbulPosition::new(9, 0),
-                        end: IstanbulPosition::new(11, 20),
-                    }),
+                    aliases: vec![primary_alias(10, 20), secondary_alias(11, 0)],
+                    body_span: Some(body_span((11, 0), (14, 0))),
                 },
             ],
             false,
         );
 
-        assert!(file_coverage.lookup("nested", 10, 10).is_none());
+        assert!(file_coverage.lookup("<arrow>", 12, 17).is_none());
+    }
+
+    /// Two records whose primary aliases coincide (a multi-line parameter
+    /// list whose body-start line and declaration column produce the same
+    /// effective position as the inner arrow's declaration) stay ambiguous
+    /// even though their bodies nest.
+    #[test]
+    fn anonymous_shared_primary_alias_rejects_even_nested_spans() {
+        let file_coverage = IstanbulFileCoverage::new(
+            vec![
+                IstanbulFunctionCoverage {
+                    name: "(anonymous_0)".to_string(),
+                    coverage_pct: 100.0,
+                    aliases: vec![primary_alias(4, 11), primary_alias(1, 11)],
+                    body_span: Some(body_span((4, 11), (4, 23))),
+                },
+                IstanbulFunctionCoverage {
+                    name: "(anonymous_1)".to_string(),
+                    coverage_pct: 0.0,
+                    aliases: vec![primary_alias(4, 11), secondary_alias(4, 18)],
+                    body_span: Some(body_span((4, 18), (4, 23))),
+                },
+            ],
+            false,
+        );
+
+        assert!(file_coverage.lookup("<arrow>", 4, 11).is_none());
+        assert_eq!(file_coverage.lookup("aa", 1, 11), Some(100.0));
+    }
+
+    /// A secondary alias that collides with another record's secondary alias
+    /// is dropped from both without making the position ambiguous.
+    #[test]
+    fn colliding_secondary_aliases_drop_without_ambiguity() {
+        let file_coverage = IstanbulFileCoverage::new(
+            vec![
+                IstanbulFunctionCoverage {
+                    name: "(anonymous_0)".to_string(),
+                    coverage_pct: 100.0,
+                    aliases: vec![primary_alias(10, 0), secondary_alias(12, 4)],
+                    body_span: Some(body_span((12, 4), (20, 0))),
+                },
+                IstanbulFunctionCoverage {
+                    name: "(anonymous_1)".to_string(),
+                    coverage_pct: 0.0,
+                    aliases: vec![primary_alias(11, 0), secondary_alias(12, 4)],
+                    body_span: Some(body_span((12, 4), (18, 0))),
+                },
+            ],
+            false,
+        );
+
+        assert_eq!(file_coverage.lookup("first", 10, 0), Some(100.0));
+        assert_eq!(file_coverage.lookup("second", 11, 0), Some(0.0));
     }
 
     #[test]

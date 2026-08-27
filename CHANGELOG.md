@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **Istanbul coverage now matches functions through their body location and
+  skips bodyless TypeScript declarations** (Closes
+  [#2442](https://github.com/fallow-rs/fallow/issues/2442),
+  [#2443](https://github.com/fallow-rs/fallow/pull/2443)). Each `fnMap` entry
+  is indexed once under its producer position, its declaration start, and its
+  body start, so functions whose only structural match is `loc.start` use
+  real coverage instead of a static estimate. Because istanbul-lib-instrument
+  records an expression-bodied arrow's body as the next arrow in a curried
+  chain, the body-start alias yields to a declaration at the same position,
+  which keeps every arrow of a redux middleware, higher-order component, or
+  curried class property matchable. Distance ties between nested anonymous
+  candidates resolve to the unique strictly innermost body; sibling ties still
+  abstain. Overload signatures, abstract members, and `declare function`
+  declarations no longer produce complexity units, so function counts in
+  health and file scores, LSP lenses, and impact attribution change for files
+  that contain them. Thanks to [@PrinceD96](https://github.com/PrinceD96) for
+  the report and the contribution.
+
 ## [3.19.0] - 2026-08-26
 
 ### Added

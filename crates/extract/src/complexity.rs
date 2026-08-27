@@ -771,6 +771,55 @@ mod tests {
     }
 
     #[test]
+    fn class_method_overload_signatures_do_not_emit_complexity_units() {
+        let results = analyze(
+            "class Parser {\n\
+               method(a: string): void;\n\
+               method(a: number): void;\n\
+               method(a: any) { if (a) { return; } }\n\
+             }",
+        );
+        let methods: Vec<_> = results
+            .iter()
+            .filter(|function| function.name == "method")
+            .collect();
+
+        assert_eq!(methods.len(), 1);
+        assert_eq!(methods[0].line, 4);
+        assert_eq!(methods[0].cyclomatic, 2);
+    }
+
+    #[test]
+    fn abstract_class_methods_do_not_emit_complexity_units() {
+        let results = analyze(
+            "abstract class Shape {\n\
+               abstract area(): number;\n\
+               abstract describe(prefix: string): string;\n\
+               name() { return 'shape'; }\n\
+             }",
+        );
+
+        assert!(results.iter().all(|function| function.name != "area"));
+        assert!(results.iter().all(|function| function.name != "describe"));
+        let name = find_fn(&results, "name");
+        assert_eq!(name.line, 4);
+        assert_eq!(name.cyclomatic, 1);
+    }
+
+    #[test]
+    fn declare_function_does_not_emit_complexity_unit() {
+        let results = analyze(
+            "declare function ambient(value: string): void;\n\
+             function real(value: string) { return value; }",
+        );
+
+        assert!(results.iter().all(|function| function.name != "ambient"));
+        let real = find_fn(&results, "real");
+        assert_eq!(real.line, 2);
+        assert_eq!(real.cyclomatic, 1);
+    }
+
+    #[test]
     fn if_statement_adds_1() {
         let results = analyze("function foo(x) { if (x) { return 1; } return 0; }");
         let f = find_fn(&results, "foo");
