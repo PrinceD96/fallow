@@ -17,23 +17,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **Istanbul coverage now matches functions through their body location and
-  skips bodyless TypeScript declarations** (Closes
+- **Overload signatures, abstract members, and `declare function`
+  declarations no longer count as functions, and Istanbul coverage now matches
+  functions through their body location** (Closes
   [#2442](https://github.com/fallow-rs/fallow/issues/2442),
-  [#2443](https://github.com/fallow-rs/fallow/pull/2443)). Each `fnMap` entry
-  is indexed once under its producer position, its declaration start, and its
-  body start, so functions whose only structural match is `loc.start` use
-  real coverage instead of a static estimate. Because istanbul-lib-instrument
-  records an expression-bodied arrow's body as the next arrow in a curried
-  chain, the body-start alias yields to a declaration at the same position,
-  which keeps every arrow of a redux middleware, higher-order component, or
-  curried class property matchable. Distance ties between nested anonymous
-  candidates resolve to the unique strictly innermost body; sibling ties still
-  abstain. Overload signatures, abstract members, and `declare function`
-  declarations no longer produce complexity units, so function counts in
-  health and file scores, LSP lenses, and impact attribution change for files
-  that contain them. Thanks to [@PrinceD96](https://github.com/PrinceD96) for
-  the report and the contribution.
+  [#2443](https://github.com/fallow-rs/fallow/pull/2443)). Function counts
+  drop for every file that carries those declarations, so its file score and
+  the project health score move without any code change, and a file whose
+  declarations are all bodyless (an ambient `declare` module, for instance)
+  leaves the file-score table entirely. Coverage matching improves at the same
+  time: a function whose only structural match in the coverage map was its
+  body location now scores against real coverage instead of a static estimate.
+  Each removed declaration was a complexity-1 unit, so everything averaged
+  over the function population reads higher on unchanged code (average
+  cyclomatic complexity, its 90th percentile, the share of functions over 60
+  lines) and the project health score moves down or stays flat, while per-file
+  maintainability moves up, because a file's complexity density is its total
+  complexity divided by its lines. Regression baselines
+  (`--regression-baseline`) compare dead-code and dependency counts and are
+  unaffected; re-save health baselines (`--save-baseline`) if you run with
+  `--coverage`, because a newly matched function can cross the CRAP ceiling in
+  either direction and both `count` and `identity` mode read that as a new
+  finding.
+
+  Mechanically, each `fnMap` entry is indexed under three positions: the
+  producer's own, the declaration start, and the body start.
+  istanbul-lib-instrument records an expression-bodied arrow's body as the
+  next arrow in a curried chain, so a body-start alias yields to a declaration
+  at the same position, which keeps every arrow of a redux middleware, a
+  higher-order component, or a curried class property matchable. When two
+  nested anonymous candidates sit equally far from the target, the one whose
+  body strictly contains the other wins; when neither contains the other, the
+  function stays on the estimate rather than being credited to a guess. Thanks
+  to [@PrinceD96](https://github.com/PrinceD96) for the report and the
+  contribution.
 
 ## [3.19.0] - 2026-08-26
 
