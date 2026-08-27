@@ -61,16 +61,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   time: a function whose only structural match in the coverage map was its
   body location now scores against real coverage instead of a static estimate.
   Each removed declaration was a complexity-1 unit, so metrics averaged over
-  the function population can change on unchanged runtime code (average
+  the function population read higher on unchanged runtime code (average
   cyclomatic complexity, its 90th percentile, and the share of functions over
-  60 lines). Per-file maintainability can also improve because a file's
-  complexity density is its total complexity divided by its lines, and the
-  combined project health score can move in either direction. Regression
-  baselines (`--regression-baseline`) compare dead-code and dependency counts
-  and are unaffected; re-save health baselines (`--save-baseline`) if you run
-  with `--coverage`, because a newly matched function can cross the CRAP ceiling,
-  changing the total tracked by `count` mode or the set tracked by `identity`
-  mode.
+  60 lines). Per-file maintainability moves up, because a file's complexity
+  density is its total complexity divided by its lines. The combined project
+  health score is a mix of both effects and can move either way; it fell on a
+  measured sample. Regression baselines (`--regression-baseline`) compare
+  dead-code and dependency counts and are unaffected; re-save health baselines
+  (`--save-baseline`) if you run with `--coverage`, because a newly matched
+  function can cross the CRAP ceiling, changing the total tracked by `count`
+  mode or the set tracked by `identity` mode.
 
   Mechanically, each `fnMap` entry contributes up to three candidate positions:
   the producer's own, the declaration start, and the body start.
@@ -80,8 +80,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   higher-order component, or a curried class property matchable. When two
   nested anonymous candidates sit equally far from the target, the uniquely
   strictly innermost body wins; when no such body exists, the function stays on
-  the estimate rather than being credited to a guess. Thanks
-  to [@PrinceD96](https://github.com/PrinceD96) for the report and the
+  the estimate rather than being credited to a guess. Thanks to
+  [@PrinceD96](https://github.com/PrinceD96) for the report and the
   contribution.
 
 ## [3.19.0] - 2026-08-26
