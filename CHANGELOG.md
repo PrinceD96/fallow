@@ -61,12 +61,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   time: a function whose only structural match in the coverage map was its
   body location now scores against real coverage instead of a static estimate.
   Each removed declaration was a complexity-1 unit, so metrics averaged over
-  the function population read higher on unchanged runtime code (average
+  the function population can change on unchanged runtime code (average
   cyclomatic complexity, its 90th percentile, and the share of functions over
-  60 lines). Per-file maintainability moves up, because a file's complexity
-  density is its total complexity divided by its lines. The combined project
-  health score is a mix of both effects and can move either way; it fell on a
-  measured sample. Regression baselines (`--regression-baseline`) compare
+  60 lines). Per-file maintainability can also improve because a file's
+  complexity density is its total complexity divided by its lines, and the
+  combined project health score can move in either direction. Regression
+  baselines (`--regression-baseline`) compare
   dead-code and dependency counts and are unaffected; re-save health baselines
   (`--save-baseline`) if you run with `--coverage`, because a newly matched
   function can cross the CRAP ceiling, changing the total tracked by `count`
