@@ -23,6 +23,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   never produce findings of their own. Thanks to
   [@PatrickShaw](https://github.com/PatrickShaw) for the contribution.
 
+- **`fallow review` judgments carry an author-action label, and the guide
+  publishes the vocabularies.** A judgment returned through
+  `--walkthrough-file` may set `action` to `block`, `address`, `consider`, or
+  `fyi`; fallow validates it on reentry (`invalid-action` rejects anything
+  else) and passes it through fenced on the accepted judgment, so the author
+  receiving a note knows what is required and what is optional. The
+  walkthrough guide's `agent_schema` now lists `action_vocabulary` and a
+  recommended `concern_vocabulary` (the trade-off lenses). Review-brief
+  schema 7 -> 8.
+
+- **Direction units report test adjacency.** Each `direction.units[]` entry
+  in the walkthrough guide carries `test_adjacency` (`none`, `untouched`, or
+  `changed`): whether a test file imports the changed unit directly, and
+  whether that test moved with the change. The human and markdown tours
+  badge `NO-DIRECT-TEST` units; a project with no test files gets no claims. A graph fact, not a coverage claim; absent when the graph was not
+  retained or the unit is itself a test file.
+
+- **The review partition reports independent slices.** `partition` now
+  carries `independent_slices`: the connected components of the inter-unit
+  dependency graph. Two or more slices mean the change splits along a
+  graph-proven seam into pieces that can be reviewed and merged on their own;
+  the human brief names them. An orientation fact, never a demand to split.
+
+- **The decision surface's dependency arm now fires.** A changed
+  `package.json` that adds third-party entries, or moves a declared entry
+  across a major version (or a `0.x` minor), yields one batched `dependency`
+  decision per manifest per kind, weighted by the graph's in-repo importers
+  of the affected packages. The brief's `deltas` carry the same keys as
+  `dependency_added` (`<manifest>::<name>`) and `dependency_major_bumped`
+  (`<manifest>::<name>@<from>-><to>`). Minor and patch bumps and non-numeric
+  ranges (workspace, file, git, tags) are never candidates.
+
 ### Changed
 
 - **Import resolution on large project-reference monorepos is faster.** The
@@ -30,6 +62,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   behind a single lock or deep-copy the parsed document on every hit
   ([#2437](https://github.com/fallow-rs/fallow/pull/2437)). Thanks to
   [@PatrickShaw](https://github.com/PatrickShaw) for the contribution.
+
+- **`--fail-on-issues` and `--ci` now fail on boundary violations and on
+  warn-severity findings when per-path `overrides` exist** (Closes
+  [#2445](https://github.com/fallow-rs/fallow/issues/2445)). With any
+  `overrides` entry configured, the exit-code check switched to per-file
+  severity resolution, and that path never consulted import-direction
+  boundary violations, so an error-severity `boundary-violation` was reported
+  but the run exited 0. The same path also skipped the warn-to-error
+  promotion of `--fail-on-issues`, so a `warn` rule plus any override exited 0
+  as well. Both now resolve per file and promote after override resolution.
+  Because the override path handles every file once any `overrides` entry
+  exists, this affects all `warn`-severity rules in a project that configures
+  overrides, not only the rules set inside the override block: a strict run
+  that previously exited 0 now exits 1 on those findings. To keep the previous
+  outcome, set the rule to `off` rather than `warn`, or drop
+  `--fail-on-issues` and `--ci` for that job. Thanks to
+  [@DeLuke84](https://github.com/DeLuke84) for the report.
 
 ### Fixed
 
@@ -47,7 +96,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   import may now be reported as unused. If a subdirectory `tsconfig.json`
   intentionally holds shared `paths`, give it an explicit `include`, or move
   those aliases to a config whose directory contains the importing files.
-  Thanks to [@PatrickShaw](https://github.com/PatrickShaw) for the contribution.
+  Thanks to [@PatrickShaw](https://github.com/PatrickShaw) for the
+  contribution.
 
 - **Overload signatures, abstract members, and `declare function`
   declarations no longer count as functions, and Istanbul coverage now matches
@@ -87,38 +137,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [3.19.0] - 2026-08-26
 
 ### Added
-
-- **`fallow review` judgments carry an author-action label, and the guide
-  publishes the vocabularies.** A judgment returned through
-  `--walkthrough-file` may set `action` to `block`, `address`, `consider`, or
-  `fyi`; fallow validates it on reentry (`invalid-action` rejects anything
-  else) and passes it through fenced on the accepted judgment, so the author
-  receiving a note knows what is required and what is optional. The
-  walkthrough guide's `agent_schema` now lists `action_vocabulary` and a
-  recommended `concern_vocabulary` (the trade-off lenses). Review-brief
-  schema 7 -> 8.
-
-- **Direction units report test adjacency.** Each `direction.units[]` entry
-  in the walkthrough guide carries `test_adjacency` (`none`, `untouched`, or
-  `changed`): whether a test file imports the changed unit directly, and
-  whether that test moved with the change. The human and markdown tours
-  badge `NO-DIRECT-TEST` units; a project with no test files gets no claims. A graph fact, not a coverage claim; absent when the graph was not
-  retained or the unit is itself a test file.
-
-- **The review partition reports independent slices.** `partition` now
-  carries `independent_slices`: the connected components of the inter-unit
-  dependency graph. Two or more slices mean the change splits along a
-  graph-proven seam into pieces that can be reviewed and merged on their own;
-  the human brief names them. An orientation fact, never a demand to split.
-
-- **The decision surface's dependency arm now fires.** A changed
-  `package.json` that adds third-party entries, or moves a declared entry
-  across a major version (or a `0.x` minor), yields one batched `dependency`
-  decision per manifest per kind, weighted by the graph's in-repo importers
-  of the affected packages. The brief's `deltas` carry the same keys as
-  `dependency_added` (`<manifest>::<name>`) and `dependency_major_bumped`
-  (`<manifest>::<name>@<from>-><to>`). Minor and patch bumps and non-numeric
-  ranges (workspace, file, git, tags) are never candidates.
 
 - **`fallow similar-code` adds opt-in semantic function discovery through a
   pinned, verified local model.** It complements deterministic clone detection
