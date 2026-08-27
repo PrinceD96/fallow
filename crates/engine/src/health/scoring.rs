@@ -898,6 +898,10 @@ impl IstanbulAliasCounts {
             self.primary == 0 && self.secondary == 1
         }
     }
+
+    const fn has_secondary_only_collision(self) -> bool {
+        self.primary == 0 && self.secondary > 1
+    }
 }
 
 fn is_anonymous_istanbul_name(name: &str) -> bool {
@@ -942,16 +946,16 @@ pub struct IstanbulFileCoverage {
     functions: Vec<IstanbulFunctionCoverage>,
     /// Exact aliases that belong to one function identity. Primary aliases
     /// that collide are removed from this index and recorded in
-    /// `ambiguous_aliases`; secondary aliases that collide with anything are
-    /// dropped silently.
+    /// `ambiguous_aliases`. A secondary alias yields to a primary collision,
+    /// while secondary-only collisions are also recorded as ambiguous.
     alias_index: rustc_hash::FxHashMap<(String, u32, u32), usize>,
-    /// Primary aliases shared by multiple function identities. Exact queries
-    /// at these positions abstain instead of falling through to a fuzzy
-    /// attribution.
+    /// Aliases shared by multiple function identities without a unique
+    /// primary owner. Exact queries at these positions abstain instead of
+    /// falling through to a fuzzy attribution.
     ambiguous_aliases: rustc_hash::FxHashSet<(String, u32, u32)>,
-    /// Primary positions shared by multiple anonymous identities. Anonymous
-    /// fallback abstains at these targets even when each identity has other
-    /// aliases.
+    /// Positions shared by multiple anonymous identities without a unique
+    /// primary owner. Anonymous fallback abstains at these targets even when
+    /// each identity has other aliases.
     ambiguous_anonymous_aliases: rustc_hash::FxHashSet<IstanbulPosition>,
     /// The coverage map was recorded against a different checkout of the
     /// project, so line numbers may have drifted beyond the bounded fuzz.
@@ -985,9 +989,10 @@ impl IstanbulFileCoverage {
             }
         }
 
-        // Only primary/primary collisions make a position ambiguous. A
-        // secondary alias that collides with anything is dropped from its
-        // record, which leaves the primary owner of that position unique.
+        // A secondary alias that collides with a primary is dropped, which
+        // leaves the primary owner of that position unique. Primary/primary
+        // and secondary-only collisions remain ambiguous so fuzzy fallback
+        // cannot attribute the shared position to an arbitrary record.
         let mut ambiguous_aliases = rustc_hash::FxHashSet::default();
         let mut ambiguous_anonymous_aliases = rustc_hash::FxHashSet::default();
         for function in &mut functions {
@@ -1013,6 +1018,17 @@ impl IstanbulFileCoverage {
                         alias.position.col,
                     ));
                     if anonymous.is_some_and(|counts| counts.primary > 1) {
+                        ambiguous_anonymous_aliases.insert(alias.position);
+                    }
+                } else {
+                    if named.has_secondary_only_collision() {
+                        ambiguous_aliases.insert((
+                            name.clone(),
+                            alias.position.line,
+                            alias.position.col,
+                        ));
+                    }
+                    if anonymous.is_some_and(IstanbulAliasCounts::has_secondary_only_collision) {
                         ambiguous_anonymous_aliases.insert(alias.position);
                     }
                 }
@@ -5730,9 +5746,9 @@ mod tests {
     }
 
     /// A secondary alias that collides with another record's secondary alias
-    /// is dropped from both without making the position ambiguous.
+    /// is dropped from both, and the shared position remains ambiguous.
     #[test]
-    fn colliding_secondary_aliases_drop_without_ambiguity() {
+    fn colliding_secondary_aliases_abstain_at_shared_position() {
         let file_coverage = IstanbulFileCoverage::new(
             vec![
                 IstanbulFunctionCoverage {
@@ -5753,6 +5769,32 @@ mod tests {
 
         assert_eq!(file_coverage.lookup("first", 10, 0), Some(100.0));
         assert_eq!(file_coverage.lookup("second", 11, 0), Some(0.0));
+        assert!(file_coverage.lookup("<arrow>", 12, 4).is_none());
+    }
+
+    #[test]
+    fn colliding_named_secondary_aliases_abstain_at_shared_position() {
+        let file_coverage = IstanbulFileCoverage::new(
+            vec![
+                IstanbulFunctionCoverage {
+                    name: "handler".to_string(),
+                    coverage_pct: 100.0,
+                    aliases: vec![primary_alias(10, 0), secondary_alias(12, 4)],
+                    body_span: Some(body_span((12, 4), (20, 0))),
+                },
+                IstanbulFunctionCoverage {
+                    name: "handler".to_string(),
+                    coverage_pct: 0.0,
+                    aliases: vec![primary_alias(11, 0), secondary_alias(12, 4)],
+                    body_span: Some(body_span((12, 4), (18, 0))),
+                },
+            ],
+            false,
+        );
+
+        assert_eq!(file_coverage.lookup("handler", 10, 0), Some(100.0));
+        assert_eq!(file_coverage.lookup("handler", 11, 0), Some(0.0));
+        assert!(file_coverage.lookup("handler", 12, 4).is_none());
     }
 
     #[test]
