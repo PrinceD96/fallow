@@ -55,7 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   [#2442](https://github.com/fallow-rs/fallow/issues/2442),
   [#2443](https://github.com/fallow-rs/fallow/pull/2443)). Function counts
   drop for every file that carries those declarations, so its file score and
-  the project health score move without any code change, and a file whose
+  the project health score can move without any code change, and a file whose
   declarations are all bodyless (an ambient `declare` module, for instance)
   leaves the file-score table entirely. Coverage matching improves at the same
   time: a function whose only structural match in the coverage map was its
