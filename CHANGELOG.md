@@ -9,15 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **Istanbul coverage now matches uniquely attributable anonymous callbacks
-  whose extracted start falls between the producer's declaration and body
-  positions** (Closes [#2448](https://github.com/fallow-rs/fallow/issues/2448),
-  [#2449](https://github.com/fallow-rs/fallow/pull/2449)). Some callback
-  arguments in multi-line calls are recorded with a declaration start at the
-  surrounding call expression and a body start after the callback itself.
-  Fallow now uses that header span as a fallback only when exactly one anonymous
-  function contains the extracted start. Established anonymous matches keep
-  priority, while overlapping fallback spans remain unmatched.
+- **Istanbul coverage now matches uniquely attributable functions whose
+  extracted start falls between the producer's declaration and body positions**
+  (Closes [#2448](https://github.com/fallow-rs/fallow/issues/2448),
+  [#2449](https://github.com/fallow-rs/fallow/pull/2449)). A callback argument
+  in a multi-line call, and a class method carrying decorators and a wrapped
+  parameter list, are recorded with a declaration start above the function and
+  a body start below it. Fallow now reads that header span when no established
+  matcher resolves the position, including when the anonymous aliases collide,
+  which is what curried arrows formatted one per line produce. Established
+  matches keep priority. The span is used only when exactly one anonymous
+  record covers the position and no other function is declared inside it,
+  because a signature can carry a default parameter value or a decorator
+  argument that is a different function with unrelated coverage. Thanks to
+  [@PrinceD96](https://github.com/PrinceD96) for the report and the
+  implementation.
+
+- **Private class members no longer take coverage from the function that
+  encloses them** (Closes [#2448](https://github.com/fallow-rs/fallow/issues/2448)).
+  No instrumenter records a `#member` in its function map, so every candidate
+  one could reach belongs to some enclosing function. Such a member could be
+  reported as fully covered while it never ran. It now uses the static estimate
+  instead, and it is recorded under its own `#name` rather than `<anonymous>`,
+  so it is identifiable in complexity output.
 
 ## [3.20.0] - 2026-08-28
 

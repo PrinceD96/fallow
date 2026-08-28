@@ -918,6 +918,14 @@ struct IstanbulFunctionCoverage {
     name: String,
     coverage_pct: f64,
     aliases: Vec<IstanbulAlias>,
+    /// Where the producer says the function is written. Unlike the alias set
+    /// this is never a synthesized position, so it answers "is another
+    /// function declared here" without false positives.
+    decl_start: IstanbulPosition,
+    /// Whether another function is declared inside this record's header span.
+    /// Computed once per file, because the header fallback needs it on every
+    /// unmatched lookup and recomputing it there is quadratic.
+    header_holds_other_fn: bool,
     header_span: Option<IstanbulSpan>,
     body_span: Option<IstanbulSpan>,
 }
@@ -1057,6 +1065,22 @@ impl IstanbulFileCoverage {
             }
         }
 
+        let mut declarations: Vec<IstanbulPosition> = functions
+            .iter()
+            .map(|function| function.decl_start)
+            .collect();
+        declarations.sort_unstable();
+        for function in &mut functions {
+            let Some(span) = function.header_span else {
+                continue;
+            };
+            // The record's own declaration opens its header span, so it is
+            // always in range: a second hit is what marks a foreign function.
+            let first = declarations.partition_point(|position| *position < span.start);
+            let past = declarations.partition_point(|position| *position < span.end);
+            function.header_holds_other_fn = past - first > 1;
+        }
+
         Self {
             functions,
             alias_index,
@@ -1099,6 +1123,13 @@ impl IstanbulFileCoverage {
     /// the choice among them cannot matter (#2347). Same-checkout lookups
     /// keep the bounded fuzz, which protects against stale coverage data.
     pub fn lookup(&self, name: &str, line: u32, col: u32) -> Option<f64> {
+        // No producer records a private class member in `fnMap`. Istanbul's
+        // visitor has no case for one and the sidecar mirrors that, so every
+        // candidate a private member could reach belongs to some enclosing
+        // function, and crediting it reports code that never ran as covered.
+        if name.starts_with('#') {
+            return None;
+        }
         let exact_key = (name.to_string(), line, col);
         if self.ambiguous_aliases.contains(&exact_key) {
             return None;
@@ -1128,7 +1159,7 @@ impl IstanbulFileCoverage {
             return Some(pct);
         }
         if self.ambiguous_anonymous_aliases.contains(&target) {
-            return None;
+            return self.unique_anonymous_header_match(target);
         }
 
         let mut nearest_distance: Option<(u32, u32)> = None;
@@ -1167,20 +1198,40 @@ impl IstanbulFileCoverage {
             return established_match;
         }
 
-        let mut header_match = None;
+        self.unique_anonymous_header_match(target)
+    }
+
+    /// Coverage of the one anonymous record whose header span owns `target`.
+    ///
+    /// A header span runs from `decl.start` to `loc.start`, so it covers the
+    /// signature: the parameter list, its default values, and any decorators.
+    /// A function literal written there is a different function from the one
+    /// that owns the span, and crediting it with the owner's coverage reports
+    /// never-executed code as covered. Every function is therefore checked for
+    /// containment, not just the anonymous ones, and a second containing span
+    /// abstains. Only an anonymous record can win, because a named record is
+    /// already reachable through the exact and fuzzy name paths.
+    fn unique_anonymous_header_match(&self, target: IstanbulPosition) -> Option<f64> {
+        let mut candidate = None;
         for (function_index, function) in self.functions.iter().enumerate() {
-            if !is_anonymous_istanbul_name(&function.name)
-                || !function
-                    .header_span
-                    .is_some_and(|span| span.contains(target))
+            if !function
+                .header_span
+                .is_some_and(|span| span.contains(target))
             {
                 continue;
             }
-            if header_match.replace(function_index).is_some() {
+            if !is_anonymous_istanbul_name(&function.name) {
+                return None;
+            }
+            if candidate.replace(function_index).is_some() {
                 return None;
             }
         }
-        header_match.map(|function_index| self.functions[function_index].coverage_pct)
+        let function_index = candidate?;
+        if self.functions[function_index].header_holds_other_fn {
+            return None;
+        }
+        Some(self.functions[function_index].coverage_pct)
     }
 
     fn innermost_anonymous_match(&self, tied: &[usize], target: IstanbulPosition) -> Option<f64> {
@@ -1436,6 +1487,8 @@ fn istanbul_function_coverage(
         name: fn_entry.name.clone(),
         coverage_pct,
         aliases,
+        decl_start: IstanbulPosition::new(fn_entry.decl.start.line, fn_entry.decl.start.column),
+        header_holds_other_fn: false,
         header_span,
         body_span,
     }
@@ -2390,6 +2443,8 @@ mod tests {
                     name,
                     coverage_pct,
                     aliases: vec![primary_alias(line, col)],
+                    decl_start: IstanbulPosition::new(line, col),
+                    header_holds_other_fn: false,
                     header_span: None,
                     body_span: None,
                 },
@@ -5352,6 +5407,86 @@ mod tests {
         assert_eq!(result.per_function[0].coverage_pct, Some(100.0));
     }
 
+    /// A default parameter can hold a whole function, so a header span can
+    /// cover code that belongs to something else. Geometry from
+    /// istanbul-lib-instrument 6 for a method whose default parameter is a
+    /// named function expression: only `run` and `recover` get records, and
+    /// the private member inside `recover` gets none. Crediting it with
+    /// `run`'s coverage would report never-executed code as fully covered,
+    /// because `recover` never ran.
+    #[test]
+    fn header_span_abstains_when_another_function_is_declared_inside_it() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/pipeline.js");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(&source_path, "// geometry fixture\n").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 14,
+                    "decl": { "start": { "line": 2, "column": 2 }, "end": { "line": 2, "column": 5 } },
+                    "loc": { "start": { "line": 14, "column": 4 }, "end": { "line": 16, "column": 3 } }
+                },
+                "1": {
+                    "name": "recover",
+                    "line": 4,
+                    "decl": { "start": { "line": 4, "column": 22 }, "end": { "line": 4, "column": 29 } },
+                    "loc": { "start": { "line": 4, "column": 38 }, "end": { "line": 12, "column": 5 } }
+                }
+            }),
+            &serde_json::json!({ "0": 1, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        // Inside `run`'s header span (2:2 to 14:4), but `recover` is declared
+        // there, so the span says nothing about this position.
+        assert_eq!(file_coverage.lookup("<anonymous>", 6, 13), None);
+        // The two records themselves still resolve.
+        assert_eq!(file_coverage.lookup("recover", 4, 22), Some(0.0));
+    }
+
+    /// No instrumenter emits an `fnMap` identity for a private class member,
+    /// so any candidate one reaches belongs to an enclosing function.
+    #[test]
+    fn private_class_member_never_takes_enclosing_coverage() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/vault.js");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(&source_path, "// geometry fixture\n").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 7,
+                    "decl": { "start": { "line": 1, "column": 24 }, "end": { "line": 1, "column": 25 } },
+                    "loc": { "start": { "line": 7, "column": 5 }, "end": { "line": 7, "column": 20 } }
+                }
+            }),
+            &serde_json::json!({ "0": 1 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        // `#wipe` sits in the arrow's header span and the arrow ran, but the
+        // private member has no record of its own and never ran.
+        assert_eq!(file_coverage.lookup("#wipe", 3, 9), None);
+        assert_eq!(file_coverage.lookup("<arrow>", 1, 24), Some(100.0));
+    }
+
     /// istanbul-lib-instrument anchors a callback passed to a multi-line call
     /// at the call expression for `decl.start` and at the callback body for
     /// `loc.start`. Oxc anchors the callback itself between those positions.
@@ -5892,6 +6027,8 @@ mod tests {
                     name: "(anonymous_0)".to_string(),
                     coverage_pct: 100.0,
                     aliases: vec![primary_alias(10, 8), secondary_alias(10, 14)],
+                    decl_start: IstanbulPosition::new(10, 8),
+                    header_holds_other_fn: false,
                     header_span: None,
                     body_span: Some(body_span((10, 14), (12, 30))),
                 },
@@ -5899,6 +6036,8 @@ mod tests {
                     name: "(anonymous_1)".to_string(),
                     coverage_pct: 0.0,
                     aliases: vec![primary_alias(10, 20), secondary_alias(11, 0)],
+                    decl_start: IstanbulPosition::new(10, 20),
+                    header_holds_other_fn: false,
                     header_span: None,
                     body_span: Some(body_span((11, 0), (14, 0))),
                 },
@@ -5921,6 +6060,8 @@ mod tests {
                     name: "(anonymous_0)".to_string(),
                     coverage_pct: 100.0,
                     aliases: vec![primary_alias(4, 11), primary_alias(1, 11)],
+                    decl_start: IstanbulPosition::new(4, 11),
+                    header_holds_other_fn: false,
                     header_span: None,
                     body_span: Some(body_span((4, 11), (4, 23))),
                 },
@@ -5928,6 +6069,8 @@ mod tests {
                     name: "(anonymous_1)".to_string(),
                     coverage_pct: 0.0,
                     aliases: vec![primary_alias(4, 11), secondary_alias(4, 18)],
+                    decl_start: IstanbulPosition::new(4, 11),
+                    header_holds_other_fn: false,
                     header_span: None,
                     body_span: Some(body_span((4, 18), (4, 23))),
                 },
@@ -5949,6 +6092,8 @@ mod tests {
                     name: "(anonymous_0)".to_string(),
                     coverage_pct: 100.0,
                     aliases: vec![primary_alias(10, 0), secondary_alias(12, 4)],
+                    decl_start: IstanbulPosition::new(10, 0),
+                    header_holds_other_fn: false,
                     header_span: None,
                     body_span: Some(body_span((12, 4), (20, 0))),
                 },
@@ -5956,6 +6101,8 @@ mod tests {
                     name: "(anonymous_1)".to_string(),
                     coverage_pct: 0.0,
                     aliases: vec![primary_alias(11, 0), secondary_alias(12, 4)],
+                    decl_start: IstanbulPosition::new(11, 0),
+                    header_holds_other_fn: false,
                     header_span: None,
                     body_span: Some(body_span((12, 4), (18, 0))),
                 },
@@ -5976,6 +6123,8 @@ mod tests {
                     name: "handler".to_string(),
                     coverage_pct: 100.0,
                     aliases: vec![primary_alias(10, 0), secondary_alias(12, 4)],
+                    decl_start: IstanbulPosition::new(10, 0),
+                    header_holds_other_fn: false,
                     header_span: None,
                     body_span: Some(body_span((12, 4), (20, 0))),
                 },
@@ -5983,6 +6132,8 @@ mod tests {
                     name: "handler".to_string(),
                     coverage_pct: 0.0,
                     aliases: vec![primary_alias(11, 0), secondary_alias(12, 4)],
+                    decl_start: IstanbulPosition::new(11, 0),
+                    header_holds_other_fn: false,
                     header_span: None,
                     body_span: Some(body_span((12, 4), (18, 0))),
                 },

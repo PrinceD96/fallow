@@ -462,8 +462,12 @@ impl<'ast> Visit<'ast> for ComplexityVisitor<'_> {
     }
 
     fn visit_method_definition(&mut self, method: &MethodDefinition<'ast>) {
+        // `static_name` has no answer for a private key, so `#work` would fall
+        // through to `<anonymous>` and read as an unnamed unit in every report.
         if let Some(name) = method.key.static_name() {
             self.pending_name = Some(name.to_string());
+        } else if let PropertyKey::PrivateIdentifier(private) = &method.key {
+            self.pending_name = Some(format!("#{}", private.name));
         }
         walk::walk_method_definition(self, method);
         self.pending_name = None;
