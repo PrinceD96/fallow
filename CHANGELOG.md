@@ -9,21 +9,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **Istanbul coverage now matches uniquely attributable functions whose
-  extracted start falls between the producer's declaration and body positions**
+- **Istanbul coverage now matches functions whose extracted position falls
+  between the producer's declaration and its body**
   (Closes [#2448](https://github.com/fallow-rs/fallow/issues/2448),
-  [#2449](https://github.com/fallow-rs/fallow/pull/2449)). A callback argument
-  in a multi-line call, and a class method carrying decorators and a wrapped
-  parameter list, are recorded with a declaration start above the function and
-  a body start below it. Fallow now reads that header span when no established
-  matcher resolves the position, including when the anonymous aliases collide,
-  which is what curried arrows formatted one per line produce. Established
-  matches keep priority. The span is used only when exactly one anonymous
-  record covers the position and no other function is declared inside it,
-  because a signature can carry a default parameter value or a decorator
-  argument that is a different function with unrelated coverage. Thanks to
+  [#2449](https://github.com/fallow-rs/fallow/pull/2449)). A class member
+  carrying a decorator and a wrapped parameter list is recorded with a
+  declaration on the decorator and a body below the signature, so neither
+  position identifies the member, and the innermost arrow of a curried chain
+  formatted one per line has the same shape. Fallow now reads that header span
+  when no established matcher resolves the position. Established matches keep
+  priority, and the span is read only when exactly one anonymous record covers
+  the position and no other function is declared inside it. Thanks to
   [@PrinceD96](https://github.com/PrinceD96) for the report and the
   implementation.
+
+- **A member whose parameter list holds a function no longer reports that
+  function's coverage** (Closes [#2448](https://github.com/fallow-rs/fallow/issues/2448)).
+  A default value, a decorator argument, or a class expression written in a
+  signature is a function of its own, a line or two from the member that holds
+  it, and the nearest-record fallback could credit either to the other. Inside
+  a signature a record now has to sit on the position or contain it, and where
+  neither does the member keeps the static estimate instead of a measured
+  number that belongs to different code.
 
 - **Private class members no longer take coverage from the function that
   encloses them** (Closes [#2448](https://github.com/fallow-rs/fallow/issues/2448)).
@@ -34,6 +41,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   so it is identifiable in complexity output. Private-member provenance is
   stored separately from that display name, so a public string-named method
   whose name begins with `#` remains eligible for exact coverage matching.
+
+### Performance
+
+- **Coverage matching no longer rescans a file for every unmatched function.**
+  A file whose coverage map does not join paid a full scan per lookup, twice
+  over once header spans were added. Aliases and header spans are now indexed
+  by line, which bounds each fallback to the few records that can reach the
+  position. A 4518-function file whose coverage never joins went from 231 ms to
+  146 ms, and a 6000-function one from 337 ms to 203 ms.
 
 ## [3.20.0] - 2026-08-28
 

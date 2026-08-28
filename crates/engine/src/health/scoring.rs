@@ -1258,8 +1258,14 @@ impl IstanbulFileCoverage {
         {
             return Some(pct);
         }
+        // A function written inside another function's signature is a
+        // different function from the one the signature belongs to, and both
+        // sit within a line or two of the same position. Proximity cannot
+        // tell them apart, so the records whose signature covers this target
+        // decide below which candidates are eligible at all.
+        let signature_owners = self.header_spans_containing(target);
         if self.ambiguous_anonymous_aliases.contains(&target) {
-            return self.unique_anonymous_header_match(target);
+            return self.unique_anonymous_header_match(&signature_owners);
         }
 
         let mut nearest_distance: Option<(u32, u32)> = None;
@@ -1274,6 +1280,14 @@ impl IstanbulFileCoverage {
             else {
                 continue;
             };
+            // Inside a signature, proximity alone cannot tell a member from
+            // the function written in its parameter list. A candidate that
+            // neither sits on the target nor contains it is the wrong one.
+            if distance != (0, 0)
+                && self.foreign_signature_blocks(&signature_owners, function_index, target)
+            {
+                continue;
+            }
             match nearest_distance {
                 None => {
                     nearest_distance = Some(distance);
@@ -1299,50 +1313,82 @@ impl IstanbulFileCoverage {
             return established_match;
         }
 
-        self.unique_anonymous_header_match(target)
+        self.unique_anonymous_header_match(&signature_owners)
     }
 
-    /// Coverage of the one anonymous record whose header span owns `target`.
+    /// Indices of the records whose header span contains `target`, ascending.
     ///
-    /// A header span runs from `decl.start` to `loc.start`, so it covers the
-    /// signature: the parameter list, its default values, and any decorators.
-    /// A function literal written there is a different function from the one
-    /// that owns the span, and crediting it with the owner's coverage reports
-    /// never-executed code as covered. Every function is therefore checked for
-    /// containment, not just the anonymous ones, and a second containing span
-    /// abstains. Only an anonymous record can win, because a named record is
-    /// already reachable through the exact and fuzzy name paths.
-    fn unique_anonymous_header_match(&self, target: IstanbulPosition) -> Option<f64> {
-        // A span reaches `target` only from at most `max_header_height` lines
-        // above it, so every containing span starts inside this window. Both
-        // abstain rules below are order-independent, so searching the window
-        // instead of the file cannot change the answer.
+    /// A span reaches `target` from no further than `max_header_height` lines
+    /// above it, so every containing span starts inside that window.
+    fn header_spans_containing(&self, target: IstanbulPosition) -> Vec<usize> {
         let low = target.line.saturating_sub(self.max_header_height);
         let first = self.header_starts.partition_point(|(line, _)| *line < low);
         let past = self
             .header_starts
             .partition_point(|(line, _)| *line <= target.line);
-        let mut candidate = None;
-        for &(_, function_index) in &self.header_starts[first..past] {
-            let function = &self.functions[function_index];
-            if !function
-                .header_span
-                .is_some_and(|span| span.contains(target))
-            {
-                continue;
-            }
-            if !is_anonymous_istanbul_name(&function.name) {
-                return None;
-            }
-            if candidate.replace(function_index).is_some() {
-                return None;
-            }
+        self.header_starts[first..past]
+            .iter()
+            .filter(|(_, function_index)| {
+                self.functions[*function_index]
+                    .header_span
+                    .is_some_and(|span| span.contains(target))
+            })
+            .map(|(_, function_index)| *function_index)
+            .collect()
+    }
+
+    /// Whether `candidate` is the wrong record for a target inside a
+    /// signature it does not own.
+    ///
+    /// A default parameter value, a decorator argument, and a class
+    /// expression in a signature are functions of their own, written a line
+    /// or two from the member whose signature holds them. Crediting one by
+    /// proximity reports its coverage for a function that never shared its
+    /// fate. A candidate that contains the target in its own signature or
+    /// body is not that case: the target is its code, however the enclosing
+    /// signature encloses both.
+    fn foreign_signature_blocks(
+        &self,
+        owners: &[usize],
+        candidate: usize,
+        target: IstanbulPosition,
+    ) -> bool {
+        let function = &self.functions[candidate];
+        if function
+            .header_span
+            .is_some_and(|span| span.contains(target))
+            || function.body_span.is_some_and(|span| span.contains(target))
+        {
+            return false;
         }
-        let function_index = candidate?;
-        if self.functions[function_index].header_holds_other_fn {
+        owners.iter().any(|&owner| {
+            owner != candidate
+                && self.functions[owner]
+                    .header_span
+                    .is_some_and(|span| span.contains(function.decl_start))
+        })
+    }
+
+    /// Coverage of the single anonymous record whose signature owns the
+    /// target, given every record whose header span covers it.
+    ///
+    /// A header span runs from `decl.start` to `loc.start`, so it covers the
+    /// signature: the parameter list, its default values, and any decorators.
+    /// A function literal written there is a different function from the one
+    /// that owns the span, and crediting it with the owner's coverage reports
+    /// never-executed code as covered. Two containing spans therefore abstain,
+    /// as does a span with a second function declared inside it. Only an
+    /// anonymous record can win, because a named record is already reachable
+    /// through the exact and fuzzy name paths.
+    fn unique_anonymous_header_match(&self, signature_owners: &[usize]) -> Option<f64> {
+        let [function_index] = signature_owners else {
+            return None;
+        };
+        let function = &self.functions[*function_index];
+        if !is_anonymous_istanbul_name(&function.name) || function.header_holds_other_fn {
             return None;
         }
-        Some(self.functions[function_index].coverage_pct)
+        Some(function.coverage_pct)
     }
 
     fn innermost_anonymous_match(&self, tied: &[usize], target: IstanbulPosition) -> Option<f64> {
@@ -5541,17 +5587,70 @@ mod tests {
         assert_eq!(result.per_function[0].coverage_pct, Some(100.0));
     }
 
-    /// A default parameter can hold a whole function, so a header span can
-    /// cover code that belongs to something else. Geometry from
-    /// istanbul-lib-instrument 6 for a method whose default parameter is a
-    /// named function expression: only `run` and `recover` get records, and
-    /// the private member inside `recover` gets none. Crediting it with
-    /// `run`'s coverage would report never-executed code as fully covered,
-    /// because `recover` never ran.
+    /// Curried arrows written one per line put each record's body start on
+    /// the next record's declaration. The declaration is primary and wins the
+    /// position, so each arrow keeps a record of its own and the innermost one
+    /// resolves through the header span that opens at the arrow above it.
+    /// Geometry from istanbul-lib-instrument 6 for the source below, which is
+    /// what Prettier produces for a curried arrow.
     #[test]
-    fn header_span_abstains_when_another_function_is_declared_inside_it() {
+    fn curried_arrows_one_per_line_each_take_their_own_record() {
         let temp = tempfile::TempDir::new().unwrap();
-        let source_path = temp.path().join("src/pipeline.js");
+        let source_path = temp.path().join("src/adjust.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export const adjust = (base: number) =>\n  (factor: number) =>\n  (offset: number) =>\n    base * factor + offset;\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 2,
+                    "decl": { "start": { "line": 1, "column": 22 }, "end": { "line": 1, "column": 23 } },
+                    "loc": { "start": { "line": 2, "column": 2 }, "end": { "line": 4, "column": 26 } }
+                },
+                "1": {
+                    "name": "(anonymous_1)",
+                    "line": 3,
+                    "decl": { "start": { "line": 2, "column": 2 }, "end": { "line": 2, "column": 3 } },
+                    "loc": { "start": { "line": 3, "column": 2 }, "end": { "line": 4, "column": 26 } }
+                },
+                "2": {
+                    "name": "(anonymous_2)",
+                    "line": 4,
+                    "decl": { "start": { "line": 3, "column": 2 }, "end": { "line": 3, "column": 3 } },
+                    "loc": { "start": { "line": 4, "column": 4 }, "end": { "line": 4, "column": 26 } }
+                }
+            }),
+            &serde_json::json!({ "0": 2, "1": 1, "2": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("adjust", 1, 22), Some(100.0));
+        assert_eq!(file_coverage.lookup("<arrow>", 2, 2), Some(100.0));
+        // The innermost arrow never ran, and takes neither neighbour's value.
+        assert_eq!(file_coverage.lookup("<arrow>", 3, 2), Some(0.0));
+    }
+
+    /// A default value in a parameter list is inside the member's signature,
+    /// and its own record can be anchored at the parameter rather than at the
+    /// function, putting the extracted position tens of columns from the
+    /// declaration. The record still owns that position, because its own
+    /// signature span covers it. Geometry from an @vitest/coverage-istanbul
+    /// map for a constructor whose parameter carries a default arrow.
+    #[test]
+    fn a_default_value_keeps_its_own_record_inside_the_enclosing_signature() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/filter.ts");
         std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
         std::fs::write(&source_path, "// geometry fixture\n").unwrap();
 
@@ -5562,29 +5661,77 @@ mod tests {
             &serde_json::json!({
                 "0": {
                     "name": "(anonymous_0)",
-                    "line": 14,
-                    "decl": { "start": { "line": 2, "column": 2 }, "end": { "line": 2, "column": 5 } },
-                    "loc": { "start": { "line": 14, "column": 4 }, "end": { "line": 16, "column": 3 } }
+                    "line": 173,
+                    "decl": { "start": { "line": 169, "column": 2 }, "end": { "line": 170, "column": 3 } },
+                    "loc": { "start": { "line": 173, "column": 4 }, "end": { "line": 182, "column": 3 } }
                 },
                 "1": {
-                    "name": "recover",
-                    "line": 4,
-                    "decl": { "start": { "line": 4, "column": 22 }, "end": { "line": 4, "column": 29 } },
-                    "loc": { "start": { "line": 4, "column": 38 }, "end": { "line": 12, "column": 5 } }
+                    "name": "(anonymous_1)",
+                    "line": 171,
+                    "decl": { "start": { "line": 171, "column": 21 }, "end": { "line": 171, "column": 67 } },
+                    "loc": { "start": { "line": 171, "column": 67 }, "end": { "line": 171, "column": 76 } }
                 }
             }),
-            &serde_json::json!({ "0": 1, "1": 0 }),
+            &serde_json::json!({ "0": 46, "1": 0 }),
         );
 
         let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
         let canonical_source = dunce::canonicalize(&source_path).unwrap();
         let file_coverage = coverage.get(&canonical_source).unwrap();
 
-        // Inside `run`'s header span (2:2 to 14:4), but `recover` is declared
-        // there, so the span says nothing about this position.
-        assert_eq!(file_coverage.lookup("<anonymous>", 6, 13), None);
-        // The two records themselves still resolve.
-        assert_eq!(file_coverage.lookup("recover", 4, 22), Some(0.0));
+        // Fallow extracts the arrow at its parameter paren, 40 columns right
+        // of the record's declaration but inside the record's own span.
+        assert_eq!(file_coverage.lookup("<arrow>", 171, 61), Some(0.0));
+    }
+
+    /// A named function in a signature is a second function inside the
+    /// member's header span, so the span identifies nothing on its own. A unit
+    /// with no record of its own, such as a private member or a unit the
+    /// producer names differently, must take the estimate rather than the
+    /// coverage of whichever record happens to be near. Geometry from
+    /// istanbul-lib-instrument 6 for the source below.
+    #[test]
+    fn header_span_abstains_when_another_function_is_declared_inside_it() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/chart.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export class Chart {\n  @Watch(\"data\")\n  render(\n    rows: number[],\n    project = function scale(\n      row: number\n    ) {\n      return row * 2;\n    }\n  ) {\n    return rows.map(project);\n  }\n}\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 10,
+                    "decl": { "start": { "line": 2, "column": 2 }, "end": { "line": 2, "column": 3 } },
+                    "loc": { "start": { "line": 10, "column": 4 }, "end": { "line": 12, "column": 3 } }
+                },
+                "1": {
+                    "name": "scale",
+                    "line": 7,
+                    "decl": { "start": { "line": 5, "column": 23 }, "end": { "line": 5, "column": 28 } },
+                    "loc": { "start": { "line": 7, "column": 6 }, "end": { "line": 9, "column": 5 } }
+                }
+            }),
+            &serde_json::json!({ "0": 3, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        // Inside both the member's header span and `scale`'s, so neither says
+        // anything about this position.
+        assert_eq!(file_coverage.lookup("<anonymous>", 6, 6), None);
+        // Both records still resolve.
+        assert_eq!(file_coverage.lookup("scale", 5, 14), Some(0.0));
+        assert_eq!(file_coverage.lookup("render", 3, 8), Some(100.0));
     }
 
     /// No instrumenter emits an `fnMap` identity for a private class member,
@@ -5670,68 +5817,22 @@ mod tests {
         assert_eq!(result.per_function[0].coverage_pct, Some(100.0));
     }
 
-    /// istanbul-lib-instrument anchors a callback passed to a multi-line call
-    /// at the call expression for `decl.start` and at the callback body for
-    /// `loc.start`. Oxc anchors the callback itself between those positions.
+    /// A decorated member's `decl` opens at the decorator and its `loc` opens
+    /// at the body brace, so the extracted position sits between them with no
+    /// alias in reach: the decorator is more than
+    /// `ANONYMOUS_FALLBACK_MAX_COLUMN_DRIFT` columns to the left and the body
+    /// is more than `ALIAS_FUZZ_MAX_LINE_DRIFT` lines below. The header span
+    /// is what identifies the member. Geometry from istanbul-lib-instrument 6
+    /// for the source below, which is ordinary NestJS, Angular, and TypeORM
+    /// shape rather than a corner case.
     #[test]
-    fn anonymous_callback_matches_unique_istanbul_header_span() {
+    fn decorated_member_matches_its_istanbul_header_span() {
         let temp = tempfile::TempDir::new().unwrap();
-        let source_path = temp.path().join("src/order.ts");
+        let source_path = temp.path().join("src/users.controller.ts");
         std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
         std::fs::write(
             &source_path,
-            "export const order = (values: number[]) =>\n  [...values].toSorted(\n    (left, right) =>\n      score(left) - score(right)\n  );\n",
-        )
-        .unwrap();
-
-        let coverage_path = temp.path().join("coverage-final.json");
-        write_single_file_istanbul_fixture(
-            &coverage_path,
-            &source_path,
-            &serde_json::json!({
-                "0": {
-                    "name": "(anonymous_0)",
-                    "line": 2,
-                    "decl": {
-                        "start": { "line": 1, "column": 21 },
-                        "end": { "line": 1, "column": 22 }
-                    },
-                    "loc": {
-                        "start": { "line": 2, "column": 2 },
-                        "end": { "line": 5, "column": 3 }
-                    }
-                },
-                "1": {
-                    "name": "(anonymous_1)",
-                    "line": 4,
-                    "decl": {
-                        "start": { "line": 2, "column": 20 },
-                        "end": { "line": 2, "column": 21 }
-                    },
-                    "loc": {
-                        "start": { "line": 4, "column": 6 },
-                        "end": { "line": 4, "column": 32 }
-                    }
-                }
-            }),
-            &serde_json::json!({ "0": 1, "1": 0 }),
-        );
-
-        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
-        let canonical_source = dunce::canonicalize(&source_path).unwrap();
-        let file_coverage = coverage.get(&canonical_source).unwrap();
-
-        assert_eq!(file_coverage.lookup("<arrow>", 3, 4), Some(0.0));
-    }
-
-    #[test]
-    fn established_anonymous_match_wins_before_overlapping_header_spans() {
-        let temp = tempfile::TempDir::new().unwrap();
-        let source_path = temp.path().join("src/ambiguous.ts");
-        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
-        std::fs::write(
-            &source_path,
-            "export const ambiguous = (value: number) =>\n  wrap(\n    (candidate) => candidate + value\n  );\n",
+            "export class UserController {\n  @Get(\":id\")\n  async findOneWithProfile(\n    id: string,\n    include: string[]\n  ) {\n    return this.service.find(id, include);\n  }\n}\n",
         )
         .unwrap();
 
@@ -5743,46 +5844,37 @@ mod tests {
                 "0": {
                     "name": "(anonymous_0)",
                     "line": 6,
-                    "decl": {
-                        "start": { "line": 1, "column": 0 },
-                        "end": { "line": 1, "column": 1 }
-                    },
-                    "loc": {
-                        "start": { "line": 6, "column": 0 },
-                        "end": { "line": 7, "column": 0 }
-                    }
-                },
-                "1": {
-                    "name": "(anonymous_1)",
-                    "line": 5,
-                    "decl": {
-                        "start": { "line": 2, "column": 0 },
-                        "end": { "line": 2, "column": 1 }
-                    },
-                    "loc": {
-                        "start": { "line": 5, "column": 0 },
-                        "end": { "line": 6, "column": 0 }
-                    }
+                    "decl": { "start": { "line": 2, "column": 2 }, "end": { "line": 2, "column": 3 } },
+                    "loc": { "start": { "line": 6, "column": 4 }, "end": { "line": 8, "column": 3 } }
                 }
             }),
-            &serde_json::json!({ "0": 1, "1": 0 }),
+            &serde_json::json!({ "0": 3 }),
         );
 
         let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
         let canonical_source = dunce::canonicalize(&source_path).unwrap();
         let file_coverage = coverage.get(&canonical_source).unwrap();
 
-        assert_eq!(file_coverage.lookup("<arrow>", 3, 4), Some(0.0));
+        // Fallow extracts the member at the parameter paren, 3:26.
+        assert_eq!(
+            file_coverage.lookup("findOneWithProfile", 3, 26),
+            Some(100.0)
+        );
     }
 
+    /// A function written in a signature has a record of its own, and the
+    /// signature it sits in belongs to a different function. The record wins:
+    /// crediting the enclosing member would report the member's coverage for
+    /// a default value that never ran. Geometry from istanbul-lib-instrument 6
+    /// for the source below.
     #[test]
-    fn overlapping_header_spans_abstain_when_established_aliases_tie() {
+    fn established_alias_wins_over_the_signature_that_contains_it() {
         let temp = tempfile::TempDir::new().unwrap();
-        let source_path = temp.path().join("src/ambiguous.ts");
+        let source_path = temp.path().join("src/chart.ts");
         std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
         std::fs::write(
             &source_path,
-            "export const ambiguous = (value: number) =>\n  wrap(\n    (candidate) => candidate + value\n  );\n",
+            "export class Chart {\n  @Watch(\"data\")\n  render(\n    rows: number[],\n    project = (row: number) => row * 2\n  ) {\n    return rows.map(project);\n  }\n}\n",
         )
         .unwrap();
 
@@ -5793,37 +5885,78 @@ mod tests {
             &serde_json::json!({
                 "0": {
                     "name": "(anonymous_0)",
-                    "line": 5,
-                    "decl": {
-                        "start": { "line": 1, "column": 0 },
-                        "end": { "line": 1, "column": 1 }
-                    },
-                    "loc": {
-                        "start": { "line": 5, "column": 0 },
-                        "end": { "line": 6, "column": 0 }
-                    }
+                    "line": 6,
+                    "decl": { "start": { "line": 2, "column": 2 }, "end": { "line": 2, "column": 3 } },
+                    "loc": { "start": { "line": 6, "column": 4 }, "end": { "line": 8, "column": 3 } }
                 },
                 "1": {
                     "name": "(anonymous_1)",
                     "line": 5,
-                    "decl": {
-                        "start": { "line": 1, "column": 8 },
-                        "end": { "line": 1, "column": 9 }
-                    },
-                    "loc": {
-                        "start": { "line": 5, "column": 8 },
-                        "end": { "line": 6, "column": 8 }
-                    }
+                    "decl": { "start": { "line": 5, "column": 14 }, "end": { "line": 5, "column": 15 } },
+                    "loc": { "start": { "line": 5, "column": 31 }, "end": { "line": 5, "column": 38 } }
                 }
             }),
-            &serde_json::json!({ "0": 1, "1": 0 }),
+            &serde_json::json!({ "0": 3, "1": 0 }),
         );
 
         let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
         let canonical_source = dunce::canonicalize(&source_path).unwrap();
         let file_coverage = coverage.get(&canonical_source).unwrap();
 
-        assert!(file_coverage.lookup("<arrow>", 3, 4).is_none());
+        // The default value takes its own record, not the method's 100.
+        assert_eq!(file_coverage.lookup("<arrow>", 5, 14), Some(0.0));
+        // The method still resolves, and not to its default value.
+        assert_eq!(file_coverage.lookup("render", 3, 8), Some(100.0));
+    }
+
+    /// A member whose signature holds a function of its own has two records a
+    /// line or two apart, and the member's extracted position is closer to
+    /// the inner one. Proximity would report the default value's coverage for
+    /// the member, and the header span cannot break the tie because it
+    /// contains both. Abstaining leaves the static estimate, which is wrong by
+    /// a known amount rather than wrong while claiming to be measured.
+    /// Geometry from istanbul-lib-instrument 6 for the source below.
+    #[test]
+    fn signature_holding_a_function_abstains_instead_of_crediting_it() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/users.controller.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export class UserController {\n  @Get(\":id\")\n  async findOneWithProfile(\n    id: string,\n    transform = (row: string) => row.trim()\n  ) {\n    return transform(id);\n  }\n}\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 6,
+                    "decl": { "start": { "line": 2, "column": 2 }, "end": { "line": 2, "column": 3 } },
+                    "loc": { "start": { "line": 6, "column": 4 }, "end": { "line": 8, "column": 3 } }
+                },
+                "1": {
+                    "name": "(anonymous_1)",
+                    "line": 5,
+                    "decl": { "start": { "line": 5, "column": 16 }, "end": { "line": 5, "column": 17 } },
+                    "loc": { "start": { "line": 5, "column": 33 }, "end": { "line": 5, "column": 43 } }
+                }
+            }),
+            &serde_json::json!({ "0": 3, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        // The member is two lines from the default value's declaration and
+        // ten columns off it, well inside the fallback's reach.
+        assert_eq!(file_coverage.lookup("findOneWithProfile", 3, 26), None);
+        // The default value itself still resolves.
+        assert_eq!(file_coverage.lookup("<arrow>", 5, 16), Some(0.0));
     }
 
     #[test]
