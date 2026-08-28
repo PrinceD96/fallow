@@ -1564,7 +1564,11 @@ pub(super) fn load_istanbul_coverage(
 
     let mut files = rustc_hash::FxHashMap::default();
     for file_cov in raw.values() {
-        let raw_path = std::path::PathBuf::from(&file_cov.path);
+        // A producer may record project-relative keys. They are relative to
+        // the project, not to wherever the process happens to run, and
+        // resolving them against the current directory fails the whole map at
+        // once with every unit silently falling back to its estimate.
+        let raw_path = resolve_relative_to_root(std::path::Path::new(&file_cov.path), project_root);
         let file_path = if let (Some(cov_root), Some(proj_root)) = (coverage_root, project_root) {
             rebase_coverage_path(raw_path, cov_root, proj_root)
         } else {
@@ -5414,6 +5418,48 @@ mod tests {
             resolved,
             std::path::PathBuf::from("coverage/coverage-final.json")
         );
+    }
+
+    /// nyc and some Jest setups record project-relative keys. Resolving one
+    /// against the process directory misses the file, and a run from anywhere
+    /// but the project root loses the whole map at once.
+    #[test]
+    fn load_istanbul_coverage_resolves_relative_map_keys_against_project_root() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/index.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(&source_path, "export function f(){}").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        std::fs::write(
+            &coverage_path,
+            serde_json::to_string(&serde_json::json!({
+                "src/index.ts": {
+                    "path": "src/index.ts",
+                    "statementMap": {},
+                    "fnMap": {
+                        "0": {
+                            "name": "f",
+                            "decl": { "start": { "line": 1, "column": 0 }, "end": { "line": 1, "column": 21 } },
+                            "loc": { "start": { "line": 1, "column": 0 }, "end": { "line": 1, "column": 21 } }
+                        }
+                    },
+                    "branchMap": {},
+                    "s": {},
+                    "f": { "0": 2 },
+                    "b": {}
+                }
+            }))
+            .unwrap(),
+        )
+        .unwrap();
+
+        let coverage =
+            load_istanbul_coverage(&coverage_path, None, Some(temp.path()), false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("f", 1, 0), Some(100.0));
     }
 
     #[test]

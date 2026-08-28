@@ -32,6 +32,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   neither does the member keeps the static estimate instead of a measured
   number that belongs to different code.
 
+- **A coverage map with project-relative keys now joins from any working
+  directory** (Closes [#2448](https://github.com/fallow-rs/fallow/issues/2448)).
+  nyc and some Jest setups record keys relative to the project. Fallow resolved
+  them against the process directory, so a run from anywhere but the project
+  root lost the whole map at once and every function silently fell back to its
+  static estimate. They now resolve against the project root, the way the
+  coverage file path already does.
+
 - **Private class members no longer take coverage from the function that
   encloses them** (Closes [#2448](https://github.com/fallow-rs/fallow/issues/2448)).
   No instrumenter records a `#member` in its function map, so every candidate
