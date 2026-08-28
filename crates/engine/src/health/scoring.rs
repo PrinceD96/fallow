@@ -848,6 +848,12 @@ impl IstanbulSpan {
         (start.line > 0 && end.line > 0 && start < end).then_some(Self { start, end })
     }
 
+    fn header_from_entry(fn_entry: &oxc_coverage_instrument::FnEntry) -> Option<Self> {
+        let start = IstanbulPosition::new(fn_entry.decl.start.line, fn_entry.decl.start.column);
+        let end = IstanbulPosition::new(fn_entry.loc.start.line, fn_entry.loc.start.column);
+        (start.line > 0 && end.line > 0 && start < end).then_some(Self { start, end })
+    }
+
     /// Half-open containment: `end` is the position just past the body.
     fn contains(self, position: IstanbulPosition) -> bool {
         self.start <= position && position < self.end
@@ -912,6 +918,7 @@ struct IstanbulFunctionCoverage {
     name: String,
     coverage_pct: f64,
     aliases: Vec<IstanbulAlias>,
+    header_span: Option<IstanbulSpan>,
     body_span: Option<IstanbulSpan>,
 }
 
@@ -1070,12 +1077,18 @@ impl IstanbulFileCoverage {
     ///    smallest `(line, col)` distance from the target. A distance tie is
     ///    resolved only when one valid body span contains the target and is
     ///    strictly inside every other tied span.
+    /// 4. Unique anonymous header-span fallback between `decl.start` and
+    ///    `loc.start`.
     ///
     /// Step 3 covers arrow-function exports where fallow extracts the binding
-    /// identifier (`const myHandler = () => {...}` yields `myHandler`) while
-    /// Istanbul records the function as anonymous. `load_istanbul_coverage`
-    /// indexes declaration aliases so standard Istanbul producers still
-    /// participate in this fallback. See issues #155, #166, #181, and #370.
+    /// identifier
+    /// (`const myHandler = () => {...}` yields `myHandler`) while Istanbul
+    /// records the function as anonymous. `load_istanbul_coverage` indexes
+    /// declaration aliases so standard Istanbul producers still participate
+    /// in this fallback. Step 4 covers multi-line callback arguments whose
+    /// extracted start falls between Istanbul's declaration and body anchors,
+    /// but only after the established anonymous resolution cannot decide. See
+    /// issues #155, #166, #181, and #370.
     ///
     /// When the map is `relocated` (recorded against a different checkout of
     /// the project, as in the audit base-worktree pass), a distance-free
@@ -1145,11 +1158,29 @@ impl IstanbulFileCoverage {
                 Some(_) => {}
             }
         }
-        match nearest_functions.as_slice() {
+        let established_match = match nearest_functions.as_slice() {
             [] => None,
             [function_index] => Some(self.functions[*function_index].coverage_pct),
             tied => self.innermost_anonymous_match(tied, target),
+        };
+        if established_match.is_some() {
+            return established_match;
         }
+
+        let mut header_match = None;
+        for (function_index, function) in self.functions.iter().enumerate() {
+            if !is_anonymous_istanbul_name(&function.name)
+                || !function
+                    .header_span
+                    .is_some_and(|span| span.contains(target))
+            {
+                continue;
+            }
+            if header_match.replace(function_index).is_some() {
+                return None;
+            }
+        }
+        header_match.map(|function_index| self.functions[function_index].coverage_pct)
     }
 
     fn innermost_anonymous_match(&self, tied: &[usize], target: IstanbulPosition) -> Option<f64> {
@@ -1373,6 +1404,7 @@ fn istanbul_function_coverage(
     coverage_pct: f64,
 ) -> IstanbulFunctionCoverage {
     let body_span = IstanbulSpan::from_entry(fn_entry);
+    let header_span = IstanbulSpan::header_from_entry(fn_entry);
     let candidates = [
         Some(IstanbulAlias {
             position: IstanbulPosition::new(
@@ -1404,6 +1436,7 @@ fn istanbul_function_coverage(
         name: fn_entry.name.clone(),
         coverage_pct,
         aliases,
+        header_span,
         body_span,
     }
 }
@@ -2357,6 +2390,7 @@ mod tests {
                     name,
                     coverage_pct,
                     aliases: vec![primary_alias(line, col)],
+                    header_span: None,
                     body_span: None,
                 },
             )
@@ -5318,6 +5352,162 @@ mod tests {
         assert_eq!(result.per_function[0].coverage_pct, Some(100.0));
     }
 
+    /// istanbul-lib-instrument anchors a callback passed to a multi-line call
+    /// at the call expression for `decl.start` and at the callback body for
+    /// `loc.start`. Oxc anchors the callback itself between those positions.
+    #[test]
+    fn anonymous_callback_matches_unique_istanbul_header_span() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/order.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export const order = (values: number[]) =>\n  [...values].toSorted(\n    (left, right) =>\n      score(left) - score(right)\n  );\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 2,
+                    "decl": {
+                        "start": { "line": 1, "column": 21 },
+                        "end": { "line": 1, "column": 22 }
+                    },
+                    "loc": {
+                        "start": { "line": 2, "column": 2 },
+                        "end": { "line": 5, "column": 3 }
+                    }
+                },
+                "1": {
+                    "name": "(anonymous_1)",
+                    "line": 4,
+                    "decl": {
+                        "start": { "line": 2, "column": 20 },
+                        "end": { "line": 2, "column": 21 }
+                    },
+                    "loc": {
+                        "start": { "line": 4, "column": 6 },
+                        "end": { "line": 4, "column": 32 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 1, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("<arrow>", 3, 4), Some(0.0));
+    }
+
+    #[test]
+    fn established_anonymous_match_wins_before_overlapping_header_spans() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/ambiguous.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export const ambiguous = (value: number) =>\n  wrap(\n    (candidate) => candidate + value\n  );\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 6,
+                    "decl": {
+                        "start": { "line": 1, "column": 0 },
+                        "end": { "line": 1, "column": 1 }
+                    },
+                    "loc": {
+                        "start": { "line": 6, "column": 0 },
+                        "end": { "line": 7, "column": 0 }
+                    }
+                },
+                "1": {
+                    "name": "(anonymous_1)",
+                    "line": 5,
+                    "decl": {
+                        "start": { "line": 2, "column": 0 },
+                        "end": { "line": 2, "column": 1 }
+                    },
+                    "loc": {
+                        "start": { "line": 5, "column": 0 },
+                        "end": { "line": 6, "column": 0 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 1, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("<arrow>", 3, 4), Some(0.0));
+    }
+
+    #[test]
+    fn overlapping_header_spans_abstain_when_established_aliases_tie() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/ambiguous.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export const ambiguous = (value: number) =>\n  wrap(\n    (candidate) => candidate + value\n  );\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 5,
+                    "decl": {
+                        "start": { "line": 1, "column": 0 },
+                        "end": { "line": 1, "column": 1 }
+                    },
+                    "loc": {
+                        "start": { "line": 5, "column": 0 },
+                        "end": { "line": 6, "column": 0 }
+                    }
+                },
+                "1": {
+                    "name": "(anonymous_1)",
+                    "line": 5,
+                    "decl": {
+                        "start": { "line": 1, "column": 8 },
+                        "end": { "line": 1, "column": 9 }
+                    },
+                    "loc": {
+                        "start": { "line": 5, "column": 8 },
+                        "end": { "line": 6, "column": 8 }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 1, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert!(file_coverage.lookup("<arrow>", 3, 4).is_none());
+    }
+
     #[test]
     fn anonymous_record_aliases_do_not_tie_with_their_own_identity() {
         let temp = tempfile::TempDir::new().unwrap();
@@ -5702,12 +5892,14 @@ mod tests {
                     name: "(anonymous_0)".to_string(),
                     coverage_pct: 100.0,
                     aliases: vec![primary_alias(10, 8), secondary_alias(10, 14)],
+                    header_span: None,
                     body_span: Some(body_span((10, 14), (12, 30))),
                 },
                 IstanbulFunctionCoverage {
                     name: "(anonymous_1)".to_string(),
                     coverage_pct: 0.0,
                     aliases: vec![primary_alias(10, 20), secondary_alias(11, 0)],
+                    header_span: None,
                     body_span: Some(body_span((11, 0), (14, 0))),
                 },
             ],
@@ -5729,12 +5921,14 @@ mod tests {
                     name: "(anonymous_0)".to_string(),
                     coverage_pct: 100.0,
                     aliases: vec![primary_alias(4, 11), primary_alias(1, 11)],
+                    header_span: None,
                     body_span: Some(body_span((4, 11), (4, 23))),
                 },
                 IstanbulFunctionCoverage {
                     name: "(anonymous_1)".to_string(),
                     coverage_pct: 0.0,
                     aliases: vec![primary_alias(4, 11), secondary_alias(4, 18)],
+                    header_span: None,
                     body_span: Some(body_span((4, 18), (4, 23))),
                 },
             ],
@@ -5755,12 +5949,14 @@ mod tests {
                     name: "(anonymous_0)".to_string(),
                     coverage_pct: 100.0,
                     aliases: vec![primary_alias(10, 0), secondary_alias(12, 4)],
+                    header_span: None,
                     body_span: Some(body_span((12, 4), (20, 0))),
                 },
                 IstanbulFunctionCoverage {
                     name: "(anonymous_1)".to_string(),
                     coverage_pct: 0.0,
                     aliases: vec![primary_alias(11, 0), secondary_alias(12, 4)],
+                    header_span: None,
                     body_span: Some(body_span((12, 4), (18, 0))),
                 },
             ],
@@ -5780,12 +5976,14 @@ mod tests {
                     name: "handler".to_string(),
                     coverage_pct: 100.0,
                     aliases: vec![primary_alias(10, 0), secondary_alias(12, 4)],
+                    header_span: None,
                     body_span: Some(body_span((12, 4), (20, 0))),
                 },
                 IstanbulFunctionCoverage {
                     name: "handler".to_string(),
                     coverage_pct: 0.0,
                     aliases: vec![primary_alias(11, 0), secondary_alias(12, 4)],
+                    header_span: None,
                     body_span: Some(body_span((12, 4), (18, 0))),
                 },
             ],

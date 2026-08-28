@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **Istanbul coverage now matches uniquely attributable anonymous callbacks
+  whose extracted start falls between the producer's declaration and body
+  positions** (Closes [#2448](https://github.com/fallow-rs/fallow/issues/2448),
+  [#2449](https://github.com/fallow-rs/fallow/pull/2449)). Some callback
+  arguments in multi-line calls are recorded with a declaration start at the
+  surrounding call expression and a body start after the callback itself.
+  Fallow now uses that header span as a fallback only when exactly one anonymous
+  function contains the extracted start. Established anonymous matches keep
+  priority, while overlapping fallback spans remain unmatched.
+
 ## [3.20.0] - 2026-08-28
 
 ### Added
