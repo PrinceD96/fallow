@@ -48,7 +48,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   instead, and it is recorded under its own `#name` rather than `<anonymous>`,
   so it is identifiable in complexity output. Private-member provenance is
   stored separately from that display name, so a public string-named method
-  whose name begins with `#` remains eligible for exact coverage matching.
+  whose name begins with `#` remains eligible for exact coverage matching. The
+  rule sits at the one lookup entry point every consumer goes through, so the
+  test-covered check honours it as well.
 
 ### Performance
 

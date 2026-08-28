@@ -1063,7 +1063,15 @@ impl IstanbulLineIndexes {
 }
 
 impl IstanbulFileCoverage {
-    fn lookup_function(&self, function: &fallow_types::extract::FunctionComplexity) -> Option<f64> {
+    /// Coverage for an extracted unit.
+    ///
+    /// The entry point callers outside this module get, because the
+    /// private-member rule has to hold for every consumer: gating it at one
+    /// call site leaves the next one free to reintroduce the bug.
+    pub fn lookup_function(
+        &self,
+        function: &fallow_types::extract::FunctionComplexity,
+    ) -> Option<f64> {
         if function.is_private_member {
             return None;
         }
@@ -1228,7 +1236,7 @@ impl IstanbulFileCoverage {
     /// between the two checkouts, and when all same-named candidates agree
     /// the choice among them cannot matter (#2347). Same-checkout lookups
     /// keep the bounded fuzz, which protects against stale coverage data.
-    pub fn lookup(&self, name: &str, line: u32, col: u32) -> Option<f64> {
+    pub(crate) fn lookup(&self, name: &str, line: u32, col: u32) -> Option<f64> {
         let exact_key = (name.to_string(), line, col);
         if self.ambiguous_aliases.contains(&exact_key) {
             return None;
