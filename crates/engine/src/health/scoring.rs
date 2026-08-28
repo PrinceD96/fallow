@@ -1247,17 +1247,32 @@ impl IstanbulFileCoverage {
 
         let target = IstanbulPosition::new(line, col);
         let window = self.fuzz_window(target);
+        // A function written inside another function's signature is a
+        // different function from the one the signature belongs to, and both
+        // sit within a line or two of the same position. Proximity cannot
+        // tell them apart, so the records whose signature covers this target
+        // decide which candidates below are eligible at all.
+        let signature_owners = self.header_spans_containing(target);
         if let Some(function) = window
             .iter()
-            .map(|function_index| &self.functions[*function_index])
-            .filter(|function| function.name == name)
-            .filter_map(|function| {
+            .copied()
+            .filter(|function_index| self.functions[*function_index].name == name)
+            .filter_map(|function_index| {
+                let function = &self.functions[function_index];
                 function
                     .nearest_alias(target, None)
-                    .map(|distance| (distance, function))
+                    .map(|distance| (distance, function_index))
+            })
+            .filter(|(distance, function_index)| {
+                *distance == (0, 0)
+                    || named_function_prefix_contains_target(
+                        &self.functions[*function_index],
+                        target,
+                    )
+                    || !self.foreign_signature_blocks(&signature_owners, *function_index, target)
             })
             .min_by_key(|(distance, _)| *distance)
-            .map(|(_, function)| function)
+            .map(|(_, function_index)| &self.functions[function_index])
         {
             return Some(function.coverage_pct);
         }
@@ -1266,12 +1281,6 @@ impl IstanbulFileCoverage {
         {
             return Some(pct);
         }
-        // A function written inside another function's signature is a
-        // different function from the one the signature belongs to, and both
-        // sit within a line or two of the same position. Proximity cannot
-        // tell them apart, so the records whose signature covers this target
-        // decide below which candidates are eligible at all.
-        let signature_owners = self.header_spans_containing(target);
         if self.ambiguous_anonymous_aliases.contains(&target) {
             return self.unique_anonymous_header_match(&signature_owners);
         }
@@ -1444,6 +1453,25 @@ impl IstanbulFileCoverage {
         }
         found
     }
+}
+
+/// Whether `target` is the source-level start of a named function whose
+/// Istanbul declaration starts at the later identifier.
+///
+/// The fixed widths are the ASCII spellings before that identifier:
+/// `function `, `function* `, `async function `, and `async function* `.
+/// Matching an exact width avoids treating an enclosing same-named member on
+/// the same line as the nested function's own target.
+fn named_function_prefix_contains_target(
+    function: &IstanbulFunctionCoverage,
+    target: IstanbulPosition,
+) -> bool {
+    function.decl_start.line == target.line
+        && function
+            .decl_start
+            .col
+            .checked_sub(target.col)
+            .is_some_and(|width| matches!(width, 9 | 10 | 15 | 16))
 }
 
 /// Loaded Istanbul coverage data, keyed by canonical file path.
@@ -5786,6 +5814,49 @@ mod tests {
         // Both records still resolve.
         assert_eq!(file_coverage.lookup("scale", 5, 14), Some(0.0));
         assert_eq!(file_coverage.lookup("render", 3, 8), Some(100.0));
+    }
+
+    /// A named function in a member signature can legally reuse the member's
+    /// name. Name fuzz must not return that inner function before established
+    /// anonymous resolution preserves the member's valid attribution.
+    #[test]
+    fn same_named_function_in_signature_does_not_supply_member_coverage() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/chart.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export class Chart {\n  @Watch(\"data\")\n  render(\n    rows: number[],\n    project = function render(\n      row: number\n    ) {\n      return row * 2;\n    }\n  ) {\n    return rows.map(project);\n  }\n}\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 10,
+                    "decl": { "start": { "line": 2, "column": 2 }, "end": { "line": 2, "column": 3 } },
+                    "loc": { "start": { "line": 10, "column": 4 }, "end": { "line": 12, "column": 3 } }
+                },
+                "1": {
+                    "name": "render",
+                    "line": 7,
+                    "decl": { "start": { "line": 5, "column": 23 }, "end": { "line": 5, "column": 29 } },
+                    "loc": { "start": { "line": 7, "column": 6 }, "end": { "line": 9, "column": 5 } }
+                }
+            }),
+            &serde_json::json!({ "0": 3, "1": 0 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("render", 3, 8), Some(100.0));
+        assert_eq!(file_coverage.lookup("render", 5, 23), Some(0.0));
     }
 
     /// No instrumenter emits an `fnMap` identity for a private class member,

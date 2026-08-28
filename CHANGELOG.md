@@ -55,11 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Performance
 
 - **Coverage matching no longer rescans a file for every unmatched function.**
-  A file whose coverage map does not join paid a full scan per lookup, twice
-  over once header spans were added. Aliases and header spans are now indexed
-  by line, which bounds each fallback to the few records that can reach the
-  position. A 4518-function file whose coverage never joins went from 231 ms to
-  146 ms, and a 6000-function one from 337 ms to 203 ms.
+  Aliases and header spans are now indexed by line, which bounds each fallback
+  to the records that can reach the target position.
 
 ## [3.20.0] - 2026-08-28
 
