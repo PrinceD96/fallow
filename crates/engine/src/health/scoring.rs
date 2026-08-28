@@ -463,7 +463,7 @@ fn crap_for_function(
     fallow_output::CoverageSource,
 ) {
     let cc = f64::from(f.cyclomatic);
-    let lookup = file_coverage.and_then(|fc| fc.lookup(f.name.as_str(), f.line, f.col));
+    let lookup = file_coverage.and_then(|fc| fc.lookup_function(f));
     if let Some(cov_pct) = lookup {
         *matched += 1;
         return (
@@ -979,6 +979,13 @@ pub struct IstanbulFileCoverage {
 }
 
 impl IstanbulFileCoverage {
+    fn lookup_function(&self, function: &fallow_types::extract::FunctionComplexity) -> Option<f64> {
+        if function.is_private_member {
+            return None;
+        }
+        self.lookup(function.name.as_str(), function.line, function.col)
+    }
+
     fn new(mut functions: Vec<IstanbulFunctionCoverage>, relocated: bool) -> Self {
         let mut named_alias_counts: rustc_hash::FxHashMap<
             (String, IstanbulPosition),
@@ -1123,13 +1130,6 @@ impl IstanbulFileCoverage {
     /// the choice among them cannot matter (#2347). Same-checkout lookups
     /// keep the bounded fuzz, which protects against stale coverage data.
     pub fn lookup(&self, name: &str, line: u32, col: u32) -> Option<f64> {
-        // No producer records a private class member in `fnMap`. Istanbul's
-        // visitor has no case for one and the sidecar mirrors that, so every
-        // candidate a private member could reach belongs to some enclosing
-        // function, and crediting it reports code that never ran as covered.
-        if name.starts_with('#') {
-            return None;
-        }
         let exact_key = (name.to_string(), line, col);
         if self.ambiguous_aliases.contains(&exact_key) {
             return None;
@@ -2782,6 +2782,7 @@ mod tests {
             line_offsets: vec![0, 10, 20, 30, 40], // 5 lines
             complexity: vec![fallow_types::extract::FunctionComplexity {
                 name: "doStuff".into(),
+                is_private_member: false,
                 line: 1,
                 col: 0,
                 cyclomatic: 7,
@@ -2811,6 +2812,7 @@ mod tests {
             complexity: vec![
                 fallow_types::extract::FunctionComplexity {
                     name: "a".into(),
+                    is_private_member: false,
                     line: 1,
                     col: 0,
                     cyclomatic: 3,
@@ -2825,6 +2827,7 @@ mod tests {
                 },
                 fallow_types::extract::FunctionComplexity {
                     name: "b".into(),
+                    is_private_member: false,
                     line: 2,
                     col: 0,
                     cyclomatic: 5,
@@ -3339,6 +3342,7 @@ mod tests {
             10,
             vec![fallow_types::extract::FunctionComplexity {
                 name: "foo".into(),
+                is_private_member: false,
                 line: 1,
                 col: 0,
                 cyclomatic: 5,
@@ -3472,6 +3476,7 @@ mod tests {
                 10,
                 vec![fallow_types::extract::FunctionComplexity {
                     name: "fn_a".into(),
+                    is_private_member: false,
                     line: 1,
                     col: 0,
                     cyclomatic: 2,
@@ -3490,6 +3495,7 @@ mod tests {
                 10,
                 vec![fallow_types::extract::FunctionComplexity {
                     name: "fn_b".into(),
+                    is_private_member: false,
                     line: 1,
                     col: 0,
                     cyclomatic: 3,
@@ -3575,6 +3581,7 @@ mod tests {
                 10,
                 vec![fallow_types::extract::FunctionComplexity {
                     name: "complex_fn".into(),
+                    is_private_member: false,
                     line: 1,
                     col: 0,
                     cyclomatic: 30,
@@ -3593,6 +3600,7 @@ mod tests {
                 100,
                 vec![fallow_types::extract::FunctionComplexity {
                     name: "simple_fn".into(),
+                    is_private_member: false,
                     line: 1,
                     col: 0,
                     cyclomatic: 1,
@@ -3671,6 +3679,7 @@ mod tests {
             10,
             vec![fallow_types::extract::FunctionComplexity {
                 name: "orphan".into(),
+                is_private_member: false,
                 line: 1,
                 col: 0,
                 cyclomatic: 1,
@@ -3752,6 +3761,7 @@ mod tests {
             vec![
                 fallow_types::extract::FunctionComplexity {
                     name: "high".into(),
+                    is_private_member: false,
                     line: 1,
                     col: 0,
                     cyclomatic: 10,
@@ -3766,6 +3776,7 @@ mod tests {
                 },
                 fallow_types::extract::FunctionComplexity {
                     name: "medium".into(),
+                    is_private_member: false,
                     line: 11,
                     col: 0,
                     cyclomatic: 5,
@@ -3780,6 +3791,7 @@ mod tests {
                 },
                 fallow_types::extract::FunctionComplexity {
                     name: "low".into(),
+                    is_private_member: false,
                     line: 21,
                     col: 0,
                     cyclomatic: 2,
@@ -3794,6 +3806,7 @@ mod tests {
                 },
                 fallow_types::extract::FunctionComplexity {
                     name: "trivial".into(),
+                    is_private_member: false,
                     line: 31,
                     col: 0,
                     cyclomatic: 1,
@@ -3885,6 +3898,7 @@ mod tests {
                 10,
                 vec![fallow_types::extract::FunctionComplexity {
                     name: "fn_a".into(),
+                    is_private_member: false,
                     line: 1,
                     col: 0,
                     cyclomatic: 2,
@@ -3903,6 +3917,7 @@ mod tests {
                 10,
                 vec![fallow_types::extract::FunctionComplexity {
                     name: "fn_b".into(),
+                    is_private_member: false,
                     line: 1,
                     col: 0,
                     cyclomatic: 3,
@@ -4016,6 +4031,7 @@ mod tests {
             10,
             vec![fallow_types::extract::FunctionComplexity {
                 name: "fn_a".into(),
+                is_private_member: false,
                 line: 1,
                 col: 0,
                 cyclomatic: 1,
@@ -4186,6 +4202,7 @@ mod tests {
             10,
             vec![fallow_types::extract::FunctionComplexity {
                 name: "fn_a".into(),
+                is_private_member: false,
                 line: 1,
                 col: 0,
                 cyclomatic: 1,
@@ -4292,6 +4309,7 @@ mod tests {
             10,
             vec![fallow_types::extract::FunctionComplexity {
                 name: "fn_a".into(),
+                is_private_member: false,
                 line: 1,
                 col: 0,
                 cyclomatic: 2,
@@ -4353,6 +4371,7 @@ mod tests {
             100,
             vec![fallow_types::extract::FunctionComplexity {
                 name: "fn".into(),
+                is_private_member: false,
                 line: 1,
                 col: 0,
                 cyclomatic: 7,
@@ -4453,6 +4472,7 @@ mod tests {
             10,
             vec![fallow_types::extract::FunctionComplexity {
                 name: "fn_a".into(),
+                is_private_member: false,
                 line: 1,
                 col: 0,
                 cyclomatic: 2,
@@ -4515,6 +4535,7 @@ mod tests {
             10,
             vec![fallow_types::extract::FunctionComplexity {
                 name: "trivial".into(),
+                is_private_member: false,
                 line: 1,
                 col: 0,
                 cyclomatic: 1,
@@ -4558,6 +4579,7 @@ mod tests {
     fn make_fn_complexity(cyclomatic: u16) -> fallow_types::extract::FunctionComplexity {
         fallow_types::extract::FunctionComplexity {
             name: "test_fn".into(),
+            is_private_member: false,
             line: 1,
             col: 0,
             cyclomatic,
@@ -4579,6 +4601,7 @@ mod tests {
     ) -> fallow_types::extract::FunctionComplexity {
         fallow_types::extract::FunctionComplexity {
             name: name.into(),
+            is_private_member: false,
             line,
             col: 0,
             cyclomatic,
@@ -5483,8 +5506,57 @@ mod tests {
 
         // `#wipe` sits in the arrow's header span and the arrow ran, but the
         // private member has no record of its own and never ran.
-        assert_eq!(file_coverage.lookup("#wipe", 3, 9), None);
+        let mut private_member = make_fn_complexity(1);
+        private_member.name = "#wipe".to_string();
+        private_member.is_private_member = true;
+        private_member.line = 3;
+        private_member.col = 9;
+        let result = istanbul_crap_default(&[private_member], Some(file_coverage), false);
+        assert_eq!(result.matched, 0);
+        assert_eq!(
+            result.per_function[0].coverage_source,
+            fallow_output::CoverageSource::Estimated
+        );
         assert_eq!(file_coverage.lookup("<arrow>", 1, 24), Some(100.0));
+    }
+
+    #[test]
+    fn quoted_hash_method_keeps_exact_istanbul_coverage() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/vault.js");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(&source_path, "class Vault { '#wipe'() {} }\n").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "#wipe",
+                    "line": 1,
+                    "decl": { "start": { "line": 1, "column": 14 }, "end": { "line": 1, "column": 21 } },
+                    "loc": { "start": { "line": 1, "column": 24 }, "end": { "line": 1, "column": 26 } }
+                }
+            }),
+            &serde_json::json!({ "0": 1 }),
+        );
+
+        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        let mut quoted_public_method = make_fn_complexity(1);
+        quoted_public_method.name = "#wipe".to_string();
+        quoted_public_method.line = 1;
+        quoted_public_method.col = 14;
+        let result = istanbul_crap_default(&[quoted_public_method], Some(file_coverage), false);
+        assert_eq!(result.matched, 1);
+        assert_eq!(
+            result.per_function[0].coverage_source,
+            fallow_output::CoverageSource::Istanbul
+        );
+        assert_eq!(result.per_function[0].coverage_pct, Some(100.0));
     }
 
     /// istanbul-lib-instrument anchors a callback passed to a multi-line call
@@ -6080,6 +6152,35 @@ mod tests {
 
         assert!(file_coverage.lookup("<arrow>", 4, 11).is_none());
         assert_eq!(file_coverage.lookup("aa", 1, 11), Some(100.0));
+    }
+
+    #[test]
+    fn colliding_anonymous_alias_uses_unique_safe_header_span() {
+        let file_coverage = IstanbulFileCoverage::new(
+            vec![
+                IstanbulFunctionCoverage {
+                    name: "(anonymous_0)".to_string(),
+                    coverage_pct: 100.0,
+                    aliases: vec![primary_alias(1, 0), secondary_alias(3, 4)],
+                    decl_start: IstanbulPosition::new(1, 0),
+                    header_holds_other_fn: false,
+                    header_span: Some(body_span((1, 0), (5, 0))),
+                    body_span: Some(body_span((5, 0), (8, 0))),
+                },
+                IstanbulFunctionCoverage {
+                    name: "(anonymous_1)".to_string(),
+                    coverage_pct: 0.0,
+                    aliases: vec![primary_alias(10, 0), secondary_alias(3, 4)],
+                    decl_start: IstanbulPosition::new(10, 0),
+                    header_holds_other_fn: false,
+                    header_span: None,
+                    body_span: Some(body_span((10, 0), (12, 0))),
+                },
+            ],
+            false,
+        );
+
+        assert_eq!(file_coverage.lookup("<arrow>", 3, 4), Some(100.0));
     }
 
     /// A secondary alias that collides with another record's secondary alias

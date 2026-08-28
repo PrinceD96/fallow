@@ -31,7 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   one could reach belongs to some enclosing function. Such a member could be
   reported as fully covered while it never ran. It now uses the static estimate
   instead, and it is recorded under its own `#name` rather than `<anonymous>`,
-  so it is identifiable in complexity output.
+  so it is identifiable in complexity output. Private-member provenance is
+  stored separately from that display name, so a public string-named method
+  whose name begins with `#` remains eligible for exact coverage matching.
 
 ## [3.20.0] - 2026-08-28
 

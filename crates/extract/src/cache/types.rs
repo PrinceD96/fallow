@@ -1011,11 +1011,13 @@ use crate::MemberKind;
 /// units. Warm 281 caches retain those phantom complexity rows.
 ///
 /// Bumped to 283 for issue #2448: private class members are recorded under
-/// their own `#name` instead of `<anonymous>`. The name is persisted with the
-/// complexity unit and decides whether coverage matching runs at all, so a
-/// warm 282 cache would keep the anonymous name and the attribution that
-/// follows from it.
-pub(super) const CACHE_VERSION: u32 = 283;
+/// their own `#name` instead of `<anonymous>`. Warm 282 caches retain the
+/// anonymous display name for those complexity units.
+///
+/// Bumped to 284 for issue #2448: complexity units now persist private-member
+/// provenance separately from their display name. Warm 283 caches cannot
+/// distinguish an ECMAScript private member from a public quoted `#` name.
+pub(super) const CACHE_VERSION: u32 = 284;
 
 /// Duplication token cache version. Bump when duplicate tokenization,
 /// normalization, or the on-disk token cache schema changes.
