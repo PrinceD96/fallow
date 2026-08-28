@@ -816,6 +816,12 @@ fn crap_formula(cc: f64, coverage_pct: f64) -> f64 {
 /// declaration alias at the typical `const x = async (` column.
 const ANONYMOUS_FALLBACK_MAX_COLUMN_DRIFT: u32 = 16;
 
+/// Maximum line drift tolerated by the name-fuzzy and anonymous fallbacks.
+/// Both reject an alias further than this from the target, which is what lets
+/// a lookup binary-search a window of `IstanbulFileCoverage::alias_lines`
+/// instead of scanning every record in the file.
+const ALIAS_FUZZ_MAX_LINE_DRIFT: u32 = 2;
+
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 struct IstanbulPosition {
     line: u32,
@@ -940,7 +946,7 @@ impl IstanbulFunctionCoverage {
             .iter()
             .filter_map(|alias| {
                 let distance = alias.position.distance_from(target);
-                if distance.0 > 2 {
+                if distance.0 > ALIAS_FUZZ_MAX_LINE_DRIFT {
                     return None;
                 }
                 if distance.0 > 0 && max_column_drift.is_some_and(|maximum| distance.1 > maximum) {
@@ -972,10 +978,88 @@ pub struct IstanbulFileCoverage {
     /// primary owner. Anonymous fallback abstains at these targets even when
     /// each identity has other aliases.
     ambiguous_anonymous_aliases: rustc_hash::FxHashSet<IstanbulPosition>,
+    /// `(alias line, function index)` for every retained alias, sorted.
+    /// The fuzzy and anonymous fallbacks reject any alias further than
+    /// [`ALIAS_FUZZ_MAX_LINE_DRIFT`] lines from the target, so they can search
+    /// a window of this index instead of every record in the file.
+    alias_lines: Vec<(u32, usize)>,
+    /// `(header span start line, function index)` for every record that has a
+    /// header span, sorted.
+    header_starts: Vec<(u32, usize)>,
+    /// Height in lines of the tallest header span in this file. A span reaches
+    /// no further than this below its own start, which bounds the window
+    /// searched in `header_starts`.
+    max_header_height: u32,
     /// The coverage map was recorded against a different checkout of the
     /// project, so line numbers may have drifted beyond the bounded fuzz.
     /// Enables the distance-free unambiguous-name fallback in [`Self::lookup`].
     relocated: bool,
+}
+
+/// Records whether each header span has a second function declared inside it,
+/// which makes the span say nothing about a position it contains.
+///
+/// Computed once per file because the header fallback needs the answer on
+/// every unmatched lookup and recomputing it there would be quadratic.
+fn mark_headers_holding_other_fns(functions: &mut [IstanbulFunctionCoverage]) {
+    let mut declarations: Vec<IstanbulPosition> = functions
+        .iter()
+        .map(|function| function.decl_start)
+        .collect();
+    declarations.sort_unstable();
+    for function in functions {
+        let Some(span) = function.header_span else {
+            continue;
+        };
+        // The record's own declaration opens its header span, so it is always
+        // in range: a second hit is what marks a foreign function.
+        let first = declarations.partition_point(|position| *position < span.start);
+        let past = declarations.partition_point(|position| *position < span.end);
+        function.header_holds_other_fn = past - first > 1;
+    }
+}
+
+/// Line-keyed indexes over one file's records, built once per file so the
+/// fuzzy, anonymous, and header fallbacks can binary-search a bounded window
+/// instead of rescanning every record on every unmatched lookup.
+struct IstanbulLineIndexes {
+    alias_lines: Vec<(u32, usize)>,
+    header_starts: Vec<(u32, usize)>,
+    max_header_height: u32,
+}
+
+impl IstanbulLineIndexes {
+    fn build(functions: &[IstanbulFunctionCoverage]) -> Self {
+        let mut alias_lines: Vec<(u32, usize)> = functions
+            .iter()
+            .enumerate()
+            .flat_map(|(function_index, function)| {
+                function
+                    .aliases
+                    .iter()
+                    .map(move |alias| (alias.position.line, function_index))
+            })
+            .collect();
+        alias_lines.sort_unstable();
+
+        let mut header_starts: Vec<(u32, usize)> = Vec::new();
+        let mut max_header_height = 0;
+        for (function_index, function) in functions.iter().enumerate() {
+            if let Some(span) = function.header_span {
+                header_starts.push((span.start.line, function_index));
+                // `IstanbulSpan` construction requires `start < end`, so the
+                // end line is never above the start line.
+                max_header_height = max_header_height.max(span.end.line - span.start.line);
+            }
+        }
+        header_starts.sort_unstable();
+
+        Self {
+            alias_lines,
+            header_starts,
+            max_header_height,
+        }
+    }
 }
 
 impl IstanbulFileCoverage {
@@ -1072,29 +1156,44 @@ impl IstanbulFileCoverage {
             }
         }
 
-        let mut declarations: Vec<IstanbulPosition> = functions
-            .iter()
-            .map(|function| function.decl_start)
-            .collect();
-        declarations.sort_unstable();
-        for function in &mut functions {
-            let Some(span) = function.header_span else {
-                continue;
-            };
-            // The record's own declaration opens its header span, so it is
-            // always in range: a second hit is what marks a foreign function.
-            let first = declarations.partition_point(|position| *position < span.start);
-            let past = declarations.partition_point(|position| *position < span.end);
-            function.header_holds_other_fn = past - first > 1;
-        }
+        mark_headers_holding_other_fns(&mut functions);
+        let indexes = IstanbulLineIndexes::build(&functions);
 
         Self {
             functions,
             alias_index,
             ambiguous_aliases,
             ambiguous_anonymous_aliases,
+            alias_lines: indexes.alias_lines,
+            header_starts: indexes.header_starts,
+            max_header_height: indexes.max_header_height,
             relocated,
         }
+    }
+
+    /// Indices of the records with an alias within
+    /// [`ALIAS_FUZZ_MAX_LINE_DRIFT`] lines of `target`, ascending and
+    /// deduplicated.
+    ///
+    /// This is exactly the candidate set of the fuzzy and anonymous fallbacks:
+    /// `nearest_alias` yields `None` for a record whose every alias is further
+    /// away, so a record outside the window cannot produce a distance and
+    /// cannot win either fallback. Ascending order reproduces the order of a
+    /// full `self.functions` scan, which both fallbacks' tie-breaks depend on:
+    /// `min_by_key` keeps the first minimum, and the anonymous scan appends
+    /// equal-distance records in encounter order.
+    fn fuzz_window(&self, target: IstanbulPosition) -> Vec<usize> {
+        let low = target.line.saturating_sub(ALIAS_FUZZ_MAX_LINE_DRIFT);
+        let high = target.line.saturating_add(ALIAS_FUZZ_MAX_LINE_DRIFT);
+        let first = self.alias_lines.partition_point(|(line, _)| *line < low);
+        let past = self.alias_lines.partition_point(|(line, _)| *line <= high);
+        let mut window: Vec<usize> = self.alias_lines[first..past]
+            .iter()
+            .map(|(_, function_index)| *function_index)
+            .collect();
+        window.sort_unstable();
+        window.dedup();
+        window
     }
 
     /// Look up coverage for a function by name, start line, and start column.
@@ -1139,9 +1238,10 @@ impl IstanbulFileCoverage {
         }
 
         let target = IstanbulPosition::new(line, col);
-        if let Some(function) = self
-            .functions
+        let window = self.fuzz_window(target);
+        if let Some(function) = window
             .iter()
+            .map(|function_index| &self.functions[*function_index])
             .filter(|function| function.name == name)
             .filter_map(|function| {
                 function
@@ -1164,7 +1264,8 @@ impl IstanbulFileCoverage {
 
         let mut nearest_distance: Option<(u32, u32)> = None;
         let mut nearest_functions = Vec::new();
-        for (function_index, function) in self.functions.iter().enumerate() {
+        for function_index in window {
+            let function = &self.functions[function_index];
             if !is_anonymous_istanbul_name(&function.name) {
                 continue;
             }
@@ -1212,8 +1313,18 @@ impl IstanbulFileCoverage {
     /// abstains. Only an anonymous record can win, because a named record is
     /// already reachable through the exact and fuzzy name paths.
     fn unique_anonymous_header_match(&self, target: IstanbulPosition) -> Option<f64> {
+        // A span reaches `target` only from at most `max_header_height` lines
+        // above it, so every containing span starts inside this window. Both
+        // abstain rules below are order-independent, so searching the window
+        // instead of the file cannot change the answer.
+        let low = target.line.saturating_sub(self.max_header_height);
+        let first = self.header_starts.partition_point(|(line, _)| *line < low);
+        let past = self
+            .header_starts
+            .partition_point(|(line, _)| *line <= target.line);
         let mut candidate = None;
-        for (function_index, function) in self.functions.iter().enumerate() {
+        for &(_, function_index) in &self.header_starts[first..past] {
+            let function = &self.functions[function_index];
             if !function
                 .header_span
                 .is_some_and(|span| span.contains(target))
