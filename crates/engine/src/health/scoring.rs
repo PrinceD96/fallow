@@ -848,15 +848,37 @@ struct IstanbulSpan {
 }
 
 impl IstanbulSpan {
-    fn from_entry(fn_entry: &oxc_coverage_instrument::FnEntry) -> Option<Self> {
-        let start = IstanbulPosition::new(fn_entry.loc.start.line, fn_entry.loc.start.column);
-        let end = IstanbulPosition::new(fn_entry.loc.end.line, fn_entry.loc.end.column);
+    fn from_entry(
+        fn_entry: &oxc_coverage_instrument::FnEntry,
+        source_index: Option<&IstanbulSourceIndex<'_>>,
+    ) -> Option<Self> {
+        let start = normalized_istanbul_position(
+            fn_entry.loc.start.line,
+            fn_entry.loc.start.column,
+            source_index,
+        )?;
+        let end = normalized_istanbul_position(
+            fn_entry.loc.end.line,
+            fn_entry.loc.end.column,
+            source_index,
+        )?;
         (start.line > 0 && end.line > 0 && start < end).then_some(Self { start, end })
     }
 
-    fn header_from_entry(fn_entry: &oxc_coverage_instrument::FnEntry) -> Option<Self> {
-        let start = IstanbulPosition::new(fn_entry.decl.start.line, fn_entry.decl.start.column);
-        let end = IstanbulPosition::new(fn_entry.loc.start.line, fn_entry.loc.start.column);
+    fn header_from_entry(
+        fn_entry: &oxc_coverage_instrument::FnEntry,
+        source_index: Option<&IstanbulSourceIndex<'_>>,
+    ) -> Option<Self> {
+        let start = normalized_istanbul_position(
+            fn_entry.decl.start.line,
+            fn_entry.decl.start.column,
+            source_index,
+        )?;
+        let end = normalized_istanbul_position(
+            fn_entry.loc.start.line,
+            fn_entry.loc.start.column,
+            source_index,
+        )?;
         (start.line > 0 && end.line > 0 && start < end).then_some(Self { start, end })
     }
 
@@ -1265,10 +1287,6 @@ impl IstanbulFileCoverage {
             })
             .filter(|(distance, function_index)| {
                 *distance == (0, 0)
-                    || named_function_prefix_contains_target(
-                        &self.functions[*function_index],
-                        target,
-                    )
                     || !self.foreign_signature_blocks(&signature_owners, *function_index, target)
             })
             .min_by_key(|(distance, _)| *distance)
@@ -1455,25 +1473,6 @@ impl IstanbulFileCoverage {
     }
 }
 
-/// Whether `target` is the source-level start of a named function whose
-/// Istanbul declaration starts at the later identifier.
-///
-/// The fixed widths are the ASCII spellings before that identifier:
-/// `function `, `function* `, `async function `, and `async function* `.
-/// Matching an exact width avoids treating an enclosing same-named member on
-/// the same line as the nested function's own target.
-fn named_function_prefix_contains_target(
-    function: &IstanbulFunctionCoverage,
-    target: IstanbulPosition,
-) -> bool {
-    function.decl_start.line == target.line
-        && function
-            .decl_start
-            .col
-            .checked_sub(target.col)
-            .is_some_and(|width| matches!(width, 9 | 10 | 15 | 16))
-}
-
 /// Loaded Istanbul coverage data, keyed by canonical file path.
 pub struct IstanbulCoverage {
     files: rustc_hash::FxHashMap<std::path::PathBuf, IstanbulFileCoverage>,
@@ -1565,10 +1564,21 @@ pub fn resolve_relative_to_root(
 ///
 /// `relocated` marks a map recorded against a different checkout of the
 /// project; see [`IstanbulFileCoverage::lookup`].
-pub(super) fn load_istanbul_coverage(
+#[cfg(test)]
+fn load_istanbul_coverage(
     path: &std::path::Path,
     coverage_root: Option<&std::path::Path>,
     project_root: Option<&std::path::Path>,
+    relocated: bool,
+) -> Result<IstanbulCoverage, String> {
+    load_istanbul_coverage_for_sources(path, coverage_root, project_root, None, relocated)
+}
+
+pub(super) fn load_istanbul_coverage_for_sources(
+    path: &std::path::Path,
+    coverage_root: Option<&std::path::Path>,
+    project_root: Option<&std::path::Path>,
+    discovered_sources: Option<&rustc_hash::FxHashSet<std::path::PathBuf>>,
     relocated: bool,
 ) -> Result<IstanbulCoverage, String> {
     super::validate_coverage_root_absolute(coverage_root)?;
@@ -1611,17 +1621,44 @@ pub(super) fn load_istanbul_coverage(
             raw_path
         };
         let canonical = dunce::canonicalize(&file_path).unwrap_or(file_path);
+        let source = read_discovered_source(&canonical, discovered_sources, relocated);
+        let source_index = source
+            .as_deref()
+            .map(|source| IstanbulSourceIndex::new(source, &canonical));
 
         let mut functions = Vec::with_capacity(file_cov.fn_map.len());
         for (fn_id, fn_entry) in &file_cov.fn_map {
             let coverage_pct = compute_function_statement_coverage(file_cov, fn_id, fn_entry);
-            functions.push(istanbul_function_coverage(fn_entry, coverage_pct));
+            if let Some(function) =
+                istanbul_function_coverage(fn_entry, coverage_pct, source_index.as_ref())
+            {
+                functions.push(function);
+            }
         }
 
         files.insert(canonical, IstanbulFileCoverage::new(functions, relocated));
     }
 
     Ok(IstanbulCoverage { files })
+}
+
+#[expect(
+    clippy::filetype_is_file,
+    reason = "coverage provenance must admit regular files and reject every special file type"
+)]
+fn read_discovered_source(
+    path: &std::path::Path,
+    discovered_sources: Option<&rustc_hash::FxHashSet<std::path::PathBuf>>,
+    relocated: bool,
+) -> Option<String> {
+    if relocated || !discovered_sources.is_some_and(|sources| sources.contains(path)) {
+        return None;
+    }
+    if std::fs::symlink_metadata(path).ok()?.file_type().is_file() {
+        std::fs::read_to_string(path).ok()
+    } else {
+        None
+    }
 }
 
 /// Rebase one Istanbul file path from `coverage_root` onto `project_root`.
@@ -1650,25 +1687,34 @@ fn rebase_coverage_path(
 fn istanbul_function_coverage(
     fn_entry: &oxc_coverage_instrument::FnEntry,
     coverage_pct: f64,
-) -> IstanbulFunctionCoverage {
-    let body_span = IstanbulSpan::from_entry(fn_entry);
-    let header_span = IstanbulSpan::header_from_entry(fn_entry);
+    source_index: Option<&IstanbulSourceIndex<'_>>,
+) -> Option<IstanbulFunctionCoverage> {
+    let body_span = IstanbulSpan::from_entry(fn_entry, source_index);
+    let header_span = IstanbulSpan::header_from_entry(fn_entry, source_index);
+    let decl_start = normalized_istanbul_position(
+        fn_entry.decl.start.line,
+        fn_entry.decl.start.column,
+        source_index,
+    )?;
+    let effective_position = normalized_istanbul_position(
+        effective_istanbul_fn_line(fn_entry),
+        fn_entry.decl.start.column,
+        source_index,
+    );
     let candidates = [
-        Some(IstanbulAlias {
-            position: IstanbulPosition::new(
-                effective_istanbul_fn_line(fn_entry),
-                effective_istanbul_fn_col(fn_entry),
-            ),
+        effective_position.map(|position| IstanbulAlias {
+            position,
             primary: true,
         }),
         Some(IstanbulAlias {
-            position: IstanbulPosition::new(fn_entry.decl.start.line, fn_entry.decl.start.column),
+            position: decl_start,
             primary: true,
         }),
         body_span.map(|span| IstanbulAlias {
             position: span.start,
             primary: false,
         }),
+        named_function_syntax_alias(fn_entry, source_index),
     ];
     let mut aliases: Vec<IstanbulAlias> = Vec::with_capacity(candidates.len());
     for candidate in candidates.into_iter().flatten() {
@@ -1680,15 +1726,265 @@ fn istanbul_function_coverage(
         }
     }
 
-    IstanbulFunctionCoverage {
+    Some(IstanbulFunctionCoverage {
         name: fn_entry.name.clone(),
         coverage_pct,
         aliases,
-        decl_start: IstanbulPosition::new(fn_entry.decl.start.line, fn_entry.decl.start.column),
+        decl_start,
         header_holds_other_fn: false,
         header_span,
         body_span,
+    })
+}
+
+/// Source index used to reconcile Istanbul's UTF-16 columns with Fallow's
+/// UTF-8 byte columns and recover exact named-function syntax starts.
+struct IstanbulSourceIndex<'a> {
+    source: &'a str,
+    line_starts: Vec<usize>,
+    non_ascii_lines: rustc_hash::FxHashMap<usize, Utf16LineIndex>,
+    named_function_starts: rustc_hash::FxHashMap<usize, usize>,
+}
+
+struct Utf16LineIndex {
+    utf16_len: u32,
+    byte_len: usize,
+    checkpoints: Vec<Utf16Checkpoint>,
+}
+
+struct Utf16Checkpoint {
+    utf16_start: u32,
+    utf16_end: u32,
+    byte_end: usize,
+}
+
+impl<'a> IstanbulSourceIndex<'a> {
+    fn new(source: &'a str, path: &std::path::Path) -> Self {
+        let mut line_starts = vec![0];
+        line_starts.extend(
+            source
+                .bytes()
+                .enumerate()
+                .filter_map(|(index, byte)| (byte == b'\n').then_some(index + 1)),
+        );
+        let non_ascii_lines = utf16_line_indexes(source, &line_starts);
+
+        let named_function_starts = named_function_starts_from_clean_parse(source, path);
+
+        Self {
+            source,
+            line_starts,
+            non_ascii_lines,
+            named_function_starts,
+        }
     }
+
+    fn byte_position(&self, line: u32, utf16_column: u32) -> Option<IstanbulPosition> {
+        let line_index = usize::try_from(line.checked_sub(1)?).ok()?;
+        let line_start = *self.line_starts.get(line_index)?;
+        let line_end = self
+            .line_starts
+            .get(line_index + 1)
+            .copied()
+            .map_or(self.source.len(), |next_start| next_start - 1);
+        let line_source = self.source.get(line_start..line_end)?;
+        let byte_column = if let Some(index) = self.non_ascii_lines.get(&line_index) {
+            index.byte_column(utf16_column)?
+        } else {
+            let byte_column = usize::try_from(utf16_column).ok()?;
+            (byte_column <= line_source.len()).then_some(byte_column)?
+        };
+        Some(IstanbulPosition::new(
+            line,
+            u32::try_from(byte_column).ok()?,
+        ))
+    }
+
+    fn absolute_offset(&self, line: u32, utf16_column: u32) -> Option<usize> {
+        let position = self.byte_position(line, utf16_column)?;
+        let line_index = usize::try_from(position.line.checked_sub(1)?).ok()?;
+        self.line_starts
+            .get(line_index)?
+            .checked_add(position.col as usize)
+    }
+
+    fn position_at_offset(&self, offset: usize) -> Option<IstanbulPosition> {
+        if offset > self.source.len() {
+            return None;
+        }
+        let line_index = self.line_starts.partition_point(|start| *start <= offset) - 1;
+        Some(IstanbulPosition::new(
+            u32::try_from(line_index + 1).ok()?,
+            u32::try_from(offset.checked_sub(self.line_starts[line_index])?).ok()?,
+        ))
+    }
+
+    fn named_function_start(
+        &self,
+        fn_entry: &oxc_coverage_instrument::FnEntry,
+    ) -> Option<IstanbulPosition> {
+        let declaration_offset =
+            self.absolute_offset(fn_entry.decl.start.line, fn_entry.decl.start.column)?;
+        let syntax_offset = *self.named_function_starts.get(&declaration_offset)?;
+        self.position_at_offset(syntax_offset)
+    }
+}
+
+impl Utf16LineIndex {
+    fn byte_column(&self, utf16_column: u32) -> Option<usize> {
+        if utf16_column > self.utf16_len {
+            return None;
+        }
+        let completed = self
+            .checkpoints
+            .partition_point(|checkpoint| checkpoint.utf16_end <= utf16_column);
+        if let Some(next) = self.checkpoints.get(completed)
+            && utf16_column > next.utf16_start
+        {
+            return None;
+        }
+        let (utf16_base, byte_base) = completed
+            .checked_sub(1)
+            .and_then(|index| self.checkpoints.get(index))
+            .map_or((0, 0), |checkpoint| {
+                (checkpoint.utf16_end, checkpoint.byte_end)
+            });
+        let ascii_width = usize::try_from(utf16_column.checked_sub(utf16_base)?).ok()?;
+        let byte_column = byte_base.checked_add(ascii_width)?;
+        (byte_column <= self.byte_len).then_some(byte_column)
+    }
+}
+
+fn utf16_line_indexes(
+    source: &str,
+    line_starts: &[usize],
+) -> rustc_hash::FxHashMap<usize, Utf16LineIndex> {
+    let mut indexes = rustc_hash::FxHashMap::default();
+    for (line_index, &line_start) in line_starts.iter().enumerate() {
+        let line_end = line_starts
+            .get(line_index + 1)
+            .copied()
+            .map_or(source.len(), |next_start| next_start - 1);
+        let Some(line) = source.get(line_start..line_end) else {
+            continue;
+        };
+        if line.is_ascii() {
+            continue;
+        }
+        let mut utf16_column = 0_u32;
+        let mut checkpoints = Vec::new();
+        for (byte_column, character) in line.char_indices() {
+            let utf16_width = character.len_utf16() as u32;
+            if !character.is_ascii() {
+                checkpoints.push(Utf16Checkpoint {
+                    utf16_start: utf16_column,
+                    utf16_end: utf16_column.saturating_add(utf16_width),
+                    byte_end: byte_column.saturating_add(character.len_utf8()),
+                });
+            }
+            utf16_column = utf16_column.saturating_add(utf16_width);
+        }
+        indexes.insert(
+            line_index,
+            Utf16LineIndex {
+                utf16_len: utf16_column,
+                byte_len: line.len(),
+                checkpoints,
+            },
+        );
+    }
+    indexes
+}
+
+fn named_function_starts_from_clean_parse(
+    source: &str,
+    path: &std::path::Path,
+) -> rustc_hash::FxHashMap<usize, usize> {
+    let source_type = match path.extension().and_then(|extension| extension.to_str()) {
+        Some("gts") => oxc_span::SourceType::ts(),
+        Some("gjs") => oxc_span::SourceType::mjs(),
+        _ => oxc_span::SourceType::from_path(path).unwrap_or_default(),
+    };
+    if let Some(starts) = collect_named_function_starts(source, source_type) {
+        return starts;
+    }
+    if source_type.is_jsx() {
+        return rustc_hash::FxHashMap::default();
+    }
+    let jsx_source_type = if source_type.is_typescript() {
+        oxc_span::SourceType::tsx()
+    } else {
+        oxc_span::SourceType::jsx()
+    };
+    collect_named_function_starts(source, jsx_source_type).unwrap_or_default()
+}
+
+fn collect_named_function_starts(
+    source: &str,
+    source_type: oxc_span::SourceType,
+) -> Option<rustc_hash::FxHashMap<usize, usize>> {
+    let allocator = oxc_allocator::Allocator::default();
+    let parsed = oxc_parser::Parser::new(&allocator, source, source_type).parse();
+    if parsed.panicked || !parsed.errors.is_empty() {
+        return None;
+    }
+    let mut starts = rustc_hash::FxHashMap::default();
+    let mut collector = NamedFunctionSyntaxCollector {
+        starts: &mut starts,
+    };
+    oxc_ast_visit::Visit::visit_program(&mut collector, &parsed.program);
+    Some(starts)
+}
+
+struct NamedFunctionSyntaxCollector<'a> {
+    starts: &'a mut rustc_hash::FxHashMap<usize, usize>,
+}
+
+impl<'ast> oxc_ast_visit::Visit<'ast> for NamedFunctionSyntaxCollector<'_> {
+    fn visit_function(
+        &mut self,
+        function: &oxc_ast::ast::Function<'ast>,
+        flags: oxc_syntax::scope::ScopeFlags,
+    ) {
+        if let Some(identifier) = &function.id
+            && let (Ok(identifier_start), Ok(syntax_start)) = (
+                usize::try_from(identifier.span.start),
+                usize::try_from(function.span.start),
+            )
+        {
+            self.starts.insert(identifier_start, syntax_start);
+        }
+        oxc_ast_visit::walk::walk_function(self, function, flags);
+    }
+}
+
+fn normalized_istanbul_position(
+    line: u32,
+    column: u32,
+    source_index: Option<&IstanbulSourceIndex<'_>>,
+) -> Option<IstanbulPosition> {
+    match source_index {
+        Some(index) => index.byte_position(line, column),
+        None => Some(IstanbulPosition::new(line, column)),
+    }
+}
+
+/// Exact syntax-backed alias for a named function's source start.
+///
+/// Istanbul declares a named function at its identifier, while Fallow records
+/// the containing `function` or `async` keyword. Parser tokens distinguish
+/// that real syntax across legal trivia from unrelated same-width text.
+fn named_function_syntax_alias(
+    fn_entry: &oxc_coverage_instrument::FnEntry,
+    source_index: Option<&IstanbulSourceIndex<'_>>,
+) -> Option<IstanbulAlias> {
+    if is_anonymous_istanbul_name(&fn_entry.name) {
+        return None;
+    }
+    Some(IstanbulAlias {
+        position: source_index?.named_function_start(fn_entry)?,
+        primary: true,
+    })
 }
 
 fn effective_istanbul_fn_line(fn_entry: &oxc_coverage_instrument::FnEntry) -> u32 {
@@ -1697,14 +1993,6 @@ fn effective_istanbul_fn_line(fn_entry: &oxc_coverage_instrument::FnEntry) -> u3
     } else {
         fn_entry.decl.start.line
     }
-}
-
-/// Effective 0-based start column for an Istanbul function entry. `FnEntry`
-/// has no top-level `column` field, so we always read it off
-/// `decl.start.column`. Both fallow's `FunctionComplexity.col` and Istanbul's
-/// `Position::column` are 0-based, so they match directly.
-fn effective_istanbul_fn_col(fn_entry: &oxc_coverage_instrument::FnEntry) -> u32 {
-    fn_entry.decl.start.column
 }
 
 /// Compute statement-level coverage percentage for a single function.
@@ -5804,8 +6092,16 @@ mod tests {
             &serde_json::json!({ "0": 3, "1": 0 }),
         );
 
-        let coverage = load_istanbul_coverage(&coverage_path, None, None, false).unwrap();
         let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let discovered_sources = rustc_hash::FxHashSet::from_iter([canonical_source.clone()]);
+        let coverage = load_istanbul_coverage_for_sources(
+            &coverage_path,
+            None,
+            Some(temp.path()),
+            Some(&discovered_sources),
+            false,
+        )
+        .unwrap();
         let file_coverage = coverage.get(&canonical_source).unwrap();
 
         // Inside both the member's header span and `scale`'s, so neither says
@@ -5857,6 +6153,363 @@ mod tests {
 
         assert_eq!(file_coverage.lookup("render", 3, 8), Some(100.0));
         assert_eq!(file_coverage.lookup("render", 5, 23), Some(0.0));
+    }
+
+    /// A same-line signature can place an unrelated identifier exactly one
+    /// function-expression prefix away from the member start. Column distance
+    /// alone must not make that nested function the member's coverage source.
+    #[test]
+    fn same_line_same_named_function_in_signature_does_not_supply_member_coverage() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/chart.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "export class Chart {\n  @Watch(\"data\") render(x  = function  render() {}) {}\n}\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 2,
+                    "decl": { "start": { "line": 2, "column": 2 }, "end": { "line": 2, "column": 3 } },
+                    "loc": { "start": { "line": 2, "column": 52 }, "end": { "line": 2, "column": 54 } }
+                },
+                "1": {
+                    "name": "render",
+                    "line": 2,
+                    "decl": { "start": { "line": 2, "column": 39 }, "end": { "line": 2, "column": 45 } },
+                    "loc": { "start": { "line": 2, "column": 48 }, "end": { "line": 2, "column": 50 } }
+                }
+            }),
+            &serde_json::json!({ "0": 3, "1": 0 }),
+        );
+
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let discovered_sources = rustc_hash::FxHashSet::from_iter([canonical_source.clone()]);
+        let coverage = load_istanbul_coverage_for_sources(
+            &coverage_path,
+            None,
+            Some(temp.path()),
+            Some(&discovered_sources),
+            false,
+        )
+        .unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(file_coverage.lookup("render", 2, 23), Some(100.0));
+        assert_eq!(file_coverage.lookup("render", 2, 29), Some(0.0));
+    }
+
+    #[test]
+    fn named_generator_alias_handles_trivia_and_utf16_columns() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/chart.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        let source_line =
+            "  render(label = \"pi: π, mushroom: 🍄\", x = function/* gap */*render() {}) {}";
+        std::fs::write(
+            &source_path,
+            format!("export class Chart {{\n{source_line}\n}}\n"),
+        )
+        .unwrap();
+
+        let utf16_column = |byte_column: usize| {
+            u32::try_from(source_line[..byte_column].encode_utf16().count()).unwrap()
+        };
+        let outer_target_column = source_line.find("render(").unwrap() + "render".len();
+        let syntax_column = source_line.find("function").unwrap();
+        let name_column = source_line.find("*render").unwrap() + 1;
+        let inner_body_column = source_line.find("{}").unwrap();
+        let outer_body_column = source_line.rfind("{}").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "(anonymous_0)",
+                    "line": 2,
+                    "decl": { "start": { "line": 2, "column": 2 }, "end": { "line": 2, "column": 3 } },
+                    "loc": {
+                        "start": { "line": 2, "column": utf16_column(outer_body_column) },
+                        "end": { "line": 2, "column": utf16_column(outer_body_column + 2) }
+                    }
+                },
+                "1": {
+                    "name": "render",
+                    "line": 2,
+                    "decl": {
+                        "start": { "line": 2, "column": utf16_column(name_column) },
+                        "end": { "line": 2, "column": utf16_column(name_column + "render".len()) }
+                    },
+                    "loc": {
+                        "start": { "line": 2, "column": utf16_column(inner_body_column) },
+                        "end": { "line": 2, "column": utf16_column(inner_body_column + 2) }
+                    }
+                }
+            }),
+            &serde_json::json!({ "0": 3, "1": 0 }),
+        );
+
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let discovered_sources = rustc_hash::FxHashSet::from_iter([canonical_source.clone()]);
+        let coverage = load_istanbul_coverage_for_sources(
+            &coverage_path,
+            None,
+            Some(temp.path()),
+            Some(&discovered_sources),
+            false,
+        )
+        .unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+
+        assert_eq!(
+            file_coverage.lookup("render", 2, u32::try_from(outer_target_column).unwrap()),
+            Some(100.0)
+        );
+        assert_eq!(
+            file_coverage.lookup("render", 2, u32::try_from(syntax_column).unwrap()),
+            Some(0.0)
+        );
+    }
+
+    #[test]
+    fn utf16_index_is_sparse_and_rejects_surrogate_boundaries() {
+        let ascii_prefix = "a".repeat(4_096);
+        let source = format!("{ascii_prefix}🍄{}", "b".repeat(4_096));
+        let index = IstanbulSourceIndex::new(&source, std::path::Path::new("minified.js"));
+        let line_index = &index.non_ascii_lines[&0];
+
+        assert_eq!(line_index.checkpoints.len(), 1);
+        assert_eq!(
+            index.byte_position(1, 4_096),
+            Some(IstanbulPosition::new(1, 4_096))
+        );
+        assert_eq!(index.byte_position(1, 4_097), None);
+        assert_eq!(
+            index.byte_position(1, 4_098),
+            Some(IstanbulPosition::new(1, 4_100))
+        );
+        assert_eq!(
+            index.byte_position(1, 8_194),
+            Some(IstanbulPosition::new(1, 8_196))
+        );
+    }
+
+    #[test]
+    fn effective_alias_normalizes_against_its_own_unicode_line() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/render.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(
+            &source_path,
+            "/*🍄*/ const placeholder = 0;\n/*π*/ function render() {}\n",
+        )
+        .unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "render",
+                    "line": 1,
+                    "decl": { "start": { "line": 2, "column": 15 }, "end": { "line": 2, "column": 21 } },
+                    "loc": { "start": { "line": 2, "column": 24 }, "end": { "line": 2, "column": 26 } }
+                }
+            }),
+            &serde_json::json!({ "0": 1 }),
+        );
+
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let discovered_sources = rustc_hash::FxHashSet::from_iter([canonical_source.clone()]);
+        let coverage = load_istanbul_coverage_for_sources(
+            &coverage_path,
+            None,
+            Some(temp.path()),
+            Some(&discovered_sources),
+            false,
+        )
+        .unwrap();
+        let function = &coverage.get(&canonical_source).unwrap().functions[0];
+
+        assert!(
+            function
+                .aliases
+                .iter()
+                .any(|alias| { alias.position == IstanbulPosition::new(1, 17) && alias.primary })
+        );
+        assert!(
+            !function
+                .aliases
+                .iter()
+                .any(|alias| alias.position == IstanbulPosition::new(1, 16))
+        );
+    }
+
+    #[test]
+    fn stale_utf16_coordinates_are_rejected_with_trusted_source() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/render.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(&source_path, "export function render() {}\n").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "render",
+                    "line": 1,
+                    "decl": { "start": { "line": 1, "column": 999 }, "end": { "line": 1, "column": 22 } },
+                    "loc": { "start": { "line": 1, "column": 25 }, "end": { "line": 1, "column": 27 } }
+                }
+            }),
+            &serde_json::json!({ "0": 1 }),
+        );
+
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let discovered_sources = rustc_hash::FxHashSet::from_iter([canonical_source.clone()]);
+        let coverage = load_istanbul_coverage_for_sources(
+            &coverage_path,
+            None,
+            Some(temp.path()),
+            Some(&discovered_sources),
+            false,
+        )
+        .unwrap();
+
+        assert_eq!(
+            coverage
+                .get(&canonical_source)
+                .unwrap()
+                .lookup("render", 1, 7),
+            None
+        );
+    }
+
+    #[test]
+    fn invalid_optional_coordinates_preserve_valid_declaration_attribution() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/render.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(&source_path, "export function render() {}\n").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "render",
+                    "line": 99,
+                    "decl": { "start": { "line": 1, "column": 16 }, "end": { "line": 99, "column": 999 } },
+                    "loc": { "start": { "line": 1, "column": 999 }, "end": { "line": 99, "column": 999 } }
+                }
+            }),
+            &serde_json::json!({ "0": 1 }),
+        );
+
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let discovered_sources = rustc_hash::FxHashSet::from_iter([canonical_source.clone()]);
+        let coverage = load_istanbul_coverage_for_sources(
+            &coverage_path,
+            None,
+            Some(temp.path()),
+            Some(&discovered_sources),
+            false,
+        )
+        .unwrap();
+        let file_coverage = coverage.get(&canonical_source).unwrap();
+        let function = &file_coverage.functions[0];
+
+        assert_eq!(file_coverage.lookup("render", 1, 16), Some(100.0));
+        assert!(function.body_span.is_none());
+        assert!(function.header_span.is_none());
+        assert!(
+            !function
+                .aliases
+                .iter()
+                .any(|alias| { alias.position.line == 99 || alias.position.col == 999 })
+        );
+    }
+
+    #[test]
+    fn malformed_source_does_not_supply_named_function_provenance() {
+        assert!(
+            !IstanbulSourceIndex::new(
+                "export function render() {}",
+                std::path::Path::new("valid.ts"),
+            )
+            .named_function_starts
+            .is_empty()
+        );
+        let index = IstanbulSourceIndex::new(
+            "export function render() {} const broken = ;",
+            std::path::Path::new("broken.ts"),
+        );
+
+        assert!(index.named_function_starts.is_empty());
+    }
+
+    #[test]
+    fn javascript_with_jsx_uses_clean_jsx_provenance_parse() {
+        let index = IstanbulSourceIndex::new(
+            "export function render() { return <div />; }",
+            std::path::Path::new("component.js"),
+        );
+
+        assert!(!index.named_function_starts.is_empty());
+    }
+
+    #[test]
+    fn undiscovered_coverage_path_is_not_loaded_for_source_provenance() {
+        let temp = tempfile::TempDir::new().unwrap();
+        let source_path = temp.path().join("src/excluded.ts");
+        std::fs::create_dir_all(source_path.parent().unwrap()).unwrap();
+        std::fs::write(&source_path, "export function render() {}\n").unwrap();
+
+        let coverage_path = temp.path().join("coverage-final.json");
+        write_single_file_istanbul_fixture(
+            &coverage_path,
+            &source_path,
+            &serde_json::json!({
+                "0": {
+                    "name": "render",
+                    "line": 1,
+                    "decl": { "start": { "line": 1, "column": 16 }, "end": { "line": 1, "column": 22 } },
+                    "loc": { "start": { "line": 1, "column": 25 }, "end": { "line": 1, "column": 27 } }
+                }
+            }),
+            &serde_json::json!({ "0": 1 }),
+        );
+
+        let coverage = load_istanbul_coverage_for_sources(
+            &coverage_path,
+            None,
+            Some(temp.path()),
+            Some(&rustc_hash::FxHashSet::default()),
+            false,
+        )
+        .unwrap();
+        let canonical_source = dunce::canonicalize(&source_path).unwrap();
+        let function = &coverage.get(&canonical_source).unwrap().functions[0];
+
+        assert!(
+            function
+                .aliases
+                .iter()
+                .all(|alias| alias.position != IstanbulPosition::new(1, 7))
+        );
     }
 
     /// No instrumenter emits an `fnMap` identity for a private class member,
