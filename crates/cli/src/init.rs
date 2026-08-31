@@ -855,7 +855,7 @@ fn lefthook_hint(fallback_base_ref: &str) -> String {
           elif command -v yarn >/dev/null 2>&1 \
             && FALLOW_BIN="$(yarn bin fallow 2>/dev/null)" \
             && [ -n "$FALLOW_BIN" ]; then
-            run_fallow() {{ yarn exec fallow "$@"; }}
+            run_fallow() {{ yarn exec fallow -- "$@"; }}
           else
             exit 0
           fi
@@ -1662,7 +1662,7 @@ mod tests {
         assert!(hint.contains("git merge-base \"$UPSTREAM\" HEAD"));
         assert!(hint.contains("BASE=\"develop\""));
         assert!(hint.contains("./node_modules/.bin/fallow"));
-        assert!(hint.contains("yarn exec fallow"));
+        assert!(hint.contains("yarn exec fallow -- \"$@\""));
         assert!(hint.contains("run_fallow audit --base \"$BASE\" --quiet"));
     }
 

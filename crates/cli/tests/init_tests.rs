@@ -436,6 +436,16 @@ fn lefthook_job_uses_yarn_for_plug_and_play_dependency() {
 fi
 if [ "$1" = exec ] && [ "$2" = fallow ]; then
   shift 2
+  # Real yarn parses what follows the command name as its own flags and
+  # forwards only what comes after the separator. Measured on yarn 1.22.22:
+  # `yarn exec fallow audit --base HEAD` reaches the binary as `audit` alone,
+  # so a stand-in that forwards everything would pass while the hook audits
+  # the wrong base.
+  if [ "$1" = -- ]; then
+    shift
+  else
+    set --
+  fi
   printf '%s\n' yarn > "$FALLOW_TEST_SOURCE"
   printf '%s\n' "$@" > "$FALLOW_TEST_ARGS"
   exit 0
