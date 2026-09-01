@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.22.0] - 2026-09-01
+
 ### Added
 
 - **In-process analysis can be asked to stop.** `AnalysisOptions` carries an
@@ -179,35 +181,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **`fallow migrate` no longer drops knip and jscpd sections in silence**
-  (Closes [#2507](https://github.com/fallow-rs/fallow/issues/2507)). The knip
-  plugin table had drifted well behind both projects: it named 73 of knip's 184
-  plugin config keys, so a `marko`, `pnpm` or `sveltekit` section passed through
-  the migration without a single word, and the jscpd table covered 22 of the 36
-  options in jscpd's own `IOptions`, so `gitignore`, `cache` and `hashFunction`
-  vanished the same way. A dropped section that says nothing is worse than one
-  that says it was dropped, because the reader has no way to notice. Both tables
-  are now complete against their upstream source, and knip keys are split by
-  what fallow can actually claim: a key a built-in fallow plugin covers is
-  reported as auto-detected, and a key no plugin covers is reported as having no
-  equivalent rather than promising detection that will not happen. Sixteen keys
-  moved from the first group to the second on that rule, among them `eleventy`,
-  `oclif`, `vue` and `xo`, which fallow has no plugin for and never did.
-  Completeness is not the only guard: a key in neither table, on either side, is
-  now reported as unknown instead of being skipped, so an option added upstream
-  after this release surfaces on the first migration that uses it rather than
-  disappearing. `rules.cycles` migrates to `circular-dependencies`, which fallow
-  has, and the two knip issue types fallow genuinely has no answer for,
-  `namespaceMembers` and `catalogReferences`, are named as such instead of
-  reading like typos. A test pins the covered half of the knip table against
-  fallow's built-in plugin roster, in both directions, so renaming or removing a
-  plugin fails the build instead of shipping a promise of detection that no
-  longer happens. The five keys knip spells differently (`next`, `nest`,
-  `panda-css`, `webdriver-io`, `electron-vite`) are declared as aliases, and a
-  sixth has to be declared before that test accepts it. jscpd's `colors` is
-  covered as well; it is not declared in `IOptions`, jscpd reads it off the
-  config object for its `--colors` flag. Marko itself still has no fallow
-  plugin; only the migration reporting is fixed here. Thanks
+- **`fallow migrate` no longer drops config sections in silence** (Closes
+  [#2507](https://github.com/fallow-rs/fallow/issues/2507)). `fallow migrate`
+  reads a config written for another tool and maps it onto fallow's. Both
+  translation tables had drifted well behind their sources: the plugin table
+  named 73 of 184 config keys, so a `marko`, `pnpm` or `sveltekit` section
+  passed through the migration without a single word, and the duplication table
+  covered 22 of 36 options, so `gitignore`, `cache` and `hashFunction` vanished
+  the same way. A dropped section that says nothing is worse than one that says
+  it was dropped, because the reader has no way to notice. Both tables are now
+  complete, and plugin keys are split by what fallow can actually claim: a key a
+  built-in plugin covers is reported as auto-detected, and a key no plugin
+  covers is reported as having no equivalent rather than promising detection
+  that will not happen. Sixteen keys moved from the first group to the second on
+  that rule, among them `eleventy`, `oclif`, `vue` and `xo`, which fallow has no
+  plugin for and never did. Completeness is not the only guard: a key in neither
+  table, on either side, is now reported as unknown instead of being skipped, so
+  an option added upstream after this release surfaces on the first migration
+  that uses it rather than disappearing. `rules.cycles` migrates to
+  `circular-dependencies`, which fallow has, and the two issue types fallow
+  genuinely has no answer for, `namespaceMembers` and `catalogReferences`, are
+  named as such instead of reading like typos. A test pins the covered half of
+  the plugin table against fallow's built-in plugin roster, in both directions,
+  so renaming or removing a plugin fails the build instead of shipping a promise
+  of detection that no longer happens. The five keys whose upstream spelling
+  differs from fallow's (`next`, `nest`, `panda-css`, `webdriver-io`,
+  `electron-vite`) are declared as aliases, and a sixth has to be declared
+  before that test accepts it. `colors` is covered as well; it is not declared
+  in the upstream options interface but is read off the config object for the
+  matching flag. Marko itself still has no fallow plugin; only the migration
+  reporting is fixed here. Thanks
   [@VariableVince](https://github.com/VariableVince) for the report.
 
 - **A type-aware pass that cannot finish no longer takes the whole run with it**
@@ -7669,7 +7672,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `--changed-since` and `--fail-on-issues` for CI
 - Cross-workspace resolution for npm/yarn/pnpm workspaces
 
-[Unreleased]: https://github.com/fallow-rs/fallow/compare/v3.21.0...HEAD
+[Unreleased]: https://github.com/fallow-rs/fallow/compare/v3.22.0...HEAD
+[3.22.0]: https://github.com/fallow-rs/fallow/compare/v3.21.0...v3.22.0
 [3.21.0]: https://github.com/fallow-rs/fallow/compare/v3.20.0...v3.21.0
 [3.20.0]: https://github.com/fallow-rs/fallow/compare/v3.19.0...v3.20.0
 [3.19.0]: https://github.com/fallow-rs/fallow/compare/v3.18.0...v3.19.0
