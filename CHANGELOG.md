@@ -115,6 +115,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   invisible to the count
   ([#2503](https://github.com/fallow-rs/fallow/issues/2503)).
 
+- **React Native Storybook is recognized** (Closes
+  [#2505](https://github.com/fallow-rs/fallow/issues/2505)). React Native
+  Storybook keeps its configuration in `.rnstorybook`, and every config, entry,
+  always-used and used-export pattern was scoped to `.storybook`, so a
+  conventional setup sat outside the source graph: files under `.rnstorybook`
+  surfaced through the skipped hidden-directory diagnostic, and packages
+  referenced only through `deviceAddons` reported as unused dependencies. The
+  plugin now activates for `@storybook/react-native`, registers `.rnstorybook`
+  as a traversable directory, recognizes the main config, the swapped
+  application entry and the generated requires module, and credits the
+  documented `deviceAddons` string and object forms for React Native configs
+  only, so web Storybook projects are unchanged. Verified against a real React
+  Native Storybook example: the bundled entry connected the runtime, rendered a
+  story on an iOS simulator, and recorded an on-device action, with all three
+  expected dependency false positives cleared and no new finding. Thanks
+  [@PrinceD96](https://github.com/PrinceD96) for reporting the gap and
+  implementing it.
+
+- **The shipped skill reference no longer claims a stale version** (Closes
+  [#2486](https://github.com/fallow-rs/fallow/issues/2486)). The JSON examples
+  in the published skill were last refreshed at 3.16.0 and still claimed 3.16.0
+  at 3.21.0, so four releases each shipped an npm package whose examples named a
+  version that was not the one installed. Nothing could see it: the release
+  sweep was keyed to the previous version, which cannot detect a surface already
+  wrong for several releases, and the vendored-versus-canonical byte comparison
+  could not either, because both trees were wrong in the same way. A drift gate
+  now keys on the workspace version instead and covers both `version` and
+  `fallow_version`. The version sync also learned about `server.json`, whose two
+  version fields were bumped by nothing at all.
+
 ### Changed
 
 - **The complexity finding's refactor note no longer promises a reduction
@@ -250,7 +280,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   invisible and the generated job exited successfully without auditing. The
   job still prefers a global `fallow`, then resolves the project-local
   `node_modules/.bin` launcher or Yarn Plug'n'Play binary without installing
-  anything. The no-binary case continues to skip the audit.
+  anything. The no-binary case continues to skip the audit. Thanks
+  [@PrinceD96](https://github.com/PrinceD96) for the fix.
 
 - **A framework's own packages are no longer reported as dependencies to
   promote.** `dev-dependencies-in-production` reports a `devDependencies` entry
